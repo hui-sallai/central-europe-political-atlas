@@ -226,7 +226,7 @@ check(/boundaryAttribution/.test(read('src/components/HomeResearchMap.tsx')), 'h
 // Shared attribution architecture: one JSON, linked to the rights registry, used by web, snapshot and package README.
 check(/BIS/.test(BIS_NOTICE_ZH) && /并非 BIS 官方翻译/.test(BIS_NOTICE_ZH), 'BIS Chinese translation notice missing from sourceAttributions.json');
 for (const entry of attributionData.sources) check(rights.sources.some((s) => s.source_id === entry.registry_source_id), `attribution ${entry.id}: unknown registry source ${entry.registry_source_id}`);
-for (const s of rights.sources.filter((s) => s.review_status !== 'blocked' && s.source_id !== 'src-ecb-wp-annex-datasets')) check(attributionData.sources.some((e) => e.registry_source_id === s.source_id), `${s.source_id}: no entry in src/content/sourceAttributions.json`);
+for (const s of rights.sources.filter((s) => s.review_status !== 'blocked')) check(attributionData.sources.some((e) => e.registry_source_id === s.source_id), `${s.source_id}: no entry in src/content/sourceAttributions.json`);
 check(attributionData.sources.find((e) => e.id === 'bis')?.zh_translation_notice === 'bis', 'BIS attribution must carry the Chinese translation notice');
 check(/attributionLines/.test(read('src/lib/researchSnapshot.ts')), 'Research Snapshot must include source attribution');
 check(/sourceAttributions\.json/.test(read('scripts/release/build-research-package.mjs')), 'research package README must include source attribution');

@@ -14,5 +14,5 @@
 | R10 | Election portals without a reuse licence (CZ, PL, SK, AT) | blocked; evidence only; publisher gate | low | owner contacts publishers only after READY |
 | R11 | Visitor stores sensitive notes in Notebook localStorage on a shared device | disclosure; local only; clear button | low | none |
 | R12 | geoBoundaries per-boundary licences (ODbL, CC BY-SA 2.0) | resolved 2026-10-05: attribution on home and map pages, licence notices beside files, record corrected | low | optional legal review of the multi-licence home outline (collective database) |
-| R13 | EA-MPD / EA-EMPD event-level as-is values (author-named ECB WP annexes) | rights_conflict_reported (probable) | medium | decide: seek permission, drop as-is fields, or legal review |
+| R13 | EA-EMPD event-level values (ECB WP 3157, all rights reserved) | attributed with an authorisation-pending notice; permission request drafted (`ea_empd_permission_request.md`); EA-MPD resolved as CC BY-SA 4.0 | medium | send the request; record the reply; withdraw EA-EMPD values if refused |
 | R14 | GitHub domain not verified (no challenge TXT found); main branch unprotected; Actions allow all | owner verification guide | medium | complete owner_domain_security_verification.md |

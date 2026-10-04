@@ -111,7 +111,9 @@ for (const file of htmlFiles) {
     if (withoutBasePath.startsWith("/_next/") || withoutBasePath.startsWith("/research-data/")) continue;
     internalLinksChecked += 1;
     const normalized = withoutBasePath.endsWith("/") ? withoutBasePath : `${withoutBasePath}/`;
-    if (!internalTargets.has(normalized)) failures.push(`broken internal link ${href} in ${path.relative(out, file)}`);
+    // Static files (e.g. /geo/BOUNDARY-LICENSES.txt) are valid targets when they exist in the built output.
+    const staticFile = !withoutBasePath.endsWith("/") && fs.existsSync(path.join(out, withoutBasePath)) && fs.statSync(path.join(out, withoutBasePath)).isFile();
+    if (!internalTargets.has(normalized) && !staticFile) failures.push(`broken internal link ${href} in ${path.relative(out, file)}`);
   }
 }
 

@@ -65,7 +65,7 @@ test('12. export fails closed for unknown, blocked or uncleared sources', () => 
   assert.equal(canExport(source('src-cz-volby'), 'derived').ok, false);
   assert.equal(canExport(source('src-de-bundeswahlleiterin'), 'derived').ok, true);
   assert.equal(canExport(source('src-de-bundeswahlleiterin'), 'bogus').ok, false);
-  assert.equal(canExport(source('src-ecb-wp-annex-datasets'), 'derived').ok, false, 'open rights conflict blocks new export');
+  assert.equal(canExport(source('src-ecb-ea-empd'), 'derived').ok, false, 'open rights conflict blocks new export');
 });
 test('13. every rights-registry source has a review status', () => {
   for (const s of rights.sources) assert.ok(['verified', 'documented', 'legacy_review_due', 'blocked', 'rights_conflict_reported'].includes(s.review_status), s.source_id);
@@ -142,7 +142,7 @@ test('26. open rights conflicts block new exports and are recorded for owner dec
   assert.equal(gb.review_status, 'verified');
   assert.equal(gb.open_rights_issue, undefined);
   assert.match(gb.resolved_rights_issue.resolution, /attribution/);
-  for (const id of ['src-ecb-wp-annex-datasets']) {
+  for (const id of ['src-ecb-ea-empd']) {
     const s = source(id);
     assert.equal(s.review_status, 'rights_conflict_reported');
     assert.match(s.open_rights_issue.action, /OWNER DECISION/);

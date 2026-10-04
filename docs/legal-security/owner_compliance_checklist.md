@@ -24,5 +24,6 @@ item is confirmed it stays `OWNER_CONFIRMATION_REQUIRED` internally; public page
 - [x] Dependency upgrade of `next` (done: 16.3.6).
 - [x] BIS translation disclaimer for the Chinese UI (done).
 - [x] Re-check of legacy licences (done 2026-10-04).
-- [ ] Decide the geoBoundaries and ECB-annex rights conflicts (source_rights_registry.json `open_rights_issue`).
+- [x] geoBoundaries attribution conflict resolved (2026-10-05).
+- [ ] Send the EA-EMPD authorisation request (`ea_empd_permission_request.md`) and record the reply in `publisher_response_records.json`.
 - [ ] Answer owner_controller_questionnaire.md and work through owner_domain_security_verification.md.
