@@ -20,7 +20,7 @@
     "dangling_dns_reviewed": null,
     "github_actions_permissions_reviewed": null,
     "repository_admins_reviewed": null,
-    "branch_protection_verified": null
+    "branch_protection_verified": true
   },
   "answers": {
     "controller_type": null,
@@ -35,5 +35,10 @@
     "analytics_or_tracking": null,
     "official_institutional_project": null
   },
-  "evidence": {}
+  "evidence": {
+    "branch_protection_verified": {
+      "confirmed_on": "2026-10-05",
+      "owner_statement": "Owner instruction in chat: \"set up branch protection on main\". Repository ruleset \"Protect main\" (id 24468095) created and verified active via the GitHub API: deletion and non_fast_forward (force-push) blocked on the default branch; no bypass actors; direct pushes and CI-after-push deploys unchanged."
+    }
+  }
 }

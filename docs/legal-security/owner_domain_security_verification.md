@@ -152,4 +152,4 @@ Optionally add a CAA record allowing `letsencrypt.org`, which GitHub Pages uses.
 
 **Report back:** a screenshot or the text of the rule.
 
-**Agent observation:** the API reports that `main` is **not protected**.
+**Done (2026-10-05, owner instruction):** repository ruleset "Protect main" (id 24468095) blocks deletion and force pushes on `main`, with no bypass actors. Pull requests and required status checks were not enabled, because deploys push directly to `main` and CI runs after the push.
