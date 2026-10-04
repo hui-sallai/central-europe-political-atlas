@@ -1,0 +1,105 @@
+{
+  "schema_version": "atlas-ui-governance-amendments-v1",
+  "rule": "Exact-hash amendments to the political source-closure checkpoint (baseline d68d0e1). Only listed presentation files with their exact sha256 may differ; src/data, public/research-data, Germany political stores, model/engine code, package.json, pnpm-lock.yaml and release metadata can never be amended here. Any later edit to a listed file invalidates its entry and needs a new owner-approved amendment.",
+  "amendments": [
+    {
+      "amendment_id": "ui-legal-security-2026-10",
+      "status": "owner_approved",
+      "approved_by": "owner (explicit chat instruction, 2026-10-04)",
+      "purpose": "Legal, privacy, security and source-attribution hardening (e75bbb1 governance layer and 0f6bfb9 pre-contact closure)",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/app/(english)/en/data/page.tsx",
+          "sha256": "b1d33a9585eb162bacd5bd405b2865f125eed1648249a808c51662a700c0f4c5",
+          "classification": "SECURITY_PRESENTATION",
+          "change": "JSON-LD escaped via jsonLdHtml"
+        },
+        {
+          "path": "src/app/(zh)/data/page.tsx",
+          "sha256": "5143dffd4752a675b94534f17a703d11e9dcee627c6f59c9eea590e6aba30f97",
+          "classification": "SECURITY_PRESENTATION",
+          "change": "JSON-LD escaped via jsonLdHtml"
+        },
+        {
+          "path": "src/app/(english)/en/methodology/page.tsx",
+          "sha256": "cb1109d37a57b36cea29ee9062d35dd7fd8b0c20642515d8f0eafa79fcd47e49",
+          "classification": "SECURITY_PRESENTATION",
+          "change": "JSON-LD escaped via jsonLdHtml"
+        },
+        {
+          "path": "src/app/(zh)/methodology/page.tsx",
+          "sha256": "3ef0c148d9b00aba60376ec4fe0f57bca4d7e89be7693621b4172d10953f0bc0",
+          "classification": "METHODOLOGY_PRESENTATION",
+          "change": "JSON-LD escaping; BIS translation notice text"
+        },
+        {
+          "path": "src/app/(english)/en/legal/page.tsx",
+          "sha256": "be66d7c4d656a1ffa22173d5215488daafc897c901ef569542b1534040d08499",
+          "classification": "LEGAL_NOTICE",
+          "change": "no-profiling statement, aggregate-vs-individual distinction, notice date"
+        },
+        {
+          "path": "src/app/(zh)/legal/page.tsx",
+          "sha256": "5be43d61875e1ba01d6b4ca94c1b5a5bcbcfcd57519e7f52a2d0ca0457e41c91",
+          "classification": "LEGAL_NOTICE",
+          "change": "no-profiling statement, aggregate-vs-individual distinction, notice date"
+        },
+        {
+          "path": "src/app/(english)/en/privacy/page.tsx",
+          "sha256": "8da442ac598fd1c2247fd51f86650078740f891c7f37ec49c0cd955a34efa822",
+          "classification": "PRIVACY_NOTICE",
+          "change": "storage keys, no-profiling, rights, notice date"
+        },
+        {
+          "path": "src/app/(zh)/privacy/page.tsx",
+          "sha256": "4b584aa5b6d321c2ad1d5ab90cdf73bf034856e8cb63511b02d4eb368e4080a5",
+          "classification": "PRIVACY_NOTICE",
+          "change": "storage keys, no-profiling, rights, notice date"
+        },
+        {
+          "path": "src/components/DataExplorerV11.tsx",
+          "sha256": "b961b97bab85e33624c2b171a7585b94e307e0361cfce15503da8fdcfa463415",
+          "classification": "SOURCE_ATTRIBUTION_UI",
+          "change": "SourceAttributionNote under HF and annual tables"
+        },
+        {
+          "path": "src/components/MacroDriverWorkbench.tsx",
+          "sha256": "7a01c308e0973b95bc300d52a2b183a0d3a7ea6c2910ceb99ed309c4e49154c6",
+          "classification": "SOURCE_ATTRIBUTION_UI",
+          "change": "SourceAttributionNote in source panel"
+        },
+        {
+          "path": "src/components/SourceAttributionNote.tsx",
+          "sha256": "3e4b4bea1490ded6f137ee1d869ba0c290e550a254cc59ac3b086533452b94b7",
+          "classification": "SOURCE_ATTRIBUTION_UI",
+          "change": "new presentational component"
+        },
+        {
+          "path": "src/lib/sourceAttribution.ts",
+          "sha256": "0ef72c7dcc93e5753e52d455c83e3335b8273df00e8b555accfffc15c09794e3",
+          "classification": "SOURCE_ATTRIBUTION_UI",
+          "change": "attribution lookup over src/content/sourceAttributions.json"
+        },
+        {
+          "path": "src/lib/researchSnapshot.ts",
+          "sha256": "6ab410cc1522acafa26bc86d1ab7083b84b2af1059f43834ec0a6d498e512a8f",
+          "classification": "SECURITY_PRESENTATION",
+          "change": "CSV formula-injection guard; attribution section in user-generated snapshot README/manifest"
+        },
+        {
+          "path": "src/lib/seo.ts",
+          "sha256": "1744bcf2fbeda3ae93a87630e3083e9bc03c7128aa576ecfa4d7c74571ba65aa",
+          "classification": "SECURITY_PRESENTATION",
+          "change": "jsonLdHtml escaping helper"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-04"
+    }
+  ]
+}

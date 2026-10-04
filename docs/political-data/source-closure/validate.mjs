@@ -6,6 +6,7 @@ import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
 import {COUNTRY_GATES,RIGHTS_GATES,PRODUCTION_GATES,MATRIX_GATES,VALUES,STATUSES,countryMatrix} from './gates.mjs';
 import {matchDependencyException,DEPENDENCY_EXCEPTIONS_FILE} from '../../../scripts/political-data/germany/frozen-boundary.mjs';
+import {checkFrozenFiles,UI_AMENDMENTS_FILE} from './ui-amendments.mjs';
 
 const dir=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(dir,'../../..');
@@ -16,21 +17,19 @@ const currentFiles=[];
 function walk(rel){for(const e of fs.readdirSync(path.join(root,rel),{withFileTypes:true})){const p=`${rel}/${e.name}`;if(e.isDirectory())walk(p);else if(e.isFile())currentFiles.push(p);}}
 for(const rel of ['src/data','public/research-data','src/app','src/components','src/lib'])walk(rel);
 currentFiles.push('package.json','pnpm-lock.yaml');
-assert.deepEqual(currentFiles.sort(),Object.keys(baseline.files).sort(),'No new production, public, UI, model or economic files permitted');
 // The lockfile may differ from this checkpoint's baseline (commit d68d0e1) only under the shared exact-hash
-// owner-approved dependency exception (scripts/political-data/germany/frozen-boundary.mjs); nothing else is exempt.
+// owner-approved dependency exception (scripts/political-data/germany/frozen-boundary.mjs); listed UI/governance
+// presentation files only under an exact-hash amendment (ui-amendments.mjs). Data, model and release files: never.
 const lockfileUnderException=()=>matchDependencyException({
  exceptions:JSON.parse(fs.readFileSync(path.join(root,DEPENDENCY_EXCEPTIONS_FILE),'utf8')).exceptions,
  lockHash:sha(fs.readFileSync(path.join(root,'pnpm-lock.yaml'))),
  pkgBefore:JSON.parse(execFileSync('git',['show','d68d0e10fa0c83b57e044af02e352379aa9e9d2d:package.json'],{cwd:root,encoding:'utf8'})),
  pkgAfter:JSON.parse(fs.readFileSync(path.join(root,'package.json'),'utf8')),
 }).ok;
-for(const [name,hash] of Object.entries(baseline.files)){
- if(name==='package.json')continue;
- const actual=sha(fs.readFileSync(path.join(root,name)));
- if(name==='pnpm-lock.yaml'&&actual!==hash&&lockfileUnderException())continue;
- assert.equal(actual,hash,`Frozen file changed: ${name}`);
-}
+const uiAmendments=fs.existsSync(path.join(root,UI_AMENDMENTS_FILE))?JSON.parse(fs.readFileSync(path.join(root,UI_AMENDMENTS_FILE),'utf8')).amendments:[];
+const frozenCheck=checkFrozenFiles({baselineFiles:baseline.files,currentFiles:currentFiles.sort(),hashOf:name=>sha(fs.readFileSync(path.join(root,name))),amendments:uiAmendments,lockfileApproved:lockfileUnderException});
+assert.deepEqual(frozenCheck.failures,[],'No new production, public, UI, model or economic files permitted');
+if(frozenCheck.amended.length)process.stderr.write(`Approved UI governance amendment applied to ${frozenCheck.amended.length} exact-hash file(s): ${frozenCheck.amended.join(', ')}\n`);
 const before=JSON.parse(execFileSync('git',['show','HEAD:package.json'],{cwd:root,encoding:'utf8'}));
 const after=JSON.parse(fs.readFileSync(path.join(root,'package.json'),'utf8'));
 assert.equal(after.scripts['political-source-closure:validate'],'node docs/political-data/source-closure/validate.mjs');
