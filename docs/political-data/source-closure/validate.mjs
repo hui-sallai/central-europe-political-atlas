@@ -25,6 +25,8 @@ const lockfileUnderException=()=>matchDependencyException({
  lockHash:sha(fs.readFileSync(path.join(root,'pnpm-lock.yaml'))),
  pkgBefore:JSON.parse(execFileSync('git',['show','d68d0e10fa0c83b57e044af02e352379aa9e9d2d:package.json'],{cwd:root,encoding:'utf8'})),
  pkgAfter:JSON.parse(fs.readFileSync(path.join(root,'package.json'),'utf8')),
+ lockText:fs.readFileSync(path.join(root,'pnpm-lock.yaml'),'utf8'),
+ readLockAt:commit=>execFileSync('git',['show',`${commit}:pnpm-lock.yaml`],{cwd:root,encoding:'utf8',maxBuffer:1e9}),
 }).ok;
 const uiAmendments=fs.existsSync(path.join(root,UI_AMENDMENTS_FILE))?JSON.parse(fs.readFileSync(path.join(root,UI_AMENDMENTS_FILE),'utf8')).amendments:[];
 const frozenCheck=checkFrozenFiles({baselineFiles:baseline.files,currentFiles:currentFiles.sort(),hashOf:name=>sha(fs.readFileSync(path.join(root,name))),amendments:uiAmendments,mirrorSyncs:fs.existsSync(path.join(root,MIRROR_SYNC_FILE))?JSON.parse(fs.readFileSync(path.join(root,MIRROR_SYNC_FILE),'utf8')).syncs:[],lockfileApproved:lockfileUnderException,isUntrackedIgnored:p=>spawnSync('git',['ls-files','--error-unmatch','--',p],{cwd:root}).status!==0&&spawnSync('git',['check-ignore','-q','--no-index','--',p],{cwd:root}).status===0});

@@ -1,6 +1,6 @@
 {
   "schema_version": "atlas-dependency-maintenance-exceptions-v1",
-  "rule": "Additive governance record, not a new research baseline. The original frozen baselines stay authoritative. scripts/political-data/germany/frozen-boundary.mjs accepts a pnpm-lock.yaml that differs from a baseline only when its sha256 equals new_lockfile_sha256 of an approved entry AND package.json differs from the baseline only by the listed package/version pairs AND no other dependency-tooling file changed. Any later lockfile change needs a new owner-approved entry.",
+  "rule": "Additive governance record, not a new research baseline. The original frozen baselines stay authoritative. scripts/political-data/germany/frozen-boundary.mjs accepts a pnpm-lock.yaml that differs from a baseline only when its sha256 equals new_lockfile_sha256 of an approved entry AND package.json differs from the baseline only by the listed package/version pairs AND no other dependency-tooling file changed. Any later lockfile change needs a new owner-approved entry. A transitive_lockfile exception builds on an approved exception (inheriting its direct package pairs), anchors the previous lockfile by commit and sha256, and the new lockfile must equal that previous lockfile except for the listed transitive version bumps.",
   "exceptions": [
     {
       "exception_id": "dep-sec-2026-10-next-16-3-6",
@@ -9,10 +9,21 @@
       "reason": "Security maintenance only: Next.js advisories fixed in 16.2.11 / 16.3.3 / 16.3.6 (bundled postcss and sharp advisories included); in-range transitive refresh of browserslist, baseline-browser-mapping, brace-expansion and js-yaml.",
       "approved_scope": {
         "package_changes": [
-          { "package": "next", "from": "16.2.6", "to": "16.3.6" },
-          { "package": "eslint-config-next", "from": "16.2.6", "to": "16.3.6" }
+          {
+            "package": "next",
+            "from": "16.2.6",
+            "to": "16.3.6"
+          },
+          {
+            "package": "eslint-config-next",
+            "from": "16.2.6",
+            "to": "16.3.6"
+          }
         ],
-        "allowed_files": ["package.json", "pnpm-lock.yaml"]
+        "allowed_files": [
+          "package.json",
+          "pnpm-lock.yaml"
+        ]
       },
       "new_lockfile_sha256": "c106f318c1c614978618898ce3f51b1e4595bfda046ca329f4d2de2720818c93",
       "research_data_change_allowed": false,
@@ -21,6 +32,36 @@
       "release_version_change_allowed": false,
       "created_at": "2026-10-04",
       "notes": "Exact one-time dependency maintenance exception. See docs/legal-security/third_party_dependency_licences.md."
+    },
+    {
+      "exception_id": "dep-sec-2026-10-source-map-js-1-2-2",
+      "status": "approved_local_maintenance",
+      "kind": "transitive_lockfile",
+      "builds_on": "dep-sec-2026-10-next-16-3-6",
+      "approved_by": "owner (explicit chat instruction: Dependabot source-map-js maintenance, 2026-10-07)",
+      "reason": "Security maintenance only: GitHub Dependabot advisory for source-map-js (affected >=1.0.0 <1.2.2, patched 1.2.2). Transitive via @tailwindcss/node 4.3.0, postcss 8.5.23 (next 16.3.6) and postcss 8.5.26 (@tailwindcss/postcss 4.3.0); all declare ^1.2.1, so no parent upgrade is needed.",
+      "approved_scope": {
+        "package_changes": [],
+        "transitive_changes": [
+          {
+            "package": "source-map-js",
+            "from": "1.2.1",
+            "to": "1.2.2"
+          }
+        ],
+        "allowed_files": [
+          "pnpm-lock.yaml"
+        ]
+      },
+      "previous_lockfile_commit": "5c7dbc422ee96f57e45af967fde8b55c4cefd663",
+      "previous_lockfile_sha256": "c106f318c1c614978618898ce3f51b1e4595bfda046ca329f4d2de2720818c93",
+      "new_lockfile_sha256": "bd40a34722db45460eeff2cc107194bf7139e2b4b5160f514939d7a129284e49",
+      "research_data_change_allowed": false,
+      "model_output_change_allowed": false,
+      "political_data_change_allowed": false,
+      "release_version_change_allowed": false,
+      "created_at": "2026-10-07",
+      "notes": "Exact one-time transitive lockfile exception; any further lockfile change needs a new owner-approved entry."
     }
   ]
 }

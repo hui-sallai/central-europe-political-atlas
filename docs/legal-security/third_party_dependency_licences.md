@@ -71,6 +71,22 @@ Build-time risk remains limited to the dev-only `braces` advisory, which has no 
 | before (16.2.6) | 35 | 3 | 22 | 10 | 21 |
 | after (16.3.6 + in-range refresh) | 1 | 0 | 1 | 0 | 0 |
 
+### Transitive maintenance: source-map-js 1.2.1 → 1.2.2 (2026-10-07)
+
+- **Trigger:** GitHub Dependabot advisory for `source-map-js` (affected `>=1.0.0 <1.2.2`, patched `1.2.2`).
+- **Paths (`pnpm why`):**
+  - `@tailwindcss/postcss 4.3.0 > @tailwindcss/node 4.3.0`;
+  - `next 16.3.6 > postcss 8.5.23`;
+  - `@tailwindcss/postcss 4.3.0 > postcss 8.5.26`.
+  All three declare `^1.2.1`.
+- **Change:** lockfile only, via `pnpm update --depth Infinity source-map-js`. No parent package and no `package.json` change, no
+  override, no artificial direct dependency.
+- **Governance:** exception `dep-sec-2026-10-source-map-js-1-2-2` (kind `transitive_lockfile`, builds on the Next
+  16.3.6 exception). It pins the new lockfile sha256 and anchors the previous lockfile by commit and sha256. The new
+  lockfile must equal the previous one except for this version bump.
+- **Relevance:** build-time tooling (PostCSS / Tailwind CSS processing). There is no runtime exposure on the static
+  site.
+
 ## Historical audit before maintenance
 
 ### `pnpm audit` before maintenance (2026-10-04)
