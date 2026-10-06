@@ -187,6 +187,39 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-05"
+    },
+    {
+      "amendment_id": "ui-navigation-hardening-2026-10",
+      "status": "owner_approved",
+      "approved_by": "owner (explicit chat instruction: front-end navigation / CodeQL security-hardening pass, 2026-10-07)",
+      "purpose": "Explicit href boundary for Research Notebook links and the country-compare route (CodeQL js/xss-through-dom alerts #1-#3)",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/ResearchNotebookPage.tsx",
+          "sha256": "1a596ef748f48e680794e28a9a2417a78893df5354c98901eaad3212dd64201a",
+          "classification": "SECURITY_PRESENTATION",
+          "change": "Notebook item and source hrefs built through src/lib/safeNavigation.ts; external source host shown; rel=noreferrer"
+        },
+        {
+          "path": "src/components/CountryComparePanel.tsx",
+          "sha256": "0252aa90cf30b307fb49b5fbc7b969f5e7428d14e1015862239182c1e43a0beb",
+          "classification": "SECURITY_PRESENTATION",
+          "change": "select value accepted only when it is an allowlisted slug; profile href via countryProfileHref; map link segments encoded"
+        },
+        {
+          "path": "src/lib/safeNavigation.ts",
+          "sha256": "bf9372afd746b5886b17b2b9e54beae785f1b431fb085b0d8e97b320c4fc4a02",
+          "classification": "SECURITY_PRESENTATION",
+          "change": "new navigation boundary helpers (atlasItemTarget, externalSourceLink, allowedSlug, countryProfileHref)"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-07"
     }
   ]
 }

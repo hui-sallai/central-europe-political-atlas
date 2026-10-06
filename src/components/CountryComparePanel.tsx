@@ -8,6 +8,7 @@ import { currentSnapshotUrl, sourceInstitution } from "@/lib/researchSnapshot";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { englishText } from "@/i18n/reviewedText";
+import { allowedSlug, countryProfileHref } from "@/lib/safeNavigation";
 
 // Side-by-side view of the headline indicators for this country and one other. Each pair uses the latest year in which
 // both countries have an official value with the same unit; otherwise "—". Descriptive comparison only.
@@ -18,6 +19,7 @@ const INDICATORS: [string, string][] = [["gdp_current_eur", "GDP"], ["gdp_per_ca
 export function CountryComparePanel({ current, countries, points, mapCountries }: { current: string; countries: { slug: string; name_zh: string }[]; points: ComparePoint[]; mapCountries: string[] }) {
   const locale = useLocale();
   const others = countries.filter((c) => c.slug !== current);
+  const otherSlugs = others.map((c) => c.slug);
   const [other, setOther] = useState(others[0]?.slug ?? "");
   const [urlReady, setUrlReady] = useState(false);
   useEffect(() => {
@@ -50,7 +52,7 @@ export function CountryComparePanel({ current, countries, points, mapCountries }
           <p className="mt-1 text-xs leading-5 text-[var(--muted)]">并列展示同一指标、同一年份、同一单位的官方观测；仅作描述性比较，不构成排名或解释性结论。</p>
         </div>
         <label className="text-xs font-semibold text-[var(--muted)]">对比国家
-          <select className="field-control mt-2" value={other} onChange={(event) => setOther(event.target.value)}>{others.map((c) => <option key={c.slug} value={c.slug}>{c.name_zh}</option>)}</select>
+          <select className="field-control mt-2" value={other} onChange={(event) => { const slug = allowedSlug(event.target.value, otherSlugs); if (slug) setOther(slug); }}>{others.map((c) => <option key={c.slug} value={c.slug}>{c.name_zh}</option>)}</select>
         </label>
       </div>
       <div className="mt-4 overflow-x-auto" tabIndex={0} role="region" aria-label="两国指标对比表（可横向滚动）">
@@ -63,9 +65,9 @@ export function CountryComparePanel({ current, countries, points, mapCountries }
         </table>
       </div>
       <div className="mt-4 flex flex-wrap gap-4 text-sm font-semibold text-[var(--accent)]">
-        {mapCountries.includes(current) && mapCountries.includes(other) ? <Link href={`/map?mode=comparison&countries=${current},${other}`}>在地图中比较两国区域</Link> : null}
+        {mapCountries.includes(current) && mapCountries.includes(other) && allowedSlug(other, otherSlugs) ? <Link href={`/map?mode=comparison&countries=${encodeURIComponent(current)},${encodeURIComponent(other)}`}>在地图中比较两国区域</Link> : null}
         <Link href="/models?tab=compare">查看十国指标矩阵</Link>
-        <Link href={`/countries/${other}`}>打开{nameOf(other)}档案</Link>
+        {(() => { const href = countryProfileHref(other, otherSlugs); return href ? <Link href={href}>打开{nameOf(other)}档案</Link> : null; })()}
         <ResearchSnapshotExport create={() => ({
           title: locale === "en" ? `${englishText(nameOf(current))} and ${englishText(nameOf(other))} · Descriptive comparison` : `${nameOf(current)}与${nameOf(other)} · 描述性比较`, view_type: "country_comparison", page_path: `/countries/${current}/`, shareable_view_url: currentSnapshotUrl(`/countries/${current}/`), countries: [current, other], indicators: INDICATORS.map(([id]) => id),
           filters: { country: current, compare: other }, comparison: { reference_period: "latest_common_year_per_indicator", matching: "same_indicator_year_unit_official_observations", ranking: false }, comparability_status: "same_indicator_year_unit_per_pair",
