@@ -45,9 +45,9 @@ for (const route of routes) for (const locale of ["zh-CN", "en"]) {
   }
   if (locale === "en") {
     const body = html.split(/<body[^>]*>/)[1]?.split("</body>")[0] ?? "";
-    // Script/style blocks are removed case-insensitively (also "</script >") and repeatedly until nothing changes, so
+    // Script/style blocks are removed case-insensitively (also end tags with attributes or whitespace, e.g. "</script\t\n x>") and repeatedly until nothing changes, so
     // overlapping fragments cannot reassemble a tag; the remaining markup is stripped the same way.
-    const withoutCode = removeUntilStable(removeUntilStable(body, /<script\b[^>]*>[\s\S]*?<\/script\s*>/gi), /<style\b[^>]*>[\s\S]*?<\/style\s*>/gi)
+    const withoutCode = removeUntilStable(removeUntilStable(body, /<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/gi), /<style\b[^>]*>[\s\S]*?<\/style\b[^>]*>/gi)
       .replace(/<div[^>]*data-original-language="zh-CN"[^>]*>[\s\S]*?<\/div>/g, "")
       .replace(/<span[^>]*data-original-language="zh-CN"[^>]*>[\s\S]*?<\/span>/g, "")
       .replace(/<option[^>]*data-original-language="zh-CN"[^>]*>[\s\S]*?<\/option>/g, "")
