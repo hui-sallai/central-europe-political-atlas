@@ -3,7 +3,9 @@ import path from "node:path";
 import assert from "node:assert/strict";
 import {root,sha256} from "./acquire.mjs";
 const read=f=>JSON.parse(fs.readFileSync(path.join(root,"docs/political-data",f),"utf8"));
-const decode=s=>s.replace(/<[^>]*>/g," ").replace(/&nbsp;|&#160;/g," ").replace(/&amp;/g,"&").replace(/&hellip;/g,"…").replace(/\s+/g," ").trim();
+// Single-pass entity decoding (no double unescaping: "&amp;lt;" stays "&lt;"); same entity set as before.
+const ENTITIES={"&nbsp;":" ","&#160;":" ","&amp;":"&","&hellip;":"…"};
+const decode=s=>s.replace(/<[^>]*>/g," ").replace(/&(?:nbsp|#160|amp|hellip);/g,e=>ENTITIES[e]).replace(/\s+/g," ").trim();
 const sources=[2013,2017].map(year=>{
   const dir=`docs/political-data/raw/germany/identity_participation-${year}`,meta=JSON.parse(fs.readFileSync(path.join(root,dir,"metadata.json"),"utf8")),bytes=fs.readFileSync(path.join(root,meta.raw_path));assert.equal(sha256(bytes),meta.sha256);
   const tables=[...bytes.toString("utf8").matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/gi)];

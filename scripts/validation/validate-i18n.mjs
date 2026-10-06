@@ -3,6 +3,9 @@ import path from "node:path";
 import assert from "node:assert/strict";
 import ts from "typescript";
 import { fileURLToPath } from "node:url";
+
+/** Applies a removal pattern until the text stops changing (complete multi-character sanitisation). */
+function removeUntilStable(text, pattern) { let previous; do { previous = text; text = text.replace(pattern, ""); } while (text !== previous); return text; }
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const out = path.join(root, "out");
 const base = JSON.parse(fs.readFileSync(path.join(root, "src/data/release.json"), "utf8")).canonical_url.replace(/\/$/, "");
@@ -42,11 +45,14 @@ for (const route of routes) for (const locale of ["zh-CN", "en"]) {
   }
   if (locale === "en") {
     const body = html.split(/<body[^>]*>/)[1]?.split("</body>")[0] ?? "";
-    const text = body.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "").replace(/<style\b[^>]*>[\s\S]*?<\/style>/g, "")
+    // Script/style blocks are removed case-insensitively (also "</script >") and repeatedly until nothing changes, so
+    // overlapping fragments cannot reassemble a tag; the remaining markup is stripped the same way.
+    const withoutCode = removeUntilStable(removeUntilStable(body, /<script\b[^>]*>[\s\S]*?<\/script\s*>/gi), /<style\b[^>]*>[\s\S]*?<\/style\s*>/gi)
       .replace(/<div[^>]*data-original-language="zh-CN"[^>]*>[\s\S]*?<\/div>/g, "")
       .replace(/<span[^>]*data-original-language="zh-CN"[^>]*>[\s\S]*?<\/span>/g, "")
       .replace(/<option[^>]*data-original-language="zh-CN"[^>]*>[\s\S]*?<\/option>/g, "")
-      .replace(/>中文<\/a>/g, "></a>").replace(/<[^>]+>/g, "");
+      .replace(/>中文<\/a>/g, "></a>");
+    const text = removeUntilStable(withoutCode, /<[^>]+>/g);
     check(!/[\u3400-\u9fff]/u.test(text), `${localRoute}: untranslated core Chinese text`);
     const anchors = [...body.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map(match => match[1].replaceAll("&amp;", "&"));
     for (const href of anchors.filter(href => href.startsWith("/en/"))) {

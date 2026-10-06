@@ -14,7 +14,9 @@ if(process.argv.includes("--acquire")){
   fs.writeFileSync(metaFile,JSON.stringify({source_id:"src-de-bwl-recognition-2021",source_url:url,retrieved_at:new Date().toISOString(),source_published_at:"2021-07-30",sha256:sha256(bytes),raw_path:`${dir}/recognition.html`,bytes:bytes.length,purpose:"Party recognition after constitutional-court decisions, including DKP; no continuity or durable registry IDs",licence_status:"evidence_archive_not_canonical_redistribution_review"},null,2)+"\n",{flag:"wx"});
 }
 const bytes=fs.readFileSync(htmlFile),source=JSON.parse(fs.readFileSync(metaFile,"utf8"));assert.equal(sha256(bytes),source.sha256);
-const decode=s=>s.replace(/<[^>]*>/g," ").replace(/&nbsp;|&#160;/g," ").replace(/&amp;/g,"&").replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&ndash;/g,"–").replace(/&mdash;/g,"—").replace(/&quot;/g,'"').replace(/\s+/g," ").trim();
+// Single-pass entity decoding (no double unescaping: "&amp;lt;" stays "&lt;"); same entity set as before.
+const ENTITIES={"&nbsp;":" ","&#160;":" ","&amp;":"&","&gt;":">","&lt;":"<","&ndash;":"–","&mdash;":"—","&quot;":'"'};
+const decode=s=>s.replace(/<[^>]*>/g," ").replace(/&(?:nbsp|#160|amp|gt|lt|ndash|mdash|quot);/g,e=>ENTITIES[e]).replace(/\s+/g," ").trim();
 const tables=[...bytes.toString("utf8").matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/gi)];assert.equal(tables.length,3);
 const parties=tables.flatMap((table,t)=>[...table[1].matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)].flatMap((row,i)=>{
   const cells=[...row[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/gi)].map(c=>decode(c[1]));if(!cells.length)return [];

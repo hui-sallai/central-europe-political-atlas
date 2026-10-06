@@ -7,6 +7,9 @@ import { createRequire, Module } from "node:module";
 import { fileURLToPath } from "node:url";
 import ts from "typescript";
 
+/** Applies a removal pattern until the text stops changing (complete multi-character sanitisation). */
+function removeUntilStable(text, pattern) { let previous; do { previous = text; text = text.replace(pattern, ""); } while (text !== previous); return text; }
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
 let checks = 0;
@@ -55,7 +58,8 @@ for (const file of sourceFiles) {
   check(!/className="[^"]*bg-\[var\(--foreground\)\][^"]*text-white/.test(source), `${file}: dark CTA must use .cta-dark`);
   for (const match of source.matchAll(/<(a|Link|button)\b[^>]*className="[^"]*\bcta-dark\b[^"]*"[^>]*>([\s\S]*?)<\/\1>/g)) {
     ctaCount += 1;
-    const label = match[2].replace(/<[^>]+>/g, "").replace(/\{[^}]*\}/g, "X").trim();
+    // Strip tags until stable and drop stray angle brackets; only the visible-label length is checked.
+    const label = removeUntilStable(match[2], /<[^>]+>/g).replace(/[<>]/g, "").replace(/\{[^}]*\}/g, "X").trim();
     check(label.length > 0, `${file}: dark CTA has an empty visible label`);
   }
 }

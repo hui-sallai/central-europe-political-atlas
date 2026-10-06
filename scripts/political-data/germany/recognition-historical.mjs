@@ -16,7 +16,9 @@ if(process.argv.includes("--acquire")){
   fs.writeFileSync(metaFile,JSON.stringify({source_id:`src-de-bwl-recognition-${year}`,source_url:config.url,source_published_at:config.date,retrieved_at:new Date().toISOString(),raw_path:`${dir}/recognition.html`,sha256:sha256(bytes),bytes:bytes.length,purpose:"Same-election eligibility evidence only; not durable party identity",licence_status:"evidence_archive_not_canonical_redistribution_review"},null,2)+"\n",{flag:"wx"});
 }
 const bytes=fs.readFileSync(htmlFile),source=JSON.parse(fs.readFileSync(metaFile,"utf8"));assert.equal(sha256(bytes),source.sha256);
-const decode=s=>s.replace(/<[^>]*>/g," ").replace(/&nbsp;|&#160;/g," ").replace(/&amp;/g,"&").replace(/&quot;/g,'"').replace(/&ndash;/g,"–").replace(/&hellip;/g,"…").replace(/\s+/g," ").trim();
+// Single-pass entity decoding (no double unescaping: "&amp;lt;" stays "&lt;"); same entity set as before.
+const ENTITIES={"&nbsp;":" ","&#160;":" ","&amp;":"&","&quot;":'"',"&ndash;":"–","&hellip;":"…"};
+const decode=s=>s.replace(/<[^>]*>/g," ").replace(/&(?:nbsp|#160|amp|quot|ndash|hellip);/g,e=>ENTITIES[e]).replace(/\s+/g," ").trim();
 const lists=[...bytes.toString("utf8").matchAll(/<ol\b[^>]*>([\s\S]*?)<\/ol>/gi)].map(m=>[...m[1].matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map(li=>decode(li[1])));
 assert.deepEqual(lists.map(l=>l.length),config.counts,"Unexpected recognition list structure");
 const parties=lists.flatMap((list,g)=>list.map((verbatim,i)=>{

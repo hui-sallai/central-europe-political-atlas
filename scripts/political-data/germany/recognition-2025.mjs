@@ -17,7 +17,9 @@ if(process.argv.includes("--acquire")){
 }
 const bytes=fs.readFileSync(htmlFile),meta=JSON.parse(fs.readFileSync(metaFile,"utf8"));
 assert.equal(sha256(bytes),meta.sha256);
-const decode=s=>s.replace(/<[^>]*>/g," ").replace(/&nbsp;|&#160;/g," ").replace(/&amp;/g,"&").replace(/&ndash;/g,"–").replace(/&mdash;/g,"—").replace(/&quot;/g,'"').replace(/\s+/g," ").trim();
+// Single-pass entity decoding (no double unescaping: "&amp;lt;" stays "&lt;"); same entity set as before.
+const ENTITIES={"&nbsp;":" ","&#160;":" ","&amp;":"&","&ndash;":"–","&mdash;":"—","&quot;":'"'};
+const decode=s=>s.replace(/<[^>]*>/g," ").replace(/&(?:nbsp|#160|amp|ndash|mdash|quot);/g,e=>ENTITIES[e]).replace(/\s+/g," ").trim();
 const tables=[...bytes.toString("utf8").matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/gi)];
 assert.equal(tables.length,3,"Official recognition page structure changed");
 const parties=tables.flatMap((table,t)=>[...table[1].matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)].flatMap((row,i)=>{
