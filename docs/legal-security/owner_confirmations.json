@@ -18,8 +18,8 @@
     "github_recovery_reviewed": true,
     "registrar_lock_verified": true,
     "dangling_dns_reviewed": true,
-    "github_actions_permissions_reviewed": null,
-    "repository_admins_reviewed": null,
+    "github_actions_permissions_reviewed": true,
+    "repository_admins_reviewed": true,
     "branch_protection_verified": true
   },
   "answers": {
@@ -135,12 +135,20 @@
     "dangling_dns_reviewed": {
       "confirmed_on": "2026-10-05",
       "owner_statement": "Owner statement in chat, 2026-10-05 (\"OWNER CONFIRMATION RECORDING + PUBLISHER-CONTACT READINESS CLOSURE\"): no wildcard record; no abandoned CNAME or subdomain."
+    },
+    "github_actions_permissions_reviewed": {
+      "confirmed_on": "2026-10-06",
+      "owner_statement": "Owner statement in chat, 2026-10-06 (GitHub access review completed): repository Actions policy restricted to actions created by GitHub plus pnpm/action-setup@v6; verified-creator Marketplace allowance disabled; default workflow permissions read repository contents/packages; Actions cannot create or approve pull requests; owner verified the saved state in the GitHub UI. Cross-checked via the repository API on 2026-10-06: allowed_actions = selected, github_owned_allowed = true, patterns_allowed = [pnpm/action-setup@v6], verified_allowed = false, default_workflow_permissions = read, can_approve_pull_request_reviews = false. All actions used by .github/workflows/deploy-pages.yml are GitHub-owned or pnpm/action-setup@v6."
+    },
+    "repository_admins_reviewed": {
+      "confirmed_on": "2026-10-06",
+      "owner_statement": "Owner statement in chat, 2026-10-06 (GitHub access review completed): no additional collaborators; no unknown deploy keys; no unknown repository Actions secrets or variables; authorised GitHub Apps: none; authorised OAuth Apps: none; fine-grained PATs: none; classic PATs: none; SSH keys: none; no additional repository administrator. Cross-checked via the API on 2026-10-06: collaborators = [hui-sallai]; deploy keys = 0; repository Actions secrets = 0, variables = 0. Account-level Apps, OAuth apps, PATs and SSH keys are the owner statement (not readable with the current CLI token scopes)."
     }
   },
   "governance_notes": {
     "establishment": "Owner reports current operational connections to China and Hungary. No single legal establishment determination has been made; controller_establishment_confirmed and answers.establishment_country stay null. Not rendered publicly.",
-    "github_actions_permissions": "Owner reported (2026-10-05) Actions restricted to GitHub-created actions plus pnpm/action-setup@v6, verified-creator allowance disabled, read-only default workflow permission, PR creation/approval by Actions disabled. The repository API read on 2026-10-05 returned allowed_actions = \"all\" and can_approve_pull_request_reviews = true (default_workflow_permissions = read matches). Kept null until the setting and the API agree.",
-    "repository_admins": "Verified: 0 collaborators besides the owner (owner statement; API collaborators = [hui-sallai]); 0 deploy keys (API, 2026-10-05). Not yet verified: installed GitHub Apps and OAuth app authorisations, fine-grained and classic personal access tokens, SSH keys and Codespaces/Actions secrets. Kept null."
+    "github_actions_permissions": "Resolved 2026-10-06: the repository API now matches the owner-reported restricted policy (see evidence).",
+    "repository_admins": "Resolved 2026-10-06: owner completed the access review (see evidence)."
   },
   "registrar_state": {
     "observed_on": "2026-10-05",

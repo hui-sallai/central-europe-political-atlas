@@ -124,11 +124,9 @@ Optionally add a CAA record allowing `letsencrypt.org`, which GitHub Pages uses.
 
 **Report back:** the three settings as shown.
 
-**Agent observation:**
-- allowed actions are `all`;
-- default workflow permissions are `read`;
-- PR approval by Actions is off;
-- the deploy workflow requests `contents: read`, `pages: write` and `id-token: write`.
+**Done (2026-10-06, owner-verified; API cross-check matches):** Actions are restricted to GitHub-created actions plus
+`pnpm/action-setup@v6`; the verified-creator allowance is off; default workflow permissions are read-only; Actions
+cannot create or approve pull requests.
 
 ## 10. Repository admin permissions
 
@@ -141,7 +139,9 @@ Optionally add a CAA record allowing `letsencrypt.org`, which GitHub Pages uses.
 - the admin list;
 - the number of deploy keys, tokens and apps left, with a reason for each.
 
-**Agent observation:** the only collaborator is `hui-sallai`, with the role `admin`.
+**Done (2026-10-06, owner-verified):** no other collaborators or administrators; no deploy keys, Actions secrets or
+variables; no authorised GitHub Apps or OAuth apps; no personal access tokens; no SSH keys. The API cross-check matches for
+collaborators, deploy keys, secrets and variables.
 
 ## 11. Branch protection
 
