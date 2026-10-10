@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { latestPublished } from "@/lib/freshnessCore";
 import { useState } from "react";
 import { Sparkline } from "@/components/ResearchCharts";
 import type { Country as UiCountry } from "@/lib/data";
@@ -41,7 +42,7 @@ function formatValue(value: number | null, unit: string) {
 }
 
 function latestByIndicator(observations: Observation[], indicatorId: string) {
-  return observations.filter((item) => item.indicator === indicatorId && item.value !== null).sort((a, b) => b.year - a.year)[0];
+  return latestPublished(observations.filter((item) => item.indicator === indicatorId));
 }
 
 function ModelSnapshot({ output }: { output: ModelOutput }) {

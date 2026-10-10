@@ -1,4 +1,5 @@
 import { getLatestObservation, getResearchIndicator } from "@/lib/researchData";
+import { latestAvailable } from "@/lib/freshness";
 import type { DataStatus } from "@/types/DataStatus";
 
 export type BasicIndicator = {
@@ -30,7 +31,9 @@ function formatValue(indicatorId: string, value: number | null) {
 
 export function getBasicIndicators(countrySlug: string): BasicIndicator[] {
   return indicatorIds.map(({ id, indicatorId }) => {
-    const observation = getLatestObservation(countrySlug, indicatorId);
+    // Latest published value (freshness layer); when none exists, keep the pending placeholder record so the card
+    // still shows the expected period and status instead of an older or invented value.
+    const observation = latestAvailable(countrySlug, indicatorId) ?? getLatestObservation(countrySlug, indicatorId);
     const indicator = getResearchIndicator(indicatorId);
     const status = observation?.status ?? "pending";
 

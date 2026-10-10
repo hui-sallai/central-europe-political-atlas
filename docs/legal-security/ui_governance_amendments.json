@@ -220,6 +220,57 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-07"
+    },
+    {
+      "amendment_id": "ui-data-freshness-compare-modes-2026-10",
+      "status": "owner_approved",
+      "approved_by": "owner (explicit chat instruction: Data Freshness / Compare Modes first implementation slice, 2026-10-10)",
+      "purpose": "Single definition of latest for descriptive observations and explicit Compare modes (latest common / latest available) with disclosed reference periods",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/lib/freshnessCore.ts",
+          "sha256": "c6d4ed5373dcc216b547231d39e7a9aa4847d6128f43e15695d1c5c7e055f5f1",
+          "classification": "DATA_PRESENTATION",
+          "change": "new: pure freshness rules (published, latest available, latest common year, compare modes)"
+        },
+        {
+          "path": "src/lib/freshness.ts",
+          "sha256": "9f42743a82f7722216e8d05170caf4222bd7990aa279a91188c8aa266e2341b7",
+          "classification": "DATA_PRESENTATION",
+          "change": "new: selectors bound to the annual observations (latestAvailable, latestCommon, compare)"
+        },
+        {
+          "path": "src/lib/basicIndicators.ts",
+          "sha256": "53391eb8bbf9d83bd09156948484dc25336309178d93e86b2d9a1140fbb4c1f0",
+          "classification": "DATA_PRESENTATION",
+          "change": "headline cards use latestAvailable, keeping the pending placeholder when no value is published"
+        },
+        {
+          "path": "src/components/CompareTable.tsx",
+          "sha256": "fe1918c4b2fe61c82bd1baf260c6245f8658eafc13c8bfb6e6227b4b9c6d3f5a",
+          "classification": "DATA_PRESENTATION",
+          "change": "new: presentational comparison table with per-cell years and mixed-period notice"
+        },
+        {
+          "path": "src/components/CountryComparePanel.tsx",
+          "sha256": "35c8eb2f8b432ddd5eacfd96dd84acb9f0d1939bc927d0a67860c88701d7556d",
+          "classification": "DATA_PRESENTATION",
+          "change": "reference-period mode switch; rows from compareSeries; mode and reference years recorded in the snapshot"
+        },
+        {
+          "path": "src/components/CountryResearchProfile.tsx",
+          "sha256": "0863dd1d60e74843eea52af30baa3d2fa6eb1d18cfde2c314d8ccddb417c4b88",
+          "classification": "DATA_PRESENTATION",
+          "change": "latestByIndicator delegates to latestPublished"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-10"
     }
   ]
 }
