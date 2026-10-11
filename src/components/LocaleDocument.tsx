@@ -34,10 +34,11 @@ export const metadata: Metadata = {
 };
 
 export default function LocaleDocument({
-  children, locale,
+  children, locale, showLanguageSwitcher = true,
 }: Readonly<{
   children: React.ReactNode;
   locale: Locale;
+  showLanguageSwitcher?: boolean;
 }>) {
   const en = locale === "en";
   return (
@@ -57,7 +58,7 @@ export default function LocaleDocument({
             <SiteNav>
               <NotebookEntry />
               <ThemeToggle />
-              <LanguageSwitcher />
+              {showLanguageSwitcher && <LanguageSwitcher />}
             </SiteNav>
           </nav>
         </header>

@@ -18,3 +18,17 @@ keep source attribution.
 
 No file was deleted or replaced. The geoBoundaries conflict was resolved on 2026-10-05 by attribution; the ECB-annex conflict awaits an **OWNER DECISION** (see source_rights_registry.json
 `open_rights_issue`).
+
+## Owner-authorised portfolio PDFs (2026-10-11)
+
+The owner explicitly requested public publication of these four existing portfolio cases:
+`01_Research_Data_Pipeline.pdf`, `02_Trade_Exposure_Brief.pdf`,
+`03_Localization_QA_Sample_Pack.pdf` and `04_AI_LLM_Evaluation_Simulation.pdf`.
+They are available under `public/portfolio/files/` and the corresponding exported `out/` path.
+The registry permits exactly these filenames, rather than arbitrary PDF assets.
+The first two cases summarise independent Atlas work; the language pack distinguishes
+experience from demonstration tasks; the AI case is explicitly a portfolio simulation.
+Source citations and research limitations remain in the PDFs. No raw third-party database,
+resume, DOCX, paid-client outcome or client-owned work is added through this publication.
+Owner publication authorisation does not grant a new third-party reuse licence or change
+any existing research-data rights gate.

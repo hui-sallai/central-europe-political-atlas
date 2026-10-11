@@ -43,6 +43,12 @@
       "origin": "Atlas research package",
       "registry_source_id": null,
       "status": "ok"
+    },
+    {
+      "pattern": "^(public|out)/portfolio/files/(01_Research_Data_Pipeline|02_Trade_Exposure_Brief|03_Localization_QA_Sample_Pack|04_AI_LLM_Evaluation_Simulation)\\.pdf$",
+      "origin": "Four Xuanhui Zhang portfolio PDFs supplied by the owner for public publication; independent Atlas case evidence and explicitly labelled demonstration samples/simulation. Source citations retained inside each PDF.",
+      "registry_source_id": null,
+      "status": "ok"
     }
   ]
 }
