@@ -4,7 +4,9 @@ import { useLocale } from "@/i18n/LocaleProvider";
 import { englishText } from "@/i18n/reviewedText";
 
 import { useEffect, useMemo, useState } from "react";
-import { attachOverlappingEvents, buildLineSegments, computeEventWindow, eventWindowEligibility, suggestedOutcomes, type HighFrequencyPoint } from "@/lib/eventWindowEngine";
+import { attachOverlappingEvents, buildLineSegments, computeEventWindow, eventWindowEligibility, type HighFrequencyPoint } from "@/lib/eventWindowEngine";
+import { linkedWindowOutcomes, representativeEventIds } from "@/lib/eventAnalysisLinks";
+import { EventAnalysisPanel, type WindowAvailability } from "@/components/EventAnalysisPanel";
 import type { Country } from "@/types/Country";
 import type { Event } from "@/types/Event";
 import type { EventChangeSemantics, EventWindowResult } from "@/types/EventWindow";
@@ -39,6 +41,15 @@ function macroValueSemantics(row: MacroDriverRuntimeRow): HighFrequencyPoint["va
   return "currency_level";
 }
 
+// Domestic monthly series used to report data coverage around an event when no explained link exists.
+const coverageOutcomes = ["hicp_annual_rate", "industrial_production_index", "unemployment_rate_monthly"] as const;
+
+const eventTypeLabels: Record<string, { zh: string; en: string }> = {
+  fiscal: { zh: "财政", en: "Fiscal" }, EU_funds: { zh: "欧盟资金", en: "EU funds" }, macro: { zh: "宏观经济", en: "Macroeconomy" },
+  energy: { zh: "能源", en: "Energy" }, industrial_policy: { zh: "产业政策", en: "Industrial policy" }, FDI: { zh: "外商直接投资", en: "Foreign direct investment" },
+  China: { zh: "对华关系", en: "China relations" }, election: { zh: "选举", en: "Elections" }, regional: { zh: "区域合作", en: "Regional cooperation" },
+};
+
 const windowOptions = [6, 12, 18, 24] as const;
 
 const changeLabel: Record<EventChangeSemantics, string> = {
@@ -68,11 +79,14 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
   initialOutcome?: string;
 }) {
   const locale = useLocale();
+  const en = locale === "en";
   const [series, setSeries] = useState<HighFrequencyPoint[]>([]);
+  const [sources, setSources] = useState<Record<string, string>>({});
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
   const [country, setCountry] = useState(initialCountry ?? "hungary");
   const [eventId, setEventId] = useState(initialEvent ?? "");
-  const [outcome, setOutcome] = useState(initialOutcome ?? "hicp_annual_rate");
+  // An outcome is preselected only when it has an explained link to the event; a category never selects one.
+  const [outcome, setOutcome] = useState(() => { const linked = initialEvent ? linkedWindowOutcomes(initialEvent) : []; return initialOutcome && linked.includes(initialOutcome) ? initialOutcome : linked[0] ?? ""; });
   const [windowMonths, setWindowMonths] = useState(12);
   const [result, setResult] = useState<EventWindowResult | null>(null);
 
@@ -116,6 +130,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
           } satisfies HighFrequencyPoint));
         });
         setSeries([...domestic, ...macro]);
+        setSources(Object.fromEntries(payload.records.filter((row) => row[10]).map((row) => [row[3], row[10]])));
         setLoadState("ready");
       })
       .catch((loadError) => { if (!(loadError instanceof DOMException && loadError.name === "AbortError")) setLoadState("error"); });
@@ -128,14 +143,28 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
     .sort((a, b) => b.event.date.localeCompare(a.event.date)), [events, country]);
 
   const selectedEvent = countryEvents.find((item) => item.event.event_id === eventId)?.event ?? null;
-  const suggestions = selectedEvent ? suggestedOutcomes(selectedEvent.event_type) : [];
+  const linked = useMemo(() => (selectedEvent ? linkedWindowOutcomes(selectedEvent.event_id) : []), [selectedEvent]);
+  // Data coverage at the default ±12 month window, counted by the engine itself (no separate gate logic here).
+  const availability = useMemo<WindowAvailability[] | null>(() => {
+    if (!selectedEvent || loadState !== "ready" || !eventWindowEligibility(selectedEvent).eligible) return selectedEvent && loadState === "ready" ? [] : null;
+    return [...linked, ...coverageOutcomes.filter((id) => !linked.includes(id))].flatMap((id) => {
+      const outcomeSeries = series.filter((item) => item.indicator === id && item.country === selectedEvent.country_slug);
+      if (!outcomeSeries.length) return [];
+      const computed = computeEventWindow(selectedEvent, outcomeSeries);
+      return [{ outcome: id, label: en ? englishText(outcomeLabels[id] ?? id) : outcomeLabels[id] ?? id, pre: computed.pre_observations, post: computed.post_observations, gate: computed.gate, linked: linked.includes(id) }];
+    });
+  }, [selectedEvent, loadState, series, linked, en]);
 
-  function run() {
-    if (!selectedEvent || loadState !== "ready") return;
-    const outcomeSeries = series.filter((item) => item.indicator === outcome);
-    const computed = computeEventWindow(selectedEvent, outcomeSeries, { preMonths: windowMonths, postMonths: windowMonths });
+  function run(selectedOutcome: string = outcome, months: number = windowMonths) {
+    if (!selectedEvent || loadState !== "ready" || !selectedOutcome) return;
+    const outcomeSeries = series.filter((item) => item.indicator === selectedOutcome);
+    const computed = computeEventWindow(selectedEvent, outcomeSeries, { preMonths: months, postMonths: months });
     setResult(attachOverlappingEvents(computed, events));
   }
+  function selectEvent(nextCountry: string, nextEvent: string) {
+    setCountry(nextCountry); setEventId(nextEvent); setOutcome(linkedWindowOutcomes(nextEvent)[0] ?? ""); setResult(null);
+  }
+  const representative = representativeEventIds.flatMap((id) => { const event = events.find((item) => item.event_id === id); return event ? [event] : []; });
 
   const chartValues = result ? result.points.filter((point) => point.value !== null).map((point) => point.value as number) : [];
   const chartMin = chartValues.length ? Math.min(...chartValues) : 0;
@@ -167,8 +196,8 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
               {countries.map((item) => <option key={item.slug} value={item.slug}>{item.name_zh} / {item.name}</option>)}
             </select>
           </label>
-          <label className="text-xs font-semibold text-[var(--muted)]">事件（仅列出可分析的已核验事件）
-            <select className="field-control mt-2" value={eventId} onChange={(event) => { setEventId(event.target.value); setResult(null); }}>
+          <label className="text-xs font-semibold text-[var(--muted)]">{en ? "Event (verified events; whether a window can be computed depends on the data)" : "事件（已核验事件；能否计算窗口取决于数据）"}
+            <select className="field-control mt-2" value={eventId} onChange={(event) => selectEvent(country, event.target.value)}>
               <option value="">请选择事件</option>
               {countryEvents.map(({ event, eligibility }) => (
                 <option lang="zh-CN" data-original-language="zh-CN" key={event.event_id} value={event.event_id} disabled={!eligibility.eligible} title={eligibility.reason ?? undefined}>
@@ -179,7 +208,8 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
           </label>
           <label className="text-xs font-semibold text-[var(--muted)]">观察指标
             <select className="field-control mt-2" value={outcome} onChange={(event) => { setOutcome(event.target.value); setResult(null); }}>
-              {Object.entries(outcomeLabels).map(([id, label]) => <option key={id} value={id}>{label}{suggestions.includes(id) ? "（推荐观察指标）" : ""}</option>)}
+              <option value="">{en ? "Choose a series" : "请选择序列"}</option>
+              {Object.entries(outcomeLabels).map(([id, label]) => <option key={id} value={id}>{en ? englishText(label) : label}{linked.includes(id) ? (en ? " (explained link)" : "（有说明的关联）") : ""}</option>)}
             </select>
           </label>
           <label className="text-xs font-semibold text-[var(--muted)]">分析窗口（前后各 N 个月）
@@ -188,12 +218,28 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
             </select>
           </label>
         </div>
-        {suggestions.length ? <p className="mt-3 text-xs text-[var(--muted)]">推荐观察指标根据事件类别给出，仅用于导航，不表示因果关系。</p> : null}
-        <button type="button" onClick={run} disabled={!selectedEvent || loadState !== "ready"} className="mt-5 rounded-lg cta-dark px-5 py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-50">
+        {selectedEvent ? <p className="mt-3 text-xs text-[var(--muted)]" data-outcome-link-note>{linked.length ? (en ? "Series marked as an explained link have a written rationale for this event. Any other series can be chosen manually and only describes the period." : "标注“有说明的关联”的序列附有针对该事件的书面理由。其他序列可以手动选择，结果只是对该时期的描述。") : (en ? "No series is recommended for this event: no monthly indicator has an explained link to it, and the event category is not used to suggest one. A series can still be chosen manually; the result only describes the period." : "不为该事件推荐序列：没有任何月度指标与它存在经过说明的关联，也不会根据事件类别给出建议。仍可手动选择序列，结果只是对该时期的描述。")}</p> : null}
+        <button type="button" className="mt-5 rounded-lg cta-dark px-5 py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-50" onClick={() => run()} disabled={!selectedEvent || !outcome || loadState !== "ready"}>
           {loadState === "loading" ? "正在加载高频数据…" : loadState === "error" ? "高频数据不可用" : "运行事件窗口分析"}
         </button>
         {loadState === "error" ? <p className="mt-4 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm">无法运行事件窗口分析：高频月度数据未能加载。请稍后重试，或在研究数据包中查看原始序列。</p> : null}
       </section>
+
+      {representative.length ? (
+        <section className="border-y border-[var(--line)] py-4" data-representative-events>
+          <p className="text-sm font-semibold">{en ? "Representative event studies" : "代表性事件研究"}</p>
+          <p className="mt-1 text-xs leading-5 text-[var(--muted)]">{en ? "Four historical events with reviewed background and mechanism notes. They are case descriptions, not causal studies; each shows only the levels its evidence supports." : "四个附有经审阅的背景与机制说明的历史事件。它们是案例描述，不是因果研究；每个事件只显示其证据支持的层次。"}</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {representative.map((event) => (
+              <button key={event.event_id} type="button" aria-pressed={event.event_id === eventId} onClick={() => selectEvent(event.country_slug, event.event_id)} data-representative-event={event.event_id} className={`rounded-full border px-3 py-1 text-left text-xs font-semibold ${event.event_id === eventId ? "border-[var(--accent)] text-[var(--accent)]" : "border-[var(--line)]"}`}>
+                {event.date} · <span lang="zh-CN" data-original-language="zh-CN">{event.title}</span>
+              </button>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {selectedEvent ? <EventAnalysisPanel event={selectedEvent} availability={availability} onOpenWindow={(id) => { setOutcome(id); setWindowMonths(12); run(id, 12); }} /> : null}
 
       {result ? (
         <section className="editorial-panel p-5">
@@ -214,7 +260,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
                   <p className="font-semibold">同期其他事件（{result.overlapping_events.length}）</p>
                   <p className="mt-1">{result.overlapping_event_warning}</p>
                   <ul className="mt-2 grid gap-1 text-xs">
-                    {result.overlapping_events.map((overlap) => <li lang="zh-CN" data-original-language="zh-CN" key={overlap.event_id}>{overlap.date} · {overlap.event_type} · {overlap.title}</li>)}
+                    {result.overlapping_events.map((overlap) => <li key={overlap.event_id}>{overlap.date} · {eventTypeLabels[overlap.event_type]?.[en ? "en" : "zh"] ?? overlap.event_type} · <span lang="zh-CN" data-original-language="zh-CN">{overlap.title}</span></li>)}
                   </ul>
                 </div>
               ) : null}
@@ -238,7 +284,8 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
                     <circle key={point.period} cx={pointX(index)} cy={pointY(point.value)} r={point.relative_month === 0 ? 3 : 1.5} fill={point.relative_month === 0 ? "var(--accent)" : "var(--foreground)"} />
                   ))}
                   <line x1={pointX(result.window.pre_months)} y1={plotTop} x2={pointX(result.window.pre_months)} y2={plotBottom} stroke="var(--accent)" strokeWidth="1.5" strokeDasharray="4 3" />
-                  <text x={pointX(result.window.pre_months)} y={14} textAnchor="middle" fontSize="10" fill="var(--accent)">事件期 {result.event_period}</text>
+                  <text x={pointX(result.window.pre_months)} y={14} textAnchor="middle" fontSize="10" fill="var(--accent)">{en ? `Event month ${result.event_period} (event date ${result.event_date})` : `事件月 ${result.event_period}（事件日期 ${result.event_date}）`}</text>
+                  {result.unit ? <text x={4} y={14} fontSize="9" fill="var(--muted)" data-chart-unit>{en ? `Unit: ${englishText(result.unit)}` : `单位：${result.unit}`}</text> : null}
                   {result.pre_period_mean !== null ? <line x1={plotLeft} y1={pointY(result.pre_period_mean)} x2={pointX(result.window.pre_months)} y2={pointY(result.pre_period_mean)} stroke="var(--muted)" strokeWidth="1" strokeDasharray="2 3" /> : null}
                   {result.post_period_mean !== null ? <line x1={pointX(result.window.pre_months)} y1={pointY(result.post_period_mean)} x2={plotRight} y2={pointY(result.post_period_mean)} stroke="var(--muted)" strokeWidth="1" strokeDasharray="2 3" /> : null}
                   {result.points.filter((_, index) => index % Math.ceil(result.points.length / 8) === 0).map((point) => (
@@ -275,6 +322,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
                   </div>
                 ))}
               </dl>
+              <p className="mt-3 text-xs text-[var(--muted)]" data-window-source>{en ? `Observation period: ${result.points[0]?.period} to ${result.points.at(-1)?.period} · Source: ${sources[result.outcome] ?? "see the macro-driver dictionary in the research data package"}` : `观测期：${result.points[0]?.period} 至 ${result.points.at(-1)?.period} · 来源：${sources[result.outcome] ?? "见研究数据包中的宏观驱动字典"}`}</p>
               <p className="mt-3 text-xs text-[var(--muted)]">缺失月份：{result.missing_periods.length ? result.missing_periods.join("、") : "无"} · 单位：{result.unit ?? "—"} · 事件月不计入事件后均值与事件后观测数。</p>
               <p className="mt-5 text-sm leading-7 text-[var(--muted)]">{result.interpretation_boundary}</p>
               <details className="advanced-disclosure mt-4"><summary>数据溯源（{result.data_trace.length} 条月度观测）</summary><p className="mt-3 break-words font-mono text-[10px] leading-5 text-[var(--muted)]">{result.data_trace.join(" · ")}</p></details>
