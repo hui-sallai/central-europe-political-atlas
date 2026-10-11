@@ -2,17 +2,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { pageMetadata } from "@/lib/seo";
 import { portfolioCases, portfolioEvidenceNote, portfolioEvidenceUrl } from "@/content/portfolio";
-export const dynamicParams = false;
-export function generateStaticParams() { return portfolioCases.map(item => ({ slug: item.slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export function portfolioCaseMetadata(slug: string) {
   const item = portfolioCases.find(item => item.slug === slug);
   if (!item) return {};
   const path = `/portfolio/${slug}/`;
   return { ...pageMetadata({ title: item.title, description: item.description, path, locale: "en" }), alternates: { canonical: path } };
 }
-export default async function CasePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default function PortfolioCase({ slug }: { slug: string }) {
   const item = portfolioCases.find(item => item.slug === slug);
   if (!item) notFound();
   return <main className="mx-auto max-w-[900px] px-4 py-10 sm:px-6">

@@ -271,6 +271,75 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-10"
+    },
+    {
+      "amendment_id": "ui-public-client-portfolio-2026-10-11",
+      "status": "owner_approved",
+      "approved_by": "owner (explicit chat instruction: publish a clean public portfolio section on the existing website/repository, 2026-10-11)",
+      "purpose": "Four English portfolio summary pages and PDF navigation, a footer entry and sitemap URLs. No research-data or analysis change.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/app/(portfolio)/layout.tsx",
+          "sha256": "eefaf31740a50df6aeb6f73ae784dfed0749d961f7a5ab45573c6d5806f47b6b",
+          "classification": "DATA_PRESENTATION",
+          "change": "Owner-authorised portfolio presentation/navigation; exact file content only"
+        },
+        {
+          "path": "src/app/(portfolio)/portfolio/page.tsx",
+          "sha256": "ede488a50b4144dc04004d9e27c342681cf79085498b95eac55d4de3801ef873",
+          "classification": "DATA_PRESENTATION",
+          "change": "Owner-authorised portfolio presentation/navigation; exact file content only"
+        },
+        {
+          "path": "src/components/PortfolioCase.tsx",
+          "sha256": "f477533669b93eaf63b3731ee4f42d8d219e82876f0f9b5e9c9d1db9ab9caee0",
+          "classification": "DATA_PRESENTATION",
+          "change": "Owner-authorised portfolio presentation/navigation; exact file content only"
+        },
+        {
+          "path": "src/app/sitemap.ts",
+          "sha256": "953d9b5c9ebf3d6433223bfe014a2b902b5ec5c7f2228a0ba12a3fbbaefaf90d",
+          "classification": "DATA_PRESENTATION",
+          "change": "Owner-authorised portfolio presentation/navigation; exact file content only"
+        },
+        {
+          "path": "src/components/LocaleDocument.tsx",
+          "sha256": "4ad497830185322db411b341042e4bbde5e03aa8a6ad282b3207c1a63099da0c",
+          "classification": "DATA_PRESENTATION",
+          "change": "Owner-authorised portfolio presentation/navigation; exact file content only"
+        },
+        {
+          "path": "src/app/(portfolio)/portfolio/data-pipeline/page.tsx",
+          "sha256": "f040d65e438948854f0c6acb1c6e9d6e1eb016f1bf25dd1065855a698c1416d3",
+          "classification": "DATA_PRESENTATION",
+          "change": "Owner-authorised portfolio presentation/navigation; exact file content only"
+        },
+        {
+          "path": "src/app/(portfolio)/portfolio/trade-exposure/page.tsx",
+          "sha256": "a082dd3ca5a733116649c5b0a815a7752cf4bcccff2a83adf205c29ce542c7bb",
+          "classification": "DATA_PRESENTATION",
+          "change": "Owner-authorised portfolio presentation/navigation; exact file content only"
+        },
+        {
+          "path": "src/app/(portfolio)/portfolio/localization-qa/page.tsx",
+          "sha256": "6dee43ab4f257bc2447ae106cde74d1c408ca64fb221903353704f2f51f8d576",
+          "classification": "DATA_PRESENTATION",
+          "change": "Owner-authorised portfolio presentation/navigation; exact file content only"
+        },
+        {
+          "path": "src/app/(portfolio)/portfolio/ai-evaluation/page.tsx",
+          "sha256": "385be228589ae37dbb4757c43d7862889e9c47aec3f92f6b872722c146113a13",
+          "classification": "DATA_PRESENTATION",
+          "change": "Owner-authorised portfolio presentation/navigation; exact file content only"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-11"
     }
   ]
 }
