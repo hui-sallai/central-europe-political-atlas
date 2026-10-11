@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { getResearchIndicator, getResearchProject, researchCountries, researchEvents } from "@/lib/researchData";
-import { eventWindowEligibility, suggestedOutcomes } from "@/lib/eventWindowEngine";
+import { eventActors, eventAnalysisLevels } from "@/lib/eventAnalysisLinks";
 import type { Event, EventType } from "@/types/researchData";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
@@ -46,6 +46,16 @@ function EventCard({ item }: { item: Event }) {
   const translation = locale === "en" ? newsTranslations[item.id] : undefined;
   const title = translation?.title ?? item.title;
   const summary = translation?.summary ?? item.summary;
+  const en = locale === "en";
+  const levels = eventAnalysisLevels(item);
+  const { actors, publisher } = eventActors(item);
+  // Entries reflect content actually available for this event; statistical eligibility is decided in the workbench.
+  const analysisHref = `${en ? "/en" : ""}/models?tab=run&skill=event_window_analysis&country=${item.country_slug}&event=${item.event_id}`;
+  const entries = [
+    levels.background === "available" ? { level: "background", label: en ? "Event background" : "查看事件背景" } : null,
+    levels.indicators === "available" ? { level: "indicators", label: en ? "Economic connections" : "查看经济关联" } : null,
+    levels.window_link === "available" ? { level: "window", label: en ? "Event-window analysis" : "查看事件窗口分析" } : null,
+  ].filter((entry): entry is { level: string; label: string } => entry !== null);
   const topics = [...new Set([item.topic, ...item.affected_indicator.map((id) => getResearchIndicator(id)?.name_zh ?? id)])];
   return (
     <LocalizedContent><article id={item.id} className="scroll-mt-24 border-t border-[var(--line)] py-5 first:border-t-0">
@@ -62,25 +72,23 @@ function EventCard({ item }: { item: Event }) {
           <div className="mt-4 flex flex-wrap items-center gap-2">
             {item.data_status === "verified" && item.source_url ? <NotebookCollect create={() => ({ type: "event", title: item.title, url: `${PLATFORM_BASE_URL.replace(/\/$/, "")}${locale === "en" ? "/en" : ""}/news/?country=${item.country_slug}&type=${item.event_type}&from=${item.date}&to=${item.date}#${item.id}`, canonical_ids: [item.id], countries: [item.country_slug], periods: [item.date], sources: [{ institution: item.source_name, dataset: item.source_name, url: item.source_url!, layer: "verified_event" }], layer: "verified_event", comparability: "event_context_not_a_comparable_numeric_observation", warnings: [item.model_note, "Verified event context, not an inferred causal effect."].filter(Boolean), metadata: { event_type: item.event_type, topic: item.topic, original_language: "zh-CN", status: item.data_status, entersModel: item.enters_model } })} /> : null}
             {topics.filter(Boolean).map((topic) => <span key={topic} lang="zh-CN" data-original-language="zh-CN" className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{topic}</span>)}
-            {eventWindowEligibility(item).eligible ? (
-              <Link
-                href={`${locale === "en" ? "/en" : ""}/models?tab=run&skill=event_window_analysis&country=${item.country_slug}&event=${item.event_id}&outcome=${suggestedOutcomes(item.event_type)[0]}`}
-                className="rounded-full cta-dark px-3 py-1 text-xs font-semibold"
-              >
-                分析此事件
+            {entries.map((entry, index) => (
+              <Link key={entry.level} href={analysisHref} data-event-entry={entry.level} className={index === 0 ? "rounded-full cta-dark px-3 py-1 text-xs font-semibold" : "rounded-full border border-[var(--accent)] px-3 py-1 text-xs font-semibold text-[var(--accent)]"}>
+                {entry.label}
               </Link>
-            ) : null}
+            ))}
             {item.source_url ? <a href={item.source_url} target="_blank" rel="noreferrer" className="ml-auto text-xs font-semibold text-[var(--accent)] hover:underline"><span lang="zh-CN" data-original-language="zh-CN">{item.source_name}</span> ↗</a> : <span lang="zh-CN" data-original-language="zh-CN" className="ml-auto text-xs text-[var(--muted)]">{item.source_name}</span>}
           </div>
           <details className="advanced-disclosure mt-4">
             <summary>研究字段</summary>
-            <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                ["Actor", item.actor],
-                ["Direction", directionLabels[item.direction]],
-                ["Confidence", confidenceLabels[item.confidence]],
-                ["Affected indicators", item.affected_indicator.map((id) => getResearchIndicator(id)?.name_zh ?? id).join(" / ") || "待编码"],
-              ].map(([label, value]) => <div key={label}><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 font-semibold leading-6">{label === "Actor" ? <span lang="zh-CN" data-original-language="zh-CN">{value}</span> : value}</dd></div>)}
+            <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-2 lg:grid-cols-5">
+              {([
+                [en ? "Event actors" : "事件主体", actors ? actors.map((actor) => (en ? actor.en : actor.zh)).join(en ? "; " : "；") : (en ? "Not separately coded" : "未单独编码"), Boolean(actors) && levels.mechanism !== "available"],
+                [en ? "Source publisher" : "来源发布方", publisher, true],
+                ["Direction", directionLabels[item.direction], false],
+                ["Confidence", confidenceLabels[item.confidence], false],
+                ["Affected indicators", item.affected_indicator.map((id) => getResearchIndicator(id)?.name_zh ?? id).join(" / ") || "待编码", false],
+              ] as Array<[string, string, boolean]>).map(([label, value, original]) => <div key={label}><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 font-semibold leading-6">{original ? <span lang="zh-CN" data-original-language="zh-CN">{value}</span> : value}</dd></div>)}
             </dl>
             {item.related_project_ids.length ? <div className="mt-4 flex flex-wrap gap-2"><span className="text-xs font-semibold text-[var(--muted)]">相关项目</span>{item.related_project_ids.map((id) => <Link key={id} href={`/data?country=${item.country_slug}`} className="text-xs font-semibold text-[var(--accent)]"><span lang="zh-CN" data-original-language="zh-CN">{getResearchProject(id)?.name ?? id}</span></Link>)}</div> : null}
             <p className="mt-4 text-xs leading-5 text-[var(--muted)]">方向与置信度是研究编码，不是预测或因果判断。完整 raw record 可在 research data package 中下载。</p>

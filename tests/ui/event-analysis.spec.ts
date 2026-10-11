@@ -62,3 +62,19 @@ test("representative event buttons select the event and its country", async ({ p
   await expect(study.locator("[data-open-window]")).toHaveCount(0);
   await expect(page.locator("select").first()).toHaveValue("hungary");
 });
+
+for (const locale of ["zh-CN", "en"] as const) {
+  test(`news cards offer only the entries an event supports (${locale})`, async ({ page }) => {
+    const prefix = locale === "en" ? "/en" : "";
+    await page.goto(`${prefix}/news/?country=czechia&from=2023-10-16&to=2023-10-16`, { waitUntil: "networkidle" });
+    const linked = page.locator("#cz-2023-10-16-repowereu-plan");
+    await expect(linked.locator("[data-event-entry]")).toHaveText(locale === "en" ? ["Event background", "Economic connections", "Event-window analysis"] : ["查看事件背景", "查看经济关联", "查看事件窗口分析"]);
+    await expect(linked.locator("[data-event-entry='background']")).toHaveAttribute("href", `${prefix}/models/?tab=run&skill=event_window_analysis&country=czechia&event=cz-2023-10-16-repowereu-plan`);
+    await page.goto(`${prefix}/news/?country=poland&from=2024-04-23&to=2024-04-23`, { waitUntil: "networkidle" });
+    await expect(page.locator("#pl-2024-04-23-nuctech-fsr-inspection [data-event-entry]")).toHaveCount(1);
+    await page.goto(`${prefix}/news/?country=austria&from=2026-10-01&to=2026-10-11`, { waitUntil: "networkidle" });
+    const recent = page.locator("article").first();
+    await expect(recent.locator("[data-event-entry]")).toHaveCount(1);
+    await expect(recent.locator("[data-event-entry='background']")).toBeVisible();
+  });
+}
