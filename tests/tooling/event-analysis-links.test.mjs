@@ -13,14 +13,19 @@ Module._resolveFilename = function (request, ...rest) { return resolve.call(this
 require.extensions['.ts'] = (module, file) => module._compile(ts.transpileModule(fs.readFileSync(file, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020, esModuleInterop: true } }).outputText, file);
 const links = require('../../src/lib/eventAnalysisLinks.ts');
 const read = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
-const events = read('src/data/events/events.json').records;
+const historical = read('src/data/events/events.json').records;
+// The reviewed 2026 batch lives outside the frozen events.json; records may reference its ids without changing it.
+const recent = require('../../src/lib/weeklyNews/2026-10-11.ts').weeklyNews20261011.map((item) => ({ event_id: item.id, country_slug: item.countrySlug, data_status: item.dataStatus, source_url: item.sourceUrl, event_type: item.eventType, date: item.weekOf }));
+const events = [...historical, ...recent];
 const indicators = new Set(read('src/data/indicators/indicators.json').records.map((row) => row.id));
 const observations = read('src/data/observations/observations.json').records;
 const workbench = fs.readFileSync(path.join(root, 'src/components/EventWindowWorkbench.tsx'), 'utf8');
 const monthlyOutcomes = new Set([...workbench.matchAll(/^\s+"?([a-z_]+(?::[a-z_]+)?)"?: "[^"]+",$/gm)].map((match) => match[1]));
 
 test('every reviewed record points at an existing verified event and restates its own source', () => {
-  assert.equal(links.eventAnalysisRecords.length, 4);
+  assert.equal(links.eventAnalysisRecords.length, 9);
+  assert.equal(links.eventAnalysisRecords.filter((record) => record.period === 'recent').length, 5);
+  for (const record of links.eventAnalysisRecords) assert.equal(record.period === 'recent', recent.some((row) => row.event_id === record.event_id), `${record.event_id}: period matches its store`);
   for (const record of links.eventAnalysisRecords) {
     const event = events.find((row) => row.event_id === record.event_id);
     assert.ok(event, record.event_id);
@@ -53,7 +58,7 @@ test('no numerical effect, score or forecast wording in the reviewed text', () =
 });
 
 test('an event category never yields a link; publishers are never presented as actors', () => {
-  const plain = events.find((row) => row.event_type === 'regional' && !links.getEventAnalysis(row.event_id));
+  const plain = historical.find((row) => row.event_type === 'regional' && !links.getEventAnalysis(row.event_id));
   assert.deepEqual(links.linkedWindowOutcomes(plain.event_id), []);
   assert.deepEqual(links.eventAnalysisLevels(plain), { background: plain.source_url ? 'available' : 'unavailable', mechanism: 'unavailable', indicators: 'unavailable', window_link: 'unavailable' });
   assert.equal(links.eventActors({ event_id: 'x', actor: 'ORF', source_name: 'ORF' }).actors, null);
@@ -68,4 +73,21 @@ test('the event-window engine and its gates are untouched', () => {
   assert.match(engine, /const FULL_GATE = \{ pre: 12, post: 6 \} as const;/);
   assert.match(engine, /const EXPLORATORY_GATE = \{ pre: 6, post: 3 \} as const;/);
   assert.doesNotMatch(workbench, /suggestedOutcomes/);
+});
+
+test('recent events: frozen stores untouched, statuses honest, no monthly link without a rationale', () => {
+  const ids = new Set(historical.map((row) => row.event_id));
+  for (const record of links.eventAnalysisRecords.filter((item) => item.period === 'recent')) {
+    assert.ok(!ids.has(record.event_id), 'recent records are not copied into events.json');
+    assert.match(record.event_id, /^[a-z]{2}-2026-/);
+    assert.ok(record.limitations.length >= 2);
+  }
+  const status = (id) => links.eventAnalysisRecords.find((record) => record.event_id.startsWith(id)).measure_status;
+  assert.equal(status('cz-2026-09-21'), 'proposed');
+  assert.equal(status('sk-2026-10-09'), 'stated');
+  assert.equal(status('de-2026-10-07'), 'announced');
+  const cosco = events.find((row) => row.event_id.startsWith('de-2026-10-07-hamburg'));
+  assert.equal(links.eventAnalysisLevels(cosco).indicators, 'unavailable');
+  assert.deepEqual(links.linkedWindowOutcomes(events.find((row) => row.event_id.startsWith('ro-2026-10-09-the-national-bank')).event_id), ['policy_rate:level', 'hicp_annual_rate']);
+  assert.deepEqual(links.linkedWindowOutcomes(events.find((row) => row.event_id.startsWith('cz-2026-10-07-czechia-receives')).event_id), []);
 });

@@ -450,22 +450,22 @@
       "amendment_id": "event-analysis-levels-2026-10-12",
       "status": "owner_approved",
       "approved_by": "owner explicit implementation brief 2026-10-12 (News Event Intelligence & Economic Analysis Upgrade)",
-      "purpose": "Four-level event analysis presentation (background, qualitative mechanism, explained indicator links, descriptive event window) and four reviewed representative event records. Presentation metadata only: no event record, observation, engine, gate or model change; no numerical effect.",
+      "purpose": "Four-level event analysis presentation (background, qualitative mechanism, explained indicator links, descriptive event window) and four reviewed representative event records. Presentation metadata only: no event record, observation, engine, gate or model change; no numerical effect. Extended 2026-10-12 (owner brief Recent Event Research Integration): five reviewed 2026 event records referencing existing news-batch ids, two measure-status labels and an optional section deep link.",
       "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
       "files": [
         {
           "path": "src/lib/eventAnalysisLinks.ts",
-          "sha256": "a7abded52b91ad6da86f678fe07719ff523289c08dd3ed3c66e3074ea708b143",
+          "sha256": "7306ed7b671ca048ea41f0a37cded4abfd9ec783165e7325b241db6cc0a9890e",
           "classification": "METHODOLOGY_PRESENTATION"
         },
         {
           "path": "src/components/EventAnalysisPanel.tsx",
-          "sha256": "d313b25f0dbf7ad9dce915e46e408a8db9e52055c96b4aa9ce9dcabc9810bf4d",
+          "sha256": "63bb4f8e28865ac5ba8f4acbe2e7dc37db6a97dfc598d07db001776cb212bc13",
           "classification": "DATA_PRESENTATION"
         },
         {
           "path": "src/components/EventWindowWorkbench.tsx",
-          "sha256": "92d12750a7196188ee7ee7942dc63dfbcbea653f6e1003f5c1c77fafd2df4994",
+          "sha256": "1d80d854bf978e6f8b04ef4d755564406b01fc9ab2544f68571667591a53a520",
           "classification": "DATA_PRESENTATION"
         }
       ],

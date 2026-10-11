@@ -228,7 +228,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
       {representative.length ? (
         <section className="border-y border-[var(--line)] py-4" data-representative-events>
           <p className="text-sm font-semibold">{en ? "Representative event studies" : "代表性事件研究"}</p>
-          <p className="mt-1 text-xs leading-5 text-[var(--muted)]">{en ? "Four historical events with reviewed background and mechanism notes. They are case descriptions, not causal studies; each shows only the levels its evidence supports." : "四个附有经审阅的背景与机制说明的历史事件。它们是案例描述，不是因果研究；每个事件只显示其证据支持的层次。"}</p>
+          <p className="mt-1 text-xs leading-5 text-[var(--muted)]">{en ? "Events with reviewed background and mechanism notes. They are case descriptions, not causal studies; each shows only the levels its evidence supports. Events from 2026 are usually too recent for an event window." : "附有经审阅的背景与机制说明的事件。它们是案例描述，不是因果研究；每个事件只显示其证据支持的层次。2026 年的事件通常距今太近，无法形成事件窗口。"}</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {representative.map((event) => (
               <button key={event.event_id} type="button" aria-pressed={event.event_id === eventId} onClick={() => selectEvent(event.country_slug, event.event_id)} data-representative-event={event.event_id} className={`rounded-full border px-3 py-1 text-left text-xs font-semibold ${event.event_id === eventId ? "border-[var(--accent)] text-[var(--accent)]" : "border-[var(--line)]"}`}>

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { englishText } from "@/i18n/reviewedText";
 import { formatWithUnit } from "@/lib/format";
@@ -17,6 +18,8 @@ const STATUS: Record<MeasureStatus, Bi> = {
   announced: { zh: "已公告（尚未证实实施）", en: "Announced (implementation not established)" },
   adopted: { zh: "已通过（有待实施）", en: "Adopted (to be implemented)" },
   implemented: { zh: "已实施的措施或行动", en: "Measure or action carried out" },
+  proposed: { zh: "已提出的草案（尚未生效）", en: "Proposed draft (not yet enacted)" },
+  stated: { zh: "当事方的表态（未经独立核实）", en: "Statement by an actor (not independently verified)" },
 };
 const KIND: Record<EvidenceKind, Bi> = {
   observed_fact: { zh: "已观察的事实", en: "Observed fact" },
@@ -36,7 +39,7 @@ const GATE: Record<EventWindowGate, Bi> = {
 
 function Level({ n, title, state, children }: { n: number; title: string; state: string; children: React.ReactNode }) {
   return (
-    <section className="border-t border-[var(--line)] pt-4" data-event-level={n}>
+    <section id={`event-level-${n}`} tabIndex={-1} className="scroll-mt-24 border-t border-[var(--line)] pt-4 outline-none" data-event-level={n}>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h4 className="text-base font-semibold"><span className="metric-number mr-2 text-xs text-[var(--muted)]">{n}</span>{title}</h4>
         <span className="text-xs font-semibold text-[var(--muted)]" data-level-state>{state}</span>
@@ -64,6 +67,17 @@ export function EventAnalysisPanel({ event, availability, onOpenWindow }: { even
   const linkedWindows = (availability ?? []).filter((row) => row.linked);
   const anyFull = (availability ?? []).some((row) => row.gate === "full");
   const maxPost = Math.max(0, ...(availability ?? []).map((row) => row.post));
+  // Optional deep link: ?section=background|mechanism|indicators|window focuses that level once, after data coverage is known.
+  const focused = useRef<string | null>(null);
+  useEffect(() => {
+    if (availability === null || focused.current === event.event_id) return;
+    const level = { background: 1, mechanism: 2, indicators: 3, window: 4 }[new URLSearchParams(window.location.search).get("section") ?? ""];
+    if (!level || new URLSearchParams(window.location.search).get("event") !== event.event_id) return;
+    focused.current = event.event_id;
+    const target = document.getElementById(`event-level-${level}`);
+    target?.scrollIntoView({ block: "start" });
+    target?.focus({ preventScroll: true });
+  }, [availability, event.event_id]);
 
   return (
     <article className="editorial-panel p-5" data-event-analysis={event.event_id}>

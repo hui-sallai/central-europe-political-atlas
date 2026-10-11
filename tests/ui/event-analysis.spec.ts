@@ -55,7 +55,7 @@ for (const locale of ["zh-CN", "en"] as const) {
 
 test("representative event buttons select the event and its country", async ({ page }) => {
   await page.goto("/models/?tab=run&skill=event_window_analysis", { waitUntil: "networkidle" });
-  await expect(page.locator("[data-representative-event]")).toHaveCount(4);
+  await expect(page.locator("[data-representative-event]")).toHaveCount(9);
   await page.locator("[data-representative-event='hu-2023-01-26-eu-funds-conditionality']").click();
   const study = panel(page, "hu-2023-01-26-eu-funds-conditionality");
   await expect(study.locator("[data-linked-indicator='government_expenditure_gdp']")).toBeVisible();
@@ -78,3 +78,32 @@ for (const locale of ["zh-CN", "en"] as const) {
     await expect(recent.locator("[data-event-entry='background']")).toBeVisible();
   });
 }
+
+for (const locale of ["zh-CN", "en"] as const) {
+  test(`reviewed 2026 event: mechanism and links shown, window explained as not yet possible (${locale})`, async ({ page }) => {
+    const id = "ro-2026-10-09-the-national-bank-of-romanian-maintains-reference-interest-rate-id1069193";
+    await page.goto(url(locale, id, "romania", "&section=indicators"), { waitUntil: "networkidle" });
+    const study = panel(page, id);
+    await expect(study.locator("[data-evidence-kind]")).toHaveCount(3);
+    await expect(study.locator("[data-linked-indicator='policy_rate:level']")).toContainText(locale === "en" ? "Stated in the source" : "来源明确说明");
+    await expect(study.locator("[data-linked-indicator='hicp_annual_rate']")).toContainText(locale === "en" ? "Research hypothesis" : "研究假设");
+    await expect(study.locator("[data-window-availability] tr[data-window-gate='full']")).toHaveCount(0);
+    await expect(study.locator("[data-level-reason='window']").first()).toContainText(locale === "en" ? "No numerical result is shown" : "不显示任何数值结果");
+    await expect(study.locator("[data-open-window]")).toHaveCount(0);
+    await expect(study.locator("#event-level-3")).toBeFocused();
+    if (locale === "en") expect(await study.locator("[data-event-level]").evaluateAll((nodes) => nodes.map((node) => { const copy = node.cloneNode(true) as HTMLElement; copy.querySelectorAll("[data-original-language]").forEach((item) => item.remove()); return copy.textContent; }).join(" "))).not.toMatch(/[㐀-鿿]/u);
+  });
+}
+
+test("reviewed 2026 events without a defensible link stay qualitative; annual links show only published years", async ({ page }) => {
+  const cosco = "de-2026-10-07-hamburg-zippel-china-staatsreederei-cosco-wirtschaftsministerium-100";
+  await page.goto(url("en", cosco, "germany"), { waitUntil: "networkidle" });
+  await expect(panel(page, cosco).locator("[data-linked-indicator]")).toHaveCount(0);
+  await expect(panel(page, cosco).locator("[data-unsupported-links]")).toContainText("FDI inflow");
+  await expect(panel(page, cosco).locator("[data-event-actors]")).toContainText("COSCO (proposed acquirer)");
+  const budget = "cz-2026-09-21-czech-government-approves-2027-budget-czk-386-billion-deficit-8897929";
+  await page.goto(url("en", budget, "czechia"), { waitUntil: "networkidle" });
+  await expect(panel(page, budget)).toContainText("Proposed draft (not yet enacted)");
+  await expect(panel(page, budget).locator("[data-linked-indicator='fiscal_balance_gdp'] thead")).not.toContainText("2027");
+  await expect(page.locator("[data-representative-event]")).toHaveCount(9);
+});
