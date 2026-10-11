@@ -8,6 +8,7 @@ import {stores,buildApprovedProduction} from './production.mjs';
 import {validatePolitical} from './validate.mjs';
 import {politicalExportFiles} from './export.mjs';
 import {approvedMirrorFiles,mirrorSyncPath,MIRROR_SYNC_FILE} from '../../../docs/political-data/source-closure/ui-amendments.mjs';
+import {approvedNewsFiles,NEWS_REFRESH_FILE} from '../../../docs/political-data/source-closure/news-refresh-amendments.mjs';
 
 export const DEPENDENCY_EXCEPTIONS_FILE='docs/legal-security/dependency_maintenance_exceptions.json';
 // Dependency-tooling files other than package.json / pnpm-lock.yaml that no exception may touch.
@@ -115,6 +116,8 @@ function mirrorSyncApplies(file){
 
 // Explicit owner-approved additive exception, not a general src/data exemption.
 export function unapprovedFrozenChanges(changed,baseline){
+  const newsPath=path.join(root,NEWS_REFRESH_FILE);
+  const news=approvedNewsFiles(fs.existsSync(newsPath)?JSON.parse(fs.readFileSync(newsPath,'utf8')).amendments:[]);
   const data=buildApprovedProduction();validatePolitical(data,data);
   const files=new Map(stores.map(store=>[`src/data/political/germany/${store}.json`,JSON.stringify(data[store],null,2)+'\n']));
   for(const [name,content] of Object.entries(politicalExportFiles(data)))files.set(`public/research-data/political/germany/${name}`,content);
@@ -123,6 +126,8 @@ export function unapprovedFrozenChanges(changed,baseline){
     // The lockfile may differ from the research baseline only under an exact owner-approved dependency exception;
     // research data, engines and political stores keep the original rules below.
     if(file==='pnpm-lock.yaml'){if(!dependencyExceptionApplies(baseline))unexpected.push(file);continue;}
+    // Same batch-only owner authorization as the source-closure checkpoint; exact hashes only.
+    if(!news.problems.length && news.approved.has(file) && fs.existsSync(path.join(root,file)) && news.approved.get(file)===sha256(fs.readFileSync(path.join(root,file))))continue;
     // Owner-approved export mirror sync: a public mirror may differ only at its exact recorded sha256
     // (docs/legal-security/export_mirror_sync_records.json, reproduced by research-export:check); src/data never.
     if(mirrorSyncApplies(file))continue;
