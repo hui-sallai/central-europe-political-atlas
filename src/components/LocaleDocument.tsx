@@ -68,7 +68,8 @@ export default function LocaleDocument({
               <p>{PLATFORM_NAME} · {PLATFORM_VERSION}</p>
               <p>{en ? "An independent, non-commercial research project. Not affiliated with or endorsed by the EU, governments, political parties, companies or data providers." : "独立非商业研究项目，与欧盟、各国政府、政党、企业及数据提供方无隶属或背书关系。"}</p>
             </div>
-            <nav className="flex flex-wrap gap-x-4 gap-y-2 md:justify-end" aria-label={en ? "Legal and privacy" : "法律与隐私"}>
+            <nav className="flex flex-wrap gap-x-4 gap-y-2 md:justify-end" aria-label={en ? "Footer navigation" : "页脚导航"}>
+              <Link href="/portfolio/" className="hover:text-[var(--foreground)]">{en ? "Portfolio" : "作品集"}</Link>
               <Link href={localizedRoute("/legal/", locale)} className="hover:text-[var(--foreground)]">{en ? "Legal and copyright" : "法律与版权"}</Link>
               <Link href={localizedRoute("/privacy/", locale)} className="hover:text-[var(--foreground)]">{en ? "Privacy" : "隐私说明"}</Link>
               <Link href={localizedRoute("/methodology/", locale)} className="hover:text-[var(--foreground)]">{en ? "Methodology" : "方法论"}</Link>
