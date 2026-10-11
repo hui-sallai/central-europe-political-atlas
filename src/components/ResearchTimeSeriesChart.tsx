@@ -104,9 +104,18 @@ interface Props {
 const WIDTH = 760;
 const MARGIN = { top: 34, right: 22, bottom: 50, left: 66 };
 
-export function ResearchTimeSeriesChart({ title, description, series, xKind, xLabel, yLabel, zeroLine = "auto", zeroDash = "5 4", includeZero = false, xTickValues, latestMarker = false, height = 300, legend = true, formatX, formatY, className, interactive = false }: Props) {
-  const locale = useLocale();
+export function ResearchTimeSeriesChart(props: Props) {
+  return props.interactive ? <InteractiveResearchTimeSeriesChart {...props} /> : <RenderedResearchTimeSeriesChart {...props} />;
+}
+
+function InteractiveResearchTimeSeriesChart(props: Props) {
   const [activePoint, setActivePoint] = useState<string | null>(null);
+  return <RenderedResearchTimeSeriesChart {...props} activePoint={activePoint} setActivePoint={setActivePoint} />;
+}
+
+// Non-interactive research charts remain stateless, including frozen-output SSR validation.
+function RenderedResearchTimeSeriesChart({ title, description, series, xKind, xLabel, yLabel, zeroLine = "auto", zeroDash = "5 4", includeZero = false, xTickValues, latestMarker = false, height = 300, legend = true, formatX, formatY, className, interactive = false, activePoint = null, setActivePoint = () => {} }: Props & { activePoint?: string | null; setActivePoint?: (value: string) => void }) {
+  const locale = useLocale();
   const toX = (value: number | string) => (typeof value === "string" ? monthIndex(value) : value);
   const allX = series.flatMap((s) => s.points.map((p) => toX(p.x)));
   const allY = series.flatMap((s) => [...s.points.flatMap((p) => (p.y === null || !Number.isFinite(p.y) ? [] : [p.y])), ...(s.band ?? []).flatMap((b) => [b.lower, b.upper])]);
