@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { PLATFORM_BASE_URL, PLATFORM_RELEASE_DATE } from "@/lib/releaseMetadata";
 import { localizedRoute } from "@/i18n/config";
+import { portfolioCases } from "@/content/portfolio";
 import { workspaceIds } from "@/content/researchWorkspaces";
 
 export const dynamic = "force-static";
@@ -34,7 +35,7 @@ const routes = [
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.flatMap((route) => route === "historical-extension/" ? [route] : [route, `en/${route}`]).map((route) => ({
+  const atlas: MetadataRoute.Sitemap = routes.flatMap((route) => route === "historical-extension/" ? [route] : [route, `en/${route}`]).map((route) => ({
     url: new URL(route, PLATFORM_BASE_URL).toString(),
     lastModified: PLATFORM_RELEASE_DATE,
     changeFrequency: route === "" ? "weekly" : "monthly",
@@ -45,4 +46,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "x-default": new URL(localizedRoute(`/${route}`, "zh-CN").slice(1), PLATFORM_BASE_URL).toString(),
     } } }),
   }));
+  return [...atlas, ...["portfolio/", ...portfolioCases.map(item => `portfolio/${item.slug}/`)].map(route => ({ url: new URL(route, PLATFORM_BASE_URL).toString(), lastModified: "2026-10-11", changeFrequency: "monthly" as const, priority: 0.6 }))];
 }

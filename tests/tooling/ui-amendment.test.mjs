@@ -49,7 +49,7 @@ test('wildcard paths, missing sha256, OTHER classification and data_change_allow
 test('the committed amendment lists exact hashes for presentation files only', () => {
   const { problems, approved } = approvedUiFiles(record.amendments);
   assert.deepEqual(problems, []);
-  assert.equal(approved.size, 30); // Seven additional presentation paths in the comparison/scenario upgrade.
+  assert.equal(approved.size, 39); // Existing 23 + 9 portfolio + 7 comparison/scenario presentation paths.
   for (const [p] of approved) assert.match(p, /^src\/(app|components|lib)\//);
 });
 
