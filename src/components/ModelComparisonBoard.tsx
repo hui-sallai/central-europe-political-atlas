@@ -5,6 +5,8 @@ import { useMemo, useState } from "react";
 import { BarMeter } from "@/components/ResearchCharts";
 import type { ModelComparisonResult } from "@/lib/modelComparisonGate";
 import type { ModelId, ModelOutput } from "@/types/ModelOutput";
+import { modelCards } from "@/lib/modelFramework";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 const trendLabels: Record<ModelOutput["direction"], string> = {
   rising: "↑ 上升",
@@ -57,11 +59,13 @@ function compareOutputs(a: ModelOutput, b: ModelOutput, sort: SortOption) {
 }
 
 export function ModelComparisonBoard({ comparisons }: { comparisons: ModelComparisonResult[] }) {
+  const locale = useLocale();
   const [modelId, setModelId] = useState<ModelId>((comparisons[0]?.gate.model_id as ModelId | undefined) ?? "household_economic_pressure");
   const [sort, setSort] = useState<SortOption>("score_desc");
 
   const comparison = comparisons.find((item) => item.gate.model_id === modelId) ?? comparisons[0];
   const { gate } = comparison;
+  const card = modelCards.find(card => card.model_id === gate.model_id);
 
   const rows = useMemo(() => [...comparison.eligible].sort((a, b) => compareOutputs(a, b, sort)), [comparison.eligible, sort]);
 
@@ -148,7 +152,7 @@ export function ModelComparisonBoard({ comparisons }: { comparisons: ModelCompar
             <span className="metric-number text-lg text-[var(--muted)]">{index + 1}</span>
             <div>
               <p className="text-sm font-semibold">{row.country}</p>
-              <p className="text-xs text-[var(--muted)]">{row.country_slug}</p>
+              <p className="text-xs text-[var(--muted)]">{row.input_year ?? "—"} · / 100</p>
             </div>
             <div>
               {row.score !== null ? (
@@ -174,6 +178,7 @@ export function ModelComparisonBoard({ comparisons }: { comparisons: ModelCompar
           </li>
         ))}
       </ol>
+      {card ? <details className="advanced-disclosure mt-5"><summary>{locale === "en" ? "What this model measures" : "如何理解这个模型"}</summary><div className="mt-4 text-sm leading-7"><p>{card.purpose}</p><p>{card.output_meaning}</p><p>{card.completeness_rule}</p><ul className="list-disc pl-5">{card.limitations.map(item => <li key={item}>{item}</li>)}</ul><a className="underline" href={`${locale === "en" ? "/en" : ""}/methodology#models`}>{locale === "en" ? "Methodology" : "方法详情"}</a></div></details> : null}
 
       {comparison.excluded.length > 0 ? (
         <div className="mt-6 border-t border-[var(--line)] pt-5">

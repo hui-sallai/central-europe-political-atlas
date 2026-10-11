@@ -9,7 +9,8 @@ import { buildIndicatorComparisonColumn } from "@/lib/indicatorComparison";
 import { buildModelComparison, type ModelComparisonResult } from "@/lib/modelComparisonGate";
 import { modelCards, modelOutputs } from "@/lib/modelFramework";
 import { platformStatus } from "@/lib/platformStatus";
-import { researchCountries, researchEvents } from "@/lib/researchData";
+import { researchCountries, researchEvents, researchIndicators, researchObservations } from "@/lib/researchData";
+import { AnnualComparisonWorkbench } from "./AnnualComparisonWorkbench";
 import { KickerVersion } from "@/components/KickerVersion";
 
 
@@ -84,6 +85,7 @@ export function ModelsPageContent() {
               <h2 id="cross-country-comparison-title" className="mt-3 text-3xl font-semibold">指标与综合指数比较</h2>
               <p className="mt-4 text-base leading-8 text-[var(--muted)]">这里只比较同年份、同定义、同单位的年度指标与综合指数。LP 跨国响应仅可描述性并列，不进入排名；VAR、面板及网络结果不接入此矩阵。不同年份的结果不会进入同一排名；未通过比较门控的国家单独列出并说明原因。</p>
             </header>
+            <AnnualComparisonWorkbench countries={researchCountries} indicators={researchIndicators.filter(i => i.frequency === "annual")} observations={researchObservations} />
             <ModelComparisonBoard comparisons={comparisons} />
             <CountryComparisonMatrix data={matrixData} />
           </section>

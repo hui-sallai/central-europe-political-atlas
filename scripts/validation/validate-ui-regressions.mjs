@@ -162,8 +162,11 @@ const outDir = path.join(root, "out");
 if (fs.existsSync(path.join(outDir, "data", "index.html"))) {
   const html = fs.readFileSync(path.join(outDir, "data", "index.html"), "utf8");
   check(/class="[^"]*cta-dark[^"]*"[^>]*>[^<]*\S/.test(html), "built /data page renders a labelled dark CTA");
-  const cssFiles = fs.readdirSync(path.join(outDir, "_next", "static", "chunks")).filter((f) => f.endsWith(".css"));
-  const builtCss = cssFiles.map((f) => fs.readFileSync(path.join(outDir, "_next", "static", "chunks", f), "utf8")).join("\n");
+  // Read the stylesheets actually linked by the page: webpack uses static/css,
+  // while Turbopack uses static/chunks. Both must satisfy the same CSS assertions.
+  const cssFiles = [...new Set([...html.matchAll(/href="(\/_next\/static\/[^"?]+\.css)(?:\?[^\"]*)?"/g)].map(match => match[1]))];
+  check(cssFiles.length > 0 && cssFiles.every(file => !file.includes("..")), "built page links safe, nonempty stylesheet paths");
+  const builtCss = cssFiles.map(file => fs.readFileSync(path.join(outDir, file), "utf8")).join("\n");
   check(/@layer base\{[\s\S]*?a\{color:inherit/.test(builtCss), "built CSS keeps the anchor default inside @layer base");
   check(/\.data-table-viewport thead th\{[^}]*position:sticky/.test(builtCss), "built CSS contains the sticky table header");
 }

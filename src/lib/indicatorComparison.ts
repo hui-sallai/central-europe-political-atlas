@@ -1,5 +1,6 @@
 import { getResearchIndicator, researchObservations } from "@/lib/researchData";
 import type { Country } from "@/types/Country";
+import { latestCommon } from "@/lib/freshness";
 
 export interface IndicatorComparisonColumn {
   indicator_id: string;
@@ -28,37 +29,15 @@ function comparableObservation(countrySlug: string, indicatorId: string, year: n
 
 /**
  * Builds one matrix column on a strict same-definition / same-unit / same-year basis.
- * The comparison year is the latest year every country can supply; when no full common
- * year exists, the latest year with the widest coverage is used and uncovered countries
- * display an explicit "—" instead of falling back to an older year.
+ * The centralized selector requires a common published year across all countries;
+ * there is no partial-coverage fallback.
  */
 export function buildIndicatorComparisonColumn(indicatorId: string, countries: Country[]): IndicatorComparisonColumn {
   const indicator = getResearchIndicator(indicatorId);
   const unit = indicator?.unit ?? "";
   const label = indicator?.name_zh ?? indicatorId;
 
-  const yearsByCountry = new Map(countries.map((country) => [
-    country.slug,
-    researchObservations
-      .filter((observation) => observation.country_slug === country.slug && observation.indicator === indicatorId)
-      .map((observation) => observation.year)
-      .filter((year) => comparableObservation(country.slug, indicatorId, year) !== null),
-  ]));
-
-  const yearSupport = new Map<number, number>();
-  for (const years of yearsByCountry.values()) {
-    for (const year of years) yearSupport.set(year, (yearSupport.get(year) ?? 0) + 1);
-  }
-
-  let comparisonYear: number | null = null;
-  let bestSupport = 0;
-  for (const [year, support] of yearSupport) {
-    if (support > bestSupport || (support === bestSupport && comparisonYear !== null && year > comparisonYear)) {
-      bestSupport = support;
-      comparisonYear = year;
-    }
-  }
-  if (bestSupport < 2) comparisonYear = null;
+  const comparisonYear = countries.length >= 2 ? latestCommon(countries.map(country => country.slug), indicatorId) : null;
 
   const values: IndicatorComparisonColumn["values"] = {};
   let eligibleCount = 0;

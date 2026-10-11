@@ -271,6 +271,56 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-10"
+    },
+{
+  "amendment_id": "comparison-scenario-visualization-2026-10-11",
+  "status": "owner_approved",
+  "approved_by": "owner explicit implementation instruction 2026-10-11",
+  "purpose": "Comparison, scenario and visualization presentation only",
+  "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+  "files": [
+    {
+      "path": "src/components/AnnualComparisonWorkbench.tsx",
+      "sha256": "9866413aa3b27611dbe99ee63c392dfb55d41ea0adc68d960864d206b41d2c27",
+      "classification": "DATA_PRESENTATION"
+    },
+    {
+      "path": "src/components/ModelsPageContent.tsx",
+      "sha256": "3280e4a4ff11a1b44e220d35a78a277c58560d115780bc7b890fc002d296db5b",
+      "classification": "DATA_PRESENTATION"
+    },
+    {
+      "path": "src/components/NewsExplorer.tsx",
+      "sha256": "0dde85e48ce4f685db24fb47ef4db6b524cbb269a6db28a4bac2d3247b9ed1e5",
+      "classification": "DATA_PRESENTATION"
+    },
+    {
+      "path": "src/components/ResearchTimeSeriesChart.tsx",
+      "sha256": "6b8cbf64676add98cf19752e797f3dfb70bc9f53c02a929f9f55e954fdff6689",
+      "classification": "DATA_PRESENTATION"
+    },
+    {
+      "path": "src/components/ScenarioPresetWorkbench.tsx",
+      "sha256": "6d6087ee3a1f86df759a0cff51629398c99502de13030bc6be304ce78a494d1f",
+      "classification": "DATA_PRESENTATION"
+    },
+    {
+      "path": "src/components/ModelComparisonBoard.tsx",
+      "sha256": "7f0ed6b928f4c635b2de2d90220c937ac99f70c341219cc7d15540365ea8568b",
+      "classification": "DATA_PRESENTATION"
+    },
+    {
+      "path": "src/lib/indicatorComparison.ts",
+      "sha256": "fad35d6a83c88f0772d7b3b893a9eea0aefcfc3c78f19edaeb6e695eea1d7902",
+      "classification": "DATA_PRESENTATION"
     }
+  ],
+  "canonical_data_change_allowed": false,
+  "public_research_data_change_allowed": false,
+  "political_data_change_allowed": false,
+  "model_change_allowed": false,
+  "release_change_allowed": false,
+  "created_at": "2026-10-11"
+}
   ]
 }

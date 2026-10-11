@@ -5,6 +5,8 @@ import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { calculateScenario } from "@/lib/scenarioFramework";
 import { scenarioPresets } from "@/lib/scenarioPresets";
+import { getResearchIndicator } from "@/lib/researchData";
+import { ResearchTimeSeriesChart } from "./ResearchTimeSeriesChart";
 import type { Country } from "@/types/Country";
 import type { ModelCard, ModelOutput } from "@/types/ModelOutput";
 import type { ScenarioDefinition, ScenarioEvidenceLink, ScenarioId, ScenarioRegionalContext, ScenarioResult } from "@/types/Scenario";
@@ -18,6 +20,11 @@ export function ScenarioPresetWorkbench({ countries, definitions, cards, outputs
   const [result, setResult] = useState<ScenarioResult | null>(null);
   const currentEvidence = useMemo(() => evidence.filter((item) => item.country_slug === countrySlug && item.scenario_id === scenarioId), [countrySlug, evidence, scenarioId]);
   const preset = scenarioPresets.find((item) => item.scenario_id === scenarioId);
+  const sensitivity = useMemo(() => definition ? Array.from({ length: 11 }, (_, i) => {
+    const shock = definition.shock_min + (definition.shock_max - definition.shock_min) * i / 10;
+    const value = calculateScenario({ definition, countrySlug, shockValue: shock, cards, outputs });
+    return { x: shock, y: value.scenario_score };
+  }) : [], [definition, countrySlug, cards, outputs]);
 
   function changeScenario(value: ScenarioId) {
     const next = definitions.find((item) => item.scenario_id === value);
@@ -46,6 +53,18 @@ export function ScenarioPresetWorkbench({ countries, definitions, cards, outputs
     </div>
 
     {!result ? <div className="border-y border-[var(--line)] py-12 text-center"><p className="font-semibold">设置冲击后运行预设</p><p className="mt-2 text-sm text-[var(--muted)]">结果是条件式“如果……那么……”比较，不是预测。</p></div> : <>
+      {result.unavailable_reason ? <p role="status" className="editorial-panel p-5 text-[var(--warning)]">{result.unavailable_reason}</p> : null}
+      <article className="editorial-panel p-5">
+        <h2 className="text-xl font-semibold">{locale === "en" ? "Inputs and assumptions" : "基线输入与情景假设"}</h2>
+        <p className="mt-3">{locale === "en" ? "Reference model" : "参考模型"}: {result.model_name} · {result.baseline_date ?? "—"} · {locale === "en" ? "Score: 0–100, not a probability" : "得分 0–100，不是概率"}</p>
+        <p className="mt-2">{definition.shock_label}: {result.requested_shock_value} {definition.shock_unit} → {locale === "en" ? "Applied" : "实际采用"} {result.shock_value} {definition.shock_unit}</p>
+        <div className="mt-4 overflow-x-auto"><table className="research-data-table w-full min-w-[520px] text-sm"><thead><tr>{["指标", "年份", "基线", "调整后", "单位"].map(label => <th key={label} className="p-2 text-left">{label}</th>)}</tr></thead><tbody>{result.baseline_input_values.map(input => <tr key={input.observation_id}><td className="p-2">{getResearchIndicator(input.indicator_id)?.[locale === "en" ? "name" : "name_zh"] ?? input.indicator_id}</td><td className="p-2">{input.year}</td><td className="p-2 metric-number">{input.value.toLocaleString(locale === "en" ? "en" : "zh-CN")}</td><td className="p-2 metric-number">{(result.adjusted_input?.indicator_id === input.indicator_id ? result.adjusted_input.adjusted_value : input.value).toLocaleString(locale === "en" ? "en" : "zh-CN")}</td><td className="p-2">{input.unit}</td></tr>)}</tbody></table></div>
+        {result.adjusted_input ? <p className="mt-3 text-sm"><a href={result.adjusted_input.source_url} target="_blank" rel="noreferrer" className="underline">{result.adjusted_input.source_name}</a> · {result.adjusted_input.year} · {locale === "en" ? "Only the stated input changes; other inputs remain fixed." : "仅调整指定输入，其他输入保持不变。"}</p> : null}
+        <ul className="mt-4 list-disc pl-5 text-sm leading-7">{definition.assumptions.map(item => <li key={item}>{item}</li>)}</ul>
+        <ul className="mt-4 list-disc pl-5 text-sm leading-7 text-[var(--muted)]">{result.limitations.map(item => <li key={item}>{item}</li>)}</ul>
+        <a className="mt-4 block text-sm underline" href={`${locale === "en" ? "/en" : ""}/methodology#models`}>{locale === "en" ? "Methodological details" : "方法与尺度说明"}</a>
+      </article>
+      {result.status === "available" ? <ResearchTimeSeriesChart title={locale === "en" ? "Scenario sensitivity under fixed assumptions" : "固定假设下的情景敏感性"} description={locale === "en" ? "Calculated scores across the permitted shock range; not estimates of future outcomes. No statistical intervals are supplied." : "在允许冲击范围内重算得分，不表示未来结果；未提供统计区间。"} xKind="number" xLabel={`${definition.shock_label} (${definition.shock_unit})`} yLabel={locale === "en" ? "Model score (0–100)" : "模型得分（0–100）"} series={[{ id: "scenario-sensitivity", label: locale === "en" ? "Conditional score" : "条件式得分", color: "#a6453c", points: sensitivity }, { id: "selected-shock", label: locale === "en" ? "Selected shock" : "当前冲击", color: "#246a87", width: 0, markers: true, points: [{ x: result.shock_value, y: result.scenario_score }] }, { id: "baseline-score", label: locale === "en" ? "Frozen baseline" : "冻结基线", color: "#64803c", dash: "5 4", points: sensitivity.map(p => ({ x: p.x, y: result.baseline_score })) }]} /> : null}
       <section className="grid gap-4 md:grid-cols-3">
         {[ ["基线", result.baseline_score], ["情景", result.scenario_score], ["变化", result.score_change] ].map(([label, value]) => <article key={String(label)} className="editorial-panel p-5"><p className="editorial-kicker">{label}</p><p className="metric-number mt-3 text-4xl font-semibold text-[var(--accent)]">{typeof value === "number" ? `${value > 0 && label === "变化" ? "+" : ""}${value.toFixed(1)}` : "暂不可计算"}</p></article>)}
       </section>
