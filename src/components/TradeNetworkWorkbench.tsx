@@ -1,4 +1,5 @@
 "use client";
+import { ResearchTimeSeriesChart } from "./ResearchTimeSeriesChart";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { englishText } from "@/i18n/reviewedText";
@@ -197,27 +198,9 @@ export function TradeNetworkWorkbench({ countries, initialCountry }: { countries
             </div>
           </div>
 
-          <div className="mt-6">
-            <p className="text-sm font-semibold">历史变化（2015–2025，HHI 与中国贸易份额；名义值，非实际增长）</p>
-            <svg viewBox="0 0 680 160" className="mt-3 w-full" role="img" aria-label={`${countryName(country)} HHI 与中国贸易份额历史变化`}>
-              {trend.length > 1 ? (() => {
-                const values = trend.map((item) => item.metrics!.partner_hhi);
-                const chinaValues = trend.map((item) => item.metrics!.china_share ?? 0);
-                const maxValue = Math.max(...values, ...chinaValues, 0.05);
-                const point = (index: number, value: number) => `${40 + (index / (trend.length - 1)) * 600},${130 - (value / maxValue) * 110}`;
-                const hhiPoints = trend.map((item, index) => point(index, item.metrics!.partner_hhi)).join(" ");
-                const chinaPoints = trend.map((item, index) => point(index, item.metrics!.china_share ?? 0)).join(" ");
-                return (
-                  <>
-                    <polyline points={hhiPoints} fill="none" stroke="var(--foreground)" strokeWidth="2" />
-                    <polyline points={chinaPoints} fill="none" stroke="var(--accent)" strokeWidth="2" />
-                    {trend.map((item, index) => <text key={item.year} x={40 + (index / (trend.length - 1)) * 600} y={150} textAnchor="middle" fontSize="9" fill="var(--muted)">{item.year}</text>)}
-                    <text x={44} y={16} fontSize="10" fill="var(--foreground)">— HHI</text>
-                    <text x={110} y={16} fontSize="10" fill="var(--accent)">— 中国贸易份额</text>
-                  </>
-                );
-              })() : null}
-            </svg>
+          <div className="mt-6 grid gap-5">
+            <ResearchTimeSeriesChart title={locale === "en" ? "Trading-partner concentration (HHI)" : "贸易伙伴集中度（HHI）"} description={locale === "en" ? "UN Comtrade annual nominal trade. Higher HHI means more concentrated partners; missing years break the line." : "UN Comtrade 年度名义贸易；HHI 越高，伙伴越集中；缺失年份断线。"} xKind="number" xLabel={locale === "en" ? "Year" : "年份"} yLabel="HHI (0–1)" xTickValues={[2015, 2017, 2019, 2021, 2023, 2025]} series={[{ id: "trade-hhi", label: "HHI", color: "#246a87", markers: true, points: Array.from({ length: 11 }, (_, i) => ({ x: 2015 + i, y: trend.find(t => t.year === 2015 + i)?.metrics?.partner_hhi ?? null })) }]} />
+            <ResearchTimeSeriesChart title={locale === "en" ? "China's share of nominal trade" : "中国占名义贸易份额"} description={locale === "en" ? "UN Comtrade. Share (%) uses its own axis, separate from concentration. No statistical intervals supplied." : "UN Comtrade；份额（%）独立坐标轴，不与集中度混用；未提供统计区间。"} xKind="number" xLabel={locale === "en" ? "Year" : "年份"} yLabel={locale === "en" ? "Trade share (%)" : "贸易份额（%）"} xTickValues={[2015, 2017, 2019, 2021, 2023, 2025]} series={[{ id: "trade-china", label: locale === "en" ? "China share" : "中国份额", color: "#a6453c", markers: true, points: Array.from({ length: 11 }, (_, i) => { const value = trend.find(t => t.year === 2015 + i)?.metrics?.china_share; return { x: 2015 + i, y: value == null ? null : value * 100 }; }) }]} />
           </div>
 
           {compareGroup?.metrics ? (

@@ -2,9 +2,10 @@
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { localeNumber } from "@/i18n/config";
+import { useState } from "react";
 // Shared research time-series chart: explicit axes, round ticks, gridlines, unit titles, optional zero line,
-// confidence bands, point markers, multiple series and an accessible title. Pure render (no state hooks), so it
-// works in server rendering and in the SSR-based UI validators.
+// confidence bands, point markers, multiple series and an accessible title. Optional point interaction
+// uses local presentation state only and remains compatible with SSR-based validators.
 
 // --- Pure axis helpers: "nice" numeric ticks and collision-free calendar ticks -----------------------------
 
@@ -64,7 +65,7 @@ export function monthTicks(first: number, last: number, maxLabels = 8): { value:
   return [{ value: first, label: indexToPeriod(first) }, { value: last, label: indexToPeriod(last) }];
 }
 
-export interface ChartPoint { x: number | string; y: number | null }
+export interface ChartPoint { x: number | string; y: number | null; detail?: string }
 export interface ChartBandPoint { x: number | string; lower: number; upper: number }
 export interface ChartSeries {
   id: string;
@@ -80,6 +81,7 @@ export interface ChartSeries {
 }
 
 interface Props {
+  interactive?: boolean;
   title: string;
   description?: string;
   series: ChartSeries[];
@@ -102,8 +104,9 @@ interface Props {
 const WIDTH = 760;
 const MARGIN = { top: 34, right: 22, bottom: 50, left: 66 };
 
-export function ResearchTimeSeriesChart({ title, description, series, xKind, xLabel, yLabel, zeroLine = "auto", zeroDash = "5 4", includeZero = false, xTickValues, latestMarker = false, height = 300, legend = true, formatX, formatY, className }: Props) {
+export function ResearchTimeSeriesChart({ title, description, series, xKind, xLabel, yLabel, zeroLine = "auto", zeroDash = "5 4", includeZero = false, xTickValues, latestMarker = false, height = 300, legend = true, formatX, formatY, className, interactive = false }: Props) {
   const locale = useLocale();
+  const [activePoint, setActivePoint] = useState<string | null>(null);
   const toX = (value: number | string) => (typeof value === "string" ? monthIndex(value) : value);
   const allX = series.flatMap((s) => s.points.map((p) => toX(p.x)));
   const allY = series.flatMap((s) => [...s.points.flatMap((p) => (p.y === null || !Number.isFinite(p.y) ? [] : [p.y])), ...(s.band ?? []).flatMap((b) => [b.lower, b.upper])]);
@@ -136,7 +139,7 @@ export function ResearchTimeSeriesChart({ title, description, series, xKind, xLa
   };
   const latest = latestMarker && series[0] ? [...series[0].points].reverse().find((p) => p.y !== null) : undefined;
   return (
-    <LocalizedContent>{<figure className={`research-chart ${className ?? ""}`}>
+    <LocalizedContent>{<figure className={`research-chart min-w-0 ${className ?? ""}`}>
       <p className="mb-2 text-sm font-semibold">{title}</p>
       {description ? <p className="mb-3 text-xs leading-6 text-[var(--muted)]">{description}</p> : null}
       <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={`${title}（图表，可横向滚动）`}>
@@ -168,7 +171,7 @@ export function ResearchTimeSeriesChart({ title, description, series, xKind, xLa
             <polyline key={`line-${s.id}-${index}`} fill="none" stroke={s.color} strokeWidth={s.width ?? 2.2} strokeDasharray={s.dash} strokeLinejoin="round" points={segment.map((p) => `${sx(toX(p.x))},${sy(p.y as number)}`).join(" ")} />
           )))}
           {series.filter((s) => s.markers).map((s) => s.points.filter((p) => p.y !== null).map((p) => (
-            <circle key={`m-${s.id}-${p.x}`} cx={sx(toX(p.x))} cy={sy(p.y as number)} r="2.6" fill={s.color}><title>{`${s.label} · ${typeof p.x === "string" ? p.x : formatX ? formatX(p.x) : p.x}：${fmtValue(p.y as number)}`}</title></circle>
+            <circle key={`m-${s.id}-${p.x}`} cx={sx(toX(p.x))} cy={sy(p.y as number)} r={interactive ? 5 : 2.6} fill={s.color} tabIndex={interactive ? 0 : undefined} role={interactive ? "button" : undefined} aria-label={`${s.label} · ${p.x}: ${fmtValue(p.y as number)} ${p.detail ?? yLabel}`} onMouseEnter={interactive ? () => setActivePoint(`${s.id}:${p.x}`) : undefined} onFocus={interactive ? () => setActivePoint(`${s.id}:${p.x}`) : undefined} onClick={interactive ? () => setActivePoint(`${s.id}:${p.x}`) : undefined} onKeyDown={interactive ? e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActivePoint(`${s.id}:${p.x}`); } } : undefined}><title>{`${s.label} · ${typeof p.x === "string" ? p.x : formatX ? formatX(p.x) : p.x}：${fmtValue(p.y as number)} ${p.detail ?? ""}`}</title></circle>
           )))}
           {latest && series[0] ? (
             <g data-latest-marker="true">
@@ -178,6 +181,7 @@ export function ResearchTimeSeriesChart({ title, description, series, xKind, xLa
           ) : null}
         </svg>
       </div>
+      {interactive ? <div className="mt-2 min-h-10 text-sm" aria-live="polite">{series.flatMap(s => s.points.filter(p => `${s.id}:${p.x}` === activePoint && p.y !== null).map(p => <p key={`${s.id}:${p.x}`}>{s.label} · {String(p.x)}: {fmtValue(p.y as number)} · {p.detail ?? yLabel}</p>))}</div> : null}
       {legend ? (
         <figcaption className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-[var(--muted)]">
           {series.map((s) => (

@@ -390,6 +390,61 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-11"
+    },
+    {
+      "amendment_id": "comparison-research-results-2026-10-11",
+      "status": "owner_approved",
+      "approved_by": "owner explicit implementation brief 2026-10-11",
+      "purpose": "Descriptive comparison history, guarded differences and export; scenario and model interpretation; separate trade chart scales. No data or calculation changes.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/AnnualComparisonWorkbench.tsx",
+          "sha256": "026ef7ba4470b3f2359f1d57f4f5cac1c32e77655d4e156e7deac71927014673",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ModelComparisonBoard.tsx",
+          "sha256": "75796813584e4465c0695134d8b909103e7d87c0aeca56da9bdc7556120979ee",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ResearchCharts.tsx",
+          "sha256": "ca8ee5b3169ba3180b340d45029381c44369545dc91cade4ef787ae64e0f13c4",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ResearchTimeSeriesChart.tsx",
+          "sha256": "5f4118945136e6d64fd739394f98818f489fbb7685cf274af0fb3c4cf943177d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ScenarioPresetWorkbench.tsx",
+          "sha256": "02257a9f19a9d19a67bc0710151339619c90deb03526806e1ea0ec62a116c736",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/TradeNetworkWorkbench.tsx",
+          "sha256": "1b4a24983559c9debb5c3f50a7d6c767fe55f020a2cfd40df20ff9897eaf4ccf",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/annualComparison.ts",
+          "sha256": "4868c053f9bd7f00eca4d15c4a3164524d2fbef0949f4684842f0d6f1350acd7",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PanelEconometricsWorkbench.tsx",
+          "classification": "DATA_PRESENTATION",
+          "sha256": "ae48aea66e22f57e485a4465a36bf3fe3c4eac3bf92888a674d753b273f2fe8e"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-11"
     }
   ]
 }

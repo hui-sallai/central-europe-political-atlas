@@ -1,4 +1,8 @@
 "use client";
+import { niceTicks } from "./ResearchTimeSeriesChart";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { localeNumber } from "@/i18n/config";
+import { englishText } from "@/i18n/reviewedText";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 
 import { useEffect, useState } from "react";
@@ -16,11 +20,10 @@ function download(content: string, fileName: string, type: string) {
   URL.revokeObjectURL(url);
 }
 
-function format(value: number) {
-  return Number.isFinite(value) ? value.toFixed(4) : "—";
-}
-
 export function PanelEconometricsWorkbench({ countries }: { countries: Country[] }) {
+  const locale = useLocale();
+  const format = (value: number) => Number.isFinite(value) ? localeNumber(value, locale, { minimumFractionDigits: 4, maximumFractionDigits: 4 }) : "—";
+  const label = (id: string) => locale === "en" ? englishText(panelIndicatorLabels[id] ?? id) : panelIndicatorLabels[id] ?? id;
   const panelCountries = countries.map((country) => country.slug);
   const [panelObservations, setPanelObservations] = useState<PanelRuntimeObservation[]>([]);
   const [dataLoadState, setDataLoadState] = useState<"loading" | "ready" | "error">("loading");
@@ -74,7 +77,6 @@ export function PanelEconometricsWorkbench({ countries }: { countries: Country[]
     download(rows.map((row) => row.join(",")).join("\n"), "panel-econometrics-result.csv", "text/csv;charset=utf-8");
   }
 
-  const coefficientScale = result ? Math.max(...result.coefficients.flatMap((item) => [Math.abs(item.ci_95_low), Math.abs(item.ci_95_high)]), 0.001) : 1;
 
   return <LocalizedContent>{(
     <div className="mt-6 grid gap-6">
@@ -93,8 +95,18 @@ export function PanelEconometricsWorkbench({ countries }: { countries: Country[]
       </section>
 
       {result ? <section className="editorial-panel p-5">
-        <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="editorial-kicker">{result.model}</p><h2 className="mt-2 text-2xl font-semibold">系数估计</h2></div><div className="flex gap-2"><button type="button" onClick={() => download(JSON.stringify(result, null, 2), "panel-econometrics-result.json", "application/json") } className="rounded-lg border border-[var(--line)] px-3 py-2 text-xs font-semibold">导出分析结果（JSON）</button><button type="button" onClick={exportCsv} className="rounded-lg border border-[var(--line)] px-3 py-2 text-xs font-semibold">导出结果（CSV）</button></div></div>
-        <div className="mt-6 grid gap-3">{result.coefficients.map((item) => <div key={item.variable} className="grid gap-2 md:grid-cols-[220px_1fr_90px]"><span className="text-sm font-semibold">{panelIndicatorLabels[item.variable] ?? item.variable}</span><div className="relative h-6 bg-[var(--surface)]"><span className="absolute inset-y-0 left-1/2 w-px bg-[var(--muted)]" /><span className="absolute top-[9px] h-2 bg-[var(--accent-soft)]" style={{ left: `${50 + (item.ci_95_low / coefficientScale) * 45}%`, width: `${Math.max(1, ((item.ci_95_high - item.ci_95_low) / coefficientScale) * 45)}%` }} /><span className="absolute top-1 h-4 w-1 bg-[var(--accent)]" style={{ left: `${50 + (item.coefficient / coefficientScale) * 45}%` }} /></div><span className="metric-number text-right text-sm">{format(item.coefficient)}</span></div>)}</div>
+        <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="editorial-kicker">{({ pooled_ols: locale === "en" ? "Pooled OLS" : "混合回归", country_fixed_effects: locale === "en" ? "Country fixed effects" : "国家固定效应", country_and_year_fixed_effects: locale === "en" ? "Country and year fixed effects" : "国家与年份固定效应" })[result.model]}</p><h2 className="mt-2 text-2xl font-semibold">系数估计</h2></div><div className="flex gap-2"><button type="button" onClick={() => download(JSON.stringify(result, null, 2), "panel-econometrics-result.json", "application/json") } className="rounded-lg border border-[var(--line)] px-3 py-2 text-xs font-semibold">导出分析结果（JSON）</button><button type="button" onClick={exportCsv} className="rounded-lg border border-[var(--line)] px-3 py-2 text-xs font-semibold">导出结果（CSV）</button></div></div>
+        <p className="mt-4 text-sm">{locale === "en" ? "Conditional associations, not causal effects. Each coefficient has its own axis; bar lengths must not be compared across variables with different units. Intervals are the existing model's 95% confidence intervals." : "条件关联，不是因果效应。每个系数独立坐标轴，不可跨单位比较图形长度；区间为既有模型输出的 95% 置信区间。"}</p>
+        <p className="mt-2 text-xs">{label(result.specification.outcome)} · {result.diagnostics.year_coverage} · N={result.diagnostics.observations}</p>
+        <div className="mt-6 grid gap-5">{result.coefficients.map(item => {
+          const { ticks, domain: [low, high] } = niceTicks(Math.min(0, item.ci_95_low), Math.max(0, item.ci_95_high));
+          const x = (v: number) => 65 + (v - low) / (high - low) * 450;
+          return <figure key={item.variable}><figcaption className="text-sm font-semibold">{label(item.variable)}: {format(item.coefficient)} · 95% CI [{format(item.ci_95_low)}, {format(item.ci_95_high)}]</figcaption><p className="mt-1 text-xs text-[var(--muted)]">{locale === "en" ? "Units:" : "单位："} {label(result.specification.outcome)} / {label(item.variable)} {locale === "en" ? "(outcome units per one input unit)" : "（结果变量单位 / 一个输入单位）"}</p><svg viewBox="0 0 580 90" className="mt-2 w-full" role="img" aria-label={`${label(item.variable)} · 95% CI`}>
+            {ticks.map(t => <g key={t}><line x1={x(t)} x2={x(t)} y1={15} y2={55} stroke="var(--line)" /><text x={x(t)} y={75} textAnchor="middle" fontSize="11" fill="var(--muted)">{format(t)}</text></g>)}
+            <line x1={65} x2={515} y1={55} y2={55} stroke="var(--muted)" /><line x1={x(0)} x2={x(0)} y1={10} y2={55} stroke="var(--foreground)" strokeDasharray="4 3" />
+            <line x1={x(item.ci_95_low)} x2={x(item.ci_95_high)} y1={32} y2={32} stroke="#246a87" strokeWidth={3} /><circle cx={x(item.coefficient)} cy={32} r={5} fill="#a6453c"><title>{format(item.coefficient)}</title></circle>
+          </svg></figure>;
+        })}</div>
         <div className="mt-6 overflow-x-auto" tabIndex={0} role="region" aria-label="数据表（可横向滚动）"><table className="research-data-table w-full min-w-[840px] text-left text-sm"><thead><tr>{["变量", "系数", result.diagnostics.inference_method === "cluster_country_student_t" ? "聚类标准误" : "HC1 稳健标准误", "t", result.diagnostics.inference_method === "cluster_country_student_t" ? `p（Student-t，df=${result.diagnostics.degrees_of_freedom}）` : "p（渐近）", "95% 置信区间"].map((item) => <th key={item} className="px-3 py-3">{item}</th>)}</tr></thead><tbody>{result.coefficients.map((item) => <tr key={item.variable}><td className="px-3 py-3 font-semibold">{panelIndicatorLabels[item.variable] ?? item.variable}</td><td className="metric-number px-3 py-3">{format(item.coefficient)}</td><td className="metric-number px-3 py-3">{format(item.standard_error)}</td><td className="metric-number px-3 py-3">{format(item.t_stat)}</td><td className="metric-number px-3 py-3">{format(item.p_value)}</td><td className="metric-number px-3 py-3">[{format(item.ci_95_low)}, {format(item.ci_95_high)}]</td></tr>)}</tbody></table></div>
         <dl className="mt-6 grid gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] sm:grid-cols-3 lg:grid-cols-5">{([["样本量 N", result.diagnostics.observations], ["国家数", result.diagnostics.countries], ["年份数", result.diagnostics.years], ["R²", format(result.diagnostics.r_squared)], ["Within R²", format(result.diagnostics.within_r_squared)], ["理论样本数", result.diagnostics.expected_rows], ["缺失样本", result.diagnostics.missing_rows], ["样本覆盖率", `${(result.diagnostics.sample_coverage * 100).toFixed(1)}%`], ["聚类数（按国家聚类时，聚类数量较少可能导致标准误与 p 值不稳定）", result.diagnostics.clusters ?? "—"], ["自由度", result.diagnostics.degrees_of_freedom ?? "—"], ["推断方法", result.diagnostics.inference_method === "cluster_country_student_t" ? "聚类稳健协方差 + Student-t（df = G − 1）" : "HC1 渐近正态推断"], ["Wild cluster bootstrap", "暂不可用（接口保留）"], ["计算引擎", result.engine_version], ["数据版本", result.dataset_version], ["平台版本", result.platform_version]] as Array<[string, string | number]>).map(([label, value]) => <div key={label} className="bg-white p-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="metric-number mt-1 text-sm font-semibold">{value}</dd></div>)}</dl>
         {result.diagnostics.cluster_warning ? <p className="mt-4 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm text-amber-950" role="alert">{result.diagnostics.cluster_warning}</p> : null}

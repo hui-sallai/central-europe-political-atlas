@@ -10,7 +10,8 @@ test.use({ colorScheme: "dark" });
 for (const route of ROUTES) {
   test(`${route} — dark theme accessibility`, async ({ page }) => {
     await page.goto(route, { waitUntil: "networkidle" });
-    expect(await page.evaluate(() => document.documentElement.dataset.theme)).toBe("dark");
+    // Theme is applied during hydration; wait for the same required state instead of sampling it once.
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
     const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
     const blocking = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
     expect(blocking.map((v) => `${v.impact}: ${v.id} (${v.nodes.length}) ${v.nodes.slice(0, 3).map((n) => n.target.join(" ")).join(" | ")}`)).toEqual([]);
