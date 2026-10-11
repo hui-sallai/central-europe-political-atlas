@@ -1,0 +1,154 @@
+{
+  "window": {
+    "start": "2026-09-06",
+    "end": "2026-10-11",
+    "timezone": "source publication date"
+  },
+  "method": "Source-page title, publication date and body screening; Chinese fact-and-boundary summaries with corresponding English presentation translations.",
+  "screened_candidate_count": 200,
+  "accepted_count": 189,
+  "rejected_count": 11,
+  "country_counts": {
+    "hungary": {
+      "screened": 20,
+      "accepted": 19,
+      "rejected": 1
+    },
+    "poland": {
+      "screened": 20,
+      "accepted": 20,
+      "rejected": 0
+    },
+    "czechia": {
+      "screened": 20,
+      "accepted": 20,
+      "rejected": 0
+    },
+    "slovakia": {
+      "screened": 20,
+      "accepted": 20,
+      "rejected": 0
+    },
+    "germany": {
+      "screened": 20,
+      "accepted": 19,
+      "rejected": 1
+    },
+    "romania": {
+      "screened": 20,
+      "accepted": 20,
+      "rejected": 0
+    },
+    "slovenia": {
+      "screened": 20,
+      "accepted": 20,
+      "rejected": 0
+    },
+    "serbia": {
+      "screened": 20,
+      "accepted": 20,
+      "rejected": 0
+    },
+    "austria": {
+      "screened": 20,
+      "accepted": 16,
+      "rejected": 4
+    },
+    "croatia": {
+      "screened": 20,
+      "accepted": 15,
+      "rejected": 5
+    }
+  },
+  "rejection_policy": [
+    "Original title differs from retrieved source title",
+    "Article body dateline conflicts with supplied publication date",
+    "Unverifiable source or missing editorial trace",
+    "Duplicate article or outside approved window"
+  ],
+  "coverage": {
+    "hungary": {
+      "coverage_below_target": true,
+      "sources_searched": [
+        "Budapest Business Journal",
+        "Telex"
+      ],
+      "remaining_gap": "1 supplied candidates excluded; no replacement or invented entries."
+    },
+    "poland": {
+      "coverage_below_target": false,
+      "sources_searched": [
+        "Notes from Poland"
+      ],
+      "remaining_gap": "All 20 supplied candidates accepted."
+    },
+    "czechia": {
+      "coverage_below_target": false,
+      "sources_searched": [
+        "Radio Prague International"
+      ],
+      "remaining_gap": "All 20 supplied candidates accepted."
+    },
+    "slovakia": {
+      "coverage_below_target": false,
+      "sources_searched": [
+        "TASR"
+      ],
+      "remaining_gap": "All 20 supplied candidates accepted."
+    },
+    "germany": {
+      "coverage_below_target": true,
+      "sources_searched": [
+        "ZDFheute"
+      ],
+      "remaining_gap": "1 supplied candidates excluded; no replacement or invented entries."
+    },
+    "romania": {
+      "coverage_below_target": false,
+      "sources_searched": [
+        "Radio Romania International"
+      ],
+      "remaining_gap": "All 20 supplied candidates accepted."
+    },
+    "slovenia": {
+      "coverage_below_target": false,
+      "sources_searched": [
+        "GOV.SI"
+      ],
+      "remaining_gap": "All 20 supplied candidates accepted."
+    },
+    "serbia": {
+      "coverage_below_target": false,
+      "sources_searched": [
+        "N1"
+      ],
+      "remaining_gap": "All 20 supplied candidates accepted."
+    },
+    "austria": {
+      "coverage_below_target": true,
+      "sources_searched": [
+        "Kurier"
+      ],
+      "remaining_gap": "4 supplied candidates excluded; no replacement or invented entries."
+    },
+    "croatia": {
+      "coverage_below_target": true,
+      "sources_searched": [
+        "HRT",
+        "Total Croatia News"
+      ],
+      "remaining_gap": "5 supplied candidates excluded; no replacement or invented entries."
+    }
+  },
+  "actor_field_audit": {
+    "policy": "Publisher retained as actor fallback in the existing schema; it must not be interpreted as the actor causing the event.",
+    "verified_real_actor_count": 0,
+    "publisher_fallback_count": 189
+  },
+  "notes": [
+    "No news enters models; no canonical economic or election stores, release version or publication gates changed.",
+    "English translations are presentation-only and correspond one-to-one with accepted Chinese records.",
+    "Military topic mapped to existing politics topic and regional event category unless a more specific existing category applies.",
+    "The supplied 200-candidate batch is not an exhaustive census of news in the window."
+  ]
+}

@@ -17,7 +17,7 @@ const schemaVersion = "research-data-v0.1";
 const canonicalGeneratedAt = "2026-08-12";
 const canonicalSchemaVersion = "data-foundation-v0.76";
 const chinaExposureDatabaseUpdatedAt = "2026-08-11";
-const eventLibraryUpdatedAt = "2026-08-20";
+const eventLibraryUpdatedAt = "2026-10-11";
 const macroDriverDir = path.join(canonicalDataDir, "macro-drivers");
 const identifiedShockDir = path.join(canonicalDataDir, "identified-shocks");
 const localProjectionDir = path.join(canonicalDataDir, "local-projections");
@@ -2224,7 +2224,7 @@ const validationIndex = {
     { id: "var_lag_selection_characterization", title: "VAR lag-selection finite-sample characterization (v1.87)", artifact: "var-lag-characterization/var_lag_characterization_research_conclusion.json", gate: "var:lag-characterization-closure-validate", artifact_role: "descriptive_research_result_no_gate", production_method_changed: false },
     { id: "var_selection_aware_bootstrap_research", title: "VAR selection-aware bootstrap research (v1.86)", artifact: "var-selection-bootstrap/var_selection_bootstrap_research_conclusion.json", gate: "var:selection-bootstrap-closure-validate", artifact_role: "synthetic_research_result_not_production_method", disposition: "synthetic_gate_passed_phase_B_requires_owner_approval", phase_B_run: false, production_method_changed: false },
     { id: "var_residual_layerB_selection_decomposition", title: "VAR Layer-B selection decomposition", artifact: "var-residual-diagnostics/var_residual_diagnostic_layerB_selection_decomposition.json", gate: "var:residual-decomposition-validate", artifact_role: "derived_interpretation_not_new_research_draws", research_decision_changed: false },
-    { id: "news", artifact: "news_update_2026-09-05_audit.json", gate: "news:validate" },
+    { id: "news", artifact: "news_update_2026-10-11_audit.json", gate: "news:validate" },
     { id: "identified_shocks", artifact: "information_effect_separation_validation.json", gate: "information-effect:validate" },
     { id: "ui", artifact: "panel-local-projections/panel_lp_ui_validation.json", gate: "panel-lp:ui-validate" },
   ],
@@ -2241,6 +2241,16 @@ fs.copyFileSync(
 for (const fileName of ["news_source_verification_2026-09-05.json", "news_source_date_pattern_registry.json", "news_candidate_screening_2026-09-05.json"]) {
   fs.copyFileSync(path.join(canonicalDataDir, "events", fileName), path.join(outDir, fileName));
 }
+for (const fileName of ["news_update_2026-10-11_audit.json", "news_source_verification_2026-10-11.json", "news_candidate_screening_2026-10-11.json"]) {
+  fs.copyFileSync(path.join(canonicalDataDir, "events", fileName), path.join(outDir, fileName));
+}
+writeJson("news_translations_2026-10-11.json", {
+  schema_version: "news-presentation-translations-v1",
+  window_end: "2026-10-11",
+  locale: "en",
+  canonical_language: "zh-CN",
+  records: Object.entries(require("../src/lib/newsTranslations.ts").newsTranslations).map(([news_id, text]) => ({ news_id, title_en: text.title, summary_en: text.summary })),
+});
 const macroRuntimeRows = macroDriverPayload.records.map((item) => [
   item.observation_id, item.driver_id, item.country, item.scope, item.period, item.value,
   item.unit, item.transformation, item.economic_role ?? item.role, item.source, item.source_url,
@@ -2440,17 +2450,18 @@ writeCanonicalCollection("observations", canonicalObservationRecords, {
   model_boundary: "All current national factual model inputs must originate here. Pending values remain null.",
 });
 writeCanonicalCollection("sources", canonicalSourceRecords, { primary_key: "id" });
-writeCanonicalCollection("events", canonicalEventRecords, {
+// Weekly additions live in their own approved modules. Never rewrite the frozen legacy events store.
+writeJson("events.json", {
   schema_version: "event-database-v0.35",
   generated_at: eventLibraryUpdatedAt,
+  data_type: "events",
+  record_count: canonicalEventRecords.length,
   primary_key: "id",
   event_types: eventTypeValues,
   model_boundary: "Coded events only record indicator and future-model associations. All current records keep enters_model=false and generate no scores or forecasts.",
+  records: canonicalEventRecords,
 });
-fs.copyFileSync(
-  path.join(canonicalDataDir, "events", "events.json"),
-  path.join(outDir, "events.json"),
-);
+writeCsv("events.csv", canonicalEventRecords);
 writeCanonicalCollection("projects", canonicalProjectRecords, {
   schema_version: "china-exposure-database-v0.40",
   generated_at: chinaExposureDatabaseUpdatedAt,

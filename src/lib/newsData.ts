@@ -10,6 +10,7 @@ import type {
 } from "../types/Event";
 import { weeklyNews20260820Additional } from "./weeklyNews/2026-08-20";
 import { weeklyNews20260905 } from "./weeklyNews/2026-09-05";
+import { weeklyNews20261011 } from "./weeklyNews/2026-10-11";
 
 export const eventTypeValues: EventType[] = [
   "fiscal",
@@ -124,6 +125,7 @@ export function toEventRecord(item: WeeklyNewsItem): EventRecord {
 }
 
 export const eventLibraryItems: WeeklyNewsItem[] = [
+  ...weeklyNews20261011,
   ...weeklyNews20260905,
   {
     id: "hu-2026-08-19-president-inauguration",

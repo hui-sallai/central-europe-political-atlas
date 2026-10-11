@@ -9,6 +9,7 @@ import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { NotebookCollect } from "./NotebookCollect";
 import { PLATFORM_BASE_URL } from "@/lib/releaseMetadata";
+import { newsTranslations } from "@/lib/newsTranslations";
 
 type CountryFilter = "all" | string;
 type EventTypeFilter = "all" | EventType;
@@ -42,6 +43,9 @@ const confidenceLabels: Record<Event["confidence"], string> = {
 
 function EventCard({ item }: { item: Event }) {
   const locale = useLocale();
+  const translation = locale === "en" ? newsTranslations[item.id] : undefined;
+  const title = translation?.title ?? item.title;
+  const summary = translation?.summary ?? item.summary;
   const topics = [...new Set([item.topic, ...item.affected_indicator.map((id) => getResearchIndicator(id)?.name_zh ?? id)])];
   return (
     <LocalizedContent><article id={item.id} className="scroll-mt-24 border-t border-[var(--line)] py-5 first:border-t-0">
@@ -52,9 +56,9 @@ function EventCard({ item }: { item: Event }) {
           <p className="mt-1 text-xs text-[var(--accent)]">{eventTypeLabels[item.event_type]}</p>
         </div>
         <div>
-          {locale === "en" && <p className="mb-2 text-xs text-[var(--muted)]">Original event summary (Chinese; untranslated)</p>}
-          <div lang="zh-CN" data-original-language="zh-CN"><h3 className="text-xl font-semibold leading-7">{item.title}</h3>
-          <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.summary}</p></div>
+          {locale === "en" && !translation && <p className="mb-2 text-xs text-[var(--muted)]">Original event summary (Chinese; untranslated)</p>}
+          <div lang={translation ? "en" : "zh-CN"} data-original-language="zh-CN" data-presentation-language={translation ? "en" : "zh-CN"}><h3 className="text-xl font-semibold leading-7">{title}</h3>
+          {summary.split("\n\n").map((paragraph, index) => <p key={index} className="mt-3 text-sm leading-7 text-[var(--muted)]">{paragraph}</p>)}</div>
           <div className="mt-4 flex flex-wrap items-center gap-2">
             {item.data_status === "verified" && item.source_url ? <NotebookCollect create={() => ({ type: "event", title: item.title, url: `${PLATFORM_BASE_URL.replace(/\/$/, "")}${locale === "en" ? "/en" : ""}/news/?country=${item.country_slug}&type=${item.event_type}&from=${item.date}&to=${item.date}#${item.id}`, canonical_ids: [item.id], countries: [item.country_slug], periods: [item.date], sources: [{ institution: item.source_name, dataset: item.source_name, url: item.source_url!, layer: "verified_event" }], layer: "verified_event", comparability: "event_context_not_a_comparable_numeric_observation", warnings: [item.model_note, "Verified event context, not an inferred causal effect."].filter(Boolean), metadata: { event_type: item.event_type, topic: item.topic, original_language: "zh-CN", status: item.data_status, entersModel: item.enters_model } })} /> : null}
             {topics.filter(Boolean).map((topic) => <span key={topic} lang="zh-CN" data-original-language="zh-CN" className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{topic}</span>)}
@@ -143,7 +147,7 @@ export function NewsExplorer() {
       .filter((item) => eventTypeFilter === "all" || item.event_type === eventTypeFilter)
       .filter((item) => topicFilter === "all" || item.topic === topicFilter)
       .filter((item) => (!dateFrom || item.date >= dateFrom) && (!dateTo || item.date <= dateTo))
-      .filter((item) => { if (!terms.length) return true; const haystack = [item.title, item.summary, item.actor, item.source_name, item.topic, item.country_name].join(" ").toLowerCase(); return terms.every((term) => haystack.includes(term)); })
+      .filter((item) => { if (!terms.length) return true; const translation = newsTranslations[item.id]; const haystack = [item.title, item.summary, translation?.title, translation?.summary, item.actor, item.source_name, item.topic, item.country_name].join(" ").toLowerCase(); return terms.every((term) => haystack.includes(term)); })
       .sort((a, b) => b.date.localeCompare(a.date) || a.event_id.localeCompare(b.event_id));
   }, [countryFilter, eventTypeFilter, topicFilter, query, dateFrom, dateTo]);
   const sampleCount = researchEvents.filter((item) => item.data_status === "sample").length;

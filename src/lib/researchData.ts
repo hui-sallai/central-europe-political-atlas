@@ -3,6 +3,8 @@ import eventsJson from "@/data/events/events.json";
 import indicatorsJson from "@/data/indicators/indicators.json";
 import observationsJson from "@/data/observations/observations.json";
 import projectsJson from "@/data/projects/projects.json";
+import { weeklyNews20261011 } from "./weeklyNews/2026-10-11";
+import { toEventRecord } from "./newsData";
 import type {
   Country,
   DataEnvelope,
@@ -19,7 +21,26 @@ function records<T>(value: unknown) {
 export const researchCountries = records<Country>(countriesJson);
 export const researchIndicators = records<Indicator>(indicatorsJson);
 export const researchObservations = records<Observation>(observationsJson);
-export const researchEvents = records<Event>(eventsJson);
+// Preserve frozen historical records; append this approved batch in memory only.
+const historicalEvents = records<Event>(eventsJson);
+const historicalEventIds = new Set(historicalEvents.map(event => event.id));
+export const researchEvents: Event[] = [
+  ...historicalEvents,
+  ...weeklyNews20261011.filter(item => !historicalEventIds.has(item.id)).map(item => ({
+    ...toEventRecord(item),
+    id: item.id,
+    country: researchCountries.find(country => country.slug === item.countrySlug)?.iso3 ?? item.countrySlug,
+    country_slug: item.countrySlug,
+    country_name: item.countryZh,
+    data_status: "verified" as const,
+    title: item.title,
+    topic: item.topic,
+    summary: item.summary,
+    source_name: item.sourceLabel,
+    source_url: item.sourceUrl ?? null,
+    language: item.language,
+  })),
+];
 export const researchProjects = records<Project>(projectsJson);
 
 export function getResearchCountryBySlug(slug: string) {

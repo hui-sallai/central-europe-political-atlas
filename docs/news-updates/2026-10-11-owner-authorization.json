@@ -1,0 +1,18 @@
+{
+  "schema_version": "news-refresh-owner-authorization-v1",
+  "authorized_on": "2026-10-12",
+  "status": "owner_approved_scope_not_production_acceptance",
+  "window": { "start": "2026-09-06", "end": "2026-10-11" },
+  "authorization": "Owner answered yes to a batch-only news and verification-record freeze exception, including corresponding English editorial summaries.",
+  "allowed_scope": ["This batch of source-verified news", "Corresponding candidate screening and source verification", "Chinese summaries in the established two-paragraph format", "English presentation translations of accepted news", "Exact-file governance registration and relevant regression tests"],
+  "canonical_economic_data_change_allowed": false,
+  "political_election_data_change_allowed": false,
+  "model_change_allowed": false,
+  "research_gate_change_allowed": false,
+  "release_version_change_allowed": false,
+  "push_or_deployment_authorized": true,
+  "deployment_authorization": "Owner subsequently requested all ten countries bilingual, followed by push and deployment after completion.",
+  "enters_model": false,
+  "acceptance_conditions": ["Source title, publication date and body verified", "Unresolved candidates excluded with reasons", "Chinese and English summaries checked against source content", "Only exact approved file hashes accepted by the freeze checkpoint", "Relevant news, language, build and regression checks pass"],
+  "note": "This record does not waive source verification or approve unpublished candidates. The earlier preflight is retained unchanged as historical evidence."
+}
