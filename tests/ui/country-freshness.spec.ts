@@ -31,5 +31,13 @@ for (const prefix of ["", "/en"]) test(`country directory published years, units
   await expect(meta).toContainText(newsLibraryMetadata.latestNewsBatch);
   await expect(meta).toContainText(newsLibraryMetadata.historicalStoreUpdatedAt);
   await expect(meta).toContainText(newsLibraryMetadata.latestEventDate);
+  if (prefix) {
+    for (const button of await page.locator(".home-country-selector button").all()) {
+      await button.click();
+      await expect(page.locator(".home-country-metrics")).not.toContainText(/[\u3400-\u9fff]/u);
+    }
+    await page.locator(".home-country-selector").getByRole("button", { name: "RS", exact: true }).click();
+    await expect(page.locator(".home-country-metrics")).toContainText("Pending publication / connection");
+  }
   expect(getCountryObservations("serbia", "hicp_inflation").every(row => row.value === null)).toBe(true);
 });

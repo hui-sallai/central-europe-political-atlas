@@ -555,6 +555,26 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-13"
+    },
+    {
+      "amendment_id": "country-freshness-map-status-2026-10-13",
+      "status": "owner_approved",
+      "approved_by": "Owner Country Data Freshness & Research Navigation Upgrade and explicit push/deploy instruction, 2026-10-13",
+      "purpose": "Translate the existing pending, missing and not-applicable metric states when selecting countries in the English homepage map. Presentation only; no value, metadata, selector, model or gate change.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/app/(english)/en/page.tsx",
+          "sha256": "62f4778f4c8543e8c693146c6b98596ec3d6273823550efaec5e09ac22733ee7",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-13"
     }
   ]
 }

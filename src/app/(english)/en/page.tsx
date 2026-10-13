@@ -19,10 +19,14 @@ const entries = [
   ["news", "Events", "Structured events and links to original reporting."],
   ["methodology", "Methodology", "Understand comparability, data status and the limits of formal inference."],
 ] as const;
+function metricPresentation(value: string) {
+  const unavailable: Record<string, string> = { "待发布／待接入": "Pending publication / connection", "不适用": "Not applicable", "缺少已发布观测": "Missing published observation" };
+  return unavailable[value] ?? englishText(value);
+}
 export default function EnglishHome() {
   const mapCountries: HomeMapCountry[] = researchCountries.map(country => {
     const event = getEventsForCountry(country.slug).find(event => event.data_status === "verified");
-    return { slug: country.slug, nameZh: country.name_zh, nameEn: country.name, iso2: country.iso2, indicators: getBasicIndicators(country.slug).filter(row => ["growth", "inflation", "unemployment", "gdpPerCapita"].includes(row.id)).map(row => ({ id: row.id, label: englishText(row.label), value: englishText(row.value), year: englishText(row.year) })), latestEvent: event ? { id: event.id, date: event.date, title: event.title } : null };
+    return { slug: country.slug, nameZh: country.name_zh, nameEn: country.name, iso2: country.iso2, indicators: getBasicIndicators(country.slug).filter(row => ["growth", "inflation", "unemployment", "gdpPerCapita"].includes(row.id)).map(row => ({ id: row.id, label: englishText(row.label), value: metricPresentation(row.value), year: englishText(row.year) })), latestEvent: event ? { id: event.id, date: event.date, title: event.title } : null };
   });
   const latestEvents = researchEvents.filter(event => event.data_status === "verified").sort((a, b) => b.date.localeCompare(a.date)).slice(0, 6);
   return <main className="page-shell">
