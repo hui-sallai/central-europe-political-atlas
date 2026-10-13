@@ -1,5 +1,5 @@
-import { getLatestObservation, getResearchIndicator } from "@/lib/researchData";
-import { latestAvailable } from "@/lib/freshness";
+import { getCountryObservations, getResearchIndicator } from "@/lib/researchData";
+import { countryObservationSummary } from "./countryObservationPresentation";
 import type { DataStatus } from "@/types/DataStatus";
 
 export type BasicIndicator = {
@@ -33,14 +33,15 @@ export function getBasicIndicators(countrySlug: string): BasicIndicator[] {
   return indicatorIds.map(({ id, indicatorId }) => {
     // Latest published value (freshness layer); when none exists, keep the pending placeholder record so the card
     // still shows the expected period and status instead of an older or invented value.
-    const observation = latestAvailable(countrySlug, indicatorId) ?? getLatestObservation(countrySlug, indicatorId);
+    const summary = countryObservationSummary(getCountryObservations(countrySlug, indicatorId));
+    const observation = summary.record;
     const indicator = getResearchIndicator(indicatorId);
     const status = observation?.status ?? "pending";
 
     return {
       id,
       label: indicator?.name_zh ?? indicatorId,
-      value: formatValue(indicatorId, observation?.value ?? null),
+      value: summary.published ? formatValue(indicatorId, summary.value) : summary.unavailable === "pending" ? "待发布／待接入" : summary.unavailable === "not_applicable" ? "不适用" : "缺少已发布观测",
       year: observation ? String(observation.year) : "待接入",
       source: observation?.source_name ?? "来源待接入",
       status,

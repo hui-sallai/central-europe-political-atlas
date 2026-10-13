@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { modelOutputs } from "@/lib/modelFramework";
-import { getLatestObservation, researchCountries, researchEvents, researchProjects } from "@/lib/researchData";
+import { getCountryObservations, researchCountries, researchEvents, researchProjects } from "@/lib/researchData";
+import { CountryObservationValue } from "@/components/CountryObservationValue";
 import { regionalCoverageMatrixV087 } from "@/lib/spatialDataV087";
 
 export const metadata: Metadata = pageMetadata({ title: "国家研究目录", description: "十国经济、政治事件、项目、模型与区域地图入口。", path: "/countries/" });
@@ -13,12 +14,6 @@ const coreIndicators = [
   ["unemployment_rate", "失业率"],
   ["gdp_per_capita_eur", "人均 GDP"],
 ] as const;
-
-function formatValue(value: number | null, unit: string) {
-  if (value === null) return "待接入";
-  const formatted = value.toLocaleString("zh-CN", { maximumFractionDigits: unit === "欧元" ? 0 : 1 });
-  return `${formatted}${unit === "%" ? "%" : unit === "欧元" ? " €" : ` ${unit}`}`;
-}
 
 export default function CountriesPage() {
   return (
@@ -31,10 +26,6 @@ export default function CountriesPage() {
 
       <section className="mt-8 grid gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] md:grid-cols-2">
         {researchCountries.map((country) => {
-          const observations = coreIndicators.map(([indicatorId, label]) => ({
-            label,
-            observation: getLatestObservation(country.slug, indicatorId),
-          }));
           const availableModels = modelOutputs.filter((output) => output.country_slug === country.slug && output.score !== null).length;
           const recentEvents = researchEvents.filter((event) => event.country_slug === country.slug && event.data_status === "verified").length;
           const projects = researchProjects.filter((project) => project.country_slug === country.slug).length;
@@ -52,11 +43,10 @@ export default function CountriesPage() {
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-x-5 gap-y-4 sm:grid-cols-4">
-                {observations.map(({ label, observation }) => (
+                {coreIndicators.map(([indicatorId, label]) => (
                   <div key={label}>
                     <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--muted)]">{label}</p>
-                    <p className="metric-number mt-1 text-sm font-semibold">{observation ? formatValue(observation.value, observation.unit) : "待接入"}</p>
-                    <p className="mt-1 text-[10px] text-[var(--muted)]">{observation?.year ?? "—"}</p>
+                    <CountryObservationValue country={country.slug} indicator={indicatorId} series={getCountryObservations(country.slug, indicatorId)} />
                   </div>
                 ))}
               </div>

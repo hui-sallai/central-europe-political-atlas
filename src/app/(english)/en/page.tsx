@@ -5,6 +5,7 @@ import { WorkspaceEntrySection } from "@/components/WorkspaceIndex";
 import { HomeResearchMap, type HomeMapCountry } from "@/components/HomeResearchMap";
 import { getEventsForCountry, researchCountries, researchEvents } from "@/lib/researchData";
 import { getBasicIndicators } from "@/lib/basicIndicators";
+import { newsLibraryMetadata } from "@/lib/newsLibraryMetadata";
 import { englishText } from "@/i18n/reviewedText";
 import { workspaceMessages } from "@/content/workspaceMessages";
 export const metadata = pageMetadata({ locale: "en", path: "/en/", title: "Central European political economy", description: "Traceable data, regional comparisons and transparent research boundaries across ten Central European countries." });
@@ -31,7 +32,7 @@ export default function EnglishHome() {
       <p className="mt-5 text-base leading-8 text-[var(--muted)]">Traceable official data, regional facts and transparent model boundaries across Austria, Croatia, Czechia, Germany, Hungary, Poland, Romania, Serbia, Slovakia and Slovenia.</p>
     </header>
     <HomeResearchMap countries={mapCountries} locale="en" />
-    <section className="editorial-section mt-10" aria-labelledby="english-verified-events"><h2 id="english-verified-events" className="text-3xl font-semibold">{workspaceMessages.en.latestEvents}</h2><p className="mt-3 text-sm text-[var(--muted)]">{workspaceMessages.en.eventBoundary}</p><div className="latest-signals-grid mt-5">{latestEvents.map(event => <article key={event.id}><p>{event.date} · {researchCountries.find(country => country.slug === event.country_slug)?.name}</p><div lang="zh-CN" data-original-language="zh-CN"><h3><Link href={`/en/news/?country=${event.country_slug}#${event.id}`}>{event.title}</Link></h3></div></article>)}</div></section>
+    <section className="editorial-section mt-10" aria-labelledby="english-verified-events"><h2 id="english-verified-events" className="text-3xl font-semibold">{workspaceMessages.en.latestEvents}</h2><p className="mt-3 text-sm text-[var(--muted)]">{workspaceMessages.en.eventBoundary}</p><p className="mt-2 text-xs text-[var(--muted)]" data-latest-signals-meta>Latest event: <time dateTime={newsLibraryMetadata.latestEventDate}>{newsLibraryMetadata.latestEventDate}</time> · News batch through: <time dateTime={newsLibraryMetadata.latestNewsBatch}>{newsLibraryMetadata.latestNewsBatch}</time> · Historical store record updated: <time dateTime={newsLibraryMetadata.historicalStoreUpdatedAt}>{newsLibraryMetadata.historicalStoreUpdatedAt}</time></p><div className="latest-signals-grid mt-5">{latestEvents.map(event => <article key={event.id}><p>{event.date} · {researchCountries.find(country => country.slug === event.country_slug)?.name}</p><div lang="zh-CN" data-original-language="zh-CN"><h3><Link href={`/en/news/?country=${event.country_slug}#${event.id}`}>{event.title}</Link></h3></div></article>)}</div></section>
     <WorkspaceEntrySection locale="en" />
     <section className="mt-8 grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-2" aria-label="Research tools">
       {entries.map(([route, title, description]) => <article key={route} className="bg-[var(--surface)] p-6"><h2 className="text-2xl font-semibold"><Link className="text-[var(--accent)]" href={`/en/${route}/`}>{title}</Link></h2><p className="mt-3 leading-7 text-[var(--muted)]">{description}</p></article>)}

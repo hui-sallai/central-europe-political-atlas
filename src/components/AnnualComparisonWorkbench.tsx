@@ -23,6 +23,13 @@ export function AnnualComparisonWorkbench({ countries, indicators, observations 
   const [history, setHistory] = useState<AnnualHistory | null>(null);
   const [historyState, setHistoryState] = useState("loading");
   useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const country = new URLSearchParams(window.location.search).get("country");
+      if (country && countries.some(row => row.slug === country)) setSelected([country, countries.find(row => row.slug !== country)!.slug]);
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [countries]);
+  useEffect(() => {
     const controller = new AbortController();
     fetch(`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/research-data/annual_history_runtime.json`, { signal: controller.signal }).then(r => { if (!r.ok) throw new Error("history"); return r.json(); }).then((data: AnnualHistory) => { setHistory(data); setHistoryState("ready"); }).catch(() => { if (!controller.signal.aborted) setHistoryState("error"); });
     return () => controller.abort();

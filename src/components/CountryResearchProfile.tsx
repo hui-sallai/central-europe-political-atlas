@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { latestPublished } from "@/lib/freshnessCore";
+import { CountryObservationValue } from "./CountryObservationValue";
 import { useState } from "react";
 import { Sparkline } from "@/components/ResearchCharts";
 import type { Country as UiCountry } from "@/lib/data";
@@ -41,10 +41,6 @@ function formatValue(value: number | null, unit: string) {
   return formatWithUnit(value, unit, { maximumFractionDigits: unit.includes("欧元") ? 0 : 1 });
 }
 
-function latestByIndicator(observations: Observation[], indicatorId: string) {
-  return latestPublished(observations.filter((item) => item.indicator === indicatorId));
-}
-
 function ModelSnapshot({ output }: { output: ModelOutput }) {
   return (
     <article className="border-t border-[var(--line)] py-4 first:border-t-0">
@@ -77,13 +73,19 @@ export function CountryResearchProfile({
   const [activeTab, setActiveTab] = useState<CountryTab>("overview");
   const latestIndicators = overviewIndicatorIds.map((indicatorId) => ({
     indicatorId,
-    latest: latestByIndicator(observations, indicatorId),
     series: observations.filter((item) => item.indicator === indicatorId).sort((a, b) => a.year - b.year),
   }));
   const economyIndicators = [...new Set(observations.map((item) => item.indicator))].filter((indicatorId) => indicatorLabels[indicatorId]);
 
   return (
     <section className="mt-8">
+      <nav aria-label="国家研究导航" className="mb-6 flex flex-wrap gap-4 text-sm text-[var(--accent)]">
+        <Link href={`/data/?country=${country.slug}&tab=annual`}>经济指标与完整序列</Link>
+        <Link href={`/models/?country=${country.slug}&tab=compare`}>历史比较</Link>
+        <Link href={`/models/?country=${country.slug}`}>研究方法与可用性</Link>
+        <Link href={`/news/?country=${country.slug}`}>相关事件</Link>
+        <Link href="/methodology/">方法与限制</Link>
+      </nav>
       <div className="research-tabs" role="tablist" aria-label={`${country.nameZh}研究页面`}>
         {tabs.map((tab) => (
           <button key={tab.id} type="button" role="tab" aria-selected={activeTab === tab.id} className="research-tab" onClick={() => setActiveTab(tab.id)}>{tab.label}</button>
@@ -94,12 +96,11 @@ export function CountryResearchProfile({
         <div className="mt-7 grid gap-8 xl:grid-cols-[1.4fr_0.6fr]">
           <div>
             <div className="grid gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-3">
-              {latestIndicators.map(({ indicatorId, latest, series }) => (
+              {latestIndicators.map(({ indicatorId, series }) => (
                 <article key={indicatorId} className="bg-[var(--surface)] p-4">
                   <p className="text-xs font-semibold text-[var(--muted)]">{indicatorLabels[indicatorId]}</p>
-                  <p className="metric-number mt-2 text-xl font-semibold">{latest ? formatValue(latest.value, latest.unit) : "待接入"}</p>
-                  <p className="mt-1 text-[10px] text-[var(--muted)]">{latest?.year ?? "—"} · {latest?.source_name ?? "来源待接入"}</p>
-                  <div className="mt-3"><Sparkline label={`${indicatorLabels[indicatorId]}趋势`} values={series.map((item) => ({ label: String(item.year), value: item.value }))} /></div>
+                  <CountryObservationValue country={country.slug} indicator={indicatorId} series={series} />
+                  <div className="mt-3"><Sparkline label={`${indicatorLabels[indicatorId]}年度趋势`} values={series.map((item) => ({ label: String(item.year), value: item.status === "pending" || item.applicability_status === "not_applicable" ? null : item.value }))} /></div>
                 </article>
               ))}
             </div>
@@ -131,8 +132,7 @@ export function CountryResearchProfile({
         <div className="mt-7 divide-y divide-[var(--line)] border-y border-[var(--line)]">
           {economyIndicators.map((indicatorId) => {
             const series = observations.filter((item) => item.indicator === indicatorId).sort((a, b) => a.year - b.year);
-            const latest = series.filter((item) => item.value !== null).at(-1);
-            return <article key={indicatorId} className="grid gap-3 py-4 sm:grid-cols-[minmax(150px,0.6fr)_minmax(150px,0.55fr)_minmax(180px,1fr)_auto] sm:items-center"><div><p className="text-sm font-semibold">{indicatorLabels[indicatorId]}</p><p className="mt-1 text-xs text-[var(--muted)]">latest {latest?.year ?? "—"}</p></div><p className="metric-number text-xl font-semibold text-[var(--accent)]">{latest ? formatValue(latest.value, latest.unit) : "待接入"}</p><Sparkline label={`${indicatorLabels[indicatorId]}时间序列`} values={series.map((item) => ({ label: String(item.year), value: item.value }))} /><details className="advanced-disclosure sm:min-w-36"><summary>来源与记录</summary><div className="mt-3 grid gap-2 text-xs text-[var(--muted)]">{series.map((item) => <p key={item.id}>{item.year}: {formatValue(item.value, item.unit)} · {item.source_name}</p>)}</div></details></article>;
+            return <article key={indicatorId} className="grid gap-4 py-4 sm:grid-cols-[minmax(150px,0.6fr)_minmax(180px,1fr)_minmax(180px,1fr)] sm:items-center"><p className="text-sm font-semibold">{indicatorLabels[indicatorId]}</p><CountryObservationValue country={country.slug} indicator={indicatorId} series={series} /><div><Sparkline label={`${indicatorLabels[indicatorId]}年度时间序列`} values={series.map((item) => ({ label: String(item.year), value: item.status === "pending" || item.applicability_status === "not_applicable" ? null : item.value }))} /><details className="advanced-disclosure mt-3"><summary>历史记录与状态</summary><div className="mt-3 grid gap-2 text-xs text-[var(--muted)]">{series.map((item) => <p key={item.id}>{item.year}: {item.status === "pending" || item.applicability_status === "not_applicable" ? "—" : formatValue(item.value, item.unit)} · {item.status} · {item.source_name}</p>)}</div></details></div></article>;
           })}
         </div>
       ) : null}

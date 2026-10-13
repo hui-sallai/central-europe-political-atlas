@@ -3,7 +3,8 @@
 // (same as the indicator matrix: definition mismatches and not-applicable records are not cross-country comparable).
 import { getCountryObservations } from "@/lib/researchData";
 import type { Observation } from "@/types/researchData";
-import { compareSeries, latestCommonYear, latestPublished, type CompareMode, type CompareResult, type FreshnessPoint } from "./freshnessCore";
+import { compareSeries, latestCommonYear, type CompareMode, type CompareResult, type FreshnessPoint } from "./freshnessCore";
+import { countryObservationSummary } from "./countryObservationPresentation";
 
 export type { CompareMode, CompareResult } from "./freshnessCore";
 
@@ -12,13 +13,13 @@ type FreshObservation = Observation & FreshnessPoint;
 function series(countrySlug: string, indicatorId: string): FreshObservation[] {
   return getCountryObservations(countrySlug, indicatorId).map((observation) => ({
     ...observation,
-    comparable: observation.comparability_status !== "definition_mismatch" && observation.applicability_status !== "not_applicable",
+    comparable: observation.comparability_status !== "definition_mismatch" && observation.comparability_status !== "not_applicable" && observation.applicability_status !== "not_applicable",
   }));
 }
 
 /** Last non-null published observation for a country and indicator (missing stays missing). */
 export function latestAvailable(countrySlug: string, indicatorId: string): Observation | undefined {
-  return latestPublished(series(countrySlug, indicatorId));
+  return countryObservationSummary(series(countrySlug, indicatorId)).published;
 }
 
 /** Latest year in which all listed countries have a published, comparable value with the same unit; else null. */

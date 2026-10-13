@@ -9,9 +9,12 @@ const FALSE_FLAGS = ['canonical_data_change_allowed', 'public_research_data_chan
 const AMENDABLE = /^src\/(app|components|lib)\//;
 const NEVER_AMENDABLE = [/^src\/data\//, /^public\/research-data\//, /^package\.json$/, /^pnpm-lock\.yaml$/, /(^|\/)release\.json$/, /^src\/lib\/[^/]*Engine\.ts$/, /^src\/lib\/timeSeriesTransforms\.ts$/];
 const WILDCARD = /[*?[\]{}]/;
+// Next route names are literal repository paths, not glob patterns. Exact two-file scope only.
+const COUNTRY_PROFILE_ROUTES = new Set(['src/app/(zh)/countries/[slug]/page.tsx', 'src/app/(english)/en/countries/[slug]/page.tsx']);
+const hasWildcard = (file) => WILDCARD.test(file) && !COUNTRY_PROFILE_ROUTES.has(file);
 
 export function amendablePath(file) {
-  return AMENDABLE.test(file) && !NEVER_AMENDABLE.some((re) => re.test(file)) && !WILDCARD.test(file);
+  return AMENDABLE.test(file) && !NEVER_AMENDABLE.some((re) => re.test(file)) && !hasWildcard(file);
 }
 
 // Returns the approved {path -> sha256} map, or problems that invalidate the record (fail closed).
@@ -22,7 +25,7 @@ export function approvedUiFiles(amendments) {
     for (const flag of FALSE_FLAGS) if (a[flag] !== false) problems.push(`${a.amendment_id}: ${flag} must be false`);
     if (!a.baseline || !/^[0-9a-f]{40}$/.test(a.baseline)) problems.push(`${a.amendment_id}: baseline must be a full commit sha`);
     for (const f of a.files ?? []) {
-      if (!f.path || WILDCARD.test(f.path)) problems.push(`${a.amendment_id}: wildcard or empty path ${f.path}`);
+      if (!f.path || hasWildcard(f.path)) problems.push(`${a.amendment_id}: wildcard or empty path ${f.path}`);
       else if (!amendablePath(f.path)) problems.push(`${a.amendment_id}: ${f.path} is not an amendable UI path`);
       if (!/^[0-9a-f]{64}$/.test(f.sha256 ?? '')) problems.push(`${a.amendment_id}: ${f.path} missing exact sha256`);
       if (!UI_CLASSIFICATIONS.includes(f.classification)) problems.push(`${a.amendment_id}: ${f.path} classification ${f.classification} not a UI/governance class`);

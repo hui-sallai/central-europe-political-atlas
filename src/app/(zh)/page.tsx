@@ -5,7 +5,7 @@ import { HomeResearchMap, type HomeMapCountry } from "@/components/HomeResearchM
 import { getBasicIndicators } from "@/lib/basicIndicators";
 import { platformStatus } from "@/lib/platformStatus";
 import { getEventsForCountry, researchCountries, researchEvents } from "@/lib/researchData";
-import eventsDataset from "@/data/events/events.json";
+import { newsLibraryMetadata } from "@/lib/newsLibraryMetadata";
 import { WorkspaceEntrySection } from "@/components/WorkspaceIndex";
 
 export const metadata: Metadata = pageMetadata({ title: "中欧政治经济研究平台", description: "十国政治经济数据、区域事实地图、透明分析与事件研究入口。", path: "/" });
@@ -35,7 +35,7 @@ export default function Home() {
     };
   });
   const verifiedEventCount = researchEvents.filter((event) => event.data_status === "verified").length;
-  const eventsUpdatedAt = String(eventsDataset.generated_at);
+
   const latestSignals = researchEvents
     .filter((event) => event.data_status === "verified")
     .sort((a, b) => b.date.localeCompare(a.date))
@@ -63,7 +63,7 @@ export default function Home() {
       <HomeResearchMap countries={mapCountries} />
 
       <section className="editorial-section mt-10" aria-labelledby="latest-signals-title">
-        <div className="flex items-end justify-between gap-4"><div><p className="editorial-kicker">Latest Signals</p><h2 id="latest-signals-title" className="mt-2 text-3xl font-semibold">近期已核验事件</h2><p className="mt-2 text-xs text-[var(--muted)]" data-latest-signals-meta>显示最近 <span className="metric-number">{latestSignals.length}</span> 条 · 共 <span className="metric-number">{verifiedEventCount}</span> 条已核验事件 · 事件库更新于 <time className="metric-number" dateTime={eventsUpdatedAt}>{eventsUpdatedAt}</time></p></div><Link href="/news" className="text-sm font-semibold text-[var(--accent)]">打开事件库</Link></div>
+        <div className="flex items-end justify-between gap-4"><div><p className="editorial-kicker">Latest Signals</p><h2 id="latest-signals-title" className="mt-2 text-3xl font-semibold">近期已核验事件</h2><p className="mt-2 text-xs text-[var(--muted)]" data-latest-signals-meta>显示最近 <span className="metric-number">{latestSignals.length}</span> 条 · 共 <span className="metric-number">{verifiedEventCount}</span> 条已核验事件 · 最近事件日期 <time dateTime={newsLibraryMetadata.latestEventDate}>{newsLibraryMetadata.latestEventDate}</time> · 新闻批次截至 <time dateTime={newsLibraryMetadata.latestNewsBatch}>{newsLibraryMetadata.latestNewsBatch}</time> · 历史事件库记录更新 <time dateTime={newsLibraryMetadata.historicalStoreUpdatedAt}>{newsLibraryMetadata.historicalStoreUpdatedAt}</time></p></div><Link href="/news" className="text-sm font-semibold text-[var(--accent)]">打开事件库</Link></div>
         <div className="latest-signals-grid mt-5">
           {latestSignals.map((event) => <article key={event.id}><p>{event.date} · {event.country_name}</p><h3><Link href={`/news?country=${event.country_slug}#${event.id}`}>{event.title}</Link></h3><span>{event.event_type} · {event.source_name}</span></article>)}
         </div>

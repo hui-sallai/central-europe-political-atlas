@@ -475,6 +475,86 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-12"
+    },
+    {
+      "amendment_id": "country-freshness-navigation-2026-10-13",
+      "status": "owner_approved",
+      "approved_by": "Owner explicit Country Data Freshness & Research Navigation Upgrade implementation brief, 2026-10-13; no automatic push or agents",
+      "purpose": "Published annual selection, unavailable-state and provenance presentation, existing country research navigation, and separated news reporting-period / historical-store metadata. No canonical data, estimator, publication gate or version changes.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/app/(english)/en/countries/[slug]/page.tsx",
+          "sha256": "4199a40522fd56df7a93d65bef57125189ce376861f8f92c0c5d2dc5c6a3619c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/countries/page.tsx",
+          "sha256": "bd72bc6200cf43aaed1925c3ed7e284d9e1ac90a1b5c56517b34d135ef10d32a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/page.tsx",
+          "sha256": "b42203003df7b0422273d669db7b9ebf93b42796aa019bfb66e9aa7a587909d3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/countries/[slug]/page.tsx",
+          "sha256": "ee4271192a63991e57f9940073ab713ab09beaca9fbfc406f108a6c631fc9e69",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/countries/page.tsx",
+          "sha256": "cabbf68eea0791b603a9f3edc598284a2fa297829dbf7bf558ff3bb077d66c99",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/page.tsx",
+          "sha256": "08fab723364a8fc5becf329286b0301081fe17e83fe3d1d884a992f2c292b4f9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/AnnualComparisonWorkbench.tsx",
+          "sha256": "c858ded3f91f7993043f6cf46153b9d4f3b0127762b6b7bff94f7a731e169f28",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryObservationValue.tsx",
+          "sha256": "72380269174ffaf7aeb7006e1c028f879af8ca6f0c0ef24e5a7c8973d9779650",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryResearchProfile.tsx",
+          "sha256": "233f95e54c480e19f4c1ae1b21f3c01c890f46454e70c8b8e754f6c744eb6f99",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/basicIndicators.ts",
+          "sha256": "d8f802d950725d1b29244f080944c0962ba75006e0be2421f6e46b1ba0283e86",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/countryObservationPresentation.ts",
+          "sha256": "c584b8cfd60a42ea9bbf245fac3e70c13fca83b5aded189a0c22d9ed850472f6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/freshness.ts",
+          "sha256": "1f758d0b46e5e04c0e083c34b6669f0fcc8877f0526f3cf40a4edd5230485e96",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/newsLibraryMetadata.ts",
+          "sha256": "5a25d6c42a199b09132db0408856420eeadf846cd4daf6ddc121d9dd8cf0c8cc",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-13"
     }
   ]
 }
