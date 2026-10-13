@@ -9,13 +9,23 @@ export type PoliticalResult = {
   seats: number | null;
   sourceId: string;
 };
+export type PoliticalLocalText = { en: string; "zh-CN": string };
+export type PoliticalCountryView = { slug: string; name: PoliticalLocalText; elections: PoliticalElectionView[] };
 export type PoliticalElectionView = {
   electionId: string;
   year: number;
   date: string;
   resultVintage: string;
-  validSecondVotes: number;
-  totalSeats: number;
+  /** Valid list votes of the election (Germany: valid second votes). */
+  validSecondVotes: number | null;
+  /** Null when the official total is not established; a missing total is never replaced by a partial sum. */
+  totalSeats: number | null;
+  country?: string;
+  countryName?: PoliticalLocalText;
+  chamber?: string;
+  voteLabel?: PoliticalLocalText;
+  originalLanguage?: string;
+  turnoutDefinition?: string | null;
   publishedTurnout: number | null;
   eligibleVoters: number | null;
   voters: number | null;
@@ -25,8 +35,8 @@ export type PoliticalElectionView = {
   results: PoliticalResult[];
 };
 
-export function descriptiveShare(numerator: number | null, denominator: number): number | null {
-  if (numerator === null) return null;
+export function descriptiveShare(numerator: number | null, denominator: number | null): number | null {
+  if (numerator === null || denominator === null) return null;
   if (!Number.isSafeInteger(numerator) || numerator < 0 || !Number.isSafeInteger(denominator) || denominator <= 0 || numerator > denominator) {
     throw new RangeError("Invalid descriptive-share inputs");
   }
@@ -70,4 +80,24 @@ export function alignByLabel(a: PoliticalElectionView, b: PoliticalElectionView)
   for (const result of a.results) rows.set(result.nativeLabel, { label: result.nativeLabel, a: result, b: null });
   for (const result of b.results) { const row = rows.get(result.nativeLabel); if (row) row.b = result; else rows.set(result.nativeLabel, { label: result.nativeLabel, a: null, b: result }); }
   return [...rows.values()].sort((x, y) => Math.max(y.a?.secondVotes ?? 0, y.b?.secondVotes ?? 0) - Math.max(x.a?.secondVotes ?? 0, x.b?.secondVotes ?? 0));
+}
+
+export type CountryComparisonRow = { key: "date" | "chamber" | "vote" | "turnout" | "valid" | "seats" | "lists" | "seat_lists" | "allocation" | "base_seats"; a: string | number | null; b: string | number | null };
+
+/**
+ * Side-by-side facts for two elections in different countries. Nothing is subtracted, ranked or normalised across
+ * countries: electoral systems, chambers and list definitions differ, and the elections may be years apart.
+ */
+export function compareCountries(a: PoliticalElectionView, b: PoliticalElectionView): { rows: CountryComparisonRow[]; yearsApart: number; sameAllocationMethod: boolean } {
+  const seatLists = (election: PoliticalElectionView) => election.results.filter((result) => (result.seats ?? 0) > 0).length;
+  const row = (key: CountryComparisonRow["key"], pick: (election: PoliticalElectionView) => string | number | null): CountryComparisonRow => ({ key, a: pick(a), b: pick(b) });
+  return {
+    rows: [
+      row("date", (e) => e.date), row("chamber", (e) => e.chamber ?? null), row("vote", (e) => e.system.voteType), row("turnout", (e) => e.publishedTurnout),
+      row("valid", (e) => e.validSecondVotes), row("seats", (e) => e.totalSeats), row("lists", (e) => e.results.length), row("seat_lists", seatLists),
+      row("allocation", (e) => e.system.allocationMethod), row("base_seats", (e) => e.system.baseSeats),
+    ],
+    yearsApart: Math.abs(a.year - b.year),
+    sameAllocationMethod: a.system.allocationMethod === b.system.allocationMethod,
+  };
 }

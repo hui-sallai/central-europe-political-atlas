@@ -31,8 +31,10 @@ test('Germany stays the only production country and its stores are untouched by 
   assert.deepEqual(fs.readdirSync('src/data/political'), ['germany']);
   assert.deepEqual(fs.readdirSync('public/research-data/political'), ['germany']);
   const component = fs.readFileSync('src/components/PoliticalExplorerAlpha.tsx', 'utf8');
-  assert.doesNotMatch(component, /romania|Romania|罗马尼亚/);
-  assert.doesNotMatch(fs.readFileSync('src/lib/politicalData.ts', 'utf8'), /romania/i);
+  // The explorer may say that a Romanian candidate exists in staging; it must never import or embed Romanian data.
+  assert.doesNotMatch(component, /political\/romania|ct-ro-|el-ro-|PARTIDUL/);
+  assert.match(fs.readFileSync('src/lib/politicalData.ts', 'utf8'), /politicalComparisonCountries\(\): PoliticalCountryView\[\] \{\n  return \[\];/);
+  assert.doesNotMatch(fs.readFileSync('src/lib/politicalData.ts', 'utf8'), /political\/romania|from "@\/data\/political\/(?!germany)/);
 });
 
 test('Romania candidate builder: national sums only, Chamber only, no candidate names, staging only', () => {

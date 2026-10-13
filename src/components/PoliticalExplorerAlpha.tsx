@@ -3,17 +3,23 @@
 import { useEffect, useState } from "react";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { localeDate, localeNumber, localizedRoute } from "@/i18n/config";
-import { alignByLabel, chartResults, compareElections, measureValue, type ElectionAggregate, type PoliticalElectionView, type PoliticalMeasure } from "@/lib/politicalExplorer";
+import { alignByLabel, chartResults, compareElections, measureValue, type ElectionAggregate, type PoliticalCountryView, type PoliticalElectionView, type PoliticalMeasure } from "@/lib/politicalExplorer";
+import { PoliticalCountryComparison } from "./PoliticalCountryComparison";
 import { NotebookCollect } from "./NotebookCollect";
 import type { EvidenceDraft } from "@/lib/researchNotebook";
 
 /** Germany-only descriptive results; no unresolved cross-election identity lines. */
-export default function PoliticalExplorerAlpha({ elections }: { elections: PoliticalElectionView[] }) {
+export default function PoliticalExplorerAlpha({ elections, comparisonCountries = [] }: { elections: PoliticalElectionView[]; comparisonCountries?: PoliticalCountryView[] }) {
   const locale = useLocale();
   const en = locale === "en";
   const [electionId, setElectionId] = useState(elections.at(-1)?.electionId ?? "");
   const [measure, setMeasure] = useState<PoliticalMeasure>("vote_share");
   const [compareId, setCompareId] = useState("");
+  // Cross-country comparison: only countries with authorised, published stores are ever passed in.
+  const [otherCountry, setOtherCountry] = useState(comparisonCountries[0]?.slug ?? "");
+  const [otherCountryElection, setOtherCountryElection] = useState("");
+  const comparedCountry = comparisonCountries.find((item) => item.slug === otherCountry) ?? null;
+  const comparedCountryElection = comparedCountry ? comparedCountry.elections.find((item) => item.electionId === otherCountryElection) ?? comparedCountry.elections.at(-1) ?? null : null;
   const election = elections.find((item) => item.electionId === electionId) ?? elections[0];
   const labels: Record<PoliticalMeasure, string> = en
     ? { votes: "Second votes", vote_share: "Second-vote share (derived)", seats: "Election seats", seat_share: "Seat share (derived)" }
@@ -175,10 +181,24 @@ export default function PoliticalExplorerAlpha({ elections }: { elections: Polit
       </section>
       <section className="card p-5" data-politics-cross-country>
         <h3 className="font-semibold">{en ? "Comparing countries" : "跨国比较"}</h3>
-        <p className="mt-2 text-sm">{en ? "Not available yet: Germany is the only country with authorised election data. A country becomes selectable only once its official data is published in the Atlas; no placeholder values are shown. When a second country is added, comparisons will state each country's electoral system and will not rank parties or countries." : "暂不可用：目前只有德国拥有经授权的选举数据。只有当一个国家的官方数据在 Atlas 中发布后，该国才可选择；不显示任何占位数值。加入第二个国家后，比较将说明各国的选举制度，且不对政党或国家排名。"}</p>
+        {comparisonCountries.length && comparedCountry && comparedCountryElection ? <>
+          <div className="mt-3 flex flex-wrap gap-4">
+            <label className="text-sm">{en ? "Compare with country" : "比较的国家"}<select className="field-control block" value={comparedCountry.slug} onChange={(event) => { setOtherCountry(event.target.value); setOtherCountryElection(""); }}>{comparisonCountries.map((item) => <option key={item.slug} value={item.slug}>{item.name[locale]}</option>)}</select></label>
+            <label className="text-sm">{en ? "Election" : "选举"}<select className="field-control block" value={comparedCountryElection.electionId} onChange={(event) => setOtherCountryElection(event.target.value)}>{comparedCountry.elections.map((item) => <option key={item.electionId} value={item.electionId}>{item.year}</option>)}</select></label>
+          </div>
+          <PoliticalCountryComparison a={election} b={comparedCountryElection} locale={locale} />
+        </> : <p className="mt-2 text-sm" data-cross-country-disabled>{en ? "Not available yet: Germany is the only country with authorised election data. A country becomes selectable only once its official data is published in the Atlas; no placeholder values are shown. The comparison view is built and will show two elections side by side — dates, chambers, turnout, seats, lists and each electoral system — without ranking parties or countries. A candidate package for Romania's 2016 Chamber of Deputies election exists in staging; it is not published and needs owner authorisation and unresolved source checks before it can be used." : "暂不可用：目前只有德国拥有经授权的选举数据。只有当一个国家的官方数据在 Atlas 中发布后，该国才可选择；不显示任何占位数值。比较视图已经建好，届时将并排显示两场选举的日期、议院、投票率、席位、名单和各自的选举制度，且不对政党或国家排名。罗马尼亚 2016 年众议院选举的候选数据包已在暂存区，但尚未发布；在获得所有者授权并完成未决的来源核查之前不能使用。"}</p>}
       </section>
       <details className="card p-5"><summary className="cursor-pointer font-semibold">{en ? "Sources, provenance and downloads" : "来源、出处与下载"}</summary>
         <ul className="mt-4 space-y-4">{election.sources.map(source => <li key={source.id} className="break-words text-sm"><a href={source.url} className="underline">{source.title}</a><p className="text-xs">SHA-256: {source.sha256} · {en ? "Retrieved" : "获取时间"}: {source.retrievedAt}</p>{source.licenceUrl ? <a href={source.licenceUrl} className="underline">{en ? "Reuse terms" : "复用条款"}</a> : null}<div className="mt-2"><NotebookCollect create={() => draft(source.id)} label={en ? "Collect source" : "收藏来源"} /></div></li>)}</ul>
+        <div className="mt-4 space-y-2 text-sm" data-politics-definitions>
+          <p className="font-semibold">{en ? "Definitions and formulas" : "定义与公式"}</p>
+          <p>{en ? "Published values (vote share, turnout) are the election authority's own figures and are shown as published." : "官方公布值（得票率、投票率）是选举机构自己的数字，按公布值显示。"}</p>
+          <p>{en ? "Derived vote share = a list's second votes ÷ valid second votes × 100. Derived seat share = a list's seats ÷ seats after the election × 100. Derived values are labelled and never replace a published value." : "计算得票率＝名单第二票数 ÷ 有效第二票 × 100。计算席位占比＝名单席位 ÷ 本届选举产生的席位 × 100。计算值均有标注，且不替代官方公布值。"}</p>
+          <p>{en ? "Turnout" : "投票率"}: {election.turnoutDefinition ? <span lang="en">{election.turnoutDefinition}</span> : (en ? "definition not recorded" : "未记录定义")}</p>
+          <p>{en ? `Result vintage: “${election.resultVintage}”. A corrected vintage replaces the earlier figures for that election and is stated wherever it applies.` : `结果版本：“${election.resultVintage}”。更正版本会取代该届选举的早期数字，并在适用处注明。`}</p>
+          <p>{en ? "Reuse: each source below links to the publisher's reuse terms; the Atlas redistributes only data whose terms allow it." : "复用：下方每个来源都链接到发布方的复用条款；Atlas 只再分发条款允许的数据。"}</p>
+        </div>
         <p className="mt-4"><a href="/research-data/political/germany/election_results.csv" className="underline">{en ? "Results CSV (all seven elections)" : "结果CSV（七届选举）"}</a>{" · "}<a href="/research-data/political/germany/manifest.json" className="underline">{en ? "Twelve-store JSON/CSV manifest" : "十二张表JSON／CSV清单"}</a>{" · "}<a href="/research-data/political/germany/election_turnout.csv" className="underline">{en ? "Turnout CSV" : "投票率CSV"}</a>{" · "}<a href="/research-data/political/germany/electoral_systems.csv" className="underline">{en ? "Electoral-system rules CSV" : "选举制度规则CSV"}</a></p>
       </details>
     </>}

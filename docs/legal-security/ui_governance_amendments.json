@@ -675,6 +675,56 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-14"
+    },
+    {
+      "amendment_id": "politics-explorer-phase-1c-2026-10-14",
+      "status": "owner_approved",
+      "approved_by": "owner explicit implementation brief 2026-10-14 (Political Explorer Phase 1C)",
+      "purpose": "Reusable cross-country comparison view (side by side, caveated, never ranked or differenced), a pure store adapter, and research definitions in the Germany explorer. The comparison stays disabled: Germany is the only production country and no other country store is imported. No political store, election record or identity link changes.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "1e31f55d20199bb9de389a9896072cee20553fecdabcd46f9069d59e1270b667",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalCountryComparison.tsx",
+          "sha256": "8ffc76ab1c3555d60cfbd350a1523054879d568e594b2ca48dc73da93cc292b0",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalExplorer.ts",
+          "sha256": "3ee6c3e37b13af221613b066e24980297aaf4d8ebff68b87296274cdf07eb7bd",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "f96c063a3450c4cc5dc724d5ab9b618b903a2e1bd44f104ebe3efbe8498f2f45",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalStores.ts",
+          "sha256": "5153f9e9daf30bacf17225ad763ab57aca6ea0ba4470db3363e200724780baa1",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/page.tsx",
+          "sha256": "0f53207ec9b286e7d4fc81818bd5ec977c62174ea1421acfa705f4a0adfe5c57",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/page.tsx",
+          "sha256": "2dcb735505f4b6c0d1d9d77eb775017bfdded7371f43bb3ebae74c04e181772c",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-14"
     }
   ]
 }
