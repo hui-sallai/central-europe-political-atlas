@@ -24,10 +24,34 @@ and not a re-estimation. Tooling: `scripts/data-refresh/` (`plan.mjs`, `apply.mj
 | Mode | Units | Notes |
 |---|---|---|
 | `monthly` | eurostat-high-frequency, macro-drivers (blocked), serbia-sors | live series only; historical descriptive stores are preserved |
-| `annual` | annual-history (+ source-ahead check of `observations.json`) | backfill store refreshed; `observations.json` is a formal model input — newer years/revisions are **reported only** |
+| `annual` | annual-history (+ source-ahead check of `observations.json`; run `node scripts/data-refresh/canonical-check.mjs` for the full candidate report) | backfill store refreshed; `observations.json` is a formal model input — newer years/revisions are **reported only** |
 | `regional` | regional-history | NUTS 2024 dissemination; GISCO code lists decide comparability per year; v0.86/v0.89 map files untouched |
 | `serbia` | serbia-sors | annual + monthly/quarterly + regional stores, applied as one unit (offline-rebuild validator) |
 | `all-descriptive` | all of the above + monthly-history (revision audit) | |
+
+### Canonical annual source check (candidate report only)
+`observations.json` is a protected formal model input with no refresh writer. `node scripts/data-refresh/canonical-check.mjs`
+(no package script: package metadata is frozen by the source-closure checkpoint) re-runs **every record's own registered source query** and writes
+`.tmp-data-refresh/<run>/canonical_candidate_report.{json,md}` plus the raw responses (`canonical-raw/`). It covers all
+indicators in the file (the annual-history source-ahead check only sees the 17 backfilled ones) and reports:
+new years at source · pending periods now published · revisions beyond / within the existing overlap tolerance ·
+stored values missing at source · definition/break flags · derived values via their numerator/denominator queries ·
+a reason for every pending period (`not_yet_published_at_source`, `missing_at_source`,
+`not_available_for_country_at_source`, `published_at_source_not_imported`,
+`published_at_source_with_definition_flag`, `source_acquisition_failure`, `no_registered_api_query`,
+`not_applicable_by_research_rule`) · per-retrieval provenance (endpoint, HTTP status, retrieval time, the dataset's own
+update time, response SHA-256). The release date of an individual observation is not exposed by the API and is recorded
+as unavailable — never substitute a build or retrieval date.
+- It **never writes** `src/data/**` or `public/research-data/**`. Do not turn a candidate into a data edit: updating
+  `observations.json` needs a separate owner-approved procedure (and a new research baseline where a formal sample changes).
+- A value flagged `definition_differs` / `break_in_series`, or found only by a sibling probe (another country's query
+  with the country code swapped, e.g. Serbia HICP), is evidence about the source — not a comparable observation.
+  Comparability flags stay the owner's decision.
+- `--from-run <id>` replays archived responses without network. `--write-summary` (only when the owner wants the
+  interface updated) rewrites `docs/data-refresh/canonical_source_check.json` and the generated
+  `src/lib/canonicalSourceCheck.ts`; the latter is a UI file and needs an exact-hash UI amendment. The summary is pinned
+  to the SHA-256 of the `observations.json` it checked — a tooling test fails if they diverge.
+- UN Comtrade-derived series are not checked (no registered keyless API query).
 
 Expected findings you must not "fix":
 - `macro-drivers` is **blocked** (owner decision 2026-09-30) and reported as `blocked_by_owner_decision`: its only
