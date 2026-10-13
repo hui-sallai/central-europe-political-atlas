@@ -1,0 +1,48 @@
+{
+  "schema_version": "atlas-polling-measurement-proposal-v1",
+  "state": "proposal_not_approved_no_data",
+  "boundary": "Structure only. No polling observation is stored or published. A polling-measurement layer requires an explicit owner-approved amendment of docs/political-data/political_source_policy.md and verified reuse rights for each publisher. Polls are never a source for election results, party identity or seats; that rule is unchanged.",
+  "purpose": "Record documented party-level polling measurements as published by a polling organisation, as measurements with their own method and uncertainty — separate from election results.",
+  "proposed_store": "polling_measurements (one row per poll × party or electoral list)",
+  "key": ["poll_id", "list_label_as_published"],
+  "fields": {
+    "poll_id": "pl-<cc>-<publisher slug>-<fieldwork end date>; opaque, never reused",
+    "country": "Atlas country slug",
+    "polling_organisation": "name as published",
+    "commissioner": "who commissioned the poll, if published; else null",
+    "fieldwork_start": "ISO date or null if not published",
+    "fieldwork_end": "ISO date or null if not published",
+    "publication_date": "ISO date",
+    "target_population": "as published (e.g. all adults, eligible voters, decided voters); never harmonised",
+    "sample_size": "integer or null if not published",
+    "survey_method": "as published (e.g. telephone, online panel, face-to-face); null if not published",
+    "list_label_as_published": "party or electoral list label exactly as the publisher gives it; no mapping to an Atlas party is implied",
+    "reported_support_percent": "number as published; never recomputed, rescaled or pooled",
+    "base_of_percent": "what the percentage is of, as published (e.g. decided voters); required",
+    "uncertainty_as_published": "margin of error or interval text if published; else null",
+    "question_wording_reference": "URL or citation if published; else null",
+    "source_url": "publisher's own page for the poll",
+    "retrieved_at": "ISO timestamp",
+    "raw_snapshot_sha256": "hash of the archived publisher page or file",
+    "reuse_terms": "licence or permission reference; a row without verified reuse rights is not stored",
+    "provenance": "same provenance object as the election stores"
+  },
+  "never": [
+    "infer individual political preferences or any person-level attribute",
+    "calculate election-winning probabilities, seat projections or forecasts",
+    "generate, smooth, average or pool polling estimates across organisations, populations or methods",
+    "treat a poll as an election result or use it to decide party identity",
+    "map a published list label to a continuous party series without the identity review used for election data",
+    "present two polls with different bases or target populations as one series"
+  ],
+  "presentation_rules": [
+    "always show organisation, fieldwork dates, base of the percentage, sample size and published uncertainty next to a value",
+    "show polls in a section separate from election results",
+    "state when a difference between two polls lies inside the published uncertainty"
+  ],
+  "owner_decisions_required": [
+    "amend the political source policy to permit a polling-measurement layer",
+    "approve publishers one by one after reuse-rights verification",
+    "decide whether the existing poll-related Event Library record may link to this layer"
+  ]
+}

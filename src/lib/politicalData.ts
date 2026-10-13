@@ -19,6 +19,8 @@ export function politicalElectionViews(): PoliticalElectionView[] {
       electionId: election.election_id, year: election.year, date: election.date,
       resultVintage: election.result_vintage, validSecondVotes: counts.valid_second_votes,
       totalSeats: legislature.total_seats, publishedTurnout: counts.published_turnout,
+      eligibleVoters: counts.eligible_voters, voters: counts.voters,
+      system: { family: system.system_family, allocationMethod: system.allocation_method, baseSeats: system.base_seats, voteType: system.vote_type },
       notes: system.notes,
       sources: sources.filter(s => sourceIds.has(s.source_id)).map(s => ({ id: s.source_id, title: s.dataset, url: s.url, sha256: s.raw_sha256, retrievedAt: s.retrieved_at, licenceUrl: s.licence_url })),
       results: rows.map(row => ({ contestantId: row.contestant_ref, nativeLabel: contestants.find(c => c.contestant_id === row.contestant_ref)!.historical_display_label, secondVotes: row.second_votes, publishedVoteShare: row.published_vote_share, seats: row.seats, sourceId: row.provenance[0].source_id })),

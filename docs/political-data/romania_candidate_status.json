@@ -1,0 +1,79 @@
+{
+  "schema_version": "atlas-political-candidate-status-v1",
+  "country": "romania",
+  "state": "candidate_not_authorised_for_production",
+  "boundary": "Staging artefact. Not canonical political data, not published on the site, not selectable in the Political Explorer. Promotion requires explicit owner authorisation and an updated political source registry.",
+  "election_id": "el-ro-cd-2016-12-11",
+  "licence": {
+    "id": "OGL-ROU-1.0",
+    "title": "OGL-ROU-1.0",
+    "url": "https://data.gov.ro/pages/licence",
+    "publisher": "Autoritatea Electorală Permanentă",
+    "package": "alegeri_parlamentare_2016",
+    "basis": "Atlas national_election_source_registry.json (verified_live package metadata) and the staged licence page"
+  },
+  "sources": {
+    "results": {
+      "file": "cd2016.csv",
+      "url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+      "title": "Centralizarea datelor pentru Camera Deputaților, cu excepția votului prin corespondență",
+      "sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b",
+      "bytes": 8513240
+    },
+    "postal": {
+      "file": "cd2016_postal.csv",
+      "url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/a397ed83-39bf-4369-85cf-8c6b92b4d642/download/bvccd-1.csv",
+      "title": "Centralizarea datelor pentru Camera Deputaților pentru votul prin corespondență",
+      "sha256": "684e8aa737721d65fff9de61ba02c6f174c28c29bfaf314ceb25a1fddc558e1c",
+      "bytes": 1131
+    },
+    "mandates": {
+      "file": "cd2016_mandates.xlsx",
+      "url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+      "title": "Repartizarea mandatelor de deputat pe circumscripții",
+      "sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6",
+      "bytes": 13337
+    },
+    "licence": {
+      "file": "licence.html",
+      "url": "https://data.gov.ro/pages/licence",
+      "title": "data.gov.ro licence page (OGL-ROU-1.0)",
+      "sha256": "1141a03a51ab59c0fbf0edaab42c155c7f2e9c1fc8bad12f9757559047745b3b",
+      "bytes": 26510
+    }
+  },
+  "also_verified_not_parsed": {
+    "package": "alegeri-pentru-camera-deputatilor-si-senat-2012",
+    "licence": "OGL-ROU-1.0",
+    "publisher": "Autoritatea Electorală Permanentă",
+    "note": "2012 files are XLS / station-level CSV for single-member colleges; staged but not parsed."
+  },
+  "summary": {
+    "lists": 35,
+    "seat_winning_lists_in_allocation_file": 6,
+    "seats_allocated_in_constituency_file": 312,
+    "valid_votes_derived": 7047384,
+    "independent_candidates_aggregated": 39,
+    "polling_stations_summed": 19043
+  },
+  "consistency_checks": {
+    "licence_recorded_as_ogl_rou_in_atlas_registry": true,
+    "every_postal_list_matches_a_results_list": true,
+    "every_seat_winning_list_matches_a_results_list": true,
+    "main_file_valid_votes_e_equals_sum_of_list_votes": true,
+    "main_file_voters_b_equals_e_plus_f_plus_g": false,
+    "postal_valid_votes_d1_equals_sum_of_list_votes": true,
+    "constituencies_in_allocation_file": 43
+  },
+  "open_issues": [
+    "Election date 2016-12-11 is taken from the Atlas registry (harmonised secondary source); it must be reconciled against an official act before production.",
+    "The meaning of count columns a/b/e/f/g (main file) and a/b/d1 (postal file) is inferred from arithmetic identities in the data, not from a published codebook; turnout stays unpublished until the column definitions are confirmed from an official document.",
+    "The constituency allocation file lists seats for threshold-passing lists only. Seats of national-minority organisations (allocated under special rules) and the total size of the Chamber are not in the staged files.",
+    "No official published national vote shares are in the staged files; shares in this package are Atlas-derived (votes / valid votes × 100).",
+    "Independent candidates are aggregated; candidate-level rows are excluded by the person-safety rules.",
+    "Cross-election party identity is not established: every list is election-specific.",
+    "The 2012 election used single-member colleges; its files are verified and staged (XLS) but not parsed. It must not be combined with 2016 as one series."
+  ],
+  "builder": "scripts/political-data/romania/build-candidate.mjs",
+  "candidate_package": "staged locally under .tmp-data-refresh/political-candidate-romania/candidate/ (gitignored); rebuild from the listed official files"
+}

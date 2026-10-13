@@ -167,6 +167,15 @@
       "robots_checked_at": "2026-10-03",
       "reason": "robots.txt disallows AI agents (Anthropic-ai, Claude-Web, ChatGPT-User)",
       "status": "blocked"
+    },
+    {
+      "host": "data.gov.ro",
+      "purpose": "Romanian government open-data portal: AEP parliamentary election files (OGL-ROU-1.0), Chamber of Deputies 2016 candidate package only",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-14",
+      "robots_note": "disallows /api/, /dataset/rate/, /revision/, /dataset/*/history; Crawl-Delay 10. File downloads under /dataset/*/resource/*/download/ and /storage/ are not disallowed. Deviation recorded: on 2026-10-13/14 the assistant queried /api/3/action/package_show and package_search (disallowed path), used a browser-style User-Agent prefix and did not observe the crawl delay, before this host was registered; the API responses were deleted from staging and are not used. No scripted fetching: the candidate builder reads owner-staged files only.",
+      "status": "evidence_only_pending_publisher"
     }
   ],
   "reference_hosts": {

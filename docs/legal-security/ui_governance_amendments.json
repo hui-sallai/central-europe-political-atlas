@@ -645,6 +645,36 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-14"
+    },
+    {
+      "amendment_id": "politics-explorer-phase-1b-2026-10-14",
+      "status": "owner_approved",
+      "approved_by": "owner explicit implementation brief 2026-10-14 (National Politics Explorer Expansion — Phase 1B)",
+      "purpose": "Germany election charts (published second-vote share, seats, turnout), research details and election-level two-election comparison with label-only row alignment. Presentation of existing Germany stores only: no political store, election record, identity link or model change; Germany remains the only production country.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "7f6325f749968fd1b4fa97a0142cf8fee335bf0bf75ef6cbbcbdadad07831252",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalExplorer.ts",
+          "sha256": "f7634d9aba10b9aaa2e31fb88aa270d251902a210e7fddd89eecda7eed1f76ea",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "d9d863f5e55f67bcb89648a754314e6f9c7d8e38a1ec81856fdbe86d5d744db1",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-14"
     }
   ]
 }

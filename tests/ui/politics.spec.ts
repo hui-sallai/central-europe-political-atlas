@@ -36,6 +36,37 @@ for (const locale of ["zh-CN", "en"] as const) {
     const language=locale==='en'?'中文':'English';await page.getByRole('link',{name:language,exact:true}).click();
     await expect(page.locator('[data-politics-explorer] select').nth(1)).toHaveValue('el-de-bt-2021-09-26');
   });
+  test(`Politics charts, research details and two-election comparison: ${locale}`, async ({page}) => {
+    await page.goto(route+'?election=el-de-bt-2025-02-23',{waitUntil:'networkidle'});
+    const panel=page.locator('[data-politics-explorer]');
+    await expect(panel.locator('[data-politics-chart="turnout"] [data-turnout-year]')).toHaveCount(7);
+    await expect(panel.locator('[data-politics-chart="turnout"] [data-turnout-year="2025"]')).toContainText('82.5%');
+    // Only lists that won seats or reached 1% are charted; values are the published ones.
+    await expect(panel.locator('[data-politics-chart="votes-seats"] [data-chart-list]')).toHaveCount(11);
+    await expect(panel.locator('[data-politics-chart="votes-seats"] [data-chart-list]').first()).toContainText('164');
+    await expect(panel.locator('[data-politics-research-details]')).toContainText('Sainte-Laguë/Schepers');
+    await expect(panel.locator('[data-politics-research-details]')).toContainText('630');
+    await expect(panel.locator('[data-compare-aggregates]')).toHaveCount(0);
+    await panel.locator('[data-politics-compare] select').selectOption('el-de-bt-2021-09-26');
+    await expect(panel.locator('[data-aggregate="turnout"]')).toContainText(locale==='en'?'−6.1 pp':'−6.1 个百分点');
+    await expect(panel.locator('[data-aggregate="seats"]')).toContainText('+105');
+    await expect(panel.locator('[data-aggregate="seats"]')).toContainText('735');
+    // No identity is inferred: differently spelled labels stay on separate rows and no per-list change is shown.
+    const lists=panel.locator('[data-compare-lists]');
+    await expect(lists.locator('tbody tr').filter({hasText:/^Die Linke/})).toHaveAttribute('data-label-row','one');
+    await expect(lists.locator('tbody tr').filter({hasText:/^DIE LINKE/})).toHaveAttribute('data-label-row','one');
+    await expect(lists.locator('thead th')).toHaveCount(5);
+    await expect(panel.locator('[data-identity-limitation]')).toBeVisible();
+    await expect(panel.locator('[data-politics-cross-country]')).toContainText(locale==='en'?'Germany is the only country':'只有德国');
+    await expect(panel.locator('select').first().locator('option')).toHaveCount(1);
+    expect(new URL(page.url()).searchParams.get('compare')).toBe('el-de-bt-2021-09-26');
+    await page.reload({waitUntil:'networkidle'});
+    await expect(panel.locator('[data-politics-compare] select')).toHaveValue('el-de-bt-2021-09-26');
+    // Selecting the compared election as the main one drops the comparison instead of comparing an election with itself.
+    await panel.locator('select').nth(1).selectOption('el-de-bt-2021-09-26');
+    await expect(panel.locator('[data-compare-aggregates]')).toHaveCount(0);
+    for(const text of ['forecast','probability','ranking']) await expect(panel.locator('[data-politics-compare]')).not.toContainText(text);
+  });
   test(`Politics accessibility, canonical, mobile overflow and themes: ${locale}`, async ({page})=>{
     await page.goto(route,{waitUntil:'networkidle'});await page.evaluate(()=>document.fonts.ready);
     await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href',`https://hy-central-europe-analysis.org${route}`);
