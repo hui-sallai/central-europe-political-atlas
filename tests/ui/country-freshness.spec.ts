@@ -20,7 +20,7 @@ for (const prefix of ["", "/en"]) test(`country directory published years, units
   const fdi = latestAvailable("romania", "fdi_inflow");
   if (prefix) await expect(page.locator('[data-country-observation="fdi_inflow"]')).toHaveAttribute("data-observation-year", String(fdi!.year));
   else {
-    await page.getByRole("tab", { name: "Economy", exact: true }).click();
+    await page.getByRole("tab", { name: "经济数据", exact: true }).click();
     await expect(page.locator('[data-country-observation="fdi_inflow"]')).toHaveAttribute("data-observation-year", String(fdi!.year));
   }
   await page.getByRole("link", { name: prefix ? "Historical comparison" : "历史比较", exact: true }).click();

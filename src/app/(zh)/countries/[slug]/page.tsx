@@ -6,7 +6,7 @@ import { CountryComparePanel } from "@/components/CountryComparePanel";
 import { getCountry } from "@/lib/data";
 import { getCountryObservations, getEventsForCountry, getProjectsForCountry, getResearchCountryBySlug, researchCountries } from "@/lib/researchData";
 import { regionalCoverageMatrixV087 } from "@/lib/spatialDataV087";
-import { getModelOutputsForCountry } from "@/lib/modelFramework";
+import { getModelOutputsForCountry, modelCards } from "@/lib/modelFramework";
 
 const COMPARE_INDICATORS = new Set(["gdp_current_eur", "gdp_per_capita_eur", "real_gdp_growth", "hicp_inflation", "unemployment_rate", "government_debt_gdp"]);
 
@@ -52,6 +52,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
         events={getEventsForCountry(slug)}
         projects={getProjectsForCountry(slug)}
         modelOutputs={getModelOutputsForCountry(slug)}
+        modelCards={modelCards}
         regionalMapAvailable={Boolean(regionalCoverage?.public_layer_count)}
       />
 

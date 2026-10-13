@@ -575,6 +575,51 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-13"
+    },
+    {
+      "amendment_id": "country-research-experience-2026-10-13",
+      "status": "owner_approved",
+      "approved_by": "Owner explicit Country Research Experience Completion implementation brief, 2026-10-13; no automatic push or additional agents",
+      "purpose": "Existing composite Model Card names, dimensions, documented score range/direction, reference year, completeness, limits and language-specific method links. Initialise existing model control from a valid model URL parameter. No model formula, output, data, gate or version changes.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/CountryModelSnapshot.tsx",
+          "sha256": "7c3cddc4ee3a67d8d7e03e797575d982caefc291010280d5b79219e33ba67627",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryResearchProfile.tsx",
+          "sha256": "8eb11d6e92e767205536394de11f018b8a07d62ab3d775469393036a9b422db8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/AnalysisWorkbench.tsx",
+          "sha256": "a3aa8d0cd0763447a5e458dd5e86f11f086296caee4db4c96f023e69907d041c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/countryModelPresentation.ts",
+          "sha256": "fa938f8b4ad1aa9d33e8ebcfc234e43982422eef79e4361c33f8b2bc002197c2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/countries/[slug]/page.tsx",
+          "sha256": "230a5849ab365fab3fb128e9f0ca8fb7ab64e119d7bb767f3f0da9eac1874549",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/countries/[slug]/page.tsx",
+          "sha256": "a2c198a518ba15ca8cd188fb20186266d65c41ba315279c039eb2c64c229a077",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-13"
     }
   ]
 }

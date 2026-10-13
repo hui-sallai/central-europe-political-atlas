@@ -76,7 +76,7 @@ function AnalysisWorkbenchContent({ countries, cards, outputs, events }: Workben
   const category = selectedSkill.category;
   const setCategory = (next: AnalysisSkillCategory) => setSelectedSkillId(runtimeAnalysisSkills.find((s) => s.category === next)!.skill_id);
   const [countrySlug, setCountrySlug] = useState(route.countrySlug ?? "poland");
-  const [modelId, setModelId] = useState<ModelId>(cards[0]?.model_id ?? "household_economic_pressure");
+  const [modelId, setModelId] = useState<ModelId>(cards.find(card => card.model_id === searchParams.get("model"))?.model_id ?? cards[0]?.model_id ?? "household_economic_pressure");
   const [result, setResult] = useState<ModelOutput | null>(null);
   const [diagnostics, setDiagnostics] = useState<AnalysisDiagnostics | null>(null);
   const [consistency, setConsistency] = useState<ConsistencyStatus>(null);

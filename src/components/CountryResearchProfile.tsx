@@ -2,20 +2,21 @@
 
 import Link from "next/link";
 import { CountryObservationValue } from "./CountryObservationValue";
+import { CountryModelSnapshot } from "./CountryModelSnapshot";
 import { useState } from "react";
 import { Sparkline } from "@/components/ResearchCharts";
 import type { Country as UiCountry } from "@/lib/data";
-import type { Event, ModelOutput, Observation, Project } from "@/types/researchData";
+import type { Event, ModelCard, ModelOutput, Observation, Project } from "@/types/researchData";
 import { formatWithUnit } from "@/lib/format";
 
 type CountryTab = "overview" | "economy" | "politics" | "external" | "models";
 
 const tabs: Array<{ id: CountryTab; label: string }> = [
-  { id: "overview", label: "Overview" },
-  { id: "economy", label: "Economy" },
-  { id: "politics", label: "Politics" },
-  { id: "external", label: "External & China" },
-  { id: "models", label: "Models" },
+  { id: "overview", label: "概览" },
+  { id: "economy", label: "经济数据" },
+  { id: "politics", label: "政治制度" },
+  { id: "external", label: "对外联系" },
+  { id: "models", label: "模型结果" },
 ];
 
 const indicatorLabels: Record<string, string> = {
@@ -41,26 +42,13 @@ function formatValue(value: number | null, unit: string) {
   return formatWithUnit(value, unit, { maximumFractionDigits: unit.includes("欧元") ? 0 : 1 });
 }
 
-function ModelSnapshot({ output }: { output: ModelOutput }) {
-  return (
-    <article className="border-t border-[var(--line)] py-4 first:border-t-0">
-      <div className="flex items-end justify-between gap-4">
-        <div>
-          <p className="text-sm font-semibold">{output.model_id.replaceAll("_", " ")}</p>
-          <p className="mt-1 text-xs text-[var(--muted)]">{output.availability} · completeness {output.data_completeness}%</p>
-        </div>
-        <p className="metric-number text-2xl font-semibold text-[var(--accent)]">{output.score === null ? "—" : output.score.toFixed(1)}</p>
-      </div>
-    </article>
-  );
-}
-
 export function CountryResearchProfile({
   country,
   observations,
   events,
   projects,
   modelOutputs,
+  modelCards,
   regionalMapAvailable,
 }: {
   country: UiCountry;
@@ -68,6 +56,7 @@ export function CountryResearchProfile({
   events: Event[];
   projects: Project[];
   modelOutputs: ModelOutput[];
+  modelCards: ModelCard[];
   regionalMapAvailable: boolean;
 }) {
   const [activeTab, setActiveTab] = useState<CountryTab>("overview");
@@ -85,6 +74,7 @@ export function CountryResearchProfile({
         <Link href={`/models/?country=${country.slug}`}>研究方法与可用性</Link>
         <Link href={`/news/?country=${country.slug}`}>相关事件</Link>
         <Link href="/methodology/">方法与限制</Link>
+        <Link href="/methodology/#citation">研究数据导出</Link>
       </nav>
       <div className="research-tabs" role="tablist" aria-label={`${country.nameZh}研究页面`}>
         {tabs.map((tab) => (
@@ -123,7 +113,7 @@ export function CountryResearchProfile({
                 ["货币", country.currency],
               ].map(([label, value]) => <div key={label} className="flex justify-between gap-4 py-3"><dt className="text-[var(--muted)]">{label}</dt><dd className="font-semibold">{value}</dd></div>)}
             </dl>
-            <div className="mt-6"><p className="editorial-kicker">Model Snapshot</p><div className="mt-3">{modelOutputs.map((output) => <ModelSnapshot key={output.model_id} output={output} />)}</div><Link href={`/models?country=${country.slug}`} className="mt-3 inline-flex text-sm font-semibold text-[var(--accent)]">进入 Analysis Workbench</Link></div>
+            <div className="mt-6"><p className="editorial-kicker">模型摘要</p><div className="mt-3">{modelOutputs.map((output) => <CountryModelSnapshot key={output.model_id} output={output} card={modelCards.find(card => card.model_id === output.model_id)} />)}</div><Link href={`/models?country=${country.slug}`} className="mt-3 inline-flex text-sm font-semibold text-[var(--accent)]">进入模型分析</Link></div>
           </aside>
         </div>
       ) : null}
@@ -153,8 +143,8 @@ export function CountryResearchProfile({
 
       {activeTab === "models" ? (
         <div className="mt-7 grid gap-7 lg:grid-cols-[1fr_0.65fr]">
-          <section><p className="editorial-kicker">Composite Indicators</p><div className="mt-4 divide-y divide-[var(--line)] border-y border-[var(--line)]">{modelOutputs.map((output) => <ModelSnapshot key={output.model_id} output={output} />)}</div></section>
-          <aside className="editorial-panel p-5"><p className="editorial-kicker">Analysis Skills</p><h2 className="mt-3 text-2xl font-semibold">统一分析入口</h2><p className="mt-3 text-sm leading-7 text-[var(--muted)]">Panel、Network、逐国简化式 VAR 与通过门禁的单国 Local Projections 已进入统一工作台；各方法的可用性取决于其预注册数据、识别、样本和诊断条件。SVAR、Formal Event Study 与 Bayesian VAR 仍未启用。</p><Link href={`/models?country=${country.slug}&skill=reduced_form_var`} className="mt-5 inline-flex rounded-full cta-dark px-4 py-2 text-sm font-semibold">进入 Analysis Workbench</Link></aside>
+          <section><p className="editorial-kicker">综合指标</p><div className="mt-4 divide-y divide-[var(--line)] border-y border-[var(--line)]">{modelOutputs.map((output) => <CountryModelSnapshot key={output.model_id} output={output} card={modelCards.find(card => card.model_id === output.model_id)} />)}</div></section>
+          <aside className="editorial-panel p-5"><p className="editorial-kicker">Analysis Skills</p><h2 className="mt-3 text-2xl font-semibold">统一分析入口</h2><p className="mt-3 text-sm leading-7 text-[var(--muted)]">Panel、Network、逐国简化式 VAR 与通过门禁的单国 Local Projections 已进入统一工作台；各方法的可用性取决于其预注册数据、识别、样本和诊断条件。SVAR、Formal Event Study 与 Bayesian VAR 仍未启用。</p><Link href={`/models?country=${country.slug}&skill=reduced_form_var`} className="mt-5 inline-flex rounded-full cta-dark px-4 py-2 text-sm font-semibold">进入模型分析</Link></aside>
         </div>
       ) : null}
     </section>
