@@ -174,7 +174,7 @@ export default function PoliticalExplorerAlpha({ elections }: { elections: Polit
         </> : <p className="mt-3 text-sm text-[var(--muted)]">{en ? "Choose a second election to see election-level differences and the two sets of lists side by side." : "选择另一届选举，即可查看选举层面的差值，并并排查看两届的名单。"}</p>}
       </section>
       <section className="card p-5" data-politics-cross-country>
-        <h3 className="font-semibold">{en ? "Cross-country comparison" : "跨国比较"}</h3>
+        <h3 className="font-semibold">{en ? "Comparing countries" : "跨国比较"}</h3>
         <p className="mt-2 text-sm">{en ? "Not available yet: Germany is the only country with authorised election data. A country becomes selectable only once its official data is published in the Atlas; no placeholder values are shown. When a second country is added, comparisons will state each country's electoral system and will not rank parties or countries." : "暂不可用：目前只有德国拥有经授权的选举数据。只有当一个国家的官方数据在 Atlas 中发布后，该国才可选择；不显示任何占位数值。加入第二个国家后，比较将说明各国的选举制度，且不对政党或国家排名。"}</p>
       </section>
       <details className="card p-5"><summary className="cursor-pointer font-semibold">{en ? "Sources, provenance and downloads" : "来源、出处与下载"}</summary>
