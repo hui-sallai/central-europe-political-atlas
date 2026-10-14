@@ -10,7 +10,8 @@ export const CONTEXT_MONTHLY_IDS = ["hicp_annual_rate", "unemployment_rate_month
 export type ContextPoint = { id: string; country: string; indicator: string; frequency: "annual" | "monthly"; period: string; value: number | null; unit: string; status: string; source: string; sourceUrl: string; definition: string; comparable: boolean; layer: string };
 export type ContextMonthlyMeta = { country: string; indicator: string; source_url: string; source_dataset: string; definition_version: string; unit: string; seasonal_adjustment: string; revision_status: string };
 export type ContextHfRow = [string,string,string,string,number|null,string,string,string,string,string,string,string];
-export type ContextRangeMode = "year" | "prior3" | "prior5" | "custom";
+export type ContextRangeMode = "year" | "prior3" | "prior5" | "following2" | "custom";
+export type ContextPerspective = "pre_election" | "retrospective";
 export type ContextRange = { from: string; to: string };
 
 export function contextPublished(point: ContextPoint): boolean {
@@ -18,9 +19,17 @@ export function contextPublished(point: ContextPoint): boolean {
 }
 export function contextRange(date: string, mode: ContextRangeMode, from: number, to: number): ContextRange {
   const year=Number(date.slice(0,4));
-  const first=mode==="custom"?from:mode==="year"?year:year-(mode==="prior3"?3:5);
-  const last=mode==="custom"?to:mode==="year"?year:year-1;
+  const first=mode==="custom"?from:mode==="year"||mode==="following2"?year:year-(mode==="prior3"?3:5);
+  const last=mode==="custom"?to:mode==="following2"?year+2:mode==="year"?year:year-1;
   return {from:`${first}-01-01`,to:`${last}-12-31`};
+}
+export function perspectiveRange(date: string, mode: ContextRangeMode, from: number, to: number, frequency: ContextPoint["frequency"], perspective: ContextPerspective): ContextRange {
+  const range=contextRange(date,mode,from,to);
+  if(perspective==="retrospective")return range;
+  const year=Number(date.slice(0,4));
+  const cutoff=frequency==="annual"?`${year-1}-12-31`:new Date(Date.UTC(year,Number(date.slice(5,7))-1,0)).toISOString().slice(0,10);
+  if(mode==="year"&&frequency==="annual")range.from=`${year-1}-01-01`;
+  return {...range,to:range.to<cutoff?range.to:cutoff};
 }
 export function inContextRange(period: string, range: ContextRange): boolean {
   // Intersect reference periods, not fabricated observation days. Annual = full year; monthly = full calendar month.
@@ -63,7 +72,7 @@ export function contextDifference(a: ContextPoint|null,b: ContextPoint|null,date
   const relative=(p:ContextPoint,date:string)=>p.frequency==="annual"?Number(p.period)-Number(date.slice(0,4)):(Number(p.period.slice(0,4))-Number(date.slice(0,4)))*12+Number(p.period.slice(5,7))-Number(date.slice(5,7));
   return relative(a,dateA)===relative(b,dateB)?b.value!-a.value!:null;
 }
-export function contextCsv(points: ContextPoint[], electionId: string, range: ContextRange): string {
+export function contextCsv(points: ContextPoint[], electionId: string, range: ContextRange, selection: {electionDate:string;perspective:ContextPerspective;comparisonMode:string;referenceMode:ContextRangeMode}|null=null): string {
   const cell=(v:unknown)=>{const text=String(v??"");return `"${(typeof v==="string"&&/^[=+\-@\t\r]/.test(text)?"'"+text:text).replaceAll('"','""')}"`;};
-  return [["country","election_id","reference_from","reference_to","indicator_id","frequency","observation_period","published_value","unit","source","source_url","data_status","definition","layer"],...points.map(p=>[p.country,electionId,range.from,range.to,p.indicator,p.frequency,p.period,contextPublished(p)?p.value:null,p.unit,p.source,p.sourceUrl,p.status,p.definition,p.layer])].map(row=>row.map(cell).join(",")).join("\r\n");
+  return [["country","election_id","election_date","context_perspective","comparison_mode","reference_mode","reference_from","reference_to","indicator_id","frequency","observation_period","published_value","unit","source","source_url","data_status","definition","layer"],...points.map(p=>[p.country,electionId,selection?.electionDate??null,selection?.perspective??null,selection?.comparisonMode??null,selection?.referenceMode??null,range.from,range.to,p.indicator,p.frequency,p.period,contextPublished(p)?p.value:null,p.unit,p.source,p.sourceUrl,p.status,p.definition,p.layer])].map(row=>row.map(cell).join(",")).join("\r\n");
 }

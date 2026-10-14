@@ -1,7 +1,18 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {createRequire} from 'node:module';import ts from 'typescript';
 const require=createRequire(import.meta.url);require.extensions['.ts']=(m,f)=>m._compile(ts.transpileModule(fs.readFileSync(f,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,f);
-const {contextPublished,contextRange,inContextRange,contextTiming,contextAnnualPoints,contextMonthlyPoints,contextDifference,contextEvents,contextCsv}=require('../../src/lib/politicalEconomicContext.ts');
+const {contextPublished,contextRange,perspectiveRange,inContextRange,contextTiming,contextAnnualPoints,contextMonthlyPoints,contextDifference,contextEvents,contextCsv}=require('../../src/lib/politicalEconomicContext.ts');
 const point={id:'p',country:'germany',indicator:'real_gdp_growth',frequency:'annual',period:'2021',value:3.9,unit:'%',status:'official',source:'Eurostat',sourceUrl:'https://example.org',definition:'Eurostat GDP',comparable:true,layer:'snapshot'};
+test('pre-election perspective excludes overlapping annual/monthly periods, including January elections',()=>{
+ assert.deepEqual(perspectiveRange('2021-09-26','year',0,0,'annual','pre_election'),{from:'2020-01-01',to:'2020-12-31'});
+ assert.deepEqual(perspectiveRange('2021-09-26','year',0,0,'monthly','pre_election'),{from:'2021-01-01',to:'2021-08-31'});
+ const january=perspectiveRange('2025-01-23','year',0,0,'monthly','pre_election');assert.ok(january.from>january.to);
+ const custom=perspectiveRange('2021-09-26','custom',2020,2026,'monthly','pre_election');assert.equal(custom.to,'2021-08-31');assert.equal(inContextRange('2021-09',custom),false);
+ assert.deepEqual(perspectiveRange('2025-02-23','following2',0,0,'annual','retrospective'),{from:'2025-01-01',to:'2027-12-31'});
+});
+test('context export records election date, perspective and comparison mode explicitly',()=>{
+ const csv=contextCsv([point],'id',contextRange('2021-09-26','year',0,0),{electionDate:'2021-09-26',perspective:'retrospective',comparisonMode:'two_elections',referenceMode:'year'});
+ assert.match(csv,/election_date/);assert.match(csv,/context_perspective/);assert.match(csv,/comparison_mode/);assert.match(csv,/"2021-09-26","retrospective","two_elections","year"/);
+});
 test('reference ranges are complete years; annual/monthly observations are periods, not fabricated days',()=>{
  assert.deepEqual(contextRange('2021-09-26','prior3',0,0),{from:'2018-01-01',to:'2020-12-31'});
  assert.deepEqual(contextRange('2025-02-23','prior5',0,0),{from:'2020-01-01',to:'2024-12-31'});
