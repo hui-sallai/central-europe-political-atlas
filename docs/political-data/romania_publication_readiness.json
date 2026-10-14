@@ -1,0 +1,126 @@
+{
+  "schema_version": "atlas-political-publication-readiness-v1",
+  "country": "romania",
+  "election_id": "el-ro-cd-2016-12-11",
+  "chamber": "Camera Deputaților",
+  "authorisation": {
+    "production_authorised": false,
+    "registry_authorises": [
+      "germany"
+    ],
+    "note": "Readiness is technical only. Romania becomes a production country only by an explicit owner decision recorded in the political source registry; this file never grants it."
+  },
+  "evidence": {
+    "manifest_present": false,
+    "accepted_documents": 0,
+    "rejected_documents": [],
+    "fact_log": []
+  },
+  "fields": [
+    {
+      "field": "list_labels_native",
+      "status": "publishable_pending_authorisation",
+      "basis": "official station-level results file (column headers)",
+      "blocker": null
+    },
+    {
+      "field": "list_votes_national",
+      "status": "publishable_pending_authorisation",
+      "basis": "sum of all station rows plus the separate postal-vote bureau; no bureau counted twice",
+      "blocker": null
+    },
+    {
+      "field": "derived_vote_share",
+      "status": "publishable_pending_authorisation",
+      "basis": "Atlas-derived: list votes ÷ valid list votes (lists + independent aggregate) × 100",
+      "blocker": null
+    },
+    {
+      "field": "published_vote_share",
+      "status": "blocked",
+      "basis": null,
+      "blocker": "0/35 lists have a published share from an accepted official document"
+    },
+    {
+      "field": "list_seats_from_constituency_allocation",
+      "status": "publishable_pending_authorisation",
+      "basis": "official constituency allocation file",
+      "blocker": null
+    },
+    {
+      "field": "election_date",
+      "status": "blocked",
+      "basis": null,
+      "blocker": "date comes from the Atlas registry (harmonised secondary source); needs an official act"
+    },
+    {
+      "field": "total_chamber_seats",
+      "status": "blocked",
+      "basis": null,
+      "blocker": "complete Chamber size is not established; 312 is only the constituency-file total"
+    },
+    {
+      "field": "minority_representation",
+      "status": "blocked",
+      "basis": null,
+      "blocker": "national-minority organisation seats are not in the staged files"
+    },
+    {
+      "field": "count_column_definitions",
+      "status": "blocked",
+      "basis": null,
+      "blocker": "meaning of a/b/e/f/g (and postal a/b/d1) not documented by an accepted official source"
+    },
+    {
+      "field": "published_turnout",
+      "status": "blocked",
+      "basis": null,
+      "blocker": "no official national turnout figure staged"
+    },
+    {
+      "field": "turnout_definition",
+      "status": "blocked",
+      "basis": null,
+      "blocker": "no official turnout definition staged"
+    },
+    {
+      "field": "result_vintage_and_corrections",
+      "status": "blocked",
+      "basis": null,
+      "blocker": "no official final-results document staged, so later corrections cannot be ruled out"
+    },
+    {
+      "field": "contestant_kind",
+      "status": "blocked",
+      "basis": null,
+      "blocker": "party list / alliance / national-minority organisation not classified from an official competitor list"
+    }
+  ],
+  "summary": {
+    "publishable_pending_authorisation": [
+      "list_labels_native",
+      "list_votes_national",
+      "derived_vote_share",
+      "list_seats_from_constituency_allocation"
+    ],
+    "blocked": [
+      "published_vote_share",
+      "election_date",
+      "total_chamber_seats",
+      "minority_representation",
+      "count_column_definitions",
+      "published_turnout",
+      "turnout_definition",
+      "result_vintage_and_corrections",
+      "contestant_kind"
+    ]
+  },
+  "technically_ready_for_activation": false,
+  "activation_steps_after_owner_decision": [
+    "record the owner's authorisation and Romania's source rows in the political source registry (separate, owner-approved change)",
+    "copy the validated candidate stores to src/data/political/romania/ and generate public/research-data/political/romania/ exports under an exact-hash governance record",
+    "add Romania to politicalComparisonCountries() in src/lib/politicalData.ts under a UI amendment",
+    "re-run the political validators, the candidate validator and the politics UI tests; record Linux baselines"
+  ],
+  "generated_from": "scripts/political-data/romania/build-candidate.mjs over owner-staged official files; source checksums in romania_candidate_status.json"
+}

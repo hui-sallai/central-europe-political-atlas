@@ -60,10 +60,12 @@
     "licence_recorded_as_ogl_rou_in_atlas_registry": true,
     "every_postal_list_matches_a_results_list": true,
     "every_seat_winning_list_matches_a_results_list": true,
-    "main_file_valid_votes_e_equals_sum_of_list_votes": true,
-    "main_file_voters_b_equals_e_plus_f_plus_g": false,
-    "postal_valid_votes_d1_equals_sum_of_list_votes": true,
-    "constituencies_in_allocation_file": 43
+    "main_file_column_e_equals_sum_of_list_votes": true,
+    "main_file_column_b_equals_e_plus_f_plus_g": false,
+    "postal_file_column_d1_equals_sum_of_list_votes": true,
+    "constituencies_in_allocation_file": 43,
+    "station_keys_unique_in_station_file": true,
+    "postal_bureau_not_in_station_file": true
   },
   "open_issues": [
     "Election date 2016-12-11 is taken from the Atlas registry (harmonised secondary source); it must be reconciled against an official act before production.",

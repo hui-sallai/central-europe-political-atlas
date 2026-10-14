@@ -13,6 +13,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { applyEvidence, loadEvidence, readiness } from "./evidence.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
 const args = process.argv.slice(2);
@@ -66,6 +67,15 @@ export function sumStations(text, delimiter, firstListColumn, countColumns, trai
   return { stations: rows.length, lists, votes, counts, rowsWhereValidEqualsSum };
 }
 
+/** "constituency|station" keys of a station-level file, plus the range of the last column when it is a submission stamp. */
+export function stationIndex(text, delimiter, constituencyColumn, stationColumn) {
+  const lines = text.split(/\r?\n/).filter((line) => line.trim());
+  const header = parseCsvLine(lines[0], delimiter);
+  const rows = lines.slice(1).map((line) => parseCsvLine(line, delimiter));
+  const stamps = header.at(-1).trim() === "Data trimiterii Procesului-verbal" ? rows.map((row) => row.at(-1)).filter((value) => /^\d{8}_/.test(value)).sort() : [];
+  return { keys: rows.map((row) => `${row[constituencyColumn].trim()}|${row[stationColumn].trim()}`), stamp_column: stamps.length ? header.at(-1).trim() : null, first_stamp: stamps[0] ?? null, last_stamp: stamps.at(-1) ?? null };
+}
+
 function readMandates(file) {
   const dir = fs.mkdtempSync(path.join(stage, "xlsx-"));
   try {
@@ -92,6 +102,8 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const main = sumStations(new TextDecoder("utf-16le").decode(fs.readFileSync(files.results)).replace(/^﻿/, ""), ",", 20, ["a", "a1", "a2", "a3", "b", "b1", "b2", "b3", "c", "d", "e", "f", "g"], 1);
   const postal = sumStations(new TextDecoder("windows-1250").decode(fs.readFileSync(files.postal)), ";", 15, ["a", "b", "b1", "b2", "c", "c1", "c2", "d", "d1", "d2"]);
   const mandates = readMandates(files.mandates);
+  const mainIndex = stationIndex(new TextDecoder("utf-16le").decode(fs.readFileSync(files.results)).replace(/^\uFEFF/, ""), ",", 2, 4);
+  const postalIndex = stationIndex(new TextDecoder("windows-1250").decode(fs.readFileSync(files.postal)), ";", 1, 3);
 
   const postalByKey = new Map(postal.lists.map((label, index) => [labelKey(label), postal.votes[index]]));
   const seatByKey = new Map(Object.entries(mandates.seats).map(([label, count]) => [labelKey(label), count]));
@@ -115,10 +127,12 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     licence_recorded_as_ogl_rou_in_atlas_registry: licenceOk,
     every_postal_list_matches_a_results_list: postal.lists.every((label) => matchedPostal.has(labelKey(label))),
     every_seat_winning_list_matches_a_results_list: Object.keys(mandates.seats).every((label) => matchedSeats.has(labelKey(label))),
-    main_file_valid_votes_e_equals_sum_of_list_votes: main.counts.e === main.votes.reduce((a, b) => a + b, 0),
-    main_file_voters_b_equals_e_plus_f_plus_g: main.counts.b === main.counts.e + main.counts.f + main.counts.g,
-    postal_valid_votes_d1_equals_sum_of_list_votes: postal.counts.d1 === postal.votes.reduce((a, b) => a + b, 0),
+    main_file_column_e_equals_sum_of_list_votes: main.counts.e === main.votes.reduce((a, b) => a + b, 0),
+    main_file_column_b_equals_e_plus_f_plus_g: main.counts.b === main.counts.e + main.counts.f + main.counts.g,
+    postal_file_column_d1_equals_sum_of_list_votes: postal.counts.d1 === postal.votes.reduce((a, b) => a + b, 0),
     constituencies_in_allocation_file: mandates.constituencies,
+    station_keys_unique_in_station_file: new Set(mainIndex.keys).size === mainIndex.keys.length,
+    postal_bureau_not_in_station_file: postalIndex.keys.every((key) => !mainIndex.keys.includes(key)),
   };
   const open = [
     "Election date 2016-12-11 is taken from the Atlas registry (harmonised secondary source); it must be reconciled against an official act before production.",
@@ -144,6 +158,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
       turnout: { published: null, derived: null, status: "requires_manual_review_column_definitions_unconfirmed" },
       seats_allocated_in_constituency_file: listSeats, total_chamber_seats: null, minority_organisation_seats: null,
       independent_candidates: { count: independentCount, votes: independentVotes, note: "aggregate only; names are not carried" },
+      minutes_submission_stamps: { column: mainIndex.stamp_column, first: mainIndex.first_stamp, last: mainIndex.last_stamp, note: "when station minutes were transmitted, as recorded in the source file; not the election date" },
     },
     lists,
     consistency_checks: checks,
@@ -167,6 +182,14 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     electoral_systems: [{ electoral_system_id: systemId, country: "romania", election_id: electionId, valid_from: "2016-12-11", valid_to: "2016-12-11", interval_basis: "election-specific rule observation, not legal enactment dates", system_family: "list proportional representation (per Atlas registry; to verify against Law 208/2015)", vote_type: "chamber_list_vote", allocation_method: "not established from the staged files", base_seats: null, rules_status: "background_to_verify", notes: { en: "Chamber of Deputies only. List proportional representation in 43 constituencies (41 counties, Bucharest and the diaspora), per the Atlas source registry. Thresholds and the separate allocation of seats to national-minority organisations are recorded in the registry as still to be verified against Law 208/2015. Not comparable as one series with the 2008 and 2012 elections, which used single-member colleges.", "zh-CN": "仅限众议院。根据 Atlas 来源登记，采用 43 个选区（41 个县、布加勒斯特和海外选区）的名单比例代表制。门槛以及少数民族组织席位的单独分配，在登记中仍标为待依据第 208/2015 号法律核实。不能与采用单一选区制的 2008 年和 2012 年选举作为同一序列比较。" }, provenance: provenance("mandates", "sheet 1") }],
     political_source_registry: ["results", "postal", "mandates", "licence"].map((key) => ({ source_id: `src-ro-aep-2016-${key}`, country: "romania", institution: "Autoritatea Electorală Permanentă (publisher on data.gov.ro)", dataset: SOURCES[key].title, tier: "tier1_official", url: SOURCES[key].url, licence_status: "open_licence_recorded_in_atlas_registry_not_production_authorised", raw_redistribution: "not_assessed", licence_url: SOURCES.licence.url, attribution: "Autoritatea Electorală Permanentă, data.gov.ro, OGL-ROU-1.0", retrieved_at: fs.statSync(files[key]).mtime.toISOString(), raw_sha256: candidate.sources[key].sha256, raw_path: `staging:raw/${SOURCES[key].file}` })),
   };
+  // Official evidence staged by the owner (if any) resolves blocking facts; without it every blocked field stays blocked.
+  const evidence = loadEvidence(stage);
+  const applied = applyEvidence(stores, evidence);
+  Object.assign(stores, applied.stores);
+  const ready = readiness({ stores, evidence, log: applied.log, checks });
+  fs.writeFileSync(path.join(stage, "candidate", "publication_readiness.json"), `${JSON.stringify(ready, null, 2)}\n`);
+  const readinessOut = option("--readiness-out");
+  if (readinessOut) fs.writeFileSync(path.resolve(root, readinessOut), `${JSON.stringify({ ...ready, generated_from: "scripts/political-data/romania/build-candidate.mjs over owner-staged official files; source checksums in romania_candidate_status.json" }, null, 2)}\n`);
   for (const [name, rows] of Object.entries(stores)) fs.writeFileSync(path.join(stage, "candidate", "stores", `${name}.json`), `${JSON.stringify(rows, null, 2)}\n`);
   const statusOut = option("--status-out");
   if (statusOut) {

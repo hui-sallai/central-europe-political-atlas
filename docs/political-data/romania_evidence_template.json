@@ -1,0 +1,27 @@
+{
+ "schema_version": "atlas-political-evidence-manifest-v1",
+ "purpose": "Template for the owner-staged official evidence that resolves the blocked fields of the Romania 2016 Chamber of Deputies candidate. Copy to .tmp-data-refresh/political-candidate-romania/evidence/evidence.json, put each document file next to it, and fill the facts. The builder accepts a fact only if it cites a staged document whose SHA-256 matches and gives a locator (page, table, article). Nothing is fetched automatically.",
+ "documents_required": [
+  { "id": "date-act", "kind": "election_date_act", "what": "Official act setting the date of the 2016 parliamentary elections (Government decision published in Monitorul Oficial).", "resolves": ["election_date"] },
+  { "id": "minutes-form", "kind": "minutes_form_definition", "what": "Official definition of the polling-station minutes (proces-verbal) fields for the Chamber of Deputies 2016 — the legal text or BEC/AEP decision that defines points a, a1–a3, b, b1–b3, c, d, e, f, g, and the postal-vote equivalents a, b, b1, b2, c, c1, c2, d, d1, d2.", "resolves": ["count_column_definitions"] },
+  { "id": "final-results", "kind": "final_results", "what": "BEC official final results of the Chamber of Deputies election 2016 (national totals: registered voters, voters, valid and invalid votes, turnout, votes and percentages per competitor), with its publication date or Monitorul Oficial reference.", "resolves": ["published_vote_share", "published_turnout", "turnout_definition", "result_vintage_and_corrections"] },
+  { "id": "minority-seats", "kind": "minority_seat_allocation", "what": "Official allocation of Chamber seats to national-minority organisations under the special rule (BEC decision or final results annex).", "resolves": ["minority_representation"] },
+  { "id": "chamber-composition", "kind": "chamber_composition", "what": "Official total number of deputies elected in 2016 (validation of mandates or final results), separating ordinary list seats from national-minority seats.", "resolves": ["total_chamber_seats"] },
+  { "id": "electoral-law", "kind": "electoral_law", "what": "Law 208/2015 as applicable in December 2016 (thresholds, constituency seat allocation, minority representation).", "resolves": ["seat-allocation rules in the electoral-system note"] },
+  { "id": "competitor-list", "kind": "final_results", "what": "Official list of electoral competitors with their type (party, political alliance, national-minority organisation, independent).", "resolves": ["contestant_kind"] }
+ ],
+ "documents": [
+  { "id": "final-results", "kind": "final_results", "title": "", "issuer": "Biroul Electoral Central", "url": "", "file": "", "sha256": "", "reuse_basis": "" }
+ ],
+ "facts": {
+  "election_date": { "value": "YYYY-MM-DD", "document_id": "date-act", "locator": "" },
+  "column_definitions": { "main": { "e": { "role": "valid_votes", "meaning": "", "document_id": "minutes-form", "locator": "" } }, "postal": {} },
+  "turnout_definition": { "text": "", "document_id": "final-results", "locator": "" },
+  "published_turnout": { "value": null, "document_id": "final-results", "locator": "" },
+  "total_chamber_seats": { "value": null, "document_id": "chamber-composition", "locator": "" },
+  "minority_seats": [ { "organisation_label_native": "", "seats": null, "allocation_basis": "", "document_id": "minority-seats", "locator": "" } ],
+  "published_vote_shares": [ { "list_label_native": "", "value": null, "document_id": "final-results", "locator": "" } ],
+  "corrections": []
+ },
+ "column_roles_allowed": ["eligible_voters", "voters", "valid_votes", "invalid_votes", "blank_votes", "other"]
+}

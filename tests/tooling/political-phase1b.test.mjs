@@ -54,7 +54,7 @@ test('Romania candidate builder: national sums only, Chamber only, no candidate 
   assert.equal(status.licence.title, 'OGL-ROU-1.0');
   assert.doesNotMatch(builder, /data\.gov\.ro\/api\//, 'the robots-disallowed API path is not used');
   assert.doesNotMatch(builder, /\bfetch\(|https\.get|curl/, 'the builder never fetches');
-  assert.equal(status.consistency_checks.main_file_valid_votes_e_equals_sum_of_list_votes, true);
+  assert.equal(status.consistency_checks.main_file_column_e_equals_sum_of_list_votes, true);
   assert.doesNotMatch(JSON.stringify(status), /CANDIDAT INDEPENDENT -/);
   for (const source of Object.values(status.sources)) assert.match(source.sha256, /^[0-9a-f]{64}$/);
 });
