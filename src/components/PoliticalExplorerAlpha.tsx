@@ -6,6 +6,7 @@ import { localeDate, localeNumber, localizedRoute } from "@/i18n/config";
 import { alignByLabel, chartResults, compareElections, measureValue, type ElectionAggregate, type PoliticalCountryView, type PoliticalElectionView, type PoliticalMeasure } from "@/lib/politicalExplorer";
 import { PoliticalCountryComparison } from "./PoliticalCountryComparison";
 import { PoliticalPartyHistory } from "./PoliticalPartyHistory";
+import { PoliticalVerifiedComparison } from "./PoliticalVerifiedComparison";
 import { NotebookCollect } from "./NotebookCollect";
 import type { EvidenceDraft } from "@/lib/researchNotebook";
 
@@ -16,6 +17,8 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
   const [electionId, setElectionId] = useState(elections.at(-1)?.electionId ?? "");
   const [measure, setMeasure] = useState<PoliticalMeasure>("vote_share");
   const [compareId, setCompareId] = useState("");
+  const [comparisonMode, setComparisonMode] = useState("verified");
+  const [historyKey, setHistoryKey] = useState(0);
   // Cross-country comparison: only countries with authorised, published stores are ever passed in.
   const [otherCountry, setOtherCountry] = useState(comparisonCountries[0]?.slug ?? "");
   const [otherCountryElection, setOtherCountryElection] = useState("");
@@ -34,6 +37,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
       if (["votes", "vote_share", "seats", "seat_share"].includes(metric ?? "")) setMeasure(metric as PoliticalMeasure);
       const other = params.get("compare");
       setCompareId(elections.some(e => e.electionId === other) ? other! : "");
+      setComparisonMode(params.get("comparison_mode") === "labels" ? "labels" : "verified");
     };
     restore(); window.addEventListener("popstate", restore);
     return () => window.removeEventListener("popstate", restore);
@@ -70,7 +74,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
   return <section aria-labelledby="political-explorer-title" className="space-y-6" data-politics-explorer>
     <header>
       <h2 id="political-explorer-title" className="text-2xl font-semibold">{en ? "Germany: national elections" : "德国：联邦议会选举"}</h2>
-      <p>{en ? "Descriptive results, not forecasts or causal estimates. Ballot contestants are not continuous party series." : "描述性选举结果，不是预测或因果估计。参选名单不代表跨届连续政党序列。"}</p>
+      <p>{en ? "Descriptive results, not forecasts or causal estimates. Election-specific ballot records remain distinct; only verified official series links permit party-level comparisons." : "描述性选举结果，不是预测或因果估计。当届选票记录保持独立；仅通过已核实官方序列关联进行政党层面的比较。"}</p>
     </header>
     <div className="card overflow-x-auto p-4" role="region" tabIndex={0} aria-label={en ? "Election history (scrollable)" : "选举历史（可横向滚动）"}>
       <table className="w-full min-w-[560px] text-left text-sm"><caption className="mb-3 text-left font-semibold">{en ? "Election history · 2002–2025" : "选举历史 · 2002–2025"}</caption>
@@ -145,7 +149,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
             const value = measureValue(result, election, measure);
             const source = election.sources.find((item) => item.id === result.sourceId);
             return <tr key={result.contestantId} className="border-t border-[var(--line)]">
-              <th scope="row" className="py-3 font-normal"><span lang="de" data-original-language="de">{result.nativeLabel}</span><span className="block text-xs text-[var(--muted)]">{en ? "Party’s own list · no cross-election identity link" : "政党自身名单 · 无跨届身份关联"}</span></th>
+              <th scope="row" className="py-3 font-normal"><span lang="de" data-original-language="de">{result.nativeLabel}</span><span className="block text-xs text-[var(--muted)]">{en ? "Election-specific party list · see verified series comparison below" : "当届政党名单 · 已核实序列比较见下方"}</span></th>
               <td className="metric-number">{localeNumber(value, locale)}{value !== null && measure.endsWith("share") ? "%" : ""}</td>
               {measure === "vote_share" ? <><td className="metric-number">{localeNumber(result.publishedVoteShare, locale, { maximumFractionDigits: 1, minimumFractionDigits: 1 })}{result.publishedVoteShare === null ? "" : "%"}</td><td className="metric-number">{localeNumber(measureValue(result, election, "seat_share"), locale)}{result.seats === null ? "" : "%"}</td></> : null}
               <td>{source ? <a href={source.url} className="underline">{source.title}</a> : <span>{en ? "Source missing" : "来源缺失"}</span>}</td>
@@ -162,6 +166,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
           {elections.filter((item) => item.electionId !== election.electionId).map((item) => <option key={item.electionId} value={item.electionId}>{item.year}</option>)}
         </select></label>
         {other ? <>
+          <div className="mt-3 flex flex-wrap gap-3" role="group" aria-label={en ? "Comparison mode" : "比较模式"}>{["verified","labels"].map(mode=><button key={mode} type="button" className="rounded border border-[var(--line)] px-3 py-2 text-sm" aria-pressed={comparisonMode===mode} onClick={()=>{setComparisonMode(mode);const url=new URL(window.location.href);url.searchParams.set("comparison_mode",mode);window.history.replaceState(null,"",url);}}>{mode==="verified"?(en?"Verified party-series comparison":"已核实政党序列比较"):(en?"Election-specific ballot labels":"当届选票名称比较")}</button>)}</div>
           <div className="mt-4 overflow-x-auto" role="region" tabIndex={0} aria-label={en ? "Election-level comparison (scrollable)" : "选举层面的比较（可横向滚动）"}>
             <table className="w-full min-w-[520px] text-left text-sm" data-compare-aggregates>
               <caption className="mb-2 text-left font-semibold">{en ? "Election-level figures" : "选举层面的数字"}</caption>
@@ -170,17 +175,17 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
             </table>
           </div>
           <p className="mt-3 text-sm">{en ? `Rules differ: ${election.year} used ${election.system.allocationMethod} with ${number(election.system.baseSeats)} base seats; ${other.year} used ${other.system.allocationMethod} with ${number(other.system.baseSeats)}. Seat totals are not like-for-like across rule changes.` : `规则不同：${election.year} 年采用 ${election.system.allocationMethod}，基础席位 ${number(election.system.baseSeats)} 席；${other.year} 年采用 ${other.system.allocationMethod}，基础席位 ${number(other.system.baseSeats)} 席。规则变化前后的席位总数不能直接等同比较。`}</p>
-          <div className="mt-4 overflow-x-auto" role="region" tabIndex={0} aria-label={en ? "Lists in the two elections (scrollable)" : "两届选举的名单（可横向滚动）"}>
+          {comparisonMode === "verified" ? <PoliticalVerifiedComparison a={election} b={other} locale={locale} onHistory={id=>{const url=new URL(window.location.href);url.searchParams.set("series",id);url.hash="politics-history-title";window.history.replaceState(null,"",url);setHistoryKey(k=>k+1);window.setTimeout(()=>document.getElementById("politics-history-title")?.scrollIntoView(),0);}}/> : <><div className="mt-4 overflow-x-auto" role="region" tabIndex={0} aria-label={en ? "Lists in the two elections (scrollable)" : "两届选举的名单（可横向滚动）"}>
             <table className="w-full min-w-[640px] text-left text-sm" data-compare-lists>
               <caption className="mb-2 text-left font-semibold">{en ? "Lists in each election (rows aligned by identical ballot label only)" : "各届选举的名单（仅按完全相同的选票名称对齐）"}</caption>
               <thead><tr><th scope="col">{en ? "Ballot label (original)" : "选票名称（原文）"}</th><th scope="col">{en ? `${election.year}: published share` : `${election.year}：官方得票率`}</th><th scope="col">{en ? `${election.year}: seats` : `${election.year}：席位`}</th><th scope="col">{en ? `${other.year}: published share` : `${other.year}：官方得票率`}</th><th scope="col">{en ? `${other.year}: seats` : `${other.year}：席位`}</th></tr></thead>
               <tbody>{alignByLabel(election, other).filter((row) => [row.a, row.b].some((r) => r && ((r.seats ?? 0) > 0 || (r.publishedVoteShare ?? 0) >= 1))).map((row) => { const absent = en ? "not on the ballot under this label" : "该名称未出现在选票上"; const share = (r: typeof row.a) => r ? `${number(r.publishedVoteShare, 1)}${r.publishedVoteShare === null ? "" : "%"}` : absent; const seats = (r: typeof row.a) => r ? number(r.seats) : "—"; return <tr key={row.label} className="border-t border-[var(--line)]" data-label-row={row.a && row.b ? "both" : "one"}><th scope="row" className="py-2 font-normal"><span lang="de" data-original-language="de">{row.label}</span></th><td className="metric-number">{share(row.a)}</td><td className="metric-number">{seats(row.a)}</td><td className="metric-number">{share(row.b)}</td><td className="metric-number">{seats(row.b)}</td></tr>; })}</tbody>
             </table>
           </div>
-          <p className="mt-3 text-sm" data-identity-limitation>{en ? "Rows are aligned only where the official ballot label is identical. This is a display aid, not a verified party identity: a list that changed its name appears on two rows, and no change is calculated for any individual list, because cross-election party identity has not been established in the Atlas." : "只有官方选票名称完全相同的名单才会排在同一行。这只是显示上的对齐，不是经过核实的政党身份：更名的名单会出现在两行，且不对任何单个名单计算变化，因为 Atlas 尚未确立跨届政党身份。"}</p>
+          <p className="mt-3 text-sm" data-identity-limitation>{en ? "This separate view aligns identical ballot labels only, not verified identities. Renamed lists occupy separate rows and no list differences are calculated here. Switch to verified official series for documented continuity; unresolved legal relationships are not inferred." : "这个独立视图仅对齐完全相同的选票名称，不表示已核实身份。更名名单分别列行，此视图不计算名单差值。已记载的连续序列请切换到已核实官方序列视图；不推断未解决的法律主体关系。"}</p></>}
         </> : <p className="mt-3 text-sm text-[var(--muted)]">{en ? "Choose a second election to see election-level differences and the two sets of lists side by side." : "选择另一届选举，即可查看选举层面的差值，并并排查看两届的名单。"}</p>}
       </section>
-      <PoliticalPartyHistory elections={elections} locale={locale} />
+      <PoliticalPartyHistory key={historyKey} elections={elections} locale={locale} />
       <section className="card p-5" data-politics-cross-country>
         <h3 className="font-semibold">{en ? "Comparing countries" : "跨国比较"}</h3>
         {comparisonCountries.length && comparedCountry && comparedCountryElection ? <>

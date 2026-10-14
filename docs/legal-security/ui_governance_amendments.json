@@ -761,5 +761,24 @@
       "release_change_allowed": false,
       "created_at": "2026-10-15"
     }
+    ,{
+      "amendment_id": "germany-verified-electoral-comparison-2026-10-15",
+      "status": "owner_approved",
+      "approved_by": "owner explicit implementation brief 2026-10-15 Political Explorer Verified Electoral Change Comparison",
+      "purpose": "Integrate existing verified official series into the two-election comparison, retaining ballot labels separately; descriptive differences, identity evidence, history navigation, CSV and Notebook. No new identities or data.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {"path":"src/components/PoliticalExplorerAlpha.tsx","sha256":"d071d84e43478632bd64c7d20ec8c850ed864d42eab05f3838992ed6a43493e0","classification":"DATA_PRESENTATION"},
+        {"path":"src/components/PoliticalVerifiedComparison.tsx","sha256":"bc52558499bceaf29e403c5821a47988a6135598acd2bd791b7132b10bda818a","classification":"DATA_PRESENTATION"},
+        {"path":"src/lib/politicalExplorer.ts","sha256":"e12666b9bdfa5705a7c57f8d51c18e144b4b6e36cab86ffb8859cdd0c8c5dd0b","classification":"DATA_PRESENTATION"},
+        {"path":"src/lib/politicalSeriesComparison.ts","sha256":"c79b7a3e4a122fdca3b9c725aa0112ab47d044f0b0d4117f77a849d9650ba2e5","classification":"DATA_PRESENTATION"}
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-15"
+    }
   ]
 }

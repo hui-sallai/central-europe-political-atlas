@@ -52,6 +52,7 @@ for (const locale of ["zh-CN", "en"] as const) {
     await expect(panel.locator('[data-aggregate="seats"]')).toContainText('+105');
     await expect(panel.locator('[data-aggregate="seats"]')).toContainText('735');
     // No identity is inferred: differently spelled labels stay on separate rows and no per-list change is shown.
+    await panel.getByRole('button', {name:locale==='en'?'Election-specific ballot labels':'当届选票名称比较',exact:true}).click();
     const lists=panel.locator('[data-compare-lists]');
     await expect(lists.locator('tbody tr').filter({hasText:/^Die Linke/})).toHaveAttribute('data-label-row','one');
     await expect(lists.locator('tbody tr').filter({hasText:/^DIE LINKE/})).toHaveAttribute('data-label-row','one');

@@ -59,7 +59,7 @@ export function chartResults(election: PoliticalElectionView): PoliticalResult[]
 
 export type ElectionAggregate = { key: "turnout" | "eligible" | "voters" | "valid" | "seats" | "lists" | "seat_lists"; a: number | null; b: number | null; difference: number | null };
 
-/** Election-level differences only. Individual lists are never differenced: no cross-election identity is verified. */
+/** Election-level differences only. Verified party-level differences live in politicalSeriesComparison. */
 export function compareElections(a: PoliticalElectionView, b: PoliticalElectionView): ElectionAggregate[] {
   const row = (key: ElectionAggregate["key"], x: number | null, y: number | null): ElectionAggregate => ({ key, a: x, b: y, difference: x === null || y === null ? null : y - x });
   const seatLists = (election: PoliticalElectionView) => election.results.filter((result) => (result.seats ?? 0) > 0).length;

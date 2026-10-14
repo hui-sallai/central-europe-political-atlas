@@ -1,0 +1,21 @@
+import {test,expect} from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import {germanOfficialSeries} from '../../src/lib/politicalSeries';
+import {NOTEBOOK_STORAGE_KEY,parseNotebook} from '../../src/lib/researchNotebook';
+for(const prefix of ['', '/en']) test(`Verified comparison, export and historical navigation ${prefix||'zh'}`,async({page})=>{
+  const en=!!prefix,series=germanOfficialSeries.find(s=>s.label==='Die Linke')!;
+  await page.goto(`${prefix}/politics/?election=el-de-bt-2002-09-22&compare=el-de-bt-2025-02-23&measure=seats&series_measure=votes`);
+  const comparison=page.locator('[data-verified-comparison]');await expect(comparison).toBeVisible();
+  const row=comparison.locator(`[data-verified-series="${series.id}"]`);
+  await expect(row).toContainText('PDS');await expect(row).toContainText('Die Linke');await expect(row.locator('[data-share-change]')).toHaveText('+4.8');
+  await expect(comparison.locator('[data-comparison-election="a"]')).toContainText('Hare/Niemeyer');await expect(comparison.locator('[data-comparison-election="b"]')).toContainText('630');
+  const download=page.waitForEvent('download');await comparison.getByRole('button',{name:en?'Export selected comparison CSV':'导出所选比较 CSV',exact:true}).click();expect((await download).suggestedFilename()).toBe('germany-verified-comparison-2002-2025.csv');
+  await comparison.getByRole('button',{name:en?'Collect verified comparison':'收藏已核实比较',exact:true}).click();
+  const notebook=parseNotebook(await page.evaluate(key=>localStorage.getItem(key)!,NOTEBOOK_STORAGE_KEY));expect(notebook.items.at(-1)?.metadata.filters?.comparison_mode).toBe('verified');
+  await row.getByRole('button',{name:en?'Open history':'打开历史序列',exact:true}).click();await expect(page.locator('[data-politics-history]')).toHaveAttribute('data-politics-history',series.id);
+  expect(new URL(page.url()).searchParams.get('compare')).toBe('el-de-bt-2025-02-23');expect(new URL(page.url()).searchParams.get('measure')).toBe('seats');expect(new URL(page.url()).searchParams.get('series_measure')).toBe('votes');
+  await page.reload();await expect(page.locator('[data-politics-history]')).toHaveAttribute('data-politics-history',series.id);
+  await page.addStyleTag({content:'*,*::before,*::after{transition:none!important;animation:none!important}'});
+  const results=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(results.violations.filter(v=>v.impact==='serious'||v.impact==='critical')).toEqual([]);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+});
