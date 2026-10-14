@@ -826,5 +826,30 @@
       "release_change_allowed": false,
       "created_at": "2026-10-15"
     }
+    ,{
+      "amendment_id": "political-economic-context-completion-2026-10-15",
+      "status": "owner_approved",
+      "approved_by": "owner Political-Economic Context Explorer Development Completion request",
+      "purpose": "Finish existing workflow with gated event background analysis deep links and truthful observation/event coverage disclosure. No new datasets, identities, estimators, publication gates or version.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/PoliticalEconomicContext.tsx",
+          "sha256": "2c28ee5a70a4c2906a079c8cff2f5ee2550d40f04e2f3622ce516deba8484618",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalEconomicContext.ts",
+          "sha256": "d3822cb659f623107174f19a72f933ce73790b2453d50763392efc7fb203501f",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-15"
+    }
   ]
 }

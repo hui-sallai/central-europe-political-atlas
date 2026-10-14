@@ -1,7 +1,13 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {createRequire} from 'node:module';import ts from 'typescript';
 const require=createRequire(import.meta.url);require.extensions['.ts']=(m,f)=>m._compile(ts.transpileModule(fs.readFileSync(f,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,f);
-const {contextPublished,contextRange,perspectiveRange,inContextRange,contextTiming,contextAnnualPoints,contextMonthlyPoints,contextDifference,contextEvents,contextCsv}=require('../../src/lib/politicalEconomicContext.ts');
+const {contextPublished,contextRange,perspectiveRange,inContextRange,contextTiming,contextAnnualPoints,contextMonthlyPoints,contextDifference,contextEvents,contextCoverage,contextCsv}=require('../../src/lib/politicalEconomicContext.ts');
 const point={id:'p',country:'germany',indicator:'real_gdp_growth',frequency:'annual',period:'2021',value:3.9,unit:'%',status:'official',source:'Eurostat',sourceUrl:'https://example.org',definition:'Eurostat GDP',comparable:true,layer:'snapshot'};
+test('coverage counts real published periods separately from pending and absent periods, not zero observations',()=>{
+ const rows=[{...point,period:'2018',value:0},{...point,period:'2019',value:null,status:'pending'}];
+ assert.deepEqual(contextCoverage(rows,{from:'2018-01-01',to:'2020-12-31'},'annual'),{expected:3,published:1,pending:1,unavailable:2,first:'2018',last:'2018'});
+ assert.deepEqual(contextCoverage([],{from:'2025-01-01',to:'2025-01-31'},'monthly'),{expected:1,published:0,pending:0,unavailable:1,first:null,last:null});
+ assert.equal(contextCoverage(rows,{from:'2025-01-01',to:'2020-12-31'},'annual').expected,0);
+});
 test('pre-election perspective excludes overlapping annual/monthly periods, including January elections',()=>{
  assert.deepEqual(perspectiveRange('2021-09-26','year',0,0,'annual','pre_election'),{from:'2020-01-01',to:'2020-12-31'});
  assert.deepEqual(perspectiveRange('2021-09-26','year',0,0,'monthly','pre_election'),{from:'2021-01-01',to:'2021-08-31'});

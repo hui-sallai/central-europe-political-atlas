@@ -66,6 +66,13 @@ export function contextMonthlyPoints(history: MonthlyHistoryRuntime|null, curren
 export function contextEvents(events: Event[], country: string, range: ContextRange): Event[] {
   return events.filter(e=>e.country_slug===country&&e.data_status==="verified"&&Boolean(e.source_url)&&inContextRange(e.date,range)).sort((a,b)=>a.date.localeCompare(b.date)||a.id.localeCompare(b.id));
 }
+export function contextCoverage(points: ContextPoint[], range: ContextRange, frequency: ContextPoint["frequency"]) {
+  const index=(date:string)=>frequency==="annual"?Number(date.slice(0,4)):Number(date.slice(0,4))*12+Number(date.slice(5,7))-1;
+  const expected=range.from<=range.to?Math.max(0,index(range.to)-index(range.from)+1):0;
+  const rows=[...new Map(points.filter(p=>p.frequency===frequency&&inContextRange(p.period,range)).map(p=>[p.period,p])).values()];
+  const published=rows.filter(contextPublished).sort((a,b)=>a.period.localeCompare(b.period));
+  return {expected,published:published.length,pending:rows.filter(p=>p.status==="pending").length,unavailable:Math.max(0,expected-published.length),first:published[0]?.period??null,last:published.at(-1)?.period??null};
+}
 /** Same named measure, frequency, exact definition/unit and relative election period. No averaging or latest-value substitution. */
 export function contextDifference(a: ContextPoint|null,b: ContextPoint|null,dateA: string,dateB: string): number|null {
   if(!a||!b||!contextPublished(a)||!contextPublished(b)||!a.comparable||!b.comparable||a.country!==b.country||a.indicator!==b.indicator||a.frequency!==b.frequency||a.unit!==b.unit||a.definition!==b.definition)return null;
