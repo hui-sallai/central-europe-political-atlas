@@ -26,8 +26,9 @@ for (const locale of ["zh-CN", "en"] as const) {
     expect(notebook.items[0].type).toBe('series_view');
     expect(notebook.items[0].metadata.filters).toMatchObject({election:'el-de-bt-2021-09-26',measure:'seats'});
     expect(notebook.items[0].metadata).not.toHaveProperty('rows');
-    await panel.locator('details summary').click();
-    await expect(panel.locator('details')).toContainText('SHA-256');
+    const sourceDetails=panel.locator('details').filter({has:page.getByText(locale==='en'?'Sources, provenance and downloads':'来源、出处与下载',{exact:true})});
+    await sourceDetails.locator('summary').click();
+    await expect(sourceDetails).toContainText('SHA-256');
     const response=await page.request.get('/research-data/political/germany/election_results.json');
     expect(response.ok()).toBe(true);expect((await response.json()).length).toBe(209);
     await page.reload({waitUntil:'networkidle'});

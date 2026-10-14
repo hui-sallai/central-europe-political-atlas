@@ -7,11 +7,12 @@ import { alignByLabel, chartResults, compareElections, measureValue, type Electi
 import { PoliticalCountryComparison } from "./PoliticalCountryComparison";
 import { PoliticalPartyHistory } from "./PoliticalPartyHistory";
 import { PoliticalVerifiedComparison } from "./PoliticalVerifiedComparison";
+import { PoliticalEconomicContext, type PoliticalContextInputs } from "./PoliticalEconomicContext";
 import { NotebookCollect } from "./NotebookCollect";
 import type { EvidenceDraft } from "@/lib/researchNotebook";
 
 /** Germany-only descriptive results; no unresolved cross-election identity lines. */
-export default function PoliticalExplorerAlpha({ elections, comparisonCountries = [] }: { elections: PoliticalElectionView[]; comparisonCountries?: PoliticalCountryView[] }) {
+export default function PoliticalExplorerAlpha({ elections, comparisonCountries = [], contextInputs }: { elections: PoliticalElectionView[]; comparisonCountries?: PoliticalCountryView[]; contextInputs?: PoliticalContextInputs }) {
   const locale = useLocale();
   const en = locale === "en";
   const [electionId, setElectionId] = useState(elections.at(-1)?.electionId ?? "");
@@ -19,6 +20,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
   const [compareId, setCompareId] = useState("");
   const [comparisonMode, setComparisonMode] = useState("verified");
   const [historyKey, setHistoryKey] = useState(0);
+  const [contextOpen, setContextOpen] = useState(false);
   // Cross-country comparison: only countries with authorised, published stores are ever passed in.
   const [otherCountry, setOtherCountry] = useState(comparisonCountries[0]?.slug ?? "");
   const [otherCountryElection, setOtherCountryElection] = useState("");
@@ -38,6 +40,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
       const other = params.get("compare");
       setCompareId(elections.some(e => e.electionId === other) ? other! : "");
       setComparisonMode(params.get("comparison_mode") === "labels" ? "labels" : "verified");
+      if (params.get("context") === "1") setContextOpen(true);
     };
     restore(); window.addEventListener("popstate", restore);
     return () => window.removeEventListener("popstate", restore);
@@ -186,6 +189,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
         </> : <p className="mt-3 text-sm text-[var(--muted)]">{en ? "Choose a second election to see election-level differences and the two sets of lists side by side." : "选择另一届选举，即可查看选举层面的差值，并并排查看两届的名单。"}</p>}
       </section>
       <PoliticalPartyHistory key={historyKey} elections={elections} locale={locale} />
+      {contextInputs ? <details className="card p-5" open={contextOpen} onToggle={event=>setContextOpen(event.currentTarget.open)} data-context-disclosure><summary className="cursor-pointer font-semibold">{en ? "Explore election-economic historical context" : "探索选举与经济历史背景"}</summary><p className="mt-2 text-sm">{en ? "Published annual and monthly observations, verified events and a source-linked timeline. Historical context only, not an explanation of voting behaviour." : "已发布年度与月度观测、已核验事件和可查来源的时间线。仅为历史背景，不解释投票行为。"}</p>{contextOpen ? <PoliticalEconomicContext election={election} comparison={other ?? null} inputs={contextInputs} locale={locale}/> : null}</details> : null}
       <section className="card p-5" data-politics-cross-country>
         <h3 className="font-semibold">{en ? "Comparing countries" : "跨国比较"}</h3>
         {comparisonCountries.length && comparedCountry && comparedCountryElection ? <>
