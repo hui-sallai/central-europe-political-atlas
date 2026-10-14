@@ -81,6 +81,7 @@ export function readiness({ stores, evidence, log, checks }) {
   const field = (name, resolved, basis, blocker) => ({ field: name, status: resolved ? "publishable_pending_authorisation" : "blocked", basis: resolved ? basis : null, blocker: resolved ? null : blocker });
   const sharesPublished = stores.election_results.filter((row) => row.published_vote_share !== null).length;
   const fields = [
+    field("licence_and_attribution", checks.licence_recorded_as_ogl_rou_in_atlas_registry && checks.licence_page_names_ogl_rou_1_0, "OGL-ROU-1.0 recorded for the AEP package and named on the staged data.gov.ro licence page; attribution: Autoritatea Electorală Permanentă, data.gov.ro", "licence not confirmed by the staged licence page"),
     field("list_labels_native", true, "official station-level results file (column headers)", null),
     field("list_votes_national", checks.main_file_column_e_equals_sum_of_list_votes && checks.postal_bureau_not_in_station_file, "sum of all station rows plus the separate postal-vote bureau; no bureau counted twice", "vote totals do not reconcile"),
     field("derived_vote_share", true, "Atlas-derived: list votes ÷ valid list votes (lists + independent aggregate) × 100", null),

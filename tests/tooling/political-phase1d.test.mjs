@@ -27,7 +27,7 @@ const stores = () => ({
   electoral_systems: [{ electoral_system_id: 'es', system_family: 'list PR', allocation_method: 'not established', base_seats: null, vote_type: 'chamber_list_vote', notes: { en: 'n', 'zh-CN': 'n' }, provenance: prov }],
   political_source_registry: [{ source_id: 's1', dataset: 'd', url: 'https://example.com/x', licence_url: 'https://example.com/l', attribution: 'AEP, OGL-ROU-1.0', licence_status: 'open_licence_recorded_in_atlas_registry_not_production_authorised', raw_sha256: H }],
 });
-const checks = { main_file_column_e_equals_sum_of_list_votes: true, postal_bureau_not_in_station_file: true, every_seat_winning_list_matches_a_results_list: true };
+const checks = { licence_recorded_as_ogl_rou_in_atlas_registry: true, licence_page_names_ogl_rou_1_0: true, main_file_column_e_equals_sum_of_list_votes: true, postal_bureau_not_in_station_file: true, every_seat_winning_list_matches_a_results_list: true };
 
 function stage(manifest, files = { 'results.pdf': 'official results' }) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ro-evidence-'));
@@ -99,6 +99,7 @@ test('committed readiness status never grants authorisation and matches the cand
   assert.equal(r.technically_ready_for_activation, false);
   assert.ok(r.summary.blocked.includes('total_chamber_seats') && r.summary.blocked.includes('published_turnout'));
   assert.ok(r.summary.publishable_pending_authorisation.includes('list_votes_national'));
+  assert.ok(r.summary.publishable_pending_authorisation.includes('licence_and_attribution'));
   const template = JSON.parse(fs.readFileSync('docs/political-data/romania_evidence_template.json', 'utf8'));
   assert.equal(template.documents_required.length, 7);
   assert.equal(fs.existsSync('src/data/political/romania'), false);

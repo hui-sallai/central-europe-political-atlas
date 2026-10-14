@@ -10,7 +10,14 @@
     "url": "https://data.gov.ro/pages/licence",
     "publisher": "Autoritatea Electorală Permanentă",
     "package": "alegeri_parlamentare_2016",
-    "basis": "Atlas national_election_source_registry.json (verified_live package metadata) and the staged licence page"
+    "basis": "Atlas national_election_source_registry.json (verified_live package metadata) and the staged licence page",
+    "licence_page": {
+      "names_ogl_rou_1_0": true,
+      "names_issuer_general_secretariat_2014": true,
+      "recommends_cc_by_4_0_since_2020": true,
+      "cites_law_179_2022_reuse": true,
+      "note": "Read from the staged data.gov.ro licence page. The package itself is recorded under OGL-ROU-1.0; the page says the portal integrated OGL ROU 1.0, issued in 2014 by the Government's General Secretariat, and has recommended CC BY 4.0 since July 2020."
+    }
   },
   "sources": {
     "results": {
@@ -58,6 +65,7 @@
   },
   "consistency_checks": {
     "licence_recorded_as_ogl_rou_in_atlas_registry": true,
+    "licence_page_names_ogl_rou_1_0": true,
     "every_postal_list_matches_a_results_list": true,
     "every_seat_winning_list_matches_a_results_list": true,
     "main_file_column_e_equals_sum_of_list_votes": true,

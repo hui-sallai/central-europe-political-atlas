@@ -98,6 +98,15 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const registry = JSON.parse(fs.readFileSync(path.join(root, "docs/political-data/national_election_source_registry.json"), "utf8")).countries.find((country) => country.country === "romania");
   const registered = registry.result_sources.find((source) => source.url === "https://data.gov.ro/dataset/alegeri_parlamentare_2016");
   const licenceOk = registered?.licence === "OGL-ROU-1.0" && registry.licensing.status.startsWith("verified_open_licence");
+  // The staged licence page itself (read locally) must name the licence; this is the document-level check.
+  const licenceText = fs.readFileSync(files.licence, "utf8").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+  const licencePage = {
+    names_ogl_rou_1_0: /OGL ROU 1\.0|OGL-ROU-1\.0/.test(licenceText),
+    names_issuer_general_secretariat_2014: /emis\S* \S*n 2014 de Secretariatul General al Guvernului/.test(licenceText),
+    recommends_cc_by_4_0_since_2020: /Creative Commons Atribuire 4\.0/.test(licenceText),
+    cites_law_179_2022_reuse: /Legii nr\.\s?179/.test(licenceText),
+    note: "Read from the staged data.gov.ro licence page. The package itself is recorded under OGL-ROU-1.0; the page says the portal integrated OGL ROU 1.0, issued in 2014 by the Government's General Secretariat, and has recommended CC BY 4.0 since July 2020.",
+  };
   const metadata = { license_id: "OGL-ROU-1.0", license_title: registered?.licence ?? null, license_url: SOURCES.licence.url, organization: { title: "Autoritatea Electorală Permanentă" }, name: "alegeri_parlamentare_2016", basis: "Atlas national_election_source_registry.json (verified_live package metadata) and the staged licence page" };
   const main = sumStations(new TextDecoder("utf-16le").decode(fs.readFileSync(files.results)).replace(/^﻿/, ""), ",", 20, ["a", "a1", "a2", "a3", "b", "b1", "b2", "b3", "c", "d", "e", "f", "g"], 1);
   const postal = sumStations(new TextDecoder("windows-1250").decode(fs.readFileSync(files.postal)), ";", 15, ["a", "b", "b1", "b2", "c", "c1", "c2", "d", "d1", "d2"]);
@@ -125,6 +134,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
 
   const checks = {
     licence_recorded_as_ogl_rou_in_atlas_registry: licenceOk,
+    licence_page_names_ogl_rou_1_0: licencePage.names_ogl_rou_1_0,
     every_postal_list_matches_a_results_list: postal.lists.every((label) => matchedPostal.has(labelKey(label))),
     every_seat_winning_list_matches_a_results_list: Object.keys(mandates.seats).every((label) => matchedSeats.has(labelKey(label))),
     main_file_column_e_equals_sum_of_list_votes: main.counts.e === main.votes.reduce((a, b) => a + b, 0),
@@ -149,7 +159,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     boundary: "Staging artefact. Not canonical political data, not published on the site, not selectable in the Political Explorer. Promotion requires explicit owner authorisation and an updated political source registry.",
     country: "romania", chamber: "Camera Deputaților", election_id: "el-ro-cd-2016-12-11", election_date: { value: "2016-12-11", basis: "atlas_registry_harmonised_to_reconcile" },
     electoral_system_note: "2016: closed-list proportional representation in 43 constituencies (per the Atlas registry, to be verified against Law 208/2015). Not comparable as a series with the 2008/2012 single-member-college elections.",
-    licence: { id: metadata.license_id, title: metadata.license_title, url: metadata.license_url, publisher: metadata.organization?.title ?? null, package: metadata.name, basis: metadata.basis },
+    licence: { id: metadata.license_id, title: metadata.license_title, url: metadata.license_url, publisher: metadata.organization?.title ?? null, package: metadata.name, basis: metadata.basis, licence_page: licencePage },
     sources: Object.fromEntries(Object.entries(SOURCES).map(([key, source]) => [key, { ...source, sha256: sha(files[key]), bytes: fs.statSync(files[key]).size }])),
     national: {
       polling_stations_summed: main.stations, postal_vote_bureaus_summed: postal.stations,

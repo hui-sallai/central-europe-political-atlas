@@ -18,6 +18,12 @@
   },
   "fields": [
     {
+      "field": "licence_and_attribution",
+      "status": "publishable_pending_authorisation",
+      "basis": "OGL-ROU-1.0 recorded for the AEP package and named on the staged data.gov.ro licence page; attribution: Autoritatea Electorală Permanentă, data.gov.ro",
+      "blocker": null
+    },
+    {
       "field": "list_labels_native",
       "status": "publishable_pending_authorisation",
       "basis": "official station-level results file (column headers)",
@@ -98,6 +104,7 @@
   ],
   "summary": {
     "publishable_pending_authorisation": [
+      "licence_and_attribution",
       "list_labels_native",
       "list_votes_national",
       "derived_vote_share",
