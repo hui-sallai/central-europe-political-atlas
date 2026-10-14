@@ -46,7 +46,7 @@ for (const locale of ["zh-CN", "en"] as const) test(`live politics page keeps cr
   await expect(panel.locator("[data-cross-country-disabled]")).toContainText(locale === "en" ? "not published" : "尚未发布");
   await expect(panel.locator("[data-country-comparison]")).toHaveCount(0);
   await expect(panel.locator("select").first().locator("option")).toHaveCount(1);
-  await panel.locator("details summary").click();
+  await panel.getByText(locale === "en" ? "Sources, provenance and downloads" : "来源、出处与下载", { exact: true }).click();
   await expect(panel.locator("[data-politics-definitions]")).toContainText(locale === "en" ? "Derived vote share" : "计算得票率");
   await expect(panel.locator("[data-politics-definitions]")).toContainText("voters / eligible voters");
   expect((await page.request.get("/research-data/political/romania/election_results.json")).status()).toBe(404);
