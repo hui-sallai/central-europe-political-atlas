@@ -5,6 +5,7 @@ import { useLocale } from "@/i18n/LocaleProvider";
 import { localeDate, localeNumber, localizedRoute } from "@/i18n/config";
 import { alignByLabel, chartResults, compareElections, measureValue, type ElectionAggregate, type PoliticalCountryView, type PoliticalElectionView, type PoliticalMeasure } from "@/lib/politicalExplorer";
 import { PoliticalCountryComparison } from "./PoliticalCountryComparison";
+import { PoliticalPartyHistory } from "./PoliticalPartyHistory";
 import { NotebookCollect } from "./NotebookCollect";
 import type { EvidenceDraft } from "@/lib/researchNotebook";
 
@@ -179,6 +180,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
           <p className="mt-3 text-sm" data-identity-limitation>{en ? "Rows are aligned only where the official ballot label is identical. This is a display aid, not a verified party identity: a list that changed its name appears on two rows, and no change is calculated for any individual list, because cross-election party identity has not been established in the Atlas." : "只有官方选票名称完全相同的名单才会排在同一行。这只是显示上的对齐，不是经过核实的政党身份：更名的名单会出现在两行，且不对任何单个名单计算变化，因为 Atlas 尚未确立跨届政党身份。"}</p>
         </> : <p className="mt-3 text-sm text-[var(--muted)]">{en ? "Choose a second election to see election-level differences and the two sets of lists side by side." : "选择另一届选举，即可查看选举层面的差值，并并排查看两届的名单。"}</p>}
       </section>
+      <PoliticalPartyHistory elections={elections} locale={locale} />
       <section className="card p-5" data-politics-cross-country>
         <h3 className="font-semibold">{en ? "Comparing countries" : "跨国比较"}</h3>
         {comparisonCountries.length && comparedCountry && comparedCountryElection ? <>

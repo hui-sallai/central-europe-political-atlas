@@ -1,0 +1,2806 @@
+{
+ "schema_version": "germany-official-series-links-v1",
+ "state": "verified_identity_layer_presentation_only",
+ "method": "Each election-specific contestant is linked to a row of the Federal Returning Officer's longitudinal results table only when the table's national second-vote count for that election equals the contestant's official count exactly and uniquely. Labels and names are never compared. The table's own notes on earlier party names are recorded verbatim.",
+ "evidence_basis": "official_code (identity model): the authority's stable longitudinal row in its own published table. This is the electoral authority's statistical attribution of results to one party across elections, not a party-register or legal-entity determination.",
+ "source": {
+  "source_id": "src-de-bwl-historical-results",
+  "url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+  "raw_path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+  "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484",
+  "retrieved_at": "2026-10-01T23:20:00.007Z",
+  "source_updated_at": "Thu, 08 Jan 2026 13:40:32 GMT",
+  "licence": "dl-de/by-2-0",
+  "attribution": "Die Bundeswahlleiterin, Wiesbaden; dl-de/by-2-0"
+ },
+ "canonical_stores_changed": false,
+ "relationship_categories": {
+  "same_organisation_per_authority_series": "A — the authority presents these elections as one party's results and records no name change",
+  "name_change_documented_by_authority": "B — one party series whose ballot label changed; the authority's notes record the earlier names",
+  "electoral_alliance_or_joint_list": "C — none: every canonical contestant 2002–2025 is recorded as a party_list; alliances would never be merged with member parties",
+  "merger_split_or_succession": "D — none documented in this source; not inferred",
+  "unresolved": "E — contestants not linked by an exact official count; they stay election-specific"
+ },
+ "series_counts": {
+  "multi_election_series": 48,
+  "single_election_rows": 30,
+  "unresolved_contestants": 0,
+  "unmatched_table_rows": 0,
+  "published_share_cross_check_mismatches": []
+ },
+ "series": [
+  {
+   "series_id": "ser-de-bwl-36b717811e",
+   "authority_series_label": "BP",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0014",
+     "original_ballot_label": "BP",
+     "authority_second_votes": 9379,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0040",
+     "original_ballot_label": "BP",
+     "authority_second_votes": 35543,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0063",
+     "original_ballot_label": "BP",
+     "authority_second_votes": 48311,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0091",
+     "original_ballot_label": "BP",
+     "authority_second_votes": 57395,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0120",
+     "original_ballot_label": "Bayernpartei",
+     "authority_second_votes": 58037,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0156",
+     "original_ballot_label": "Bayernpartei",
+     "authority_second_votes": 32790,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0200",
+     "original_ballot_label": "Bayernpartei",
+     "authority_second_votes": 12278,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "BP",
+    "Bayernpartei"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-726b670698",
+   "authority_series_label": "BüSo",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0017",
+     "original_ballot_label": "BüSo",
+     "authority_second_votes": 16958,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0039",
+     "original_ballot_label": "BüSo",
+     "authority_second_votes": 35649,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0062",
+     "original_ballot_label": "BüSo",
+     "authority_second_votes": 38706,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0093",
+     "original_ballot_label": "BüSo",
+     "authority_second_votes": 12814,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0124",
+     "original_ballot_label": "Bürgerrechtsbewegung Solidarität",
+     "authority_second_votes": 6693,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0163",
+     "original_ballot_label": "Bürgerrechtsbewegung Solidarität",
+     "authority_second_votes": 665,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0205",
+     "original_ballot_label": "Bürgerrechtsbewegung Solidarität",
+     "authority_second_votes": 676,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "BüSo",
+    "Bürgerrechtsbewegung Solidarität"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-c1e7f9d8c4",
+   "authority_series_label": "CDU",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0002",
+     "original_ballot_label": "CDU",
+     "authority_second_votes": 14167561,
+     "authority_note": null,
+     "authority_published_share": 29.5
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0026",
+     "original_ballot_label": "CDU",
+     "authority_second_votes": 13136740,
+     "authority_note": null,
+     "authority_published_share": 27.8
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0051",
+     "original_ballot_label": "CDU",
+     "authority_second_votes": 11828277,
+     "authority_note": null,
+     "authority_published_share": 27.3
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0077",
+     "original_ballot_label": "CDU",
+     "authority_second_votes": 14921877,
+     "authority_note": null,
+     "authority_published_share": 34.1
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0107",
+     "original_ballot_label": "Christlich Demokratische Union Deutschlands",
+     "authority_second_votes": 12447656,
+     "authority_note": null,
+     "authority_published_share": 26.8
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0141",
+     "original_ballot_label": "Christlich Demokratische Union Deutschlands",
+     "authority_second_votes": 8774920,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 19
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0182",
+     "original_ballot_label": "Christlich Demokratische Union Deutschlands",
+     "authority_second_votes": 11196374,
+     "authority_note": null,
+     "authority_published_share": 22.6
+    }
+   ],
+   "ballot_label_forms": [
+    "CDU",
+    "Christlich Demokratische Union Deutschlands"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-7479e6b4a2",
+   "authority_series_label": "CSU",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0003",
+     "original_ballot_label": "CSU",
+     "authority_second_votes": 4315080,
+     "authority_note": null,
+     "authority_published_share": 9
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0027",
+     "original_ballot_label": "CSU",
+     "authority_second_votes": 3494309,
+     "authority_note": null,
+     "authority_published_share": 7.4
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0055",
+     "original_ballot_label": "CSU",
+     "authority_second_votes": 2830238,
+     "authority_note": null,
+     "authority_published_share": 6.5
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0082",
+     "original_ballot_label": "CSU",
+     "authority_second_votes": 3243569,
+     "authority_note": null,
+     "authority_published_share": 7.4
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0111",
+     "original_ballot_label": "Christlich-Soziale Union in Bayern e.V.",
+     "authority_second_votes": 2869688,
+     "authority_note": null,
+     "authority_published_share": 6.2
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0147",
+     "original_ballot_label": "Christlich-Soziale Union in Bayern e.V.",
+     "authority_second_votes": 2402827,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 5.2
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0186",
+     "original_ballot_label": "Christlich-Soziale Union in Bayern e.V.",
+     "authority_second_votes": 2964028,
+     "authority_note": null,
+     "authority_published_share": 6
+    }
+   ],
+   "ballot_label_forms": [
+    "CSU",
+    "Christlich-Soziale Union in Bayern e.V."
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-f4f75d653a",
+   "authority_series_label": "Die Linke",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0006",
+     "original_ballot_label": "PDS",
+     "authority_second_votes": 1916702,
+     "authority_note": "Parteiname 1990-2002: PDS",
+     "authority_published_share": 4
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0030",
+     "original_ballot_label": "Die Linke.",
+     "authority_second_votes": 4118194,
+     "authority_note": "Parteiname 2005: Die Linke.",
+     "authority_published_share": 8.7
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0053",
+     "original_ballot_label": "DIE LINKE",
+     "authority_second_votes": 5155933,
+     "authority_note": "Parteiname 2009: DIE LINKE",
+     "authority_published_share": 11.9
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0080",
+     "original_ballot_label": "DIE LINKE",
+     "authority_second_votes": 3755699,
+     "authority_note": "Parteiname 2013: DIE LINKE",
+     "authority_published_share": 8.6
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0109",
+     "original_ballot_label": "DIE LINKE",
+     "authority_second_votes": 4297270,
+     "authority_note": "Parteiname 2017: DIE LINKE",
+     "authority_published_share": 9.2
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0145",
+     "original_ballot_label": "DIE LINKE",
+     "authority_second_votes": 2255864,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins in Teilen Berlins; Parteiname 2021: DIE LINKE",
+     "authority_published_share": 4.9
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0187",
+     "original_ballot_label": "Die Linke",
+     "authority_second_votes": 4356532,
+     "authority_note": null,
+     "authority_published_share": 8.8
+    }
+   ],
+   "ballot_label_forms": [
+    "PDS",
+    "Die Linke.",
+    "DIE LINKE",
+    "Die Linke"
+   ],
+   "relationship": "name_change_documented_by_authority",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-93d62d3d64",
+   "authority_series_label": "FDP",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0005",
+     "original_ballot_label": "FDP",
+     "authority_second_votes": 3538815,
+     "authority_note": null,
+     "authority_published_share": 7.4
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0029",
+     "original_ballot_label": "FDP",
+     "authority_second_votes": 4648144,
+     "authority_note": null,
+     "authority_published_share": 9.8
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0052",
+     "original_ballot_label": "FDP",
+     "authority_second_votes": 6316080,
+     "authority_note": null,
+     "authority_published_share": 14.6
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0079",
+     "original_ballot_label": "FDP",
+     "authority_second_votes": 2083533,
+     "authority_note": null,
+     "authority_published_share": 4.8
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0112",
+     "original_ballot_label": "Freie Demokratische Partei",
+     "authority_second_votes": 4999449,
+     "authority_note": null,
+     "authority_published_share": 10.7
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0144",
+     "original_ballot_label": "Freie Demokratische Partei",
+     "authority_second_votes": 5291013,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 11.4
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0184",
+     "original_ballot_label": "Freie Demokratische Partei",
+     "authority_second_votes": 2148757,
+     "authority_note": null,
+     "authority_published_share": 4.3
+    }
+   ],
+   "ballot_label_forms": [
+    "FDP",
+    "Freie Demokratische Partei"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-6512cd608b",
+   "authority_series_label": "GRÜNE",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0004",
+     "original_ballot_label": "GRÜNE",
+     "authority_second_votes": 4110355,
+     "authority_note": null,
+     "authority_published_share": 8.6
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0028",
+     "original_ballot_label": "GRÜNE",
+     "authority_second_votes": 3838326,
+     "authority_note": null,
+     "authority_published_share": 8.1
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0054",
+     "original_ballot_label": "GRÜNE",
+     "authority_second_votes": 4643272,
+     "authority_note": null,
+     "authority_published_share": 10.7
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0081",
+     "original_ballot_label": "GRÜNE",
+     "authority_second_votes": 3694057,
+     "authority_note": null,
+     "authority_published_share": 8.4
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0110",
+     "original_ballot_label": "BÜNDNIS 90/DIE GRÜNEN",
+     "authority_second_votes": 4158400,
+     "authority_note": null,
+     "authority_published_share": 8.9
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0146",
+     "original_ballot_label": "BÜNDNIS 90/DIE GRÜNEN",
+     "authority_second_votes": 6814408,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 14.7
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0183",
+     "original_ballot_label": "BÜNDNIS 90/DIE GRÜNEN",
+     "authority_second_votes": 5762380,
+     "authority_note": null,
+     "authority_published_share": 11.6
+    }
+   ],
+   "ballot_label_forms": [
+    "GRÜNE",
+    "BÜNDNIS 90/DIE GRÜNEN"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-94424ddcbe",
+   "authority_series_label": "SPD",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0001",
+     "original_ballot_label": "SPD",
+     "authority_second_votes": 18488668,
+     "authority_note": null,
+     "authority_published_share": 38.5
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0025",
+     "original_ballot_label": "SPD",
+     "authority_second_votes": 16194665,
+     "authority_note": null,
+     "authority_published_share": 34.2
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0050",
+     "original_ballot_label": "SPD",
+     "authority_second_votes": 9990488,
+     "authority_note": null,
+     "authority_published_share": 23
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0078",
+     "original_ballot_label": "SPD",
+     "authority_second_votes": 11252215,
+     "authority_note": null,
+     "authority_published_share": 25.7
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0108",
+     "original_ballot_label": "Sozialdemokratische Partei Deutschlands",
+     "authority_second_votes": 9539381,
+     "authority_note": null,
+     "authority_published_share": 20.5
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0142",
+     "original_ballot_label": "Sozialdemokratische Partei Deutschlands",
+     "authority_second_votes": 11901558,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 25.7
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0181",
+     "original_ballot_label": "Sozialdemokratische Partei Deutschlands",
+     "authority_second_votes": 8149124,
+     "authority_note": null,
+     "authority_published_share": 16.4
+    }
+   ],
+   "ballot_label_forms": [
+    "SPD",
+    "Sozialdemokratische Partei Deutschlands"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-544bba365e",
+   "authority_series_label": "Tierschutzpartei",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0009",
+     "original_ballot_label": "Tierschutz",
+     "authority_second_votes": 159655,
+     "authority_note": "Parteiname 1994-2009: Die Tierschutzpartei",
+     "authority_published_share": 0.3
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0034",
+     "original_ballot_label": "Die Tierschutzpartei",
+     "authority_second_votes": 110603,
+     "authority_note": "Parteiname 1994-2009: Die Tierschutzpartei",
+     "authority_published_share": 0.2
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0059",
+     "original_ballot_label": "Die Tierschutzpartei",
+     "authority_second_votes": 230872,
+     "authority_note": "Parteiname 1994-2009: Die Tierschutzpartei",
+     "authority_published_share": 0.5
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0085",
+     "original_ballot_label": "Tierschutzpartei",
+     "authority_second_votes": 140366,
+     "authority_note": null,
+     "authority_published_share": 0.3
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0117",
+     "original_ballot_label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+     "authority_second_votes": 374179,
+     "authority_note": null,
+     "authority_published_share": 0.8
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0150",
+     "original_ballot_label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+     "authority_second_votes": 673669,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 1.5
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0189",
+     "original_ballot_label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+     "authority_second_votes": 482201,
+     "authority_note": null,
+     "authority_published_share": 1
+    }
+   ],
+   "ballot_label_forms": [
+    "Tierschutz",
+    "Die Tierschutzpartei",
+    "Tierschutzpartei",
+    "PARTEI MENSCH UMWELT TIERSCHUTZ"
+   ],
+   "relationship": "name_change_documented_by_authority",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-b90775be1a",
+   "authority_series_label": "HEIMAT",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0010",
+     "original_ballot_label": "NPD",
+     "authority_second_votes": 215232,
+     "authority_note": "Parteiname von 1964-2023: NPD",
+     "authority_published_share": 0.4
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0033",
+     "original_ballot_label": "NPD",
+     "authority_second_votes": 748568,
+     "authority_note": "Parteiname von 1964-2023: NPD",
+     "authority_published_share": 1.6
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0056",
+     "original_ballot_label": "NPD",
+     "authority_second_votes": 635525,
+     "authority_note": "Parteiname von 1964-2023: NPD",
+     "authority_published_share": 1.5
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0084",
+     "original_ballot_label": "NPD",
+     "authority_second_votes": 560828,
+     "authority_note": "Parteiname von 1964-2023: NPD",
+     "authority_published_share": 1.3
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0115",
+     "original_ballot_label": "Nationaldemokratische Partei Deutschlands",
+     "authority_second_votes": 176020,
+     "authority_note": "Parteiname von 1964-2023: NPD",
+     "authority_published_share": 0.4
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0151",
+     "original_ballot_label": "Nationaldemokratische Partei Deutschlands",
+     "authority_second_votes": 64360,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins; Parteiname von 1964-2023: NPD",
+     "authority_published_share": 0.1
+    }
+   ],
+   "ballot_label_forms": [
+    "NPD",
+    "Nationaldemokratische Partei Deutschlands"
+   ],
+   "relationship": "name_change_documented_by_authority",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-68ae136c2e",
+   "authority_series_label": "MLPD",
+   "links": [
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0046",
+     "original_ballot_label": "MLPD",
+     "authority_second_votes": 45238,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0061",
+     "original_ballot_label": "MLPD",
+     "authority_second_votes": 29261,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0095",
+     "original_ballot_label": "MLPD",
+     "authority_second_votes": 24219,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0123",
+     "original_ballot_label": "Marxistisch-Leninistische Partei Deutschlands",
+     "authority_second_votes": 29785,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0158",
+     "original_ballot_label": "Marxistisch-Leninistische Partei Deutschlands",
+     "authority_second_votes": 17820,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0201",
+     "original_ballot_label": "Marxistisch-Leninistische Partei Deutschlands",
+     "authority_second_votes": 19551,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "MLPD",
+    "Marxistisch-Leninistische Partei Deutschlands"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-a0739b2640",
+   "authority_series_label": "SGP",
+   "links": [
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0048",
+     "original_ballot_label": "PSG",
+     "authority_second_votes": 15605,
+     "authority_note": "Parteiname 1998-2013: PSG",
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0064",
+     "original_ballot_label": "PSG",
+     "authority_second_votes": 2957,
+     "authority_note": "Parteiname 1998-2013: PSG",
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0097",
+     "original_ballot_label": "PSG",
+     "authority_second_votes": 4564,
+     "authority_note": "Parteiname 1998-2013: PSG",
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0125",
+     "original_ballot_label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+     "authority_second_votes": 1291,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0167",
+     "original_ballot_label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+     "authority_second_votes": 1399,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0204",
+     "original_ballot_label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+     "authority_second_votes": 425,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "PSG",
+    "Sozialistische Gleichheitspartei, Vierte Internationale"
+   ],
+   "relationship": "name_change_documented_by_authority",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-70bde9aeb6",
+   "authority_series_label": "Die PARTEI",
+   "links": [
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0047",
+     "original_ballot_label": "Die PARTEI",
+     "authority_second_votes": 10379,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0106",
+     "original_ballot_label": "Die PARTEI",
+     "authority_second_votes": 78674,
+     "authority_note": null,
+     "authority_published_share": 0.2
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0119",
+     "original_ballot_label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+     "authority_second_votes": 454349,
+     "authority_note": null,
+     "authority_published_share": 1
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0149",
+     "original_ballot_label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+     "authority_second_votes": 460431,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 1
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0191",
+     "original_ballot_label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+     "authority_second_votes": 242741,
+     "authority_note": null,
+     "authority_published_share": 0.5
+    }
+   ],
+   "ballot_label_forms": [
+    "Die PARTEI",
+    "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-66b1df4f02",
+   "authority_series_label": "PIRATEN",
+   "links": [
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0074",
+     "original_ballot_label": "PIRATEN",
+     "authority_second_votes": 847870,
+     "authority_note": null,
+     "authority_published_share": 2
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0083",
+     "original_ballot_label": "PIRATEN",
+     "authority_second_votes": 959177,
+     "authority_note": null,
+     "authority_published_share": 2.2
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0114",
+     "original_ballot_label": "Piratenpartei Deutschland",
+     "authority_second_votes": 173476,
+     "authority_note": null,
+     "authority_published_share": 0.4
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0152",
+     "original_ballot_label": "Piratenpartei Deutschland",
+     "authority_second_votes": 169587,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0.4
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0193",
+     "original_ballot_label": "Piratenpartei Deutschland",
+     "authority_second_votes": 13800,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "PIRATEN",
+    "Piratenpartei Deutschland"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-21cfd634e3",
+   "authority_series_label": "AfD",
+   "links": [
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0098",
+     "original_ballot_label": "AfD",
+     "authority_second_votes": 2056985,
+     "authority_note": null,
+     "authority_published_share": 4.7
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0113",
+     "original_ballot_label": "Alternative für Deutschland",
+     "authority_second_votes": 5878115,
+     "authority_note": null,
+     "authority_published_share": 12.6
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0143",
+     "original_ballot_label": "Alternative für Deutschland",
+     "authority_second_votes": 4809233,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 10.4
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0185",
+     "original_ballot_label": "Alternative für Deutschland",
+     "authority_second_votes": 10328780,
+     "authority_note": null,
+     "authority_published_share": 20.8
+    }
+   ],
+   "ballot_label_forms": [
+    "AfD",
+    "Alternative für Deutschland"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-d3754824fd",
+   "authority_series_label": "FAMILIE",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0015",
+     "original_ballot_label": "FAMILIE",
+     "authority_second_votes": 30045,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0038",
+     "original_ballot_label": "FAMILIE",
+     "authority_second_votes": 191842,
+     "authority_note": null,
+     "authority_published_share": 0.4
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0058",
+     "original_ballot_label": "FAMILIE",
+     "authority_second_votes": 120718,
+     "authority_note": null,
+     "authority_published_share": 0.3
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0088",
+     "original_ballot_label": "FAMILIE",
+     "authority_second_votes": 7449,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "FAMILIE"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-7cb17829d4",
+   "authority_series_label": "FREIE WÄHLER",
+   "links": [
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0103",
+     "original_ballot_label": "FREIE WÄHLER",
+     "authority_second_votes": 423977,
+     "authority_note": null,
+     "authority_published_share": 1
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0116",
+     "original_ballot_label": "FREIE WÄHLER",
+     "authority_second_votes": 463292,
+     "authority_note": null,
+     "authority_published_share": 1
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0148",
+     "original_ballot_label": "FREIE WÄHLER",
+     "authority_second_votes": 1125667,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 2.4
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0188",
+     "original_ballot_label": "FREIE WÄHLER",
+     "authority_second_votes": 769279,
+     "authority_note": null,
+     "authority_published_share": 1.5
+    }
+   ],
+   "ballot_label_forms": [
+    "FREIE WÄHLER"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-95ad552144",
+   "authority_series_label": "ÖDP",
+   "links": [
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0087",
+     "original_ballot_label": "ÖDP",
+     "authority_second_votes": 127088,
+     "authority_note": null,
+     "authority_published_share": 0.3
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0118",
+     "original_ballot_label": "Ökologisch-Demokratische Partei",
+     "authority_second_votes": 144809,
+     "authority_note": null,
+     "authority_published_share": 0.3
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0153",
+     "original_ballot_label": "Ökologisch-Demokratische Partei",
+     "authority_second_votes": 112129,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0.2
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0195",
+     "original_ballot_label": "Ökologisch-Demokratische Partei - Die Naturschutzpartei",
+     "authority_second_votes": 49764,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    }
+   ],
+   "ballot_label_forms": [
+    "ÖDP",
+    "Ökologisch-Demokratische Partei",
+    "Ökologisch-Demokratische Partei - Die Naturschutzpartei"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-a634ff6fb6",
+   "authority_series_label": "PBC",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0012",
+     "original_ballot_label": "PBC",
+     "authority_second_votes": 101645,
+     "authority_note": null,
+     "authority_published_share": 0.2
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0036",
+     "original_ballot_label": "PBC",
+     "authority_second_votes": 108605,
+     "authority_note": null,
+     "authority_published_share": 0.2
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0060",
+     "original_ballot_label": "PBC",
+     "authority_second_votes": 40370,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0092",
+     "original_ballot_label": "PBC",
+     "authority_second_votes": 18542,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "PBC"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-8d65b9eee5",
+   "authority_series_label": "REP",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0007",
+     "original_ballot_label": "REP",
+     "authority_second_votes": 280671,
+     "authority_note": null,
+     "authority_published_share": 0.6
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0032",
+     "original_ballot_label": "REP",
+     "authority_second_votes": 266101,
+     "authority_note": null,
+     "authority_published_share": 0.6
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0057",
+     "original_ballot_label": "REP",
+     "authority_second_votes": 193396,
+     "authority_note": null,
+     "authority_published_share": 0.4
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0086",
+     "original_ballot_label": "REP",
+     "authority_second_votes": 91193,
+     "authority_note": null,
+     "authority_published_share": 0.2
+    }
+   ],
+   "ballot_label_forms": [
+    "REP"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-56b9cd7ef0",
+   "authority_series_label": "Volksabstimmung",
+   "links": [
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0042",
+     "original_ballot_label": "Deutschland",
+     "authority_second_votes": 9643,
+     "authority_note": "Parteiname 1998-2005: Deutschland",
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0065",
+     "original_ballot_label": "Volksabstimmung",
+     "authority_second_votes": 23015,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0096",
+     "original_ballot_label": "Volksabstimmung",
+     "authority_second_votes": 28654,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0121",
+     "original_ballot_label": "Ab jetzt...Demokratie durch Volksabstimmung",
+     "authority_second_votes": 9631,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Deutschland",
+    "Volksabstimmung",
+    "Ab jetzt...Demokratie durch Volksabstimmung"
+   ],
+   "relationship": "name_change_documented_by_authority",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-29f0e473e0",
+   "authority_series_label": "DIE FRAUEN",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0013",
+     "original_ballot_label": "DIE FRAUEN",
+     "authority_second_votes": 36832,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0037",
+     "original_ballot_label": "DIE FRAUEN",
+     "authority_second_votes": 27497,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0102",
+     "original_ballot_label": "DIE FRAUEN",
+     "authority_second_votes": 12148,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "DIE FRAUEN"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-75cf31af6d",
+   "authority_series_label": "DKP",
+   "links": [
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0069",
+     "original_ballot_label": "DKP",
+     "authority_second_votes": 1894,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0132",
+     "original_ballot_label": "Deutsche Kommunistische Partei",
+     "authority_second_votes": 11558,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0161",
+     "original_ballot_label": "Deutsche Kommunistische Partei",
+     "authority_second_votes": 14957,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "DKP",
+    "Deutsche Kommunistische Partei"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-ffbb00394c",
+   "authority_series_label": "MENSCHLICHE WELT",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0137",
+     "original_ballot_label": "Menschliche Welt",
+     "authority_second_votes": 11661,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0160",
+     "original_ballot_label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+     "authority_second_votes": 3786,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0202",
+     "original_ballot_label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+     "authority_second_votes": 694,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Menschliche Welt",
+    "Menschliche Welt - für das Wohl und Glücklichsein aller"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-e73f5c6113",
+   "authority_series_label": "PdH",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0138",
+     "original_ballot_label": "Partei der Humanisten",
+     "authority_second_votes": 5991,
+     "authority_note": "Parteiname 2017: Die Humanisten",
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0164",
+     "original_ballot_label": "Partei der Humanisten",
+     "authority_second_votes": 47524,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins; Parteiname 2021: Die Humanisten",
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0198",
+     "original_ballot_label": "Partei der Humanisten - Fakten, Freiheit, Fortschritt",
+     "authority_second_votes": 14294,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Partei der Humanisten",
+    "Partei der Humanisten - Fakten, Freiheit, Fortschritt"
+   ],
+   "relationship": "name_change_documented_by_authority",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-49d2059394",
+   "authority_series_label": "Verjüngungsforschung",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0139",
+     "original_ballot_label": "Partei für Gesundheitsforschung",
+     "authority_second_votes": 23404,
+     "authority_note": "Parteiname 2017: Gesundheitsforschung",
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0159",
+     "original_ballot_label": "Partei für Gesundheitsforschung",
+     "authority_second_votes": 48496,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins; Parteiname 2021: Gesundheitsforschung",
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0197",
+     "original_ballot_label": "Partei für Verjüngungsforschung",
+     "authority_second_votes": 303,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Partei für Gesundheitsforschung",
+    "Partei für Verjüngungsforschung"
+   ],
+   "relationship": "name_change_documented_by_authority",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-349de8b0eb",
+   "authority_series_label": "ZENTRUM",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0021",
+     "original_ballot_label": "ZENTRUM",
+     "authority_second_votes": 3127,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0041",
+     "original_ballot_label": "ZENTRUM",
+     "authority_second_votes": 4010,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0066",
+     "original_ballot_label": "ZENTRUM",
+     "authority_second_votes": 6087,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "ZENTRUM"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-45240b2baa",
+   "authority_series_label": "Bündnis 21/RRP",
+   "links": [
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0075",
+     "original_ballot_label": "RRP",
+     "authority_second_votes": 100605,
+     "authority_note": "Parteiname 2009: RRP",
+     "authority_published_share": 0.2
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0089",
+     "original_ballot_label": "Bündnis 21/RRP",
+     "authority_second_votes": 8578,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "RRP",
+    "Bündnis 21/RRP"
+   ],
+   "relationship": "name_change_documented_by_authority",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-d7a105c579",
+   "authority_series_label": "Bündnis C",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0169",
+     "original_ballot_label": "Bündnis C - Christen für Deutschland",
+     "authority_second_votes": 39868,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0199",
+     "original_ballot_label": "Bündnis C - Christen für Deutschland",
+     "authority_second_votes": 11768,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Bündnis C - Christen für Deutschland"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-9ee3b7c03a",
+   "authority_series_label": "CM",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0016",
+     "original_ballot_label": "CM",
+     "authority_second_votes": 15440,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0068",
+     "original_ballot_label": "CM",
+     "authority_second_votes": 6826,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "CM"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-72eacb78e1",
+   "authority_series_label": "DiB",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0131",
+     "original_ballot_label": "DEMOKRATIE IN BEWEGUNG",
+     "authority_second_votes": 60914,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0155",
+     "original_ballot_label": "DEMOKRATIE IN BEWEGUNG",
+     "authority_second_votes": 7184,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "DEMOKRATIE IN BEWEGUNG"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-7887d2e2bc",
+   "authority_series_label": "Die Grauen",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0134",
+     "original_ballot_label": "Die Grauen – Für alle Generationen",
+     "authority_second_votes": 10009,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0162",
+     "original_ballot_label": "Die Grauen – Für alle Generationen",
+     "authority_second_votes": 17304,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Die Grauen – Für alle Generationen"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-029b139d23",
+   "authority_series_label": "DIE RECHTE",
+   "links": [
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0101",
+     "original_ballot_label": "DIE RECHTE",
+     "authority_second_votes": 2245,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0126",
+     "original_ballot_label": "DIE RECHTE",
+     "authority_second_votes": 2054,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "DIE RECHTE"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-b44b4982f0",
+   "authority_series_label": "DIE VIOLETTEN",
+   "links": [
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0071",
+     "original_ballot_label": "DIE VIOLETTEN",
+     "authority_second_votes": 31957,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0094",
+     "original_ballot_label": "DIE VIOLETTEN",
+     "authority_second_votes": 8211,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "DIE VIOLETTEN"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-6308568703",
+   "authority_series_label": "dieBasis",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0168",
+     "original_ballot_label": "Basisdemokratische Partei Deutschland",
+     "authority_second_votes": 630153,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 1.4
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0190",
+     "original_ballot_label": "Basisdemokratische Partei Deutschland",
+     "authority_second_votes": 85373,
+     "authority_note": null,
+     "authority_published_share": 0.2
+    }
+   ],
+   "ballot_label_forms": [
+    "Basisdemokratische Partei Deutschland"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-8f5478856c",
+   "authority_series_label": "du.",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0135",
+     "original_ballot_label": "Die Urbane. Eine HipHop Partei",
+     "authority_second_votes": 3032,
+     "authority_note": null,
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0166",
+     "original_ballot_label": "Die Urbane. Eine HipHop Partei",
+     "authority_second_votes": 17738,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Die Urbane. Eine HipHop Partei"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-7976e69a70",
+   "authority_series_label": "Gartenpartei",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0136",
+     "original_ballot_label": "Magdeburger Gartenpartei",
+     "authority_second_votes": 5617,
+     "authority_note": "Parteiname 2017: MG",
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0165",
+     "original_ballot_label": "Gartenpartei",
+     "authority_second_votes": 7611,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Magdeburger Gartenpartei",
+    "Gartenpartei"
+   ],
+   "relationship": "name_change_documented_by_authority",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-e1cd008b6d",
+   "authority_series_label": "GRAUE",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0008",
+     "original_ballot_label": "GRAUE",
+     "authority_second_votes": 114224,
+     "authority_note": null,
+     "authority_published_share": 0.2
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0035",
+     "original_ballot_label": "GRAUE",
+     "authority_second_votes": 198601,
+     "authority_note": null,
+     "authority_published_share": 0.4
+    }
+   ],
+   "ballot_label_forms": [
+    "GRAUE"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-08e3a7e092",
+   "authority_series_label": "ödp",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0011",
+     "original_ballot_label": "ödp",
+     "authority_second_votes": 56898,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0073",
+     "original_ballot_label": "ödp",
+     "authority_second_votes": 132249,
+     "authority_note": null,
+     "authority_published_share": 0.3
+    }
+   ],
+   "ballot_label_forms": [
+    "ödp"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-c9caee19e3",
+   "authority_series_label": "Offensive D",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0024",
+     "original_ballot_label": "Schill",
+     "authority_second_votes": 400476,
+     "authority_note": "Parteiname 2002: Schill",
+     "authority_published_share": 0.8
+    },
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0031",
+     "original_ballot_label": "Offensive D",
+     "authority_second_votes": 3338,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Schill",
+    "Offensive D"
+   ],
+   "relationship": "name_change_documented_by_authority",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-dd098a3590",
+   "authority_series_label": "PdF",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0175",
+     "original_ballot_label": "Partei des Fortschritts",
+     "authority_second_votes": 3228,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0203",
+     "original_ballot_label": "Partei des Fortschritts",
+     "authority_second_votes": 21388,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Partei des Fortschritts"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-040a4979fd",
+   "authority_series_label": "PDV",
+   "links": [
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0105",
+     "original_ballot_label": "PARTEI DER VERNUNFT",
+     "authority_second_votes": 24719,
+     "authority_note": "Parteiname 2013: PARTEI DER VERNUNFT",
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0122",
+     "original_ballot_label": "Partei der Vernunft",
+     "authority_second_votes": 533,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "PARTEI DER VERNUNFT",
+    "Partei der Vernunft"
+   ],
+   "relationship": "name_change_documented_by_authority",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-f54101f5d9",
+   "authority_series_label": "RENTNER",
+   "links": [
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0076",
+     "original_ballot_label": "RENTNER",
+     "authority_second_votes": 56399,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0090",
+     "original_ballot_label": "RENTNER",
+     "authority_second_votes": 25134,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    }
+   ],
+   "ballot_label_forms": [
+    "RENTNER"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-50c55d637a",
+   "authority_series_label": "SSW",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0177",
+     "original_ballot_label": "Südschleswigscher Wählerverband",
+     "authority_second_votes": 55578,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0196",
+     "original_ballot_label": "Südschleswigscher Wählerverband",
+     "authority_second_votes": 76138,
+     "authority_note": null,
+     "authority_published_share": 0.2
+    }
+   ],
+   "ballot_label_forms": [
+    "Südschleswigscher Wählerverband"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-75f9e88b64",
+   "authority_series_label": "Team Todenhöfer",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0178",
+     "original_ballot_label": "Team Todenhöfer – Die Gerechtigkeitspartei",
+     "authority_second_votes": 211854,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0.5
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0192",
+     "original_ballot_label": "Die Gerechtigkeitspartei – Team Todenhöfer",
+     "authority_second_votes": 24553,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Team Todenhöfer – Die Gerechtigkeitspartei",
+    "Die Gerechtigkeitspartei – Team Todenhöfer"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-efdab13fac",
+   "authority_series_label": "Tierschutzallianz",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0128",
+     "original_ballot_label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+     "authority_second_votes": 32221,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0157",
+     "original_ballot_label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+     "authority_second_votes": 13672,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Allianz für Menschenrechte, Tier- und Naturschutz"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-47e8a0da7f",
+   "authority_series_label": "V-Partei³",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0140",
+     "original_ballot_label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+     "authority_second_votes": 64073,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    },
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0154",
+     "original_ballot_label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+     "authority_second_votes": 31763,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0.1
+    }
+   ],
+   "ballot_label_forms": [
+    "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-52db0b6e3c",
+   "authority_series_label": "Volt",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0180",
+     "original_ballot_label": "Volt Deutschland",
+     "authority_second_votes": 164300,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0.4
+    },
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0194",
+     "original_ballot_label": "Volt Deutschland",
+     "authority_second_votes": 355262,
+     "authority_note": null,
+     "authority_published_share": 0.7
+    }
+   ],
+   "ballot_label_forms": [
+    "Volt Deutschland"
+   ],
+   "relationship": "same_organisation_per_authority_series",
+   "verification_status": "verified_official_longitudinal_series"
+  },
+  {
+   "series_id": "ser-de-bwl-a42ffdb9da",
+   "authority_series_label": "50Plus",
+   "links": [
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0045",
+     "original_ballot_label": "50Plus",
+     "authority_second_votes": 10536,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "50Plus"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-c69ad51703",
+   "authority_series_label": "AD-DEMOKRATEN",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0127",
+     "original_ballot_label": "Allianz Deutscher Demokraten",
+     "authority_second_votes": 41251,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    }
+   ],
+   "ballot_label_forms": [
+    "Allianz Deutscher Demokraten"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-bb3ad25ff3",
+   "authority_series_label": "ADM",
+   "links": [
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0067",
+     "original_ballot_label": "ADM",
+     "authority_second_votes": 2889,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "ADM"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-5596881017",
+   "authority_series_label": "AGFG",
+   "links": [
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0043",
+     "original_ballot_label": "AGFG",
+     "authority_second_votes": 21350,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "AGFG"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-1a2befb981",
+   "authority_series_label": "APPD",
+   "links": [
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0044",
+     "original_ballot_label": "APPD",
+     "authority_second_votes": 4233,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "APPD"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-a1816fb7d0",
+   "authority_series_label": "AUFBRUCH",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0020",
+     "original_ballot_label": "AUFBRUCH",
+     "authority_second_votes": 4697,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "AUFBRUCH"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-e5303ae9bd",
+   "authority_series_label": "B*",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0129",
+     "original_ballot_label": "bergpartei, die überpartei",
+     "authority_second_votes": 911,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "bergpartei, die überpartei"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-44bc5b967c",
+   "authority_series_label": "BGE",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0130",
+     "original_ballot_label": "Bündnis Grundeinkommen",
+     "authority_second_votes": 97539,
+     "authority_note": null,
+     "authority_published_share": 0.2
+    }
+   ],
+   "ballot_label_forms": [
+    "Bündnis Grundeinkommen"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-343cd0ac84",
+   "authority_series_label": "BIG",
+   "links": [
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0099",
+     "original_ballot_label": "BIG",
+     "authority_second_votes": 17743,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "BIG"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-dec5e92724",
+   "authority_series_label": "BSW",
+   "links": [
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0207",
+     "original_ballot_label": "Bündnis Sahra Wagenknecht - Vernunft und Gerechtigkeit",
+     "authority_second_votes": 2472947,
+     "authority_note": null,
+     "authority_published_share": 5
+    }
+   ],
+   "ballot_label_forms": [
+    "Bündnis Sahra Wagenknecht - Vernunft und Gerechtigkeit"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-68fc57b009",
+   "authority_series_label": "BÜNDNIS DEUTSCHLAND",
+   "links": [
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0206",
+     "original_ballot_label": "BÜNDNIS DEUTSCHLAND",
+     "authority_second_votes": 76372,
+     "authority_note": null,
+     "authority_published_share": 0.2
+    }
+   ],
+   "ballot_label_forms": [
+    "BÜNDNIS DEUTSCHLAND"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-fa67581049",
+   "authority_series_label": "BÜNDNIS21",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0172",
+     "original_ballot_label": "diePinken/BÜNDNIS21",
+     "authority_second_votes": 3488,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "diePinken/BÜNDNIS21"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-00fdf1a1ce",
+   "authority_series_label": "BÜRGERBEWEGUNG",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0170",
+     "original_ballot_label": "Bürgerbewegung für Fortschritt und Wandel",
+     "authority_second_votes": 7491,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Bürgerbewegung für Fortschritt und Wandel"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-f007746d25",
+   "authority_series_label": "Die Violetten",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0019",
+     "original_ballot_label": "Violetten",
+     "authority_second_votes": 2412,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Violetten"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-6a3aea1976",
+   "authority_series_label": "DM",
+   "links": [
+    {
+     "election_id": "el-de-bt-2017-09-24",
+     "year": 2017,
+     "contestant_id": "ct-de-0133",
+     "original_ballot_label": "Deutsche Mitte",
+     "authority_second_votes": 63203,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    }
+   ],
+   "ballot_label_forms": [
+    "Deutsche Mitte"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-bacd91f969",
+   "authority_series_label": "DVU",
+   "links": [
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0070",
+     "original_ballot_label": "DVU",
+     "authority_second_votes": 45752,
+     "authority_note": null,
+     "authority_published_share": 0.1
+    }
+   ],
+   "ballot_label_forms": [
+    "DVU"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-3ba54f7d3b",
+   "authority_series_label": "FWD",
+   "links": [
+    {
+     "election_id": "el-de-bt-2009-09-27",
+     "year": 2009,
+     "contestant_id": "ct-de-0072",
+     "original_ballot_label": "FWD",
+     "authority_second_votes": 11243,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "FWD"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-9449a7aaa8",
+   "authority_series_label": "HP",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0018",
+     "original_ballot_label": "HP",
+     "authority_second_votes": 2485,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "HP"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-aced13c67a",
+   "authority_series_label": "III. Weg",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0171",
+     "original_ballot_label": "DER DRITTE WEG",
+     "authority_second_votes": 7832,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "DER DRITTE WEG"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-acedfb4930",
+   "authority_series_label": "KPD (Ost)",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0022",
+     "original_ballot_label": "KPD",
+     "authority_second_votes": 1624,
+     "authority_note": "gegründet 1990",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "KPD"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-2474b20f93",
+   "authority_series_label": "LfK",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0176",
+     "original_ballot_label": ">> Partei für Kinder, Jugendliche und Familien <<  – Lobbyisten für Kinder –",
+     "authority_second_votes": 9189,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    ">> Partei für Kinder, Jugendliche und Familien <<  – Lobbyisten für Kinder –"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-08f64de989",
+   "authority_series_label": "LIEBE",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0173",
+     "original_ballot_label": "Europäische Partei LIEBE",
+     "authority_second_votes": 12967,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Europäische Partei LIEBE"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-a38dc88954",
+   "authority_series_label": "MERA25",
+   "links": [
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0208",
+     "original_ballot_label": "MERA25 - Gemeinsam für Europäische Unabhängigkeit",
+     "authority_second_votes": 6994,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "MERA25 - Gemeinsam für Europäische Unabhängigkeit"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-a4a0058158",
+   "authority_series_label": "Nichtwähler",
+   "links": [
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0104",
+     "original_ballot_label": "Nichtwähler",
+     "authority_second_votes": 11349,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Nichtwähler"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-60f3f58dfa",
+   "authority_series_label": "PRG",
+   "links": [
+    {
+     "election_id": "el-de-bt-2002-09-22",
+     "year": 2002,
+     "contestant_id": "ct-de-0023",
+     "original_ballot_label": "PRG",
+     "authority_second_votes": 7499,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "PRG"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-2dfba9154d",
+   "authority_series_label": "pro Deutschland",
+   "links": [
+    {
+     "election_id": "el-de-bt-2013-09-22",
+     "year": 2013,
+     "contestant_id": "ct-de-0100",
+     "original_ballot_label": "pro Deutschland",
+     "authority_second_votes": 73854,
+     "authority_note": null,
+     "authority_published_share": 0.2
+    }
+   ],
+   "ballot_label_forms": [
+    "pro Deutschland"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-31de7f4a99",
+   "authority_series_label": "Pro DM",
+   "links": [
+    {
+     "election_id": "el-de-bt-2005-09-18",
+     "year": 2005,
+     "contestant_id": "ct-de-0049",
+     "original_ballot_label": "Pro DM",
+     "authority_second_votes": 10269,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Pro DM"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-d8bda701b8",
+   "authority_series_label": "UNABHÄNGIGE",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0179",
+     "original_ballot_label": "UNABHÄNGIGE für bürgernahe Demokratie",
+     "authority_second_votes": 22736,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "UNABHÄNGIGE für bürgernahe Demokratie"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-d16ccc6c2c",
+   "authority_series_label": "WerteUnion",
+   "links": [
+    {
+     "election_id": "el-de-bt-2025-02-23",
+     "year": 2025,
+     "contestant_id": "ct-de-0209",
+     "original_ballot_label": "WerteUnion",
+     "authority_second_votes": 6736,
+     "authority_note": null,
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "WerteUnion"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  },
+  {
+   "series_id": "ser-de-bwl-5d5348e66a",
+   "authority_series_label": "Wir Bürger",
+   "links": [
+    {
+     "election_id": "el-de-bt-2021-09-26",
+     "year": 2021,
+     "contestant_id": "ct-de-0174",
+     "original_ballot_label": "Liberal-Konservative Reformer",
+     "authority_second_votes": 11328,
+     "authority_note": "einschl. Wiederholungswahl in Teilen Berlins",
+     "authority_published_share": 0
+    }
+   ],
+   "ballot_label_forms": [
+    "Liberal-Konservative Reformer"
+   ],
+   "relationship": "single_election",
+   "verification_status": "election_specific"
+  }
+ ],
+ "unresolved": [],
+ "unmatched_table_rows": []
+}

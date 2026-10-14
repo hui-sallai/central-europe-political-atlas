@@ -87,3 +87,34 @@ for (const locale of ["zh-CN", "en"] as const) {
     }
   });
 }
+
+for (const locale of ['zh-CN','en'] as const) test(`Party history: official series, gaps, seat caveat and export (${locale})`, async ({page}) => {
+  const prefix=locale==='en'?'/en':'';
+  await page.goto(`${prefix}/politics/`,{waitUntil:'networkidle'});
+  const history=page.locator('[data-politics-history]');
+  const series=history.locator('select').first();
+  const linke=await series.locator('option').filter({hasText:/^Die Linke ·/}).getAttribute('value');
+  await series.selectOption(linke!);
+  await expect(history.locator('[data-history-year]')).toHaveCount(7);
+  await expect(history.locator('[data-history-year="2002"]')).toContainText('PDS');
+  await expect(history.locator('[data-history-year="2021"]')).toContainText('DIE LINKE');
+  await expect(history.locator('[data-history-year="2021"]')).toContainText('4.9%');
+  await expect(history.locator('[data-history-overview]')).toContainText(locale==='en'?'other names':'其他名称');
+  await expect(history.locator('[data-history-research]')).toContainText('ct-de-');
+  // A party that did not stand in every election shows gaps, never zero.
+  const afd=await series.locator('option').filter({hasText:/^AfD ·/}).getAttribute('value');
+  await series.selectOption(afd!);
+  await expect(history.locator('[data-history-state="no_list"]')).toHaveCount(3);
+  await expect(history.locator('[data-history-year="2009"] td').nth(1)).toHaveText('—');
+  await history.locator('select').nth(1).selectOption('seats');
+  await expect(history.locator('[data-seat-caveat]')).toBeVisible();
+  expect(new URL(page.url()).searchParams.get('series')).toBe(afd);
+  const download=page.waitForEvent('download');
+  await history.locator('[data-history-export]').click();
+  const file=await (await download).path();
+  const csv=fs.readFileSync(file!,'utf8');
+  expect(csv.split('\n')).toHaveLength(5);
+  expect(csv).toContain('identity_verification_status');
+  expect(csv).toContain('verified_official_longitudinal_series');
+  expect(csv).not.toMatch(/el-de-bt-2009/);
+});

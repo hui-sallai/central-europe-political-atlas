@@ -99,6 +99,8 @@ interface Props {
   formatX?: (value: number) => string;
   formatY?: (value: number) => string;
   className?: string;
+  /** "group" when the interactive points must be reachable without nesting controls inside an image (axe nested-interactive). */
+  containerRole?: "img" | "group";
 }
 
 const WIDTH = 760;
@@ -114,7 +116,7 @@ function InteractiveResearchTimeSeriesChart(props: Props) {
 }
 
 // Non-interactive research charts remain stateless, including frozen-output SSR validation.
-function RenderedResearchTimeSeriesChart({ title, description, series, xKind, xLabel, yLabel, zeroLine = "auto", zeroDash = "5 4", includeZero = false, xTickValues, latestMarker = false, height = 300, legend = true, formatX, formatY, className, interactive = false, activePoint = null, setActivePoint = () => {} }: Props & { activePoint?: string | null; setActivePoint?: (value: string) => void }) {
+function RenderedResearchTimeSeriesChart({ title, description, series, xKind, xLabel, yLabel, zeroLine = "auto", zeroDash = "5 4", includeZero = false, xTickValues, latestMarker = false, height = 300, legend = true, formatX, formatY, className, containerRole = "img", interactive = false, activePoint = null, setActivePoint = () => {} }: Props & { activePoint?: string | null; setActivePoint?: (value: string) => void }) {
   const locale = useLocale();
   const toX = (value: number | string) => (typeof value === "string" ? monthIndex(value) : value);
   const allX = series.flatMap((s) => s.points.map((p) => toX(p.x)));
@@ -152,7 +154,7 @@ function RenderedResearchTimeSeriesChart({ title, description, series, xKind, xL
       <p className="mb-2 text-sm font-semibold">{title}</p>
       {description ? <p className="mb-3 text-xs leading-6 text-[var(--muted)]">{description}</p> : null}
       <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={`${title}（图表，可横向滚动）`}>
-        <svg viewBox={`0 0 ${WIDTH} ${height}`} className="h-auto w-full min-w-[520px]" role="img" aria-labelledby={`${titleId}-title`} data-chart="research-time-series">
+        <svg viewBox={`0 0 ${WIDTH} ${height}`} className="h-auto w-full min-w-[520px]" role={containerRole} aria-labelledby={`${titleId}-title`} data-chart="research-time-series">
           <title id={`${titleId}-title`}>{title}</title>
           {description ? <desc>{description}</desc> : null}
           <text x={MARGIN.left} y={16} fontSize="12" fontWeight="600" fill="var(--muted)" data-axis-title="y">{yLabel}</text>
