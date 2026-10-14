@@ -79,6 +79,11 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
       <h2 id="political-explorer-title" className="text-2xl font-semibold">{en ? "Germany: national elections" : "德国：联邦议会选举"}</h2>
       <p>{en ? "Descriptive results, not forecasts or causal estimates. Election-specific ballot records remain distinct; only verified official series links permit party-level comparisons." : "描述性选举结果，不是预测或因果估计。当届选票记录保持独立；仅通过已核实官方序列关联进行政党层面的比较。"}</p>
     </header>
+    <nav aria-label={en ? "Sections of the election explorer" : "选举浏览器的各部分"} className="flex flex-wrap gap-2 text-sm" data-politics-jump-nav>
+      {[["politics-system", en ? "Selected election" : "所选选举"], ["politics-compare-title", en ? "Compare two elections" : "比较两届选举"], ["politics-history-title", en ? "Party history" : "政党历史"], ...(contextInputs ? [["politics-context-disclosure", en ? "Political-economic context" : "政治经济背景"]] : [])].map(([id, label]) => (
+        <a key={id} href={`#${id}`} className="rounded-full border border-[var(--line)] px-3 py-1 underline-offset-2 hover:underline" data-jump={id} onClick={() => { if (id === "politics-context-disclosure") setContextOpen(true); }}>{label}</a>
+      ))}
+    </nav>
     <div className="card overflow-x-auto p-4" role="region" tabIndex={0} aria-label={en ? "Election history (scrollable)" : "选举历史（可横向滚动）"}>
       <table className="w-full min-w-[560px] text-left text-sm"><caption className="mb-3 text-left font-semibold">{en ? "Election history · 2002–2025" : "选举历史 · 2002–2025"}</caption>
         <thead><tr><th scope="col">{en ? "Date" : "日期"}</th><th scope="col">{en ? "Published turnout" : "官方投票率"}</th><th scope="col">{en ? "Contestants" : "参选名单数"}</th><th scope="col">{en ? "Election seats" : "选举席位"}</th><th scope="col">{en ? "Rules / source" : "规则／来源"}</th></tr></thead>
@@ -189,7 +194,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
         </> : <p className="mt-3 text-sm text-[var(--muted)]">{en ? "Choose a second election to see election-level differences and the two sets of lists side by side." : "选择另一届选举，即可查看选举层面的差值，并并排查看两届的名单。"}</p>}
       </section>
       <PoliticalPartyHistory key={historyKey} elections={elections} locale={locale} />
-      {contextInputs ? <details className="card p-5" open={contextOpen} onToggle={event=>setContextOpen(event.currentTarget.open)} data-context-disclosure><summary className="cursor-pointer font-semibold">{en ? "Explore election-economic historical context" : "探索选举与经济历史背景"}</summary><p className="mt-2 text-sm">{en ? "Published annual and monthly observations, verified events and a source-linked timeline. Historical context only, not an explanation of voting behaviour." : "已发布年度与月度观测、已核验事件和可查来源的时间线。仅为历史背景，不解释投票行为。"}</p>{contextOpen ? <PoliticalEconomicContext election={election} comparison={other ?? null} inputs={contextInputs} locale={locale}/> : null}</details> : null}
+      {contextInputs ? <details id="politics-context-disclosure" className="card scroll-mt-24 p-5" open={contextOpen} onToggle={event=>setContextOpen(event.currentTarget.open)} data-context-disclosure><summary className="cursor-pointer font-semibold">{en ? "Explore election-economic historical context" : "探索选举与经济历史背景"}</summary><p className="mt-2 text-sm">{en ? "Published annual and monthly observations, verified events and a source-linked timeline. Historical context only, not an explanation of voting behaviour." : "已发布年度与月度观测、已核验事件和可查来源的时间线。仅为历史背景，不解释投票行为。"}</p>{contextOpen ? <PoliticalEconomicContext election={election} comparison={other ?? null} inputs={contextInputs} locale={locale}/> : null}</details> : null}
       <section className="card p-5" data-politics-cross-country>
         <h3 className="font-semibold">{en ? "Comparing countries" : "跨国比较"}</h3>
         {comparisonCountries.length && comparedCountry && comparedCountryElection ? <>

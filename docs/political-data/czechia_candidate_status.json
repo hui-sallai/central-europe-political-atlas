@@ -1,0 +1,34 @@
+{
+ "schema_version": "atlas-political-candidate-status-v1",
+ "country": "czechia",
+ "election": "Poslanecká sněmovna (Chamber of Deputies), 3–4 October 2025 (dates per the Atlas registry; to reconcile)",
+ "state": "pipeline_ready_no_source_files_staged",
+ "candidate_built": false,
+ "production_authorised": false,
+ "builder": "scripts/political-data/czechia/build-candidate.mjs (staging only; national level; fail-closed on schema and arithmetic checks)",
+ "sources_inspected_locally": [
+  { "what": "volby.gov.cz open-data page for PS 2025", "url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata.htm", "evidence": "private local evidence, sha256 a474dcfe6ce4fa5660cb634e1c6de4f2f3495666a256be6562ba16e4516c2044, retrieved 2026-10-03", "finding": "lists vysledky.xml (national and regional totals) with XSD ps_vysledky.xsd and description PS2025_XML (v1.0, 11 June 2025); registers and code lists as XML/CSV/JSON packages dated 5 October 2025 'after processing was completed'; links the ČSÚ terms of use" },
+  { "what": "ČSÚ code-list description", "url": "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis.htm", "evidence": "private local evidence, sha256 14486f07c5629a30bc75277057331e6a5f27ed8819cb9a87f817f8b505556499" },
+  { "what": "ČSÚ terms of use", "url": "https://csu.gov.cz/podminky_pro_vyuzivani_a_dalsi_zverejnovani_statistickych_udaju_csu", "finding": "CC BY 4.0 for statistical information published through csu.gov.cz; the operative sentence does not name volby.gov.cz (source-closure audit)" }
+ ],
+ "definitions_from_audit": {
+  "published_turnout": "UCAST_PROC = VYDANE_OBALKY / ZAPSANI_VOLICI × 100",
+  "published_vote_share": "PROC_HLASU = HLASY / PLATNE_HLASY × 100",
+  "regional_seat_share": "PROC_MANDATU = MANDATY / POCMANDATU",
+  "national_seats": "Atlas aggregation: sum of official regional MANDATY; total = sum of regional POCMANDATU"
+ },
+ "files_to_stage_manually": [
+  { "file": "vysledky.xml", "url": "https://volby.gov.cz/appdata/ps2025/odata/vysledky.xml", "place_in": ".tmp-data-refresh/political-candidate-czechia/raw/" },
+  { "file": "ps_vysledky.xsd", "url": "https://volby.gov.cz/opendata/ps2025/ps_vysledky.xsd", "place_in": ".tmp-data-refresh/political-candidate-czechia/raw/" },
+  { "file": "PS2025reg20251005_csv.zip (optional, for list types)", "url": "https://volby.gov.cz/opendata/ps2025/PS2025reg20251005_csv.zip", "place_in": ".tmp-data-refresh/political-candidate-czechia/raw/" }
+ ],
+ "blockers": [
+  { "item": "reuse and redistribution right for volby.gov.cz files", "status": "open", "closes_by": "publisher reply (ČSÚ contact packet prepared, not yet sent by the owner)" },
+  { "item": "acquisition route", "status": "manual only", "closes_by": "owner downloads the files above; volby.gov.cz is registered evidence-only, automation not permitted" },
+  { "item": "national results file and XSD not staged", "status": "open", "closes_by": "owner staging" },
+  { "item": "list type (party / movement / coalition)", "status": "open", "closes_by": "ČSÚ register CVS.TYPVS, after clarifying whether KSTRANA and VSTRANA are the same key" },
+  { "item": "election date interval and electoral-system rules", "status": "background_to_verify", "closes_by": "official announcement and Act 247/1995 as amended" },
+  { "item": "result vintage and corrections", "status": "open", "closes_by": "owner decision on the final vintage (source-closure gate vintage_decisions_complete)" }
+ ],
+ "never": ["regional or municipal results as a product", "splitting a coalition's votes among member parties", "linking parties across elections by name", "publishing before owner authorisation"]
+}

@@ -120,3 +120,14 @@ for (const locale of ['zh-CN','en'] as const) test(`Party history: official seri
   expect(csv).toContain('verified_official_longitudinal_series');
   expect(csv).not.toMatch(/el-de-bt-2009/);
 });
+
+for (const locale of ['zh-CN','en'] as const) test(`Jump navigation opens the political-economic context (${locale})`, async ({page}) => {
+  await page.goto(`${locale==='en'?'/en':''}/politics/`,{waitUntil:'networkidle'});
+  const nav=page.locator('[data-politics-jump-nav]');
+  await expect(nav.locator('a')).toHaveCount(4);
+  await expect(page.locator('[data-context-disclosure]')).not.toHaveAttribute('open','');
+  await nav.locator('[data-jump="politics-context-disclosure"]').click();
+  await expect(page.locator('[data-context-disclosure]')).toHaveAttribute('open','');
+  expect(new URL(page.url()).hash).toBe('#politics-context-disclosure');
+  for (const id of ['politics-system','politics-compare-title','politics-history-title']) await expect(page.locator(`#${id}`)).toHaveCount(1);
+});
