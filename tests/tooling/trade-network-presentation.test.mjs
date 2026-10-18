@@ -13,6 +13,40 @@ const {defaultTradeSession,restoreTradeSession,tradeSessionUrl,tradeSessionYears
 const {emptyNotebook,addNotebookEvidence,validateNotebook}=require('../../src/lib/researchNotebook.ts');
 const countryNames={hungary:{en:'Hungary','zh-CN':'匈牙利'},poland:{en:'Poland','zh-CN':'波兰'},slovakia:{en:'Slovakia','zh-CN':'斯洛伐克'},germany:{en:'Germany','zh-CN':'德国'}};
 const metricNames={en:'Trading-partner HHI','zh-CN':'伙伴集中度 HHI'};
+const {tradeSessionCountries,validTradeSelection,tradeRegionalCsv,tradeRegionalComparable}=require('../../src/lib/tradeNetworkPresentation.ts');
+test('regional sessions preserve ordered 3–5 countries, old links and both language routes',async()=>{
+ const revision=await tradePackRevision(pack);
+ for(const locale of ['en','zh-CN'])for(const countries of [['hungary','poland','germany'],['hungary','poland','germany','austria','slovakia']]){
+  const s={...defaultTradeSession(),mode:'regional',regional:countries,year:2022,yearMode:'fixed',from:2021,to:2023,metric:'china_share',flow:'exports'};
+  const restored=restoreTradeSession(pack,new URL(tradeSessionUrl(pack,s,locale,revision)).searchParams);
+  assert.equal(validTradeSelection(pack,restored),true);assert.deepEqual(tradeSessionCountries(restored),countries);assert.equal(restored.mode,'regional');assert.equal(restored.metric,'china_share');assert.equal(restored.flow,'exports');assert.deepEqual(tradeSessionYears(pack,restored),[2021,2022,2023]);assert.equal(tradeSessionYear(pack,restored),2022);assert.equal(restored.expectedPack,revision);
+ }
+ const old=restoreTradeSession(pack,new URLSearchParams('country=hungary&trade_compare=poland'));
+ assert.equal(old.mode,'standard');assert.deepEqual(tradeSessionCountries(old),['hungary','poland']);
+});
+test('regional invalid, duplicate, excessive and unknown countries cannot be collected',()=>{
+ for(const raw of ['hungary,poland','hungary,hungary,poland','hungary,poland,unknown','hungary,poland,germany,austria,slovakia,czechia']){
+  const s=restoreTradeSession(pack,new URLSearchParams('trade_mode=regional&trade_countries='+raw));
+  assert.ok(s.issues.includes('countries'));assert.throws(()=>tradeSessionEvidence(pack,s,'en','',countryNames,metricNames));
+ }
+ const s=restoreTradeSession(pack,new URLSearchParams('trade_mode=bogus'));assert.ok(s.issues.includes('mode'));
+});
+test('regional CSV retains failed and absent rows without numbers, eligible precision and metric-level missingness',()=>{
+ const s={...defaultTradeSession(),mode:'regional',regional:['hungary','germany','slovakia'],from:2022,to:2022,metric:'germany_share'};
+ const csv=tradeRegionalCsv(pack,s),rows=csv.split('\r\n');assert.equal(rows.length,4);
+ assert.ok(rows[1].includes(String(find('hungary',2022).metrics.germany_share)));
+ for(const row of rows.slice(2)){assert.ok(row.includes('"germany_share","","fraction (0–1)"'));assert.ok(row.includes('"coverage_failed"'));}
+ const absent=tradeRegionalCsv(pack,{...s,from:2030,to:2030});assert.equal(absent.split('\r\n').length,4);assert.ok(absent.includes('"absent"'));
+ const na=tradeRegionalCsv(pack,{...s,from:2021,to:2021});assert.ok(na.includes('"missing_not_zero"'));
+});
+test('regional compatibility fails closed; Notebook stores only gated observations and configuration metadata',async()=>{
+ const s={...defaultTradeSession(),mode:'regional',regional:['hungary','germany','slovakia'],from:2021,to:2023,year:2022,yearMode:'fixed'};
+ const revision=await tradePackRevision(pack),draft=tradeSessionEvidence(pack,s,'en',revision,countryNames,metricNames);
+ assert.deepEqual(draft.countries,s.regional);assert.equal(draft.type,'country_comparison');assert.equal(draft.metadata.row_count,5);assert.equal(draft.metadata.filters.comparison_mode,'regional');assert.deepEqual(draft.metadata.filters.selected_countries,s.regional);assert.equal(draft.canonical_ids.some(id=>id.includes('slovakia')||id.includes('germany:2022')),false);
+ const notebook=addNotebookEvidence(emptyNotebook('en','v2.0'),draft,'v2.0');assert.equal(validateNotebook(notebook),true);
+ const changed=structuredClone(pack);changed.records.find(r=>r.reporter==='hungary'&&r.year===2021&&r.flow==='imports').coverage.threshold=.96;
+ assert.equal(tradeRegionalComparable(changed,s),false);assert.throws(()=>tradeSessionEvidence(changed,s,'en',revision,countryNames,metricNames));assert.ok(tradeRegionalCsv(changed,s).includes('"definition"'));
+});
 test('latest eligible year is data-driven for reporter and flow; no eligible year is null',()=>{
  assert.equal(latestTradeYear(pack,'hungary','imports'),2025);
  assert.equal(latestTradeYear(pack,'slovakia','imports'),null);

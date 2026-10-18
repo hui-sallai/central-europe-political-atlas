@@ -978,6 +978,31 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-18"
+    },
+    {
+      "amendment_id": "regional-trade-benchmark-2026-10-19",
+      "status": "owner_approved",
+      "approved_by": "owner explicit Regional Trade Benchmark implementation brief",
+      "purpose": "Extend existing trade sessions, chart, CSV and Notebook with ordered 3–5-country descriptive comparisons. Existing coverage and eligible-partner denominator preserved; no data, estimator, gate, dependency or version changes.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/TradeNetworkWorkbench.tsx",
+        "sha256": "269245902d4255d4d8ec44ed4c5ef42521c3b1a0f1f72be113f306d4ab530827",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/tradeNetworkPresentation.ts",
+          "sha256": "09d1f09f0625bdf02edf0a1a1746ff2bed33f49b52f9aabbddbf66aa1fd2488d",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-19"
     }
   ]
 }
