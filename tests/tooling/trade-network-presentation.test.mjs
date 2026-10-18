@@ -9,6 +9,10 @@ const {latestTradeYear,tradeUnavailable,tradeValue,tradeDifference,tradeHistory,
 const pack=JSON.parse(fs.readFileSync(new URL('../../public/research-data/network_ui_pack.json',import.meta.url)));
 const schema=pack.schema_version;
 const find=(c,y,f='imports')=>pack.records.find(r=>r.reporter===c&&r.year===y&&r.flow===f);
+const {defaultTradeSession,restoreTradeSession,tradeSessionUrl,tradeSessionYears,tradeSessionYear,tradeSessionEvidence,tradePackRevision}=require('../../src/lib/tradeNetworkPresentation.ts');
+const {emptyNotebook,addNotebookEvidence,validateNotebook}=require('../../src/lib/researchNotebook.ts');
+const countryNames={hungary:{en:'Hungary','zh-CN':'匈牙利'},poland:{en:'Poland','zh-CN':'波兰'},slovakia:{en:'Slovakia','zh-CN':'斯洛伐克'},germany:{en:'Germany','zh-CN':'德国'}};
+const metricNames={en:'Trading-partner HHI','zh-CN':'伙伴集中度 HHI'};
 test('latest eligible year is data-driven for reporter and flow; no eligible year is null',()=>{
  assert.equal(latestTradeYear(pack,'hungary','imports'),2025);
  assert.equal(latestTradeYear(pack,'slovakia','imports'),null);
@@ -59,4 +63,38 @@ test('CSV neutralizes string formulas without changing canonical records',()=>{
  const g=structuredClone(find('hungary',2025));g.reporter='=formula';g.metrics.country=g.reporter;g.coverage.reporter_country=g.reporter;
  assert.ok(tradeCsv(pack,[g],['partner_hhi']).includes('"\'=formula"'));
  assert.equal(find('hungary',2025).reporter,'hungary');
+});
+test('shared session round trip preserves all validated filters, locale and existing run/skill routing',()=>{
+ const s={...defaultTradeSession(),compare:'poland',flow:'exports',year:2020,yearMode:'fixed',metric:'china_share',from:2018,to:2023,partner:'germany'};
+ for(const locale of ['en','zh-CN']){const url=new URL(tradeSessionUrl(pack,s,locale,'a'.repeat(64))),restored=restoreTradeSession(pack,url.searchParams);
+ assert.equal(url.pathname,locale==='en'?'/en/models/':'/models/');assert.equal(url.searchParams.get('tab'),'run');assert.equal(url.searchParams.get('skill'),'network_dependency');
+ for(const key of ['country','compare','flow','year','metric','from','to','partner'])assert.equal(restored[key],s[key]);}
+});
+test('unsupported filters do not crash; explicit missing or invalid reference years never use latest eligible',()=>{
+ const s=restoreTradeSession(pack,new URLSearchParams('country=unknown&trade_compare=unknown&trade_flow=invalid&trade_metric=unknown&trade_year=bad&trade_partner=missing'));
+ assert.equal(s.country,'hungary');assert.equal(s.compare,'');assert.equal(s.metric,'partner_hhi');assert.equal(tradeSessionYear(pack,s),null);assert.ok(s.issues.includes('year'));
+ const absent=restoreTradeSession(pack,new URLSearchParams('country=germany&trade_year=2030'));assert.equal(tradeSessionYear(pack,absent),2030);
+ const failed=restoreTradeSession(pack,new URLSearchParams('country=germany&trade_year=2022'));assert.equal(tradeSessionYear(pack,failed),2022);assert.equal(tradeValue(find('germany',2022),'partner_hhi',schema),null);
+});
+test('shared range scaffolding preserves missing years and bounds resource use',()=>{
+ const s={...defaultTradeSession(),from:2014,to:2016};assert.deepEqual(tradeSessionYears(pack,s),[2014,2015,2016]);
+ assert.deepEqual(tradeSessionYears(pack,{...s,from:1000,to:9999}),[]);assert.deepEqual(tradeSessionYears(pack,{...s,from:2025,to:2020}),[]);
+});
+test('Notebook evidence passes the unchanged schema, preserves gaps and provenance, and stores no duplicated data',()=>{
+ const s={...defaultTradeSession('germany'),year:2022,yearMode:'fixed',from:2021,to:2023};
+ const draft=tradeSessionEvidence(pack,s,'en','a'.repeat(64),countryNames,metricNames);
+ assert.deepEqual(draft.periods,['2021','2022','2023']);assert.equal(draft.metadata.row_count,2);assert.ok(draft.warnings.some(w=>w.includes('2022')));assert.ok(!draft.canonical_ids.some(id=>id.includes(':2022:')));
+ assert.equal(draft.value,undefined);assert.equal(draft.metadata.rows,undefined);assert.equal(draft.metadata.filters.pack_generated_at,pack.generated_at);assert.ok(draft.sources.every(s=>!s.updated_at&&!s.retrieved_at));
+ assert.equal(validateNotebook(addNotebookEvidence(emptyNotebook('en','v2.0'),draft,'v2.0')),true);
+});
+test('partial comparisons save valid evidence with warnings; empty selected metrics cannot be collected',()=>{
+ const s={...defaultTradeSession(),compare:'slovakia',from:2020,to:2025};const d=tradeSessionEvidence(pack,s,'en','b'.repeat(64),countryNames,metricNames);
+ assert.equal(d.type,'country_comparison');assert.equal(d.metadata.row_count,6);assert.ok(d.warnings.some(w=>w.includes('Slovakia: unavailable')));assert.ok(d.canonical_ids.every(id=>id.includes('hungary')));
+ assert.throws(()=>tradeSessionEvidence(pack,{...defaultTradeSession('slovakia')},'en','b'.repeat(64),countryNames,metricNames));
+ assert.throws(()=>tradeSessionEvidence(pack,{...defaultTradeSession('germany'),metric:'germany_share'},'en','b'.repeat(64),countryNames,metricNames));
+});
+test('pack revisions detect changed records without storing an old dataset; changed pack is disclosed',async()=>{
+ const revision=await tradePackRevision(pack);assert.match(revision,/^[a-f0-9]{64}$/);assert.equal(await tradePackRevision(structuredClone(pack)),revision);
+ const p=structuredClone(pack);p.records.pop();assert.notEqual(await tradePackRevision(p),revision);
+ const d=tradeSessionEvidence(pack,{...defaultTradeSession(),expectedPack:'0'.repeat(64)},'en',revision,countryNames,metricNames);assert.ok(d.warnings.some(w=>w.includes('differs')));
 });

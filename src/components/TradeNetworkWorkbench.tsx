@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { ResearchTimeSeriesChart } from "./ResearchTimeSeriesChart";
+import { NotebookCollect } from "./NotebookCollect";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { localeNumber, localizedRoute } from "@/i18n/config";
 import type { Country } from "@/types/Country";
-import { latestTradeYear, shareMetric, tradeComparable, tradeCsv, tradeDifference, tradeHistory, tradeMetrics, tradeUnavailable, tradeValue, tradeYears, TRADE_SOURCE, type TradeFlow, type TradeGroup, type TradeMetric, type TradePack, type TradePartner } from "@/lib/tradeNetworkPresentation";
+import { shareMetric, tradeComparable, tradeCsv, tradeDifference, tradeHistory, tradeMetrics, tradeUnavailable, tradeValue, tradeYears, TRADE_SOURCE, type TradeFlow, type TradeGroup, type TradeMetric, type TradePack, type TradePartner } from "@/lib/tradeNetworkPresentation";
+import { defaultTradeSession, restoreTradeSession, tradePackRevision, tradeSessionYear, tradeSessionYears, tradeSessionUrl, tradeSessionEvidence, type TradeSession } from "@/lib/tradeNetworkPresentation";
 
 const partnerNames: Record<string,[string,string]>={china:["中国","China"],germany:["德国","Germany"],france:["法国","France"],italy:["意大利","Italy"],netherlands:["荷兰","Netherlands"],usa:["美国","United States"],"united-states":["美国","United States"],"united-kingdom":["英国","United Kingdom"],spain:["西班牙","Spain"],belgium:["比利时","Belgium"],"russian-federation":["俄罗斯","Russian Federation"],ukraine:["乌克兰","Ukraine"],turkiye:["土耳其","Türkiye"],switzerland:["瑞士","Switzerland"],"special-categories":["特殊类别（来源标签）","Special categories (source label)"]};
 const EU=new Set(["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","POL","PRT","ROU","SVK","SVN","ESP","SWE"]);
@@ -14,11 +16,16 @@ const color=(p:TradePartner)=>p.partner==="china"?"var(--accent)":p.iso3&&EU.has
 export function TradeNetworkWorkbench({countries,initialCountry}:{countries:Country[];initialCountry?:string}){
   const locale=useLocale(),en=locale==="en",t=(zh:string,english:string)=>en?english:zh;
   const [pack,setPack]=useState<TradePack|null>(null),[load,setLoad]=useState<"loading"|"ready"|"error">("loading");
-  const [country,setCountry]=useState(initialCountry??"hungary"),[flow,setFlow]=useState<TradeFlow>("imports");
-  const [yearOverride,setYear]=useState<number|null>(null),[compare,setCompare]=useState("");
-  const [metric,setMetric]=useState<TradeMetric>("partner_hhi"),[from,setFrom]=useState<number|null>(null),[to,setTo]=useState<number|null>(null),[partnerId,setPartner]=useState("");
-  useEffect(()=>{const controller=new AbortController();fetch(`${process.env.NEXT_PUBLIC_BASE_PATH??""}/research-data/network_ui_pack.json`,{signal:controller.signal}).then(r=>{if(!r.ok)throw Error(String(r.status));return r.json();}).then((p:TradePack)=>{if(!Array.isArray(p.records))throw Error("Invalid pack");setPack(p);setLoad("ready");}).catch(e=>{if(!(e instanceof DOMException&&e.name==="AbortError"))setLoad("error");});return()=>controller.abort();},[]);
-  const schema=pack?.schema_version??"",year=yearOverride??latestTradeYear(pack,country,flow);
+  const [session,setSession]=useState(()=>defaultTradeSession(initialCountry??"hungary"));
+  const [revision,setRevision]=useState(""),[restored,setRestored]=useState(false),[copy,setCopy]=useState<"idle"|"success"|"error">("idle");
+  const {country,flow,compare,metric,from,to,partner:partnerId}=session;
+  function update(patch:Partial<TradeSession>){setSession(s=>({...s,...patch,issues:[]}));setCopy("idle");}
+  const setCountry=(country:string)=>update({country}),setCompare=(compare:string)=>update({compare}),setFlow=(flow:TradeFlow)=>update({flow}),setMetric=(metric:TradeMetric)=>update({metric}),setFrom=(from:number)=>update({from}),setTo=(to:number)=>update({to}),setPartner=(partner:string)=>update({partner});
+  const setYear=(year:number|null)=>update({year,yearMode:year===null?"auto":"fixed"});
+  useEffect(()=>{const controller=new AbortController();fetch(`${process.env.NEXT_PUBLIC_BASE_PATH??""}/research-data/network_ui_pack.json`,{signal:controller.signal}).then(r=>{if(!r.ok)throw Error(String(r.status));return r.json();}).then(async(p:TradePack)=>{if(!Array.isArray(p.records))throw Error("Invalid pack");const hash=await tradePackRevision(p);if(!controller.signal.aborted){setPack(p);setRevision(hash);setLoad("ready");}}).catch(e=>{if(!(e instanceof DOMException&&e.name==="AbortError"))setLoad("error");});return()=>controller.abort();},[]);
+  useEffect(()=>{if(!pack)return;const restore=()=>{setSession(restoreTradeSession(pack,new URLSearchParams(window.location.search),initialCountry??"hungary"));setRestored(true);setCopy("idle");};const timer=window.setTimeout(restore,0);window.addEventListener("popstate",restore);return()=>{window.clearTimeout(timer);window.removeEventListener("popstate",restore);};},[pack,initialCountry]);
+  useEffect(()=>{if(!pack||!restored||!revision)return;const next=new URL(tradeSessionUrl(pack,session,locale,session.expectedPack||revision));const current=new URL(window.location.href);next.pathname=current.pathname;next.hash=current.hash;if(next.search!==current.search)window.history.replaceState(null,"",next.pathname+next.search+next.hash);},[pack,session,restored,revision,locale]);
+  const schema=pack?.schema_version??"",year=tradeSessionYear(pack,session);
   const name=(slug:string)=>countries.find(c=>c.slug===slug)?.[en?"name":"name_zh"]??partnerNames[slug]?.[en?1:0]??slug.replaceAll("-"," ");
   const label:Record<TradeMetric,string>={partner_hhi:t("伙伴集中度 HHI","Trading-partner HHI"),china_share:t("中国贸易份额","China trade share"),germany_share:t("德国贸易份额","Germany trade share"),top_partner_share:t("最大伙伴份额","Top-partner share"),diversification:t("伙伴多样化（1 − HHI）","Partner diversification (1 − HHI)"),weighted_trade_volume:t("名义贸易额","Nominal trade volume"),partner_count:t("有效伙伴数量","Eligible partner count")};
   const number=(v:number,digits=2)=>localeNumber(v,locale,{maximumFractionDigits:digits});
@@ -37,10 +44,13 @@ export function TradeNetworkWorkbench({countries,initialCountry}:{countries:Coun
   };
   const reporters=[country,...(compare?[compare]:[])];
   const selected=pack?.records.filter(r=>reporters.includes(r.reporter)&&r.flow===flow)??[];
-  const allYears=tradeYears(selected),start=from??allYears[0],end=to??allYears.at(-1),years=end===undefined?[]:allYears.filter(y=>y>=start&&y<=end);
-  const referenceYears=[...new Set((pack?.records??[]).filter(r=>r.reporter===country&&r.flow===flow).map(r=>r.year))].sort((a,b)=>b-a);
+  const actualYears=tradeYears(selected),allYears=[...new Set([...actualYears,...(from===null?[]:[from]),...(to===null?[]:[to])])].sort((a,b)=>a-b),start=from??actualYears[0],end=to??actualYears.at(-1),years=pack?tradeSessionYears(pack,session):[];
+  const referenceYears=[...new Set([...(pack?.records??[]).filter(r=>r.reporter===country&&r.flow===flow).map(r=>r.year),...(year===null?[]:[year])])].sort((a,b)=>b-a);
   const graph=valid?group.top_partners.slice(0,12):[],partner=valid?group.top_partners.find(p=>p.partner===partnerId):null;
   const exportGroups=selected.filter(g=>years.includes(g.year)&&!tradeUnavailable(g,schema));
+  const collectible=restored&&!!revision&&selected.some(g=>years.includes(g.year)&&tradeValue(g,metric,schema)!==null)&&!session.issues.some(i=>i==="year"||i==="range");
+  function draft(){if(!pack||!collectible)throw Error("No eligible selected observations");return tradeSessionEvidence(pack,session,locale,revision,Object.fromEntries(countries.map(c=>[c.slug,{en:c.name,"zh-CN":c.name_zh}])),{en:({partner_hhi:"Trading-partner HHI",china_share:"China trade share",germany_share:"Germany trade share",top_partner_share:"Top-partner share",diversification:"Partner diversification",weighted_trade_volume:"Nominal trade volume",partner_count:"Eligible partner count"})[metric],"zh-CN":({partner_hhi:"伙伴集中度 HHI",china_share:"中国贸易份额",germany_share:"德国贸易份额",top_partner_share:"最大伙伴份额",diversification:"伙伴多样化",weighted_trade_volume:"名义贸易额",partner_count:"有效伙伴数量"})[metric]});}
+  async function copyLink(){if(!pack)return;try{await navigator.clipboard.writeText(tradeSessionUrl(pack,session,locale,revision));setCopy("success");}catch{setCopy("error");}}
   function exportCsv(){if(!pack||!exportGroups.length)return;const url=URL.createObjectURL(new Blob(["\uFEFF",tradeCsv(pack,exportGroups,tradeMetrics)],{type:"text/csv;charset=utf-8"}));const a=document.createElement("a");a.href=url;a.download=`trade-network-${country}-${flow}-${start}-${end}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
   const changeCountry=(id:string)=>{setCountry(id);if(id===compare)setCompare("");setYear(null);setPartner("");};
   const series=pack?reporters.map((c,i)=>({id:c,label:name(c),color:i?"#2f5d8a":"var(--accent)",dash:i?"6 4":undefined,markers:true,points:tradeHistory(pack,c,flow,metric,years).map(p=>({...p,y:p.y===null?null:p.y*(shareMetric(metric)?100:metric==="weighted_trade_volume"?1e-9:1),detail:`${name(c)} · ${p.x} · ${flowLabel(flow)} · ${shown(p.y,metric)} ${unit(metric)}`}))})):[];
@@ -54,6 +64,14 @@ export function TradeNetworkWorkbench({countries,initialCountry}:{countries:Coun
         <label>{t("贸易流向","Trade flow")}<select className="field-control mt-2" value={flow} onChange={e=>{setFlow(e.target.value as TradeFlow);setYear(null);setPartner("");}}>{(["imports","exports"] as const).map(f=><option key={f} value={f}>{flowLabel(f)}</option>)}</select></label>
         <label>{t("国家 B","Country B")}<select className="field-control mt-2" value={compare} onChange={e=>setCompare(e.target.value)}><option value="">{t("不比较","No comparison")}</option>{countries.filter(c=>c.slug!==country).map(c=><option key={c.slug} value={c.slug}>{name(c.slug)}</option>)}</select></label>
       </div><p className="mt-3 text-xs">{t("切换国家或流向时，默认选取最新的有效年份；手动选择的不可用年份不会被替换。","Changing country or flow selects its latest eligible year; a manually selected unavailable year is never silently replaced.")}</p>
+      {load==="ready"&&restored?<div className="mt-4 space-y-2" data-trade-session>
+        <div className="flex flex-wrap items-center gap-3"><button type="button" onClick={()=>void copyLink()} className="rounded-full border border-[var(--line)] px-3 py-1 text-xs font-semibold" data-trade-share>{t("复制研究链接","Copy research link")}</button><NotebookCollect create={draft} disabled={!collectible} label={t("收藏贸易研究视图","Collect trade research view")}/><span role="status" className="text-sm" data-trade-share-status>{copy==="success"?t("研究链接已复制。","Research link copied."):copy==="error"?t("无法复制，请使用下方链接。","Copy failed; use the link below."):""}</span></div>
+        <a className="text-sm underline" href={pack?tradeSessionUrl(pack,session,locale,revision):undefined} data-trade-session-link>{t("打开当前研究链接","Open current research link")}</a>
+        <p className="text-xs">{t("链接保存配置，不冻结数据，也不代表验证后的研究结论；重开时重新检查当前数据与覆盖条件。","Links save configurations, not frozen data or validated conclusions. Reopening rechecks current data and coverage conditions.")}</p>
+        {!collectible?<p className="text-sm" data-trade-collect-unavailable>{t("无法收藏：所选指标与期间没有有效观测，或年份参数无效。请检查覆盖原因、缺失指标及起止年份。","Cannot collect: no eligible observations for the selected metric and period, or invalid year parameters. Check coverage, missing metrics and the selected range.")}</p>:null}
+        {session.issues.length?<p role="status" className="text-sm" data-trade-url-warning>{t("链接中部分参数无效或已不在数据包内：","Some link parameters are invalid or no longer in the pack: ")}{session.issues.map(i=>({country:t("报告国","reporter"),compare:t("比较国","comparison country"),flow:t("流向","flow"),metric:t("指标","metric"),year:t("参照年份（未改为有效年份）","reference year (not replaced with an eligible year)"),range:t("历史期间","historical range"),partner:t("所选伙伴","selected partner"),pack:t("数据包标识","pack identifier")})[i]).join("、")}</p>:null}
+        {session.expectedPack&&session.expectedPack!==revision?<p role="status" data-trade-pack-warning>{t("当前数据包与保存时不同；已按当前记录重新验证，不恢复旧值。缺失年份或失效覆盖保持不可用。","The current pack differs from the saved pack. Selections were revalidated; old values are not recreated. Missing periods or failed coverage remain unavailable.")}</p>:null}
+      </div>:null}
       {load!=="ready"?<p className="mt-4" role="status">{load==="loading"?t("正在加载贸易数据…","Loading trade data…"):t("数据包加载失败，请重试或查看研究数据包。","The data pack could not be loaded. Retry or consult the research package.")}</p>:null}
     </section>
     {load==="ready"?<>

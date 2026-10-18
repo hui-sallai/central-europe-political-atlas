@@ -16,6 +16,7 @@ import type { Country } from "@/types/Country";
 import type { Event } from "@/types/Event";
 import type { AnalysisDiagnostics, AnalysisSkillCategory } from "@/types/AnalysisSkill";
 import type { ModelCard, ModelId, ModelOutput } from "@/types/ModelOutput";
+import { TRADE_SESSION_PARAMS } from "@/lib/tradeNetworkPresentation";
 
 const categories = Object.keys(analysisCategoryLabels) as AnalysisSkillCategory[];
 const PanelLocalProjectionWorkbench = dynamic(() => import("@/components/PanelLocalProjectionWorkbench").then(module => module.PanelLocalProjectionWorkbench));
@@ -64,7 +65,15 @@ function outputsMatch(runtime: ModelOutput, reference: ModelOutput) {
 type WorkbenchProps = { countries: Country[]; cards: ModelCard[]; outputs: ModelOutput[]; events: Event[] };
 export function AnalysisWorkbench(props: WorkbenchProps) {
   const query = useSearchParams();
-  return <LocalizedContent>{<AnalysisWorkbenchContent key={query.toString()} {...props} />}</LocalizedContent>;
+  const routeKey=new URLSearchParams(query.toString());
+  // Trade-owned filters must not remount the workbench on each native-history update.
+  // Method/tab routing and every other method retain their existing remount behaviour.
+  if(routeKey.get("skill")==="network_dependency"){
+    for(const key of ["country",...TRADE_SESSION_PARAMS])routeKey.delete(key);
+    if(routeKey.get("tab")!=="compare")routeKey.set("tab","run");
+    routeKey.sort();
+  }
+  return <LocalizedContent>{<AnalysisWorkbenchContent key={routeKey.toString()} {...props} />}</LocalizedContent>;
 }
 function AnalysisWorkbenchContent({ countries, cards, outputs, events }: WorkbenchProps) {
   const locale = useLocale();

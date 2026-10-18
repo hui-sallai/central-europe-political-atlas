@@ -960,6 +960,24 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-18"
+    },
+    {
+      "amendment_id": "trade-reproducible-sessions-2026-10-18",
+      "status": "owner_approved",
+      "approved_by": "owner explicit Trade Network Reproducible Research Sessions implementation brief",
+      "purpose": "Allowlisted shared URL filters, bounded exact historical periods, current-pack revalidation with a normalized JSON fingerprint, clipboard feedback and existing Notebook EvidenceDraft collection. Scope the existing AnalysisWorkbench remount key to preserve trade-owned filter interactions; existing method/tab routing is unchanged. No new notebook schema, data, model, gate, dependency or version changes.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {"path": "src/components/TradeNetworkWorkbench.tsx", "sha256": "eff7620303890de4f2465b5636131c9c7fc38587ab73b529541a1da7146109a7", "classification": "DATA_PRESENTATION"},
+        {"path": "src/lib/tradeNetworkPresentation.ts", "sha256": "5ca8540bce70a09d4a51ab552ad4b5f9642129978b1313ad2078eee2480ca094", "classification": "DATA_PRESENTATION"},
+        {"path": "src/components/AnalysisWorkbench.tsx", "sha256": "4c57ac20e2b1b1a977378d4f1545f96ffd5706036556b8606ad791fc1fe3a10d", "classification": "DATA_PRESENTATION"}
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-18"
     }
   ]
 }
