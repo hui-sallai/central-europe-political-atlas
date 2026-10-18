@@ -1,0 +1,149 @@
+{
+ "window": {
+  "start": "2026-10-12",
+  "end": "2026-10-18",
+  "timezone": "source publication date"
+ },
+ "method": "Listing pages of the established outlets screened for the window; each accepted item retrieved individually and its headline, publication date and body checked; Chinese and English two-paragraph fact-and-boundary summaries written from that page only. The underlying event date is stated in the summary when it differs from the publication date.",
+ "screened_candidate_count": 61,
+ "accepted_count": 36,
+ "rejected_count": 25,
+ "country_counts": {
+  "hungary": {
+   "screened": 9,
+   "accepted": 5,
+   "rejected": 4
+  },
+  "poland": {
+   "screened": 8,
+   "accepted": 5,
+   "rejected": 3
+  },
+  "czechia": {
+   "screened": 10,
+   "accepted": 5,
+   "rejected": 5
+  },
+  "slovakia": {
+   "screened": 7,
+   "accepted": 4,
+   "rejected": 3
+  },
+  "germany": {
+   "screened": 4,
+   "accepted": 2,
+   "rejected": 2
+  },
+  "romania": {
+   "screened": 7,
+   "accepted": 4,
+   "rejected": 3
+  },
+  "slovenia": {
+   "screened": 3,
+   "accepted": 3,
+   "rejected": 0
+  },
+  "serbia": {
+   "screened": 6,
+   "accepted": 3,
+   "rejected": 3
+  },
+  "austria": {
+   "screened": 3,
+   "accepted": 1,
+   "rejected": 2
+  },
+  "croatia": {
+   "screened": 4,
+   "accepted": 4,
+   "rejected": 0
+  }
+ },
+ "rejection_policy": [
+  "Continued reporting of an event already recorded",
+  "Allegations or claims about individuals",
+  "Opinion polls (kept out pending an approved polling policy)",
+  "Subnational matters",
+  "Source page without a publication date",
+  "Explainers or analysis without a datable event",
+  "Listed but not retrieved and checked in this pass"
+ ],
+ "coverage": {
+  "hungary": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "Telex"
+   ],
+   "remaining_gap": "5 verified items."
+  },
+  "poland": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "Notes from Poland"
+   ],
+   "remaining_gap": "5 verified items."
+  },
+  "czechia": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "Radio Prague International"
+   ],
+   "remaining_gap": "5 verified items."
+  },
+  "slovakia": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "TASR"
+   ],
+   "remaining_gap": "4 verified items."
+  },
+  "germany": {
+   "coverage_below_target": true,
+   "sources_searched": [
+    "ZDFheute",
+    "Bundesregierung (cabinet results)"
+   ],
+   "remaining_gap": "2 verified item(s); no replacement or invented entries."
+  },
+  "romania": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "Radio Romania International"
+   ],
+   "remaining_gap": "4 verified items."
+  },
+  "slovenia": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "GOV.SI"
+   ],
+   "remaining_gap": "3 verified items."
+  },
+  "serbia": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "N1"
+   ],
+   "remaining_gap": "3 verified items."
+  },
+  "austria": {
+   "coverage_below_target": true,
+   "sources_searched": [
+    "ORF",
+    "Bundeskanzleramt (council of ministers)",
+    "Kurier (not retrievable)"
+   ],
+   "remaining_gap": "1 verified item(s); no replacement or invented entries."
+  },
+  "croatia": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "Vlada Republike Hrvatske"
+   ],
+   "remaining_gap": "4 verified items."
+  }
+ },
+ "publication": "candidate_only_not_published",
+ "enters_model": false
+}

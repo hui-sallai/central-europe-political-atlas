@@ -4,6 +4,7 @@ import indicatorsJson from "@/data/indicators/indicators.json";
 import observationsJson from "@/data/observations/observations.json";
 import projectsJson from "@/data/projects/projects.json";
 import { weeklyNews20261011 } from "./weeklyNews/2026-10-11";
+import { weeklyNews20261018 } from "./weeklyNews/2026-10-18";
 import { toEventRecord } from "./newsData";
 import type {
   Country,
@@ -21,12 +22,12 @@ function records<T>(value: unknown) {
 export const researchCountries = records<Country>(countriesJson);
 export const researchIndicators = records<Indicator>(indicatorsJson);
 export const researchObservations = records<Observation>(observationsJson);
-// Preserve frozen historical records; append this approved batch in memory only.
+// Preserve frozen historical records; append the approved weekly batches in memory only.
 const historicalEvents = records<Event>(eventsJson);
 const historicalEventIds = new Set(historicalEvents.map(event => event.id));
 export const researchEvents: Event[] = [
   ...historicalEvents,
-  ...weeklyNews20261011.filter(item => !historicalEventIds.has(item.id)).map(item => ({
+  ...[...weeklyNews20261011, ...weeklyNews20261018].filter(item => !historicalEventIds.has(item.id)).map(item => ({
     ...toEventRecord(item),
     id: item.id,
     country: researchCountries.find(country => country.slug === item.countrySlug)?.iso3 ?? item.countrySlug,

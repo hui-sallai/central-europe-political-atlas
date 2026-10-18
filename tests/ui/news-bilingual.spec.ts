@@ -33,3 +33,17 @@ test("approved news batch: all ten countries, bilingual paragraphs, sources and 
     expect(results.violations.filter(v => v.impact === "serious" || v.impact === "critical")).toEqual([]);
   }
 });
+
+test("2026-10-18 batch: every record visible in both languages with its source", async ({ page }) => {
+  const { weeklyNews20261018 } = await import("../../src/lib/weeklyNews/2026-10-18");
+  for (const locale of ["zh-CN", "en"] as const) {
+    await page.goto(`${locale === "en" ? "/en" : ""}/news/?from=2026-10-12&to=2026-10-18`, { waitUntil: "networkidle" });
+    await expect(page.locator("[data-news-count]")).toHaveText(String(weeklyNews20261018.length));
+    // The list shows the newest 30 records first; check the most recent ones.
+    for (const item of [...weeklyNews20261018].sort((x, y) => y.weekOf.localeCompare(x.weekOf)).slice(0, 6)) {
+      const card = page.locator(`article[id="${item.id}"]`);
+      await expect(card.locator("h3")).toHaveText(locale === "en" ? newsTranslations[item.id].title : item.title);
+      await expect(card.locator(`a[href="${item.sourceUrl}"]`)).toHaveCount(1);
+    }
+  }
+});
