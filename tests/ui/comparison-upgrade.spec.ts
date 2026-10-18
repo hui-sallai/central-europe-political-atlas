@@ -10,11 +10,11 @@ test('multi-country annual history and explicit periods', async ({ page }) => {
   await expect(panel.getByRole('checkbox', { checked: true })).toHaveCount(4);
   await panel.getByLabel('Reference mode').selectOption('latest_available');
   await panel.getByLabel('Historical year').selectOption('2025');
-  await expect(panel.getByRole('img')).toBeVisible();
+  await expect(panel.getByRole('group', { name: /Annual history/ })).toBeVisible();
   await expect(panel.getByLabel('Historical year')).toHaveValue('2025');
   await expect(panel.locator('article').filter({ hasText: '2025' }).first()).toBeVisible();
   await panel.getByRole('combobox', { name: 'Indicator', exact: true }).selectOption('hicp_inflation');
-  await expect(panel.getByRole('img')).toBeVisible();
+  await expect(panel.getByRole('group', { name: /Annual history/ })).toBeVisible();
 });
 
 test('bounded country selection, historical range, point details and real CSV download', async ({ page }) => {
@@ -49,7 +49,7 @@ test('failed history request preserves published snapshot comparison', async ({ 
   await page.goto('/en/models/?tab=compare');
   const panel = page.getByRole('region', { name: 'Historical annual comparison' });
   await expect(panel.getByText('Historical backfill unavailable;', { exact: false })).toBeVisible();
-  await expect(panel.getByRole('img')).toBeVisible();
+  await expect(panel.getByRole('group', { name: /Annual history/ })).toBeVisible();
   await expect(panel.locator('article').first()).toContainText('2025');
 });
 

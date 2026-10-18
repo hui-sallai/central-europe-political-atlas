@@ -1043,6 +1043,56 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-19"
+    },
+    {
+      "amendment_id": "regional-trade-macro-handoff-2026-10-19",
+      "status": "owner_approved",
+      "approved_by": "owner explicit Regional Trade-to-Macro Research Handoff brief and automatic deployment instruction",
+      "purpose": "Namespaced annual comparison sessions and existing Notebook collection; separate macro indicator and regional workspace handoff with countries, period and meaningful reference preferences. Existing annual and trade data remain independent. No canonical data, estimator, threshold, publication gate, dependency or platform-version changes.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/AnnualComparisonWorkbench.tsx",
+        "sha256": "cf3a30550ab312f6151f3e6d2f02114581864850ed912340a50f895990fdc103",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ModelsPageTabs.tsx",
+          "sha256": "2901e4dc1f910f1b0caec8d3e0369cfeec7b26e6dc9f118ed040c9ba0bba98fb",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ResearchWorkspace.tsx",
+          "sha256": "f1431ce52f4f34078f687e82bcb3d0758e1c5a66f34562949cf8d08e47ebaa4d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/workspaceEvidence.ts",
+          "sha256": "0fee8b69d271ce92b85fa30631bc6fe57cc035163f3ae8c463cf80abf4205c7d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/workspaceLinks.ts",
+          "sha256": "db0f36de1ad48282043618a26afd883cdc2a96dc4b25be3e98c16c231a1beb5d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/annualComparison.ts",
+          "sha256": "02336a21c1bc590c3fa6979b7ece95c5ba64509ce250d19d5ae244b654989039",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/workspaceSnapshot.ts",
+          "sha256": "f52301d46e1be87fa04a84b4bf55755cba4a9dde744a01b995574e1b39f35b41",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-19"
     }
   ]
 }

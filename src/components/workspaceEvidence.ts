@@ -27,6 +27,7 @@ export type WorkspaceEvidenceCard = { id: string; title: string; kind: "annual" 
 export type WorkspacePayload = {
   id: string; title: string; introduction: string; questions: string[]; warnings: string[]; coverageNote: string; comparisonDimensions: string;
   horizon: { from: number; to: number }; countries: { id: string; name: string }[]; cards: WorkspaceEvidenceCard[];
+  macroIndicators?:{id:string;name:string;unit:string}[];
   events: { id: string; country: string; date: string; title: string; language: string; type: string; topic: string; source: EvidenceSource }[];
   eventTypes: string[]; methods: { id: string; name: string; state: "active" | "registry_only" | "blocked"; limitations: string[]; reason: string; supportsCountry: boolean }[];
 };
@@ -90,6 +91,7 @@ export function buildWorkspaceEvidence(workspace: ResearchWorkspaceDefinition, l
   }
   return { id: workspace.id, title: workspace.title[locale], introduction: workspace.introduction[locale], questions: workspace.questions.map(q => q[locale]), warnings: workspace.warnings.map(q => q[locale]), coverageNote: workspace.coverageNote[locale], comparisonDimensions: workspace.comparisonDimensions[locale], horizon: workspace.defaultTimeHorizon, countries: researchCountries.map(country => ({ id: country.slug, name: locale === "en" ? country.name : country.name_zh })), cards, methods,
     eventTypes: workspace.eventTypes,
+    ...(workspace.id==="trade_external_exposure"?{macroIndicators:researchIndicators.filter(i=>i.frequency==="annual"&&["manufacturing_share_gdp","real_gdp_growth","gdp_per_capita_eur","hicp_inflation","unemployment_rate","fdi_inflow","government_debt_gdp"].includes(i.id)).map(i=>({id:i.id,name:locale==="en"?i.name:i.name_zh,unit:locale==="en"?englishUnit(i.unit):i.unit}))}:{}),
     events: researchEvents.filter(event => event.data_status === "verified" && event.source_url && (workspace.eventTypes.includes(event.event_type) || workspace.eventTopics.includes(event.topic ?? ""))).sort((a, b) => b.date.localeCompare(a.date)).map(event => ({ id: event.id, country: event.country_slug, date: event.date, title: event.title, language: event.language, type: event.event_type, topic: event.topic ?? "", source: source(event.source_name, event.source_url!, "verified_event") })) };
 }
 export function workspaceSummaries(locale: Locale) {

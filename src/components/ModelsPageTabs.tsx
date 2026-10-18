@@ -1,7 +1,7 @@
 "use client";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
 
 const tabs = [
@@ -14,6 +14,8 @@ type TabId = (typeof tabs)[number]["id"];
 export function ModelsPageTabs({ runAnalysis, compareCountries }: { runAnalysis: ReactNode; compareCountries: ReactNode }) {
   const searchParams = useSearchParams();
   const [tab, setTab] = useState<TabId>(searchParams.get("tab") === "compare" ? "compare" : "run");
+  useEffect(()=>{const read=()=>setTab(new URLSearchParams(window.location.search).get("tab")==="compare"?"compare":"run");window.addEventListener("popstate",read);return()=>window.removeEventListener("popstate",read);},[]);
+  function selectTab(next:TabId){setTab(next);const url=new URL(window.location.href);url.searchParams.set("tab",next);window.history.replaceState(null,"",url.pathname+url.search+url.hash);}
 
   return <LocalizedContent>{(
     <section className="mt-8">
@@ -25,7 +27,7 @@ export function ModelsPageTabs({ runAnalysis, compareCountries }: { runAnalysis:
             role="tab"
             className="research-tab"
             aria-selected={tab === item.id}
-            onClick={() => setTab(item.id)}
+            onClick={() => selectTab(item.id)}
           >
             {item.label}
           </button>

@@ -1,7 +1,14 @@
 import { localizedRoute, type Locale } from "@/i18n/config";
 import type { WorkspaceEvidenceCard, WorkspacePayload } from "@/components/workspaceEvidence";
 import type { TradeWorkspaceConfiguration } from "@/lib/tradeNetworkPresentation";
-export type WorkspaceSelection = { countries: string[]; from: number; to: number; trade?: TradeWorkspaceConfiguration };
+import { defaultAnnualSession,annualSessionUrl } from "@/lib/annualComparison";
+export type WorkspaceSelection = { countries: string[]; from: number; to: number; trade?: TradeWorkspaceConfiguration; macro?:{indicator:string;url:string} };
+export function workspaceMacroLink(payload:WorkspacePayload,selection:WorkspaceSelection,locale:Locale,indicator:string){
+  if(payload.id!=="trade_external_exposure"||!selection.trade||!payload.macroIndicators?.some(i=>i.id===indicator))return null;
+  const trade=selection.trade;
+  const session={...defaultAnnualSession(selection.countries),countries:selection.countries,indicator,range:"custom",from:selection.from,to:selection.to,mode:trade.year_selection==="common"?"latest_common" as const:"latest_available" as const,year:trade.reference_year_mode==="fixed"&&trade.reference_year!==null?String(trade.reference_year):""};
+  return annualSessionUrl(session,locale);
+}
 export function workspaceToolLink(path: string, locale: Locale, params: Record<string, string | number | undefined> = {}) {
   const query = new URLSearchParams();
   for (const [key, value] of Object.entries(params)) if (value !== undefined && value !== "") query.set(key, String(value));

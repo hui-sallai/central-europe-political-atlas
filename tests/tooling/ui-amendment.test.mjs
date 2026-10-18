@@ -49,7 +49,7 @@ test('wildcard paths, missing sha256, OTHER classification and data_change_allow
 test('the committed amendment lists exact hashes for presentation files only', () => {
   const { problems, approved } = approvedUiFiles(record.amendments);
   assert.deepEqual(problems, []);
-  assert.equal(approved.size, 77); // Includes the three existing workspace presentation/export paths extended for trade.
+  assert.equal(approved.size, 79); // Adds existing workspace metadata and model-tab navigation for the macro handoff.
   for (const [p] of approved) assert.match(p, /^src\/(app|components|lib)\//);
 });
 
