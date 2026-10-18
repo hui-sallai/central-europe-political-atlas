@@ -8,6 +8,10 @@ for (const locale of ["zh-CN", "en"] as const) {
   test(`Politics filters, corrected vintage, missing seats, sources and notebook: ${locale}`, async ({page}) => {
     await page.goto(route,{waitUntil:'networkidle'});
     const panel=page.locator('[data-politics-explorer]');
+    await expect(panel.locator('[data-results-disclosure]')).not.toHaveAttribute('open','');
+    await panel.locator('[data-results-disclosure] summary').focus();
+    await page.keyboard.press('Enter');
+    await expect(panel.locator('[data-results-disclosure]')).toHaveAttribute('open','');
     await expect(panel.locator('select').nth(1)).toHaveValue('el-de-bt-2025-02-23');
     await expect(panel.locator('table').first().locator('tbody tr')).toHaveCount(7);
     await expect(panel.locator('table').nth(1).locator('tbody tr')).toHaveCount(29);
@@ -95,6 +99,10 @@ for (const locale of ['zh-CN','en'] as const) test(`Party history: official seri
   await page.goto(`${prefix}/politics/`,{waitUntil:'networkidle'});
   const history=page.locator('[data-politics-history]');
   const series=history.locator('select').first();
+  await expect(series).toHaveValue('');
+  await expect(history.locator('[data-history-empty]')).toBeVisible();
+  await expect(history.locator('[data-history-table]')).toHaveCount(0);
+  await expect(history.locator('[data-history-export]')).toHaveCount(0);
   const linke=await series.locator('option').filter({hasText:/^Die Linke ·/}).getAttribute('value');
   await series.selectOption(linke!);
   await expect(history.locator('[data-history-year]')).toHaveCount(7);
@@ -119,6 +127,33 @@ for (const locale of ['zh-CN','en'] as const) test(`Party history: official seri
   expect(csv).toContain('identity_verification_status');
   expect(csv).toContain('verified_official_longitudinal_series');
   expect(csv).not.toMatch(/el-de-bt-2009/);
+  await page.reload({waitUntil:'networkidle'});
+  await expect(series).toHaveValue(afd!);
+  await expect(history.locator('select').nth(1)).toHaveValue('seats');
+  await page.getByRole('link',{name:locale==='en'?'中文':'English',exact:true}).click();
+  await expect(series).toHaveValue(afd!);
+  await expect(history.locator('select').nth(1)).toHaveValue('seats');
+  await series.selectOption('');
+  await expect(history.locator('[data-history-empty]')).toBeVisible();
+  expect(new URL(page.url()).searchParams.has('series')).toBe(false);
+});
+
+for (const locale of ['zh-CN','en'] as const) test(`Overview context entry preserves election and query (${locale})`, async ({page}) => {
+  const route=`${locale==='en'?'/en':''}/politics/`;
+  await page.goto(route+'?election=el-de-bt-2021-09-26&measure=seats&compare=el-de-bt-2025-02-23&comparison_mode=labels&series=invalid&series_measure=votes',{waitUntil:'networkidle'});
+  await expect(page.locator('[data-politics-history] select').first()).toHaveValue('');
+  await page.locator('[data-context-entry]').focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('[data-context-disclosure]')).toHaveAttribute('open','');
+  await expect(page.locator('[data-context-election="el-de-bt-2021-09-26"]')).toBeVisible();
+  await expect.poll(()=>new URL(page.url()).searchParams.get('context')).toBe('1');
+  for(const [key,value] of Object.entries({election:'el-de-bt-2021-09-26',measure:'seats',compare:'el-de-bt-2025-02-23',comparison_mode:'labels',series_measure:'votes'})) expect(new URL(page.url()).searchParams.get(key)).toBe(value);
+  await page.reload({waitUntil:'networkidle'});
+  await expect(page.locator('[data-context-disclosure]')).toHaveAttribute('open','');
+  await page.getByRole('link',{name:locale==='en'?'中文':'English',exact:true}).click();
+  await expect(page.locator('[data-context-disclosure]')).toHaveAttribute('open','');
+  for(const [key,value] of Object.entries({election:'el-de-bt-2021-09-26',measure:'seats',compare:'el-de-bt-2025-02-23',comparison_mode:'labels',series_measure:'votes',context:'1'})) expect(new URL(page.url()).searchParams.get(key)).toBe(value);
+  expect(await page.locator('body').evaluate(el=>el.scrollWidth<=innerWidth+2)).toBe(true);
 });
 
 for (const locale of ['zh-CN','en'] as const) test(`Jump navigation opens the political-economic context (${locale})`, async ({page}) => {

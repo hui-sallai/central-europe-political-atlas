@@ -25,7 +25,7 @@ const csvCell = (value: unknown) => `"${String(value ?? "").replaceAll('"', '""'
 
 export function PoliticalPartyHistory({ elections, locale }: { elections: PoliticalElectionView[]; locale: Locale }) {
   const en = locale === "en";
-  const [seriesId, setSeriesId] = useState(germanOfficialSeries[0]?.id ?? "");
+  const [seriesId, setSeriesId] = useState("");
   const [measure, setMeasure] = useState<HistoryMeasure>("published_share");
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -38,12 +38,11 @@ export function PoliticalPartyHistory({ elections, locale }: { elections: Politi
   }, []);
   function choose(id: string, next: HistoryMeasure) {
     setSeriesId(id); setMeasure(next);
-    const url = new URL(window.location.href); url.searchParams.set("series", id); url.searchParams.set("series_measure", next);
+    const url = new URL(window.location.href); if (id) url.searchParams.set("series", id); else url.searchParams.delete("series"); url.searchParams.set("series_measure", next);
     window.history.replaceState(null, "", url);
   }
-  const series = germanOfficialSeries.find((item) => item.id === seriesId) ?? germanOfficialSeries[0];
-  if (!series) return null;
-  const rows = partyHistoryRows(series, elections);
+  const series = germanOfficialSeries.find((item) => item.id === seriesId);
+  const rows = series ? partyHistoryRows(series, elections) : [];
   const labels: Record<HistoryMeasure, { label: string; unit: string }> = en
     ? { published_share: { label: "Second-vote share (published)", unit: "%" }, votes: { label: "Second votes (official count)", unit: "votes" }, seats: { label: "Seats", unit: "seats" }, seat_share: { label: "Seat share (derived)", unit: "%" } }
     : { published_share: { label: "第二票得票率（官方公布）", unit: "%" }, votes: { label: "第二票数（官方计数）", unit: "票" }, seats: { label: "席位", unit: "席" }, seat_share: { label: "席位占比（计算值）", unit: "%" } };
@@ -56,6 +55,7 @@ export function PoliticalPartyHistory({ elections, locale }: { elections: Politi
   const chartPoints = rows.map((row) => ({ x: row.election.year, y: row.link ? value(row) : null, detail: row.link ? `${row.election.year} · ${row.label} · ${format(value(row))}${measure.startsWith("seat") && missingSeats(row) ? (en ? " (no seats)" : "（无席位）") : ""} · ${vintage(row)}` : `${row.election.year} · ${en ? "no list in this series" : "该系列在此届无名单"}` }));
 
   function exportCsv() {
+    if (!series) return;
     const header = ["country", "series_id", "authority_series_label", "relationship", "election_id", "election_date", "contestant_id", "original_ballot_label", "second_votes_official", "second_vote_share_published", "seats", "seat_share_derived", "result_vintage", "identity_verification_status", "identity_evidence_source", "identity_evidence_sha256", "authority_note"];
     const lines = stood.map((row) => [ "germany", series.id, series.label, series.relationship, row.election.electionId, row.election.date, row.link!.contestantId, row.label, row.votes, row.publishedShare, row.seats, row.seatShare === null ? "" : row.seatShare.toFixed(6), row.election.resultVintage + (row.election.year === 2021 ? " (corrected after 2024 Berlin repeat)" : ""), "verified_official_longitudinal_series", OFFICIAL_SERIES_SOURCE.url, OFFICIAL_SERIES_SOURCE.sha256, row.link!.note ?? "" ].map(csvCell).join(","));
     const url = URL.createObjectURL(new Blob([`﻿${[header.join(","), ...lines].join("\n")}`], { type: "text/csv;charset=utf-8" }));
@@ -63,13 +63,14 @@ export function PoliticalPartyHistory({ elections, locale }: { elections: Politi
   }
 
   return (
-    <section className="card p-5" aria-labelledby="politics-history-title" data-politics-history={series.id}>
+    <section className="card p-5" aria-labelledby="politics-history-title" data-politics-history={series?.id ?? ""}>
       <h3 id="politics-history-title" className="font-semibold">{en ? "Party history across elections" : "政党的跨届选举历史"}</h3>
       <p className="mt-2 text-sm">{en ? "Only parties that the Federal Returning Officer's historical results table presents as one series are offered. Each election's list was matched to that table by its exact official second-vote count, never by name." : "仅提供联邦选举委员会历史结果表中作为同一序列呈现的政党。每届名单都是按官方第二票数完全相等与该表对应的，从不按名称匹配。"}</p>
       <div className="mt-3 flex flex-wrap gap-4">
-        <label className="text-sm">{en ? "Party (authority's series)" : "政党（官方序列）"}<select className="field-control block" value={series.id} onChange={(event) => choose(event.target.value, measure)}>{germanOfficialSeries.map((item) => <option key={item.id} value={item.id}>{item.label} · {item.links.length}</option>)}</select></label>
-        <label className="text-sm">{en ? "Measure" : "指标"}<select className="field-control block" value={measure} onChange={(event) => choose(series.id, event.target.value as HistoryMeasure)}>{(Object.keys(labels) as HistoryMeasure[]).map((key) => <option key={key} value={key}>{labels[key].label}</option>)}</select></label>
+        <label className="min-w-0 text-sm">{en ? "Party (authority's series)" : "政党（官方序列）"}<select className="field-control block max-w-full" value={seriesId} onChange={(event) => choose(event.target.value, measure)}><option value="">{en ? "Select a party" : "请选择政党"}</option>{germanOfficialSeries.map((item) => <option key={item.id} value={item.id}>{item.label} · {item.links.length}</option>)}</select></label>
+        <label className="text-sm">{en ? "Measure" : "指标"}<select className="field-control block" value={measure} onChange={(event) => choose(seriesId, event.target.value as HistoryMeasure)}>{(Object.keys(labels) as HistoryMeasure[]).map((key) => <option key={key} value={key}>{labels[key].label}</option>)}</select></label>
       </div>
+      {!series ? <p className="mt-3 text-sm" role="status" data-history-empty>{en ? "Select a verified official party series to view its historical chart, observations and CSV export. No party is selected by default." : "请选择已核实的官方政党序列，查看历史图表、观测与 CSV 导出。默认不选择任何政党。"}</p> : <>
       <p className="mt-3 text-sm" data-history-overview>{en
         ? `${series.label} has a list in ${stood.length} of ${elections.length} Bundestag elections from ${elections[0].year} to ${elections.at(-1)!.year}. ${series.relationship === "name_change_documented_by_authority" ? "The authority's table notes that the party stood under other names in some of these elections; the original ballot label of each election is shown below." : "The authority's table records no change of party name over these elections."}`
         : `${series.label} 在 ${elections[0].year}—${elections.at(-1)!.year} 年的 ${elections.length} 届联邦议院选举中有 ${stood.length} 届提交了名单。${series.relationship === "name_change_documented_by_authority" ? "官方表格注明该党在其中部分选举中使用过其他名称；下表列出每届选举的原始选票名称。" : "官方表格未记载该党在这些选举中更改名称。"}`}</p>
@@ -99,6 +100,7 @@ export function PoliticalPartyHistory({ elections, locale }: { elections: Politi
         <p>{en ? "Derived seat share = seats ÷ seats after the election × 100. Published shares are the authority's rounded figures." : "计算席位占比＝席位 ÷ 本届选举产生的席位 × 100。官方得票率为选举机构公布的四舍五入值。"}</p>
       </div>
       <button type="button" onClick={exportCsv} className="mt-3 rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)]" data-history-export>{en ? "Download this series (CSV)" : "下载此序列（CSV）"}</button>
+      </>}
     </section>
   );
 }

@@ -148,7 +148,10 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
           </figure>
         </div>
       </div>
+      {contextInputs ? <p className="text-sm"><a href="#politics-context-disclosure" className="text-[var(--accent)] underline" data-context-entry onClick={() => setContextOpen(true)}>{en ? "Explore the economic conditions surrounding this election." : "探索这届选举前后的经济背景。"}</a></p> : null}
       <NotebookCollect create={() => draft()} />
+      <details className="card p-5" data-results-disclosure>
+      <summary className="cursor-pointer font-semibold">{en ? "Research details: complete contestant results" : "研究详情：完整参选名单结果"}</summary>
       <div className="overflow-x-auto" role="region" tabIndex={0} aria-label={en ? "Election results (scrollable)" : "选举结果（可横向滚动）"}>
         <table className="w-full min-w-[720px] text-left text-sm">
           <caption className="text-left">{labels[measure]}</caption>
@@ -167,6 +170,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
       </div>
       <p>{en ? "Derived shares = count / election denominator × 100. Missing seats remain missing, not zero. Rounded vote shares do not determine electoral qualification." : "计算占比＝票数或席位数／对应选举分母×100。缺失席位不转换为零；四舍五入的票率不能用于判断资格门槛。"}</p>
       <p>{en ? "Source: Die Bundeswahlleiterin, Wiesbaden. Source links identify the election evidence." : "来源：Die Bundeswahlleiterin, Wiesbaden。来源链接指向对应选举证据。"}</p>
+      </details>
       <section className="card p-5" aria-labelledby="politics-compare-title" data-politics-compare>
         <h3 id="politics-compare-title" className="font-semibold">{en ? "Compare two elections" : "比较两届选举"}</h3>
         <label className="mt-3 block text-sm">{en ? `Compare ${election.year} with` : `将 ${election.year} 年与以下选举比较`}<select className="field-control block" value={other?.electionId ?? ""} onChange={(event) => compareWith(event.target.value)}>

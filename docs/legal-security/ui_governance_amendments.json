@@ -910,6 +910,31 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-15"
+    },
+    {
+      "amendment_id": "politics-final-interactions-2026-10-18",
+      "status": "owner_approved",
+      "approved_by": "owner explicit Political Explorer Final Interaction Improvements implementation brief",
+      "purpose": "Neutral party-history selection, expandable complete contestant results and an overview entry opening the existing economic context. Preserve existing navigation, source records, calculations, exports and all research restrictions.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/PoliticalPartyHistory.tsx",
+          "sha256": "51784d4d9208ad1b07239d49919b885bd8ee5bc4fb464cab66bf999d2a9abb9e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "040f0dbf156d5208fcb95a166d71249d85b7f8eb09729fe933c321a1bfb4ff3c",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-18"
     }
   ]
 }
