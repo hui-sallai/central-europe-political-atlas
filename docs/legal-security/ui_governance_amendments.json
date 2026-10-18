@@ -935,6 +935,31 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-18"
+    },
+    {
+      "amendment_id": "trade-network-comparison-2026-10-18",
+      "status": "owner_approved",
+      "approved_by": "owner explicit Trade Network Research and Cross-Country Comparison Upgrade implementation brief",
+      "purpose": "Read-only presentation of the existing network UI pack: latest eligible year, gated same-definition comparisons, historical gaps, partner selection, separate import/export China and Germany shares, bilingual controls and provenance-preserving CSV. No canonical data, network formula, coverage threshold, model, publication gate or version changes.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/TradeNetworkWorkbench.tsx",
+          "sha256": "fccba583ac035c79a26bb535e4fd053c8ce4dffc352cc8bd9874ae10a3c0d418",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/tradeNetworkPresentation.ts",
+          "sha256": "340da8c98750589726f91e1fba0a059163fd5b819b6054f35f619cf0bdde34bd",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-18"
     }
   ]
 }

@@ -1,222 +1,99 @@
 "use client";
+import { useEffect, useState } from "react";
 import { ResearchTimeSeriesChart } from "./ResearchTimeSeriesChart";
-import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
-import { englishText } from "@/i18n/reviewedText";
-
-import { useEffect, useMemo, useState } from "react";
-import type { NetworkMetric } from "@/types/NetworkAnalysis";
+import { localeNumber, localizedRoute } from "@/i18n/config";
 import type { Country } from "@/types/Country";
+import { latestTradeYear, shareMetric, tradeComparable, tradeCsv, tradeDifference, tradeHistory, tradeMetrics, tradeUnavailable, tradeValue, tradeYears, TRADE_SOURCE, type TradeFlow, type TradeGroup, type TradeMetric, type TradePack, type TradePartner } from "@/lib/tradeNetworkPresentation";
 
-type TopPartner = { partner: string; iso3: string | null; value: number; share: number };
-type CoverageRecord = {
-  coverage_ratio?: number | null;
-  eligible_coverage_ratio?: number | null;
-  raw_coverage_ratio?: number | null;
-  gate_passed: boolean;
-  threshold: number;
-  world_total: number | null;
-  partner_sum?: number;
-  eligible_partner_sum?: number;
-};
-type UiPackGroup = {
-  reporter: string;
-  year: number;
-  flow: "exports" | "imports";
-  partner_count: number;
-  metrics: NetworkMetric | null;
-  coverage: CoverageRecord | null;
-  top_partners: TopPartner[];
-};
-type UiPack = { schema_version: string; generated_at: string; interpretation_boundary: string; records: UiPackGroup[] };
+const partnerNames: Record<string,[string,string]>={china:["中国","China"],germany:["德国","Germany"],france:["法国","France"],italy:["意大利","Italy"],netherlands:["荷兰","Netherlands"],usa:["美国","United States"],"united-states":["美国","United States"],"united-kingdom":["英国","United Kingdom"],spain:["西班牙","Spain"],belgium:["比利时","Belgium"],"russian-federation":["俄罗斯","Russian Federation"],ukraine:["乌克兰","Ukraine"],turkiye:["土耳其","Türkiye"],switzerland:["瑞士","Switzerland"],"special-categories":["特殊类别（来源标签）","Special categories (source label)"]};
+const EU=new Set(["AUT","BEL","BGR","HRV","CYP","CZE","DNK","EST","FIN","FRA","DEU","GRC","HUN","IRL","ITA","LVA","LTU","LUX","MLT","NLD","POL","PRT","ROU","SVK","SVN","ESP","SWE"]);
+Object.assign(partnerNames,{azerbaijan:["阿塞拜疆","Azerbaijan"],"bosnia-herzegovina":["波斯尼亚和黑塞哥维那","Bosnia and Herzegovina"],bulgaria:["保加利亚","Bulgaria"],denmark:["丹麦","Denmark"],india:["印度","India"],iraq:["伊拉克","Iraq"],ireland:["爱尔兰","Ireland"],japan:["日本","Japan"],kazakhstan:["哈萨克斯坦","Kazakhstan"],montenegro:["黑山","Montenegro"],"north-macedonia":["北马其顿","North Macedonia"],norway:["挪威","Norway"],"rep-of-korea":["韩国","Republic of Korea"],"rep-of-moldova":["摩尔多瓦","Republic of Moldova"],"saudi-arabia":["沙特阿拉伯","Saudi Arabia"],singapore:["新加坡","Singapore"],sweden:["瑞典","Sweden"],"t-rkiye":["土耳其","Türkiye"],"viet-nam":["越南","Viet Nam"]});
+const color=(p:TradePartner)=>p.partner==="china"?"var(--accent)":p.iso3&&EU.has(p.iso3)?"#2f5d8a":"var(--muted)";
 
-const EU_ISO3 = new Set(["AUT", "BEL", "BGR", "HRV", "CYP", "CZE", "DNK", "EST", "FIN", "FRA", "DEU", "GRC", "HUN", "IRL", "ITA", "LVA", "LTU", "LUX", "MLT", "NLD", "POL", "PRT", "ROU", "SVK", "SVN", "ESP", "SWE"]);
-
-const partnerNameZh: Record<string, string> = {
-  china: "中国", germany: "德国", poland: "波兰", hungary: "匈牙利", romania: "罗马尼亚", czechia: "捷克",
-  slovakia: "斯洛伐克", slovenia: "斯洛文尼亚", serbia: "塞尔维亚", austria: "奥地利", croatia: "克罗地亚",
-  france: "法国", italy: "意大利", netherlands: "荷兰", "united-states": "美国", "united-kingdom": "英国",
-  spain: "西班牙", belgium: "比利时", "russian-federation": "俄罗斯", ukraine: "乌克兰", turkiye: "土耳其",
-};
-
-function displayPartner(partner: TopPartner) {
-  return partnerNameZh[partner.partner] ?? partner.partner;
-}
-
-function partnerColor(partner: TopPartner, reporter: string) {
-  if (partner.partner === reporter) return "var(--foreground)";
-  if (partner.partner === "china") return "var(--accent)";
-  if (partner.iso3 && EU_ISO3.has(partner.iso3)) return "#2f5d8a";
-  return "var(--muted)";
-}
-
-function percent(value: number | null) {
-  return value === null ? "—" : `${(value * 100).toFixed(1)}%`;
-}
-
-function billions(value: number) {
-  return `${(value / 1e9).toLocaleString("zh-CN", { maximumFractionDigits: 1 })} 十亿美元`;
-}
-
-function coverageRatioOf(group: UiPackGroup) {
-  return group.coverage?.eligible_coverage_ratio ?? group.coverage?.coverage_ratio ?? null;
-}
-
-export function TradeNetworkWorkbench({ countries, initialCountry }: { countries: Country[]; initialCountry?: string }) {
-  const locale = useLocale();
-  const [pack, setPack] = useState<UiPack | null>(null);
-  const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
-  const [country, setCountry] = useState(initialCountry ?? "hungary");
-  const [year, setYear] = useState(2024);
-  const [flow, setFlow] = useState<"exports" | "imports">("imports");
-  const [compareWith, setCompareWith] = useState<string>("");
-
-  useEffect(() => {
-    const controller = new AbortController();
-    const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-    fetch(`${basePath}/research-data/network_ui_pack.json`, { signal: controller.signal })
-      .then((response) => { if (!response.ok) throw new Error(String(response.status)); return response.json(); })
-      .then((payload: UiPack) => { setPack(payload); setLoadState("ready"); })
-      .catch((loadError) => { if (!(loadError instanceof DOMException && loadError.name === "AbortError")) setLoadState("error"); });
-    return () => controller.abort();
-  }, []);
-
-  const group = useMemo(() => pack?.records.find((item) => item.reporter === country && item.year === year && item.flow === flow) ?? null, [pack, country, year, flow]);
-  const compareGroup = useMemo(() => compareWith ? pack?.records.find((item) => item.reporter === compareWith && item.year === year && item.flow === flow) ?? null : null, [pack, compareWith, year, flow]);
-  const trend = useMemo(() => {
-    if (!pack) return [];
-    return pack.records
-      .filter((item) => item.reporter === country && item.flow === flow && item.metrics)
-      .sort((a, b) => a.year - b.year);
-  }, [pack, country, flow]);
-
-  const countryName = (slug: string) => countries.find((item) => item.slug === slug)?.name_zh ?? slug;
-  const years = pack ? [...new Set(pack.records.map((item) => item.year))].sort((a, b) => b - a) : [];
-
-  const graphNodes = group ? group.top_partners.slice(0, 12) : [];
-  const graphRadius = 150;
-  const graphCenter = 190;
-
-  const groupUsable = Boolean(group?.metrics && group.coverage?.gate_passed);
-
-  const comparisonRows: Array<[string, string, string]> = [];
-  if (group?.metrics && compareGroup?.metrics) {
-    const left = group.metrics;
-    const right = compareGroup.metrics;
-    comparisonRows.push(
-      ["伙伴集中度 HHI", left.partner_hhi.toFixed(4), right.partner_hhi.toFixed(4)],
-      ["最大伙伴份额", percent(left.top_partner_share), percent(right.top_partner_share)],
-      ["中国贸易份额", percent(left.china_share), percent(right.china_share)],
-      ["德国贸易份额", percent(left.germany_share), percent(right.germany_share)],
-      ["伙伴多样化", left.diversification.toFixed(4), right.diversification.toFixed(4)],
-      ["名义贸易额（当年美元）", billions(left.weighted_trade_volume), billions(right.weighted_trade_volume)],
-      ["伙伴数量", String(left.partner_count), String(right.partner_count)],
-    );
-  }
-
-  return <LocalizedContent>{(
-    <div className="mt-6 grid gap-6">
-      <section className="editorial-panel p-5">
-        <p className="editorial-kicker">UN Comtrade · TOTAL goods · 2015–2025</p>
-        <h2 className="mt-2 text-2xl font-semibold">贸易网络分析 Trade Network Analysis</h2>
-        <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">基于十国完整双边货物贸易伙伴边（进出口）的描述性集中度分析。当前只分析双边货物贸易，不涉及投资、企业或多层网络。聚合记录（World、Other … nes、Areas nes）保留在原始数据中，但不进入网络节点，也不帮助覆盖闸门通过。</p>
-        <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <label className="text-xs font-semibold text-[var(--muted)]">国家<select className="field-control mt-2" value={country} onChange={(event) => setCountry(event.target.value)}>{countries.map((item) => <option key={item.slug} value={item.slug}>{item.name_zh} / {item.name}</option>)}</select></label>
-          <label className="text-xs font-semibold text-[var(--muted)]">年份<select className="field-control mt-2" value={year} onChange={(event) => setYear(Number(event.target.value))}>{years.map((item) => <option key={item} value={item}>{item}</option>)}</select></label>
-          <label className="text-xs font-semibold text-[var(--muted)]">贸易流向<select className="field-control mt-2" value={flow} onChange={(event) => setFlow(event.target.value as "exports" | "imports")}><option value="exports">出口</option><option value="imports">进口</option></select></label>
-          <label className="text-xs font-semibold text-[var(--muted)]">对比国家<select className="field-control mt-2" value={compareWith} onChange={(event) => setCompareWith(event.target.value)}><option value="">不比较</option>{countries.filter((item) => item.slug !== country).map((item) => <option key={item.slug} value={item.slug}>{item.name_zh}</option>)}</select></label>
-        </div>
-        {loadState === "loading" ? <p className="mt-4 text-sm text-[var(--muted)]">正在加载贸易网络数据…</p> : null}
-        {loadState === "error" ? <p className="mt-4 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm">网络数据不可用：本地数据文件未能加载，请稍后重试或查看研究数据包。</p> : null}
+export function TradeNetworkWorkbench({countries,initialCountry}:{countries:Country[];initialCountry?:string}){
+  const locale=useLocale(),en=locale==="en",t=(zh:string,english:string)=>en?english:zh;
+  const [pack,setPack]=useState<TradePack|null>(null),[load,setLoad]=useState<"loading"|"ready"|"error">("loading");
+  const [country,setCountry]=useState(initialCountry??"hungary"),[flow,setFlow]=useState<TradeFlow>("imports");
+  const [yearOverride,setYear]=useState<number|null>(null),[compare,setCompare]=useState("");
+  const [metric,setMetric]=useState<TradeMetric>("partner_hhi"),[from,setFrom]=useState<number|null>(null),[to,setTo]=useState<number|null>(null),[partnerId,setPartner]=useState("");
+  useEffect(()=>{const controller=new AbortController();fetch(`${process.env.NEXT_PUBLIC_BASE_PATH??""}/research-data/network_ui_pack.json`,{signal:controller.signal}).then(r=>{if(!r.ok)throw Error(String(r.status));return r.json();}).then((p:TradePack)=>{if(!Array.isArray(p.records))throw Error("Invalid pack");setPack(p);setLoad("ready");}).catch(e=>{if(!(e instanceof DOMException&&e.name==="AbortError"))setLoad("error");});return()=>controller.abort();},[]);
+  const schema=pack?.schema_version??"",year=yearOverride??latestTradeYear(pack,country,flow);
+  const name=(slug:string)=>countries.find(c=>c.slug===slug)?.[en?"name":"name_zh"]??partnerNames[slug]?.[en?1:0]??slug.replaceAll("-"," ");
+  const label:Record<TradeMetric,string>={partner_hhi:t("伙伴集中度 HHI","Trading-partner HHI"),china_share:t("中国贸易份额","China trade share"),germany_share:t("德国贸易份额","Germany trade share"),top_partner_share:t("最大伙伴份额","Top-partner share"),diversification:t("伙伴多样化（1 − HHI）","Partner diversification (1 − HHI)"),weighted_trade_volume:t("名义贸易额","Nominal trade volume"),partner_count:t("有效伙伴数量","Eligible partner count")};
+  const number=(v:number,digits=2)=>localeNumber(v,locale,{maximumFractionDigits:digits});
+  const unit=(m:TradeMetric)=>shareMetric(m)?"%":m==="weighted_trade_volume"?t("十亿美元（当年美元）","USD billion (current)"):m==="partner_count"?t("个伙伴","partners"):t("指数（0–1）","index (0–1)");
+  const shown=(v:number|null,m:TradeMetric)=>v===null?"—":number(v*(shareMetric(m)?100:m==="weighted_trade_volume"?1e-9:1),m==="partner_count"?0:shareMetric(m)||m==="weighted_trade_volume"?2:4);
+  const delta=(v:number|null,m:TradeMetric)=>v===null?"—":`${v>0?"+":v<0?"−":""}${shown(Math.abs(v),m)} ${shareMetric(m)?t("个百分点","pp"):unit(m)}`;
+  const flowLabel=(f:TradeFlow)=>f==="imports"?t("进口","Imports"):t("出口","Exports");
+  const record=(c:string,y:number|null|undefined,f:TradeFlow=flow)=>pack?.records.find(r=>r.reporter===c&&r.year===y&&r.flow===f)??null;
+  const group=record(country,year),other=compare?record(compare,year):null,valid=group&&!tradeUnavailable(group,schema);
+  const reason=(g:TradeGroup|null,m?:TradeMetric)=>{
+    const code=tradeUnavailable(g,schema);
+    const reasons:Record<string,string>={schema:t("不支持的数据包定义版本。","Unsupported pack definition version."),absent:t("没有该国家、年份与流向的记录。","No record for this country, year and flow."),coverage_missing:t("缺少覆盖验证记录。","Coverage verification is missing."),eligible_missing:t("有效伙伴覆盖率缺失；原始覆盖率不能替代。","Eligible coverage is missing; raw coverage cannot substitute."),coverage_failed:t("有效伙伴覆盖率未通过原有门槛。","Eligible-partner coverage failed the existing gate."),metrics_missing:t("未发布网络指标。","Network metrics are not published."),definition:t("记录定义或维度不匹配。","Record definitions or dimensions do not match.")};
+    if(code)return reasons[code];
+    if(m&&tradeValue(g,m,schema)===null)return m==="germany_share"&&g?.reporter==="germany"?t("德国自身的德国伙伴份额不适用。","Germany's own Germany-partner share is not applicable."):t("该指标未提供；缺失不等于零。","This metric is not supplied; missing does not mean zero.");
+    return t("通过原有覆盖门槛。","Passes the existing coverage gate.");
+  };
+  const reporters=[country,...(compare?[compare]:[])];
+  const selected=pack?.records.filter(r=>reporters.includes(r.reporter)&&r.flow===flow)??[];
+  const allYears=tradeYears(selected),start=from??allYears[0],end=to??allYears.at(-1),years=end===undefined?[]:allYears.filter(y=>y>=start&&y<=end);
+  const referenceYears=[...new Set((pack?.records??[]).filter(r=>r.reporter===country&&r.flow===flow).map(r=>r.year))].sort((a,b)=>b-a);
+  const graph=valid?group.top_partners.slice(0,12):[],partner=valid?group.top_partners.find(p=>p.partner===partnerId):null;
+  const exportGroups=selected.filter(g=>years.includes(g.year)&&!tradeUnavailable(g,schema));
+  function exportCsv(){if(!pack||!exportGroups.length)return;const url=URL.createObjectURL(new Blob(["\uFEFF",tradeCsv(pack,exportGroups,tradeMetrics)],{type:"text/csv;charset=utf-8"}));const a=document.createElement("a");a.href=url;a.download=`trade-network-${country}-${flow}-${start}-${end}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+  const changeCountry=(id:string)=>{setCountry(id);if(id===compare)setCompare("");setYear(null);setPartner("");};
+  const series=pack?reporters.map((c,i)=>({id:c,label:name(c),color:i?"#2f5d8a":"var(--accent)",dash:i?"6 4":undefined,markers:true,points:tradeHistory(pack,c,flow,metric,years).map(p=>({...p,y:p.y===null?null:p.y*(shareMetric(metric)?100:metric==="weighted_trade_volume"?1e-9:1),detail:`${name(c)} · ${p.x} · ${flowLabel(flow)} · ${shown(p.y,metric)} ${unit(metric)}`}))})):[];
+  return <div className="mt-6 grid min-w-0 gap-6" data-trade-workbench>
+    <section className="editorial-panel min-w-0 p-5">
+      <p className="editorial-kicker">UN Comtrade · TOTAL {t("货物贸易","goods")}</p><h2 className="mt-2 text-2xl font-semibold">{t("贸易网络分析","Trade Network Analysis")}</h2>
+      <p className="mt-2 text-sm leading-7">{t("十国双边货物贸易的描述性指标，不包含投资、企业或部门贸易。仅使用现有数据包，不补齐缺失值。","Descriptive indicators of ten countries' bilateral goods trade, not investment, firms or sector-level trade. Uses the existing pack without filling missing observations.")}</p>
+      <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <label>{t("国家 A","Country A")}<select className="field-control mt-2" value={country} onChange={e=>changeCountry(e.target.value)}>{countries.map(c=><option key={c.slug} value={c.slug}>{name(c.slug)}</option>)}</select></label>
+        <label>{t("参照年份","Reference year")}<select className="field-control mt-2" value={year??""} onChange={e=>{setYear(Number(e.target.value));setPartner("");}}><option value="" disabled>{t("无有效年份","No eligible year")}</option>{referenceYears.map(y=><option key={y} value={y}>{y}{tradeUnavailable(record(country,y),schema)?t(" · 不可用"," · unavailable"):""}</option>)}</select></label>
+        <label>{t("贸易流向","Trade flow")}<select className="field-control mt-2" value={flow} onChange={e=>{setFlow(e.target.value as TradeFlow);setYear(null);setPartner("");}}>{(["imports","exports"] as const).map(f=><option key={f} value={f}>{flowLabel(f)}</option>)}</select></label>
+        <label>{t("国家 B","Country B")}<select className="field-control mt-2" value={compare} onChange={e=>setCompare(e.target.value)}><option value="">{t("不比较","No comparison")}</option>{countries.filter(c=>c.slug!==country).map(c=><option key={c.slug} value={c.slug}>{name(c.slug)}</option>)}</select></label>
+      </div><p className="mt-3 text-xs">{t("切换国家或流向时，默认选取最新的有效年份；手动选择的不可用年份不会被替换。","Changing country or flow selects its latest eligible year; a manually selected unavailable year is never silently replaced.")}</p>
+      {load!=="ready"?<p className="mt-4" role="status">{load==="loading"?t("正在加载贸易数据…","Loading trade data…"):t("数据包加载失败，请重试或查看研究数据包。","The data pack could not be loaded. Retry or consult the research package.")}</p>:null}
+    </section>
+    {load==="ready"?<>
+      {!valid?<p className="card p-5" role="status" data-trade-unavailable>{year===null?t("该国家与流向没有通过覆盖门槛的年份。可在年份菜单中查看现有记录。","No year passes the coverage gate for this country and flow. Inspect recorded years in the year menu."):reason(group)}</p>:null}
+      <section className="editorial-panel min-w-0 p-5" aria-labelledby="trade-reference-title">
+        <h3 id="trade-reference-title" className="text-xl font-semibold">{reporters.map(name).join(" / ")} · {year??"—"} · {flowLabel(flow)}</h3><p className="mt-2 text-sm">{t("仅在同年、同流向、同定义且双方通过覆盖门槛时显示 A − B；差值仅为描述，不表示显著性或因果。","A − B is shown only for the same year, flow and definitions with both coverage gates passed. Differences are descriptive, not significance tests or causal estimates.")}</p>
+        {reporters.map(c=>{const g=record(c,year);return <p key={c} className="mt-2 text-sm" data-trade-coverage={c}>{name(c)}: {reason(g)} {g?.coverage?.eligible_coverage_ratio!=null?`${t("有效伙伴覆盖率","Eligible coverage")} ${number(g.coverage.eligible_coverage_ratio*100)}% / ${number(g.coverage.threshold*100)}%`:""}</p>;})}
+        {compare&&valid&&other&&!tradeUnavailable(other,schema)&&!tradeComparable(group,other,schema)?<p role="status">{t("定义或覆盖规则不匹配，差值不提供。","Definitions or coverage rules do not match; differences are withheld.")}</p>:null}
+        <div className="mt-4 overflow-x-auto" tabIndex={0} role="region" aria-label={t("贸易指标比较表（可横向滚动）","Trade metric comparison table (scrollable)")}><table className="research-data-table w-full min-w-[620px] text-left text-sm" data-trade-comparison>
+          <caption className="text-left">{t("已存储网络指标；金额为有效伙伴合计，而非 World 总额。","Stored network indicators; volume is the eligible-partner total, not the World total.")}</caption><thead><tr>{[t("指标","Metric"),t("单位","Unit"),name(country),...(compare?[name(compare),"A − B"]:[])].map((h,i)=><th key={i} scope="col" className="p-2">{h}</th>)}</tr></thead><tbody>{tradeMetrics.map(m=><tr key={m} data-trade-metric={m}><th scope="row" className="p-2">{label[m]}</th><td className="p-2">{unit(m)}</td><td className="p-2">{shown(tradeValue(group,m,schema),m)}</td>{compare?<><td className="p-2">{shown(tradeValue(other,m,schema),m)}</td><td className="p-2">{delta(tradeDifference(group,other,m,schema),m)}</td></>:null}</tr>)}</tbody></table></div>
+        {reporters.map(c=>{const g=record(c,year);return g&&!tradeUnavailable(g,schema)?<p key={c} className="mt-2 text-xs">{tradeMetrics.filter(m=>tradeValue(g,m,schema)===null).map(m=>`${name(c)} · ${label[m]}: ${reason(g,m)}`).join(" ")}</p>:null;})}
+        {valid&&group.metrics?.top_partner?<p className="mt-2 text-xs">{t("最大伙伴","Top partner")}: {name(group.metrics.top_partner)}</p>:null}
       </section>
-
-      {loadState === "ready" && group && !groupUsable ? (
-        <p className="border-y border-[var(--line)] py-8 text-center text-sm text-[var(--muted)]">数据覆盖不足，当前组合不可用于正式网络指标。<span className="mt-1 block text-xs">（该国家 × 年份 × 流向的有效伙伴覆盖率低于 95% 最低要求；不会自动退回更宽口径。）</span></p>
-      ) : null}
-
-      {groupUsable && group?.metrics ? (
-        <section className="editorial-panel p-5">
-          <div className="flex flex-wrap items-start justify-between gap-4 border-b border-[var(--line)] pb-4">
-            <div>
-              <p className="editorial-kicker">{countryName(country)} · {year} · {flow === "exports" ? "出口" : "进口"}</p>
-              <h3 className="mt-2 text-xl font-semibold">贸易伙伴集中度</h3>
-            </div>
-            {group.coverage ? (
-              <p className="text-xs font-semibold text-[var(--muted)]">数据覆盖率：{coverageRatioOf(group) === null ? "—" : `${(coverageRatioOf(group)! * 100).toFixed(1)}%`} · 最低要求：{(group.coverage.threshold * 100).toFixed(0)}% · 状态：{group.coverage.gate_passed ? "数据条件满足" : "数据条件不足"}</p>
-            ) : null}
-          </div>
-          <dl className="mt-5 grid gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] sm:grid-cols-3 lg:grid-cols-7">
-            {([
-              ["伙伴集中度 HHI", group.metrics.partner_hhi.toFixed(4)],
-              ["最大伙伴", `${displayPartner({ partner: group.metrics.top_partner ?? "", iso3: null, value: 0, share: 0 })} ${percent(group.metrics.top_partner_share)}`],
-              ["中国贸易份额", percent(group.metrics.china_share)],
-              ["德国贸易份额", percent(group.metrics.germany_share)],
-              ["伙伴多样化", group.metrics.diversification.toFixed(4)],
-              ["名义贸易额（当年美元）", billions(group.metrics.weighted_trade_volume)],
-              ["伙伴数量", String(group.metrics.partner_count)],
-            ] as Array<[string, string]>).map(([label, value]) => (
-              <div key={label} className="bg-white p-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="metric-number mt-1 text-sm font-semibold">{value}</dd></div>
-            ))}
-          </dl>
-
-          <div className="mt-6 grid gap-6 lg:grid-cols-2">
-            <div>
-              <p className="text-sm font-semibold">贸易伙伴网络图（连线宽度 = 贸易份额）</p>
-              <svg viewBox="0 0 380 380" className="mt-3 w-full max-w-[420px]" role="img" aria-label={locale === "en" ? `${englishText(countryName(country))} ${year} ${flow} partner network diagram` : `${countryName(country)} ${year} 年${flow === "exports" ? "出口" : "进口"}伙伴网络图`}>
-                {graphNodes.map((partner, index) => {
-                  const angle = (index / graphNodes.length) * 2 * Math.PI - Math.PI / 2;
-                  const x = graphCenter + graphRadius * Math.cos(angle);
-                  const y = graphCenter + graphRadius * Math.sin(angle);
-                  return (
-                    <g key={partner.partner}>
-                      <line x1={graphCenter} y1={graphCenter} x2={x} y2={y} stroke={partnerColor(partner, country)} strokeWidth={Math.max(1, partner.share * 40)} opacity={0.65} />
-                      <circle cx={x} cy={y} r={7} fill={partnerColor(partner, country)} />
-                      <text x={x} y={y - 12} textAnchor="middle" fontSize="10" fill="var(--foreground)">{displayPartner(partner)}</text>
-                      <text x={x} y={y + 18} textAnchor="middle" fontSize="9" fill="var(--muted)">{percent(partner.share)}</text>
-                    </g>
-                  );
-                })}
-                <circle cx={graphCenter} cy={graphCenter} r={12} fill="var(--foreground)" />
-                <text x={graphCenter} y={graphCenter + 28} textAnchor="middle" fontSize="11" fontWeight="600" fill="var(--foreground)">{countryName(country)}</text>
-              </svg>
-              <p className="mt-2 text-xs leading-6 text-[var(--muted)]">颜色有明确定义：深色 = 报告国，红色 = 中国，蓝色 = 欧盟伙伴，灰色 = 其他伙伴。</p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold">主要贸易伙伴</p>
-              <table className="research-data-table mt-3 w-full text-left text-sm">
-                <thead><tr>{["伙伴", "份额", "名义贸易额"].map((item) => <th key={item} className="px-2 py-2">{item}</th>)}</tr></thead>
-                <tbody>
-                  {group.top_partners.map((partner) => (
-                    <tr key={partner.partner}>
-                      <td className="px-2 py-2 font-semibold"><span className="mr-2 inline-block h-2 w-2 rounded-full" style={{ backgroundColor: partnerColor(partner, country) }} />{displayPartner(partner)}</td>
-                      <td className="metric-number px-2 py-2">{percent(partner.share)}</td>
-                      <td className="metric-number px-2 py-2">{billions(partner.value)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className="mt-6 grid gap-5">
-            <ResearchTimeSeriesChart title={locale === "en" ? "Trading-partner concentration (HHI)" : "贸易伙伴集中度（HHI）"} description={locale === "en" ? "UN Comtrade annual nominal trade. Higher HHI means more concentrated partners; missing years break the line." : "UN Comtrade 年度名义贸易；HHI 越高，伙伴越集中；缺失年份断线。"} xKind="number" xLabel={locale === "en" ? "Year" : "年份"} yLabel="HHI (0–1)" xTickValues={[2015, 2017, 2019, 2021, 2023, 2025]} series={[{ id: "trade-hhi", label: "HHI", color: "#246a87", markers: true, points: Array.from({ length: 11 }, (_, i) => ({ x: 2015 + i, y: trend.find(t => t.year === 2015 + i)?.metrics?.partner_hhi ?? null })) }]} />
-            <ResearchTimeSeriesChart title={locale === "en" ? "China's share of nominal trade" : "中国占名义贸易份额"} description={locale === "en" ? "UN Comtrade. Share (%) uses its own axis, separate from concentration. No statistical intervals supplied." : "UN Comtrade；份额（%）独立坐标轴，不与集中度混用；未提供统计区间。"} xKind="number" xLabel={locale === "en" ? "Year" : "年份"} yLabel={locale === "en" ? "Trade share (%)" : "贸易份额（%）"} xTickValues={[2015, 2017, 2019, 2021, 2023, 2025]} series={[{ id: "trade-china", label: locale === "en" ? "China share" : "中国份额", color: "#a6453c", markers: true, points: Array.from({ length: 11 }, (_, i) => { const value = trend.find(t => t.year === 2015 + i)?.metrics?.china_share; return { x: 2015 + i, y: value == null ? null : value * 100 }; }) }]} />
-          </div>
-
-          {compareGroup?.metrics ? (
-            <div className="mt-6 border-t border-[var(--line)] pt-5">
-              <p className="text-sm font-semibold">{countryName(country)} 对比 {countryName(compareWith)} · {year} · {flow === "exports" ? "出口" : "进口"}（同年份 / 同流向 / 同口径）</p>
-              <table className="research-data-table mt-3 w-full text-left text-sm">
-                <thead><tr>{["指标", countryName(country), countryName(compareWith)].map((item) => <th key={item} className="px-2 py-2">{item}</th>)}</tr></thead>
-                <tbody>{comparisonRows.map(([label, left, right]) => <tr key={label}><td className="px-2 py-2 font-semibold">{label}</td><td className="metric-number px-2 py-2">{left}</td><td className="metric-number px-2 py-2">{right}</td></tr>)}</tbody>
-              </table>
-            </div>
-          ) : null}
-
-          <p className="mt-5 text-xs leading-6 text-[var(--muted)]">数据溯源：UN Comtrade（comtradeplus.un.org）· 来源可靠性 A · {group.partner_count} 条有效伙伴边 · schema {pack?.schema_version} · 生成于 {pack?.generated_at}</p>
-          <p className="mt-2 text-xs leading-6 text-[var(--muted)]">{pack?.interpretation_boundary}</p>
-        </section>
-      ) : null}
-    </div>
-  )}</LocalizedContent>;
+      <section className="editorial-panel min-w-0 p-5" aria-labelledby="trade-history-title">
+        <h3 id="trade-history-title" className="text-xl font-semibold">{t("历史贸易比较","Historical trade comparison")}</h3><div className="mt-4 flex flex-wrap gap-4">
+          <label className="min-w-0">{t("历史指标","Historical metric")}<select className="field-control mt-2 max-w-full" value={metric} onChange={e=>setMetric(e.target.value as TradeMetric)}>{tradeMetrics.map(m=><option key={m} value={m}>{label[m]}</option>)}</select></label>
+          <label>{t("起始年","From year")}<select className="field-control mt-2" value={start??""} onChange={e=>setFrom(Number(e.target.value))}>{allYears.map(y=><option key={y}>{y}</option>)}</select></label><label>{t("结束年","To year")}<select className="field-control mt-2" value={end??""} onChange={e=>setTo(Number(e.target.value))}>{allYears.map(y=><option key={y}>{y}</option>)}</select></label>
+        </div>
+        {years.length?<ResearchTimeSeriesChart interactive containerRole="group" title={`${label[metric]} · ${flowLabel(flow)} · ${start}–${end}`} description={t("来源：UN Comtrade。仅绘制通过覆盖门槛的值；缺失或覆盖不合格的年份断线，不插值。未提供统计区间。","Source: UN Comtrade. Only coverage-eligible values are plotted; missing or failed years break the line, without interpolation. No statistical intervals are supplied.")} xKind="number" xLabel={t("实际观测年份","Observation year")} yLabel={`${label[metric]} (${unit(metric)})`} xTickValues={years.filter((_,i)=>i%Math.max(1,Math.ceil(years.length/6))===0||i===years.length-1)} formatX={String} series={series}/>:<p role="status">{t("所选期间无可显示年份，或起始年晚于结束年。","No years in the selected range, or the start exceeds the end.")}</p>}
+        <div className="mt-3 space-y-2 text-sm">{reporters.map(c=>{const rows=series.find(s=>s.id===c)?.points??[],d=years.length?tradeDifference(record(c,end),record(c,start),metric,schema,false):null;return <p key={c} data-trade-change={c}>{name(c)} · {start}–{end}: {delta(d,metric)} · {rows.filter(p=>p.y!==null).length}/{years.length} {t("年有有效值","years with eligible values")}{d===null?` · ${t("端点缺失、覆盖不合格或定义不匹配，不回退至其他年份。","Endpoints missing, coverage failed or definitions differ; no fallback to other years.")}`:""}</p>;})}</div>
+        <details className="mt-4"><summary className="cursor-pointer font-semibold">{t("逐年数值与覆盖原因","Annual values and coverage reasons")}</summary><div className="overflow-x-auto" tabIndex={0} role="region" aria-label={t("历史贸易表（可横向滚动）","Historical trade table (scrollable)")}><table className="research-data-table w-full min-w-[640px] text-left text-sm" data-trade-history-table><thead><tr>{[t("国家","Country"),t("年份","Year"),`${label[metric]} (${unit(metric)})`,t("覆盖／缺失原因","Coverage / missing reason")].map(h=><th key={h} scope="col" className="p-2">{h}</th>)}</tr></thead><tbody>{reporters.flatMap(c=>years.map(y=>{const g=record(c,y);return <tr key={`${c}-${y}`}><th scope="row" className="p-2">{name(c)} · {y}</th><td className="p-2">{y}</td><td className="p-2">{shown(tradeValue(g,metric,schema),metric)}</td><td className="p-2">{reason(g,metric)}</td></tr>;}))}</tbody></table></div></details>
+        <button type="button" className="mt-4 rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold" disabled={!exportGroups.length} onClick={exportCsv} data-trade-export>{t("导出所选期间有效指标 CSV","Export eligible metrics for selected period (CSV)")}</button><p className="mt-2 text-xs">{t("导出所选国家、期间和流向的全部七项指标；排除覆盖不合格记录，缺失指标留空。使用原始比例／当年美元，而非图表缩放值。","Exports all seven metrics for the selected countries, period and flow; excludes failed-coverage records and leaves missing metrics blank. Uses original fractions/current USD, not chart scaling.")}</p>
+      </section>
+      <section className="editorial-panel min-w-0 p-5" aria-labelledby="trade-china-title">
+        <h3 id="trade-china-title" className="text-xl font-semibold">{t("中国与德国的伙伴份额","China and Germany partner shares")}</h3><p className="mt-2 text-sm">{name(country)} · {year??"—"} · {t("同一参照年，进出口分别列出，不合并。","Same reference year; imports and exports remain separate.")}</p>
+        {(["imports","exports"] as const).map(f=>{const g=record(country,year,f);return <div key={f} className="mt-3 border-l-2 border-[var(--accent)] pl-3" data-trade-china-flow={f}><h4 className="font-semibold">{flowLabel(f)}</h4><p>{t("中国","China")}: {shown(tradeValue(g,"china_share",schema),"china_share")} % · {t("德国","Germany")}: {shown(tradeValue(g,"germany_share",schema),"germany_share")} %</p><p className="text-xs">{reason(g)}{!tradeUnavailable(g,schema)&&tradeValue(g,"germany_share",schema)===null?` ${reason(g,"germany_share")}`:""}</p></div>;})}
+        <p className="mt-3 text-sm">{t("在历史比较中选择中国或德国贸易份额，并分别切换进口／出口。份额分母为有效伙伴贸易合计，并非整体经济依赖；名义美元变化也不是实际增长。","Select China or Germany trade share in historical comparison, separately for imports or exports. Shares use the eligible-partner total, not overall economic dependence; current-USD changes are not real growth.")}</p>
+      </section>
+      {valid?<section className="editorial-panel min-w-0 p-5" aria-labelledby="trade-partners-title">
+        <h3 id="trade-partners-title" className="text-xl font-semibold">{t("所选国家的伙伴结构","Selected country's partner structure")}</h3><p className="mt-2 text-sm">{t("图中最多12个节点，表中为前15个伙伴。位置仅用于排版，不表示距离、因果或政治影响。","Up to 12 nodes in the diagram, top 15 partners in the table. Positions are layout, not distance, causality or political influence.")}</p><div className="mt-4 grid min-w-0 gap-5 lg:grid-cols-2">
+          <div className="min-w-0"><div className="overflow-x-auto" role="region" tabIndex={0} aria-label={t("伙伴图（可横向滚动）","Partner diagram (scrollable)")}><svg viewBox="0 0 540 460" className="w-full min-w-[480px]" role="group" aria-label={t("可交互贸易伙伴网络","Interactive trade-partner network")}><title>{name(country)} · {year} · {flowLabel(flow)}</title><desc>{t("连线宽度表示份额。节点可用键盘选择，完整名称与金额见表。","Line width shows share. Select nodes with the keyboard; full labels and values are in the table.")}</desc>{graph.map((p,i)=>{const angle=i/graph.length*2*Math.PI-Math.PI/2,x=270+165*Math.cos(angle),y=230+165*Math.sin(angle);return <g key={p.partner}><line x1="270" y1="230" x2={x} y2={y} stroke={color(p)} strokeWidth={Math.max(1,p.share*35)} opacity="0.6"/><g role="button" tabIndex={0} aria-pressed={partnerId===p.partner} aria-label={`${name(p.partner)}: ${number(p.share*100)}%, ${number(p.value)} USD`} onClick={()=>setPartner(p.partner)} onKeyDown={e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();setPartner(p.partner);}}} className="cursor-pointer"><circle cx={x} cy={y} r={partnerId===p.partner?17:13} fill={color(p)} stroke={partnerId===p.partner?"var(--foreground)":undefined} strokeWidth="2"/><text x={x} y={y-20} textAnchor="middle" fontSize="13" fill="var(--foreground)">{p.iso3?.trim()||String(i+1)}</text><text x={x} y={y+30} textAnchor="middle" fontSize="12" fill="var(--foreground)">{number(p.share*100,1)}%</text></g></g>;})}<circle cx="270" cy="230" r="14" fill="var(--foreground)"/><text x="270" y="267" textAnchor="middle" fontSize="14" fill="var(--foreground)">{name(country)}</text></svg></div><p className="text-xs">{t("红：中国；蓝：欧盟伙伴；灰：其他。图可横向滚动；节点使用ISO3代码，完整名称见表。","Red: China; blue: EU partners; grey: others. Scroll the diagram horizontally; nodes use ISO3 codes, with full names in the table.")}</p></div>
+          <div className="min-w-0"><div className="overflow-x-auto" role="region" tabIndex={0} aria-label={t("伙伴记录（可横向滚动）","Partner records (scrollable)")}><table className="research-data-table w-full min-w-[420px] text-left text-sm"><caption className="text-left">{t("主要伙伴：选择查看金额与份额","Top partners: select to inspect value and share")}</caption><thead><tr>{[t("伙伴","Partner"),t("份额（%）","Share (%)"),t("金额（十亿美元）","Value (USD billion)")].map(h=><th key={h} scope="col" className="p-2">{h}</th>)}</tr></thead><tbody>{group.top_partners.map(p=><tr key={p.partner}><th scope="row" className="p-2"><button type="button" className="text-left underline" aria-pressed={partnerId===p.partner} onClick={()=>setPartner(p.partner)}>{name(p.partner)} {p.iso3}</button></th><td className="p-2">{number(p.share*100)}</td><td className="p-2">{number(p.value/1e9)}</td></tr>)}</tbody></table></div><p className="mt-3 text-sm" role="status" data-trade-partner-detail>{partner?`${name(partner.partner)} · ${year} · ${flowLabel(flow)} · ${number(partner.value)} USD · ${number(partner.share*100,4)}% · UN Comtrade`:t("选择图中节点或表中伙伴以查看原始美元金额。","Select a node or table partner to inspect current-USD value.")}</p></div>
+        </div>
+      </section>:null}
+      <details className="editorial-panel p-5"><summary className="cursor-pointer font-semibold">{t("来源、定义与覆盖说明","Sources, definitions and coverage")}</summary><div className="mt-3 space-y-3 text-sm">
+        <p><a className="underline" href={TRADE_SOURCE}>UN Comtrade</a> · <a className="underline" href="/research-data/network_ui_pack.json">network_ui_pack.json</a> · <a className="underline" href="/research-data/network_metrics.json">{t("指标定义与记录","Metric definitions and records")}</a> · <a className="underline" href="/research-data/network_coverage.json">{t("覆盖记录","Coverage records")}</a> · <a className="underline" href={localizedRoute("/methodology/",locale)}>{t("研究方法","Methodology")}</a></p>
+        <p>{t("有效伙伴覆盖率＝有效伙伴金额合计／World 总额；原有门槛不变。World、Other…nes 与 Areas nes 等聚合记录不作为节点，也不能帮助通过门槛。通过门槛不代表100%完整覆盖。","Eligible coverage = eligible-partner value / World total; the existing threshold is unchanged. Aggregates such as World, Other…nes and Areas nes are excluded from nodes and cannot help pass the gate. Passing is not 100% complete coverage.")}</p>
+        <p>{t("HHI为有效伙伴份额平方和；越高越集中。多样化为已存储的1−HHI，并非独立观测。德国自身德国份额不适用；其他缺失份额不会补零。前15个伙伴并非完整网络。","HHI is the sum of squared eligible-partner shares; higher means more concentrated. Diversification is the stored 1−HHI, not an independent observation. Germany's own Germany share is not applicable; other missing shares are never zero-filled. The top 15 are not the full network.")}</p>
+        <p>{t("贸易集中度不等于经济风险；中国份额不等于政治依赖；网络位置不等于政治影响。","Trade concentration is not economic risk; China share is not political dependence; network position is not political influence.")}</p><p>schema: {schema} · {t("数据包生成日期（非来源发布时间）","Pack generated (not source publication date)")}: {pack?.generated_at}</p>
+      </div></details>
+    </>:null}
+  </div>;
 }
