@@ -1,6 +1,7 @@
 import { localizedRoute, type Locale } from "@/i18n/config";
 import type { WorkspaceEvidenceCard, WorkspacePayload } from "@/components/workspaceEvidence";
-export type WorkspaceSelection = { countries: string[]; from: number; to: number };
+import type { TradeWorkspaceConfiguration } from "@/lib/tradeNetworkPresentation";
+export type WorkspaceSelection = { countries: string[]; from: number; to: number; trade?: TradeWorkspaceConfiguration };
 export function workspaceToolLink(path: string, locale: Locale, params: Record<string, string | number | undefined> = {}) {
   const query = new URLSearchParams();
   for (const [key, value] of Object.entries(params)) if (value !== undefined && value !== "") query.set(key, String(value));
@@ -21,7 +22,7 @@ export function workspaceLinks(payload: WorkspacePayload, selection: WorkspaceSe
   return {
     data: payload.cards.filter(card => card.kind !== "map").flatMap(card => selection.countries.filter(country => periodsInRange(card.coverage.find(row => row.country === country)?.periods ?? [], selection).length).map(country => ({ evidence: card.id, country, url: evidenceLink(card, country, selection, locale) }))),
     map: payload.cards.filter(card => card.kind === "map").flatMap(card => selection.countries.filter(country => periodsInRange(card.coverage.find(row => row.country === country)?.periods ?? [], selection).length).map(country => ({ evidence: card.id, country, url: evidenceLink(card, country, selection, locale) }))),
-    models: payload.methods.filter(method => method.state === "active").map(method => ({ skill: method.id, url: workspaceToolLink("/models/", locale, { skill: method.id, country: method.supportsCountry ? selection.countries[0] : undefined }) })),
+    models: payload.methods.filter(method => method.state === "active").map(method => ({ skill: method.id, url: payload.id==="trade_external_exposure"&&method.id==="network_dependency"&&selection.trade?new URL(selection.trade.research_url).pathname+new URL(selection.trade.research_url).search:workspaceToolLink("/models/", locale, { skill: method.id, country: method.supportsCountry ? selection.countries[0] : undefined }) })),
     events: selection.countries.flatMap(country => payload.eventTypes.map(type => ({ country, type, url: workspaceToolLink("/news/", locale, { country, type, from: `${selection.from}-01-01`, to: `${selection.to}-12-31` }) }))),
   };
 }

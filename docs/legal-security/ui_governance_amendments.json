@@ -1003,6 +1003,46 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-19"
+    },
+    {
+      "amendment_id": "trade-workspace-common-year-2026-10-19",
+      "status": "owner_approved",
+      "approved_by": "owner explicit Regional Trade Research Workspace Integration and Common-Year Evidence Selection brief",
+      "purpose": "Extend only the trade workspace with existing regional trade sessions and setup-only exports. Add optional metric-specific common eligible years, explicit-year preservation and evidence availability. Existing economic and bilateral trade data remain separate; no data, estimator, threshold, gate, model, schema version or platform version changes.",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/ResearchWorkspace.tsx",
+        "sha256": "e4df054efd0811be3e3025366183280a05de6dd47d62f896338b8389b665d9f5",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/TradeNetworkWorkbench.tsx",
+        "sha256": "21ba996c8705a0b0716c1c3ff81b0ac41169c4cd71c431bb1dd21b043da4b36b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/workspaceLinks.ts",
+          "sha256": "fa07a84d631df93ce144f69cb877bc742313433fee43e7d507b6c39ba323494c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/tradeNetworkPresentation.ts",
+        "sha256": "32f996f3f551e8fad9ab74f702265b7880919ea9321b9381cae7a0b0d8f05b67",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/workspaceSnapshot.ts",
+          "sha256": "8f12d9a892164f5d2563c571efdfa327a14a61ec96ee168ae0598faa6ce5c1bd",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-19"
     }
   ]
 }

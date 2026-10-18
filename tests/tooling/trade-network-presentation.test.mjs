@@ -14,6 +14,34 @@ const {emptyNotebook,addNotebookEvidence,validateNotebook}=require('../../src/li
 const countryNames={hungary:{en:'Hungary','zh-CN':'匈牙利'},poland:{en:'Poland','zh-CN':'波兰'},slovakia:{en:'Slovakia','zh-CN':'斯洛伐克'},germany:{en:'Germany','zh-CN':'德国'}};
 const metricNames={en:'Trading-partner HHI','zh-CN':'伙伴集中度 HHI'};
 const {tradeSessionCountries,validTradeSelection,tradeRegionalCsv,tradeRegionalComparable}=require('../../src/lib/tradeNetworkPresentation.ts');
+const {tradeCommonYears,tradeEvidenceAvailability,tradeWorkspaceConfiguration}=require('../../src/lib/tradeNetworkPresentation.ts');
+test('common-year selection uses exact metric, flow, year and definitions, without changing latest-mode defaults',()=>{
+ const s={...defaultTradeSession(),mode:'regional',regional:['hungary','poland','germany'],from:2021,to:2025,yearSelection:'common'};
+ const changed=structuredClone(pack);const g=changed.records.find(r=>r.reporter==='poland'&&r.year===2025&&r.flow==='imports');g.coverage.gate_passed=false;
+ assert.deepEqual(tradeCommonYears(changed,s),[2021,2023,2024]);assert.equal(tradeSessionYear(changed,s),2024);
+ assert.equal(tradeSessionYear(changed,{...s,yearSelection:'latest'}),2025);
+ assert.equal(tradeSessionYear(changed,{...s,yearMode:'fixed',year:2025}),2025);
+ assert.deepEqual(tradeCommonYears(pack,{...s,metric:'germany_share'}),[]);
+ assert.deepEqual(tradeCommonYears(pack,{...s,flow:'exports'}),[2021,2022,2023,2024,2025]);
+ const def=structuredClone(pack);def.records.find(r=>r.reporter==='poland'&&r.year===2025&&r.flow==='imports').coverage.threshold=.96;assert.equal(tradeCommonYears(def,s).includes(2025),false);
+ assert.equal(tradeSessionYear(def,s),2024);const evidence=tradeSessionEvidence(def,s,'en','a'.repeat(64),countryNames,metricNames);assert.equal(evidence.canonical_ids.some(id=>id.includes(':2025:')),false);assert.ok(evidence.metadata.coverage.some(x=>x.includes('2025: definition')));assert.equal(tradeRegionalCsv(def,s).split('\r\n').filter(row=>row.includes('"2025"')&&row.includes('"definition"')).length,3);
+});
+test('no common year remains null; partial and explicit views stay available and availability documents exclusions',()=>{
+ const s={...defaultTradeSession(),mode:'regional',regional:['hungary','poland','slovakia'],from:2021,to:2023,yearSelection:'common'};
+ assert.deepEqual(tradeCommonYears(pack,s),[]);assert.equal(tradeSessionYear(pack,s),null);assert.equal(tradeSessionYear(pack,{...s,yearSelection:'latest'}),2025);
+ const availability=tradeEvidenceAvailability(pack,s);assert.deepEqual(availability[2].eligible,[]);assert.equal(availability[2].excluded.every(x=>x.reason==='coverage_failed'),true);
+ const missing=tradeEvidenceAvailability(pack,{...s,from:2030,to:2031});assert.equal(missing.every(c=>c.excluded.every(x=>x.reason==='absent')),true);
+ const config=tradeWorkspaceConfiguration(pack,s,'en','a'.repeat(64));assert.equal(config.reference_year,null);assert.ok(config.limitations.join(' ').includes('No common eligible year'));assert.equal(JSON.stringify(config).includes('"value"'),false);
+});
+test('common-year URLs preserve auto policy, explicit years and Notebook metadata across both languages',()=>{
+ const s={...defaultTradeSession(),mode:'regional',regional:['hungary','poland','germany'],from:2021,to:2023,yearSelection:'common'};
+ for(const locale of ['en','zh-CN']){
+  const url=new URL(tradeSessionUrl(pack,s,locale,'a'.repeat(64)));assert.equal(url.searchParams.get('trade_year'),'auto');assert.equal(url.searchParams.get('trade_year_selection'),'common');const restored=restoreTradeSession(pack,url.searchParams);assert.equal(restored.yearMode,'auto');assert.equal(restored.yearSelection,'common');assert.equal(tradeSessionYear(pack,restored),2023);
+  const explicit=restoreTradeSession(pack,new URL(tradeSessionUrl(pack,{...s,yearMode:'fixed',year:2022},locale,'')).searchParams);assert.equal(tradeSessionYear(pack,explicit),2022);
+ }
+ const draft=tradeSessionEvidence(pack,s,'en','a'.repeat(64),countryNames,metricNames);assert.equal(draft.metadata.filters.reference_year_selection,'common');assert.deepEqual(draft.metadata.filters.common_eligible_years,['2021','2023']);assert.equal(validateNotebook(addNotebookEvidence(emptyNotebook('en','v2.0'),draft,'v2.0')),true);
+ const bad=restoreTradeSession(pack,new URLSearchParams('trade_year_selection=bad'));assert.ok(bad.issues.includes('year_selection'));assert.throws(()=>tradeSessionEvidence(pack,bad,'en','',countryNames,metricNames));
+});
 test('regional sessions preserve ordered 3–5 countries, old links and both language routes',async()=>{
  const revision=await tradePackRevision(pack);
  for(const locale of ['en','zh-CN'])for(const countries of [['hungary','poland','germany'],['hungary','poland','germany','austria','slovakia']]){
