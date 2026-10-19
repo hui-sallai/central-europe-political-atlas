@@ -84,11 +84,20 @@ const DERIVED = [
 ];
 const OVERLAP = { relative: 0.02, absolute: 0 }; // EUR conversion: allow for annual-average FX method differences
 
-async function getBytes(url) {
-  const response = await fetch(url, { headers: { "User-Agent": UA, Accept: "application/json, text/csv" }, signal: AbortSignal.timeout(240000) });
-  const bytes = Buffer.from(await response.arrayBuffer());
-  if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
-  return { bytes, status: response.status };
+// The BIS API has answered a valid, unchanged series request with a transient "No results" 404 (2026-10-19) that
+// succeeded minutes later. Retry a failed request at most twice with a pause; a persistent error still stops the build.
+async function getBytes(url, attempts = 3) {
+  for (let attempt = 1; ; attempt += 1) {
+    try {
+      const response = await fetch(url, { headers: { "User-Agent": UA, Accept: "application/json, text/csv" }, signal: AbortSignal.timeout(900000) }); // large SORS tables (10–13 MB) took ~5 min on 2026-10-19
+      const bytes = Buffer.from(await response.arrayBuffer());
+      if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
+      return { bytes, status: response.status };
+    } catch (error) {
+      if (attempt >= attempts) throw error;
+      await new Promise((resolve) => setTimeout(resolve, 15000 * attempt));
+    }
+  }
 }
 
 export async function build(options = {}) {

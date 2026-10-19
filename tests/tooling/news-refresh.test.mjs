@@ -65,3 +65,8 @@ test('a later batch supersedes shared file hashes; an unknown batch or window fa
  assert.ok(approvedNewsFiles([{...r[1],window:{start:'2026-10-01',end:'2026-10-18'}}]).problems.length);
  assert.ok(approvedNewsFiles([{...r[1],files:[...r[1].files,{path:'src/data/events/events.json',sha256:'a'.repeat(64)}]}]).problems.length);
 });
+test('the displayed news batch cutoff reads the latest approved batch audit',()=>{
+ const src=fs.readFileSync('src/lib/newsLibraryMetadata.ts','utf8');
+ const latest=Object.keys(JSON.parse(fs.readFileSync(NEWS_REFRESH_FILE,'utf8')).amendments.reduce((m,a)=>({...m,[a.window.end]:1}),{})).sort().at(-1);
+ assert.ok(src.includes(`news_update_${latest}_audit.json`),latest);
+});
