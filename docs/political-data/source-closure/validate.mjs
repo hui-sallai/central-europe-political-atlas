@@ -8,6 +8,7 @@ import {COUNTRY_GATES,RIGHTS_GATES,PRODUCTION_GATES,MATRIX_GATES,VALUES,STATUSES
 import {matchDependencyException,DEPENDENCY_EXCEPTIONS_FILE} from '../../../scripts/political-data/germany/frozen-boundary.mjs';
 import {checkFrozenFiles,checkPrivateEvidence,UI_AMENDMENTS_FILE,MIRROR_SYNC_FILE} from './ui-amendments.mjs';
 import { NEWS_REFRESH_FILE } from './news-refresh-amendments.mjs';
+import { DATA_REFRESH_FILE } from './data-refresh-amendments.mjs';
 
 const dir=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(dir,'../../..');
@@ -31,7 +32,7 @@ const lockfileUnderException=()=>matchDependencyException({
 }).ok;
 const uiAmendments=fs.existsSync(path.join(root,UI_AMENDMENTS_FILE))?JSON.parse(fs.readFileSync(path.join(root,UI_AMENDMENTS_FILE),'utf8')).amendments:[];
 const newsRefreshes=fs.existsSync(path.join(root,NEWS_REFRESH_FILE))?JSON.parse(fs.readFileSync(path.join(root,NEWS_REFRESH_FILE),'utf8')).amendments:[];
-const frozenCheck=checkFrozenFiles({baselineFiles:baseline.files,currentFiles:currentFiles.sort(),hashOf:name=>sha(fs.readFileSync(path.join(root,name))),amendments:uiAmendments,newsRefreshes,mirrorSyncs:fs.existsSync(path.join(root,MIRROR_SYNC_FILE))?JSON.parse(fs.readFileSync(path.join(root,MIRROR_SYNC_FILE),'utf8')).syncs:[],lockfileApproved:lockfileUnderException,isUntrackedIgnored:p=>spawnSync('git',['ls-files','--error-unmatch','--',p],{cwd:root}).status!==0&&spawnSync('git',['check-ignore','-q','--no-index','--',p],{cwd:root}).status===0});
+const frozenCheck=checkFrozenFiles({baselineFiles:baseline.files,currentFiles:currentFiles.sort(),hashOf:name=>sha(fs.readFileSync(path.join(root,name))),amendments:uiAmendments,newsRefreshes,dataRefreshes:fs.existsSync(path.join(root,DATA_REFRESH_FILE))?JSON.parse(fs.readFileSync(path.join(root,DATA_REFRESH_FILE),'utf8')).refreshes:[],mirrorSyncs:fs.existsSync(path.join(root,MIRROR_SYNC_FILE))?JSON.parse(fs.readFileSync(path.join(root,MIRROR_SYNC_FILE),'utf8')).syncs:[],lockfileApproved:lockfileUnderException,isUntrackedIgnored:p=>spawnSync('git',['ls-files','--error-unmatch','--',p],{cwd:root}).status!==0&&spawnSync('git',['check-ignore','-q','--no-index','--',p],{cwd:root}).status===0});
 assert.deepEqual(frozenCheck.failures,[],'No new production, public, UI, model or economic files permitted');
 if(frozenCheck.amended.length)process.stderr.write(`Approved UI governance amendment applied to ${frozenCheck.amended.length} exact-hash file(s): ${frozenCheck.amended.join(', ')}\n`);
 const evidenceStatus={verified:0,absent_private_evidence:0};

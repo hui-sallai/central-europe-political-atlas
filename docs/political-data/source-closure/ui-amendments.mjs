@@ -3,6 +3,7 @@
 // from the checkpoint baseline; data, model, engine, political-store, package and release files can never be amended.
 
 import { approvedNewsFiles } from './news-refresh-amendments.mjs';
+import { approvedDataRefreshFiles } from './data-refresh-amendments.mjs';
 export const UI_AMENDMENTS_FILE = 'docs/legal-security/ui_governance_amendments.json';
 export const UI_CLASSIFICATIONS = ['LEGAL_NOTICE', 'PRIVACY_NOTICE', 'SOURCE_ATTRIBUTION_UI', 'METHODOLOGY_PRESENTATION', 'DATA_PRESENTATION', 'SECURITY_PRESENTATION'];
 const FALSE_FLAGS = ['canonical_data_change_allowed', 'public_research_data_change_allowed', 'political_data_change_allowed', 'model_change_allowed', 'release_change_allowed'];
@@ -67,11 +68,12 @@ export function approvedMirrorFiles(records) {
 
 // baselineFiles: {path -> sha256}; currentFiles: [path]; hashOf(path) -> sha256; lockfileApproved(): boolean;
 // isUntrackedIgnored(path): boolean (git state of an excluded build artifact).
-export function checkFrozenFiles({ baselineFiles, currentFiles, hashOf, amendments, lockfileApproved = () => false, isUntrackedIgnored = () => false, mirrorSyncs = [], newsRefreshes = [] }) {
+export function checkFrozenFiles({ baselineFiles, currentFiles, hashOf, amendments, lockfileApproved = () => false, isUntrackedIgnored = () => false, mirrorSyncs = [], newsRefreshes = [], dataRefreshes = [] }) {
   const { approved, problems } = approvedUiFiles(amendments);
   const mirrors = approvedMirrorFiles(mirrorSyncs);
   const news = approvedNewsFiles(newsRefreshes);
-  const failures = [...problems, ...mirrors.problems, ...news.problems], amended = [];
+  const refreshes = approvedDataRefreshFiles(dataRefreshes);
+  const failures = [...problems, ...mirrors.problems, ...news.problems, ...refreshes.problems], amended = [];
   if (failures.length) return { ok: false, failures, amended };
   const excluded = new Set(BUILD_ARTIFACT_EXCLUSIONS.filter((p) => isUntrackedIgnored(p)));
   baselineFiles = Object.fromEntries(Object.entries(baselineFiles).filter(([p]) => !excluded.has(p)));
@@ -85,6 +87,8 @@ export function checkFrozenFiles({ baselineFiles, currentFiles, hashOf, amendmen
     if (baseHash && actual === baseHash) continue;
     if (name === 'pnpm-lock.yaml' && lockfileApproved()) continue;
     if (news.approved.get(name) === actual) { amended.push(name); continue; }
+    // Owner-approved descriptive data refresh run: existing baseline files only, exact hashes.
+    if (baseHash && refreshes.approved.get(name) === actual) { amended.push(name); continue; }
     if (approved.has(name) && amendablePath(name) && approved.get(name) === actual) { amended.push(name); continue; }
     if (baseHash && mirrors.approved.has(name) && mirrorSyncPath(name) && mirrors.approved.get(name) === actual) { amended.push(name); continue; }
     failures.push(baseHash ? `Frozen file changed: ${name}` : `No new production, public, UI, model or economic files permitted: ${name}`);

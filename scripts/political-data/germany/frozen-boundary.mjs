@@ -9,6 +9,7 @@ import {validatePolitical} from './validate.mjs';
 import {politicalExportFiles} from './export.mjs';
 import {approvedMirrorFiles,mirrorSyncPath,MIRROR_SYNC_FILE} from '../../../docs/political-data/source-closure/ui-amendments.mjs';
 import {approvedNewsFiles,NEWS_REFRESH_FILE} from '../../../docs/political-data/source-closure/news-refresh-amendments.mjs';
+import {approvedDataRefreshFiles,DATA_REFRESH_FILE} from '../../../docs/political-data/source-closure/data-refresh-amendments.mjs';
 
 export const DEPENDENCY_EXCEPTIONS_FILE='docs/legal-security/dependency_maintenance_exceptions.json';
 // Dependency-tooling files other than package.json / pnpm-lock.yaml that no exception may touch.
@@ -118,6 +119,8 @@ function mirrorSyncApplies(file){
 export function unapprovedFrozenChanges(changed,baseline){
   const newsPath=path.join(root,NEWS_REFRESH_FILE);
   const news=approvedNewsFiles(fs.existsSync(newsPath)?JSON.parse(fs.readFileSync(newsPath,'utf8')).amendments:[]);
+  const refreshPath=path.join(root,DATA_REFRESH_FILE);
+  const refreshes=approvedDataRefreshFiles(fs.existsSync(refreshPath)?JSON.parse(fs.readFileSync(refreshPath,'utf8')).refreshes:[]);
   const data=buildApprovedProduction();validatePolitical(data,data);
   const files=new Map(stores.map(store=>[`src/data/political/germany/${store}.json`,JSON.stringify(data[store],null,2)+'\n']));
   for(const [name,content] of Object.entries(politicalExportFiles(data)))files.set(`public/research-data/political/germany/${name}`,content);
@@ -128,6 +131,8 @@ export function unapprovedFrozenChanges(changed,baseline){
     if(file==='pnpm-lock.yaml'){if(!dependencyExceptionApplies(baseline))unexpected.push(file);continue;}
     // Same batch-only owner authorization as the source-closure checkpoint; exact hashes only.
     if(!news.problems.length && news.approved.has(file) && fs.existsSync(path.join(root,file)) && news.approved.get(file)===sha256(fs.readFileSync(path.join(root,file))))continue;
+    // Owner-approved descriptive data refresh run; exact hashes only.
+    if(!refreshes.problems.length && refreshes.approved.has(file) && fs.existsSync(path.join(root,file)) && refreshes.approved.get(file)===sha256(fs.readFileSync(path.join(root,file))))continue;
     // Owner-approved export mirror sync: a public mirror may differ only at its exact recorded sha256
     // (docs/legal-security/export_mirror_sync_records.json, reproduced by research-export:check); src/data never.
     if(mirrorSyncApplies(file))continue;

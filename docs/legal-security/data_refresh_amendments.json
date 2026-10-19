@@ -1,0 +1,61 @@
+{
+  "schema_version": "atlas-data-refresh-amendments-v1",
+  "rule": "Descriptive data refreshed through scripts/data-refresh/apply.mjs may differ from the checkpoint baseline only at the exact hashes recorded per run, after owner approval; formal model inputs and frozen snapshots are never covered.",
+  "refreshes": [
+    {
+      "run_id": "monthly-eurostat-20261019",
+      "status": "owner_approved",
+      "approved_on": "2026-10-19",
+      "approved_by": "owner reply 2026-10-19: approve the Eurostat monthly apply, then 推送上线",
+      "unit": "eurostat-high-frequency",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "verification": "data-refresh:apply store validators and data-coverage re-audit",
+      "ledger_plan_sha256": "cefccbb49d5390d383d3c827d5aad386fc4f7b0d32fc0b79b383dc2ae927b811",
+      "summary": "39 new observations (HICP 2026-09 for 10 countries; industrial production 2026-08 for 10; unemployment 2026-08 for 9) and 252 revisions within the registered tolerance; coverage audit regenerated (formal input series 176 → 176).",
+      "formal_model_input_change_allowed": false,
+      "frozen_snapshot_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "research_gate_change_allowed": false,
+      "release_version_change_allowed": false,
+      "files": [
+        {
+          "path": "src/data/high-frequency/high_frequency_observations.json",
+          "sha256": "8bd36f7cdb2047517d3fc1c7f75e1ff1285db48935da632dbbe2e4034cf6e012"
+        },
+        {
+          "path": "src/data/high-frequency/high_frequency_coverage.json",
+          "sha256": "fd40230133c966de383a2623a309a82ac2b803e69b0fe7fb89332b92beea6411"
+        },
+        {
+          "path": "src/data/high-frequency/series_dictionary.json",
+          "sha256": "c9cbe769ca00d8cf8c0be5043d2ccd91507c89a11384bcdd1d905b9c869bccc0"
+        },
+        {
+          "path": "src/data/data-coverage/descriptive_data_coverage_audit.json",
+          "sha256": "9d3a7e2e53c97ee9c14cbd4318fd58867cfdf994938e05d63e91d287fdba8655"
+        },
+        {
+          "path": "src/data/data-refresh/refresh_ledger.jsonl",
+          "sha256": "92f2c2a765ec39ce6368399d713ee2a754b72fe730e34d0c45d8774e011e7c5e"
+        },
+        {
+          "path": "public/research-data/high_frequency_runtime.json",
+          "sha256": "e48e058d7aed9e888458b6ebdda0d8ac40cddba7dd1a767d8040165558ac8d91"
+        },
+        {
+          "path": "public/research-data/high_frequency_coverage.json",
+          "sha256": "fd40230133c966de383a2623a309a82ac2b803e69b0fe7fb89332b92beea6411"
+        },
+        {
+          "path": "public/research-data/series_dictionary.json",
+          "sha256": "c9cbe769ca00d8cf8c0be5043d2ccd91507c89a11384bcdd1d905b9c869bccc0"
+        },
+        {
+          "path": "public/research-data/descriptive_data_coverage_audit.json",
+          "sha256": "9d3a7e2e53c97ee9c14cbd4318fd58867cfdf994938e05d63e91d287fdba8655"
+        }
+      ]
+    }
+  ]
+}

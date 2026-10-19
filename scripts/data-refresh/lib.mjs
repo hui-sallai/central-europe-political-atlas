@@ -177,7 +177,9 @@ export const DECLARED_FORMAL_INPUTS = {
   "src/data/high-frequency/high_frequency_observations.json": "VAR / LP high-frequency input",
 };
 
+// The refresh ledger records the hashes of files it overwrote (provenance), so it is never a pin on those files.
 export function findHashPins(root, hashes, exclude = new Set()) {
+  exclude = new Set([...exclude, "src/data/data-refresh/refresh_ledger.jsonl"]);
   const wanted = new Map(Object.entries(hashes).filter(([, h]) => h).map(([file, h]) => [h, file]));
   const pins = Object.fromEntries(Object.keys(hashes).map((f) => [f, []]));
   const scan = (dir) => {
