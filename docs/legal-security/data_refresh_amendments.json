@@ -56,6 +56,165 @@
           "sha256": "9d3a7e2e53c97ee9c14cbd4318fd58867cfdf994938e05d63e91d287fdba8655"
         }
       ]
+    },
+    {
+      "run_id": "serbia-20261020",
+      "status": "owner_approved",
+      "approved_on": "2026-10-20",
+      "approved_by": "owner reply 2026-10-20: approve the Serbia apply, then 推送上线",
+      "unit": "serbia-sors",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "verification": "data-refresh:apply store validators and data-coverage re-audit",
+      "ledger_plan_sha256": "3433b8bcc850159ae9c2449cfb0e2bad8fbe438aff394aecbaeff5542b6328b7",
+      "summary": "11 new observations (annual 2025 national accounts and trade; monthly 2026-08 trade, industrial production and retail; 2026-09 industrial producer prices) and 27 revisions within tolerance; raw SORS and BIS extracts re-archived; coverage audit regenerated (formal input series 176 → 176).",
+      "formal_model_input_change_allowed": false,
+      "frozen_snapshot_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "research_gate_change_allowed": false,
+      "release_version_change_allowed": false,
+      "files": [
+        {
+          "path": "public/research-data/descriptive_data_coverage_audit.json",
+          "sha256": "70fe772471b37cbb2c9d97a5d269d9002fbd63923734477159c874302fb04da6"
+        },
+        {
+          "path": "public/research-data/serbia/serbia_descriptive_history_annual.json",
+          "sha256": "9989dbb73d03a35e062d231765d6e1020fc15716476160f3e4fffb4ada5e9fa2"
+        },
+        {
+          "path": "public/research-data/serbia/serbia_descriptive_history_monthly.json",
+          "sha256": "ff2c23ef987f676900e5e2b2d80dd49b01a89726606e97f96404b9dfc01ebc1f"
+        },
+        {
+          "path": "public/research-data/serbia/serbia_ingestion_manifest.json",
+          "sha256": "14aae6a27927e7b4264f92dbdadfa1abec6c524701a8e73e435aff318e26ae8b"
+        },
+        {
+          "path": "public/research-data/serbia_sors_runtime.json",
+          "sha256": "32f025984dfd620f363d26a36ee698c46c487e01476a4243ba8c427d18121077"
+        },
+        {
+          "path": "src/data/data-coverage/descriptive_data_coverage_audit.json",
+          "sha256": "70fe772471b37cbb2c9d97a5d269d9002fbd63923734477159c874302fb04da6"
+        },
+        {
+          "path": "src/data/data-refresh/refresh_ledger.jsonl",
+          "sha256": "f7557808e7addb2df8d66831690be94e87b8397700cacb7af09754c5046771b7"
+        },
+        {
+          "path": "src/data/serbia/raw/03010601IND01.extract.json",
+          "sha256": "173ddf6dde93ac19dbf5874d72b9e8ea54f87004dcf2f621e89ffbf2a762e1ac"
+        },
+        {
+          "path": "src/data/serbia/raw/03010601IND03.extract.json",
+          "sha256": "f72033cc424d36fee61d10bf6bd69505c0ca2bc9b8b9989b3aac8e2c55eae729"
+        },
+        {
+          "path": "src/data/serbia/raw/030201010101IND01.extract.json",
+          "sha256": "20d1cbc93cdf1e27fff6f15ffa319cdc64e370c19485094d8e28677fc015a939"
+        },
+        {
+          "path": "src/data/serbia/raw/060001IND02.extract.json",
+          "sha256": "398c8b6ac078d446d5489ddd06f8f013bca481ed1c36edb5ee5a1af5c5cccab2"
+        },
+        {
+          "path": "src/data/serbia/raw/0902010301IND01.extract.json",
+          "sha256": "2f380035b27415af978a2c50c730f62584abd2813be5feb0bdb4f29c84eda367"
+        },
+        {
+          "path": "src/data/serbia/raw/09020104IND01.extract.json",
+          "sha256": "17b6ff6c6e0b5d9f305977089f223e58886c256d16a3b65b4b00b103b5f70d40"
+        },
+        {
+          "path": "src/data/serbia/raw/100109IND01.extract.json",
+          "sha256": "a9c1f19479c5b9f8cac0213ee6bf34d99eb14082989cfbcc4335762a094ad255"
+        },
+        {
+          "path": "src/data/serbia/raw/1701IND01.extract.json",
+          "sha256": "9f2e6d4b8407e93150ccff46429e73b78f8caa9de253b61efbdc6615d6f4995e"
+        },
+        {
+          "path": "src/data/serbia/raw/1702IND01.extract.json",
+          "sha256": "263d7d8fa8530ad5f10d24f924e3c1e43b7ef0fa9ee4365f97b84b5c1823c03e"
+        },
+        {
+          "path": "src/data/serbia/raw/1702IND02.extract.json",
+          "sha256": "08b28d85ef191bfea7fff0ad08fe0e0602c8ff5560367b3ef45b751b1a87958b"
+        },
+        {
+          "path": "src/data/serbia/raw/18010403IND01.extract.json",
+          "sha256": "850125a14da29e4d19f949eed2d5517e962f9c9814b9e54b51551a5f4ddda8c5"
+        },
+        {
+          "path": "src/data/serbia/raw/180304IND02.extract.json",
+          "sha256": "4e97dd13eb93d9537a551ebd0183b47c1b6518f0a6cd530a0bd20b2a42332556"
+        },
+        {
+          "path": "src/data/serbia/raw/210105IND02.extract.json",
+          "sha256": "aa95d3ecebf8e56ef361f1399e9fa42e1304997ee2c30d22e48f817672e98552"
+        },
+        {
+          "path": "src/data/serbia/raw/2400020102IND02.extract.json",
+          "sha256": "353c67922792560d28d3475655ce03281fe57616bc1c2dded12813fc92206a92"
+        },
+        {
+          "path": "src/data/serbia/raw/2400020102IND04.extract.json",
+          "sha256": "a9868c0905fc159f8c065532b2ff477b2bd2d70726f9642a495a1e00c0233012"
+        },
+        {
+          "path": "src/data/serbia/raw/240003010102IND03.extract.json",
+          "sha256": "bcae3d8c5e2a9104a5166f7e3550a83c52300030a9cdd3362e4cf8fd818e3fe8"
+        },
+        {
+          "path": "src/data/serbia/raw/240003020102IND02.extract.json",
+          "sha256": "2a99a6832bd5769af0e86fbe486d938edfdbfc3d23cd7f2079a7b016963662e3"
+        },
+        {
+          "path": "src/data/serbia/raw/240003020102IND03.extract.json",
+          "sha256": "2bfe6b8b3a5c6eed0abb179771657ea4887f9bb914c5606d98b59af11084c035"
+        },
+        {
+          "path": "src/data/serbia/raw/240003020205IND01.extract.json",
+          "sha256": "f943b3eae8eeead8708deb7faa7466591822b71dbd0780d620b219e0253a5b1d"
+        },
+        {
+          "path": "src/data/serbia/raw/240003020304IND01.extract.json",
+          "sha256": "1b7a875be6875ee2ba30c3dae4749ebfd661381ac0e0313b8471f5d05841c643"
+        },
+        {
+          "path": "src/data/serbia/raw/2403040101IND01.extract.json",
+          "sha256": "bf843d7645af889c5f750ef7c9226b59fde646cfedde4faba5900245b96bbaa3"
+        },
+        {
+          "path": "src/data/serbia/raw/2403040101IND02.extract.json",
+          "sha256": "7492e1ede3933609eb584fcb2d6cbfd46c903be52f8a40ec0aed20d155749b18"
+        },
+        {
+          "path": "src/data/serbia/raw/2403040401IND01.extract.json",
+          "sha256": "570c962ffa12337b326bc1a7b71fd2e91f13a446b8786eaa837a0d372041ee36"
+        },
+        {
+          "path": "src/data/serbia/raw/2403040401IND02.extract.json",
+          "sha256": "95c873cf46cf741e77324f4549eed706a4e98d388ad89a297160c6b38aba0cb4"
+        },
+        {
+          "path": "src/data/serbia/raw/bis_rsd_per_eur.extract.json",
+          "sha256": "18ce76213defb7f7655dc900023faea7bc90c48e50b5a6bf67470aaabe916114"
+        },
+        {
+          "path": "src/data/serbia/serbia_descriptive_history_annual.json",
+          "sha256": "9989dbb73d03a35e062d231765d6e1020fc15716476160f3e4fffb4ada5e9fa2"
+        },
+        {
+          "path": "src/data/serbia/serbia_descriptive_history_monthly.json",
+          "sha256": "ff2c23ef987f676900e5e2b2d80dd49b01a89726606e97f96404b9dfc01ebc1f"
+        },
+        {
+          "path": "src/data/serbia/serbia_ingestion_manifest.json",
+          "sha256": "14aae6a27927e7b4264f92dbdadfa1abec6c524701a8e73e435aff318e26ae8b"
+        }
+      ]
     }
   ]
 }

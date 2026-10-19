@@ -32,7 +32,7 @@
    "model_role": "descriptive_only",
    "segment": null,
    "territorial_units": 1,
-   "ingested": 25,
+   "ingested": 26,
    "missing_status_records": 0,
    "overlap_check": null,
    "status": "ingested"
@@ -55,7 +55,7 @@
    "model_role": "descriptive_only",
    "segment": null,
    "territorial_units": 1,
-   "ingested": 25,
+   "ingested": 26,
    "missing_status_records": 0,
    "overlap_check": {
     "pairs": [
@@ -74,14 +74,20 @@
      {
       "year": 2023,
       "eurostat": 75205.2,
-      "converted": 75225.7,
-      "rel_diff_pct": 0.03
+      "converted": 75231.9,
+      "rel_diff_pct": 0.04
      },
      {
       "year": 2024,
       "eurostat": 83257.9,
-      "converted": 83284.8,
-      "rel_diff_pct": 0.03
+      "converted": 83408.9,
+      "rel_diff_pct": 0.18
+     },
+     {
+      "year": 2025,
+      "eurostat": 88672.8,
+      "converted": 90095.8,
+      "rel_diff_pct": 1.6
      }
     ],
     "tolerance": {
@@ -111,7 +117,7 @@
    "model_role": "descriptive_only",
    "segment": null,
    "territorial_units": 1,
-   "ingested": 25,
+   "ingested": 26,
    "missing_status_records": 0,
    "overlap_check": {
     "pairs": [
@@ -130,7 +136,7 @@
      {
       "year": 2023,
       "eurostat": 41419,
-      "converted": 41430.2,
+      "converted": 41430.3,
       "rel_diff_pct": 0.03
      },
      {
@@ -138,6 +144,12 @@
       "eurostat": 44612.7,
       "converted": 44627.1,
       "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2025,
+      "eurostat": 48161,
+      "converted": 48249.2,
+      "rel_diff_pct": 0.18
      }
     ],
     "tolerance": {
@@ -167,7 +179,7 @@
    "model_role": "descriptive_only",
    "segment": null,
    "territorial_units": 1,
-   "ingested": 25,
+   "ingested": 26,
    "missing_status_records": 0,
    "overlap_check": {
     "pairs": [
@@ -186,7 +198,7 @@
      {
       "year": 2023,
       "eurostat": 44685,
-      "converted": 44697.2,
+      "converted": 44697.3,
       "rel_diff_pct": 0.03
      },
      {
@@ -194,6 +206,12 @@
       "eurostat": 48407.2,
       "converted": 48422.8,
       "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2025,
+      "eurostat": 51971.5,
+      "converted": 52073,
+      "rel_diff_pct": 0.2
      }
     ],
     "tolerance": {
@@ -223,7 +241,7 @@
    "model_role": "descriptive_only",
    "segment": null,
    "territorial_units": 1,
-   "ingested": 25,
+   "ingested": 26,
    "missing_status_records": 0,
    "overlap_check": null,
    "status": "ingested"
@@ -445,7 +463,7 @@
    "mapping_status": "requires_transformation",
    "cross_country_comparable": true,
    "model_role": "descriptive_only",
-   "ingested": 25,
+   "ingested": 26,
    "overlap_check": {
     "pairs": [
      {
@@ -461,12 +479,17 @@
      {
       "year": 2023,
       "eurostat": -3266,
-      "converted": -3266.9
+      "converted": -3267
      },
      {
       "year": 2024,
       "eurostat": -3794.5,
       "converted": -3795.7
+     },
+     {
+      "year": 2025,
+      "eurostat": -3810.5,
+      "converted": -3823.8
      }
     ],
     "note": "balance of two converted aggregates; relative tolerance not meaningful for a small difference, shown for transparency"
@@ -509,14 +532,14 @@
      {
       "year": 2023,
       "eurostat": 11324,
-      "converted": 11357.94,
-      "rel_diff_pct": 0.3
+      "converted": 11358.88,
+      "rel_diff_pct": 0.31
      },
      {
       "year": 2024,
       "eurostat": 12605,
-      "converted": 12644.82,
-      "rel_diff_pct": 0.32
+      "converted": 12663.66,
+      "rel_diff_pct": 0.47
      }
     ],
     "tolerance": {
@@ -531,7 +554,7 @@
    "status": "held_overlap_failed"
   }
  ],
- "record_count": 339,
+ "record_count": 345,
  "records": [
   {"id":"serbia:average_gross_earnings:RS:2000","series":"average_gross_earnings","territory_code":"RS","statistical_level":"national","period":"2000","original_value":3799,"original_unit":"RSD per month","normalized_value":3799,"normalized_unit":"RSD per month","sors_status":"A","comparability_status":"before_series_break","segment_start":"2018","cross_country_comparable":false,"source_ref":10},
   {"id":"serbia:average_gross_earnings:RS:2001","series":"average_gross_earnings","territory_code":"RS","statistical_level":"national","period":"2001","original_value":8691,"original_unit":"RSD per month","normalized_value":8691,"normalized_unit":"RSD per month","sors_status":"D","comparability_status":"before_series_break","segment_start":"2018","cross_country_comparable":false,"source_ref":10},
@@ -623,8 +646,9 @@
   {"id":"serbia:exports_goods_services_rsd:RS:2020","series":"exports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2020","original_value":2657565.3,"original_unit":"mill. RSD","normalized_value":22606.0346,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.559994},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":2},
   {"id":"serbia:exports_goods_services_rsd:RS:2021","series":"exports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2021","original_value":3441917.3,"original_unit":"mill. RSD","normalized_value":29275.3396,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.570534},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":2},
   {"id":"serbia:exports_goods_services_rsd:RS:2022","series":"exports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2022","original_value":4531151.6,"original_unit":"mill. RSD","normalized_value":38588.943,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.420983},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":2},
-  {"id":"serbia:exports_goods_services_rsd:RS:2023","series":"exports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2023","original_value":4856428.7,"original_unit":"mill. RSD","normalized_value":41430.2491,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.219394},"sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":2},
+  {"id":"serbia:exports_goods_services_rsd:RS:2023","series":"exports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2023","original_value":4856432.7,"original_unit":"mill. RSD","normalized_value":41430.2832,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.219394},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":2},
   {"id":"serbia:exports_goods_services_rsd:RS:2024","series":"exports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2024","original_value":5223484.2,"original_unit":"mill. RSD","normalized_value":44627.1285,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.047284},"sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":2},
+  {"id":"serbia:exports_goods_services_rsd:RS:2025","series":"exports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2025","original_value":5654378.6,"original_unit":"mill. RSD","normalized_value":48249.1641,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.191224},"sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":2},
   {"id":"serbia:gdp_current_rsd:RS:2000","series":"gdp_current_rsd","territory_code":"RS","statistical_level":"national","period":"2000","original_value":462777,"original_unit":"mill. RSD","normalized_value":null,"normalized_unit":"mill. EUR","transformation":{"method":"EUR conversion withheld","reason":"BIS RSD per EUR moves 359% in 2000-12; a calendar-year average rate is not meaningful"},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":false,"source_ref":1},
   {"id":"serbia:gdp_current_rsd:RS:2001","series":"gdp_current_rsd","territory_code":"RS","statistical_level":"national","period":"2001","original_value":909984.2,"original_unit":"mill. RSD","normalized_value":15321.5401,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":59.392476},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":1},
   {"id":"serbia:gdp_current_rsd:RS:2002","series":"gdp_current_rsd","territory_code":"RS","statistical_level":"national","period":"2002","original_value":1154699.1,"original_unit":"mill. RSD","normalized_value":19032.8428,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":60.668767},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":1},
@@ -648,8 +672,9 @@
   {"id":"serbia:gdp_current_rsd:RS:2020","series":"gdp_current_rsd","territory_code":"RS","statistical_level":"national","period":"2020","original_value":5764147.6,"original_unit":"mill. RSD","normalized_value":49031.5404,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.559994},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":1},
   {"id":"serbia:gdp_current_rsd:RS:2021","series":"gdp_current_rsd","territory_code":"RS","statistical_level":"national","period":"2021","original_value":6576024,"original_unit":"mill. RSD","normalized_value":55932.5861,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.570534},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":1},
   {"id":"serbia:gdp_current_rsd:RS:2022","series":"gdp_current_rsd","territory_code":"RS","statistical_level":"national","period":"2022","original_value":7460138.8,"original_unit":"mill. RSD","normalized_value":63533.2684,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.420983},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":1},
-  {"id":"serbia:gdp_current_rsd:RS:2023","series":"gdp_current_rsd","territory_code":"RS","statistical_level":"national","period":"2023","original_value":8817908.5,"original_unit":"mill. RSD","normalized_value":75225.6788,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.219394},"sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":1},
-  {"id":"serbia:gdp_current_rsd:RS:2024","series":"gdp_current_rsd","territory_code":"RS","statistical_level":"national","period":"2024","original_value":9748258.7,"original_unit":"mill. RSD","normalized_value":83284.7918,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.047284},"sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":1},
+  {"id":"serbia:gdp_current_rsd:RS:2023","series":"gdp_current_rsd","territory_code":"RS","statistical_level":"national","period":"2023","original_value":8818642.5,"original_unit":"mill. RSD","normalized_value":75231.9406,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.219394},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":1},
+  {"id":"serbia:gdp_current_rsd:RS:2024","series":"gdp_current_rsd","territory_code":"RS","statistical_level":"national","period":"2024","original_value":9762781.6,"original_unit":"mill. RSD","normalized_value":83408.869,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.047284},"sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":1},
+  {"id":"serbia:gdp_current_rsd:RS:2025","series":"gdp_current_rsd","territory_code":"RS","statistical_level":"national","period":"2025","original_value":10558438.4,"original_unit":"mill. RSD","normalized_value":90095.8113,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.191224},"sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":1},
   {"id":"serbia:goods_exports_usd:RS:2000","series":"goods_exports_usd","territory_code":"RS","statistical_level":"national","period":"2000","original_value":1558,"original_unit":"million USD","normalized_value":1558,"normalized_unit":"million USD","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":false,"source_ref":11},
   {"id":"serbia:goods_exports_usd:RS:2001","series":"goods_exports_usd","territory_code":"RS","statistical_level":"national","period":"2001","original_value":1721,"original_unit":"million USD","normalized_value":1721,"normalized_unit":"million USD","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":false,"source_ref":11},
   {"id":"serbia:goods_exports_usd:RS:2002","series":"goods_exports_usd","territory_code":"RS","statistical_level":"national","period":"2002","original_value":2075,"original_unit":"million USD","normalized_value":2075,"normalized_unit":"million USD","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":false,"source_ref":11},
@@ -725,8 +750,9 @@
   {"id":"serbia:imports_goods_services_rsd:RS:2020","series":"imports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2020","original_value":3125284.7,"original_unit":"mill. RSD","normalized_value":26584.5939,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.559994},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":3},
   {"id":"serbia:imports_goods_services_rsd:RS:2021","series":"imports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2021","original_value":3945739.2,"original_unit":"mill. RSD","normalized_value":33560.6132,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.570534},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":3},
   {"id":"serbia:imports_goods_services_rsd:RS:2022","series":"imports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2022","original_value":5309763.1,"original_unit":"mill. RSD","normalized_value":45219.8831,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.420983},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":3},
-  {"id":"serbia:imports_goods_services_rsd:RS:2023","series":"imports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2023","original_value":5239376.8,"original_unit":"mill. RSD","normalized_value":44697.1837,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.219394},"sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":3},
+  {"id":"serbia:imports_goods_services_rsd:RS:2023","series":"imports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2023","original_value":5239386.8,"original_unit":"mill. RSD","normalized_value":44697.269,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.219394},"sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":3},
   {"id":"serbia:imports_goods_services_rsd:RS:2024","series":"imports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2024","original_value":5667760.6,"original_unit":"mill. RSD","normalized_value":48422.8287,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.047284},"sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":3},
+  {"id":"serbia:imports_goods_services_rsd:RS:2025","series":"imports_goods_services_rsd","territory_code":"RS","statistical_level":"national","period":"2025","original_value":6102497.4,"original_unit":"mill. RSD","normalized_value":52072.9897,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.191224},"sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":3},
   {"id":"serbia:manufacturing_share_gdp:RS:2000","series":"manufacturing_share_gdp","territory_code":"RS","statistical_level":"national","period":"2000","original_value":28.1,"original_unit":"% of GDP","normalized_value":28.1,"normalized_unit":"% of GDP","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":4},
   {"id":"serbia:manufacturing_share_gdp:RS:2001","series":"manufacturing_share_gdp","territory_code":"RS","statistical_level":"national","period":"2001","original_value":25.8,"original_unit":"% of GDP","normalized_value":25.8,"normalized_unit":"% of GDP","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":4},
   {"id":"serbia:manufacturing_share_gdp:RS:2002","series":"manufacturing_share_gdp","territory_code":"RS","statistical_level":"national","period":"2002","original_value":23.5,"original_unit":"% of GDP","normalized_value":23.5,"normalized_unit":"% of GDP","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":4},
@@ -750,8 +776,9 @@
   {"id":"serbia:manufacturing_share_gdp:RS:2020","series":"manufacturing_share_gdp","territory_code":"RS","statistical_level":"national","period":"2020","original_value":14.8,"original_unit":"% of GDP","normalized_value":14.8,"normalized_unit":"% of GDP","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":4},
   {"id":"serbia:manufacturing_share_gdp:RS:2021","series":"manufacturing_share_gdp","territory_code":"RS","statistical_level":"national","period":"2021","original_value":14.5,"original_unit":"% of GDP","normalized_value":14.5,"normalized_unit":"% of GDP","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":4},
   {"id":"serbia:manufacturing_share_gdp:RS:2022","series":"manufacturing_share_gdp","territory_code":"RS","statistical_level":"national","period":"2022","original_value":14.8,"original_unit":"% of GDP","normalized_value":14.8,"normalized_unit":"% of GDP","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":4},
-  {"id":"serbia:manufacturing_share_gdp:RS:2023","series":"manufacturing_share_gdp","territory_code":"RS","statistical_level":"national","period":"2023","original_value":13.3,"original_unit":"% of GDP","normalized_value":13.3,"normalized_unit":"% of GDP","sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":4},
+  {"id":"serbia:manufacturing_share_gdp:RS:2023","series":"manufacturing_share_gdp","territory_code":"RS","statistical_level":"national","period":"2023","original_value":13.3,"original_unit":"% of GDP","normalized_value":13.3,"normalized_unit":"% of GDP","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":4},
   {"id":"serbia:manufacturing_share_gdp:RS:2024","series":"manufacturing_share_gdp","territory_code":"RS","statistical_level":"national","period":"2024","original_value":12.7,"original_unit":"% of GDP","normalized_value":12.7,"normalized_unit":"% of GDP","sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":4},
+  {"id":"serbia:manufacturing_share_gdp:RS:2025","series":"manufacturing_share_gdp","territory_code":"RS","statistical_level":"national","period":"2025","original_value":12.2,"original_unit":"% of GDP","normalized_value":12.2,"normalized_unit":"% of GDP","sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":4},
   {"id":"serbia:population_1_january:RS:2011","series":"population_1_january","territory_code":"RS","statistical_level":"national","period":"2011","original_value":7253969,"original_unit":"persons","normalized_value":7253969,"normalized_unit":"persons","sors_status":"A","comparability_status":"before_series_break","segment_start":"2022","cross_country_comparable":true,"source_ref":7},
   {"id":"serbia:population_1_january:RS:2012","series":"population_1_january","territory_code":"RS","statistical_level":"national","period":"2012","original_value":7219069,"original_unit":"persons","normalized_value":7219069,"normalized_unit":"persons","sors_status":"A","comparability_status":"before_series_break","segment_start":"2022","cross_country_comparable":true,"source_ref":7},
   {"id":"serbia:population_1_january:RS:2013","series":"population_1_january","territory_code":"RS","statistical_level":"national","period":"2013","original_value":7183925,"original_unit":"persons","normalized_value":7183925,"normalized_unit":"persons","sors_status":"A","comparability_status":"before_series_break","segment_start":"2022","cross_country_comparable":true,"source_ref":7},
@@ -830,8 +857,9 @@
   {"id":"serbia:real_gdp_growth:RS:2020","series":"real_gdp_growth","territory_code":"RS","statistical_level":"national","period":"2020","original_value":-1,"original_unit":"%","normalized_value":-1,"normalized_unit":"%","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":0},
   {"id":"serbia:real_gdp_growth:RS:2021","series":"real_gdp_growth","territory_code":"RS","statistical_level":"national","period":"2021","original_value":7.9,"original_unit":"%","normalized_value":7.9,"normalized_unit":"%","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":0},
   {"id":"serbia:real_gdp_growth:RS:2022","series":"real_gdp_growth","territory_code":"RS","statistical_level":"national","period":"2022","original_value":2.7,"original_unit":"%","normalized_value":2.7,"normalized_unit":"%","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":0},
-  {"id":"serbia:real_gdp_growth:RS:2023","series":"real_gdp_growth","territory_code":"RS","statistical_level":"national","period":"2023","original_value":3.7,"original_unit":"%","normalized_value":3.7,"normalized_unit":"%","sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":0},
-  {"id":"serbia:real_gdp_growth:RS:2024","series":"real_gdp_growth","territory_code":"RS","statistical_level":"national","period":"2024","original_value":3.9,"original_unit":"%","normalized_value":3.9,"normalized_unit":"%","sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":0},
+  {"id":"serbia:real_gdp_growth:RS:2023","series":"real_gdp_growth","territory_code":"RS","statistical_level":"national","period":"2023","original_value":3.7,"original_unit":"%","normalized_value":3.7,"normalized_unit":"%","sors_status":"A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":0},
+  {"id":"serbia:real_gdp_growth:RS:2024","series":"real_gdp_growth","territory_code":"RS","statistical_level":"national","period":"2024","original_value":4,"original_unit":"%","normalized_value":4,"normalized_unit":"%","sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":0},
+  {"id":"serbia:real_gdp_growth:RS:2025","series":"real_gdp_growth","territory_code":"RS","statistical_level":"national","period":"2025","original_value":2.1,"original_unit":"%","normalized_value":2.1,"normalized_unit":"%","sors_status":"P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":0},
   {"id":"serbia:trade_balance_rsd:RS:2000","series":"trade_balance_rsd","territory_code":"RS","statistical_level":"national","period":"2000","original_value":-21395,"original_unit":"mill. RSD","normalized_value":null,"normalized_unit":"mill. EUR","transformation":{"method":"EUR conversion withheld","reason":"BIS RSD per EUR moves 359% in 2000-12; a calendar-year average rate is not meaningful","derived":"exports_goods_services_rsd − imports_goods_services_rsd"},"sors_status":"A/A","comparability_status":"comparable_within_segment","cross_country_comparable":false,"source_ref":30},
   {"id":"serbia:trade_balance_rsd:RS:2001","series":"trade_balance_rsd","territory_code":"RS","statistical_level":"national","period":"2001","original_value":-131559.9,"original_unit":"mill. RSD","normalized_value":-2215.0937,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":59.392476,"derived":"exports_goods_services_rsd − imports_goods_services_rsd"},"sors_status":"A/A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":30},
   {"id":"serbia:trade_balance_rsd:RS:2002","series":"trade_balance_rsd","territory_code":"RS","statistical_level":"national","period":"2002","original_value":-183861.1,"original_unit":"mill. RSD","normalized_value":-3030.5725,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":60.668767,"derived":"exports_goods_services_rsd − imports_goods_services_rsd"},"sors_status":"A/A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":30},
@@ -855,8 +883,9 @@
   {"id":"serbia:trade_balance_rsd:RS:2020","series":"trade_balance_rsd","territory_code":"RS","statistical_level":"national","period":"2020","original_value":-467719.4,"original_unit":"mill. RSD","normalized_value":-3978.5593,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.559994,"derived":"exports_goods_services_rsd − imports_goods_services_rsd"},"sors_status":"A/A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":30},
   {"id":"serbia:trade_balance_rsd:RS:2021","series":"trade_balance_rsd","territory_code":"RS","statistical_level":"national","period":"2021","original_value":-503821.9,"original_unit":"mill. RSD","normalized_value":-4285.2736,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.570534,"derived":"exports_goods_services_rsd − imports_goods_services_rsd"},"sors_status":"A/A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":30},
   {"id":"serbia:trade_balance_rsd:RS:2022","series":"trade_balance_rsd","territory_code":"RS","statistical_level":"national","period":"2022","original_value":-778611.5,"original_unit":"mill. RSD","normalized_value":-6630.9401,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.420983,"derived":"exports_goods_services_rsd − imports_goods_services_rsd"},"sors_status":"A/A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":30},
-  {"id":"serbia:trade_balance_rsd:RS:2023","series":"trade_balance_rsd","territory_code":"RS","statistical_level":"national","period":"2023","original_value":-382948.1,"original_unit":"mill. RSD","normalized_value":-3266.9346,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.219394,"derived":"exports_goods_services_rsd − imports_goods_services_rsd"},"sors_status":"P/P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":30},
+  {"id":"serbia:trade_balance_rsd:RS:2023","series":"trade_balance_rsd","territory_code":"RS","statistical_level":"national","period":"2023","original_value":-382954.1,"original_unit":"mill. RSD","normalized_value":-3266.9858,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.219394,"derived":"exports_goods_services_rsd − imports_goods_services_rsd"},"sors_status":"A/A","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":30},
   {"id":"serbia:trade_balance_rsd:RS:2024","series":"trade_balance_rsd","territory_code":"RS","statistical_level":"national","period":"2024","original_value":-444276.4,"original_unit":"mill. RSD","normalized_value":-3795.7002,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.047284,"derived":"exports_goods_services_rsd − imports_goods_services_rsd"},"sors_status":"P/P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":30},
+  {"id":"serbia:trade_balance_rsd:RS:2025","series":"trade_balance_rsd","territory_code":"RS","statistical_level":"national","period":"2025","original_value":-448118.8,"original_unit":"mill. RSD","normalized_value":-3823.8256,"normalized_unit":"mill. EUR","transformation":{"method":"divide by calendar-year average RSD per EUR (BIS)","rate":117.191224,"derived":"exports_goods_services_rsd − imports_goods_services_rsd"},"sors_status":"P/P","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":30},
   {"id":"serbia:unemployment_rate:RS:2011","series":"unemployment_rate","territory_code":"RS","statistical_level":"national","period":"2011","original_value":25,"original_unit":"%","normalized_value":25,"normalized_unit":"%","sors_status":"R","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":5},
   {"id":"serbia:unemployment_rate:RS:2012","series":"unemployment_rate","territory_code":"RS","statistical_level":"national","period":"2012","original_value":26,"original_unit":"%","normalized_value":26,"normalized_unit":"%","sors_status":"R","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":5},
   {"id":"serbia:unemployment_rate:RS:2013","series":"unemployment_rate","territory_code":"RS","statistical_level":"national","period":"2013","original_value":24.2,"original_unit":"%","normalized_value":24.2,"normalized_unit":"%","sors_status":"R","comparability_status":"comparable_within_segment","cross_country_comparable":true,"source_ref":5},

@@ -12,15 +12,27 @@ import { findHashPins } from '../../scripts/data-refresh/lib.mjs';
 const records = () => JSON.parse(fs.readFileSync(DATA_REFRESH_FILE, 'utf8')).refreshes;
 const BASE = 'd68d0e10fa0c83b57e044af02e352379aa9e9d2d';
 
-test('the approved run pins exactly its files at their current hashes and matches the ledger', () => {
+test('the approved runs pin exactly their files at their current hashes and match the ledger', () => {
   const { approved, problems } = approvedDataRefreshFiles(records());
   assert.deepEqual(problems, []);
-  assert.deepEqual([...approved.keys()].sort(), [...DATA_REFRESH_RUNS['monthly-eurostat-20261019'].paths].sort());
+  assert.deepEqual([...approved.keys()].sort(), [...new Set(Object.values(DATA_REFRESH_RUNS).flatMap((r) => r.paths))].sort());
   for (const [file, hash] of approved) assert.equal(crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'), hash, file);
   const ledger = fs.readFileSync('src/data/data-refresh/refresh_ledger.jsonl', 'utf8').trim().split('\n').map(JSON.parse);
-  assert.equal(ledger.at(-1).run_id, 'monthly-eurostat-20261019');
-  assert.equal(ledger.at(-1).formal_model_impact, 'none');
-  assert.equal(ledger.at(-1).plan_sha256, records()[0].ledger_plan_sha256);
+  for (const r of records()) {
+    const entry = ledger.find((e) => e.run_id === r.run_id);
+    assert.ok(entry, r.run_id);
+    assert.equal(entry.formal_model_impact, 'none');
+    assert.equal(entry.plan_sha256, r.ledger_plan_sha256);
+  }
+  assert.equal(ledger.at(-1).run_id, 'serbia-20261020');
+});
+
+test('a later run supersedes an earlier run for shared files', () => {
+  const [eurostat, serbia] = records();
+  const shared = 'src/data/data-coverage/descriptive_data_coverage_audit.json';
+  const hashIn = (r) => r.files.find((f) => f.path === shared).sha256;
+  assert.equal(approvedDataRefreshFiles([serbia, eurostat]).approved.get(shared), hashIn(serbia));
+  assert.equal(approvedDataRefreshFiles([eurostat]).approved.get(shared), hashIn(eurostat));
 });
 
 test('fails closed: other paths, unknown runs, permissive flags and hash drift', () => {
