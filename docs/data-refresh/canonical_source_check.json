@@ -1,4 +1,9 @@
 {
+ "dataset_page_checks": [
+  {"dataset":"bop_fdi6_flow","checked":"2026-10-20","latest_year":2024,"scope":"dataset_overall","url":"https://ec.europa.eu/eurostat/databrowser/product/view/bop_fdi6_flow?lang=en","evidence_basis":"Owner-verified public Eurostat page coverage reported in the 2026-10-20 implementation brief; corroborated by indexed official page metadata. Not a new API or country observation check."},
+  {"dataset":"nrg_ind_id","checked":"2026-10-20","latest_year":2024,"scope":"dataset_overall","url":"https://ec.europa.eu/eurostat/databrowser/product/page/NRG_IND_ID","evidence_basis":"Owner-verified public Eurostat page coverage reported in the 2026-10-20 implementation brief; corroborated by indexed official page metadata. Not a new API or country observation check."},
+  {"dataset":"ext_tec09","checked":"2026-10-20","latest_year":2024,"scope":"dataset_overall","url":"https://ec.europa.eu/eurostat/databrowser/product/page/EXT_TEC09","evidence_basis":"Owner-verified public Eurostat page coverage reported in the 2026-10-20 implementation brief; corroborated by indexed official page metadata. Not a new API or country observation check."}
+ ],
  "schema_version": "canonical-source-check-v1",
  "kind": "candidate_report_only",
  "boundary": "observations.json is a protected formal model input. Nothing in this report has been written to it; any update requires a separate owner-approved procedure and, where a formal sample changes, a new research baseline.",

@@ -1,10 +1,11 @@
+import type { AnnualPendingEvidence } from "./annualPendingEvidence";
 export type Revision = { period: string; previous: number | null; revised: number | null };
 export type RefreshChange = { series: string; added: string[]; revisions: Revision[] };
 export type PublicRefresh = { id: string; applied: string; source: string; unit: string; frequencies: string[]; added: number | null; revised: number | null; changes: RefreshChange[] };
 type LedgerUnit = { unit: string; source_family: string; stores?: { kind: string; path: string; new_observations?: number; revisions?: number }[]; new_periods?: { series: string; periods: string[] }[]; revisions?: { series: string; revisions: Revision[] }[] };
 type LedgerEntry = { run_id: string; applied_at: string; plan_sha256: string; units: LedgerUnit[] };
 type Approval = { run_id: string; status: string; unit: string; ledger_plan_sha256: string };
-export type ProvenanceSeries = { dataset: string; version: string | null; recordDates: { date: string; periods: string[] }[]; country: string; indicator: string; frequency: string; unit: string; revisionUnit: string | null; source: { name: string; dataset: string; url: string }; definitions: string[]; statuses: Record<string,number>; samples: { model_family: string; sample_start: string | null; sample_end: string | null; status: string | null }[]; checked: string | null; sourceUpdated: string | null; vintage: string[]; methods: string[]; crossCountry?: boolean; mapping?: string };
+export type ProvenanceSeries = { dataset: string; pending?: AnnualPendingEvidence[]; version: string | null; recordDates: { date: string; periods: string[] }[]; country: string; indicator: string; frequency: string; unit: string; revisionUnit: string | null; source: { name: string; dataset: string; url: string }; definitions: string[]; statuses: Record<string,number>; samples: { model_family: string; sample_start: string | null; sample_end: string | null; status: string | null }[]; checked: string | null; sourceUpdated: string | null; vintage: string[]; methods: string[]; crossCountry?: boolean; mapping?: string };
 export type RefreshManifest = { runs: PublicRefresh[]; series: ProvenanceSeries[] };
 
 /** Only explicit matching approvals are public. No approval prose, paths, hashes or raw extracts leave the server. */

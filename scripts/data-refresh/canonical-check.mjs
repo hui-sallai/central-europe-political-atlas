@@ -159,6 +159,12 @@ fs.writeFileSync(path.join(runDir, "canonical_candidate_report.md"), md);
 if (args.includes("--write-summary")) {
   // Committed, reviewable record of the check (docs/) and a compact per-series summary for the interface (src/lib).
   fs.mkdirSync(path.join(root, "docs/data-refresh"), { recursive: true });
+  // Separately dated page-level evidence is not rechecked by an API replay. Preserve its original date and scope.
+  const previousReport = path.join(root, "docs/data-refresh/canonical_source_check.json");
+  if (fs.existsSync(previousReport)) {
+    const previous = readJson(previousReport);
+    if (Array.isArray(previous.dataset_page_checks)) report.dataset_page_checks = previous.dataset_page_checks;
+  }
   fs.writeFileSync(path.join(root, "docs/data-refresh/canonical_source_check.json"), `${JSON.stringify(report, null, 1)}\n`);
   const day = (value) => (value ? value.slice(0, 10) : null);
   const summary = {};
