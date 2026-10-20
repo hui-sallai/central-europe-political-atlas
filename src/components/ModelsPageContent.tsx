@@ -11,6 +11,8 @@ import { modelCards, modelOutputs } from "@/lib/modelFramework";
 import { platformStatus } from "@/lib/platformStatus";
 import { researchCountries, researchEvents, researchIndicators, researchObservations } from "@/lib/researchData";
 import { AnnualComparisonWorkbench } from "./AnnualComparisonWorkbench";
+import { ResearchComparisonWorkbench } from "./ResearchComparisonWorkbench";
+import { monthlyComparisonData } from "@/lib/monthlyComparisonData.server";
 import { KickerVersion } from "@/components/KickerVersion";
 
 
@@ -83,11 +85,11 @@ export function ModelsPageContent() {
             <header className="max-w-4xl border-b border-[var(--line)] pb-6">
               <p className="editorial-kicker">指标与综合指数比较</p>
               <h2 id="cross-country-comparison-title" className="mt-3 text-3xl font-semibold">指标与综合指数比较</h2>
-              <p className="mt-4 text-base leading-8 text-[var(--muted)]">这里只比较同年份、同定义、同单位的年度指标与综合指数。LP 跨国响应仅可描述性并列，不进入排名；VAR、面板及网络结果不接入此矩阵。不同年份的结果不会进入同一排名；未通过比较门控的国家单独列出并说明原因。</p>
+              <p className="mt-4 text-base leading-8 text-[var(--muted)]">年度与月度观测分别比较。以下年度矩阵只比较同年份、同定义、同单位的年度指标与综合指数。LP 跨国响应仅可描述性并列，不进入排名；VAR、面板及网络结果不接入此矩阵。不同年份的结果不会进入同一排名；未通过比较门控的国家单独列出并说明原因。</p>
             </header>
-            <AnnualComparisonWorkbench countries={researchCountries} indicators={researchIndicators.filter(i => i.frequency === "annual")} observations={researchObservations} />
+            <ResearchComparisonWorkbench countries={researchCountries} payload={monthlyComparisonData()} annual={<><AnnualComparisonWorkbench countries={researchCountries} indicators={researchIndicators.filter(i => i.frequency === "annual")} observations={researchObservations} />
             <ModelComparisonBoard comparisons={comparisons} />
-            <CountryComparisonMatrix data={matrixData} />
+            <CountryComparisonMatrix data={matrixData} /></>} />
           </section>
           }
         />

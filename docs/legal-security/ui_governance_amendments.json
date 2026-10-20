@@ -1208,6 +1208,50 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-20"
+    },
+    {
+      "amendment_id": "multi-country-monthly-comparison-2026-10-20",
+      "status": "owner_approved",
+      "approved_by": "owner focused implementation brief 2026-10-20: existing published monthly comparison, no acquisition, data, model or version changes",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/MonthlyComparisonWorkbench.tsx",
+          "sha256": "5f2247017a2ed0267026e3b97a3555e0ee5c166d149002c8328ecbac612d30b3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ResearchComparisonWorkbench.tsx",
+          "sha256": "79c6621f58ba9f159c10ed17ac78b7136514e731407c7a35ffa9717c4eef87b4",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/monthlyComparison.ts",
+          "sha256": "934adff4e55a4170303362e45bddeddd987ccfeeca7e06a489425a9daf638b2f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/monthlyComparisonData.server.ts",
+          "sha256": "49b6c42d3508a0e564c48d5d89719f872008edce1242cfca44c425db916238d6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ModelsPageContent.tsx",
+          "sha256": "14bfb728b7b3d8f294ef491152387ecc7f35206808cc9d29140c3ceee5ff3004",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/DataExplorerV11.tsx",
+          "sha256": "203638f88ad6bbe6f63d0ca6b9c40ae896d9997f835d1ce90ee2687d0d758fcd",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-20"
     }
   ]
 }
