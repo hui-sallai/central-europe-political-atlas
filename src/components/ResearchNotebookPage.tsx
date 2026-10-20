@@ -6,6 +6,7 @@ import { localeNumber, localizedRoute } from "@/i18n/config";
 import { notebookMessages } from "@/content/notebookMessages";
 import { notebookLimits, notebookTypes, parseNotebook, type EvidenceType, type NotebookItem } from "@/lib/researchNotebook";
 import { useResearchNotebook } from "./ResearchNotebookProvider";
+import { NotebookEvidenceBrief } from "./NotebookEvidenceBrief";
 const groups: { label: "dataGroup" | "eventGroup" | "regionGroup" | "methodGroup" | "workspaceGroup" | "sourceGroup"; types: EvidenceType[] }[] = [
   { label: "dataGroup", types: ["observation", "series_view", "country_comparison"] }, { label: "eventGroup", types: ["event"] }, { label: "regionGroup", types: ["regional_view", "map_view"] }, { label: "methodGroup", types: ["method"] }, { label: "workspaceGroup", types: ["workspace"] }, { label: "sourceGroup", types: ["source"] },
 ];
@@ -56,5 +57,6 @@ export function ResearchNotebookPage() {
     <section className="mt-10" aria-labelledby="notebook-methods"><h2 id="notebook-methods" className="text-2xl font-semibold">{m.methods}</h2><p className="mt-3 text-sm">{m.boundary}</p><ul className="mt-3 space-y-2 text-sm">{notebook?.methodology_warnings.map((w,i) => <li key={i}><span {...(/[\u3400-\u9fff]/.test(w) ? { lang: "zh-CN", "data-original-language": "zh-CN" } : {})}>{w}</span></li>)}</ul></section>
     <section className="mt-10" aria-labelledby="notebook-notes"><h2 id="notebook-notes" className="text-2xl font-semibold">{m.notes}</h2><label className="mt-3 block text-sm">{m.itemNote}<textarea className="field-control mt-2 min-h-32" disabled={disabled} maxLength={10000} value={notebook?.user_notes ?? ""} onChange={e => update(n => ({ ...n, user_notes: e.target.value }))} /></label></section>
     <section className="mt-10" aria-labelledby="notebook-export"><h2 id="notebook-export" className="text-2xl font-semibold">{m.export}</h2><p className="mt-3 text-xs leading-6 text-[var(--muted)]">{m.limits}</p><div className="mt-4 flex flex-wrap items-center gap-4"><button type="button" className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm text-[var(--accent)]" disabled={disabled || !notebook} onClick={() => void exportFile()}>{m.exportButton}</button><label className="text-sm">{m.import}<input type="file" accept=".json,application/json" className="mt-2 block max-w-full text-xs" onChange={e => { void importFile(e.target.files?.[0]); e.target.value = ""; }} /></label><button type="button" className="text-sm text-[var(--accent)]" onClick={() => { if (window.confirm(m.confirmClear)) clear(); }}>{m.clear}</button></div></section>
+    {notebook && notebook.items.length > 0 ? <NotebookEvidenceBrief key={notebook.notebook_id} notebook={notebook} locale={locale} disabled={disabled} /> : null}
   </main>;
 }
