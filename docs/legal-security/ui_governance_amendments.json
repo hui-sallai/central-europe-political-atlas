@@ -1125,6 +1125,55 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-19"
+    },
+    {
+      "amendment_id": "data-explorer-refresh-provenance-2026-10-20",
+      "status": "owner_approved",
+      "approved_by": "owner implementation brief 2026-10-20: Data Explorer refresh history and provenance transparency; no data or model changes",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/app/(zh)/data/page.tsx",
+          "sha256": "f86388c1e538d0e5630c49b80f297047a2dad91fd688f96ace0e58c41f681501",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/data/page.tsx",
+          "sha256": "5b7e1dcecd2ddaac5db8aea6c7805a29e40b8507a1fcf2a62a4010bb5c691f02",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/DataExplorerV11.tsx",
+          "sha256": "6455ff576a74ae154a014dcc28107d02465217c02a8c0ad76dd0873cd295b608",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/SerbiaSorsMonthlyPanel.tsx",
+          "sha256": "dc88d4b0418cc175dcdc285bb941da63aa837a9cad57262b00459399359a4b73",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/DataRefreshTransparency.tsx",
+          "sha256": "41dbf2c3ae0d06b28892c19e51808951663bd6751c6116bed75de3f23c3edd71",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/refreshProvenance.ts",
+          "sha256": "5549c45bd006c9b2d9cdc36aff0bb6b58b0ffe1e0d0670dc260165beeb709e22",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/refreshProvenance.server.ts",
+          "sha256": "11fa47419c63558ac508525f5914c84849fa1dbb5b54c33be3cd566c4a5f6fac",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-20"
     }
   ]
 }

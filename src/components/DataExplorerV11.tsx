@@ -18,6 +18,8 @@ import { formatNumber } from "@/lib/format";
 import { ResearchSnapshotExport } from "@/components/ResearchSnapshotExport";
 import { currentSnapshotUrl, sourceInstitution } from "@/lib/researchSnapshot";
 import { NotebookCollect } from "./NotebookCollect";
+import { RefreshHistory,ObservationProvenance } from "./DataRefreshTransparency";
+import type { RefreshManifest } from "@/lib/refreshProvenance";
 
 const MOBILE_CARD_LIMIT = 120;
 
@@ -53,7 +55,7 @@ function downloadCsv(filename: string, headers: string[], rows: unknown[][]) {
   URL.revokeObjectURL(url);
 }
 
-function HighFrequencyDataView({ countries }: { countries: Country[] }) {
+function HighFrequencyDataView({ countries,refreshManifest }: { countries: Country[];refreshManifest?:RefreshManifest }) {
   const locale = useLocale();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [records, setRecords] = useState<HfRuntimeRow[]>([]);
@@ -139,9 +141,10 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
       </div>
 
       {historySeries.length ? <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-[var(--line)] py-4 text-sm" data-history-layer="high-frequency"><label className="flex items-center gap-2 font-semibold"><input type="checkbox" checked={includeHistory} onChange={(event) => setIncludeHistory(event.target.checked)} /> 包含历史描述性数据（{historySeries[0][2]} – {historySeries.at(-1)![2]}）</label><span className="text-xs text-[var(--muted)]">历史段仅供描述研究，从定义一致的官方起点开始；正式高频模型基线仍为 2015 年起的冻结序列。</span></div> : monthlyHistory.state === "ready" && formalSeries.length ? <p className="border-b border-[var(--line)] py-3 text-xs text-[var(--muted)]">该国家与指标暂无安全的历史描述性回填（定义断点需方法复核）。</p> : null}
+      {refreshManifest?<><RefreshHistory manifest={refreshManifest}/><ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:r[2],value:r[4],unit:r[6],status:r[11],dataset:isHistory(r)?"monthly_history":"high_frequency",indicator:r[3]}))}/></>:null}
       {loadState === "ready" && series.length ? (
         <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]" data-coverage-summary="high-frequency">
-          <ResearchTimeSeriesChart title={`${countryMap.get(countrySlug)?.name_zh ?? countrySlug} · ${hfIndicatorLabels[indicator] ?? indicator}`} series={[{ id: "hf", label: "正式观测（2015 起，模型冻结基线）", color: "var(--chart-accent)", points: chartPoints }, ...(historyPoints.length ? [{ id: "history", label: "历史描述性（2000 起，不进入模型）", color: "var(--chart-muted)", dash: "6 4", points: historyPoints }] : [])]} xKind="month" xLabel="月份" legend={historyPoints.length > 0} yLabel={(() => { const unit = series.find((row) => row[4] !== null)?.[6] ?? ""; return hfUnitLabels[unit] ? `${hfUnitLabels[unit]} · ${unit}` : unit; })()} latestMarker height={260} />
+          <ResearchTimeSeriesChart title={`${countryMap.get(countrySlug)?.name_zh ?? countrySlug} · ${hfIndicatorLabels[indicator] ?? indicator}`} series={[{ id: "hf", label: locale === "en" ? "Current published observations (not frozen model inputs)" : "当前发布观测（非冻结模型输入）", color: "var(--chart-accent)", points: chartPoints }, ...(historyPoints.length ? [{ id: "history", label: "历史描述性（2000 起，不进入模型）", color: "var(--chart-muted)", dash: "6 4", points: historyPoints }] : [])]} xKind="month" xLabel="月份" legend={historyPoints.length > 0} yLabel={(() => { const unit = series.find((row) => row[4] !== null)?.[6] ?? ""; return hfUnitLabels[unit] ? `${hfUnitLabels[unit]} · ${unit}` : unit; })()} latestMarker height={260} />
           <dl className="editorial-panel grid content-start gap-3 p-4 text-sm">
             <div><dt className="text-xs text-[var(--muted)]">覆盖范围</dt><dd className="metric-number font-semibold">{coverage.earliest ?? "—"} → {coverage.latest ?? "—"}</dd></div>
             <div><dt className="text-xs text-[var(--muted)]">可用月份</dt><dd className="metric-number font-semibold">{coverage.available}</dd></div>
@@ -207,12 +210,12 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
       ) : null}
 
       {loadState === "ready" && !rows.length ? <p className="mt-5 border-y border-[var(--line)] py-8 text-center text-sm text-[var(--muted)]">当前筛选条件没有观测值；缺失月份不会显示为 0。</p> : null}
-      {countrySlug === "serbia" ? <SerbiaSorsMonthlyPanel basePath={basePath} /> : null}
+      {countrySlug === "serbia" ? <SerbiaSorsMonthlyPanel basePath={basePath} refreshManifest={refreshManifest} /> : null}
     </div>}</LocalizedContent>
   );
 }
 
-// Rows shown in the annual view: formal observations (model inputs) and the Phase G descriptive history.
+// Published annual observations and descriptive history; model membership is governed by frozen registries.
 type AnnualRow = { id: string; country_slug: string; indicator: string; year: number; value: number | null; unit: string; status: string; source_name: string; source_url: string; reliability: string; updated_at: string; layer: "formal" | "history" | "sors"; cross_country_comparable?: boolean; source_code?: string; original_unit?: string | null; original_value?: number; comparable_within_segment?: boolean };
 type HistoryRuntime = { sources: { dataset: string; url: string }[]; records: [string, string, number, number, string, string, number][] };
 
@@ -235,7 +238,7 @@ export function coverageOf(periods: { period: number; value: number | null }[]) 
   return { earliest: observed[0], latest: observed.at(-1)!, available: observed.length, missing };
 }
 
-export function DataExplorerV11({ countries, indicators, observations }: { countries: Country[]; indicators: Indicator[]; observations: Observation[] }) {
+export function DataExplorerV11({ countries, indicators, observations,refreshManifest }: { countries: Country[]; indicators: Indicator[]; observations: Observation[];refreshManifest?:RefreshManifest }) {
   const locale = useLocale();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [dataset, setDataset] = useState<"annual" | "high_frequency" | "macro_drivers">("annual");
@@ -374,7 +377,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
         ))}
       </div>
 
-      {dataset === "high_frequency" ? <HighFrequencyDataView countries={countries} /> : dataset === "macro_drivers" ? <MacroDriverWorkbench countries={countries} compact /> : (
+      {dataset === "high_frequency" ? <HighFrequencyDataView countries={countries} refreshManifest={refreshManifest} /> : dataset === "macro_drivers" ? <MacroDriverWorkbench countries={countries} compact /> : (
         <>
       <div className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2 xl:grid-cols-4">
         <label className="text-xs font-semibold text-[var(--muted)]">国家
@@ -405,6 +408,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
         <span className="text-xs text-[var(--muted)]">{historyState === "loading" ? "正在加载历史数据…" : historyState === "error" ? "历史数据不可用，仅显示正式观测" : "历史描述性数据仅供描述研究，不进入任何模型、指数或情景计算。"}</span>
       </div>
 
+      {indicatorId!=="all"?<>{refreshManifest?<RefreshHistory manifest={refreshManifest}/>:null}{refreshManifest?<ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:String(r.year),value:r.value,unit:r.unit,status:r.status,dataset:r.layer==="sors"?"serbia_sors_annual":r.layer==="history"?"annual_history":"annual_observations",indicator:r.source_code??r.indicator,updated:r.updated_at,original:r.original_value,originalUnit:r.original_unit}))}/>:null}</>:null}
       {selectedCoverage ? (
         <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]" data-coverage-summary="indicator">
           <ResearchTimeSeriesChart
@@ -428,6 +432,8 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
       ) : (
         <details className="mt-5 editorial-panel p-4" data-coverage-summary="all">
           <summary className="cursor-pointer text-sm font-semibold">覆盖概览：{coverage.length} 个指标（选择单个指标可查看完整时间序列）</summary>
+          {refreshManifest?<RefreshHistory manifest={refreshManifest}/>:null}
+      {refreshManifest?<ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:String(r.year),value:r.value,unit:r.unit,status:r.status,dataset:r.layer==="sors"?"serbia_sors_annual":r.layer==="history"?"annual_history":"annual_observations",indicator:r.source_code??r.indicator,updated:r.updated_at,original:r.original_value,originalUnit:r.original_unit}))}/>:null}
           <div className="data-table-viewport mt-3" tabIndex={0} role="region" aria-label="指标覆盖概览（可滚动）">
             <table className="research-data-table w-full min-w-[640px] text-left text-sm">
               <thead><tr>{["指标", "最早 → 最新", "可用年份", "缺失年份", "数据层"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead>

@@ -6,12 +6,14 @@ import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
 import { sorsSeriesLabels, useSerbiaSors } from "@/components/useSerbiaSors";
 import { ResearchSnapshotExport } from "@/components/ResearchSnapshotExport";
 import { currentSnapshotUrl } from "@/lib/researchSnapshot";
+import { ObservationProvenance } from "./DataRefreshTransparency";
+import type { RefreshManifest } from "@/lib/refreshProvenance";
 
 // Serbia-only monthly / quarterly official statistics (SORS). Shown separately from the frozen 2015+ HF series: none of
 // these series enter any model, and the national CPI is never presented as HICP.
 const quarterToMonth = (period: string) => period.replace(/-Q(\d)$/, (_, q: string) => `-${String(Number(q) * 3).padStart(2, "0")}`);
 
-export function SerbiaSorsMonthlyPanel({ basePath }: { basePath: string }) {
+export function SerbiaSorsMonthlyPanel({ basePath,refreshManifest }: { basePath: string;refreshManifest?:RefreshManifest }) {
   const sors = useSerbiaSors(basePath, true);
   const monthly = (sors.series ?? []).filter((item) => item.store === "monthly");
   const [key, setKey] = useState("industrial_production_index");
@@ -42,6 +44,7 @@ export function SerbiaSorsMonthlyPanel({ basePath }: { basePath: string }) {
           <select className="field-control mt-2" value={selected.key} onChange={(event) => setKey(event.target.value)}>{monthly.map((item) => <option key={item.key} value={item.key}>{sorsSeriesLabels[item.key] ?? item.label}</option>)}</select>
         </label>
       </div>
+      {refreshManifest?<ObservationProvenance manifest={refreshManifest} country="serbia" rows={[...selected.points].reverse().map(p=>({period:p[0],value:p[1],unit:selected.unit??"",status:selected.status_legend[p[3]]??p[3],dataset:"serbia_sors_monthly",indicator:selected.key,original:p[2],originalUnit:selected.original_unit}))}/>:null}
       <div className="mt-4"><ResearchSnapshotExport chart disabled={!sors.snapshotReady} create={() => ({
         title: `塞尔维亚 · ${selected.label}`, view_type: "serbia_sors", page_path: "/data/", shareable_view_url: currentSnapshotUrl("/data/", { tab: "high_frequency", country: "serbia", sors_series: selected.key }), countries: ["serbia"], indicators: [selected.display_indicator], filters: { country: "serbia", sors_series: selected.key, sort: "period_desc", frequency: quarterly ? "quarterly" : "monthly" }, comparability_status: selected.cross_country_comparable ? "registered_comparable_within_segments" : "serbia_only_not_cross_country_comparable",
         limitations: ["SORS 原始单位与标准化单位分别保留；CPI 不等同于 HICP；断点状态不跨段拼接。", ...(quarterly ? ["CSV 保留原始季度标签；图形横轴将季度映射到季末月份，不是月度观测。"] : [])],
