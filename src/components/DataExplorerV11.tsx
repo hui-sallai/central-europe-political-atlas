@@ -4,7 +4,7 @@ import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { englishText } from "@/i18n/reviewedText";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import type { Country, Indicator, Observation } from "@/types/researchData";
 import { getResearchPackageFilename } from "@/lib/releaseMetadata";
 import { MacroDriverWorkbench } from "@/components/MacroDriverWorkbench";
@@ -86,7 +86,7 @@ function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { 
     window.addEventListener("popstate", restore);
     return () => { window.clearTimeout(timer); window.removeEventListener("popstate", restore); };
   }, [countries]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!urlReady) return;
     const url = new URL(window.location.href);
     if (url.searchParams.get("tab") !== "high_frequency") return;
@@ -126,7 +126,7 @@ function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { 
 
   return (
     <LocalizedContent>{<div className="mt-5" data-snapshot-scope="high-frequency">
-      <div className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2 xl:grid-cols-4">
+      <fieldset disabled={!urlReady} className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2 xl:grid-cols-4">
         <label className="text-xs font-semibold text-[var(--muted)]">国家
           <select className="field-control mt-2" value={countrySlug} onChange={(event) => setCountrySlug(event.target.value)}>{!countries.some(c => c.slug === countrySlug) ? <option value={countrySlug} disabled>{locale === "en" ? "Unavailable reporting country" : "不可用报告国"}: {countrySlug}</option> : null}{countries.map((country) => <option key={country.slug} value={country.slug}>{locale === "en" ? country.name : `${country.name_zh} / ${country.name}`}</option>)}</select>
         </label>
@@ -144,7 +144,7 @@ function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { 
         <label className="text-xs font-semibold text-[var(--muted)]">排序
           <select className="field-control mt-2" value={sortDirection} onChange={(event) => setSortDirection(event.target.value as "desc" | "asc")}><option value="desc">月份：新 → 旧</option><option value="asc">月份：旧 → 新</option></select>
         </label>
-      </div>
+      </fieldset>
 
       <MonthlyComparisonHandoff countries={countries} country={countrySlug} indicator={indicator} fromYear={yearFrom} toYear={yearTo} coverage={monthlyCoverage} ready={urlReady && loadState === "ready"} />
       {historySeries.length ? <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-[var(--line)] py-4 text-sm" data-history-layer="high-frequency"><label className="flex items-center gap-2 font-semibold"><input type="checkbox" checked={includeHistory} onChange={(event) => setIncludeHistory(event.target.checked)} /> 包含历史描述性数据（{historySeries[0][2]} – {historySeries.at(-1)![2]}）</label><span className="text-xs text-[var(--muted)]">历史段仅供描述研究，从定义一致的官方起点开始；正式高频模型基线仍为 2015 年起的冻结序列。</span></div> : monthlyHistory.state === "ready" && formalSeries.length ? <p className="border-b border-[var(--line)] py-3 text-xs text-[var(--muted)]">该国家与指标暂无安全的历史描述性回填（定义断点需方法复核）。</p> : null}

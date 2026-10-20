@@ -25,16 +25,30 @@ for (const prefix of ['', '/en']) {
         await expect(scope.getByRole('combobox', { name: en ? 'Indicator' : '指标', exact: true })).toHaveValue('hicp_monthly_index');
     });
     test(`tab history restores annual and high-frequency selections on back and forward ${prefix || 'zh'}`, async ({ page }) => {
+        // Delay initial URL restoration to exercise interaction before hydration settles.
+        await page.addInitScript(() => {
+            const schedule = window.setTimeout.bind(window);
+            Object.defineProperty(window, 'setTimeout', {
+                value: (handler: TimerHandler, timeout?: number, ...args: unknown[]) => schedule(handler, timeout === 0 ? 100 : timeout, ...args),
+                configurable: true,
+                writable: true,
+            });
+        });
         await page.goto(`${prefix}/data/?tab=annual&country=germany&indicator=real_gdp_growth&from=2021&to=2021`, { waitUntil: 'networkidle' });
         await expect(page.getByRole('tab', { name: annualName, exact: true })).toHaveAttribute('aria-selected', 'true');
         await page.getByRole('tab', { name: hfName, exact: true }).click();
         const scope = page.locator('[data-snapshot-scope="high-frequency"]');
         await expect(scope).toBeVisible();
         await scope.getByRole('combobox', { name: en ? 'Country' : '国家', exact: true }).selectOption('austria');
+        await expect(page).toHaveURL(/country=austria/);
         await scope.getByRole('combobox', { name: en ? 'Indicator' : '指标', exact: true }).selectOption('industrial_production_index');
         await scope.getByRole('combobox', { name: en ? 'Start year' : '起始年份', exact: true }).selectOption('2025');
         await scope.getByRole('combobox', { name: en ? 'End year' : '结束年份', exact: true }).selectOption('2026');
         await expect(page).toHaveURL(/tab=high_frequency/);
+        expect(new URL(page.url()).searchParams.get('country')).toBe('austria');
+        expect(new URL(page.url()).searchParams.get('indicator')).toBe('industrial_production_index');
+        expect(new URL(page.url()).searchParams.get('from')).toBe('2025');
+        expect(new URL(page.url()).searchParams.get('to')).toBe('2026');
         await page.getByRole('tab', { name: macroName, exact: true }).click();
         await expect(page).toHaveURL(/tab=macro_drivers/);
         await page.goBack();
