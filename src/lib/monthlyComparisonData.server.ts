@@ -1,6 +1,7 @@
 import data from "@/data/high-frequency/high_frequency_observations.json";
 import registry from "@/data/high-frequency/high_frequency_definition_registry.json";
-import { monthlyIndicators, type MonthlyPayload, type MonthlySource } from "./monthlyComparison";
+import { monthlyEligible, monthlyIndicators, type MonthlyPayload, type MonthlySource } from "./monthlyComparison";
+import type { MonthlyComparisonCoverage } from "./monthlyComparisonHandoff";
 
 // A compact presentation projection of canonical records, not a second registry or acquisition pipeline.
 export function monthlyComparisonData(): MonthlyPayload {
@@ -15,4 +16,14 @@ export function monthlyComparisonData(): MonthlyPayload {
     rows.push([r.observation_id, r.country, r.indicator, r.period, r.value, r.data_status, index]);
   }
   return { schema: data.schema_version, sources, rows };
+}
+
+export function monthlyComparisonCoverage(): MonthlyComparisonCoverage {
+  const payload = monthlyComparisonData(), coverage: MonthlyComparisonCoverage = {};
+  for (const row of payload.rows) {
+    if (!monthlyEligible(row, payload)) continue;
+    const country = coverage[row[1]] ??= {};
+    (country[row[2]] ??= []).push(row[3]);
+  }
+  return coverage;
 }

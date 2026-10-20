@@ -20,6 +20,8 @@ import { currentSnapshotUrl, sourceInstitution } from "@/lib/researchSnapshot";
 import { NotebookCollect } from "./NotebookCollect";
 import { RefreshHistory,ObservationProvenance } from "./DataRefreshTransparency";
 import type { RefreshManifest } from "@/lib/refreshProvenance";
+import type { MonthlyComparisonCoverage } from "@/lib/monthlyComparisonHandoff";
+import { MonthlyComparisonHandoff } from "./MonthlyComparisonHandoff";
 
 const MOBILE_CARD_LIMIT = 120;
 
@@ -55,7 +57,7 @@ function downloadCsv(filename: string, headers: string[], rows: unknown[][]) {
   URL.revokeObjectURL(url);
 }
 
-function HighFrequencyDataView({ countries,refreshManifest }: { countries: Country[];refreshManifest?:RefreshManifest }) {
+function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { countries: Country[];refreshManifest?:RefreshManifest;monthlyCoverage:MonthlyComparisonCoverage }) {
   const locale = useLocale();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [records, setRecords] = useState<HfRuntimeRow[]>([]);
@@ -71,10 +73,10 @@ function HighFrequencyDataView({ countries,refreshManifest }: { countries: Count
   useEffect(() => {
     const timer = window.setTimeout(() => {
       const params = new URLSearchParams(window.location.search);
-      if (countries.some((item) => item.slug === params.get("country"))) setCountrySlug(params.get("country")!);
-      if (params.get("indicator")! in hfIndicatorLabels) setIndicator(params.get("indicator")!);
-      if (/^\d{4}$/.test(params.get("from") ?? "")) setYearFrom(params.get("from")!);
-      if (/^\d{4}$/.test(params.get("to") ?? "")) setYearTo(params.get("to")!);
+      if (params.has("country")) setCountrySlug(params.get("country")!);
+      if (params.has("indicator")) setIndicator(params.get("indicator")!);
+      if (params.has("from")) setYearFrom(params.get("from")!);
+      if (params.has("to")) setYearTo(params.get("to")!);
       if (params.get("sort") === "asc") setSortDirection("asc");
       if (params.get("history") === "0") setIncludeHistory(false);
       setUrlReady(true);
@@ -122,17 +124,17 @@ function HighFrequencyDataView({ countries,refreshManifest }: { countries: Count
     <LocalizedContent>{<div className="mt-5" data-snapshot-scope="high-frequency">
       <div className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2 xl:grid-cols-4">
         <label className="text-xs font-semibold text-[var(--muted)]">国家
-          <select className="field-control mt-2" value={countrySlug} onChange={(event) => setCountrySlug(event.target.value)}>{countries.map((country) => <option key={country.slug} value={country.slug}>{locale === "en" ? country.name : `${country.name_zh} / ${country.name}`}</option>)}</select>
+          <select className="field-control mt-2" value={countrySlug} onChange={(event) => setCountrySlug(event.target.value)}>{!countries.some(c => c.slug === countrySlug) ? <option value={countrySlug} disabled>{locale === "en" ? "Unavailable reporting country" : "不可用报告国"}: {countrySlug}</option> : null}{countries.map((country) => <option key={country.slug} value={country.slug}>{locale === "en" ? country.name : `${country.name_zh} / ${country.name}`}</option>)}</select>
         </label>
         <label className="text-xs font-semibold text-[var(--muted)]">指标
-          <select className="field-control mt-2" value={indicator} onChange={(event) => setIndicator(event.target.value)}>{Object.entries(hfIndicatorLabels).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>
+          <select className="field-control mt-2" value={indicator} onChange={(event) => setIndicator(event.target.value)}>{!Object.hasOwn(hfIndicatorLabels, indicator) ? <option value={indicator} disabled>{locale === "en" ? "Unavailable source indicator" : "不可用来源指标"}: {indicator}</option> : null}{Object.entries(hfIndicatorLabels).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>
         </label>
         <div className="grid grid-cols-2 gap-2">
           <label className="text-xs font-semibold text-[var(--muted)]">起始年份
-            <select className="field-control mt-2" value={yearFrom} onChange={(event) => setYearFrom(event.target.value)}><option value="all">最早</option>{years.map((item) => <option key={item} value={item}>{item}</option>)}</select>
+            <select className="field-control mt-2" value={yearFrom} onChange={(event) => setYearFrom(event.target.value)}><option value="all">最早</option>{yearFrom !== "all" && !years.includes(Number(yearFrom)) ? <option value={yearFrom} disabled>{locale === "en" ? "Requested year" : "请求年份"}: {yearFrom}</option> : null}{years.map((item) => <option key={item} value={item}>{item}</option>)}</select>
           </label>
           <label className="text-xs font-semibold text-[var(--muted)]">结束年份
-            <select className="field-control mt-2" value={yearTo} onChange={(event) => setYearTo(event.target.value)}><option value="all">最新</option>{years.map((item) => <option key={item} value={item}>{item}</option>)}</select>
+            <select className="field-control mt-2" value={yearTo} onChange={(event) => setYearTo(event.target.value)}><option value="all">最新</option>{yearTo !== "all" && !years.includes(Number(yearTo)) ? <option value={yearTo} disabled>{locale === "en" ? "Requested year" : "请求年份"}: {yearTo}</option> : null}{years.map((item) => <option key={item} value={item}>{item}</option>)}</select>
           </label>
         </div>
         <label className="text-xs font-semibold text-[var(--muted)]">排序
@@ -140,7 +142,7 @@ function HighFrequencyDataView({ countries,refreshManifest }: { countries: Count
         </label>
       </div>
 
-      <p className="border-b border-[var(--line)] py-4"><a data-monthly-entry className="font-semibold underline" href={`${locale === "en" ? "/en" : ""}/models/?${new URLSearchParams({tab:"compare",compare_frequency:"monthly",monthly_countries:[countrySlug,...countries.map(c=>c.slug).filter(c=>c!==countrySlug).slice(0,1)].join(","),monthly_indicator:indicator,...(yearFrom!=="all"?{monthly_from:`${yearFrom}-01`}:{}),...(yearTo!=="all"?{monthly_to:`${yearTo}-12`}:{})}).toString()}`}>{locale === "en" ? "Compare Monthly Indicators" : "比较多个国家的月度指标"}</a></p>
+      <MonthlyComparisonHandoff countries={countries} country={countrySlug} indicator={indicator} fromYear={yearFrom} toYear={yearTo} coverage={monthlyCoverage} ready={urlReady && loadState === "ready"} />
       {historySeries.length ? <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-[var(--line)] py-4 text-sm" data-history-layer="high-frequency"><label className="flex items-center gap-2 font-semibold"><input type="checkbox" checked={includeHistory} onChange={(event) => setIncludeHistory(event.target.checked)} /> 包含历史描述性数据（{historySeries[0][2]} – {historySeries.at(-1)![2]}）</label><span className="text-xs text-[var(--muted)]">历史段仅供描述研究，从定义一致的官方起点开始；正式高频模型基线仍为 2015 年起的冻结序列。</span></div> : monthlyHistory.state === "ready" && formalSeries.length ? <p className="border-b border-[var(--line)] py-3 text-xs text-[var(--muted)]">该国家与指标暂无安全的历史描述性回填（定义断点需方法复核）。</p> : null}
       {refreshManifest?<><RefreshHistory manifest={refreshManifest}/><ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:r[2],value:r[4],unit:r[6],status:r[11],dataset:isHistory(r)?"monthly_history":"high_frequency",indicator:r[3]}))}/></>:null}
       {loadState === "ready" && series.length ? (
@@ -239,7 +241,7 @@ export function coverageOf(periods: { period: number; value: number | null }[]) 
   return { earliest: observed[0], latest: observed.at(-1)!, available: observed.length, missing };
 }
 
-export function DataExplorerV11({ countries, indicators, observations,refreshManifest }: { countries: Country[]; indicators: Indicator[]; observations: Observation[];refreshManifest?:RefreshManifest }) {
+export function DataExplorerV11({ countries, indicators, observations,refreshManifest,monthlyCoverage = {} }: { countries: Country[]; indicators: Indicator[]; observations: Observation[];refreshManifest?:RefreshManifest;monthlyCoverage?:MonthlyComparisonCoverage }) {
   const locale = useLocale();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [dataset, setDataset] = useState<"annual" | "high_frequency" | "macro_drivers">("annual");
@@ -378,7 +380,7 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
         ))}
       </div>
 
-      {dataset === "high_frequency" ? <HighFrequencyDataView countries={countries} refreshManifest={refreshManifest} /> : dataset === "macro_drivers" ? <MacroDriverWorkbench countries={countries} compact /> : (
+      {dataset === "high_frequency" ? <HighFrequencyDataView countries={countries} refreshManifest={refreshManifest} monthlyCoverage={monthlyCoverage} /> : dataset === "macro_drivers" ? <MacroDriverWorkbench countries={countries} compact /> : (
         <>
       <div className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2 xl:grid-cols-4">
         <label className="text-xs font-semibold text-[var(--muted)]">国家
