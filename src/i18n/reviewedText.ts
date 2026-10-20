@@ -8,6 +8,7 @@ import { varText } from "./varText";
 import { networkEventText } from "./networkEventText";
 import { regionIndicatorRecords } from "@/lib/regionIndicators";
 export const reviewedText: Record<string, string> = {
+  "当前发布档案中没有匹配的已核验事件。": "No matching verified events in the currently published archive.",
   "居民经济压力指数": "Household Economic Pressure Index", "财政压力指数": "Fiscal Pressure Index",
   "外部脆弱性指数": "External Vulnerability Index", "产业依赖指数": "Industrial Dependency Index",
   "分析方法": "Analysis method", "1 设置": "1 Configure", "2 运行": "2 Run", "3 查看结果": "3 Review results", "4 导出": "4 Export",

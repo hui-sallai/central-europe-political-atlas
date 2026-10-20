@@ -5,6 +5,7 @@ import { useLocale } from "@/i18n/LocaleProvider";
 import { monthlyIndicators, monthlyRows, monthlyReference, monthlyValid, monthlyUrl, monthlyCsv, monthlyEvidence, restoreMonthlySession, monthNumber, monthPeriod, type MonthlyPayload, type MonthlySession } from "@/lib/monthlyComparison";
 import { ResearchTimeSeriesChart } from "./ResearchTimeSeriesChart";
 import { NotebookCollect } from "./NotebookCollect";
+import { MonthlyEventContext } from "./MonthlyEventContext";
 
 type Country = { slug: string; name: string; name_zh: string };
 const colors = ["#a6453c", "#246a87", "#64803c", "#8753a1", "#b06d20"];
@@ -53,6 +54,7 @@ export function MonthlyComparisonWorkbench({ countries, payload }: { countries: 
       <a className="text-sm underline" data-monthly-link href={monthlyUrl(session, en)}>{t("打开月度研究链接", "Open monthly research link")}</a><span role="status">{message}</span>
     </div>
     <p className="mt-3 text-xs">{t("CSV仅含趋势期间内合格的实际已发布观测，不生成缺失行。Notebook保存配置与最多100条引用，不冻结数值或修订。", "CSV includes only eligible actual published observations within the trend period; absent rows are not generated. Notebook saves the configuration and up to 100 references, not frozen values or revisions.")}</p>
+    <MonthlyEventContext selected={session.countries} countries={countries} from={session.from} to={session.to} enabled={ready && valid} />
     <h4 className="mt-6 text-lg font-semibold">{t("参照月比较", "Reference-month comparison")} · {reference ?? "—"}</h4>
     <p className="mt-2 text-sm" data-monthly-reference>{session.mode === "partial" ? t("部分覆盖模式：所有国家仍使用同一月份；没有观测的国家保留缺失，不使用各国不同的最新月份。", "Partial-coverage mode: all countries still use one calendar month. Countries without observations remain unavailable; separate national latest months are not mixed.") : session.mode === "explicit" ? t("指定月份不会自动替换；超出趋势期间的观测不进入此表。", "Explicit months are never replaced; observations outside the trend period are excluded from this table.") : t("共同月份是所选期间内所有国家都有合格实际观测的最新月份。", "The common month is the latest month within the selected period with eligible actual observations for every selected country.")}</p>
     {!reference ? <p className="mt-3" role="status">{t("没有可用参照月：可能不存在共同合格月份，或指定月份/配置无效。请检查覆盖范围。", "No reference month: no common eligible month exists, or the explicit month/configuration is invalid. Check coverage.")}</p> : null}

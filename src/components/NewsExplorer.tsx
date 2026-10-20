@@ -209,7 +209,7 @@ export function NewsExplorer() {
         <div className="flex items-end justify-between gap-4 border-b border-[var(--line)] pb-4"><div><p className="editorial-kicker">Event Records</p><h2 className="mt-2 text-2xl font-semibold">正式事件</h2></div><p className="text-xs text-[var(--muted)]">按日期倒序</p></div>
         <div>{verifiedItems.slice(0, visibleCount).map((item) => <EventCard key={item.id} item={item} />)}</div>
         {visibleCount < verifiedItems.length ? <button type="button" className="mt-5 w-full border-y border-[var(--line)] py-3 text-sm font-semibold text-[var(--accent)]" onClick={() => setVisibleCount((count) => count + 30)}>加载更多事件</button> : null}
-        {!verifiedItems.length ? <p className="py-10 text-center text-sm text-[var(--muted)]">当前筛选条件没有正式事件。</p> : null}
+        {urlReady && !verifiedItems.length ? <p className="py-10 text-center text-sm text-[var(--muted)]" role="status" data-event-archive-empty>当前发布档案中没有匹配的已核验事件。</p> : null}
         {sampleCount ? <details className="advanced-disclosure mt-8"><summary>结构样例记录（默认隐藏，不进入分析）</summary><p className="mt-3 text-sm leading-6 text-[var(--muted)]">结构样例只保留在原始数据导出中，不进入公开事件流、模型或情景分数。</p></details> : null}
       </div>
     </section></LocalizedContent>

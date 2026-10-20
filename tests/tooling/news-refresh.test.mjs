@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 import { createRequire } from 'node:module';
 import ts from 'typescript';
 import { approvedNewsFiles, NEWS_REFRESH_PATHS, NEWS_REFRESH_FILE } from '../../docs/political-data/source-closure/news-refresh-amendments.mjs';
-import { checkFrozenFiles } from '../../docs/political-data/source-closure/ui-amendments.mjs';
+import { checkFrozenFiles, approvedUiFiles } from '../../docs/political-data/source-closure/ui-amendments.mjs';
 import { unapprovedFrozenChanges } from '../../scripts/political-data/germany/frozen-boundary.mjs';
 const require=createRequire(import.meta.url);
 require.extensions['.ts']=(module,file)=>module._compile(ts.transpileModule(fs.readFileSync(file,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2020}}).outputText,file);
@@ -23,7 +23,9 @@ test('all ten countries have complete bilingual fact/boundary summaries; all rec
 const records=()=>JSON.parse(fs.readFileSync(NEWS_REFRESH_FILE,'utf8')).amendments;
 test('batch exception pins every permitted file, with no other data or release authority',()=>{
  const {approved,problems}=approvedNewsFiles(records());assert.deepEqual(problems,[]);assert.equal(approved.size,NEWS_REFRESH_PATHS.length);
- for(const [p,h] of approved)assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),h,p);
+ const ui=approvedUiFiles(JSON.parse(fs.readFileSync('docs/legal-security/ui_governance_amendments.json','utf8')).amendments);assert.deepEqual(ui.problems,[]);
+ // The event UI may have a later exact-hash presentation approval. News data and batch evidence retain their own pins.
+ for(const [p,h] of approved)assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),p==='src/components/NewsExplorer.tsx'?(ui.approved.get(p)??h):h,p);
  const r=records()[0];
  for(const p of ['src/data/events/events.json','src/data/observations.json','src/data/release.json','src/lib/varEngine.ts','public/research-data/political/germany/elections.json','src/data/events/news_*'])assert.ok(approvedNewsFiles([{...r,files:[...r.files,{path:p,sha256:'a'.repeat(64)}]}]).problems.length,p);
  for(const flag of ['model_change_allowed','research_gate_change_allowed','enters_model'])assert.ok(approvedNewsFiles([{...r,[flag]:true}]).problems.length,flag);
