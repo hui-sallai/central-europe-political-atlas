@@ -71,21 +71,25 @@ function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { 
   const monthlyHistory = useMonthlyHistory(basePath);
   const [urlReady, setUrlReady] = useState(false);
   useEffect(() => {
-    const timer = window.setTimeout(() => {
+    const restore = () => {
       const params = new URLSearchParams(window.location.search);
-      if (params.has("country")) setCountrySlug(params.get("country")!);
-      if (params.has("indicator")) setIndicator(params.get("indicator")!);
-      if (params.has("from")) setYearFrom(params.get("from")!);
-      if (params.has("to")) setYearTo(params.get("to")!);
-      if (params.get("sort") === "asc") setSortDirection("asc");
-      if (params.get("history") === "0") setIncludeHistory(false);
+      if (params.get("tab") !== "high_frequency") return;
+      setCountrySlug(params.get("country") ?? "hungary");
+      setIndicator(params.get("indicator") ?? "hicp_annual_rate");
+      setYearFrom(params.get("from") ?? "all");
+      setYearTo(params.get("to") ?? "all");
+      setSortDirection(params.get("sort") === "asc" ? "asc" : "desc");
+      setIncludeHistory(params.get("history") !== "0");
       setUrlReady(true);
-    }, 0);
-    return () => window.clearTimeout(timer);
+    };
+    const timer = window.setTimeout(restore, 0);
+    window.addEventListener("popstate", restore);
+    return () => { window.clearTimeout(timer); window.removeEventListener("popstate", restore); };
   }, [countries]);
   useEffect(() => {
     if (!urlReady) return;
     const url = new URL(window.location.href);
+    if (url.searchParams.get("tab") !== "high_frequency") return;
     const sorsSeries = url.searchParams.get("sors_series");
     url.search = new URLSearchParams({ tab: "high_frequency", country: countrySlug, indicator, from: yearFrom, to: yearTo, sort: sortDirection, history: includeHistory ? "1" : "0" }).toString();
     if (sorsSeries && countrySlug === "serbia") url.searchParams.set("sors_series", sorsSeries);
@@ -260,33 +264,39 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
   const [urlReady, setUrlReady] = useState(false);
 
   useEffect(() => {
-    const timeoutId = window.setTimeout(() => {
+    const restore = () => {
       const params = new URLSearchParams(window.location.search);
       const tab = params.get("tab");
-      if (tab === "annual" || tab === "high_frequency" || tab === "macro_drivers") setDataset(tab);
-      if (params.get("sort") === "asc") setSortDirection("asc");
-      if (params.get("latest") === "1") setLatestOnly(true);
-      if (params.get("history") === "0") setIncludeHistory(false);
-      if (params.get("sors") === "0") setIncludeSors(false);
-      if (params.get("q")) setSearch(params.get("q") ?? "");
+      setDataset(tab === "high_frequency" || tab === "macro_drivers" ? tab : "annual");
+      setSortDirection(params.get("sort") === "asc" ? "asc" : "desc");
+      setLatestOnly(params.get("latest") === "1");
+      setIncludeHistory(params.get("history") !== "0");
+      setIncludeSors(params.get("sors") !== "0");
+      setSearch(params.get("q") ?? "");
       const country = params.get("country");
       const indicator = params.get("indicator");
       const selectedYear = params.get("year");
       const from = params.get("from");
       const to = params.get("to");
-      if (country && countries.some((item) => item.slug === country)) setCountrySlug(country);
-      if (indicator && (indicators.some((item) => item.id === indicator) || indicator in historyOnlyIndicatorLabels || indicator in sorsSeriesLabels)) setIndicatorId(indicator);
+      setCountrySlug(country && countries.some((item) => item.slug === country) ? country : "poland");
+      setIndicatorId(indicator && (indicators.some((item) => item.id === indicator) || indicator in historyOnlyIndicatorLabels || indicator in sorsSeriesLabels) ? indicator : "all");
+      setYearFrom("all");
+      setYearTo("all");
       if (selectedYear && /^\d{4}$/.test(selectedYear)) { setYearFrom(selectedYear); setYearTo(selectedYear); }
       if (from && /^\d{4}$/.test(from)) setYearFrom(from);
       if (to && /^\d{4}$/.test(to)) setYearTo(to);
       setUrlReady(true);
-    }, 0);
-    return () => window.clearTimeout(timeoutId);
+    };
+    const timeoutId = window.setTimeout(restore, 0);
+    window.addEventListener("popstate", restore);
+    return () => { window.clearTimeout(timeoutId); window.removeEventListener("popstate", restore); };
   }, [countries, indicators]);
 
   // Keep the URL in sync with the filters (after the initial read), so a view can be shared or bookmarked.
   useEffect(() => {
     if (!urlReady || dataset !== "annual") return;
+    const currentTab = new URLSearchParams(window.location.search).get("tab");
+    if (currentTab && currentTab !== "annual") return;
     const params = new URLSearchParams();
     if (dataset !== "annual") params.set("tab", dataset);
     params.set("country", countrySlug);
@@ -373,7 +383,13 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
     <LocalizedContent>{<section className="mt-7" data-snapshot-scope="annual">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="数据集选择">
         {([["annual", "年度核心数据"], ["high_frequency", "高频国内数据"], ["macro_drivers", "宏观驱动数据"]] as const).map(([id, label]) => (
-          <button key={id} type="button" role="tab" aria-selected={dataset === id} onClick={() => setDataset(id)}
+          <button key={id} type="button" role="tab" aria-selected={dataset === id} onClick={() => {
+            if (dataset === id) return;
+            const url = new URL(window.location.href);
+            url.searchParams.set("tab", id);
+            window.history.pushState(null, "", url);
+            setDataset(id);
+          }}
             className={dataset === id ? "rounded-full bg-[var(--cta-bg)] px-4 py-2 text-sm font-semibold text-[var(--cta-fg)]" : "rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold"}>
             {label}
           </button>
