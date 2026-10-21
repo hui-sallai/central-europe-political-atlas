@@ -14,6 +14,16 @@ const en = {
   backup: "Download active notebook JSON backup", importMode: "JSON import destination", newImport: "Create a new independent project", replaceImport: "Replace the active project",
   confirmReplace: "Replace ONLY the active project with this JSON notebook? Export its current contents first. Other projects will not change.",
   saving: "Saving local project…", recovery: "Download original project storage for recovery",
+  collectionBackup: "Back Up All Research Projects", collectionRestore: "Restore a project collection", collectionFile: "Choose collection JSON backup",
+  collectionPrivacy: "This portable JSON contains only your Notebook projects. It is not encrypted. Projects are not automatically synchronized between browsers or devices. Keep the backup private.",
+  collectionPreview: "Collection restore preview", collectionMode: "Collection restore decision", collectionMerge: "Import as new projects (keep existing projects)", collectionReplace: "Replace the entire project collection",
+  collectionLimits: "Import as new projects exceeds the 10-project / 3 MB limit. Export existing projects first; replacement is a separate explicit choice.",
+  collectionCollisions: "Colliding project IDs will be replaced with new project-wrapper IDs when importing as new. Notebook, evidence and source IDs remain unchanged. Existing projects stay intact; no evidence is deduplicated or combined.",
+  collectionDates: "Created / modified", collectionSchema: "Collection schema", collectionApply: "Confirm collection restore", collectionCancel: "Cancel preview",
+  collectionConfirmMerge: "Import this previewed backup as independent projects? Existing projects will not be overwritten. A fresh, unsaved empty placeholder is omitted.",
+  collectionConfirmReplace: "REPLACE THE ENTIRE CURRENT COLLECTION with this previewed backup? Existing projects will be removed from the collection. Download a full backup first. The legacy compatibility key and downloaded files will not be changed.",
+  collectionError: "Collection operation failed or the preview became stale. No collection was replaced. Check the file, capacity and storage warning; select the file again to refresh the preview.",
+  collectionDone: "Collection restored locally. No cloud synchronization was performed.", collectionBackupDone: "Collection JSON download prepared. Verify and keep the downloaded file safely.",
 };
 const zh: Record<keyof typeof en, string> = {
   projects: "研究项目", active: "当前项目", unnamed: "未命名项目", choose: "选择研究项目", name: "新项目标题", create: "创建项目", rename: "重命名当前项目", remove: "删除当前项目", edited: "最后编辑", items: "条证据",
@@ -29,5 +39,15 @@ const zh: Record<keyof typeof en, string> = {
   backup: "下载当前笔记 JSON 备份", importMode: "JSON 导入目标", newImport: "创建新的独立项目", replaceImport: "替换当前项目",
   confirmReplace: "仅用该 JSON 笔记替换当前项目？请先导出当前内容。其他项目不会改变。",
   saving: "正在保存本地项目…", recovery: "下载项目原始存储以恢复",
+  collectionBackup: "备份全部研究项目", collectionRestore: "恢复研究项目集合", collectionFile: "选择集合 JSON 备份",
+  collectionPrivacy: "可携带的 JSON 仅包含研究笔记项目，未经加密。项目不会在浏览器或设备间自动同步，请妥善保管备份。",
+  collectionPreview: "集合恢复预览", collectionMode: "集合恢复方式", collectionMerge: "作为新项目导入（保留已有项目）", collectionReplace: "替换整个项目集合",
+  collectionLimits: "作为新项目导入将超过 10 个项目／3 MB 限制。请先备份已有项目；整集合替换须另外明确选择。",
+  collectionCollisions: "作为新项目导入时，冲突的项目外层 ID 将重新生成；笔记、证据和来源 ID 保持不变。已有项目原样保留，不自动去重或合并证据。",
+  collectionDates: "创建／修改时间", collectionSchema: "集合格式", collectionApply: "确认恢复集合", collectionCancel: "取消预览",
+  collectionConfirmMerge: "将预览的备份导入为独立项目？不会覆盖已有项目；尚未保存的初始空白占位项目将省略。",
+  collectionConfirmReplace: "确认用预览的备份替换整个当前集合？当前项目将从集合中移除。请先下载完整备份。旧版兼容存储键和已下载文件不会改变。",
+  collectionError: "集合操作失败或预览已过期，未替换项目集合。请检查文件、容量及存储提示；重新选择文件以更新预览。",
+  collectionDone: "集合已恢复到本地，未执行云同步。", collectionBackupDone: "已准备集合 JSON 下载，请确认文件下载成功并妥善保管。",
 };
 export const notebookProjectMessages = { en, "zh-CN": zh };

@@ -21,6 +21,76 @@ function io(seed) {
 }
 const store = adapter => { const result = new p.NotebookProjectStore('en', 'v2.0', adapter); result.load(); return result; };
 const settled = async value => { while (value.view().busy) await new Promise(resolve => setImmediate(resolve)); };
+test('collection backup is exactly the portable registry, preserving sources, notes, IDs and timestamps', async () => {
+  const book = legacy(), adapter = io(book), s = store(adapter);
+  book.sources.push({id:'unused',institution:'Original publisher',dataset:'Unused citation',url:'https://example.org/unused',layer:'descriptive'});
+  book.methodology_warnings.push('Standalone warning');
+  await s.create(book.title, book);
+  adapter.map.set('unrelated-private-browser-data', 'never export');
+  const raw = s.backupCollection(), backup = p.parseProjectRegistry(raw);
+  assert.deepEqual(backup.projects, s.view().projects);
+  assert.deepEqual(backup.projects[1].notebook, book);
+  assert.ok(!raw.includes('never export')); assert.equal(Object.keys(backup).length, 4);
+  assert.equal(n.parseNotebook(n.serializeNotebook(backup.projects[1].notebook)).schema, n.NOTEBOOK_SCHEMA);
+});
+test('collection restore into pristine browser omits only the unsaved placeholder, preserving project and active IDs', async () => {
+  const origin = store(io(legacy())); await origin.create('Second');
+  const raw = origin.backupCollection(), adapter = io(), target = store(adapter), preview = target.previewCollection(raw);
+  assert.equal(adapter.writes.length, 0); assert.ok(preview.mergeAvailable);
+  assert.ok(await target.restoreCollection(raw, 'merge', preview.revision));
+  const restored = p.parseProjectRegistry(target.backupCollection()), original = p.parseProjectRegistry(raw);
+  assert.deepEqual(restored.projects, original.projects); assert.equal(restored.active_id, original.active_id);
+  assert.notEqual(restored.revision, original.revision); assert.equal(adapter.writes.length, 1);
+});
+test('collection merge remaps only colliding wrapper IDs, leaves existing projects exact, and replace is explicitly separate', async () => {
+  const adapter = io(legacy()), target = store(adapter), before = target.view().projects[0], legacyRaw = adapter.get(n.NOTEBOOK_STORAGE_KEY);
+  const raw = target.backupCollection(), preview = target.previewCollection(raw);
+  assert.equal(preview.collisions, 1); assert.ok(await target.restoreCollection(raw, 'merge', preview.revision));
+  assert.equal(target.view().projects.length, 2); assert.deepEqual(target.view().projects[0], before);
+  assert.notEqual(target.view().projects[1].id, before.id); assert.deepEqual(target.view().projects[1].notebook, before.notebook);
+  const next = target.previewCollection(raw); assert.ok(await target.restoreCollection(raw, 'replace', next.revision));
+  assert.deepEqual(target.view().projects, [before]); assert.equal(adapter.get(n.NOTEBOOK_STORAGE_KEY), legacyRaw);
+});
+test('collection restore rejects malformed, future, duplicate IDs, unsafe sources and oversized payloads before any write', async () => {
+  const adapter = io(legacy()), s = store(adapter), valid = JSON.parse(s.backupCollection());
+  const invalid = ['{', 'null', ' '.repeat(p.projectLimits.bytes + 1)];
+  for (const mutate of [v=>v.schema='atlas-notebook-projects-v99',v=>v.projects.push(v.projects[0]),v=>v.projects[0].notebook.items.push(v.projects[0].notebook.items[0]),v=>v.projects[0].notebook.sources[0].url='javascript:alert(1)',v=>v.projects=Array.from({length:11},(_,i)=>({...v.projects[0],id:`id-${i}`}))]) {
+    const copy = structuredClone(valid); mutate(copy); invalid.push(JSON.stringify(copy));
+  }
+  for (const raw of invalid) { assert.throws(()=>s.previewCollection(raw)); assert.equal(await s.restoreCollection(raw,'merge',valid.revision),false); }
+  assert.equal(adapter.writes.length,0); assert.deepEqual(JSON.parse(s.backupCollection()),valid);
+});
+test('collection merge capacity failure never falls back to replacement, and quota failures leave old storage atomic', async () => {
+  const adapter = io(legacy()), s = store(adapter), raw = s.backupCollection();
+  for(let i=1;i<10;i++) await s.create(`Project ${i}`);
+  const before = adapter.get(p.NOTEBOOK_PROJECTS_KEY), preview = s.previewCollection(raw);
+  assert.equal(preview.mergeAvailable,false); assert.equal(await s.restoreCollection(raw,'merge',preview.revision),false);
+  assert.equal(adapter.get(p.NOTEBOOK_PROJECTS_KEY),before);
+  adapter.quota(true); assert.equal(await s.restoreCollection(raw,'replace',preview.revision),false);
+  assert.equal(adapter.get(p.NOTEBOOK_PROJECTS_KEY),before); assert.equal(s.view().projects.length,10);
+  assert.equal(p.parseProjectRegistry(s.backupCollection()).projects.length,10);
+});
+test('collection preview revisions and browser locks prevent stale restores and concurrent overwrites', async () => {
+  const adapter=io(legacy()), a=store(adapter), b=store(adapter), raw=a.backupCollection(), preview=a.previewCollection(raw);
+  a.update(a.view().activeId,n=>({...n,user_notes:'Changed after preview'})); await settled(a);
+  assert.equal(await a.restoreCollection(raw,'replace',preview.revision),false);
+  const stale=b.previewCollection(raw), saved=adapter.get(p.NOTEBOOK_PROJECTS_KEY);
+  assert.equal(await b.restoreCollection(raw,'replace',stale.revision),false);
+  assert.equal(adapter.get(p.NOTEBOOK_PROJECTS_KEY),saved); assert.equal(b.view().issue,'conflict');
+  b.storageChanged(p.NOTEBOOK_PROJECTS_KEY,saved); assert.equal(b.view().notebook.user_notes,'Preserve 原文');
+  assert.equal(await b.restoreCollection(raw,'merge',stale.revision),false);
+});
+test('combined UTF-8 size limit is checked even below the project-count limit', () => {
+  const large = n.emptyNotebook('en','v2.0');
+  large.sources=Array.from({length:250},(_,i)=>({id:`s-${i}`,institution:'x'.repeat(900),dataset:`${i}`+'y'.repeat(890),url:`https://example.org/source/${i}`,layer:'descriptive'}));
+  large.methodology_warnings=Array.from({length:100},()=> 'z'.repeat(1500));
+  assert.ok(n.validateNotebook(large));
+  const registry=(prefix)=>({schema:p.PROJECT_SCHEMA,revision:'revision',active_id:`${prefix}-0`,projects:Array.from({length:3},(_,i)=>({id:`${prefix}-${i}`,notebook:structuredClone(large)}))});
+  const current=registry('current'), incoming=registry('incoming');
+  p.serializeProjectRegistry(current);p.serializeProjectRegistry(incoming);
+  assert.throws(()=>p.collectionRestoreCandidate(current,incoming,'merge'));
+  assert.equal(p.collectionRestoreCandidate(current,incoming,'replace').projects.length,3);
+});
 test('unavailable browser locking fails closed without a legacy write or destructive switch', async () => {
   const adapter = io(legacy()), before = adapter.get(n.NOTEBOOK_STORAGE_KEY);
   adapter.lock = async () => { throw Error('Browser locking unavailable'); };

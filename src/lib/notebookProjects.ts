@@ -9,6 +9,8 @@ export type ProjectRegistry = { schema: typeof PROJECT_SCHEMA; revision: string;
 export type ProjectIssue = "storage" | "conflict" | "registry_corrupt" | "legacy_corrupt" | "target_changed" | null;
 export type ProjectState = "loading" | "ready" | "memory" | "corrupt";
 export type ProjectView = { notebook: ResearchNotebook | null; projects: NotebookProject[]; activeId: string; state: ProjectState; issue: ProjectIssue; error: boolean; raw: string | null; busy: boolean; switching: boolean; persisted: boolean; legacyPresent: boolean };
+export type CollectionRestoreMode = "merge" | "replace";
+export type CollectionPreview = { revision: string; incoming: ProjectRegistry; collisions: number; mergeAvailable: boolean };
 export type ProjectIO = { get: (key: string) => string | null; set: (key: string, value: string) => void; lock: <T>(operation: () => T) => Promise<T> };
 const uuid = () => globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 const object = (value: unknown): value is Record<string, unknown> => !!value && typeof value === "object" && !Array.isArray(value);
@@ -30,6 +32,22 @@ export function serializeProjectRegistry(registry: ProjectRegistry): string {
 export function singleNotebookProject(notebook: ResearchNotebook): ProjectRegistry {
   serializeNotebook(notebook);
   return { schema: PROJECT_SCHEMA, revision: uuid(), active_id: "legacy", projects: [{ id: "legacy", notebook }] };
+}
+
+// Reuse the portable registry and unchanged per-notebook validator; never merge evidence.
+export function collectionRestoreCandidate(current: ProjectRegistry, incoming: ProjectRegistry, mode: CollectionRestoreMode, pristine = false): ProjectRegistry {
+  const backup = parseProjectRegistry(serializeProjectRegistry(incoming));
+  parseProjectRegistry(serializeProjectRegistry(current));
+  if (mode !== "merge" && mode !== "replace") throw Error("Unsupported restore mode");
+  if (mode === "replace" || pristine) return { ...backup, revision: uuid() };
+  const ids = new Set(current.projects.map(p => p.id));
+  const projects = backup.projects.map(project => {
+    let id = project.id;
+    while (ids.has(id)) id = uuid();
+    ids.add(id); return { ...project, id };
+  });
+  const candidate = { ...current, revision: uuid(), projects: [...current.projects, ...projects] };
+  serializeProjectRegistry(candidate); return candidate;
 }
 
 // One atomic container write; individual Notebook JSON schemas, identities and ZIP files are unchanged.
@@ -100,6 +118,27 @@ export class NotebookProjectStore {
     } catch { return this.rejected(); }
   }
   add(target: string, draft: EvidenceDraft) { return this.update(target, n => addNotebookEvidence(n, draft, this.version)); }
+  backupCollection() {
+    if (!this.data || this.state === "loading" || this.state === "corrupt" || this.pending) throw Error("Collection unavailable");
+    return serializeProjectRegistry(this.data);
+  }
+  previewCollection(raw: string): CollectionPreview {
+    if (!this.data || this.state !== "ready" || this.pending) throw Error("Unsafe collection transition");
+    const incoming = parseProjectRegistry(raw);
+    const collisions = incoming.projects.filter(p => this.data!.projects.some(existing => existing.id === p.id)).length;
+    let mergeAvailable = true;
+    try { collectionRestoreCandidate(this.data, incoming, "merge", this.base === null && this.legacyBase === null); }
+    catch { mergeAvailable = false; }
+    return { revision: this.data.revision, incoming, collisions, mergeAvailable };
+  }
+  restoreCollection(raw: string, mode: CollectionRestoreMode, expectedRevision: string) {
+    if (!this.data || this.data.revision !== expectedRevision) return Promise.resolve(this.rejected());
+    try {
+      const incoming = parseProjectRegistry(raw);
+      const snapshot = collectionRestoreCandidate(this.data, incoming, mode, this.base === null && this.legacyBase === null);
+      return this.structural(snapshot);
+    } catch { return Promise.resolve(this.rejected()); }
+  }
   private structural(snapshot: ProjectRegistry, recovery = false): Promise<boolean> {
     if (!this.data || this.pending || this.transitioning || (this.state !== "ready" && !(recovery && this.issue === "legacy_corrupt"))) return Promise.resolve(this.rejected());
     try { serializeProjectRegistry(snapshot); } catch { return Promise.resolve(this.rejected()); }

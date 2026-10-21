@@ -3,12 +3,14 @@ import { createContext, startTransition, useContext, useEffect, useLayoutEffect,
 import { useLocale } from "@/i18n/LocaleProvider";
 import { PLATFORM_VERSION } from "@/lib/releaseMetadata";
 import { NOTEBOOK_STORAGE_KEY, type EvidenceDraft, type ResearchNotebook } from "@/lib/researchNotebook";
-import { NOTEBOOK_PROJECTS_KEY, NotebookProjectStore, type ProjectView } from "@/lib/notebookProjects";
+import { NOTEBOOK_PROJECTS_KEY, NotebookProjectStore, type ProjectView, type CollectionPreview, type CollectionRestoreMode } from "@/lib/notebookProjects";
 type NotebookContext = ProjectView & {
   add: (draft: EvidenceDraft) => void; update: (transform: (value: ResearchNotebook) => ResearchNotebook) => void;
   replace: (value: ResearchNotebook) => Promise<boolean>; clear: () => Promise<boolean>;
   createProject: (title: string, imported?: ResearchNotebook) => Promise<boolean>; switchProject: (id: string) => Promise<boolean>;
   deleteProject: () => Promise<boolean>; retrySave: () => Promise<boolean>; recoverCopy: () => Promise<boolean>;
+  backupCollection: () => string; previewCollection: (raw: string) => CollectionPreview;
+  restoreCollection: (raw: string, mode: CollectionRestoreMode, revision: string) => Promise<boolean>;
 };
 const Context = createContext<NotebookContext | null>(null);
 export function ResearchNotebookProvider({ children }: { children: ReactNode }) {
@@ -43,6 +45,8 @@ export function ResearchNotebookProvider({ children }: { children: ReactNode }) 
     replace: value => store.replace(target, value), clear: () => store.clear(target),
     createProject: (title, imported) => store.create(title, imported), switchProject: id => store.switchTo(id),
     deleteProject: () => store.delete(target), retrySave: () => store.retry(), recoverCopy: () => store.recoverCopy(),
+    backupCollection: () => store.backupCollection(), previewCollection: raw => store.previewCollection(raw),
+    restoreCollection: (raw, mode, revision) => store.restoreCollection(raw, mode, revision),
   }}>{children}</Context.Provider>;
 }
 export function useResearchNotebook() { const value = useContext(Context); if (!value) throw Error("Notebook provider missing"); return value; }

@@ -1,5 +1,11 @@
 # Research Notebook / Evidence Collection — Phase 1
 
+## Collection backup and restore (2026-10-21; local implementation)
+
+The project manager exports only the validated `atlas-notebook-projects-v1` registry as portable JSON; no other browser storage is included. Preview validates the complete file before writes. Default merge preserves every existing project and imports independent projects, remapping colliding wrapper IDs only (not notebook, evidence or source IDs). A pristine browser's unsaved empty placeholder is omitted. Replacing the entire collection requires a separate mode and explicit confirmation; it never happens automatically on capacity failure. Both modes reuse the existing atomic write, browser lock, storage-base comparison and a preview revision check. Invalid, future, oversized or duplicate-wrapper files fail closed. Damaged local registries remain protected by the existing raw-text recovery workflow.
+
+Limits stay at 10 projects / 3 MB in total and the unchanged per-notebook bounds. Failed writes retain the original collection and file preview. Individual JSON, seven-file ZIP and Markdown brief formats remain unchanged. Downloaded files are not encrypted; projects are not synchronized between devices. Keep private backups, especially before replacement. Linux screenshot baselines require the existing no-deploy record/review workflow before publication.
+
 ## Multi-project upgrade (2026-10-21; implementation, not publication)
 
 The original v1 Notebook JSON and seven-file ZIP remain unchanged; Markdown briefs operate on the active project. A separate `central-europe-atlas:notebook-projects:v1` local container holds independent project wrappers and their validated v1 notebooks. One atomic write avoids partial multi-key migration. Existing legacy storage is read-only and is copied only on an explicit saved change; imports preserve notebook/evidence/source IDs, including when a backup is added as a distinct project. Import defaults to creating a project; replacing only the active project requires confirmation.
