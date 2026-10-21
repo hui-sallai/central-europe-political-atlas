@@ -1,14 +1,15 @@
+import { activeNotebookRaw } from "./notebook-storage";
 import fs from 'node:fs';
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import {NOTEBOOK_STORAGE_KEY,parseNotebook} from '../../src/lib/researchNotebook';
+import {parseNotebook} from '../../src/lib/researchNotebook';
 const query='tab=compare&compare_frequency=monthly&monthly_countries=hungary,poland,germany&monthly_indicator=hicp_annual_rate&monthly_from=2025-01&monthly_to=2026-09&monthly_mode=common';
 for(const prefix of ['', '/en']) {
  const en=!!prefix;
  test(`monthly comparison controls, CSV, Notebook and annual isolation ${prefix||'zh'}`,async({page},info)=>{
   await page.goto(`${prefix}/models/?${query}`,{waitUntil:'networkidle'});const panel=page.locator('[data-monthly-comparison]');await expect(panel).toBeVisible();await expect(panel.getByRole('checkbox',{checked:true})).toHaveCount(3);await expect(panel.locator('tbody tr')).toHaveCount(3);await expect(panel.locator('tbody')).toContainText('2026-09');await expect(panel.locator('tbody')).toContainText('Eurostat');
   const download=page.waitForEvent('download');await panel.getByRole('button',{name:en?'Export actual monthly observations (CSV)':'导出实际月度观测（CSV）',exact:true}).click();const csv=fs.readFileSync((await(await download).path())!,'utf8');expect(csv).toContain('"vintage"');expect(csv).toContain('"2025-01"');expect(csv).not.toContain('annual:');
-  await panel.locator('[data-notebook-add]').click();await expect.poll(()=>page.evaluate(k=>JSON.parse(localStorage.getItem(k)??'{}').items?.length,NOTEBOOK_STORAGE_KEY)).toBe(1);const n=parseNotebook((await page.evaluate(k=>localStorage.getItem(k),NOTEBOOK_STORAGE_KEY))!);expect(n.items[0].metadata.filters?.indicator).toBe('hicp_annual_rate');expect(n.items[0].value).toBeUndefined();
+  await panel.locator('[data-notebook-add]').click();await expect.poll(async()=>JSON.parse((await activeNotebookRaw(page))??'{}').items?.length).toBe(1);const n=parseNotebook((await activeNotebookRaw(page))!);expect(n.items[0].metadata.filters?.indicator).toBe('hicp_annual_rate');expect(n.items[0].value).toBeUndefined();
   await page.getByRole('radio',{name:en?'Annual observations':'年度观测',exact:true}).check();await expect(panel).toHaveCount(0);await expect(page.locator('[data-macro-session]')).toBeVisible();await page.getByRole('radio',{name:en?'Monthly observations':'月度观测',exact:true}).check();await expect(panel.getByRole('checkbox',{checked:true})).toHaveCount(3);await expect(panel.getByRole('combobox',{name:en?'Indicator':'指标',exact:true})).toHaveValue('hicp_annual_rate');
   await page.reload({waitUntil:'networkidle'});await expect(panel.locator('tbody')).toContainText('2026-09');
   const point=panel.locator('circle[role="button"]').first();await point.focus();await expect(point).toBeFocused();await point.press('Enter');await expect(panel.locator('[aria-live="polite"]')).toContainText('Eurostat');

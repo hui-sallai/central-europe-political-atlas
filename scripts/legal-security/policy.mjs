@@ -102,6 +102,7 @@ export function canAcquire(registry, url, mode) {
 // ---- Client storage and third-party runtime ----
 export const CLIENT_STORAGE_ALLOWLIST = [
   { key: 'central-europe-atlas:research-notebook:v1', api: 'localStorage', purpose: 'Research Notebook (user-created notes and collected evidence; stays in the browser)', class: 'functional_user_requested' },
+  { key: 'central-europe-atlas:notebook-projects:v1', api: 'localStorage', purpose: 'Owner-requested independent local Notebook projects; atomic container of existing validated notebooks, no cloud sync; legacy key retained read-only', class: 'functional_user_requested' },
   { key: 'atlas-theme', api: 'localStorage', purpose: 'light/dark appearance preference', class: 'functional_preference' },
 ];
 export const TRACKER_PATTERNS = /(google-analytics\.com|googletagmanager\.com|gtag\(|\bga\(\s*['"](?:create|send|set)|analytics\.js|doubleclick\.net|googlesyndication|adservice|facebook\.net|connect\.facebook|fbq\(\s*['"]|hotjar|clarity\.ms|plausible\.io|matomo|piwik|segment\.(?:io|com)|mixpanel|amplitude|newrelic|sentry\.io|cloudflareinsights|static\.addtoany|platform\.twitter\.com|widgets\.js|linkedin\.com\/insight|tiktok\.com\/i18n\/pixel|yandex\.ru\/metrika|pixel\.gif)/i;

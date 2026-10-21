@@ -79,8 +79,8 @@ test('15. statistics.sk and bmi.gv.at are blocked for automated collection', () 
   assert.equal(canAcquire(registry, 'https://www.bmi.gv.at/412/', 'automated').ok, false);
   assert.equal(canAcquire(registry, 'https://ec.europa.eu/eurostat/api/x', 'automated').ok, true);
 });
-test('16. client storage allowlist is exactly the notebook and theme keys', () => {
-  assert.deepEqual(CLIENT_STORAGE_ALLOWLIST.map((k) => k.key).sort(), ['atlas-theme', 'central-europe-atlas:research-notebook:v1']);
+test('16. client storage allowlist is exactly the legacy notebook, local projects and theme keys', () => {
+  assert.deepEqual(CLIENT_STORAGE_ALLOWLIST.map((k) => k.key).sort(), ['atlas-theme', 'central-europe-atlas:notebook-projects:v1', 'central-europe-atlas:research-notebook:v1']);
 });
 test('17. third-party scripts and unsafe URLs are detected', () => {
   assert.deepEqual(externalScriptSources('<script src="https://cdn.example.com/a.js"></script><script src="/_next/a.js"></script>', 'hy-central-europe-analysis.org'), ['https://cdn.example.com/a.js']);

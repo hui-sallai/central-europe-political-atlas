@@ -1,0 +1,80 @@
+import fs from "node:fs";
+import { test, expect, type Page } from "@playwright/test";
+import AxeBuilder from "@axe-core/playwright";
+import { activeNotebookRaw } from "./notebook-storage";
+import { emptyNotebook, NOTEBOOK_STORAGE_KEY, addNotebookEvidence, serializeNotebook, parseNotebook, type EvidenceDraft } from "../../src/lib/researchNotebook";
+import { NOTEBOOK_PROJECTS_KEY, parseProjectRegistry } from "../../src/lib/notebookProjects";
+const draft: EvidenceDraft = { type: "workspace", title: "Legacy evidence", url: "https://hy-central-europe-analysis.org/workspaces/inflation_monetary_policy/", canonical_ids: ["legacy-configuration"], countries: ["hungary"], periods: ["2025"], sources: [{ institution: "Recorded Publisher", dataset: "Recorded dataset", url: "https://example.org/data", layer: "descriptive" }], layer: "workspace_setup", warnings: ["Descriptive configuration"], metadata: { filters: { from: 2025 } } };
+const legacy = () => ({ ...addNotebookEvidence(emptyNotebook("en", "v2.0"), draft, "v2.0"), title: "Original project", research_question: "Original question", user_notes: "Original notes 原文" });
+async function seed(page: Page) { const book = legacy(), raw = serializeNotebook(book); await page.addInitScript(({ key, raw }) => { if (localStorage.getItem(key) === null) localStorage.setItem(key, raw); }, { key: NOTEBOOK_STORAGE_KEY, raw }); return { book, raw }; }
+const registry = async (page: Page) => parseProjectRegistry((await page.evaluate(key => localStorage.getItem(key), NOTEBOOK_PROJECTS_KEY))!);
+const file = (value: unknown) => ({ name: "notebook.json", mimeType: "application/json", buffer: Buffer.from(JSON.stringify(value)) });
+for (const prefix of ["", "/en"]) {
+  const en = !!prefix, choose = en ? "Choose research project" : "选择研究项目", question = en ? "Research question" : "研究问题";
+  test(`independent projects, direct JSON, import choices, deletion and brief ${prefix || "zh"}`, async ({ page }, info) => {
+    const { book, raw } = await seed(page); await page.goto(`${prefix}/notebook/`, { waitUntil: "networkidle" });
+    await expect(page.locator("[data-active-project]")).toContainText(book.title); expect(await page.evaluate(key => localStorage.getItem(key), NOTEBOOK_PROJECTS_KEY)).toBeNull();
+    await page.getByLabel(en ? "New project title" : "新项目标题", { exact: true }).fill("Project B"); await page.getByRole("button", { name: en ? "Create project" : "创建项目", exact: true }).click();
+    await expect(page.locator("[data-active-project]")).toContainText("Project B"); const second = await page.getByLabel(choose, { exact: true }).inputValue();
+    await expect(page.locator("[data-notebook-item]")).toHaveCount(0); await page.getByRole("textbox", { name: question, exact: true }).fill("Question B");
+    await expect(page.getByLabel(choose, { exact: true })).toBeEnabled();
+    await page.goto(`${prefix}/data/?country=hungary&indicator=gdp_per_capita_eur&from=2025&to=2025`, { waitUntil: "networkidle" });
+    await expect(page.locator("[data-collection-project]").first()).toContainText("Project B");
+    await page.locator('[data-snapshot-scope="annual"]').getByRole("button", { name: en ? "Add to notebook" : "加入研究笔记", exact: true }).filter({ visible: true }).first().click();
+    await expect(page.locator("header").getByRole("link", { name: en ? "Notebook · 1" : "研究笔记 · 1", exact: true })).toBeVisible();
+    await activeNotebookRaw(page);
+    await page.goto(`${prefix}/notebook/`, { waitUntil: "networkidle" }); await expect(page.locator("[data-notebook-item]")).toHaveCount(1);
+    await page.getByLabel(choose, { exact: true }).selectOption("legacy"); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Original question");
+    await expect(page.locator("[data-notebook-item]")).toContainText("Legacy evidence");
+    await page.getByLabel(choose, { exact: true }).selectOption(second); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Question B");
+    await page.getByRole("button", { name: en ? "Rename active project" : "重命名当前项目", exact: true }).click(); await expect(page.getByLabel(en ? "Notebook title" : "笔记标题", { exact: true })).toBeFocused();
+    await page.getByLabel(en ? "Notebook title" : "笔记标题", { exact: true }).fill("Renamed B"); await expect(page.getByLabel(choose, { exact: true })).toBeEnabled();
+    const [download] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: en ? "Download active notebook JSON backup" : "下载当前笔记 JSON 备份", exact: true }).click()]);
+    const backup = parseNotebook(fs.readFileSync((await download.path())!, "utf8")); expect(backup.title).toBe("Renamed B"); expect(backup.research_question).toBe("Question B"); expect(backup.items[0].canonical_ids).not.toEqual(book.items[0].canonical_ids);
+    const brief = page.locator("[data-notebook-brief]"); await brief.locator("summary").click(); await expect(brief.locator("[data-brief-preview]")).toContainText("Question B"); await expect(brief.locator("[data-brief-preview]")).not.toContainText("Original question");
+    await page.getByLabel(en ? "Import notebook JSON" : "导入研究笔记 JSON", { exact: true }).setInputFiles(file(book));
+    await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Original question"); expect((await registry(page)).projects.length).toBe(3);
+    expect((await registry(page)).projects.find(p => p.id === second)!.notebook.research_question).toBe("Question B");
+    expect((await registry(page)).projects.at(-1)!.notebook).toEqual(book);
+    await page.getByLabel(en ? "JSON import destination" : "JSON 导入目标", { exact: true }).selectOption("replace");
+    page.once("dialog", d => d.dismiss()); await page.getByLabel(en ? "Import notebook JSON" : "导入研究笔记 JSON", { exact: true }).setInputFiles(file(backup)); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Original question");
+    page.once("dialog", d => d.accept()); await page.getByLabel(en ? "Import notebook JSON" : "导入研究笔记 JSON", { exact: true }).setInputFiles(file(backup)); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Question B");
+    page.once("dialog", d => d.dismiss()); await page.getByRole("button", { name: en ? "Delete active project" : "删除当前项目", exact: true }).click(); expect((await registry(page)).projects.length).toBe(3);
+    page.once("dialog", d => d.accept()); await page.getByRole("button", { name: en ? "Delete active project" : "删除当前项目", exact: true }).click(); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Original question"); expect((await registry(page)).projects.length).toBe(2);
+    expect(await page.evaluate(key => localStorage.getItem(key), NOTEBOOK_STORAGE_KEY)).toBe(raw);
+    const axe = await new AxeBuilder({ page }).include("[data-notebook-projects]").analyze(); expect(axe.violations.filter(v => v.impact === "serious" || v.impact === "critical")).toEqual([]);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2)).toBe(true);
+    await page.locator("[data-notebook-projects]").screenshot({ path: info.outputPath("notebook-projects.png") });
+  });
+  test(`quota failure preserves pending notes and blocks switching until retry ${prefix || "zh"}`, async ({ page }) => {
+    const { raw } = await seed(page);
+    await page.addInitScript(key => { const original = Storage.prototype.setItem; Object.defineProperty(window, "restoreProjectWrites", { value: () => { Storage.prototype.setItem = original; } }); Storage.prototype.setItem = function (name, value) { if (name === key) throw new DOMException("Full", "QuotaExceededError"); return original.call(this, name, value); }; }, NOTEBOOK_PROJECTS_KEY);
+    await page.goto(`${prefix}/notebook/`, { waitUntil: "networkidle" }); await page.getByRole("textbox", { name: question, exact: true }).fill("Pending question");
+    await expect(page.getByRole("status")).toContainText(en ? "memory only" : "内存"); await expect(page.getByLabel(choose, { exact: true })).toBeDisabled(); await expect(page.getByLabel(en ? "Import notebook JSON" : "导入研究笔记 JSON", { exact: true })).toBeDisabled();
+    const [download] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: en ? "Download active notebook JSON backup" : "下载当前笔记 JSON 备份", exact: true }).click()]);
+    expect(parseNotebook(fs.readFileSync((await download.path())!, "utf8")).research_question).toBe("Pending question");
+    expect(await page.evaluate(key => localStorage.getItem(key), NOTEBOOK_STORAGE_KEY)).toBe(raw);
+    await page.evaluate(() => (window as unknown as { restoreProjectWrites: () => void }).restoreProjectWrites());
+    await page.getByRole("button", { name: en ? "Retry local saving" : "重试本地保存", exact: true }).click(); await expect(page.getByLabel(choose, { exact: true })).toBeEnabled();
+    await page.reload({ waitUntil: "networkidle" }); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Pending question");
+  });
+  test(`corrupted project registry blocks writes and exposes exact recovery text ${prefix || "zh"}`, async ({ page }) => {
+    const { raw } = await seed(page); await page.addInitScript(key => localStorage.setItem(key, '{"schema":"future"'), NOTEBOOK_PROJECTS_KEY);
+    await page.goto(`${prefix}/notebook/`, { waitUntil: "networkidle" }); await expect(page.getByLabel(choose, { exact: true })).toBeDisabled(); await expect(page.getByLabel(en ? "Import notebook JSON" : "导入研究笔记 JSON", { exact: true })).toBeDisabled();
+    const [download] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: en ? "Download original project storage for recovery" : "下载项目原始存储以恢复", exact: true }).click()]);
+    expect(fs.readFileSync((await download.path())!, "utf8")).toBe('{"schema":"future"'); expect(await page.evaluate(key => localStorage.getItem(key), NOTEBOOK_STORAGE_KEY)).toBe(raw);
+  });
+  test(`cross-tab updates keep explicit targets; deletion conflicts recover without overwriting ${prefix || "zh"}`, async ({ page, context }) => {
+    await seed(page); await page.goto(`${prefix}/notebook/`, { waitUntil: "networkidle" }); await page.getByLabel(en ? "New project title" : "新项目标题", { exact: true }).fill("Project B"); await page.getByRole("button", { name: en ? "Create project" : "创建项目", exact: true }).click();
+    await expect(page.locator("[data-active-project]")).toContainText("Project B"); const second = await page.getByLabel(choose, { exact: true }).inputValue(); await page.getByRole("textbox", { name: question, exact: true }).fill("Question B"); await expect(page.getByLabel(choose, { exact: true })).toBeEnabled();
+    const other = await context.newPage(); await other.goto(`${prefix}/notebook/`, { waitUntil: "networkidle" }); await expect(other.getByRole("textbox", { name: question, exact: true })).toHaveValue("Question B");
+    await page.getByLabel(choose, { exact: true }).selectOption("legacy"); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Original question"); await expect(other.getByLabel(choose, { exact: true })).toHaveValue(second);
+    await page.getByRole("textbox", { name: question, exact: true }).fill("Question A edited"); await expect(page.getByLabel(choose, { exact: true })).toBeEnabled();
+    await expect(other.getByRole("textbox", { name: question, exact: true })).toHaveValue("Question B");
+    await page.getByLabel(choose, { exact: true }).selectOption(second); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Question B");
+    page.once("dialog", d => d.accept()); await page.getByRole("button", { name: en ? "Delete active project" : "删除当前项目", exact: true }).click();
+    await expect(other.getByLabel(choose, { exact: true })).toBeDisabled(); await expect(other.getByRole("textbox", { name: question, exact: true })).toHaveValue("Question B");
+    await other.getByRole("button", { name: en ? "Save pending notebook as a new project" : "将待保存笔记另存为新项目", exact: true }).click(); await expect(other.getByLabel(choose, { exact: true })).toBeEnabled();
+    const recovered = await registry(other); expect(recovered.projects.length).toBe(2); expect(recovered.projects[0].notebook.research_question).toBe("Question A edited"); expect(recovered.projects[1].notebook.research_question).toBe("Question B"); expect(recovered.projects[1].id).not.toBe(second);
+  });
+}

@@ -1,7 +1,8 @@
+import { activeNotebookRaw } from "./notebook-storage";
 import fs from 'node:fs';
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import {NOTEBOOK_STORAGE_KEY,parseNotebook} from '../../src/lib/researchNotebook';
+import {parseNotebook} from '../../src/lib/researchNotebook';
 const pack=JSON.parse(fs.readFileSync('public/research-data/network_ui_pack.json','utf8'));
 for(const prefix of ['', '/en']){
  const en=!!prefix;
@@ -20,7 +21,7 @@ for(const prefix of ['', '/en']){
   const chart=panel.getByRole('group',{name:en?'China trade share · Imports · 2021–2023':'中国贸易份额 · 进口 · 2021–2023',exact:true});
   await expect(chart.locator('circle[role=button]')).toHaveCount(11);await chart.locator('circle[role=button]').first().focus();await page.keyboard.press('Enter');await expect(panel.locator('[aria-labelledby=trade-history-title] [aria-live=polite]')).toContainText('UN Comtrade');
   const downloadPromise=page.waitForEvent('download');await panel.locator('[data-trade-export]').click();const download=await downloadPromise;const stream=await download.createReadStream();const chunks:Buffer[]=[];for await(const chunk of stream!)chunks.push(chunk);const csv=Buffer.concat(chunks).toString('utf8');expect(csv.split('\r\n')).toHaveLength(16);expect(csv).toContain('"coverage_failed"');expect(csv).toContain('"china_share","","fraction (0–1)"');
-  await panel.locator('[data-notebook-add]').click();await expect.poll(()=>page.evaluate(k=>JSON.parse(localStorage.getItem(k)??'{}').items?.length,NOTEBOOK_STORAGE_KEY)).toBe(1);const notebook=parseNotebook((await page.evaluate(k=>localStorage.getItem(k),NOTEBOOK_STORAGE_KEY))!);expect(notebook.items[0].countries).toEqual(['hungary','poland','germany','austria','slovakia']);expect(notebook.items[0].metadata.row_count).toBe(11);expect(notebook.items[0].metadata.filters!.comparison_mode).toBe('regional');expect(notebook.items[0].canonical_ids.some(id=>id.includes('slovakia')||id.includes('germany:2022'))).toBe(false);
+  await panel.locator('[data-notebook-add]').click();await expect.poll(async()=>JSON.parse((await activeNotebookRaw(page))??'{}').items?.length).toBe(1);const notebook=parseNotebook((await activeNotebookRaw(page))!);expect(notebook.items[0].countries).toEqual(['hungary','poland','germany','austria','slovakia']);expect(notebook.items[0].metadata.row_count).toBe(11);expect(notebook.items[0].metadata.filters!.comparison_mode).toBe('regional');expect(notebook.items[0].canonical_ids.some(id=>id.includes('slovakia')||id.includes('germany:2022'))).toBe(false);
   await expect.poll(()=>new URL(page.url()).searchParams.get('trade_countries')).toBe('hungary,poland,germany,austria,slovakia');await page.reload({waitUntil:'networkidle'});await expect(control('比较模式','Comparison mode')).toHaveValue('regional');await expect(control('历史指标','Historical metric')).toHaveValue('china_share');await expect(panel.locator('[data-trade-regional] tbody tr')).toHaveCount(5);
   await page.screenshot({path:testInfo.outputPath('regional-five-countries.png'),fullPage:true});
   await selected.getByRole('checkbox',{name:en?'Austria':'奥地利',exact:true}).uncheck();await selected.getByRole('checkbox',{name:en?'Slovakia':'斯洛伐克',exact:true}).uncheck();await expect(panel.locator('[data-trade-regional] tbody tr')).toHaveCount(3);await expect(selected.getByRole('checkbox',{checked:false}).first()).toBeEnabled();

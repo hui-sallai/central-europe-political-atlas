@@ -1,5 +1,13 @@
 # Research Notebook / Evidence Collection — Phase 1
 
+## Multi-project upgrade (2026-10-21; implementation, not publication)
+
+The original v1 Notebook JSON and seven-file ZIP remain unchanged; Markdown briefs operate on the active project. A separate `central-europe-atlas:notebook-projects:v1` local container holds independent project wrappers and their validated v1 notebooks. One atomic write avoids partial multi-key migration. Existing legacy storage is read-only and is copied only on an explicit saved change; imports preserve notebook/evidence/source IDs, including when a backup is added as a distinct project. Import defaults to creating a project; replacing only the active project requires confirmation.
+
+Cooperating tabs use Web Locks plus stored-revision checks. Each open tab retains its explicitly selected project. Pending edits, write failure, remote deletion or version conflict block switching/deletion/import; local evidence remains exportable as v1 JSON. A conflict can be saved as a new project without overwriting current stored projects. Corrupted registries are not reset or overwritten by import: download their original text for recovery. Browser locks unavailable means memory-only saving, not an unsafe fallback.
+
+Per-notebook limits are unchanged. The project collection is bounded to 10 projects and 3 MB UTF-8, and browser quota may be lower. This is not encrypted or cloud backup. Export each important notebook separately. Forced closure, clearing browser data, or accepting a discard/unload prompt can still lose memory-only work. A saved legacy copy and downloaded backups survive project deletion; old-version tabs do not synchronize their separate legacy edits. Earlier single-project descriptions below document the original phase, not the upgraded storage architecture.
+
 Presentation-only implementation on `feature/research-notebook`; baseline public commit `d83a6166072c0c295e7d385d25378cb710053a54`. This phase does not authorize a release, change the platform version, or activate statistical methods.
 
 ## 1. Architecture

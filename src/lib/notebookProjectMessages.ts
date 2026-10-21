@@ -1,0 +1,33 @@
+const en = {
+  projects: "Research projects", active: "Active project", unnamed: "Untitled project", choose: "Choose research project",
+  name: "New project title", create: "Create project", rename: "Rename active project", remove: "Delete active project",
+  edited: "Last edited", items: "evidence items",
+  privacy: "Projects stay in this browser only, not in permanent or encrypted cloud backup. Export each important project. Up to 10 projects / 3 MB in total; existing per-notebook limits still apply. Older single-notebook storage is retained unchanged as a compatibility copy, not synchronized with old tabs.",
+  legacy: "Your existing notebook is readable. The first saved change copies it into the project collection with its original notebook and evidence IDs. The old storage key is never overwritten.",
+  memory: "Local saving is unavailable or full, or safe browser locking is unavailable. Latest edits remain in memory. Project switching, deletion and import are blocked. Export JSON before leaving, then retry saving.",
+  conflict: "Another tab changed or deleted stored projects during pending work. Local evidence is retained in memory and switching is blocked. Export JSON, or save the pending notebook as a separate recovered project without replacing existing projects.",
+  registry_corrupt: "The project collection is damaged or unsupported and has not been overwritten. Download the original recovery text. Switching, deletion and import are blocked until the collection is recovered. Any readable current notebook can still be exported separately.",
+  legacy_corrupt: "The old notebook is invalid. Its original text is preserved for recovery. Explicit clear or valid JSON import can start a project without overwriting the old key.",
+  target_changed: "The active project changed before collection finished. Nothing was added to the new project. Retry for the intended project.",
+  retry: "Retry local saving", recover: "Save pending notebook as a new project",
+  confirmDelete: "Delete this project from the project collection? Export a backup first. The legacy compatibility copy and downloaded backups are not erased. Deleting the last project creates an empty project.",
+  backup: "Download active notebook JSON backup", importMode: "JSON import destination", newImport: "Create a new independent project", replaceImport: "Replace the active project",
+  confirmReplace: "Replace ONLY the active project with this JSON notebook? Export its current contents first. Other projects will not change.",
+  saving: "Saving local project…", recovery: "Download original project storage for recovery",
+};
+const zh: Record<keyof typeof en, string> = {
+  projects: "研究项目", active: "当前项目", unnamed: "未命名项目", choose: "选择研究项目", name: "新项目标题", create: "创建项目", rename: "重命名当前项目", remove: "删除当前项目", edited: "最后编辑", items: "条证据",
+  privacy: "项目仅保存在当前浏览器，不是永久或加密的云备份。请分别导出重要项目。最多 10 个项目／合计 3 MB；每本笔记的原有限制不变。旧单笔记存储原样保留为兼容副本，不与旧版标签页同步。",
+  legacy: "已有笔记可正常读取。首次保存修改时，将保留原笔记和证据 ID 并复制到项目集合；不会覆盖旧存储键。",
+  memory: "本地保存不可用、容量已满，或浏览器不支持安全存储锁。最新修改仍在内存中，已阻止项目切换、删除和导入。离开前请先导出 JSON 备份，再尝试保存。",
+  conflict: "此页有待保存内容时，另一个标签页修改或删除了存储项目。本页证据仍保留在内存，已阻止切换。请导出 JSON，或将待保存笔记另存为恢复项目；不会替换已有项目。",
+  registry_corrupt: "项目集合损坏或版本不受支持，未被覆盖。请下载原始恢复文本。恢复集合前已阻止切换、删除和导入。当前仍可读取的笔记可单独导出。",
+  legacy_corrupt: "旧笔记内容不合法，原始文本仍保留用于恢复。明确清空或导入合法 JSON 可开始一个项目，不会覆盖旧存储键。",
+  target_changed: "收集完成前，当前项目已改变。未向新项目添加证据；请确认目标项目后重新收集。",
+  retry: "重试本地保存", recover: "将待保存笔记另存为新项目",
+  confirmDelete: "从项目集合中删除当前项目？请先导出备份。已保留的旧版兼容副本和下载备份不会被删除。若这是最后一个项目，将创建一个空项目。",
+  backup: "下载当前笔记 JSON 备份", importMode: "JSON 导入目标", newImport: "创建新的独立项目", replaceImport: "替换当前项目",
+  confirmReplace: "仅用该 JSON 笔记替换当前项目？请先导出当前内容。其他项目不会改变。",
+  saving: "正在保存本地项目…", recovery: "下载项目原始存储以恢复",
+};
+export const notebookProjectMessages = { en, "zh-CN": zh };

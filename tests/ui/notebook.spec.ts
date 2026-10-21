@@ -1,3 +1,4 @@
+import { activeNotebookRaw } from "./notebook-storage";
 import fs from "node:fs";
 import { execFileSync } from "node:child_process";
 import AxeBuilder from "@axe-core/playwright";
@@ -6,8 +7,8 @@ import { emptyNotebook, NOTEBOOK_STORAGE_KEY, parseNotebook, addNotebookEvidence
 const version = "v2.0 VAR Dynamic-Response Publication-Gate Consolidation";
 const workspace = "/en/workspaces/inflation_monetary_policy/?countries=hungary&from=2021&to=2026";
 const draft: EvidenceDraft = { type:"workspace",title:"Example setup",labels:{en:"Example setup","zh-CN":"示例设置"},url:"https://hy-central-europe-analysis.org/en/workspaces/inflation_monetary_policy/?countries=hungary&from=2021&to=2026",canonical_ids:["inflation_monetary_policy"],countries:["hungary"],periods:["2021","2026"],sources:[],layer:"workspace_setup",warnings:["Descriptive setup only"],metadata:{filters:{countries:["hungary"],from:2021,to:2026}} };
-async function count(page: Page,n: number) { await expect(page.locator("header").getByRole("link",{name:new RegExp(`Notebook · ${n}$`)})).toBeVisible(); }
-async function stored(page: Page) { return parseNotebook((await page.evaluate(key=>localStorage.getItem(key),NOTEBOOK_STORAGE_KEY))!); }
+async function count(page: Page,n: number) { await expect(page.locator("header").getByRole("link",{name:new RegExp(`Notebook · ${n}$`)})).toBeVisible(); await activeNotebookRaw(page); }
+async function stored(page: Page) { return parseNotebook((await activeNotebookRaw(page))!); }
 function unzip(bytes: Buffer): Record<string,string> { return JSON.parse(execFileSync("python3",["-c","import sys,io,zipfile,json; z=zipfile.ZipFile(io.BytesIO(sys.stdin.buffer.read())); assert z.testzip() is None; print(json.dumps({n:z.read(n).decode('utf-8') for n in z.namelist()}))"],{input:bytes}).toString()); }
 test("collect six surfaces, notes survive locale switch, seven-file export, clear and import",async({page})=>{
   const writes:string[]=[];page.on("request",r=>{if(!["GET","HEAD"].includes(r.method()))writes.push(r.url());});
@@ -60,7 +61,7 @@ test("quota failure preserves stored evidence; malformed import cannot overwrite
   const state=addNotebookEvidence(emptyNotebook("en",version),draft,version);state.items[0].note="Keep me";const raw=serializeNotebook(state);
   await page.addInitScript(({key,raw})=>{localStorage.setItem(key,raw);Object.defineProperty(Storage.prototype,"setItem",{value(){throw new DOMException("Full","QuotaExceededError")}});},{key:NOTEBOOK_STORAGE_KEY,raw});
   await page.goto("/en/notebook/",{waitUntil:"networkidle"});await page.locator("[data-user-note]").fill("Memory edit");await expect(page.getByRole("status")).toContainText("memory only");expect(await page.evaluate(key=>localStorage.getItem(key),NOTEBOOK_STORAGE_KEY)).toBe(raw);
-  await page.getByLabel("Import notebook JSON",{exact:true}).setInputFiles({name:"bad.json",mimeType:"application/json",buffer:Buffer.from('{"schema":"unsupported"}')});await expect(page.getByRole("status")).toContainText("Action rejected");await expect(page.locator("[data-user-note]")).toHaveValue("Memory edit");
+  await expect(page.getByLabel("Import notebook JSON",{exact:true})).toBeDisabled();await expect(page.locator("[data-user-note]")).toHaveValue("Memory edit");
   page.once("dialog", async dialog => { expect(dialog.message()).toContain("only in memory"); await dialog.dismiss(); });
   await page.getByRole("link", { name:"中文", exact:true }).click();
   await expect(page.locator("[data-user-note]")).toHaveValue("Memory edit");expect(await page.evaluate(key=>localStorage.getItem(key),NOTEBOOK_STORAGE_KEY)).toBe(raw);
@@ -68,6 +69,7 @@ test("quota failure preserves stored evidence; malformed import cannot overwrite
 test("import replacement requires confirmation; unsafe URLs rejected; strings remain plain text",async({page})=>{
   const state=addNotebookEvidence(emptyNotebook("en",version),draft,version);await page.goto("/en/notebook/",{waitUntil:"networkidle"});const file=(v:unknown)=>({name:"notebook.json",mimeType:"application/json",buffer:Buffer.from(JSON.stringify(v))});
   await page.getByLabel("Import notebook JSON",{exact:true}).setInputFiles(file(state));await count(page,1);await page.locator("[data-user-note]").fill("Existing note");
+  await page.getByLabel("JSON import destination",{exact:true}).selectOption("replace");
   page.once("dialog",d=>d.dismiss());await page.getByLabel("Import notebook JSON",{exact:true}).setInputFiles(file(state));await expect(page.locator("[data-user-note]")).toHaveValue("Existing note");
   const unsafe=structuredClone(state);unsafe.items[0].url="javascript:alert(1)";await page.getByLabel("Import notebook JSON",{exact:true}).setInputFiles(file(unsafe));await expect(page.getByRole("status")).toContainText("Action rejected");
   state.title='<img src="x" onerror="window.notebookAttack=true">';page.once("dialog",d=>d.accept());await page.getByLabel("Import notebook JSON",{exact:true}).setInputFiles(file(state));await expect(page.getByLabel("Notebook title",{exact:true})).toHaveValue(state.title);expect(await page.evaluate(()=>"notebookAttack" in window)).toBe(false);await expect(page.locator('[data-notebook-page] img')).toHaveCount(0);

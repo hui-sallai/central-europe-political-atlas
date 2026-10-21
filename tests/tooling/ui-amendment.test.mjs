@@ -49,7 +49,7 @@ test('wildcard paths, missing sha256, OTHER classification and data_change_allow
 test('the committed amendment lists exact hashes for presentation files only', () => {
   const { problems, approved } = approvedUiFiles(record.amendments);
   assert.deepEqual(problems, []);
-  assert.equal(approved.size, 94); // Adds the Notebook brief component and projection; data and models stay frozen.
+  assert.equal(approved.size, 99); // Adds project management plus first amendments for the existing provider/collector; data and models stay frozen.
   for (const [p] of approved) assert.match(p, /^src\/(app|components|lib)\//);
 });
 

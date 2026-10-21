@@ -1,6 +1,7 @@
+import { activeNotebookRaw } from "./notebook-storage";
 import fs from 'node:fs';
 import {test,expect} from '@playwright/test';
-import {NOTEBOOK_STORAGE_KEY,parseNotebook} from '../../src/lib/researchNotebook';
+import {parseNotebook} from '../../src/lib/researchNotebook';
 const pack=JSON.parse(fs.readFileSync('public/research-data/network_ui_pack.json','utf8'));
 const query='tab=run&skill=network_dependency&country=hungary&trade_compare=poland&trade_flow=exports&trade_year=2020&trade_metric=china_share&trade_from=2018&trade_to=2022&trade_partner=germany';
 for(const prefix of ['', '/en']){
@@ -13,8 +14,8 @@ for(const prefix of ['', '/en']){
   await control('历史指标','Historical metric').selectOption('partner_hhi');await expect.poll(()=>new URL(page.url()).searchParams.get('trade_metric')).toBe('partner_hhi');await expect(control('参照年份','Reference year')).toHaveValue('2020');
   await panel.locator('[data-trade-share]').click();await expect(panel.locator('[data-trade-share-status]')).toContainText(en?'copied':'已复制');
   const copied=await page.evaluate(()=>(window as unknown as {copiedTrade:string}).copiedTrade);expect(new URL(copied).searchParams.get('trade_from')).toBe('2018');expect(new URL(copied).searchParams.get('tab')).toBe('run');expect(new URL(copied).searchParams.get('trade_pack')).toMatch(/^[a-f0-9]{64}$/);
-  await panel.locator('[data-notebook-add]').click();await expect.poll(()=>page.evaluate(k=>JSON.parse(localStorage.getItem(k)??'{}').items?.length,NOTEBOOK_STORAGE_KEY)).toBe(1);
-  const notebook=parseNotebook((await page.evaluate(k=>localStorage.getItem(k),NOTEBOOK_STORAGE_KEY))!);expect(notebook.items[0].type).toBe('country_comparison');expect(notebook.items[0].metadata.filters).toMatchObject({country:'hungary',compare:'poland',flow:'exports',reference_year:2020,metric:'partner_hhi',from:2018,to:2022,partner:'germany'});expect(notebook.items[0].metadata.row_count).toBe(10);expect(notebook.items[0]).not.toHaveProperty('value');expect(notebook.sources[0]).not.toHaveProperty('updated_at');
+  await panel.locator('[data-notebook-add]').click();await expect.poll(async()=>JSON.parse((await activeNotebookRaw(page))??'{}').items?.length).toBe(1);
+  const notebook=parseNotebook((await activeNotebookRaw(page))!);expect(notebook.items[0].type).toBe('country_comparison');expect(notebook.items[0].metadata.filters).toMatchObject({country:'hungary',compare:'poland',flow:'exports',reference_year:2020,metric:'partner_hhi',from:2018,to:2022,partner:'germany'});expect(notebook.items[0].metadata.row_count).toBe(10);expect(notebook.items[0]).not.toHaveProperty('value');expect(notebook.sources[0]).not.toHaveProperty('updated_at');
   await page.reload({waitUntil:'networkidle'});await expect(control('国家 B','Country B')).toHaveValue('poland');
   await page.getByRole('link',{name:en?'中文':'English',exact:true}).click();await expect(panel.getByRole('combobox',{name:en?'参照年份':'Reference year',exact:true})).toHaveValue('2020');await expect(panel.getByRole('combobox',{name:en?'贸易流向':'Trade flow',exact:true})).toHaveValue('exports');
   const nextPrefix=en?'':'/en';await page.goto(`${nextPrefix}/notebook/`,{waitUntil:'networkidle'});const item=page.locator('[data-notebook-item]').first();await expect(item).toContainText(en?'匈牙利':'Hungary');await item.getByRole('link',{name:en?'打开原始视图 · 实时链接':'Open original view · live link',exact:true}).click();
@@ -22,7 +23,7 @@ for(const prefix of ['', '/en']){
  });
  test(`Trade sessions explicit failed/missing years and partial collection ${prefix||'zh'}`,async({page})=>{
   await page.goto(`${prefix}/models/?tab=run&skill=network_dependency&country=germany&trade_flow=imports&trade_year=2022&trade_from=2021&trade_to=2023`,{waitUntil:'networkidle'});const panel=page.locator('[data-trade-workbench]');await expect(panel.locator('[data-trade-session]')).toBeVisible();await expect(panel.getByRole('combobox',{name:en?'Reference year':'参照年份',exact:true})).toHaveValue('2022');await expect(panel.locator('[data-trade-unavailable]')).toContainText(en?'failed':'未通过');await panel.locator('[data-notebook-add]').click();
-  await expect.poll(()=>page.evaluate(k=>JSON.parse(localStorage.getItem(k)??'{}').items?.length,NOTEBOOK_STORAGE_KEY)).toBe(1);const n=parseNotebook((await page.evaluate(k=>localStorage.getItem(k),NOTEBOOK_STORAGE_KEY))!);expect(n.items[0].metadata.row_count).toBe(2);expect(n.items[0].periods).toEqual(['2021','2022','2023']);expect(n.items[0].canonical_ids.some(x=>x.includes(':2022:'))).toBe(false);expect(n.items[0].warnings.join(' ')).toContain('2022');
+  await expect.poll(async()=>JSON.parse((await activeNotebookRaw(page))??'{}').items?.length).toBe(1);const n=parseNotebook((await activeNotebookRaw(page))!);expect(n.items[0].metadata.row_count).toBe(2);expect(n.items[0].periods).toEqual(['2021','2022','2023']);expect(n.items[0].canonical_ids.some(x=>x.includes(':2022:'))).toBe(false);expect(n.items[0].warnings.join(' ')).toContain('2022');
   await page.goto(`${prefix}/models/?tab=run&skill=network_dependency&country=germany&trade_year=2030&trade_from=2030&trade_to=2032`,{waitUntil:'networkidle'});await expect(panel.locator('[data-trade-session]')).toBeVisible();await expect(panel.getByRole('combobox',{name:en?'Reference year':'参照年份',exact:true})).toHaveValue('2030');await expect(panel.locator('[data-notebook-add]')).toBeDisabled();await expect(panel.locator('[data-trade-collect-unavailable]')).toBeVisible();
  });
 }

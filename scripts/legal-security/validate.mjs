@@ -128,10 +128,11 @@ for (const f of walk('src', (p) => /\.(ts|tsx)$/.test(p))) {
     const arg = m[1].trim();
     const literal = /^["'`]([^"'`$]+)["'`]$/.exec(arg)?.[1];
     if (literal) check(allowedKeys.has(literal), `${f}: localStorage key ${literal} not allowlisted`);
-    else check(['NOTEBOOK_STORAGE_KEY', 'KEY', '"${KEY}"'].includes(arg) || /\$\{KEY\}/.test(arg), `${f}: unreviewed dynamic localStorage key ${arg}`);
+    else check(['NOTEBOOK_STORAGE_KEY', 'NOTEBOOK_PROJECTS_KEY', 'KEY', '"${KEY}"'].includes(arg) || /\$\{KEY\}/.test(arg), `${f}: unreviewed dynamic localStorage key ${arg}`);
   }
 }
 check(read('src/lib/researchNotebook.ts').includes('"central-europe-atlas:research-notebook:v1"'), 'notebook storage key changed — review allowlist');
+check(read('src/lib/notebookProjects.ts').includes('"central-europe-atlas:notebook-projects:v1"'), 'project storage key must match the exact reviewed allowlist');
 check(read('src/components/ThemeToggle.tsx').includes('"atlas-theme"'), 'theme storage key changed — review allowlist');
 
 // 8. Front-end security in source

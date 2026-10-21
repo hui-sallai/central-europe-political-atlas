@@ -1385,6 +1385,60 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-21"
+    },
+    {
+      "amendment_id": "notebook-independent-local-projects-2026-10-21",
+      "status": "owner_approved",
+      "approved_by": "owner focused multi-project Notebook brief: browser-local project container, read-only legacy compatibility, guarded switching, explicit JSON backup/import, source privacy notice and active-project collection; no source registry, data, model or release changes",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/ResearchNotebookProvider.tsx",
+          "sha256": "23effbeef55f0ce8ee871f73307fdd57dfa9d7e05ab706e4e202c1f31e53ed83",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ResearchNotebookPage.tsx",
+          "sha256": "70c7bae7f21b9f6599ad5eb0feb06c907d604b84cf5afbbdffd0dff1f5503856",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/NotebookCollect.tsx",
+          "sha256": "65fb6dc6347de44645ad384999b95f38bf34124d4e0dcb5165d9209ccea89007",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/NotebookProjectManager.tsx",
+          "sha256": "7af452178e018a047755d191e30a51a2a4720dfae289f10dfda6871060dfb0c1",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/notebookProjects.ts",
+          "sha256": "30656aad2d17905ae48739d08126cb716c89524259c87419223499f35d2d9e2b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/notebookProjectMessages.ts",
+          "sha256": "5a422612ee77b13cb6e125a4b6264f18b605e3b49ed3e991f8fb7a388ccf6f64",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/privacy/page.tsx",
+          "sha256": "b5202671550ae86bbcbe8272648bdcf95c0fe8eaae7c8dd59b1b740ecd485697",
+          "classification": "PRIVACY_NOTICE"
+        },
+        {
+          "path": "src/app/(english)/en/privacy/page.tsx",
+          "sha256": "5685d5fb8298571271cf70e39ab2e8f818074e2ac6719f5dc78f73a946217422",
+          "classification": "PRIVACY_NOTICE"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-21"
     }
   ]
 }

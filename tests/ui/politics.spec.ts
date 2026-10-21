@@ -1,7 +1,8 @@
+import { activeNotebookRaw } from "./notebook-storage";
 import fs from "node:fs";
 import AxeBuilder from "@axe-core/playwright";
 import { test, expect } from "@playwright/test";
-import { NOTEBOOK_STORAGE_KEY, parseNotebook } from "../../src/lib/researchNotebook";
+import { parseNotebook } from "../../src/lib/researchNotebook";
 
 for (const locale of ["zh-CN", "en"] as const) {
   const route=locale==='en'?'/en/politics/':'/politics/';
@@ -26,7 +27,7 @@ for (const locale of ["zh-CN", "en"] as const) {
     await expect(missing.locator('td').first()).toHaveText('—');
     await panel.locator('[data-notebook-add]').first().click();
     await expect(page.getByRole('banner')).toContainText('1');
-    const notebook=parseNotebook((await page.evaluate(key=>localStorage.getItem(key),NOTEBOOK_STORAGE_KEY))!);
+    const notebook=parseNotebook((await activeNotebookRaw(page))!);
     expect(notebook.items[0].type).toBe('series_view');
     expect(notebook.items[0].metadata.filters).toMatchObject({election:'el-de-bt-2021-09-26',measure:'seats'});
     expect(notebook.items[0].metadata).not.toHaveProperty('rows');

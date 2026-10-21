@@ -4,7 +4,9 @@ import { useState } from "react";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { localeNumber, localizedRoute } from "@/i18n/config";
 import { notebookMessages } from "@/content/notebookMessages";
-import { notebookLimits, notebookTypes, parseNotebook, type EvidenceType, type NotebookItem } from "@/lib/researchNotebook";
+import { notebookLimits, notebookTypes, parseNotebook, serializeNotebook, type EvidenceType, type NotebookItem } from "@/lib/researchNotebook";
+import { notebookProjectMessages } from "@/lib/notebookProjectMessages";
+import { NotebookProjectManager } from "./NotebookProjectManager";
 import { useResearchNotebook } from "./ResearchNotebookProvider";
 import { NotebookEvidenceBrief } from "./NotebookEvidenceBrief";
 const groups: { label: "dataGroup" | "eventGroup" | "regionGroup" | "methodGroup" | "workspaceGroup" | "sourceGroup"; types: EvidenceType[] }[] = [
@@ -12,27 +14,36 @@ const groups: { label: "dataGroup" | "eventGroup" | "regionGroup" | "methodGroup
 ];
 function downloadText(text: string, filename: string) { const url = URL.createObjectURL(new Blob([text], { type: "text/plain;charset=utf-8" })); const a = document.createElement("a"); a.href = url; a.download = filename; a.click(); window.setTimeout(() => URL.revokeObjectURL(url), 1000); }
 export function ResearchNotebookPage() {
-  const locale = useLocale(), m = notebookMessages[locale]; const { notebook, state, error, raw, update, replace, clear } = useResearchNotebook();
+  const { activeId } = useResearchNotebook();
+  return <NotebookProjectPage key={activeId || "loading"} />;
+}
+function NotebookProjectPage() {
+  const locale = useLocale(), m = notebookMessages[locale], pm = notebookProjectMessages[locale]; const { notebook, activeId, state, issue, busy, switching, error, raw, update, replace, clear, createProject } = useResearchNotebook();
+  const [importMode, setImportMode] = useState("new");
   const [type, setType] = useState("all"), [country, setCountry] = useState("all"), [action, setAction] = useState<"idle" | "done" | "error">("idle");
-  const disabled = state === "loading" || state === "corrupt";
+  const disabled = state === "loading" || state === "corrupt" || switching;
+  const importBlocked = busy || state === "loading" || state === "memory" || issue === "registry_corrupt";
   const noteCharacters = notebook ? notebook.user_notes.length + notebook.research_question.length + notebook.items.reduce((total,item) => total + item.note.length,0) : 0;
   const nearLimit = notebook && (notebook.items.length >= notebookLimits.items * .8 || noteCharacters >= notebookLimits.totalNotes * .8 || new TextEncoder().encode(JSON.stringify(notebook)).length >= notebookLimits.bytes * .8);
   const editItem = (id: string, patch: Partial<NotebookItem>) => update(n => ({ ...n, items: n.items.map(i => i.id === id ? { ...i, ...patch } : i) }));
   const move = (id: string, step: number) => update(n => { const items = [...n.items], i = items.findIndex(i => i.id === id), j = i + step; if (j >= 0 && j < items.length) [items[i],items[j]] = [items[j],items[i]]; return { ...n, items }; });
   async function importFile(file?: File) { if (!file) return; setAction("idle"); try {
     if (file.size > notebookLimits.bytes) throw Error("Too large"); const value = parseNotebook(await file.text());
-    if ((state === "corrupt" || notebook && (notebook.items.length || notebook.title || notebook.user_notes || notebook.research_question)) && !window.confirm(m.confirmReplace)) return;
-    replace(value);
+    if (importBlocked) throw Error("Unsafe project transition");
+    if (importMode === "replace" && !window.confirm(pm.confirmReplace)) return;
+    const accepted = importMode === "new" ? await createProject(value.title, value) : await replace(value);
+    if (!accepted) throw Error("Project import rejected");
   } catch { setAction("error"); } }
   async function exportFile() { if (!notebook) return; try { const [{ notebookExportFiles }, { buildZip }] = await Promise.all([import("@/lib/notebookExport"), import("@/lib/clientZip")]); const exportedAt = new Date().toISOString(); const files = notebookExportFiles({ ...notebook, locale }, exportedAt); const bytes = buildZip(files, exportedAt); const url = URL.createObjectURL(new Blob([bytes], { type: "application/zip" })); const a = document.createElement("a"); a.href = url; a.download = `research-notebook-${exportedAt.slice(0,10)}.zip`; a.click(); window.setTimeout(() => URL.revokeObjectURL(url),1000); setAction("done"); } catch { setAction("error"); } }
   const visible = notebook?.items.filter(i => (type === "all" || type === i.type) && (country === "all" || i.countries.includes(country))) ?? [];
   return <main className="mx-auto max-w-[1120px] px-6 py-12" data-notebook-page>
     <h1 className="editorial-headline text-4xl font-bold">{m.title}</h1><p className="mt-4 text-sm leading-7">{m.privacy}</p><p className="mt-3 text-sm leading-7 text-[var(--muted)]">{m.boundary}</p>
     <p className="mt-4 rounded-xl border border-[var(--line)] p-3 text-sm" role="status">{m[state]}{error || action === "error" ? ` · ${m.error}` : action === "done" ? ` · ${m.done}` : ""}</p>
-    {state === "corrupt" && raw !== null ? <button className="mt-3 text-sm text-[var(--accent)]" onClick={() => downloadText(raw, "notebook-recovery.txt")}>{m.recovery}</button> : null}
+    {raw !== null && (state === "corrupt" || issue === "registry_corrupt") ? <button className="mt-3 text-sm text-[var(--accent)]" onClick={() => downloadText(raw, "notebook-recovery.txt")}>{issue === "registry_corrupt" ? pm.recovery : m.recovery}</button> : null}
+    <NotebookProjectManager />
     {nearLimit ? <p className="mt-3 text-sm text-[var(--accent)]" data-notebook-capacity aria-live="polite">{m.capacityWarning}</p> : null}
     <section className="mt-8" aria-labelledby="notebook-question"><h2 id="notebook-question" className="text-2xl font-semibold">{m.question}</h2>
-      <label className="mt-4 block text-sm">{m.notebookTitle}<input className="field-control mt-2" maxLength={200} disabled={disabled} value={notebook?.title ?? ""} onChange={e => update(n => ({ ...n, title: e.target.value }))} /></label>
+      <label className="mt-4 block text-sm">{m.notebookTitle}<input id="notebook-title-input" className="field-control mt-2" maxLength={200} disabled={disabled} value={notebook?.title ?? ""} onChange={e => update(n => ({ ...n, title: e.target.value }))} /></label>
       <label className="mt-4 block text-sm">{m.question}<textarea className="field-control mt-2 min-h-24" maxLength={4000} disabled={disabled} value={notebook?.research_question ?? ""} onChange={e => update(n => ({ ...n, research_question: e.target.value }))} /></label>
     </section>
     <section className="mt-10" aria-labelledby="notebook-evidence"><h2 id="notebook-evidence" className="text-2xl font-semibold">{m.evidence} · {notebook?.items.length ?? 0}</h2>
@@ -56,7 +67,7 @@ export function ResearchNotebookPage() {
     <section className="mt-10" aria-labelledby="notebook-sources"><h2 id="notebook-sources" className="text-2xl font-semibold">{m.sources}</h2><ul className="mt-4 space-y-4 text-sm break-words">{notebook?.sources.map(s => <li key={s.id}>{(() => { const link = externalSourceLink(s.url); const label = <span {...(/[\u3400-\u9fff]/.test(s.dataset+s.institution) ? { lang: "zh-CN", "data-original-language": "zh-CN" } : {})}>{s.institution} · {s.dataset}</span>; return link ? <><a href={link.href} rel={EXTERNAL_SOURCE_REL} className="text-[var(--accent)]">{label}</a> <span className="text-xs text-[var(--muted)]" data-source-host>({link.host})</span></> : label; })()}<p className="text-xs mt-1">{s.code} · {s.layer} · {s.original_unit} / {s.normalized_unit} · {s.retrieved_at} · {s.updated_at}</p></li>)}</ul></section>
     <section className="mt-10" aria-labelledby="notebook-methods"><h2 id="notebook-methods" className="text-2xl font-semibold">{m.methods}</h2><p className="mt-3 text-sm">{m.boundary}</p><ul className="mt-3 space-y-2 text-sm">{notebook?.methodology_warnings.map((w,i) => <li key={i}><span {...(/[\u3400-\u9fff]/.test(w) ? { lang: "zh-CN", "data-original-language": "zh-CN" } : {})}>{w}</span></li>)}</ul></section>
     <section className="mt-10" aria-labelledby="notebook-notes"><h2 id="notebook-notes" className="text-2xl font-semibold">{m.notes}</h2><label className="mt-3 block text-sm">{m.itemNote}<textarea className="field-control mt-2 min-h-32" disabled={disabled} maxLength={10000} value={notebook?.user_notes ?? ""} onChange={e => update(n => ({ ...n, user_notes: e.target.value }))} /></label></section>
-    <section className="mt-10" aria-labelledby="notebook-export"><h2 id="notebook-export" className="text-2xl font-semibold">{m.export}</h2><p className="mt-3 text-xs leading-6 text-[var(--muted)]">{m.limits}</p><div className="mt-4 flex flex-wrap items-center gap-4"><button type="button" className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm text-[var(--accent)]" disabled={disabled || !notebook} onClick={() => void exportFile()}>{m.exportButton}</button><label className="text-sm">{m.import}<input type="file" accept=".json,application/json" className="mt-2 block max-w-full text-xs" onChange={e => { void importFile(e.target.files?.[0]); e.target.value = ""; }} /></label><button type="button" className="text-sm text-[var(--accent)]" onClick={() => { if (window.confirm(m.confirmClear)) clear(); }}>{m.clear}</button></div></section>
-    {notebook && notebook.items.length > 0 ? <NotebookEvidenceBrief key={notebook.notebook_id} notebook={notebook} locale={locale} disabled={disabled} /> : null}
+    <section className="mt-10" aria-labelledby="notebook-export"><h2 id="notebook-export" className="text-2xl font-semibold">{m.export}</h2><p className="mt-3 text-xs leading-6 text-[var(--muted)]">{m.limits}</p><div className="mt-4 flex flex-wrap items-center gap-4"><button type="button" className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm text-[var(--accent)]" disabled={disabled || !notebook} onClick={() => void exportFile()}>{m.exportButton}</button><button type="button" className="rounded-full border border-[var(--line)] px-4 py-2 text-sm" disabled={disabled || !notebook} onClick={() => { try { downloadText(serializeNotebook(notebook!), `research-notebook-${new Date().toISOString().slice(0,10)}.json`); setAction("done"); } catch { setAction("error"); } }}>{pm.backup}</button><label className="text-sm">{pm.importMode}<select aria-label={pm.importMode} className="field-control mt-2" disabled={importBlocked} value={importMode} onChange={e => setImportMode(e.target.value)}><option value="new">{pm.newImport}</option><option value="replace">{pm.replaceImport}</option></select></label><label className="text-sm">{m.import}<input type="file" disabled={importBlocked} accept=".json,application/json" className="mt-2 block max-w-full text-xs" onChange={e => { void importFile(e.target.files?.[0]); e.target.value = ""; }} /></label><button type="button" className="text-sm text-[var(--accent)]" disabled={busy || state === "memory" || state === "loading" || issue === "registry_corrupt"} onClick={() => { if (window.confirm(m.confirmClear)) void clear(); }}>{m.clear}</button></div></section>
+    {notebook && notebook.items.length > 0 ? <NotebookEvidenceBrief key={activeId} notebook={notebook} locale={locale} disabled={disabled} /> : null}
   </main>;
 }
