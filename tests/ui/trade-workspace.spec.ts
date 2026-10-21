@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import {execFileSync} from 'node:child_process';
 import {test,expect} from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import {NOTEBOOK_STORAGE_KEY,parseNotebook} from '../../src/lib/researchNotebook';
+import {parseNotebook} from '../../src/lib/researchNotebook';
+import {activeNotebookRaw} from './notebook-storage';
 import {buildWorkspaceSnapshot} from '../../src/lib/workspaceSnapshot';
 import {buildWorkspaceEvidence} from '../../src/components/workspaceEvidence';
 import {researchWorkspaces} from '../../src/content/researchWorkspaces';
@@ -24,7 +25,7 @@ for(const prefix of ['', '/en']){
   await expect(page.locator('[data-workspace-trade-availability]')).toContainText(en?'coverage failed':'覆盖不合格');
   const action=page.locator('[data-workspace-trade-open]');await expect(action).toHaveText(en?'Compare in Regional Trade Research':'在区域贸易研究中比较');await expect(action).toHaveAttribute('href',/trade_year_selection=common/);await expect(action).toHaveAttribute('href',/trade_year=auto/);
   await page.getByRole('button',{name:en?'Add workspace setup to notebook':'将工作区设置加入研究笔记',exact:true}).click();
-  await expect.poll(()=>page.evaluate(k=>JSON.parse(localStorage.getItem(k)??'{}').items?.length,NOTEBOOK_STORAGE_KEY)).toBe(1);const n=parseNotebook((await page.evaluate(k=>localStorage.getItem(k),NOTEBOOK_STORAGE_KEY))!);expect(n.items[0].countries).toEqual(['hungary','poland','germany']);expect(n.items[0].metadata.filters).toMatchObject({trade_flow:'imports',trade_metric:'china_share',trade_year_selection:'common',common_eligible_years:['2021','2023']});expect(n.items[0].warning_labels?.en?.join(' ')).toContain('Eurostat');expect(n.items[0]).not.toHaveProperty('value');
+  await expect.poll(async()=>JSON.parse(await activeNotebookRaw(page)).items?.length).toBe(1);const n=parseNotebook(await activeNotebookRaw(page));expect(n.items[0].countries).toEqual(['hungary','poland','germany']);expect(n.items[0].metadata.filters).toMatchObject({trade_flow:'imports',trade_metric:'china_share',trade_year_selection:'common',common_eligible_years:['2021','2023']});expect(n.items[0].warning_labels?.en?.join(' ')).toContain('Eurostat');expect(n.items[0]).not.toHaveProperty('value');
   const waiting=page.waitForEvent('download');await page.getByRole('button',{name:en?'Export research workspace':'导出研究工作区',exact:true}).click();const files=unzip(fs.readFileSync((await(await waiting).path())!));const setup=JSON.parse(files['workspace.json']);expect(setup.trade_research).toMatchObject({mode:'regional',countries:['hungary','poland','germany'],metric:'china_share',flow:'imports',reference_year:2023,year_selection:'common',common_eligible_years:[2021,2023]});expect(setup.trade_research).not.toHaveProperty('records');expect(files['sources-summary.csv']).toContain('UN Comtrade');expect(files['README.md']).toContain(en?'goods-and-services':'货物及服务');expect(JSON.parse(files['links.json']).models.find((x:{skill:string})=>x.skill==='network_dependency').url).toBe(setup.trade_research.research_url);
   for(const name of en?['Austria','Slovakia']:['奥地利','斯洛伐克'])await selected.getByRole('checkbox',{name,exact:true}).check();await expect(selected.getByRole('checkbox',{checked:true})).toHaveCount(5);await expect(selected.getByRole('checkbox',{checked:false}).first()).toBeDisabled();for(const name of en?['Austria','Slovakia']:['奥地利','斯洛伐克'])await selected.getByRole('checkbox',{name,exact:true}).uncheck();
   await page.reload({waitUntil:'networkidle'});await expect(control('参照年份选择','Reference-year selection')).toHaveValue('common');await expect(selected.getByRole('checkbox',{checked:true})).toHaveCount(3);
