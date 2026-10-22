@@ -2,7 +2,7 @@ const en = {
   projects: "Research projects", active: "Active project", unnamed: "Untitled project", choose: "Choose research project",
   name: "New project title", create: "Create project", rename: "Rename active project", remove: "Delete active project",
   edited: "Last edited", items: "evidence items",
-  privacy: "Projects stay in this browser only, not in permanent or encrypted cloud backup. Export each important project. Up to 10 projects / 3 MB in total; existing per-notebook limits still apply. Older single-notebook storage is retained unchanged as a compatibility copy, not synchronized with old tabs.",
+  privacy: "Projects stay in this browser only, not in permanent or encrypted cloud backup. Use “Back Up All Research Projects” for a full collection backup, or export a single project. Up to 10 projects / 3 MB in total; existing per-notebook limits still apply. Older single-notebook storage is retained unchanged as a compatibility copy, not synchronized with old tabs.",
   legacy: "Your existing notebook is readable. The first saved change copies it into the project collection with its original notebook and evidence IDs. The old storage key is never overwritten.",
   memory: "Local saving is unavailable or full, or safe browser locking is unavailable. Latest edits remain in memory. Project switching, deletion and import are blocked. Export JSON before leaving, then retry saving.",
   conflict: "Another tab changed or deleted stored projects during pending work. Local evidence is retained in memory and switching is blocked. Export JSON, or save the pending notebook as a separate recovered project without replacing existing projects.",
@@ -27,7 +27,7 @@ const en = {
 };
 const zh: Record<keyof typeof en, string> = {
   projects: "研究项目", active: "当前项目", unnamed: "未命名项目", choose: "选择研究项目", name: "新项目标题", create: "创建项目", rename: "重命名当前项目", remove: "删除当前项目", edited: "最后编辑", items: "条证据",
-  privacy: "项目仅保存在当前浏览器，不是永久或加密的云备份。请分别导出重要项目。最多 10 个项目／合计 3 MB；每本笔记的原有限制不变。旧单笔记存储原样保留为兼容副本，不与旧版标签页同步。",
+  privacy: "项目仅保存在当前浏览器，不是永久或加密的云备份。可用“备份全部研究项目”下载完整集合备份，也可单独导出某个项目。最多 10 个项目／合计 3 MB；每本笔记的原有限制不变。旧单笔记存储原样保留为兼容副本，不与旧版标签页同步。",
   legacy: "已有笔记可正常读取。首次保存修改时，将保留原笔记和证据 ID 并复制到项目集合；不会覆盖旧存储键。",
   memory: "本地保存不可用、容量已满，或浏览器不支持安全存储锁。最新修改仍在内存中，已阻止项目切换、删除和导入。离开前请先导出 JSON 备份，再尝试保存。",
   conflict: "此页有待保存内容时，另一个标签页修改或删除了存储项目。本页证据仍保留在内存，已阻止切换。请导出 JSON，或将待保存笔记另存为恢复项目；不会替换已有项目。",

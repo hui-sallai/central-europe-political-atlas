@@ -1457,6 +1457,21 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-21"
+    },
+    {
+      "amendment_id": "notebook-privacy-collection-backup-copy-2026-10-22",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-10-22 (optional small copy fix): the Notebook privacy text points to the existing full collection backup instead of recommending exporting every important project separately; bilingual copy only, no storage, restore, data, model, source registry or version changes",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        { "path": "src/lib/notebookProjectMessages.ts", "sha256": "3d342fd75f4b28fd922b953f7d690f3a722fe29d5d92a29a22485f41580d5564", "classification": "DATA_PRESENTATION" }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-22"
     }
   ]
 }
