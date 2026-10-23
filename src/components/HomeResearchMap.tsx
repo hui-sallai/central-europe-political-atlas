@@ -19,7 +19,7 @@ export type HomeMapCountry = {
   nameEn: string;
   iso2: string;
   indicators: Array<{ id: string; label: string; value: string; year: string }>;
-  latestEvent: { id: string; date: string; title: string } | null;
+  latestEvent: { id: string; date: string; title: string; titleLanguage?: string; originalLanguageLabel?: string } | null;
 };
 
 const width = 900;
@@ -129,7 +129,7 @@ export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: Ho
           </dl>
           <div className="home-latest-event">
             <p>Latest verified event</p>
-            {selected.latestEvent ? <Link href={localizedRoute(`/news?country=${selected.slug}#${selected.latestEvent.id}`, locale)}><span>{selected.latestEvent.date}</span>{en ? <div lang="zh-CN" data-original-language="zh-CN">{selected.latestEvent.title}</div> : selected.latestEvent.title}</Link> : <span>{m.noEvent}</span>}
+            {selected.latestEvent ? <Link href={localizedRoute(`/news?country=${selected.slug}#${selected.latestEvent.id}`, locale)}><span>{selected.latestEvent.date}</span>{en ? <div lang={selected.latestEvent.titleLanguage ?? "und"} data-original-language={selected.latestEvent.originalLanguageLabel ? selected.latestEvent.titleLanguage : undefined}>{selected.latestEvent.originalLanguageLabel ? <span lang="en" className="block text-xs text-[var(--muted)]">{selected.latestEvent.originalLanguageLabel}</span> : null}{selected.latestEvent.title}</div> : selected.latestEvent.title}</Link> : <span>{m.noEvent}</span>}
           </div>
           <div className="home-map-actions"><Link href={localizedRoute(`/countries/${selected.slug}`, locale)}>{m.profile}</Link><Link href={localizedRoute(`/news?country=${selected.slug}`, locale)}>{m.events}</Link><Link href={localizedRoute(`/map?country=${selected.slug}`, locale)}>{m.fullMap}</Link></div>
         </aside>

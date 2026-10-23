@@ -10,6 +10,8 @@ import { useLocale } from "@/i18n/LocaleProvider";
 import { NotebookCollect } from "./NotebookCollect";
 import { PLATFORM_BASE_URL } from "@/lib/releaseMetadata";
 import { newsTranslations } from "@/lib/newsTranslations";
+import { eventPresentation } from "@/lib/eventPresentation";
+import { reviewedText } from "@/i18n/reviewedText";
 
 type CountryFilter = "all" | string;
 type EventTypeFilter = "all" | EventType;
@@ -43,9 +45,7 @@ const confidenceLabels: Record<Event["confidence"], string> = {
 
 function EventCard({ item }: { item: Event }) {
   const locale = useLocale();
-  const translation = locale === "en" ? newsTranslations[item.id] : undefined;
-  const title = translation?.title ?? item.title;
-  const summary = translation?.summary ?? item.summary;
+  const { title, summary } = eventPresentation(item, locale);
   const en = locale === "en";
   const levels = eventAnalysisLevels(item);
   const { actors, publisher } = eventActors(item);
@@ -66,12 +66,14 @@ function EventCard({ item }: { item: Event }) {
           <p className="mt-1 text-xs text-[var(--accent)]">{eventTypeLabels[item.event_type]}</p>
         </div>
         <div>
-          {locale === "en" && !translation && <p className="mb-2 text-xs text-[var(--muted)]">Original event summary (Chinese; untranslated)</p>}
-          <div lang={translation ? "en" : "zh-CN"} data-original-language="zh-CN" data-presentation-language={translation ? "en" : "zh-CN"}><h3 className="text-xl font-semibold leading-7">{title}</h3>
-          {summary.split("\n\n").map((paragraph, index) => <p key={index} className="mt-3 text-sm leading-7 text-[var(--muted)]">{paragraph}</p>)}</div>
+          <div lang={summary.lang} data-original-language="und" data-presentation-language={summary.lang}>
+          {title.originalLabel ? <span lang="en" className="mb-2 block text-xs text-[var(--muted)]">{title.originalLabel}</span> : null}
+          <h3 lang={title.lang} data-original-language={title.originalLabel ? title.lang : undefined} className="text-xl font-semibold leading-7">{title.text}</h3>
+          {summary.originalLabel ? <span lang="en" className="mt-2 block text-xs text-[var(--muted)]">{summary.originalLabel}</span> : null}
+          {summary.text.split("\n\n").map((paragraph, index) => <p key={index} className="mt-3 text-sm leading-7 text-[var(--muted)]">{paragraph}</p>)}</div>
           <div className="mt-4 flex flex-wrap items-center gap-2">
             {item.data_status === "verified" && item.source_url ? <NotebookCollect create={() => ({ type: "event", title: item.title, url: `${PLATFORM_BASE_URL.replace(/\/$/, "")}${locale === "en" ? "/en" : ""}/news/?country=${item.country_slug}&type=${item.event_type}&from=${item.date}&to=${item.date}#${item.id}`, canonical_ids: [item.id], countries: [item.country_slug], periods: [item.date], sources: [{ institution: item.source_name, dataset: item.source_name, url: item.source_url!, layer: "verified_event" }], layer: "verified_event", comparability: "event_context_not_a_comparable_numeric_observation", warnings: [item.model_note, "Verified event context, not an inferred causal effect."].filter(Boolean), metadata: { event_type: item.event_type, topic: item.topic, original_language: "zh-CN", status: item.data_status, entersModel: item.enters_model } })} /> : null}
-            {topics.filter(Boolean).map((topic) => <span key={topic} lang="zh-CN" data-original-language="zh-CN" className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{topic}</span>)}
+            {topics.filter(Boolean).map((topic) => { const label = en ? reviewedText[topic] ?? topic : topic, original = /[\u3400-\u9fff]/.test(label); return <span key={topic} lang={original ? "zh-CN" : "en"} data-original-language={original ? "zh-CN" : undefined} className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{label}</span>; })}
             {entries.map((entry, index) => (
               <Link key={entry.level} href={`${analysisHref}&section=${entry.level}`} data-event-entry={entry.level} className={index === 0 ? "rounded-full cta-dark px-3 py-1 text-xs font-semibold" : "rounded-full border border-[var(--accent)] px-3 py-1 text-xs font-semibold text-[var(--accent)]"}>
                 {entry.label}
@@ -103,6 +105,7 @@ const CSV_COLUMNS = ["id", "date", "country_slug", "country_name", "event_type",
 const csvCell = (value: unknown) => `"${String(value ?? "").replaceAll('"', '""')}"`;
 
 export function NewsExplorer() {
+  const locale = useLocale();
   const [countryFilter, setCountryFilter] = useState<CountryFilter>("all");
   const [eventTypeFilter, setEventTypeFilter] = useState<EventTypeFilter>("all");
   const [topicFilter, setTopicFilter] = useState("all");
@@ -186,7 +189,7 @@ export function NewsExplorer() {
           <select className="field-control mt-2" value={eventTypeFilter} onChange={(event) => reset(() => setEventTypeFilter(event.target.value as EventTypeFilter))}><option value="all">全部类型</option>{eventTypes.map((type) => <option key={type} value={type}>{eventTypeLabels[type]}</option>)}</select>
         </label>
         <label className="mt-4 block text-xs font-semibold text-[var(--muted)]">主题
-          <select className="field-control mt-2" value={topicFilter} onChange={(event) => reset(() => setTopicFilter(event.target.value))}><option value="all">全部主题</option>{topics.map((topic) => <option key={topic} value={topic} lang="zh-CN" data-original-language="zh-CN">{topic}</option>)}</select>
+          <select className="field-control mt-2" value={topicFilter} onChange={(event) => reset(() => setTopicFilter(event.target.value))}><option value="all">全部主题</option>{topics.map((topic) => { const label = locale === "en" ? reviewedText[topic] ?? topic : topic, original = /[\u3400-\u9fff]/.test(label); return <option key={topic} value={topic} lang={original ? "zh-CN" : "en"} data-original-language={original ? "zh-CN" : undefined}>{label}</option>; })}</select>
         </label>
         <div className="mt-4 grid grid-cols-2 gap-2">
           <label className="text-xs font-semibold text-[var(--muted)]">起始日期
