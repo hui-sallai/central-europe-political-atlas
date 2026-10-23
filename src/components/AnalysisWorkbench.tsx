@@ -17,6 +17,7 @@ import type { Event } from "@/types/Event";
 import type { AnalysisDiagnostics, AnalysisSkillCategory } from "@/types/AnalysisSkill";
 import type { ModelCard, ModelId, ModelOutput } from "@/types/ModelOutput";
 import { TRADE_SESSION_PARAMS } from "@/lib/tradeNetworkPresentation";
+import { HouseholdPressureWorkbench } from "@/components/HouseholdPressureWorkbench";
 
 const categories = Object.keys(analysisCategoryLabels) as AnalysisSkillCategory[];
 const PanelLocalProjectionWorkbench = dynamic(() => import("@/components/PanelLocalProjectionWorkbench").then(module => module.PanelLocalProjectionWorkbench));
@@ -114,7 +115,7 @@ function AnalysisWorkbenchContent({ countries, cards, outputs, events }: Workben
       <div className="mt-4 flex flex-wrap gap-3">{skills.map((skill) => <button key={skill.skill_id} className="research-tab" aria-pressed={skill.skill_id === selectedSkillId} onClick={() => setSelectedSkillId(skill.skill_id)}>{locale === "en" ? analysisNames[skill.skill_id] : skill.name}</button>)}</div>
       <AnalysisSkillCard skill={selectedSkill} />
       {selectedSkill.state !== "active" ? null : category === "composite_indicators" ? (
-        <div className="mt-6 grid gap-6">
+        modelId === "household_economic_pressure" ? <div className="mt-6"><label>{locale === "en" ? "Analysis model" : "分析模型"}<select className="field-control mt-2" value={modelId} onChange={e=>setModelId(e.target.value as ModelId)}>{cards.map(c=><option key={c.model_id} value={c.model_id}>{locale === "en" ? c.name : c.name_zh}</option>)}</select></label><HouseholdPressureWorkbench countries={countries}/></div> : <div className="mt-6 grid gap-6">
           <section className="editorial-panel p-5">
             <div className="grid gap-4 md:grid-cols-3">
               <label className="text-xs font-semibold text-[var(--muted)]">{fieldLabels.country}<select className="field-control mt-2" value={countrySlug} onChange={(event) => { setCountrySlug(event.target.value); setResult(null); setDiagnostics(null); setConsistency(null); }}>{countries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh} / {country.name}</option>)}</select></label>

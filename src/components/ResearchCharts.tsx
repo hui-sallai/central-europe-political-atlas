@@ -30,7 +30,7 @@ export function Sparkline({ values, label }: { values: SeriesPoint[]; label: str
 export function BarMeter({ value, max = 100, label }: { value: number; max?: number; label: string }) {
   const width = Math.max(0, Math.min(100, (value / max) * 100));
   return (
-    <div className="bar-meter" aria-label={`${label}: ${value}`}>
+    <div className="bar-meter" role="img" aria-label={`${label}: ${value}`}>
       <span style={{ width: `${width}%` }} />
     </div>
   );
