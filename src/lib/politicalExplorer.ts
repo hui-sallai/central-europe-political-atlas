@@ -1,6 +1,7 @@
 /** Descriptive election views only. Identity continuity is not inferred here. */
+import type { NationalContext } from "./politicalNational";
 export type PoliticalMeasure = "votes" | "vote_share" | "seats" | "seat_share";
-export type PoliticalSource = { id: string; title: string; url: string; sha256?: string; retrievedAt?: string; licenceUrl?: string };
+export type PoliticalSource = { id: string; title: string; url: string; sha256?: string; retrievedAt?: string; licenceUrl?: string; institution?: string };
 export type PoliticalResult = {
   contestantId: string;
   nativeLabel: string;
@@ -8,6 +9,11 @@ export type PoliticalResult = {
   publishedVoteShare: number | null;
   seats: number | null;
   sourceId: string;
+  votes?: number | null;
+  voteType?: string;
+  contestantKind?: string;
+  partyId?: string | null;
+  memberPartyIds?: string[];
 };
 export type PoliticalLocalText = { en: string; "zh-CN": string };
 export type PoliticalCountryView = { slug: string; name: PoliticalLocalText; elections: PoliticalElectionView[] };
@@ -33,6 +39,7 @@ export type PoliticalElectionView = {
   notes: { en: string; "zh-CN": string };
   sources: PoliticalSource[];
   results: PoliticalResult[];
+  national?: NationalContext;
 };
 
 export function descriptiveShare(numerator: number | null, denominator: number | null): number | null {
@@ -42,13 +49,26 @@ export function descriptiveShare(numerator: number | null, denominator: number |
   }
   return 100 * numerator / denominator;
 }
+export function voteDenominator(e:PoliticalElectionView):number|null {
+  if(!e.national)return e.validSecondVotes;
+  const b=e.national.ballots.find(b=>b.definition.id===e.national!.activeVote.id);
+  return e.national.activeVote.denominator==="valid_votes"?b?.validVotes??null:e.national.activeVote.denominator==="ballots_cast"?b?.ballotsCast??null:null;
+}
+export function compatibleTurnout(a:PoliticalElectionView,b:PoliticalElectionView):boolean {
+  const x=a.national?.turnout,y=b.national?.turnout;
+  return Boolean(x&&y&&x.numerator!=="unknown"&&x.denominator!=="unknown"&&x.numerator===y.numerator&&x.denominator===y.denominator&&x.definition&&x.definition===y.definition);
+}
+export function compatibleVoteBasis(a:PoliticalElectionView,b:PoliticalElectionView):boolean {
+  const x=a.national?.activeVote,y=b.national?.activeVote;
+  return Boolean(x&&y&&x.denominator!=="unknown"&&x.kind===y.kind&&x.id===y.id&&x.denominator===y.denominator);
+}
 
 export function measureValue(result: PoliticalResult, election: PoliticalElectionView, measure: PoliticalMeasure): number | null {
   switch (measure) {
     case "votes": return result.secondVotes;
-    case "vote_share": return descriptiveShare(result.secondVotes, election.validSecondVotes);
+    case "vote_share": return descriptiveShare(result.secondVotes, voteDenominator(election));
     case "seats": return result.seats;
-    case "seat_share": return descriptiveShare(result.seats, election.totalSeats);
+    case "seat_share": return election.national&&election.national.activeVote.seatScope!=="whole_chamber"?null:descriptiveShare(result.seats, election.totalSeats);
   }
 }
 
@@ -64,9 +84,9 @@ export function compareElections(a: PoliticalElectionView, b: PoliticalElectionV
   const row = (key: ElectionAggregate["key"], x: number | null, y: number | null): ElectionAggregate => ({ key, a: x, b: y, difference: x === null || y === null ? null : y - x });
   const seatLists = (election: PoliticalElectionView) => election.results.filter((result) => (result.seats ?? 0) > 0).length;
   return [
-    row("turnout", a.publishedTurnout, b.publishedTurnout), row("eligible", a.eligibleVoters, b.eligibleVoters), row("voters", a.voters, b.voters),
+    { ...row("turnout", a.publishedTurnout, b.publishedTurnout), difference: a.national || b.national ? compatibleTurnout(a,b) && a.publishedTurnout!==null && b.publishedTurnout!==null ? b.publishedTurnout-a.publishedTurnout : null : a.turnoutDefinition===b.turnoutDefinition ? row("turnout",a.publishedTurnout,b.publishedTurnout).difference : null }, row("eligible", a.eligibleVoters, b.eligibleVoters), row("voters", a.voters, b.voters),
     row("valid", a.validSecondVotes, b.validSecondVotes), row("seats", a.totalSeats, b.totalSeats), row("lists", a.results.length, b.results.length), row("seat_lists", seatLists(a), seatLists(b)),
-  ];
+  ].map(r=>a.country&&b.country&&a.country!==b.country?{...r,difference:null}:(["voters","eligible"].includes(r.key)&&(a.national||b.national)&&!compatibleTurnout(a,b))||(["valid","lists","seat_lists"].includes(r.key)&&(a.national||b.national)&&!compatibleVoteBasis(a,b))?{...r,difference:null}:r);
 }
 
 export type AlignedLabelRow = { label: string; a: PoliticalResult | null; b: PoliticalResult | null };

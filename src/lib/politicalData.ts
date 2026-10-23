@@ -6,14 +6,18 @@ import contestants from "@/data/political/germany/electoral_contestants.json";
 import legislatures from "@/data/political/germany/legislatures.json";
 import systems from "@/data/political/germany/electoral_systems.json";
 import sources from "@/data/political/germany/political_source_registry.json";
+import members from "@/data/political/germany/contestant_members.json";
 import type { PoliticalCountryView, PoliticalElectionView } from "./politicalExplorer";
 import { electionViewsFromStores } from "./politicalStores";
+import { politicalPublicationProblems } from "./politicalNational";
 
 export function politicalElectionViews(): PoliticalElectionView[] {
-  return electionViewsFromStores({ elections, turnout, results, contestants, legislatures, systems, sources }, {
+  const views = electionViewsFromStores({ elections, turnout, results, contestants, legislatures, systems, sources, members }, {
     slug: "germany", name: { en: "Germany", "zh-CN": "德国" }, originalLanguage: "de",
     voteLabel: { en: "Second votes (party-list vote)", "zh-CN": "第二票（政党名单票）" },
   });
+  for(const view of views)if(politicalPublicationProblems(view.country!,view.sources,["germany"]).length)throw Error("Political source publication gate failed");
+  return views;
 }
 
 /**

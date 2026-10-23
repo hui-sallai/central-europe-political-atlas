@@ -1543,6 +1543,75 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-23"
+    },
+    {
+      "amendment_id": "national-parliamentary-foundation-phase-c-2026-10-24",
+      "status": "owner_approved",
+      "approved_by": "Owner Phase C brief: reusable national vote, turnout, seat and identity presentation contracts; source-rights-validated separate polling contract and unavailable state; no new political observations, candidate promotion, acquisition, economic/news/trade data, frozen results, publication-gate relaxation or version change; no push without separate owner instruction",
+      "baseline": "e919960bce1f5b796c555c2d635690406d4f2924",
+      "files": [
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "8a7176d82bdde6cc782c1f29063915ca3c832bb4a18f27f223eda78a657e5795",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalPartyHistory.tsx",
+          "sha256": "f23ac7b6e5eac614d3cf6dcae9c533acc4f4ae5e49078a9dd088dbf3415dc7e3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalNationalDetails.tsx",
+          "sha256": "ececfd5705b98d45a8af7ed2dfe33143a56ce031423ee01847bfc9a091b1c6e7",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalPollingPanel.tsx",
+          "sha256": "35f9281456daf3adc2cdc4d41494d574b364b4bab7db17f346899aa0787c5b91",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "fff2e90b60868fede7fe0942e0fca6e293f8b3d2d2edfacb49407be2ebedc34f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalExplorer.ts",
+          "sha256": "2986f192772cfa85b5af16100926e196c58a4582b4b270d42657ebfa72b26db9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalStores.ts",
+          "sha256": "c9a602d43178d8385984943f053683a6ea78ce7287cd04c537ab637c5565f611",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalSeriesComparison.ts",
+          "sha256": "361d136e53508facef9938d4e6392a8b013b830e3aebdc2ed27baccd8073c661",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalNational.ts",
+          "sha256": "3a391cd71c63b6639e421b8f577387a569ed95cf5e0b128ac30d5857495f43da",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalIdentity.ts",
+          "sha256": "fb6b1a3d099579a1f8bcbfd42f2a9074c7edf0e58621021f8253e36f27627977",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalPolling.ts",
+          "sha256": "69b11cbf80150d4034c6624f3188a3b91b983bef2fe46a9690b97f7834bf54e6",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-24"
     }
   ]
 }

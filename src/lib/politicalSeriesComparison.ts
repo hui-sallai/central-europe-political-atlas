@@ -7,10 +7,11 @@ const difference = (a: number | null, b: number | null) => a === null || b === n
 /** Registry IDs only: no name matching, aggregation, missing-to-zero conversion or inferred legal continuity. */
 export function compareVerifiedSeries(a: PoliticalElectionView, b: PoliticalElectionView): VerifiedComparisonRow[] {
   if (a.electionId === b.electionId) return [];
+  if((a.country&&a.country!=="germany")||(b.country&&b.country!=="germany")||a.system?.voteType!==b.system?.voteType||a.national?.activeVote.kind==="constituency"||b.national?.activeVote.kind==="constituency")return [];
   return germanOfficialSeries.flatMap(series => {
     const find = (e: PoliticalElectionView) => {
       const link = series.links.find(l => l.electionId === e.electionId);
-      return link ? e.results.find(r => r.contestantId === link.contestantId) ?? null : null;
+      return link ? e.results.find(r => r.contestantId === link.contestantId && (!r.contestantKind||r.contestantKind==="party_list")) ?? null : null;
     };
     const x = find(a), y = find(b);
     if (!x && !y) return [];
