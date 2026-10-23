@@ -49,7 +49,7 @@ test('wildcard paths, missing sha256, OTHER classification and data_change_allow
 test('the committed amendment lists exact hashes for presentation files only', () => {
   const { problems, approved } = approvedUiFiles(record.amendments);
   assert.deepEqual(problems, []);
-  assert.equal(approved.size, 103); // Adds household workflow presentation and adapter; data and model engines stay frozen.
+  assert.equal(approved.size, 105); // Adds the event case-study dossier and its reviewed records; data and model engines stay frozen.
   for (const [p] of approved) assert.match(p, /^src\/(app|components|lib)\//);
 });
 

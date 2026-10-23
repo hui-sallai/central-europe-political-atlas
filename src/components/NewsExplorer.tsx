@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { getResearchIndicator, getResearchProject, researchCountries, researchEvents } from "@/lib/researchData";
 import { eventActors, eventAnalysisLevels } from "@/lib/eventAnalysisLinks";
+import { caseStudyEventIds } from "@/lib/eventCaseStudies";
 import type { Event, EventType } from "@/types/researchData";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
@@ -55,6 +56,7 @@ function EventCard({ item }: { item: Event }) {
     levels.background === "available" ? { level: "background", label: en ? "Event background" : "查看事件背景" } : null,
     levels.indicators === "available" ? { level: "indicators", label: en ? "Economic connections" : "查看经济关联" } : null,
     levels.window_link === "available" ? { level: "window", label: en ? "Event-window analysis" : "查看事件窗口分析" } : null,
+    caseStudyEventIds.includes(item.event_id) ? { level: "case", label: en ? "Case study" : "查看案例研究" } : null,
   ].filter((entry): entry is { level: string; label: string } => entry !== null);
   const topics = [...new Set([item.topic, ...item.affected_indicator.map((id) => getResearchIndicator(id)?.name_zh ?? id)])];
   return (

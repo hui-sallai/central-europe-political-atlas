@@ -1525,6 +1525,24 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-23"
+    },
+    {
+      "amendment_id": "event-case-studies-phase-b-2026-10-23",
+      "status": "owner_approved",
+      "approved_by": "owner Major Development Phase B brief (complete political-economic event case studies): reviewed descriptive dossiers for two existing verified events built on the existing event-analysis records, event-window engine and Research Notebook; no event, observation, model, estimator, source registry or version changes; push only on explicit 推送上线",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        { "path": "src/lib/eventCaseStudies.ts", "sha256": "6cb177dc857ed4ff6a77694991b862123cc7587fdb898c6317a02f16baaf1ef2", "classification": "METHODOLOGY_PRESENTATION" },
+        { "path": "src/components/EventCaseStudy.tsx", "sha256": "cd155b5f4b6a9493dd620a70766ca09d37e8e0eafd5d1c4fc5fbb69b2d91edee", "classification": "METHODOLOGY_PRESENTATION" },
+        { "path": "src/components/EventWindowWorkbench.tsx", "sha256": "a0573f73bb1957ac89c16a91f25ef340763f5754d59028cd90522eb855a5ec6c", "classification": "METHODOLOGY_PRESENTATION" },
+        { "path": "src/components/NewsExplorer.tsx", "sha256": "991e414670c97e8e09905c0892b386490afce7913324ad78ade0b48b78b85236", "classification": "METHODOLOGY_PRESENTATION" }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-23"
     }
   ]
 }

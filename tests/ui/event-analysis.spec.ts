@@ -68,7 +68,7 @@ for (const locale of ["zh-CN", "en"] as const) {
     const prefix = locale === "en" ? "/en" : "";
     await page.goto(`${prefix}/news/?country=czechia&from=2023-10-16&to=2023-10-16`, { waitUntil: "networkidle" });
     const linked = page.locator("#cz-2023-10-16-repowereu-plan");
-    await expect(linked.locator("[data-event-entry]")).toHaveText(locale === "en" ? ["Event background", "Economic connections", "Event-window analysis"] : ["查看事件背景", "查看经济关联", "查看事件窗口分析"]);
+    await expect(linked.locator("[data-event-entry]")).toHaveText(locale === "en" ? ["Event background", "Economic connections", "Event-window analysis", "Case study"] : ["查看事件背景", "查看经济关联", "查看事件窗口分析", "查看案例研究"]);
     await expect(linked.locator("[data-event-entry='background']")).toHaveAttribute("href", `${prefix}/models/?tab=run&skill=event_window_analysis&country=czechia&event=cz-2023-10-16-repowereu-plan&section=background`);
     await linked.locator("[data-event-entry='indicators']").click();
     await expect(page.locator("#event-level-3")).toBeFocused();

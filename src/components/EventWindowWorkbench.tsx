@@ -7,6 +7,8 @@ import { useEffect, useMemo, useState } from "react";
 import { attachOverlappingEvents, buildLineSegments, computeEventWindow, eventWindowEligibility, type HighFrequencyPoint } from "@/lib/eventWindowEngine";
 import { linkedWindowOutcomes, representativeEventIds } from "@/lib/eventAnalysisLinks";
 import { EventAnalysisPanel, type WindowAvailability } from "@/components/EventAnalysisPanel";
+import { EventCaseStudy } from "@/components/EventCaseStudy";
+import { caseStudyEventIds, getEventCaseStudy } from "@/lib/eventCaseStudies";
 import type { Country } from "@/types/Country";
 import type { Event } from "@/types/Event";
 import type { EventChangeSemantics, EventWindowResult } from "@/types/EventWindow";
@@ -165,6 +167,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
     setCountry(nextCountry); setEventId(nextEvent); setOutcome(linkedWindowOutcomes(nextEvent)[0] ?? ""); setResult(null);
   }
   const representative = representativeEventIds.flatMap((id) => { const event = events.find((item) => item.event_id === id); return event ? [event] : []; });
+  const caseStudies = caseStudyEventIds.flatMap((id) => { const event = events.find((item) => item.event_id === id); const study = getEventCaseStudy(id); return event && study ? [{ event, study }] : []; });
 
   const chartValues = result ? result.points.filter((point) => point.value !== null).map((point) => point.value as number) : [];
   const chartMin = chartValues.length ? Math.min(...chartValues) : 0;
@@ -225,6 +228,20 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
         {loadState === "error" ? <p className="mt-4 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm">无法运行事件窗口分析：高频月度数据未能加载。请稍后重试，或在研究数据包中查看原始序列。</p> : null}
       </section>
 
+      {caseStudies.length ? (
+        <section className="border-y border-[var(--line)] py-4" data-case-study-entries>
+          <p className="text-sm font-semibold">{en ? "Complete case studies" : "完整案例研究"}</p>
+          <p className="mt-1 text-xs leading-5 text-[var(--muted)]">{en ? "Reviewed dossiers that connect the documents, the mechanism, published data and competing explanations for one event. They are descriptive and estimate no effect." : "把单一事件的文件、机制、已发布数据与其他解释连成一体的审阅档案；只作描述，不估计任何效应。"}</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {caseStudies.map(({ event, study }) => (
+              <button key={event.event_id} type="button" aria-pressed={event.event_id === eventId} onClick={() => selectEvent(event.country_slug, event.event_id)} data-case-study-entry={event.event_id} className={`rounded-full border px-3 py-1 text-left text-xs ${event.event_id === eventId ? "border-[var(--foreground)] font-semibold" : "border-[var(--line)]"}`}>
+                {event.date} · {en ? study.title.en : study.title.zh}
+              </button>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       {representative.length ? (
         <section className="border-y border-[var(--line)] py-4" data-representative-events>
           <p className="text-sm font-semibold">{en ? "Representative event studies" : "代表性事件研究"}</p>
@@ -238,6 +255,8 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
           </div>
         </section>
       ) : null}
+
+      {selectedEvent && getEventCaseStudy(selectedEvent.event_id) ? <EventCaseStudy event={selectedEvent} events={events} series={series} loadState={loadState} /> : null}
 
       {selectedEvent ? <EventAnalysisPanel event={selectedEvent} availability={availability} onOpenWindow={(id) => { setOutcome(id); setWindowMonths(12); run(id, 12); }} /> : null}
 
