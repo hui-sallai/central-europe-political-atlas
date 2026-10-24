@@ -3,20 +3,20 @@ import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { analysisNames } from "@/i18n/presentation";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
-import { BarMeter } from "@/components/ResearchCharts";
 import { EcbIdentificationStatus } from "@/components/EcbIdentificationStatus";
-import { runAnalysisSkill } from "@/lib/analysisRunner";
 import { analysisCategoryLabels, runtimeAnalysisSkills, resolveAnalysisRoute, methodStateLabels } from "@/lib/analysisSkills";
 import { AnalysisSkillCard } from "@/components/AnalysisSkillCard";
-import { analysisLabels, downloadLabels, fieldLabels, statusLabels } from "@/lib/uiLabels";
+import { statusLabels } from "@/lib/uiLabels";
 import type { Country } from "@/types/Country";
 import type { Event } from "@/types/Event";
-import type { AnalysisDiagnostics, AnalysisSkillCategory } from "@/types/AnalysisSkill";
+import type { AnalysisSkillCategory } from "@/types/AnalysisSkill";
 import type { ModelCard, ModelId, ModelOutput } from "@/types/ModelOutput";
 import { TRADE_SESSION_PARAMS } from "@/lib/tradeNetworkPresentation";
+import {TransparentModelResearchWorkbench} from "@/components/TransparentModelResearchWorkbench";
+import {MODEL_RESEARCH_PARAMS} from "@/lib/transparentModelResearch";
 import { HouseholdPressureWorkbench } from "@/components/HouseholdPressureWorkbench";
 
 const categories = Object.keys(analysisCategoryLabels) as AnalysisSkillCategory[];
@@ -41,28 +41,6 @@ const LocalProjectionWorkbench = dynamic(() => import("@/components/LocalProject
   loading: () => <p className="mt-6 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载本地投影工作区…</p>,
 });
 
-type ConsistencyStatus = "match" | "mismatch" | "missing_reference" | null;
-type ResultTab = keyof typeof analysisLabels.resultTabs;
-
-function downloadJson(value: unknown, fileName: string) {
-  const url = URL.createObjectURL(new Blob([JSON.stringify(value, null, 2)], { type: "application/json" }));
-  const anchor = document.createElement("a");
-  anchor.href = url;
-  anchor.download = fileName;
-  anchor.click();
-  URL.revokeObjectURL(url);
-}
-
-function outputsMatch(runtime: ModelOutput, reference: ModelOutput) {
-  return runtime.score === reference.score
-    && runtime.availability === reference.availability
-    && runtime.data_completeness === reference.data_completeness
-    && runtime.input_year === reference.input_year
-    && runtime.input_observation_ids.join("|") === reference.input_observation_ids.join("|")
-    && runtime.missing_indicator_ids.join("|") === reference.missing_indicator_ids.join("|");
-}
-
-
 type WorkbenchProps = { countries: Country[]; cards: ModelCard[]; outputs: ModelOutput[]; events: Event[] };
 export function AnalysisWorkbench(props: WorkbenchProps) {
   const query = useSearchParams();
@@ -76,7 +54,7 @@ export function AnalysisWorkbench(props: WorkbenchProps) {
   }
   return <LocalizedContent>{<AnalysisWorkbenchContent key={routeKey.toString()} {...props} />}</LocalizedContent>;
 }
-function AnalysisWorkbenchContent({ countries, cards, outputs, events }: WorkbenchProps) {
+function AnalysisWorkbenchContent({ countries, cards, events }: WorkbenchProps) {
   const locale = useLocale();
   const searchParams = useSearchParams();
   const requestedSkill = searchParams.get("skill");
@@ -85,23 +63,12 @@ function AnalysisWorkbenchContent({ countries, cards, outputs, events }: Workben
   const selectedSkill = runtimeAnalysisSkills.find((s) => s.skill_id === selectedSkillId)!;
   const category = selectedSkill.category;
   const setCategory = (next: AnalysisSkillCategory) => setSelectedSkillId(runtimeAnalysisSkills.find((s) => s.category === next)!.skill_id);
-  const [countrySlug, setCountrySlug] = useState(route.countrySlug ?? "poland");
   const [modelId, setModelId] = useState<ModelId>(cards.find(card => card.model_id === searchParams.get("model"))?.model_id ?? cards[0]?.model_id ?? "household_economic_pressure");
-  const [result, setResult] = useState<ModelOutput | null>(null);
-  const [diagnostics, setDiagnostics] = useState<AnalysisDiagnostics | null>(null);
-  const [consistency, setConsistency] = useState<ConsistencyStatus>(null);
-  const [resultTab, setResultTab] = useState<ResultTab>("results");
   const skills = runtimeAnalysisSkills.filter((skill) => skill.category === category);
-  const card = cards.find((item) => item.model_id === modelId) ?? cards[0];
-  const candidate = useMemo(() => outputs.find((item) => item.country_slug === countrySlug && item.model_id === modelId) ?? null, [countrySlug, modelId, outputs]);
-
-  function runAnalysis() {
-    const run = runAnalysisSkill({ skillId: modelId, dataset: { country_slug: countrySlug, model_id: modelId } });
-    const compositeResult = run.estimates as ModelOutput | null;
-    setResult(compositeResult);
-    setDiagnostics(run.diagnostics);
-    setConsistency(compositeResult ? candidate ? outputsMatch(compositeResult, candidate) ? "match" : "mismatch" : "missing_reference" : null);
-    setResultTab("results");
+  function selectModel(id:ModelId){
+    setModelId(id);const u=new URL(window.location.href);u.searchParams.set("model",id);
+    for(const key of MODEL_RESEARCH_PARAMS)u.searchParams.delete(key);
+    window.history.replaceState(null,"",u.pathname+u.search+u.hash);
   }
 
   return <LocalizedContent>{(
@@ -109,43 +76,13 @@ function AnalysisWorkbenchContent({ countries, cards, outputs, events }: Workben
       {route.notices.map((notice) => <p key={notice} role="status" className="my-4 text-sm">{notice}</p>)}
       <div className="mb-4 flex flex-wrap gap-4 text-sm">{(["active", "registry_only", "blocked"] as const).map((state) => <button key={state} onClick={() => setSelectedSkillId(runtimeAnalysisSkills.find((s) => s.state === state)!.skill_id)}>{methodStateLabels[state]} {runtimeAnalysisSkills.filter((s) => s.state === state).length}</button>)}</div>
       <div className="research-tabs" role="tablist" aria-label="分析方法类别">
-        {categories.map((item) => <button key={item} type="button" role="tab" className="research-tab" aria-selected={category === item} onClick={() => { setCategory(item); setResult(null); setDiagnostics(null); setConsistency(null); }}>{analysisCategoryLabels[item]}</button>)}
+        {categories.map((item) => <button key={item} type="button" role="tab" className="research-tab" aria-selected={category === item} onClick={() => { setCategory(item); }}>{analysisCategoryLabels[item]}</button>)}
       </div>
 
       <div className="mt-4 flex flex-wrap gap-3">{skills.map((skill) => <button key={skill.skill_id} className="research-tab" aria-pressed={skill.skill_id === selectedSkillId} onClick={() => setSelectedSkillId(skill.skill_id)}>{locale === "en" ? analysisNames[skill.skill_id] : skill.name}</button>)}</div>
       <AnalysisSkillCard skill={selectedSkill} />
       {selectedSkill.state !== "active" ? null : category === "composite_indicators" ? (
-        modelId === "household_economic_pressure" ? <div className="mt-6"><label>{locale === "en" ? "Analysis model" : "分析模型"}<select className="field-control mt-2" value={modelId} onChange={e=>setModelId(e.target.value as ModelId)}>{cards.map(c=><option key={c.model_id} value={c.model_id}>{locale === "en" ? c.name : c.name_zh}</option>)}</select></label><HouseholdPressureWorkbench countries={countries}/></div> : <div className="mt-6 grid gap-6">
-          <section className="editorial-panel p-5">
-            <div className="grid gap-4 md:grid-cols-3">
-              <label className="text-xs font-semibold text-[var(--muted)]">{fieldLabels.country}<select className="field-control mt-2" value={countrySlug} onChange={(event) => { setCountrySlug(event.target.value); setResult(null); setDiagnostics(null); setConsistency(null); }}>{countries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh} / {country.name}</option>)}</select></label>
-              <label className="text-xs font-semibold text-[var(--muted)]">{fieldLabels.analysisSkill}<select className="field-control mt-2" value={modelId} onChange={(event) => { setModelId(event.target.value as ModelId); setResult(null); setDiagnostics(null); setConsistency(null); }}>{cards.map((item) => <option key={item.model_id} value={item.model_id}>{item.name_zh}</option>)}</select></label>
-              <div className="flex items-end"><button type="button" onClick={runAnalysis} className="rounded-lg cta-dark px-4 py-3 text-sm font-semibold">运行分析</button></div>
-            </div>
-            <div className="mt-5 grid grid-cols-4 gap-2 text-center text-xs">
-              {analysisLabels.workflow.map((step, index) => <div key={step} className={`border-t-2 pt-2 ${result && index > 0 ? "border-[var(--accent)] text-[var(--foreground)]" : index === 0 ? "border-[var(--accent)]" : "border-[var(--line)] text-[var(--muted)]"}`}>{step}</div>)}
-            </div>
-          </section>
-
-          {!result ? <div className="border-y border-[var(--line)] py-12 text-center"><p className="font-semibold">选择国家和分析方法后运行</p><p className="mt-2 text-sm text-[var(--muted)]">运行只读取已通过准入的 canonical observations；缺失值不会被推测或补零。</p></div> : (
-            <section className="editorial-panel p-5">
-              <div className="flex flex-wrap items-start justify-between gap-4 border-b border-[var(--line)] pb-5">
-                <div><p className="editorial-kicker">{result.country}</p><h2 className="mt-2 text-3xl font-semibold">{card.name_zh}</h2><p className="mt-2 text-sm text-[var(--muted)]">{statusLabels[result.availability]} · 输入年份 {result.input_year ?? "不可用"} · 完整度 {result.data_completeness}%</p></div>
-                <button type="button" onClick={() => downloadJson(result, `${result.country_slug}-${result.model_id}.json`)} className="rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-semibold">{downloadLabels.resultJson}</button>
-              </div>
-              <div className="research-tabs mt-5" role="tablist">{(Object.keys(analysisLabels.resultTabs) as ResultTab[]).map((tab) => <button key={tab} type="button" role="tab" className="research-tab" aria-selected={resultTab === tab} onClick={() => setResultTab(tab)}>{analysisLabels.resultTabs[tab]}</button>)}</div>
-
-              {consistency === "mismatch" ? <div className="mt-5 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm text-amber-950" role="alert"><strong>一致性警告：</strong>现场计算结果与当前发布参考记录不一致，请复核输入版本和导出包。</div> : null}
-              {consistency === "match" ? <p className="mt-5 text-xs font-semibold text-[var(--positive)]">现场计算与当前发布参考记录一致。</p> : null}
-              {consistency === "missing_reference" ? <p className="mt-5 text-xs font-semibold text-[var(--warning)]">现场计算已完成，但没有找到可比较的发布参考记录。</p> : null}
-
-              {resultTab === "results" ? <div className="mt-6 grid gap-6 lg:grid-cols-[0.7fr_1.3fr]"><div><p className="text-sm text-[var(--muted)]">{analysisLabels.score}</p><p className="metric-number mt-2 text-5xl font-semibold text-[var(--accent)]">{result.score === null ? analysisLabels.unavailable : result.score.toFixed(1)}</p><p className="mt-3 text-sm">{analysisLabels.trend}: {{ rising: "上升", falling: "下降", stable: "稳定", not_available: "不可用" }[result.direction]} {result.trend_change === null ? "" : `(${result.trend_change > 0 ? "+" : ""}${result.trend_change.toFixed(1)})`}</p><p className="mt-3 text-sm text-[var(--muted)]">{analysisLabels.confidence}: {statusLabels[result.confidence]}</p></div><div>{result.score !== null ? <BarMeter value={result.score} max={100} label={`${result.score.toFixed(1)} / 100`} /> : <p className="border-y border-[var(--line)] py-8 text-sm text-[var(--muted)]">输入不足，不输出精确分数。</p>}<p className="mt-5 text-sm leading-7 text-[var(--muted)]">{result.interpretation_boundary}</p></div></div> : null}
-              {resultTab === "drivers" ? <div className="mt-6 grid gap-3 md:grid-cols-2">{result.main_drivers.length ? result.main_drivers.map((driver) => <article key={driver} className="border-l-2 border-[var(--accent)] py-2 pl-4 text-sm">{driver}</article>) : <p className="text-sm text-[var(--muted)]">当前没有足够输入生成主要驱动。</p>}</div> : null}
-              {resultTab === "method" ? <div className="mt-6 grid gap-5 md:grid-cols-2"><div><h3 className="font-semibold">计算逻辑</h3><p className="mt-2 text-sm leading-7 text-[var(--muted)]">{card.calculation_logic}</p><p className="mt-3 text-sm leading-7 text-[var(--muted)]">{card.weight_note}</p></div><div><h3 className="font-semibold">输入与权重</h3>{card.inputs.map((input) => <div key={input.indicator_id} className="mt-3 flex justify-between border-b border-[var(--line)] pb-2 text-sm"><span>{input.label}</span><span className="metric-number">{Math.round(input.weight * 100)}%</span></div>)}</div>{diagnostics ? <div className="md:col-span-2"><h3 className="font-semibold">{analysisLabels.diagnostics}</h3><dl className="mt-3 grid gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-4">{[[analysisLabels.inputCompleteness, diagnostics.input_completeness === null ? "—" : `${diagnostics.input_completeness}%`], [analysisLabels.yearAlignment, diagnostics.year_alignment], [analysisLabels.validationGate, diagnostics.validation_gate], [analysisLabels.missingVariables, diagnostics.missing_variables.length ? diagnostics.missing_variables.join(" / ") : "无"]].map(([label, value]) => <div key={label} className="bg-[var(--surface)] p-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 text-sm font-semibold">{value}</dd></div>)}</dl></div> : null}<details className="advanced-disclosure md:col-span-2"><summary>{analysisLabels.advancedMetadata}</summary><p className="mt-3 font-mono text-xs text-[var(--muted)]">model={card.model_version} · formula={card.formula_version} · weights={card.weight_version}</p><ul className="mt-3 grid gap-2 text-sm text-[var(--muted)]">{card.limitations.map((item) => <li key={item}>{item}</li>)}</ul></details></div> : null}
-              {resultTab === "data" ? <div className="mt-6 overflow-x-auto" tabIndex={0} role="region" aria-label="数据表（可横向滚动）"><table className="research-data-table w-full min-w-[760px] text-left text-sm"><thead><tr>{["指标", "年份", "数值", "单位", "来源", "贡献"].map((item) => <th key={item} className="px-3 py-3">{item}</th>)}</tr></thead><tbody>{result.inputs.map((input) => <tr key={input.observation_id}><td className="px-3 py-3 font-semibold">{input.indicator_name}</td><td className="px-3 py-3">{input.year}</td><td className="metric-number px-3 py-3">{input.raw_value}</td><td className="px-3 py-3">{input.unit}</td><td className="px-3 py-3"><a href={input.source_url} target="_blank" rel="noreferrer" className="text-[var(--accent)]">{input.source_name}</a></td><td className="metric-number px-3 py-3">{input.weighted_contribution}</td></tr>)}</tbody></table></div> : null}
-            </section>
-          )}
-        </div>
+        <div className="mt-6"><label>{locale === "en" ? "Analysis model" : "分析模型"}<select className="field-control mt-2" value={modelId} onChange={e=>selectModel(e.target.value as ModelId)}>{cards.map(c=><option key={c.model_id} value={c.model_id}>{locale === "en" ? c.name : c.name_zh}</option>)}</select></label>{modelId === "household_economic_pressure" ? <HouseholdPressureWorkbench countries={countries}/> : <TransparentModelResearchWorkbench key={modelId} model={modelId} countries={countries}/>}</div>
       ) : category === "panel_econometrics" ? (
         selectedSkillId === "panel_local_projections" ? <PanelLocalProjectionWorkbench /> : <PanelEconometricsWorkbench countries={countries} />
       ) : category === "network_analysis" ? (

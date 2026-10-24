@@ -1612,6 +1612,40 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-24"
+    },
+    {
+      "amendment_id": "transparent-model-research-phase-d-2026-10-25",
+      "status": "owner_approved",
+      "approved_by": "Owner Phase D brief: complete existing fiscal, external and industrial fixed-rule research workflows using unchanged registered engines, approved scenarios, current eligible inputs, same-year comparisons, exports and Notebook; no data, formula, model gate, econometric, news, political, trade or platform-version changes; no push without separate instruction",
+      "baseline": "1f282708f2a5d0cf63f5e1ad8de8eaed6714075c",
+      "files": [
+        {
+          "path": "src/components/AnalysisWorkbench.tsx",
+          "sha256": "3d4daa8d6d522a6e7b8a17fbe4c5a045354a3e5d66a2df89d6a862c0f883f792",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/TransparentModelResearchWorkbench.tsx",
+          "sha256": "25b8eb1f896e06e5fcd8b3a7f10518b57f0571794dbf1b1dcba30f18adeac937",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/transparentModelResearch.ts",
+          "sha256": "2c4d5789952ceb228c5a0ec0c8f6f284009b048974d2177ec3b48eca5f82cd84",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/transparentModelResearchCopy.ts",
+          "sha256": "33cb58cf28c4ccaf7403e70fce451583027a43276cb1f87d48b9cef326bb5ec0",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-25"
     }
   ]
 }
