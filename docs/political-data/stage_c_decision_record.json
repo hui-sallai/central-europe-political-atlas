@@ -150,5 +150,29 @@
    "internal_approval: production publication needs owner authorisation after the gates close."
   ],
   "next_step": "Owner sends the ČSÚ contact packet and stages the three files; the builder then produces a validated staging candidate."
+ },
+ "czechia_historical_review": {
+  "reviewed_on": "2026-10-25",
+  "elections": [
+   2002,
+   2006,
+   2010,
+   2013,
+   2017,
+   2021
+  ],
+  "result": "none admitted",
+  "datastat_and_catalogue_findings": [
+   "VOLPS202503, VOLPS202502 and VOLPS202504 (admitted rights evidence for VOLPS202503 only) carry a list dimension coded to the 2025 lists (VSTRANAPS2025); for 1996–2021 they contain national totals only (valid votes; 200 seats), no list rows.",
+   "VOLPS ('Volby do Poslanecké sněmovny', version 3, data updated 2026-07-01) has dimensions indicators × years × territory and no list dimension: aggregates only. Its distributions carry the same no-protected-rights metadata, but it is a separate distribution and was not admitted.",
+   "2021: the national catalogue lists polling-station party votes ('okrsková data, počty hlasů pro strany', distribution https://www.volby.cz/opendata/ps2021/csv_od/pst4p_csv_od.zip, no-protected-rights metadata), polling-station voters and votes, the list register (číselník volebních stran) and list composition (složení volebních stran). No catalogue dataset contains seats by list for 2021; national list votes would be an Atlas aggregation of polling-station rows.",
+   "2002–2017: no catalogue dataset with list-level results or seats was found; the list-level files exist only on the volby.gov.cz open-data pages (Production 1B route)."
+  ],
+  "exact_obstacles": [
+   "Seats by list (2002–2021) exist only in volby.gov.cz files, whose reuse gate awaits ČSÚ's written reply (owner decision 2026-10-25); the 2025 DataStat decision is not extended to them.",
+   "2021 list votes are available only at polling-station level from separate distributions on an unregistered host (www.volby.cz); admitting them needs its own owner rights decision, manual staging and an aggregation rule, and would still lack seats.",
+   "No historical party-series relationship can be established without at least two admitted elections and the official list-composition registers."
+  ],
+  "unblock": "Owner sends the ČSÚ contact packet; with a reply confirming reuse of the volby.gov.cz open-data files, the existing staging builder (scripts/political-data/czechia/build-candidate.mjs) and the Production 1B gates can admit 2002–2021, and the CVS composition registers can document coalition membership."
  }
 }
