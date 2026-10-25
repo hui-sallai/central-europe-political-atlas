@@ -65,3 +65,18 @@ for (const locale of ["zh-CN", "en"] as const) test(`publication-gate status nam
   if (locale === "en") expect(await status.innerText()).not.toMatch(/[㐀-鿿]/u);
   for (const country of ["hungary", "czechia", "poland", "slovakia"]) expect((await page.request.get(`/research-data/political/${country}/election_results.json`)).status()).toBe(404);
 });
+
+for (const locale of ["zh-CN", "en"] as const) test(`Germany 2025 rule fields point to the sourced system description, and blocker causes are shown (${locale})`, async ({ page }) => {
+  await page.goto(locale === "en" ? "/en/politics/" : "/politics/", { waitUntil: "networkidle" });
+  const details = page.locator("[data-national-research]");
+  await details.locator("summary").click();
+  await expect(details.locator("[data-system-description]")).toContainText(locale === "en" ? "5% rule" : "5%规则");
+  await expect(details.locator("[data-system-description-source]").first()).toBeVisible();
+  await expect(details).toContainText(locale === "en" ? "Not recorded as a separate structured field" : "未作为单独的结构字段记录");
+  await expect(details).not.toContainText(locale === "en" ? "Not established in the authorised structured records" : "授权结构记录中尚未确立");
+  const status = page.locator("[data-admission-status]");
+  await status.locator("summary").click();
+  await expect(status.locator("[data-admission='czechia'] [data-admission-cause='reuse_restriction']")).toBeVisible();
+  await expect(status.locator("[data-admission='hungary'] [data-admission-cause='reuse_restriction']")).toHaveCount(0);
+  await expect(status.locator("[data-admission='germany'] [data-admission-cause]")).toHaveCount(0);
+});

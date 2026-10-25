@@ -1,0 +1,144 @@
+{
+ "schema_version": "atlas-political-stage-c-decision-record-v1",
+ "recorded_on": "2026-10-25",
+ "rule": "Each blocker is classified by its actual cause; a country is published only when every cause is resolved through the existing gates. Causes: reuse_restriction (terms restrict or are absent), missing_official_evidence (official file, rule text, vintage or terms not located or not reviewable), parser_incompatibility (format not handled), identity_unverified (list, alliance or party identity not documented officially), internal_approval (owner authorisation still required).",
+ "admitted": [
+  {
+   "country": "germany",
+   "elections": [
+    2002,
+    2005,
+    2009,
+    2013,
+    2017,
+    2021,
+    2025
+   ],
+   "record": "docs/political-data/germany_production_acceptance.json"
+  }
+ ],
+ "owner_decisions": [
+  {
+   "date": "2026-10-25",
+   "country": "czechia",
+   "question": "Close the reuse gate on an owner scope determination of the footer-linked ČSÚ CC BY 4.0 terms?",
+   "decision": "No — wait for ČSÚ's written reply; the gate rule is unchanged."
+  },
+  {
+   "date": "2026-10-25",
+   "country": "czechia",
+   "question": "Acquisition of vysledky.xml, ps_vysledky.xsd and the register CSV zip",
+   "decision": "The owner stages the files manually; the Atlas does not fetch them."
+  },
+  {
+   "date": "2026-10-25",
+   "country": "hungary",
+   "question": "Register the Hungarian election hosts",
+   "decision": "Registered for manual evidence review only (www.valasztas.hu blocked by robots.txt; vtr.valasztas.hu evidence-only)."
+  }
+ ],
+ "countries": {
+  "czechia": {
+   "latest_election": "Chamber of Deputies, October 2025 (date interval to reconcile against ČSÚ)",
+   "entry_point": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata.htm",
+   "causes": [
+    "reuse_restriction",
+    "missing_official_evidence",
+    "identity_unverified",
+    "internal_approval"
+   ],
+   "evidence": [
+    "reuse_restriction: ČSÚ licenses statistical information published through csu.gov.cz under CC BY 4.0; the volby.gov.cz footer links these terms, but the operative sentence does not name volby.gov.cz. Scope confirmation by ČSÚ is required (owner decision 2026-10-25).",
+    "missing_official_evidence: vysledky.xml, ps_vysledky.xsd and the register package are not yet staged (owner staging decided 2026-10-25); the electoral-rule text and date interval are not yet documented from an official source.",
+    "identity_unverified: list type (party, movement or coalition) depends on the ČSÚ register CVS.TYPVS and whether KSTRANA and VSTRANA share a key; coalition votes are never split among member parties.",
+    "internal_approval: production publication needs owner authorisation after the gates close."
+   ],
+   "not_a_cause": [
+    "parser_incompatibility — the staging builder scripts/political-data/czechia/build-candidate.mjs reads the documented XML schema"
+   ],
+   "next_step": "Owner sends the ČSÚ contact packet and stages the three files; the builder then produces a validated staging candidate."
+  },
+  "poland": {
+   "latest_election": "Sejm, 15 October 2023",
+   "entry_point": "https://sejmsenat2023.pkw.gov.pl/sejmsenat2023/pl/dane_w_arkuszach",
+   "causes": [
+    "reuse_restriction",
+    "missing_official_evidence",
+    "identity_unverified",
+    "internal_approval"
+   ],
+   "evidence": [
+    "reuse_restriction: the DANE WYBORCZE legal-information page has no content; no operative reuse terms exist to rely on, and none are substituted from another authority.",
+    "missing_official_evidence: national definitions, electoral-rule text and vintage decisions are open in the gate matrix.",
+    "identity_unverified: electoral committees (komitety wyborcze), including coalition committees, are election-specific contestants whose member parties are not yet documented.",
+    "internal_approval: production publication needs owner authorisation."
+   ],
+   "not_a_cause": [
+    "parser_incompatibility — CSV/XLSX sheets were located in the source audit"
+   ],
+   "next_step": "Owner sends the PKW/KBW contact packet."
+  },
+  "slovakia": {
+   "latest_election": "National Council, 30 September 2023",
+   "entry_point": "https://slovak.statistics.sk/",
+   "causes": [
+    "reuse_restriction",
+    "missing_official_evidence",
+    "identity_unverified",
+    "internal_approval"
+   ],
+   "evidence": [
+    "reuse_restriction: CC BY 4.0 terms cover information released through www.statistics.sk; their application to the election files is unconfirmed, and the terms prohibit robots and crawlers, so no automated access is possible.",
+    "missing_official_evidence: the CSV packages were located but not parsed; source files are incomplete in the gate matrix.",
+    "identity_unverified: list identities and coalitions are not documented from the official register.",
+    "internal_approval: production publication needs owner authorisation."
+   ],
+   "next_step": "Owner sends the ŠÚ SR contact packet; files can then be staged manually."
+  },
+  "hungary": {
+   "latest_election": "National Assembly, 12 April 2026",
+   "entry_point": "https://www.valasztas.hu/orszaggyulesi-valasztasok",
+   "causes": [
+    "missing_official_evidence",
+    "identity_unverified",
+    "internal_approval"
+   ],
+   "evidence": [
+    "missing_official_evidence: the entry point is on www.valasztas.hu, whose robots.txt disallows all agents, so the Atlas did not request it; the reuse terms (Impresszum) are on the same host and are unreviewed, not known to be restrictive. The results application vtr.valasztas.hu offers no downloadable file.",
+    "identity_unverified: joint lists (for example Fidesz–KDNP) and nationality lists are election-specific contestants; member composition must come from official list registration.",
+    "internal_approval: production publication needs owner authorisation."
+   ],
+   "next_step": "Owner reads the NVI terms personally or asks NVI, and identifies an official downloadable result file. Record: docs/political-data/hungary_source_status.json."
+  },
+  "austria": {
+   "latest_election": "Nationalrat, 29 September 2024",
+   "causes": [
+    "reuse_restriction",
+    "missing_official_evidence",
+    "internal_approval"
+   ],
+   "evidence": [
+    "reuse_restriction: the interior ministry permits reuse with attribution only for non-commercial purposes, and whether this covers the result workbooks is unresolved; robots.txt disallows AI agents.",
+    "missing_official_evidence: definition, identity, rule and vintage gates are open.",
+    "internal_approval: production publication needs owner authorisation."
+   ],
+   "next_step": "Owner sends the BMI contact packet."
+  },
+  "romania": {
+   "latest_election": "Chamber of Deputies 2016 candidate package only (later elections: portal blocks automated access)",
+   "causes": [
+    "missing_official_evidence",
+    "internal_approval"
+   ],
+   "evidence": [
+    "missing_official_evidence: unresolved source checks listed in docs/political-data/romania_publication_readiness.json (technically_ready_for_activation false).",
+    "internal_approval: the owner kept Romania staged; publication needs owner authorisation."
+   ],
+   "next_step": "Resolve the listed source checks; owner decides on activation."
+  }
+ },
+ "germany_2025_metadata": {
+  "finding": "The 2025 electoral-system record holds the threshold, three-constituency exception, minority exemption and fixed 630-seat rule in its sourced, published 'notes' field (provenance src-de-bwl-system-2025 and src-de-bwl-system-size), while the structured national_rules fields are absent. The details panel reported those empty structured fields as 'not established'.",
+  "resolution": "Presentation only: empty structured fields now say they are not recorded as separate structured fields and show the sourced system description with its source IDs. No German store is changed and no value is parsed into a structured field."
+ }
+}

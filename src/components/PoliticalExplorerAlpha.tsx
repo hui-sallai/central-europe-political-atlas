@@ -12,7 +12,7 @@ import { NotebookCollect } from "./NotebookCollect";
 import type { EvidenceDraft } from "@/lib/researchNotebook";
 import { selectNationalBallot } from "@/lib/politicalNational";
 import { PoliticalNationalDetails } from "./PoliticalNationalDetails";
-import { notInAdmissionPipeline, politicalAdmissions } from "@/lib/politicalAdmission";
+import { blockerCauseLabels, notInAdmissionPipeline, politicalAdmissions } from "@/lib/politicalAdmission";
 import { PoliticalPollingPanel } from "./PoliticalPollingPanel";
 import type { AdmittedPolling } from "@/lib/politicalPolling";
 import type { PoliticalIdentityLink } from "@/lib/politicalIdentity";
@@ -230,6 +230,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
             <li key={row.slug} data-admission={row.slug} data-admission-state={row.state}>
               <span className="font-semibold">{en ? row.name.en : row.name["zh-CN"]}</span>{" · "}<span className="text-xs font-semibold text-[var(--accent)]">{row.state === "admitted" ? (en ? "Admitted" : "已准入") : row.state === "staged_not_published" ? (en ? "Staged, not published" : "暂存，未发布") : (en ? "Blocked" : "受阻")}</span>
               <span className="block text-xs text-[var(--muted)]">{en ? row.reason.en : row.reason["zh-CN"]}</span>
+              {row.causes.length ? <span className="mt-1 flex flex-wrap gap-1" data-admission-causes>{row.causes.map((cause) => <span key={cause} data-admission-cause={cause} className="rounded-full border border-[var(--line)] px-2 py-0.5 text-xs">{en ? blockerCauseLabels[cause].en : blockerCauseLabels[cause]["zh-CN"]}</span>)}</span> : null}
             </li>
           ))}</ul>
           <p className="mt-2 text-xs text-[var(--muted)]">{en ? notInAdmissionPipeline.en : notInAdmissionPipeline["zh-CN"]}</p>

@@ -1,0 +1,21 @@
+{
+ "schema_version": "atlas-polling-source-admission-v1",
+ "recorded_on": "2026-10-25",
+ "state": "no_publisher_eligible_no_observations",
+ "boundary": "Polls stay a separate descriptive layer: never a source for election results, seats or party identity; no averages, trends, forecasts or inferred support are computed. The schema and fail-closed validator (src/lib/politicalPolling.ts) exist; no observation is stored.",
+ "eligible_publishers": [],
+ "admission_conditions": [
+  { "id": "policy_amendment", "condition": "Owner-approved amendment of docs/political-data/political_source_policy.md permitting a polling-measurement layer (pending since docs/political-data/polling_measurement_schema_proposal.json).", "status": "open" },
+  { "id": "publisher_rights", "condition": "A source_rights_registry.json entry per publisher whose reviewed terms allow normalized republication of the published figures; canExport() in scripts/legal-security/policy.mjs must return allowed.", "status": "open" },
+  { "id": "independence", "condition": "The organisation conducting the poll and any commissioner are named; polls commissioned by a party, candidate or campaign are excluded.", "status": "open" },
+  { "id": "observation_metadata", "condition": "Each observation carries fieldwork start and end, publication date, sample size, population, method, question wording, respondent base and undecided treatment, or records them as null with the reason; no value is estimated.", "status": "open" },
+  { "id": "identity", "condition": "Each reported entity is mapped to a verified party or alliance identity from official election records; a label match alone is refused.", "status": "open" },
+  { "id": "snapshot", "condition": "The exact published source is archived with retrieval time and sha256, with its revision status.", "status": "open" },
+  { "id": "owner_approval", "condition": "Owner approval per publisher (PollingAdmission.ownerApproved with a decision reference).", "status": "open" }
+ ],
+ "candidates_for_review": [
+  { "country": "germany", "organisation": "Forschungsgruppe Wahlen (Politbarometer)", "terms_reviewed": false, "note": "Regularly published national poll; reuse terms not reviewed; no host registered." },
+  { "country": "germany", "organisation": "infratest dimap (ARD-DeutschlandTrend)", "terms_reviewed": false, "note": "Regularly published national poll; reuse terms not reviewed; no host registered." }
+ ],
+ "not_reviewed": "No polling publisher has been reviewed for Czechia, Poland, Slovakia, Hungary, Austria, Romania, Slovenia, Croatia or Serbia. Candidates are listed only as starting points; none is eligible until every condition above is closed."
+}

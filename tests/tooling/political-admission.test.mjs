@@ -65,3 +65,28 @@ test('Romania stays staged; reasons are bilingual and make no unsupported claims
     assert.doesNotMatch(row.reason.en, /\b(forecast|support for|poll|likely to win|predict)/i);
   }
 });
+
+test('blocker causes match the Stage C decision record; admitted countries have none', () => {
+  const record = read('docs/political-data/stage_c_decision_record.json');
+  const allowed = ['reuse_restriction', 'missing_official_evidence', 'parser_incompatibility', 'identity_unverified', 'internal_approval'];
+  for (const row of politicalAdmissions) {
+    if (row.state === 'admitted') { assert.deepEqual(row.causes, []); assert.ok(record.admitted.some((a) => a.country === row.slug)); continue; }
+    const entry = record.countries[row.slug];
+    assert.ok(entry, `${row.slug}: in decision record`);
+    assert.deepEqual([...row.causes].sort(), [...entry.causes].sort(), `${row.slug}: causes`);
+    assert.ok(row.causes.length && row.causes.every((c) => allowed.includes(c)));
+    for (const cause of entry.causes) assert.ok(entry.evidence.some((e) => e.startsWith(`${cause}:`)), `${row.slug}: evidence for ${cause}`);
+    assert.ok(row.causes.includes('internal_approval'), 'publication always needs owner authorisation');
+  }
+  assert.ok(record.owner_decisions.some((d) => d.country === 'czechia' && /wait for ČSÚ/.test(d.decision)));
+});
+
+test('polling stays unpublished: no eligible publisher, every admission condition open, no polling store', () => {
+  const polling = read('docs/political-data/polling_source_admission.json');
+  assert.deepEqual(polling.eligible_publishers, []);
+  assert.ok(polling.admission_conditions.every((c) => c.status === 'open'));
+  assert.ok(polling.candidates_for_review.every((c) => c.terms_reviewed === false));
+  assert.equal(read('docs/political-data/polling_measurement_schema_proposal.json').state, 'proposal_not_approved_no_data');
+  const files = fs.readdirSync(path.join(root, 'public/research-data'), { recursive: true }).map(String);
+  assert.ok(!files.some((f) => /poll/i.test(f)), 'no published polling file');
+});
