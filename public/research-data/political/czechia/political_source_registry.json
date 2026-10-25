@@ -1,0 +1,62 @@
+[
+  {
+    "source_id": "src-cz-csu-volps202503",
+    "country": "czechia",
+    "institution": "Český statistický úřad",
+    "dataset": "DataStat VOLPS202503 — Získané mandáty ve volbách do Poslanecké sněmovny podle volebních stran (CSV)",
+    "tier": "tier1_official",
+    "url": "https://data.csu.gov.cz/opendata/sady/VOLPS202503/distribuce/csv",
+    "licence_status": "no_protected_rights_per_national_catalogue_distribution_metadata",
+    "raw_redistribution": "no_protected_rights_per_national_catalogue_distribution_metadata",
+    "licence_url": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/44066ffeb6d36f929f73bb49b8e2b588",
+    "attribution": "Český statistický úřad (ČSÚ), DataStat VOLPS202503",
+    "retrieved_at": "2026-10-25T04:53:42Z",
+    "raw_sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a",
+    "raw_path": "docs/political-data/raw/czechia/ps2025/VOLPS202503.csv"
+  },
+  {
+    "source_id": "src-cz-csu-volps03",
+    "country": "czechia",
+    "institution": "Český statistický úřad",
+    "dataset": "DataStat VOLPS03 — Základní údaje o volbách do Poslanecké sněmovny podle vybraných území (CSV; national 2025 rows archived as an excerpt)",
+    "tier": "tier1_official",
+    "url": "https://data.csu.gov.cz/opendata/sady/VOLPS03/distribuce/csv",
+    "licence_status": "no_protected_rights_per_national_catalogue_distribution_metadata",
+    "raw_redistribution": "no_protected_rights_per_national_catalogue_distribution_metadata",
+    "licence_url": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/b395b9ea48510326fefb237056201d07",
+    "attribution": "Český statistický úřad (ČSÚ), DataStat VOLPS03",
+    "retrieved_at": "2026-10-25T04:53:42Z",
+    "raw_sha256": "22886cd27c81eed5bd509a3dce33224e7c21a10bca86e29c93b4a479aa23760b",
+    "raw_path": "docs/political-data/raw/czechia/ps2025/VOLPS03_cz_2025_excerpt.csv"
+  },
+  {
+    "source_id": "src-cz-esbirka-247-1995",
+    "country": "czechia",
+    "institution": "Ministerstvo vnitra — e-Sbírka",
+    "dataset": "Zákon č. 247/1995 Sb., informative consolidated version 1 January – 9 October 2025 (§§ 24, 26, 48–51 quoted)",
+    "tier": "tier1_official",
+    "url": "https://e-sbirka.gov.cz/sb/1995/247/2025-01-01?zalozka=text",
+    "licence_status": "statute_not_subject_to_copyright",
+    "raw_redistribution": "statute_not_subject_to_copyright",
+    "licence_url": "https://e-sbirka.gov.cz/sb/1995/247/2025-01-01?zalozka=text",
+    "attribution": "Sbírka zákonů, e-Sbírka",
+    "retrieved_at": "2026-10-25T04:53:42Z",
+    "raw_sha256": "b42f684c8d890c143a315ad94b8633e9ecc01815288cbc6210a740b01047f850",
+    "raw_path": "docs/political-data/raw/czechia/ps2025/evidence.json"
+  },
+  {
+    "source_id": "src-cz-volby-ps2025-pages",
+    "country": "czechia",
+    "institution": "Český statistický úřad",
+    "dataset": "volby.gov.cz PS 2025 results application: seats-allocation and home pages (quoted)",
+    "tier": "tier1_official",
+    "url": "https://volby.gov.cz/app/ps2025/cs/seats-allocation",
+    "licence_status": "quoted_facts_only",
+    "raw_redistribution": "quoted_facts_only",
+    "licence_url": "https://csu.gov.cz/conditions_for_use_and_further_dissemination",
+    "attribution": "Český statistický úřad (ČSÚ), volby.gov.cz",
+    "retrieved_at": "2026-10-25T04:53:42Z",
+    "raw_sha256": "b42f684c8d890c143a315ad94b8633e9ecc01815288cbc6210a740b01047f850",
+    "raw_path": "docs/political-data/raw/czechia/ps2025/evidence.json"
+  }
+]

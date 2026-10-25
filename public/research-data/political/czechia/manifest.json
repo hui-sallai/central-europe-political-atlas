@@ -1,0 +1,70 @@
+{
+  "schema_version": "czechia-political-export-v1",
+  "country": "czechia",
+  "elections": [
+    "el-cz-ps-2025-10-03"
+  ],
+  "continuous_party_series": 0,
+  "files": [
+    {
+      "name": "elections.json",
+      "sha256": "67a877173f950d241c543e8a00da5dd1a31e9f4269bfbd9c0df896d23beff747"
+    },
+    {
+      "name": "elections.csv",
+      "sha256": "865a668607147b95d6ffded689f3faa19761e54a8ab799339fd9daa92dc6fbc7"
+    },
+    {
+      "name": "election_turnout.json",
+      "sha256": "3718e3294dd1ee44f950183dd036fc773e0de9996034889a0d1b40d9b3d21b7a"
+    },
+    {
+      "name": "election_turnout.csv",
+      "sha256": "112e50af0851ad007b53b029b803e10b7976aecaa0f548485f3964737b5cea95"
+    },
+    {
+      "name": "election_results.json",
+      "sha256": "fe796deb5b56f5699c066d41f649056c41126bd02c187d891fa6c40ba965cd3e"
+    },
+    {
+      "name": "election_results.csv",
+      "sha256": "b29017ce960e5bfc0c0d2c1c23372a1e350ad1eb4c95747d6226b8a451fb8be4"
+    },
+    {
+      "name": "electoral_contestants.json",
+      "sha256": "639044d4fb1a378ae661027e85bf85a167aba402f2ab417209dba4fa00be7490"
+    },
+    {
+      "name": "electoral_contestants.csv",
+      "sha256": "8e8d61bcd9031d00b5847918c39a146e1d7ed52acfeb60678fa5bdb2fe399fbc"
+    },
+    {
+      "name": "legislatures.json",
+      "sha256": "281afacd56289ec4a4d06425f4c2d772560e8a62929b544a1fbdeda0560ed842"
+    },
+    {
+      "name": "legislatures.csv",
+      "sha256": "50739aff839b49ea001a3777ffb7268bbd07c2166428d94f1f99d2a605604a53"
+    },
+    {
+      "name": "electoral_systems.json",
+      "sha256": "063a35c9c236edfa203401d2aca647cbb3772b98b1c86ed49c00caf00eb7c854"
+    },
+    {
+      "name": "electoral_systems.csv",
+      "sha256": "da8c9c570b3d1a03b15d2ffdb67f3460ade1ecf78d0011838a48c80726ee7265"
+    },
+    {
+      "name": "political_source_registry.json",
+      "sha256": "6d7c84dd3b4d9609dd853d056837d86ae29c82c98a91264339ba36be57534aab"
+    },
+    {
+      "name": "political_source_registry.csv",
+      "sha256": "732d629d32c56cc174506c3b98cff20907720f95819c861cf0983c4736cfada5"
+    },
+    {
+      "name": "README.md",
+      "sha256": "f15b850493e9b5768163e7d9fca0fcda5acde6d289bb45399f799ecd848357ef"
+    }
+  ]
+}

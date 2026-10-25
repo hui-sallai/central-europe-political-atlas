@@ -8,6 +8,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { stores, buildApprovedProduction } from '../political-data/germany/production.mjs';
 import { validatePolitical } from '../political-data/germany/validate.mjs';
+import { POLITICAL_ADMISSIONS, POLITICAL_ADMISSION_FILE } from '../../docs/political-data/source-closure/political-admission-amendments.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const dir = path.join(root, "docs/political-data");
@@ -93,7 +94,11 @@ for (const base of ["src/data", "public/research-data"]) {
   const political = /^(politic|election|legislature|cabinet|parliament|party_|parties|ep_)/i;
   const walk = (d) => { for (const e of fs.readdirSync(path.join(root, d), { withFileTypes: true })) { const rel = `${d}/${e.name}`;
     if(approved&&rel===`${base}/political`){
-      check(JSON.stringify(fs.readdirSync(path.join(root,rel)).sort())===JSON.stringify(['germany']),'Only Germany production allowed');
+      // Germany plus owner-admitted countries; an admitted country's inventory is exactly its admission record's file list.
+      const admissions=(fs.existsSync(path.join(root,POLITICAL_ADMISSION_FILE))?JSON.parse(fs.readFileSync(path.join(root,POLITICAL_ADMISSION_FILE),'utf8')).admissions:[]).filter(r=>r.status==='owner_approved'&&POLITICAL_ADMISSIONS[r.admission_id]);
+      const admittedDirs=admissions.map(r=>r.country);
+      check(JSON.stringify(fs.readdirSync(path.join(root,rel)).sort())===JSON.stringify(['germany',...admittedDirs].sort()),'Only Germany and owner-admitted countries allowed');
+      for(const r of admissions){const expected=POLITICAL_ADMISSIONS[r.admission_id].paths.filter(p=>p.startsWith(`${rel}/${r.country}/`)).map(p=>p.slice(rel.length+r.country.length+2)).sort();check(JSON.stringify(fs.readdirSync(path.join(root,rel,r.country)).sort())===JSON.stringify(expected),`Exact admitted political inventory: ${r.country}`);}
       const allowed=base==='src/data'?stores.map(s=>`${s}.json`):[...stores.flatMap(s=>[`${s}.json`,`${s}.csv`]),'manifest.json','README.md'];
       check(JSON.stringify(fs.readdirSync(path.join(root,rel,'germany')).sort())===JSON.stringify(allowed.sort()),'Exact approved political store/export inventory');
     } else if (political.test(e.name)) offenders.push(rel); else if (e.isDirectory()) walk(rel);
@@ -102,4 +107,4 @@ for (const base of ["src/data", "public/research-data"]) {
 }
 check(offenders.length === 0, `audit phase: canonical political data must not exist yet: ${offenders.join(", ")}`);
 
-console.log(JSON.stringify({ status: "pass", checks, countries: registry.countries.length, cross_country_sources: audit.cross_country_sources.length, proposed_stores: storeNames.length, stop_gate: approved?"Germany Slice 1A only; all other countries blocked":"no canonical political stores" }));
+console.log(JSON.stringify({ status: "pass", checks, countries: registry.countries.length, cross_country_sources: audit.cross_country_sources.length, proposed_stores: storeNames.length, stop_gate: approved?"Germany Slice 1A plus exact-hash owner admissions (Czechia 2025 national); all other countries blocked":"no canonical political stores" }));

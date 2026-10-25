@@ -1,0 +1,73 @@
+{
+ "schema_version": "atlas-political-evidence-v1",
+ "country": "czechia",
+ "election": "Volby do Poslanecké sněmovny Parlamentu ČR, 3–4 October 2025",
+ "captured_on": "2026-10-25",
+ "note": "Evidence for the owner-approved Czechia 2025 admission (owner replies 2026-10-25). Page texts were read in a browser; only the quoted fields are stored. No personal data (contact names, e-mail addresses, candidate names) is stored.",
+ "datasets": [
+  {
+   "code": "VOLPS202503",
+   "title": "Získané mandáty ve volbách do Poslanecké sněmovny podle volebních stran",
+   "publisher": "Český statistický úřad",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/44066ffeb6d36f929f73bb49b8e2b588",
+   "datastat_info": { "url": "https://data.csu.gov.cz/datastat/info/SADA/VOLPS202503", "version": "1", "data_last_updated": "2026-08-12", "structure_last_updated": "2026-08-12", "records": 1502 },
+   "distributions": [
+    { "format": "CSV", "url": "https://data.csu.gov.cz/opendata/sady/VOLPS202503/distribuce/csv", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" }, "http_last_modified": "Thu, 13 Aug 2026 06:59:41 GMT", "content_length": 251084, "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a", "archived_path": "docs/political-data/raw/czechia/ps2025/VOLPS202503.csv" },
+    { "format": "JSON", "url": "https://data.csu.gov.cz/opendata/sady/VOLPS202503/distribuce/json", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" } },
+    { "format": "DataStat API", "url": "https://data.csu.gov.cz/api/katalog/v1/sady/VOLPS202503/vybery", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" } }
+   ],
+   "schema": { "url": "https://data.csu.gov.cz/opendata/sady/VOLPS202503/schema/csv", "sha256": "e1467260892941fc6df22720ce1bbfcf100846b23604c1bc1169f90766727a92", "archived_path": "docs/political-data/raw/czechia/ps2025/VOLPS202503.schema.json" }
+  },
+  {
+   "code": "VOLPS03",
+   "title": "Základní údaje o volbách do Poslanecké sněmovny podle vybraných území",
+   "publisher": "Český statistický úřad",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/b395b9ea48510326fefb237056201d07",
+   "distributions": [
+    { "format": "CSV", "url": "https://data.csu.gov.cz/opendata/sady/VOLPS03/distribuce/csv", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" }, "http_last_modified": "Thu, 13 Aug 2026 07:00:05 GMT", "content_length": 22709903, "sha256": "dc174b79619a6d418509e537d613192e62528492cbf7381ac6f54c5c5f37fa08", "archived_path": null, "excerpt": { "path": "docs/political-data/raw/czechia/ps2025/VOLPS03_cz_2025_excerpt.csv", "sha256": "22886cd27c81eed5bd509a3dce33224e7c21a10bca86e29c93b4a479aa23760b", "selection": "rows with Roky=2025 and Uz0234569C=CZ, with their source line numbers" } },
+    { "format": "JSON", "url": "https://data.csu.gov.cz/opendata/sady/VOLPS03/distribuce/json", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" } },
+    { "format": "DataStat API", "url": "https://data.csu.gov.cz/api/katalog/v1/sady/VOLPS03/vybery", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" } }
+   ],
+   "schema": { "url": "https://data.csu.gov.cz/opendata/sady/VOLPS03/schema/csv", "sha256": "37372f16545c15d4f599c093ecfee5a6ac2f4d4feaa69f20d5f6c3f78fdc24e5", "archived_path": "docs/political-data/raw/czechia/ps2025/VOLPS03.schema.json" }
+  },
+  {
+   "code": "VOLPS202502",
+   "title": "Platné hlasy volebních stran ve volbách do Poslanecké sněmovny",
+   "publisher": "Český statistický úřad",
+   "use": "rights evidence and schema only; regional detail is not used",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/f03b976723d265480af1b4a06551bb33",
+   "distributions": [
+    { "format": "CSV", "url": "https://data.csu.gov.cz/opendata/sady/VOLPS202502/distribuce/csv", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" }, "sha256": "6f0f4a431893cd9da78f80a11f7217702e77bd357229594522308ad8c523e48b", "archived_path": null },
+    { "format": "JSON", "url": "https://data.csu.gov.cz/opendata/sady/VOLPS202502/distribuce/json", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" } }
+   ],
+   "schema": { "url": "https://data.csu.gov.cz/opendata/sady/VOLPS202502/schema/csv", "sha256": "a0191d1a7ed06b6f4e558a6aa7ae1c56cf1149c9929cb5fadabf34ba1b6c2d22", "archived_path": "docs/political-data/raw/czechia/ps2025/VOLPS202502.schema.json" }
+  }
+ ],
+ "retrieval": { "batch_completed_at": "2026-10-25T04:53:42Z", "method": "single manual retrieval of the documented 'Soubor ke stažení' links with an identifying User-Agent, 5 s apart; no API querying", "robots": "data.csu.gov.cz has no robots.txt (the path returns the DataStat application page)" },
+ "official_pages": [
+  { "url": "https://volby.gov.cz/app/ps2025/cs/seats-allocation", "observed_at": "2026-10-25", "quotes": ["Volby do Poslanecké sněmovny Parlamentu České republiky konané ve dnech 3.–4. 10. 2025", "Datum a čas generování dat: 05.10.2025 3:26:00"], "finding": "Seats by list: ANO 80, SPOLU 52, STAN 22, Piráti 18, SPD 15, AUTO 13; total 200 — identical to VOLPS202503." },
+  { "url": "https://volby.gov.cz/app/ps2025/cs/home", "observed_at": "2026-10-25", "quotes": ["Údaje o procentech platných hlasů jsou uváděny na dvě desetinná místa bez zaokrouhlení."], "finding": "Published vote shares are truncated to two decimals, not rounded." }
+ ],
+ "statute": {
+  "act": "Zákon č. 247/1995 Sb., o volbách do Parlamentu České republiky",
+  "version": "znění 1. 1. 2025 – 9. 10. 2025 (covers the election days 3–4 October 2025)",
+  "url": "https://e-sbirka.gov.cz/sb/1995/247/2025-01-01?zalozka=text",
+  "status": "informativní znění systému e-Sbírka (informative consolidated text, not the legally binding promulgated text)",
+  "captured_at": "2026-10-25T04:59:31.533Z",
+  "captured_sections": "§ 24 to § 51, browser innerText",
+  "captured_sha256": "b5bf8accc8f02ed75ccc9717f1a41924b3bfb7b3b3977a3a8415d30e7fcbdfc5",
+  "clauses": {
+   "s24": "Poslanecká sněmovna má 200 poslanců, kteří jsou voleni na dobu čtyř let.",
+   "s26": "Volby do Poslanecké sněmovny se konají podle zásady poměrného zastoupení ve volebních krajích na území České republiky.",
+   "s48_1": "… vydělí ho počtem volených poslanců podle § 24. Číslo takto vypočtené a zaokrouhlené na jednotky je republikovým mandátovým číslem.",
+   "s48_2": "Republikovým mandátovým číslem se dělí celkový počet platných hlasů odevzdaných v každém volebním kraji. Celé číslo takto vypočtené je počtem mandátů, které připadají jednotlivým volebním krajům.",
+   "s48_3": "Nebyly-li takto rozděleny všechny mandáty, připadnou zbylé mandáty postupně volebním krajům, které vykazují největší zbytek dělení.",
+   "s49_1a": "které politické strany nebo politická hnutí získaly méně než 5 procent z celkového počtu platných hlasů,",
+   "s49_1b": "které koalice složené ze 2 politických stran, popřípadě politických hnutí získaly méně než 8 procent z celkového počtu platných hlasů,",
+   "s49_1c": "které koalice složené ze 3 a více politických stran, popřípadě politických hnutí získaly méně než 11 procent z celkového počtu platných hlasů.",
+   "s49_4": "Pokud do skrutinia nepostupují … v počtu podle odstavce 3, Český statistický úřad sníží … hranici 5 procent na hranici 4 procent …, … 8 procent na hranici 7 procent …, … 11 procent na hranici 10 procent …",
+   "s50_2": "… se vydělí počtem mandátů, které byly tomuto volebnímu kraji přiděleny, zvětšeným o dvě; číslo takto vypočtené a zaokrouhlené na jednotky je krajským volebním číslem.",
+   "s51_2": "… Tento součet se vydělí počtem mandátů, které nebyly v prvním skrutiniu přikázány, zvětšeným o jednu. Číslo takto vypočtené a zaokrouhlené na jednotky je republikovým volebním číslem."
+  }
+ }
+}

@@ -46,7 +46,9 @@ test('staging only: no regional output, no network access, no production paths, 
   assert.doesNotMatch(builder, /\bfetch\(|https\.get|curl/);
   for (const target of [...builder.matchAll(/writeFileSync\(([^;]+);/g)].map((m) => m[1])) assert.doesNotMatch(target, /src\/data|public\/research-data/);
   assert.doesNotMatch(builder, /CIS_KRAJ|okres|obec|okrsk/i, 'no regional or municipal identifiers are carried');
-  assert.equal(fs.existsSync('src/data/political/czechia'), false);
+  // The volby.gov.cz XML staging builder never writes production paths; the Czech production stores come only from the
+  // separately admitted DataStat route (docs/political-data/czechia_ps2025_admission.json).
+  assert.doesNotMatch(fs.readFileSync('scripts/political-data/czechia/build-candidate.mjs', 'utf8'), /src\/data\/political|public\/research-data\/political/);
   const status = JSON.parse(fs.readFileSync('docs/political-data/czechia_candidate_status.json', 'utf8'));
   assert.equal(status.production_authorised, false);
   assert.ok(status.blockers.some((b) => /reuse/i.test(b.item)));

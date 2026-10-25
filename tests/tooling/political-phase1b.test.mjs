@@ -27,14 +27,13 @@ test('election comparison works at election level only and never links lists acr
   assert.deepEqual(chartResults(a).map((r) => r.nativeLabel), ['SPD', 'Die Linke']);
 });
 
-test('Germany stays the only production country and its stores are untouched by this phase', () => {
-  assert.deepEqual(fs.readdirSync('src/data/political'), ['germany']);
-  assert.deepEqual(fs.readdirSync('public/research-data/political'), ['germany']);
+test('only owner-admitted countries have production stores; Romania stays staging only', () => {
+  assert.deepEqual(fs.readdirSync('src/data/political'), ['czechia', 'germany']);
+  assert.deepEqual(fs.readdirSync('public/research-data/political'), ['czechia', 'germany']);
   const component = fs.readFileSync('src/components/PoliticalExplorerAlpha.tsx', 'utf8');
   // The explorer may say that a Romanian candidate exists in staging; it must never import or embed Romanian data.
   assert.doesNotMatch(component, /political\/romania|ct-ro-|el-ro-|PARTIDUL/);
-  assert.match(fs.readFileSync('src/lib/politicalData.ts', 'utf8'), /politicalComparisonCountries\(\): PoliticalCountryView\[\] \{\n  return \[\];/);
-  assert.doesNotMatch(fs.readFileSync('src/lib/politicalData.ts', 'utf8'), /political\/romania|from "@\/data\/political\/(?!germany)/);
+  assert.doesNotMatch(fs.readFileSync('src/lib/politicalData.ts', 'utf8'), /political\/romania|from "@\/data\/political\/(?!germany|czechia)/);
 });
 
 test('Romania candidate builder: national sums only, Chamber only, no candidate names, staging only', () => {

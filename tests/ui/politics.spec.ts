@@ -64,7 +64,7 @@ for (const locale of ["zh-CN", "en"] as const) {
     await expect(lists.locator('tbody tr').filter({hasText:/^DIE LINKE/})).toHaveAttribute('data-label-row','one');
     await expect(lists.locator('thead th')).toHaveCount(5);
     await expect(panel.locator('[data-identity-limitation]')).toBeVisible();
-    await expect(panel.locator('[data-politics-cross-country]')).toContainText(locale==='en'?'Germany is the only country':'只有德国');
+    await expect(panel.locator('[data-politics-cross-country] [data-country-comparison]')).toBeVisible();
     await expect(panel.locator('select').first().locator('option')).toHaveCount(1);
     expect(new URL(page.url()).searchParams.get('compare')).toBe('el-de-bt-2021-09-26');
     await page.reload({waitUntil:'networkidle'});

@@ -1,0 +1,19 @@
+{
+    "@context": ["http://www.w3.org/ns/csvw",{"@language":"cs"}],
+    "url": "https://data.csu.gov.cz/opendata/sady/VOLPS202503/distribuce/csv",
+    "tableSchema": {
+        "columns": [
+            {"name":"Ukazatel","titles":"Ukazatel","dc:description":"","required":true,"datatype": "string"},
+            {"name":"IndicatorType","titles":"IndicatorType","dc:description":"Kód pro Ukazatel","required":true,"datatype": "string"},
+            {"name":"Druh voleb","titles":"Druh voleb","dc:description":"","required":true,"datatype": "string"},
+            {"name":"DRUHVOLPS","titles":"DRUHVOLPS","dc:description":"Kód pro Druh voleb","required":true,"datatype": "string"},
+            {"name":"Volební strana","titles":"Volební strana","dc:description":"","required":true,"datatype": "string"},
+            {"name":"VSTRANAPS2025","titles":"VSTRANAPS2025","dc:description":"Kód pro Volební strana","required":true,"datatype": "string"},
+            {"name":"Roky","titles":"Roky","dc:description":"","required":true,"datatype": "string"},
+            {"name":"CASVOLPS","titles":"CASVOLPS","dc:description":"Kód pro Roky","required":true,"datatype": "string"},
+            {"name":"ČR, kraje-Kraj","titles":"ČR, kraje-Kraj","dc:description":"","required":true,"datatype": "string"},
+            {"name":"Uz02A.KRAJ","titles":"Uz02A.KRAJ","dc:description":"Kód pro ČR, kraje-Kraj","required":true,"datatype": "string"},
+            {"name":"Hodnota","titles":"Hodnota","dc:description":"","required":true,"datatype": "string"}
+        ]
+    }
+}

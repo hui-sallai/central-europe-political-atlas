@@ -1,0 +1,118 @@
+[
+  {
+    "electoral_system_id": "es-cz-ps-2025",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "valid_from": "2025-10-03",
+    "valid_to": "2025-10-04",
+    "interval_basis": "election-specific rule observation (Act 247/1995 Coll., version in force 1 January – 9 October 2025), not legal enactment dates",
+    "system_family": "list proportional representation in 14 regions",
+    "vote_type": "chamber_list_vote",
+    "allocation_method": "two scrutinies: regional quota (votes ÷ (seats + 2)), then national remainders (÷ (unallocated seats + 1))",
+    "base_seats": 200,
+    "vote_definitions": [
+      {
+        "id": "chamber_list_vote",
+        "kind": "list",
+        "label": {
+          "en": "List votes (one list vote per voter)",
+          "zh-CN": "名单票（每名选民一票）"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "whole_chamber",
+        "sourceIds": [
+          "src-cz-csu-volps202503",
+          "src-cz-esbirka-247-1995"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "Seats are first apportioned to the 14 regions: total valid votes ÷ 200, rounded, is the national seat quota; each region receives the whole number of quotas in its valid votes, remaining seats go to the largest remainders (§ 48). The second scrutiny allocates unassigned seats nationally: summed remainders ÷ (unassigned seats + 1), rounded (§ 51).",
+      "districtAllocation": "First scrutiny within each region: valid votes of the qualifying lists ÷ (regional seats + 2), rounded, is the regional quota; each list receives the number of whole quotas in its regional votes (§ 50).",
+      "thresholds": [
+        {
+          "appliesTo": "political party or movement",
+          "percent": 5,
+          "description": {
+            "en": "Lists of a single party or movement below 5% of national valid votes take no part in the allocation (§ 49(1)(a)).",
+            "zh-CN": "单一政党或运动的名单低于全国有效票 5% 时不参与席位分配（第 49 条第 1 款 a 项）。"
+          },
+          "sourceIds": [
+            "src-cz-esbirka-247-1995"
+          ]
+        },
+        {
+          "appliesTo": "coalition of two parties or movements",
+          "percent": 8,
+          "description": {
+            "en": "Coalitions of two parties or movements below 8% take no part (§ 49(1)(b)).",
+            "zh-CN": "两个政党或运动组成的联盟低于 8% 时不参与（第 49 条第 1 款 b 项）。"
+          },
+          "sourceIds": [
+            "src-cz-esbirka-247-1995"
+          ]
+        },
+        {
+          "appliesTo": "coalition of three or more parties or movements",
+          "percent": 11,
+          "description": {
+            "en": "Coalitions of three or more below 11% take no part (§ 49(1)(c)); if fewer than two lists qualify, the thresholds are lowered step by step (§ 49(3)–(5)).",
+            "zh-CN": "三个及以上政党或运动组成的联盟低于 11% 时不参与（第 49 条第 1 款 c 项）；若晋级名单少于两个，门槛逐级降低（第 49 条第 3—5 款）。"
+          },
+          "sourceIds": [
+            "src-cz-esbirka-247-1995"
+          ]
+        }
+      ],
+      "minorityRepresentation": null,
+      "totalSeatsDefinition": {
+        "en": "200 deputies elected for four years (§ 24 of Act 247/1995 Coll.).",
+        "zh-CN": "200 名议员，任期四年（第 247/1995 号法律第 24 条）。"
+      },
+      "sourceIds": [
+        "src-cz-esbirka-247-1995"
+      ]
+    },
+    "notes": {
+      "en": "Proportional representation in 14 regions, 200 seats. Which threshold applied to each list depends on whether it was a single party or movement or a coalition; the admitted datasets do not state list kinds, so the Atlas does not assign a threshold to individual lists. Published vote shares are truncated to two decimals.",
+      "zh-CN": "14 个选区的比例代表制，共 200 席。每个名单适用哪一门槛取决于其为单一政党／运动还是联盟；已准入的数据集未注明名单类型，因此 Atlas 不为单个名单指定门槛。公布的得票率截断保留两位小数。"
+    },
+    "provenance": [
+      {
+        "source_id": "src-cz-esbirka-247-1995",
+        "source_url": "https://e-sbirka.gov.cz/sb/1995/247/2025-01-01?zalozka=text",
+        "source_record_id": "Act 247/1995 Coll. §§ 24, 26, 48–51 (version 1 Jan – 9 Oct 2025)",
+        "retrieved_at": "2026-10-25T04:53:42Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2025/evidence.json",
+          "sha256": "b42f684c8d890c143a315ad94b8633e9ecc01815288cbc6210a740b01047f850"
+        },
+        "parser_version": "czechia-ps2025-v1",
+        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "national_rules"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-volby-ps2025-pages",
+        "source_url": "https://volby.gov.cz/app/ps2025/cs/seats-allocation",
+        "source_record_id": "seats-allocation and home pages",
+        "retrieved_at": "2026-10-25T04:53:42Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2025/evidence.json",
+          "sha256": "b42f684c8d890c143a315ad94b8633e9ecc01815288cbc6210a740b01047f850"
+        },
+        "parser_version": "czechia-ps2025-v1",
+        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "fields_covered": [
+          "notes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]

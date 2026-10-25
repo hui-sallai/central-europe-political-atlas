@@ -196,6 +196,35 @@
       "robots_note": "robots.txt: 'User-agent: * Disallow:' (all paths allowed)",
       "reason": "Owner-approved 2026-10-25 for manual evidence review only. The JavaScript results application shows national list results and seat totals but no download link and no licence or terms text; it links its Impresszum on www.valasztas.hu (blocked). No data acquisition until reuse terms are confirmed.",
       "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "data.gov.cz",
+      "purpose": "Czech National Open Data Catalogue (NKOD): dataset and distribution rights metadata pages (evidence only)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-25",
+      "robots_note": "User-agent * disallows /sparql*, /fct/, /describe/ and /zdroj/; dataset pages under /datová-sada are allowed. Only dataset pages were read, in a browser.",
+      "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "data.csu.gov.cz",
+      "purpose": "ČSÚ DataStat open-data distributions VOLPS202502, VOLPS202503 and VOLPS03 (Chamber of Deputies elections), downloaded from the documented 'Soubor ke stažení' links",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-25",
+      "robots_note": "No robots.txt: /robots.txt returns the DataStat application page (HTTP 200, text/html).",
+      "reason": "Single honest retrieval of the documented distribution files and their published schemas; no API querying beyond the documented distribution URLs.",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "e-sbirka.gov.cz",
+      "purpose": "Czech official Collection of Laws (e-Sbírka): Act 247/1995 Coll., version 1 January – 9 October 2025, read manually for the electoral rules",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-25",
+      "robots_note": "No robots.txt: /robots.txt returns the e-Sbírka application page (HTTP 200, text/html).",
+      "reason": "Owner-approved 2026-10-25; one browser reading of the consolidated text; quoted clauses and a checksum of the captured sections are stored.",
+      "status": "allowed_review_due"
     }
   ],
   "reference_hosts": {

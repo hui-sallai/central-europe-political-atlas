@@ -15,6 +15,14 @@
     2025
    ],
    "record": "docs/political-data/germany_production_acceptance.json"
+  },
+  {
+   "country": "czechia",
+   "elections": [
+    2025
+   ],
+   "scope": "Chamber of Deputies 2025, national level",
+   "record": "docs/political-data/czechia_ps2025_admission.json"
   }
  ],
  "owner_decisions": [
@@ -35,29 +43,15 @@
    "country": "hungary",
    "question": "Register the Hungarian election hosts",
    "decision": "Registered for manual evidence review only (www.valasztas.hu blocked by robots.txt; vtr.valasztas.hu evidence-only)."
+  },
+  {
+   "date": "2026-10-25",
+   "country": "czechia",
+   "question": "ČSÚ DataStat distribution rights metadata, e-Sbírka rules, publication scope",
+   "decision": "Accepted for VOLPS202503/VOLPS03; e-Sbírka registered; publish 2025 national result only (supersedes the volby.gov.cz route for 2025; the earlier 'wait for ČSÚ reply' decision still governs the volby.gov.cz files)."
   }
  ],
  "countries": {
-  "czechia": {
-   "latest_election": "Chamber of Deputies, October 2025 (date interval to reconcile against ČSÚ)",
-   "entry_point": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata.htm",
-   "causes": [
-    "reuse_restriction",
-    "missing_official_evidence",
-    "identity_unverified",
-    "internal_approval"
-   ],
-   "evidence": [
-    "reuse_restriction: ČSÚ licenses statistical information published through csu.gov.cz under CC BY 4.0; the volby.gov.cz footer links these terms, but the operative sentence does not name volby.gov.cz. Scope confirmation by ČSÚ is required (owner decision 2026-10-25).",
-    "missing_official_evidence: vysledky.xml, ps_vysledky.xsd and the register package are not yet staged (owner staging decided 2026-10-25); the electoral-rule text and date interval are not yet documented from an official source.",
-    "identity_unverified: list type (party, movement or coalition) depends on the ČSÚ register CVS.TYPVS and whether KSTRANA and VSTRANA share a key; coalition votes are never split among member parties.",
-    "internal_approval: production publication needs owner authorisation after the gates close."
-   ],
-   "not_a_cause": [
-    "parser_incompatibility — the staging builder scripts/political-data/czechia/build-candidate.mjs reads the documented XML schema"
-   ],
-   "next_step": "Owner sends the ČSÚ contact packet and stages the three files; the builder then produces a validated staging candidate."
-  },
   "poland": {
    "latest_election": "Sejm, 15 October 2023",
    "entry_point": "https://sejmsenat2023.pkw.gov.pl/sejmsenat2023/pl/dane_w_arkuszach",
@@ -140,5 +134,21 @@
  "germany_2025_metadata": {
   "finding": "The 2025 electoral-system record holds the threshold, three-constituency exception, minority exemption and fixed 630-seat rule in its sourced, published 'notes' field (provenance src-de-bwl-system-2025 and src-de-bwl-system-size), while the structured national_rules fields are absent. The details panel reported those empty structured fields as 'not established'.",
   "resolution": "Presentation only: empty structured fields now say they are not recorded as separate structured fields and show the sourced system description with its source IDs. No German store is changed and no value is parsed into a structured field."
+ },
+ "czechia_other_elections": {
+  "scope": "2002–2021 and the volby.gov.cz XML route",
+  "causes": [
+   "reuse_restriction",
+   "missing_official_evidence",
+   "identity_unverified",
+   "internal_approval"
+  ],
+  "evidence": [
+   "reuse_restriction: ČSÚ licenses statistical information published through csu.gov.cz under CC BY 4.0; the volby.gov.cz footer links these terms, but the operative sentence does not name volby.gov.cz. Scope confirmation by ČSÚ is required (owner decision 2026-10-25).",
+   "missing_official_evidence: vysledky.xml, ps_vysledky.xsd and the register package are not yet staged (owner staging decided 2026-10-25); the electoral-rule text and date interval are not yet documented from an official source.",
+   "identity_unverified: list type (party, movement or coalition) depends on the ČSÚ register CVS.TYPVS and whether KSTRANA and VSTRANA share a key; coalition votes are never split among member parties.",
+   "internal_approval: production publication needs owner authorisation after the gates close."
+  ],
+  "next_step": "Owner sends the ČSÚ contact packet and stages the three files; the builder then produces a validated staging candidate."
  }
 }

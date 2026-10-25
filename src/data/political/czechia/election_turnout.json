@@ -1,0 +1,46 @@
+[
+  {
+    "election_id": "el-cz-ps-2025-10-03",
+    "country": "czechia",
+    "geography": "national",
+    "vote_type": "chamber_list_vote",
+    "result_vintage": "final: ČSÚ DataStat VOLPS202503 v1 (data updated 2026-08-12)",
+    "eligible_voters": 8253316,
+    "voters": 5690635,
+    "valid_votes": 5621717,
+    "invalid_votes": null,
+    "ballots_cast": null,
+    "published_turnout": 68.95,
+    "derived_turnout": 68.94968034666309,
+    "turnout_definition": "Published turnout (Volební účast): issued envelopes (Vydané obálky) / registered voters (Voliči v seznamu) × 100; the ballots-cast and invalid-vote counts are not in the admitted datasets and are not reconstructed",
+    "turnout_basis": {
+      "numerator": "envelopes_issued",
+      "denominator": "registered_electorate",
+      "definition": "issued envelopes / registered voters × 100 (ČSÚ VOLPS03)",
+      "sourceIds": [
+        "src-cz-csu-volps03"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps03",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS03/distribuce/csv",
+        "source_record_id": "VOLPS03.csv lines 46519, 73124, 99729, 126334",
+        "retrieved_at": "2026-10-25T04:53:42Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2025/VOLPS03_cz_2025_excerpt.csv",
+          "sha256": "22886cd27c81eed5bd509a3dce33224e7c21a10bca86e29c93b4a479aa23760b"
+        },
+        "parser_version": "czechia-ps2025-v1",
+        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "fields_covered": [
+          "eligible_voters",
+          "voters",
+          "published_turnout",
+          "valid_votes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]

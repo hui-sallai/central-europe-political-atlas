@@ -4,8 +4,8 @@ import { expect, test } from "@playwright/test";
 import { PoliticalCountryComparison } from "../../src/components/PoliticalCountryComparison";
 import type { PoliticalElectionView } from "../../src/lib/politicalExplorer";
 
-// The comparison view is exercised with synthetic fixtures: no second country is authorised, so the live page keeps it
-// disabled. Playwright compiles imported TSX to its own JSX objects; convert them to React elements for static markup.
+// The comparison view is exercised with synthetic fixtures here and with the admitted Czechia 2025 election on the live
+// page below. Playwright compiles imported TSX to its own JSX objects; convert them to React elements for static markup.
 type PwNode = { __pw_type: "jsx"; type: unknown; props: Record<string, unknown>; key?: string | null };
 const isPw = (node: unknown): node is PwNode => !!node && typeof node === "object" && (node as PwNode).__pw_type === "jsx";
 function toReact(node: unknown, index = 0): ReactNode {
@@ -39,13 +39,22 @@ for (const locale of ["zh-CN", "en"] as const) test(`cross-country view: side by
   if (locale === "en") expect(html.replace(/<span lang="(de|ro)"[^>]*>[^<]*<\/span>/g, "")).not.toMatch(/[㐀-鿿]/u);
 });
 
-for (const locale of ["zh-CN", "en"] as const) test(`live politics page keeps cross-country comparison disabled and explains research definitions (${locale})`, async ({ page }) => {
+for (const locale of ["zh-CN", "en"] as const) test(`live politics page compares Germany 2025 with the admitted Czechia 2025 election, side by side and caveated (${locale})`, async ({ page }) => {
   await page.goto(locale === "en" ? "/en/politics/" : "/politics/", { waitUntil: "networkidle" });
   const panel = page.locator("[data-politics-explorer]");
-  await expect(panel.locator("[data-cross-country-disabled]")).toContainText(locale === "en" ? "Germany is the only country" : "只有德国");
-  await expect(panel.locator("[data-cross-country-disabled]")).toContainText(locale === "en" ? "not published" : "尚未发布");
-  await expect(panel.locator("[data-country-comparison]")).toHaveCount(0);
-  await expect(panel.locator("select").first().locator("option")).toHaveCount(1);
+  await expect(panel.locator("[data-cross-country-disabled]")).toHaveCount(0);
+  await expect(panel.locator("select").first().locator("option")).toHaveCount(1); // Germany stays the primary country
+  const comparison = panel.locator("[data-country-comparison]");
+  await expect(comparison).toBeVisible();
+  await expect(comparison.locator("[data-comparison-caveat]")).toBeVisible();
+  await expect(comparison.locator("[data-country-lists='czechia']")).toContainText("ANO 2011");
+  await expect(comparison.locator("[data-country-lists='czechia'] tbody tr").first()).toHaveAttribute("data-share-basis", "published");
+  const facts = await comparison.locator("[data-country-facts]").innerText();
+  expect(facts).toMatch(/630/); expect(facts).toMatch(/200/);
+  const html = await comparison.innerHTML();
+  expect(html).not.toMatch(/<th[^>]*>[^<]*(Rank|Difference|排名|差值)/i);
+  expect(html).not.toMatch(/forecast|probab|预测/i);
+  expect((await page.request.get("/research-data/political/czechia/election_results.json")).status()).toBe(200);
   await panel.getByText(locale === "en" ? "Sources, provenance and downloads" : "来源、出处与下载", { exact: true }).click();
   await expect(panel.locator("[data-politics-definitions]")).toContainText(locale === "en" ? "Derived vote share" : "计算得票率");
   await expect(panel.locator("[data-politics-definitions]")).toContainText("voters / eligible voters");
@@ -56,14 +65,15 @@ for (const locale of ["zh-CN", "en"] as const) test(`publication-gate status nam
   await page.goto(locale === "en" ? "/en/politics/" : "/politics/", { waitUntil: "networkidle" });
   const status = page.locator("[data-politics-explorer] [data-admission-status]");
   await status.locator("summary").click();
-  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(1);
+  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(2);
   await expect(status.locator("[data-admission='germany']")).toHaveAttribute("data-admission-state", "admitted");
-  for (const country of ["czechia", "slovakia", "poland", "austria", "hungary"]) await expect(status.locator(`[data-admission='${country}']`)).toHaveAttribute("data-admission-state", "blocked");
+  await expect(status.locator("[data-admission='czechia']")).toHaveAttribute("data-admission-state", "admitted");
+  for (const country of ["slovakia", "poland", "austria", "hungary"]) await expect(status.locator(`[data-admission='${country}']`)).toHaveAttribute("data-admission-state", "blocked");
   await expect(status.locator("[data-admission='romania']")).toHaveAttribute("data-admission-state", "staged_not_published");
   await expect(status.locator("[data-admission='hungary']")).toContainText("robots.txt");
   expect(await status.innerText()).not.toMatch(/\d{1,3}(,\d{3})+|\d+(\.\d+)?\s?%/);
   if (locale === "en") expect(await status.innerText()).not.toMatch(/[㐀-鿿]/u);
-  for (const country of ["hungary", "czechia", "poland", "slovakia"]) expect((await page.request.get(`/research-data/political/${country}/election_results.json`)).status()).toBe(404);
+  for (const country of ["hungary", "poland", "slovakia"]) expect((await page.request.get(`/research-data/political/${country}/election_results.json`)).status()).toBe(404);
 });
 
 for (const locale of ["zh-CN", "en"] as const) test(`Germany 2025 rule fields point to the sourced system description, and blocker causes are shown (${locale})`, async ({ page }) => {
@@ -76,7 +86,8 @@ for (const locale of ["zh-CN", "en"] as const) test(`Germany 2025 rule fields po
   await expect(details).not.toContainText(locale === "en" ? "Not established in the authorised structured records" : "授权结构记录中尚未确立");
   const status = page.locator("[data-admission-status]");
   await status.locator("summary").click();
-  await expect(status.locator("[data-admission='czechia'] [data-admission-cause='reuse_restriction']")).toBeVisible();
+  await expect(status.locator("[data-admission='slovakia'] [data-admission-cause='reuse_restriction']")).toBeVisible();
+  await expect(status.locator("[data-admission='czechia'] [data-admission-cause]")).toHaveCount(0);
   await expect(status.locator("[data-admission='hungary'] [data-admission-cause='reuse_restriction']")).toHaveCount(0);
   await expect(status.locator("[data-admission='germany'] [data-admission-cause]")).toHaveCount(0);
 });

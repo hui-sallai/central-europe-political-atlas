@@ -1,0 +1,30 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "czechia-ps-2025",
+ "country": "czechia",
+ "election_id": "el-cz-ps-2025-10-03",
+ "scope": "Chamber of Deputies election 3–4 October 2025, national level only. The Production 1B route (volby.gov.cz XML files for 2002–2025) is a separate gate set and stays NOT_READY.",
+ "owner_decisions": [
+  { "date": "2026-10-25", "decision": "Accept the national-catalogue distribution rights metadata (no copyright work, no original database, database maker's right not protected, no personal data) as closing normalized republication, raw redistribution and manual acquisition for exactly the DataStat distributions VOLPS202503 and VOLPS03, without a ČSÚ reply." },
+  { "date": "2026-10-25", "decision": "Register e-Sbírka for manual reading of Act 247/1995 Coll. and record the electoral rules with citations." },
+  { "date": "2026-10-25", "decision": "Publish the 2025 national result only, with list kind not established, no coalition splitting and no cross-election party links; activate the Germany–Czechia comparison." }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/czechia/ps2025/evidence.json",
+  "docs/political-data/raw/czechia/ps2025/VOLPS202503.csv",
+  "docs/political-data/raw/czechia/ps2025/VOLPS03_cz_2025_excerpt.csv"
+ ],
+ "gates": {
+  "reuse_right": { "status": "closed", "value": "supported_explicit", "evidence_kind": "national_catalogue_distribution_rights_metadata", "basis": "For every distribution of VOLPS202503 and VOLPS03 (CSV, JSON, DataStat API) the national open-data catalogue records: copyright work — none; original database — none; database maker's right — not protected; personal data — none (evidence.json)." },
+  "normalized_republication": { "status": "closed", "value": "cleared", "evidence_kind": "national_catalogue_distribution_rights_metadata", "basis": "No protected right exists in these distributions according to their catalogue metadata; closed by owner decision 2026-10-25 for exactly these files." },
+  "raw_redistribution": { "status": "closed", "value": "cleared", "evidence_kind": "national_catalogue_distribution_rights_metadata", "basis": "Same metadata; VOLPS202503.csv is redistributed in full and VOLPS03 as an excerpt of the national 2025 rows with the full file's checksum." },
+  "acquisition_route": { "status": "closed", "value": "manual_public_download_of_documented_distribution", "evidence_kind": "national_catalogue_distribution_rights_metadata", "basis": "Single manual retrieval of the documented 'Soubor ke stažení' links on 2026-10-25 with an identifying User-Agent; data.csu.gov.cz has no robots.txt; no API querying." },
+  "source_files_complete": { "status": "closed", "basis": "VOLPS202503 contains votes, published vote share, seats and seat share for all 26 lists and the national total; VOLPS03 contains registered voters, issued envelopes, published turnout and valid votes; checksums in evidence.json." },
+  "national_definition_complete": { "status": "closed", "basis": "List votes (one per voter) are the only national ballot; shares use total valid votes and are truncated to two decimals (volby.gov.cz home page note, verified for all 26 lists); turnout is issued envelopes / registered voters (verified to 0.005 points); seats are whole-chamber seats out of 200. Ballots cast and invalid votes are not in the admitted datasets and remain missing." },
+  "same_election_identity_complete": { "status": "closed", "basis": "Each of the 26 lists is identified by its ČSÚ list code (VSTRANAPS2025) and official ballot label. List kind (party, movement or coalition) and coalition membership are recorded as not established; no list is linked to a legal party or to any other election." },
+  "electoral_system_metadata_complete": { "status": "closed", "basis": "Act 247/1995 Coll., version 1 January – 9 October 2025 (e-Sbírka informative consolidated text): 200 deputies (§ 24); proportional representation in 14 regions (§ 26); regional apportionment by national quota and largest remainders (§ 48); thresholds 5% / 8% / 11% with step-down rule (§ 49); first scrutiny regional quota votes ÷ (seats + 2) (§ 50); second scrutiny remainders ÷ (unassigned + 1) (§ 51). Minority representation: not established (not reviewed), shown as missing." },
+  "vintage_decisions_complete": { "status": "closed", "basis": "Result vintage: ČSÚ DataStat VOLPS202503 version 1, data updated 2026-08-12. Seats are identical to the volby.gov.cz allocation generated on 5 October 2025 03:26. Any later court review is not separately documented; the Atlas does not claim one." }
+ },
+ "not_established": ["list kind (party / movement / coalition)", "coalition member parties", "which threshold applied to each list", "ballots cast and invalid votes", "minority-representation rules", "cross-election party identity", "regional and candidate results (out of scope)"],
+ "overall_readiness": "ADMITTED_BY_OWNER_DECISION"
+}

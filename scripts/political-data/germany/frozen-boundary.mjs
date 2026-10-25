@@ -10,6 +10,7 @@ import {politicalExportFiles} from './export.mjs';
 import {approvedMirrorFiles,mirrorSyncPath,MIRROR_SYNC_FILE} from '../../../docs/political-data/source-closure/ui-amendments.mjs';
 import {approvedNewsFiles,NEWS_REFRESH_FILE} from '../../../docs/political-data/source-closure/news-refresh-amendments.mjs';
 import {approvedDataRefreshFiles,DATA_REFRESH_FILE} from '../../../docs/political-data/source-closure/data-refresh-amendments.mjs';
+import {approvedPoliticalAdmissionFiles,POLITICAL_ADMISSION_FILE} from '../../../docs/political-data/source-closure/political-admission-amendments.mjs';
 
 export const DEPENDENCY_EXCEPTIONS_FILE='docs/legal-security/dependency_maintenance_exceptions.json';
 // Dependency-tooling files other than package.json / pnpm-lock.yaml that no exception may touch.
@@ -121,6 +122,9 @@ export function unapprovedFrozenChanges(changed,baseline){
   const news=approvedNewsFiles(fs.existsSync(newsPath)?JSON.parse(fs.readFileSync(newsPath,'utf8')).amendments:[]);
   const refreshPath=path.join(root,DATA_REFRESH_FILE);
   const refreshes=approvedDataRefreshFiles(fs.existsSync(refreshPath)?JSON.parse(fs.readFileSync(refreshPath,'utf8')).refreshes:[]);
+  const admissionPath=path.join(root,POLITICAL_ADMISSION_FILE);
+  const fileHash=rel=>fs.existsSync(path.join(root,rel))?sha256(fs.readFileSync(path.join(root,rel))):null;
+  const admissions=approvedPoliticalAdmissionFiles(fs.existsSync(admissionPath)?JSON.parse(fs.readFileSync(admissionPath,'utf8')).admissions:[],fileHash);
   const data=buildApprovedProduction();validatePolitical(data,data);
   const files=new Map(stores.map(store=>[`src/data/political/germany/${store}.json`,JSON.stringify(data[store],null,2)+'\n']));
   for(const [name,content] of Object.entries(politicalExportFiles(data)))files.set(`public/research-data/political/germany/${name}`,content);
@@ -136,6 +140,8 @@ export function unapprovedFrozenChanges(changed,baseline){
     // Owner-approved export mirror sync: a public mirror may differ only at its exact recorded sha256
     // (docs/legal-security/export_mirror_sync_records.json, reproduced by research-export:check); src/data never.
     if(mirrorSyncApplies(file))continue;
+    // Owner-approved political admission (new non-German political files at exact hashes; Germany never).
+    if(!admissions.problems.length && admissions.approved.has(file) && fileHash(file)===admissions.approved.get(file))continue;
     if(!files.has(file)){unexpected.push(file);continue;}
     // A historical frozen file can never be silently reclassified as new politics.
     const prior=execFileSync('git',['ls-tree','--name-only',baseline,'--',file],{cwd:root,encoding:'utf8'});

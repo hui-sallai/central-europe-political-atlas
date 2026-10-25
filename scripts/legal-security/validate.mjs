@@ -7,6 +7,7 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { NO_PROFILING_EN, NO_PROFILING_ZH, CLIENT_STORAGE_ALLOWLIST, RIGHTS_FIELDS, SITE_OPERATING_MODES, TRACKER_PATTERNS, externalScriptSources, isUnsafeUrl } from './policy.mjs';
 import { runPersonSafety } from './person-safety.mjs';
+import { approvedPoliticalAdmissionFiles } from '../../docs/political-data/source-closure/political-admission-amendments.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const sourceOnly = process.argv.includes('--source-only');
@@ -68,10 +69,17 @@ const gateMatrix = json('docs/political-data/source-closure/gate_matrix.json');
 for (const c of ['czechia', 'slovakia', 'poland', 'austria']) check(gateMatrix.countries.find((x) => x.country === c)?.overall_readiness === 'NOT_READY', `${c}: political production gate must remain NOT_READY`);
 const explorer = read('src/components/PoliticalExplorerAlpha.tsx');
 check(!/<option[^>]*>[^<]*(Czech|Slovak|Poland|Austria|捷克|斯洛伐克|波兰|奥地利)/i.test(explorer) && /<select disabled[^>]*><option>\{en \? "Germany" : "德国"\}<\/option><\/select>/.test(explorer), 'Political Explorer must expose Germany only');
-// No canonical or exported political data for non-cleared countries
+// No canonical or exported political data for non-cleared countries. Besides Germany, a country directory is permitted
+// only when an owner-approved exact-hash admission record (docs/legal-security/political_admission_records.json, closed
+// gate record) approves every file in it at its exact hash.
+const admissionRecords = exists('docs/legal-security/political_admission_records.json') ? json('docs/legal-security/political_admission_records.json').admissions : [];
+const admitted = approvedPoliticalAdmissionFiles(admissionRecords, (f) => (exists(f) ? crypto.createHash('sha256').update(fs.readFileSync(path.join(root, f))).digest('hex') : null));
+check(admitted.problems.length === 0, `political admission records invalid: ${admitted.problems.join('; ')}`);
+const admittedCountries = new Set(admissionRecords.filter((r) => r.status === 'owner_approved').map((r) => r.country));
 for (const dir of ['src/data/political', 'public/research-data/political']) {
   const dirs = exists(dir) ? fs.readdirSync(path.join(root, dir), { withFileTypes: true }).filter((e) => e.isDirectory()).map((e) => e.name) : [];
-  check(JSON.stringify(dirs) === JSON.stringify(['germany']), `${dir}: only germany is permitted (found ${dirs.join(', ')})`);
+  check(dirs.includes('germany') && dirs.every((d) => d === 'germany' || admittedCountries.has(d)), `${dir}: only germany and owner-admitted countries are permitted (found ${dirs.join(', ')})`);
+  for (const d of dirs.filter((x) => x !== 'germany')) for (const f of fs.readdirSync(path.join(root, dir, d))) check(admitted.approved.has(`${dir}/${d}/${f}`), `${dir}/${d}/${f}: not approved by the political admission record`);
 }
 // Private audit evidence never published
 const evidenceDir = 'docs/political-data/source-closure/local-evidence';

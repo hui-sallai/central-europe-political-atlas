@@ -22,16 +22,19 @@ test('admitted countries are exactly the countries whose official stores are imp
   const imported = [...new Set([...fs.readFileSync(path.join(root, 'src/lib/politicalData.ts'), 'utf8').matchAll(/@\/data\/political\/([a-z]+)\//g)].map((m) => m[1]))].sort();
   assert.deepEqual([...admittedCountrySlugs].sort(), imported);
   assert.deepEqual(fs.readdirSync(path.join(root, 'src/data/political')).filter((d) => fs.statSync(path.join(root, 'src/data/political', d)).isDirectory()).sort(), imported);
-  assert.deepEqual(imported, ['germany']);
+  assert.deepEqual(imported, ['czechia', 'germany']);
 });
 
-test('every gate-matrix country stays blocked while a mandatory gate is open or no publisher has replied', () => {
+test('gate-matrix countries stay blocked unless a separate owner-approved admission record exists', () => {
+  const admitted = new Set(read('docs/legal-security/political_admission_records.json').admissions.filter((a) => a.status === 'owner_approved').map((a) => a.country));
+  assert.deepEqual([...admitted], ['czechia']);
   for (const country of gateMatrix.countries) {
     const row = politicalAdmissions.find((r) => r.slug === country.country);
     assert.ok(row, country.country);
+    // The Production 1B route (volby.gov.cz files, 2002–2025) stays NOT_READY even for an admitted country.
     assert.equal(country.overall_readiness, 'NOT_READY');
     assert.ok(country.open_mandatory_gates.length > 0);
-    assert.equal(row.state, 'blocked', `${country.country}: must remain blocked`);
+    assert.equal(row.state, admitted.has(country.country) ? 'admitted' : 'blocked', `${country.country}: state`);
     assert.ok(fs.existsSync(path.join(root, row.record)), `${country.country}: record exists`);
   }
   assert.equal(replies.length, 0, 'a publisher reply must be reviewed against the gates before this test is updated');
