@@ -1646,6 +1646,22 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-25"
+    },
+    {
+      "amendment_id": "political-admission-status-2026-10-25",
+      "status": "owner_approved",
+      "approved_by": "owner Stage C brief 2026-10-25 and reply 'Register Hungary hosts': per-country publication-gate status restating the existing gate records; no country admitted, no political store, data, model or version change",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        { "path": "src/lib/politicalAdmission.ts", "sha256": "8a222ccef2dd3b4ac32a5749bc4ea9e62bbaae0d8e8385d959f70d0669304828", "classification": "SOURCE_ATTRIBUTION_UI" },
+        { "path": "src/components/PoliticalExplorerAlpha.tsx", "sha256": "0f4249a68b71f456c746e003c5872eaba4a9b054cda1bedeecb5e1f332c99308", "classification": "SOURCE_ATTRIBUTION_UI" }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-25"
     }
   ]
 }

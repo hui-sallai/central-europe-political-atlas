@@ -32,7 +32,7 @@ measurement stores (positions, classifications, cabinet attributes), plus a reco
 **2. Official source matrix.** Machine-readable official results inspected for **Czechia** (XML 2002–2025),
 **Germany** (CSV 1949–2025), **Poland** (CSV/XLSX 2023), **Austria** (XLSX 2024), **Croatia** (CSV 2000–2020);
 files located but not yet parsed for **Slovakia** (CSV ZIPs 2020/2023) and **Romania** (CSV/XLS 2012/2016 on data.gov.ro). Partial or missing: Croatia 2024 (PDF), Slovenia
-(2026 files linked, archive unverified; results host blocks scripts), Hungary (results app, bulk export not located),
+(2026 files linked, archive unverified; results host blocks scripts), Hungary (results app, bulk export not located; status 2026-10-25 in `hungary_source_status.json`: terms on a robots-blocked host, NOT_READY),
 Romania 2020/2024 (portal blocks automated access), **Serbia** (HTML/PDF only).
 
 **3. Party identity strategy.** Opaque name-independent IDs; contestants ≠ parties ≠ parliamentary groups; explicit

@@ -176,6 +176,26 @@
       "robots_checked_at": "2026-10-14",
       "robots_note": "disallows /api/, /dataset/rate/, /revision/, /dataset/*/history; Crawl-Delay 10. File downloads under /dataset/*/resource/*/download/ and /storage/ are not disallowed. Deviation recorded: on 2026-10-13/14 the assistant queried /api/3/action/package_show and package_search (disallowed path), used a browser-style User-Agent prefix and did not observe the crawl delay, before this host was registered; the API responses were deleted from staging and are not used. No scripted fetching: the candidate builder reads owner-staged files only.",
       "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "www.valasztas.hu",
+      "purpose": "Hungarian National Election Office (NVI) main site: election archive, Impresszum and terms",
+      "automation_allowed": false,
+      "manual_allowed": false,
+      "robots_checked_at": "2026-10-25",
+      "robots_note": "robots.txt: '# No robots allowed. User-agent: * Disallow: /'",
+      "reason": "robots.txt disallows all agents; registered owner-approved 2026-10-25 after a single robots.txt request. The Impresszum and terms pages are on this host and were not requested; the owner must read them personally or ask NVI.",
+      "status": "blocked"
+    },
+    {
+      "host": "vtr.valasztas.hu",
+      "purpose": "Hungarian National Election Office results application (per-election paths, e.g. /ogy2022); evidence inspection only",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-25",
+      "robots_note": "robots.txt: 'User-agent: * Disallow:' (all paths allowed)",
+      "reason": "Owner-approved 2026-10-25 for manual evidence review only. The JavaScript results application shows national list results and seat totals but no download link and no licence or terms text; it links its Impresszum on www.valasztas.hu (blocked). No data acquisition until reuse terms are confirmed.",
+      "status": "evidence_only_pending_publisher"
     }
   ],
   "reference_hosts": {

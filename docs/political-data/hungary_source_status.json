@@ -1,0 +1,44 @@
+{
+ "schema_version": "atlas-political-source-status-v1",
+ "country": "hungary",
+ "publisher": "Nemzeti Választási Iroda (NVI) / Nemzeti Választási Bizottság (NVB)",
+ "checked_at": "2026-10-25",
+ "authorisation": "Owner reply 2026-10-25: register the Hungarian hosts for manual evidence review only; no data acquisition or ingestion.",
+ "overall_readiness": "NOT_READY",
+ "production_authorised": false,
+ "data_stored": "none — no vote, seat, turnout or candidate value is stored in the Atlas for Hungary",
+ "network": [
+  { "host": "www.valasztas.hu", "status": "blocked", "finding": "robots.txt disallows all agents ('User-agent: * Disallow: /'). Only robots.txt was requested; the Impresszum, terms, archive and public-interest data pages on this host were not requested." },
+  { "host": "vtr.valasztas.hu", "status": "evidence_only_pending_publisher", "finding": "robots.txt allows all paths. The 2022 results application (/ogy2022) was opened once in a browser and read visually." }
+ ],
+ "observations": [
+  { "url": "https://vtr.valasztas.hu/ogy2022", "observed_at": "2026-10-25", "what": "National Assembly election, 3 April 2022, results application", "finding": "Shows a data-update timestamp (16 April 2022), the composition of the National Assembly with a total of 199 seats, national party-list and nationality-list results (votes, shares, list mandates), and single-member district results with candidate names. Joint lists are displayed as one contestant with several member organisations. No download link, file export, licence or terms-of-use text is shown; the page links its Impresszum, data-protection notice and public-interest data pages on www.valasztas.hu.", "stored_values": "none" }
+ ],
+ "gates": {
+  "reuse_right": { "status": "open", "value": "terms_not_located", "closes_by": "owner_reading_or_publisher_reply", "basis": "The terms are linked from the results application to www.valasztas.hu/impresszum, which is robots-blocked; no permission is inferred from the public nature of election results." },
+  "normalized_republication": { "status": "open", "value": "unresolved", "closes_by": "owner_reading_or_publisher_reply", "basis": "No terms reviewed." },
+  "raw_redistribution": { "status": "open", "value": "not_cleared", "closes_by": "owner_reading_or_publisher_reply", "basis": "No terms reviewed; optional gate." },
+  "acquisition_route": { "status": "open", "value": "no_official_file_located", "closes_by": "official_download_identified", "basis": "vtr.valasztas.hu is a JavaScript application without a visible export; www.valasztas.hu is robots-blocked. Undocumented application endpoints are not used (no hidden-endpoint discovery)." },
+  "source_files_complete": { "status": "open", "value": null, "basis": "No machine-readable official file is located for any election." },
+  "national_definition_complete": { "status": "partial", "value": null, "basis": "The national party-list vote is the comparable tier (single-member district, nationality and surplus votes are separate tiers). 199 seats from 2014 is visible in the 2022 application; the 386-seat two-round system of 2002–2010 is not yet documented from an official source." },
+  "same_election_identity_complete": { "status": "open", "value": null, "basis": "Joint lists (for example the 2022 Fidesz–KDNP list and the 2022 six-party joint list) are election-specific contestants, distinct from their member parties; member composition must come from the official list registration, which is not yet located. Nationality lists and the preferential nationality mandate are separate contestant kinds." },
+  "electoral_system_metadata_complete": { "status": "open", "value": null, "basis": "Thresholds (5% / 10% / 15%) and allocation rules are background only (Act CCIII of 2011); the official legal text has not been reviewed from a registered host." },
+  "vintage_decisions_complete": { "status": "open", "value": null, "basis": "The application shows a data-update timestamp; how it relates to the final certified NVB result is not documented." }
+ },
+ "open_mandatory_gates": ["reuse_right", "normalized_republication", "acquisition_route", "source_files_complete", "national_definition_complete", "same_election_identity_complete", "electoral_system_metadata_complete", "vintage_decisions_complete"],
+ "elections_in_scope": [
+  { "date": "2002-04-07/21", "system": "386 seats, two rounds, regional and national lists", "status": "no official source reviewed" },
+  { "date": "2006-04-09/23", "system": "386 seats, two rounds", "status": "no official source reviewed" },
+  { "date": "2010-04-11/25", "system": "386 seats, two rounds", "status": "no official source reviewed" },
+  { "date": "2014-04-06", "system": "199 seats, single round", "status": "results application path per election; not opened" },
+  { "date": "2018-04-08", "system": "199 seats, single round", "status": "results application path per election; not opened" },
+  { "date": "2022-04-03", "system": "199 seats, single round", "status": "results application observed visually; no file" },
+  { "date": "2026-04-12", "system": "199 seats, single round", "status": "results application path; not opened" }
+ ],
+ "person_data": "Single-member district results name candidates; no person-level data is collected, stored or analysed.",
+ "owner_actions": [
+  "Read the NVI Impresszum and any data-reuse terms on www.valasztas.hu personally (the Atlas may not request that host), or ask NVI in writing; record the outcome in docs/legal-security/publisher_response_records.json.",
+  "Identify an official downloadable result file (for example via the NVI public-interest data pages or a written request); undocumented application endpoints will not be used.",
+  "Only then can a staging builder, identity review and the full publication gate be prepared for Hungary."
+ ]
+}

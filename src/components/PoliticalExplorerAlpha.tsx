@@ -12,6 +12,7 @@ import { NotebookCollect } from "./NotebookCollect";
 import type { EvidenceDraft } from "@/lib/researchNotebook";
 import { selectNationalBallot } from "@/lib/politicalNational";
 import { PoliticalNationalDetails } from "./PoliticalNationalDetails";
+import { notInAdmissionPipeline, politicalAdmissions } from "@/lib/politicalAdmission";
 import { PoliticalPollingPanel } from "./PoliticalPollingPanel";
 import type { AdmittedPolling } from "@/lib/politicalPolling";
 import type { PoliticalIdentityLink } from "@/lib/politicalIdentity";
@@ -222,6 +223,17 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
           </div>
           <PoliticalCountryComparison a={election} b={comparedCountryElection} locale={locale} />
         </> : <p className="mt-2 text-sm" data-cross-country-disabled>{en ? "Not available yet: Germany is the only country with authorised election data. A country becomes selectable only once its official data is published in the Atlas; no placeholder values are shown. The comparison view is built and will show two elections side by side — dates, chambers, turnout, seats, lists and each electoral system — without ranking parties or countries. A candidate package for Romania's 2016 Chamber of Deputies election exists in staging; it is not published and needs owner authorisation and unresolved source checks before it can be used." : "暂不可用：目前只有德国拥有经授权的选举数据。只有当一个国家的官方数据在 Atlas 中发布后，该国才可选择；不显示任何占位数值。比较视图已经建好，届时将并排显示两场选举的日期、议院、投票率、席位、名单和各自的选举制度，且不对政党或国家排名。罗马尼亚 2016 年众议院选举的候选数据包已在暂存区，但尚未发布；在获得所有者授权并完成未决的来源核查之前不能使用。"}</p>}
+        <details className="mt-4 border-t border-[var(--line)] pt-3" data-admission-status>
+          <summary className="cursor-pointer text-sm font-semibold">{en ? "Publication-gate status by country" : "各国发布关卡状态"}</summary>
+          <p className="mt-2 text-xs text-[var(--muted)]">{en ? "A country is compared only after every source, reuse-permission, definition, identity, electoral-rule and vintage gate is closed. Blocked countries show no values." : "只有在来源、再利用许可、定义、身份、选举规则与版本关卡全部关闭后，一个国家才能参与比较。受阻国家不显示任何数值。"}</p>
+          <ul className="mt-2 grid gap-2 text-sm">{politicalAdmissions.map((row) => (
+            <li key={row.slug} data-admission={row.slug} data-admission-state={row.state}>
+              <span className="font-semibold">{en ? row.name.en : row.name["zh-CN"]}</span>{" · "}<span className="text-xs font-semibold text-[var(--accent)]">{row.state === "admitted" ? (en ? "Admitted" : "已准入") : row.state === "staged_not_published" ? (en ? "Staged, not published" : "暂存，未发布") : (en ? "Blocked" : "受阻")}</span>
+              <span className="block text-xs text-[var(--muted)]">{en ? row.reason.en : row.reason["zh-CN"]}</span>
+            </li>
+          ))}</ul>
+          <p className="mt-2 text-xs text-[var(--muted)]">{en ? notInAdmissionPipeline.en : notInAdmissionPipeline["zh-CN"]}</p>
+        </details>
       </section>
       <details className="card p-5"><summary className="cursor-pointer font-semibold">{en ? "Sources, provenance and downloads" : "来源、出处与下载"}</summary>
         <ul className="mt-4 space-y-4">{election.sources.map(source => <li key={source.id} className="break-words text-sm"><a href={source.url} className="underline">{source.title}</a><p className="text-xs">SHA-256: {source.sha256} · {en ? "Retrieved" : "获取时间"}: {source.retrievedAt}</p>{source.licenceUrl ? <a href={source.licenceUrl} className="underline">{en ? "Reuse terms" : "复用条款"}</a> : null}<div className="mt-2"><NotebookCollect create={() => draft(source.id)} label={en ? "Collect source" : "收藏来源"} /></div></li>)}</ul>

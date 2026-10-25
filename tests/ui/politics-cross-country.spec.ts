@@ -51,3 +51,17 @@ for (const locale of ["zh-CN", "en"] as const) test(`live politics page keeps cr
   await expect(panel.locator("[data-politics-definitions]")).toContainText("voters / eligible voters");
   expect((await page.request.get("/research-data/political/romania/election_results.json")).status()).toBe(404);
 });
+
+for (const locale of ["zh-CN", "en"] as const) test(`publication-gate status names every blocked country and shows no values for it (${locale})`, async ({ page }) => {
+  await page.goto(locale === "en" ? "/en/politics/" : "/politics/", { waitUntil: "networkidle" });
+  const status = page.locator("[data-politics-explorer] [data-admission-status]");
+  await status.locator("summary").click();
+  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(1);
+  await expect(status.locator("[data-admission='germany']")).toHaveAttribute("data-admission-state", "admitted");
+  for (const country of ["czechia", "slovakia", "poland", "austria", "hungary"]) await expect(status.locator(`[data-admission='${country}']`)).toHaveAttribute("data-admission-state", "blocked");
+  await expect(status.locator("[data-admission='romania']")).toHaveAttribute("data-admission-state", "staged_not_published");
+  await expect(status.locator("[data-admission='hungary']")).toContainText("robots.txt");
+  expect(await status.innerText()).not.toMatch(/\d{1,3}(,\d{3})+|\d+(\.\d+)?\s?%/);
+  if (locale === "en") expect(await status.innerText()).not.toMatch(/[㐀-鿿]/u);
+  for (const country of ["hungary", "czechia", "poland", "slovakia"]) expect((await page.request.get(`/research-data/political/${country}/election_results.json`)).status()).toBe(404);
+});
