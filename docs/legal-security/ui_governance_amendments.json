@@ -1375,9 +1375,21 @@
       "approved_by": "owner focused implementation brief: bilingual source-linked Notebook preview and Markdown export from selected stored evidence only, without schema, storage, research data or publication changes",
       "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
       "files": [
-        { "path": "src/components/ResearchNotebookPage.tsx", "sha256": "5e6187a53d0cb7204f5d68ecbf94cf5d577c37e01d8dc73c49cf676c0659ee77", "classification": "DATA_PRESENTATION" },
-        { "path": "src/components/NotebookEvidenceBrief.tsx", "sha256": "374b20dce4506a50e0d3fb1ccffcb475075f8fb64ea4fbef9ab53c746c65cfc8", "classification": "DATA_PRESENTATION" },
-        { "path": "src/lib/notebookBrief.ts", "sha256": "305666cd3625816f6f7243ce3a5a9420bc186247866a5c6a5ed545245c0d37e2", "classification": "DATA_PRESENTATION" }
+        {
+          "path": "src/components/ResearchNotebookPage.tsx",
+          "sha256": "5e6187a53d0cb7204f5d68ecbf94cf5d577c37e01d8dc73c49cf676c0659ee77",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/NotebookEvidenceBrief.tsx",
+          "sha256": "374b20dce4506a50e0d3fb1ccffcb475075f8fb64ea4fbef9ab53c746c65cfc8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/notebookBrief.ts",
+          "sha256": "305666cd3625816f6f7243ce3a5a9420bc186247866a5c6a5ed545245c0d37e2",
+          "classification": "DATA_PRESENTATION"
+        }
       ],
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
@@ -1446,10 +1458,26 @@
       "approved_by": "owner focused full collection backup and safe restore brief: existing registry format, validated preview, explicit merge or replacement confirmation, atomic locked writes and bilingual local privacy explanation; no data, model, source registry or version changes",
       "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
       "files": [
-        { "path": "src/lib/notebookProjects.ts", "sha256": "6ac58100a4fee6e8eb4b15d2a1d24f7fb2c5068f8b72d442d915599fd81b8fa6", "classification": "DATA_PRESENTATION" },
-        { "path": "src/lib/notebookProjectMessages.ts", "sha256": "e46b26098a81d85e4f1ba8cdd14eb9643602d7f4f61e13dae6bbf9e47d62c8df", "classification": "DATA_PRESENTATION" },
-        { "path": "src/components/NotebookProjectManager.tsx", "sha256": "26ca0a3e404538733d49deda9b1bd9958f634f4d3a3c6aceacdce1116f003d6f", "classification": "DATA_PRESENTATION" },
-        { "path": "src/components/ResearchNotebookProvider.tsx", "sha256": "ce0686b0e275d27c648d84b0e3590cac4cd295b46ddcc2b6a6d182abe5b1458d", "classification": "DATA_PRESENTATION" }
+        {
+          "path": "src/lib/notebookProjects.ts",
+          "sha256": "6ac58100a4fee6e8eb4b15d2a1d24f7fb2c5068f8b72d442d915599fd81b8fa6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/notebookProjectMessages.ts",
+          "sha256": "e46b26098a81d85e4f1ba8cdd14eb9643602d7f4f61e13dae6bbf9e47d62c8df",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/NotebookProjectManager.tsx",
+          "sha256": "26ca0a3e404538733d49deda9b1bd9958f634f4d3a3c6aceacdce1116f003d6f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ResearchNotebookProvider.tsx",
+          "sha256": "ce0686b0e275d27c648d84b0e3590cac4cd295b46ddcc2b6a6d182abe5b1458d",
+          "classification": "DATA_PRESENTATION"
+        }
       ],
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
@@ -1464,7 +1492,11 @@
       "approved_by": "owner brief 2026-10-22 (optional small copy fix): the Notebook privacy text points to the existing full collection backup instead of recommending exporting every important project separately; bilingual copy only, no storage, restore, data, model, source registry or version changes",
       "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
       "files": [
-        { "path": "src/lib/notebookProjectMessages.ts", "sha256": "3d342fd75f4b28fd922b953f7d690f3a722fe29d5d92a29a22485f41580d5564", "classification": "DATA_PRESENTATION" }
+        {
+          "path": "src/lib/notebookProjectMessages.ts",
+          "sha256": "3d342fd75f4b28fd922b953f7d690f3a722fe29d5d92a29a22485f41580d5564",
+          "classification": "DATA_PRESENTATION"
+        }
       ],
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
@@ -1479,11 +1511,31 @@
       "approved_by": "owner focused English homepage language parity brief: reuse existing approved English event fields by ID, per-field original-language fallback, shared map title presentation and accurate Event Library coverage copy; no event records, translation content, source registries, research methods or release version changes",
       "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
       "files": [
-        { "path": "src/app/(english)/en/page.tsx", "sha256": "52f8610238de241d02273a1239c173195f8398c5eff9dd35ca579895ce5d91ec", "classification": "DATA_PRESENTATION" },
-        { "path": "src/app/(english)/en/news/page.tsx", "sha256": "481eece9755efd634dff1eaf776db44d9c665d13da88858228fc6a4659673b31", "classification": "DATA_PRESENTATION" },
-        { "path": "src/components/HomeResearchMap.tsx", "sha256": "0ab5b1e5dad29b1a18f66e257d90580e023c197e3050d902a3115d576806d5cb", "classification": "DATA_PRESENTATION" },
-        { "path": "src/components/NewsExplorer.tsx", "sha256": "db2e9ba3fb956fd80db826daf206bc483f334259900d250a8bbf78747b1f58a6", "classification": "DATA_PRESENTATION" },
-        { "path": "src/lib/eventPresentation.ts", "sha256": "1e1c4edcd1430e057f3206966e7bbdd5ab70ec046f14b465f82d6f476524deaf", "classification": "DATA_PRESENTATION" }
+        {
+          "path": "src/app/(english)/en/page.tsx",
+          "sha256": "52f8610238de241d02273a1239c173195f8398c5eff9dd35ca579895ce5d91ec",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/news/page.tsx",
+          "sha256": "481eece9755efd634dff1eaf776db44d9c665d13da88858228fc6a4659673b31",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/HomeResearchMap.tsx",
+          "sha256": "0ab5b1e5dad29b1a18f66e257d90580e023c197e3050d902a3115d576806d5cb",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/NewsExplorer.tsx",
+          "sha256": "db2e9ba3fb956fd80db826daf206bc483f334259900d250a8bbf78747b1f58a6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/eventPresentation.ts",
+          "sha256": "1e1c4edcd1430e057f3206966e7bbdd5ab70ec046f14b465f82d6f476524deaf",
+          "classification": "DATA_PRESENTATION"
+        }
       ],
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
@@ -1532,10 +1584,26 @@
       "approved_by": "owner Major Development Phase B brief (complete political-economic event case studies): reviewed descriptive dossiers for two existing verified events built on the existing event-analysis records, event-window engine and Research Notebook; no event, observation, model, estimator, source registry or version changes; push only on explicit 推送上线",
       "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
       "files": [
-        { "path": "src/lib/eventCaseStudies.ts", "sha256": "6cb177dc857ed4ff6a77694991b862123cc7587fdb898c6317a02f16baaf1ef2", "classification": "METHODOLOGY_PRESENTATION" },
-        { "path": "src/components/EventCaseStudy.tsx", "sha256": "cd155b5f4b6a9493dd620a70766ca09d37e8e0eafd5d1c4fc5fbb69b2d91edee", "classification": "METHODOLOGY_PRESENTATION" },
-        { "path": "src/components/EventWindowWorkbench.tsx", "sha256": "a0573f73bb1957ac89c16a91f25ef340763f5754d59028cd90522eb855a5ec6c", "classification": "METHODOLOGY_PRESENTATION" },
-        { "path": "src/components/NewsExplorer.tsx", "sha256": "991e414670c97e8e09905c0892b386490afce7913324ad78ade0b48b78b85236", "classification": "METHODOLOGY_PRESENTATION" }
+        {
+          "path": "src/lib/eventCaseStudies.ts",
+          "sha256": "6cb177dc857ed4ff6a77694991b862123cc7587fdb898c6317a02f16baaf1ef2",
+          "classification": "METHODOLOGY_PRESENTATION"
+        },
+        {
+          "path": "src/components/EventCaseStudy.tsx",
+          "sha256": "cd155b5f4b6a9493dd620a70766ca09d37e8e0eafd5d1c4fc5fbb69b2d91edee",
+          "classification": "METHODOLOGY_PRESENTATION"
+        },
+        {
+          "path": "src/components/EventWindowWorkbench.tsx",
+          "sha256": "a0573f73bb1957ac89c16a91f25ef340763f5754d59028cd90522eb855a5ec6c",
+          "classification": "METHODOLOGY_PRESENTATION"
+        },
+        {
+          "path": "src/components/NewsExplorer.tsx",
+          "sha256": "991e414670c97e8e09905c0892b386490afce7913324ad78ade0b48b78b85236",
+          "classification": "METHODOLOGY_PRESENTATION"
+        }
       ],
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
@@ -1653,8 +1721,16 @@
       "approved_by": "owner Stage C brief 2026-10-25 and reply 'Register Hungary hosts': per-country publication-gate status restating the existing gate records; no country admitted, no political store, data, model or version change",
       "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
       "files": [
-        { "path": "src/lib/politicalAdmission.ts", "sha256": "8a222ccef2dd3b4ac32a5749bc4ea9e62bbaae0d8e8385d959f70d0669304828", "classification": "SOURCE_ATTRIBUTION_UI" },
-        { "path": "src/components/PoliticalExplorerAlpha.tsx", "sha256": "0f4249a68b71f456c746e003c5872eaba4a9b054cda1bedeecb5e1f332c99308", "classification": "SOURCE_ATTRIBUTION_UI" }
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "8a222ccef2dd3b4ac32a5749bc4ea9e62bbaae0d8e8385d959f70d0669304828",
+          "classification": "SOURCE_ATTRIBUTION_UI"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "0f4249a68b71f456c746e003c5872eaba4a9b054cda1bedeecb5e1f332c99308",
+          "classification": "SOURCE_ATTRIBUTION_UI"
+        }
       ],
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
@@ -1669,9 +1745,21 @@
       "approved_by": "owner Stage C continuation brief 2026-10-25 and replies (Czechia: wait for ČSÚ reply; owner stages files): blocker cause categories per country, and Germany 2025 empty structured rule fields pointing to the sourced published system description; no political store, data, model or version change",
       "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
       "files": [
-        { "path": "src/lib/politicalAdmission.ts", "sha256": "58e4d0b9b692ab9ee8a329fb154d88b33b7912d65b41aeb62aa37bbf26fb2603", "classification": "SOURCE_ATTRIBUTION_UI" },
-        { "path": "src/components/PoliticalExplorerAlpha.tsx", "sha256": "049d1b630ad904682fa8c92a1a8c5ea2aa43d18fb04189c886e2a3c4bdd5cc41", "classification": "SOURCE_ATTRIBUTION_UI" },
-        { "path": "src/components/PoliticalNationalDetails.tsx", "sha256": "4a4f1f27cae97520a847c2ee7d0c9dc4e0bd34ff841d5c5cc61beda2b32bbc70", "classification": "SOURCE_ATTRIBUTION_UI" }
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "58e4d0b9b692ab9ee8a329fb154d88b33b7912d65b41aeb62aa37bbf26fb2603",
+          "classification": "SOURCE_ATTRIBUTION_UI"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "049d1b630ad904682fa8c92a1a8c5ea2aa43d18fb04189c886e2a3c4bdd5cc41",
+          "classification": "SOURCE_ATTRIBUTION_UI"
+        },
+        {
+          "path": "src/components/PoliticalNationalDetails.tsx",
+          "sha256": "4a4f1f27cae97520a847c2ee7d0c9dc4e0bd34ff841d5c5cc61beda2b32bbc70",
+          "classification": "SOURCE_ATTRIBUTION_UI"
+        }
       ],
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
@@ -1686,8 +1774,16 @@
       "approved_by": "owner replies 2026-10-25 (Czechia 2025 national admission): register the admitted Czech stores as a comparison country through the existing adapter and mark Czechia 2025 admitted in the gate-status list; the stores themselves are covered only by docs/legal-security/political_admission_records.json",
       "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
       "files": [
-        { "path": "src/lib/politicalData.ts", "sha256": "9ed7ff27945c2b5e4ddf4aeee7c1809473a223f0b72eb074fc992713ec17ebaf", "classification": "DATA_PRESENTATION" },
-        { "path": "src/lib/politicalAdmission.ts", "sha256": "11870551460e91fe96bcf47f22d4d3d9b116d1ada51962a22b6497e45992e8cd", "classification": "DATA_PRESENTATION" }
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "9ed7ff27945c2b5e4ddf4aeee7c1809473a223f0b72eb074fc992713ec17ebaf",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "11870551460e91fe96bcf47f22d4d3d9b116d1ada51962a22b6497e45992e8cd",
+          "classification": "DATA_PRESENTATION"
+        }
       ],
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
@@ -1702,11 +1798,95 @@
       "approved_by": "owner brief 2026-11-02 (enable real Czech election-to-election comparisons through the existing Political Explorer): a Czech view of the same explorer, its data accessors, a link between the views and the updated status text; stores are covered only by docs/legal-security/political_admission_records.json",
       "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
       "files": [
-        { "path": "src/lib/politicalData.ts", "sha256": "569d1a29cf6435abff8a726d5793904fb75e0a62e4b745ba90fffc81c9d82135", "classification": "DATA_PRESENTATION" },
-        { "path": "src/lib/politicalAdmission.ts", "sha256": "a91f27f4c5ec9faf475ba2154e91112a7705e620453e62b12f3205482fca7879", "classification": "DATA_PRESENTATION" },
-        { "path": "src/components/PoliticalExplorerAlpha.tsx", "sha256": "34eef946871c658ad9f55043841e39aeb6c704d5810443781fa07dbce198b822", "classification": "DATA_PRESENTATION" },
-        { "path": "src/app/(zh)/politics/czechia/page.tsx", "sha256": "b1d4739fb9180b79eba519b52fe5ac47caf4968e223ab24f2be9cd2aaadf1619", "classification": "DATA_PRESENTATION" },
-        { "path": "src/app/(english)/en/politics/czechia/page.tsx", "sha256": "6ed4a2f9df0f80067aa41d3e75795dbb83fa11cb2e1d33bdf39fcfdf398baf64", "classification": "DATA_PRESENTATION" }
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "569d1a29cf6435abff8a726d5793904fb75e0a62e4b745ba90fffc81c9d82135",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "a91f27f4c5ec9faf475ba2154e91112a7705e620453e62b12f3205482fca7879",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "34eef946871c658ad9f55043841e39aeb6c704d5810443781fa07dbce198b822",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/czechia/page.tsx",
+          "sha256": "b1d4739fb9180b79eba519b52fe5ac47caf4968e223ab24f2be9cd2aaadf1619",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/czechia/page.tsx",
+          "sha256": "6ed4a2f9df0f80067aa41d3e75795dbb83fa11cb2e1d33bdf39fcfdf398baf64",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-02"
+    },
+    {
+      "amendment_id": "political-czechia-identity-2026-11-03",
+      "status": "owner_approved",
+      "approved_by": "owner identity brief 2026-11-03: Czech list identity, continuity panel and verified comparison through the existing explorer; stores are covered only by docs/legal-security/political_admission_records.json",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "4e92f5bf665355b889d6c7dcd102878c04c03e9c5535a33cf8bdd4628149e9ea",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "6189ea69e4375a83479a0b7a33073c0235f02b120c136e61d418de10b005bfa2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalIdentity.ts",
+          "sha256": "3ad996f99caf8cd127121a001c601151abd0ee8fafc62666cf257573ea226dd1",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalContinuity.ts",
+          "sha256": "166f02394e1812fb60c7d9c83422a9a9a9ce31d4d8b9fc422095ee0a0642cf6c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "25d12b669f038caa829545727d8fd1f845ca8a48881dc404b8fe88f5b31bf6b4",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalPartyHistory.tsx",
+          "sha256": "0ccf8a59d7a44e476d86d4275cba9a009d3ad78a7efc055734a317b344eeff48",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalContinuityPanel.tsx",
+          "sha256": "188bf35e74355606787110e08e492b3bf755f0168d8da4890133bd26c7d8fa42",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalLinkedComparison.tsx",
+          "sha256": "7eee6abb3ec2dee117a9af0697c10c0ac40861e2be2de8d2b1e33be85240efd3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/czechia/page.tsx",
+          "sha256": "9f125b3cb2e8f75962235ec575fc024ae8a8a4dac712be7507f5e28ec3c1df36",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/czechia/page.tsx",
+          "sha256": "602d14438c4f4d41f1eb6507a355b7991b23b1200423f8289615f0997d764efd",
+          "classification": "DATA_PRESENTATION"
+        }
       ],
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,

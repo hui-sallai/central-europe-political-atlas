@@ -1,0 +1,3698 @@
+[
+  {
+    "contestant_id": "ct-cz-ps2017-01",
+    "atlas_party_id": "pp-cz-n0053",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 1",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-02",
+    "atlas_party_id": "pp-cz-2017-n0769",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 2",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-03",
+    "atlas_party_id": "pp-cz-2017-n1177",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 3",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-04",
+    "atlas_party_id": "pp-cz-n0007",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 4",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-05",
+    "atlas_party_id": "pp-cz-2017-n0098",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 5",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-06",
+    "atlas_party_id": "pp-cz-2017-n1184",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 6",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-07",
+    "atlas_party_id": "pp-cz-n0166",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 7",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-08",
+    "atlas_party_id": "pp-cz-n0047",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 8",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-09",
+    "atlas_party_id": "pp-cz-n0005",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 9",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-10",
+    "atlas_party_id": "pp-cz-2017-n0137",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 10",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-11",
+    "atlas_party_id": "pp-cz-2017-n1041",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 11",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-12",
+    "atlas_party_id": "pp-cz-2017-n0714",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 12",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-13",
+    "atlas_party_id": "pp-cz-2017-n0155",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 13",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-14",
+    "atlas_party_id": "pp-cz-2017-n1173",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 14",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-15",
+    "atlas_party_id": "pp-cz-n0720",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 15",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-16",
+    "atlas_party_id": "pp-cz-2017-n0762",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 16",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-17",
+    "atlas_party_id": "pp-cz-2017-n1183",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 17",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-18",
+    "atlas_party_id": "pp-cz-2017-n1120",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 18",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-19",
+    "atlas_party_id": "pp-cz-2017-n1178",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 19",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-20",
+    "atlas_party_id": "pp-cz-n0721",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 20",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-21",
+    "atlas_party_id": "pp-cz-n0768",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 21",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-22",
+    "atlas_party_id": "pp-cz-2017-n1127",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 22",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-23",
+    "atlas_party_id": "pp-cz-2017-n1125",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 23",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-24",
+    "atlas_party_id": "pp-cz-n0001",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 24",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-25",
+    "atlas_party_id": "pp-cz-2017-n0002",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 25",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-26",
+    "atlas_party_id": "pp-cz-2017-n1176",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 26",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-27",
+    "atlas_party_id": "pp-cz-2017-n1182",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 27",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-28",
+    "atlas_party_id": "pp-cz-2017-n0156",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 28",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-29",
+    "atlas_party_id": "pp-cz-n1114",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 29",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-30",
+    "atlas_party_id": "pp-cz-2017-n0724",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 30",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-31",
+    "atlas_party_id": "pp-cz-2017-n1116",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "KSTRANA 31",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-01",
+    "atlas_party_id": "pp-cz-n0005",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 1",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-02",
+    "atlas_party_id": "pp-cz-2021-n0752",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 2",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-03",
+    "atlas_party_id": "pp-cz-2021-n0759",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 3",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-04",
+    "atlas_party_id": "pp-cz-n1114",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 4",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-05",
+    "atlas_party_id": "pp-cz-n0007",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 5",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-06",
+    "atlas_party_id": "pp-cz-2021-n0098",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 6",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-07",
+    "atlas_party_id": "pp-cz-2021-n0762",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 7",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-08",
+    "atlas_party_id": "pp-cz-2021-n1227",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 8",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-09",
+    "atlas_party_id": "pp-cz-2021-n1173",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 9",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-10",
+    "atlas_party_id": "pp-cz-2021-n1007",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 10",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-11",
+    "atlas_party_id": "pp-cz-2021-n0074",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 11",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-12",
+    "atlas_party_id": "pp-cz-2021-n1245",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 12",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-13",
+    "atlas_party_id": "pp-cz-n0001",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_coalition_composition",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 13",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-13",
+    "atlas_party_id": "pp-cz-n0053",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_coalition_composition",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 13",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-13",
+    "atlas_party_id": "pp-cz-n0721",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_coalition_composition",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 13",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-14",
+    "atlas_party_id": "pp-cz-2021-n1240",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 14",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-15",
+    "atlas_party_id": "pp-cz-2021-n1250",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 15",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-16",
+    "atlas_party_id": "pp-cz-2021-n0055",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 16",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-17",
+    "atlas_party_id": "pp-cz-n0166",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_coalition_composition",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 17",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-17",
+    "atlas_party_id": "pp-cz-n0720",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_coalition_composition",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 17",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-18",
+    "atlas_party_id": "pp-cz-n0047",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 18",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-19",
+    "atlas_party_id": "pp-cz-2021-n1190",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 19",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-20",
+    "atlas_party_id": "pp-cz-n0768",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 20",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-21",
+    "atlas_party_id": "pp-cz-2021-n1244",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 21",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-22",
+    "atlas_party_id": "pp-cz-2021-n0083",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "KSTRANA 22",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-01",
+    "atlas_party_id": "pp-cz-2025-n1706",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 1",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-02",
+    "atlas_party_id": "pp-cz-2025-n1190",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 2",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-03",
+    "atlas_party_id": "pp-cz-2025-n1282",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 3",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-04",
+    "atlas_party_id": "pp-cz-2025-n1704",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 4",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-05",
+    "atlas_party_id": "pp-cz-2025-n1061",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 5",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-06",
+    "atlas_party_id": "pp-cz-n1114",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 6",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-07",
+    "atlas_party_id": "pp-cz-2025-n0759",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 7",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-08",
+    "atlas_party_id": "pp-cz-2025-n1245",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 8",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-09",
+    "atlas_party_id": "pp-cz-2025-n0074",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 9",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-10",
+    "atlas_party_id": "pp-cz-2025-n1283",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 10",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-11",
+    "atlas_party_id": "pp-cz-n0001",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_coalition_composition",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 11",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-11",
+    "atlas_party_id": "pp-cz-n0053",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_coalition_composition",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 11",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-11",
+    "atlas_party_id": "pp-cz-n0721",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_coalition_composition",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 11",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-12",
+    "atlas_party_id": "pp-cz-2025-n0752",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 12",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-13",
+    "atlas_party_id": "pp-cz-2025-n1250",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 13",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-14",
+    "atlas_party_id": "pp-cz-2025-n1281",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 14",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-15",
+    "atlas_party_id": "pp-cz-2025-n1291",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 15",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-16",
+    "atlas_party_id": "pp-cz-n0720",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 16",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-17",
+    "atlas_party_id": "pp-cz-2025-n0055",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 17",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-18",
+    "atlas_party_id": "pp-cz-2025-n1272",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 18",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-19",
+    "atlas_party_id": "pp-cz-2025-n0098",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 19",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-20",
+    "atlas_party_id": "pp-cz-2025-n1178",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 20",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-21",
+    "atlas_party_id": "pp-cz-2025-n0140",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 21",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-22",
+    "atlas_party_id": "pp-cz-n0768",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 22",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-23",
+    "atlas_party_id": "pp-cz-n0166",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 23",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-24",
+    "atlas_party_id": "pp-cz-2025-n1707",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 24",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-25",
+    "atlas_party_id": "pp-cz-2025-n1298",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 25",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2025-26",
+    "atlas_party_id": "pp-cz-2025-n1705",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2025-10-03",
+    "membership_basis": "official_sole_proposer",
+    "review_status": "verified_same_election_membership",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "KSTRANA 26",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-register-evidence",
+        "source_url": "docs/political-data/raw/czechia/registers/evidence.json",
+        "source_record_id": "code lists and register review",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/evidence.json",
+          "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "contestant_kind",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]

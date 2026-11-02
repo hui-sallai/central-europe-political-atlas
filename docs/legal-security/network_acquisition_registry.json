@@ -128,8 +128,14 @@
       "automation_allowed": false,
       "manual_allowed": true,
       "robots_checked_at": "2026-10-03",
-      "robots_note": "disallows /pls/ only; production acquisition pending CZSO reply",
-      "status": "evidence_only_pending_publisher"
+      "robots_note": "disallows /pls/ only; general production acquisition still pending the ČSÚ reply",
+      "status": "evidence_only_pending_publisher",
+      "owner_exceptions": [
+        {
+          "date": "2026-11-03",
+          "scope": "One retrieval of 11 named register and code-list files listed in docs/political-data/raw/czechia/registers/evidence.json, only where the national catalogue entry records no protected rights; automation stays not allowed otherwise."
+        }
+      ]
     },
     {
       "host": "danewyborcze.kbw.gov.pl",
@@ -225,6 +231,16 @@
       "robots_note": "No robots.txt: /robots.txt returns the e-Sbírka application page (HTTP 200, text/html).",
       "reason": "Owner-approved 2026-10-25; one browser reading of the consolidated text; quoted clauses and a checksum of the captured sections are stored.",
       "status": "allowed_review_due"
+    },
+    {
+      "host": "mv.gov.cz",
+      "purpose": "Czech Interior Ministry list and register of political parties and movements (evidence only: read manually for legal party identity)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-02",
+      "robots_note": "User-agent: * with empty Disallow",
+      "reason": "Named by the owner in the Czech identity brief; manual browser reading only; no bulk reproduction until reuse is reviewed.",
+      "status": "evidence_only_pending_publisher"
     }
   ],
   "reference_hosts": {

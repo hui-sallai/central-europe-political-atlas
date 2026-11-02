@@ -6,6 +6,7 @@ import { localeDate, localeNumber, localizedRoute } from "@/i18n/config";
 import { alignByLabel, chartResults, compareElections, measureValue, type ElectionAggregate, type PoliticalCountryView, type PoliticalElectionView, type PoliticalMeasure } from "@/lib/politicalExplorer";
 import { PoliticalCountryComparison } from "./PoliticalCountryComparison";
 import { PoliticalPartyHistory } from "./PoliticalPartyHistory";
+import { PoliticalLinkedComparison } from "./PoliticalLinkedComparison";
 import { PoliticalVerifiedComparison } from "./PoliticalVerifiedComparison";
 import { PoliticalEconomicContext, type PoliticalContextInputs } from "./PoliticalEconomicContext";
 import { NotebookCollect } from "./NotebookCollect";
@@ -173,7 +174,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
             const value = measureValue(result, election, measure);
             const source = election.sources.find((item) => item.id === result.sourceId);
             return <tr key={result.contestantId} className="border-t border-[var(--line)]">
-              <th scope="row" className="py-3 font-normal"><span lang="de" data-original-language="de">{result.nativeLabel}</span><span className="block text-xs text-[var(--muted)]">{en ? "Election-specific party list · see verified series comparison below" : "当届政党名单 · 已核实序列比较见下方"}</span></th>
+              <th scope="row" className="py-3 font-normal"><span lang={election.originalLanguage??"de"} data-original-language={election.originalLanguage??"de"}>{result.nativeLabel}</span><span className="block text-xs text-[var(--muted)]">{result.contestantKind==="coalition" ? (en ? "Coalition list · votes and seats are not divided among members" : "联盟名单 · 票数和席位不分配给各成员") : (en ? "Election-specific party list · see verified series comparison below" : "当届政党名单 · 已核实序列比较见下方")}</span></th>
               <td className="metric-number">{localeNumber(value, locale)}{value !== null && measure.endsWith("share") ? "%" : ""}</td>
               {measure === "vote_share" ? <><td className="metric-number">{localeNumber(result.publishedVoteShare, locale, { maximumFractionDigits: 1, minimumFractionDigits: 1 })}{result.publishedVoteShare === null ? "" : "%"}</td><td className="metric-number">{localeNumber(measureValue(result, election, "seat_share"), locale)}{result.seats === null ? "" : "%"}</td></> : null}
               <td>{source ? <a href={source.url} className="underline">{source.title}</a> : <span>{en ? "Source missing" : "来源缺失"}</span>}</td>
@@ -200,7 +201,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
             </table>
           </div>
           <p className="mt-3 text-sm">{en ? `Rules differ: ${election.year} used ${election.system.allocationMethod} with ${number(election.system.baseSeats)} base seats; ${other.year} used ${other.system.allocationMethod} with ${number(other.system.baseSeats)}. Seat totals are not like-for-like across rule changes.` : `规则不同：${election.year} 年采用 ${election.system.allocationMethod}，基础席位 ${number(election.system.baseSeats)} 席；${other.year} 年采用 ${other.system.allocationMethod}，基础席位 ${number(other.system.baseSeats)} 席。规则变化前后的席位总数不能直接等同比较。`}</p>
-          {comparisonMode === "verified" ? <PoliticalVerifiedComparison a={election} b={other} locale={locale} onHistory={id=>{const url=new URL(window.location.href);url.searchParams.set("series",id);url.hash="politics-history-title";window.history.replaceState(null,"",url);setHistoryKey(k=>k+1);window.setTimeout(()=>document.getElementById("politics-history-title")?.scrollIntoView(),0);}}/> : <><div className="mt-4 overflow-x-auto" role="region" tabIndex={0} aria-label={en ? "Lists in the two elections (scrollable)" : "两届选举的名单（可横向滚动）"}>
+          {comparisonMode === "verified" ? countrySlug !== "germany" ? <PoliticalLinkedComparison elections={elections} links={identityLinks} a={election} b={other} locale={locale}/> : <PoliticalVerifiedComparison a={election} b={other} locale={locale} onHistory={id=>{const url=new URL(window.location.href);url.searchParams.set("series",id);url.hash="politics-history-title";window.history.replaceState(null,"",url);setHistoryKey(k=>k+1);window.setTimeout(()=>document.getElementById("politics-history-title")?.scrollIntoView(),0);}}/> : <><div className="mt-4 overflow-x-auto" role="region" tabIndex={0} aria-label={en ? "Lists in the two elections (scrollable)" : "两届选举的名单（可横向滚动）"}>
             <table className="w-full min-w-[640px] text-left text-sm" data-compare-lists>
               <caption className="mb-2 text-left font-semibold">{en ? "Lists in each election (rows aligned by identical ballot label only)" : "各届选举的名单（仅按完全相同的选票名称对齐）"}</caption>
               <thead><tr><th scope="col">{en ? "Ballot label (original)" : "选票名称（原文）"}</th><th scope="col">{en ? `${election.year}: published share` : `${election.year}：官方得票率`}</th><th scope="col">{en ? `${election.year}: seats` : `${election.year}：席位`}</th><th scope="col">{en ? `${other.year}: published share` : `${other.year}：官方得票率`}</th><th scope="col">{en ? `${other.year}: seats` : `${other.year}：席位`}</th></tr></thead>

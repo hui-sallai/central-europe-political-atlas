@@ -109,8 +109,8 @@ for (const locale of ["zh-CN", "en"] as const) test(`Czech view: real 2017–202
   const compare = panel.locator("[data-compare-aggregates]");
   await expect(compare).toBeVisible();
   await expect(compare.locator("tbody tr").first()).toContainText("4.6");
-  // Lists are never linked across elections, and no party series is offered.
-  await expect(panel.locator("[data-politics-history] select").first().locator("option")).toHaveCount(1);
+  // Only the seven register-verified party series are offered, after the empty choice.
+  await expect(panel.locator("[data-politics-history] select").first().locator("option")).toHaveCount(8);
   await expect(panel.locator("[data-country-comparison]")).toBeVisible();
   await expect(panel.locator("[data-country-lists='germany']")).toBeVisible();
   await expect(panel).not.toContainText("Bundeswahlleiterin, Wiesbaden. Source links");
@@ -118,4 +118,22 @@ for (const locale of ["zh-CN", "en"] as const) test(`Czech view: real 2017–202
   await panel.locator("[data-politics-country-view]").click();
   await page.waitForURL(`**${prefix}/politics/`);
   await expect(page.locator("[data-politics-explorer] select").first().locator("option")).toHaveCount(1);
+});
+
+test("Czech identity: party series, whole coalition figures and verified comparison in both languages", async ({ page }) => {
+  await page.goto("/en/politics/czechia/");
+  const panel = page.locator("[data-czech-continuity]");
+  await expect(panel.locator("[data-continuity-entity]")).toHaveCount(11);
+  const ods = panel.locator('[data-continuity-entity="ODS"]');
+  await expect(ods.locator('[data-continuity-status="coalition_member"]')).toHaveCount(2);
+  await expect(ods.locator('[data-continuity-status="coalition_member"]').first()).toContainText("not attributed to members");
+  await expect(panel.locator('[data-continuity-entity="ANO"]')).toContainText("seat rules changed");
+  await expect(panel.locator("[data-continuity-unresolved] summary")).toContainText("Unresolved relationships");
+  await page.goto("/en/politics/czechia/?election=el-cz-ps-2025-10-03&compare=el-cz-ps-2021-10-08");
+  await expect(page.locator("[data-linked-comparison]")).toBeVisible();
+  await expect(page.locator('[data-linked-unit="coalition"]')).toHaveCount(1);
+  await expect(page.locator('[data-linked-unit="party"]')).toHaveCount(2);
+  await expect(page.locator("[data-verified-table]")).toHaveCount(0);
+  await page.goto("/politics/czechia/");
+  await expect(page.locator("[data-czech-continuity] h2")).toHaveText("名单身份与连续性");
 });

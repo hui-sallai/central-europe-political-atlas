@@ -43,16 +43,15 @@ test('reconciliation: list votes = valid votes, seats = 200, shares are the offi
   }
 });
 
-test('identity: election-specific lists only; no kind, coalition membership or party link is inferred', () => {
+test('identity: every list is election-specific and its kind comes from the official registers', () => {
   const contestants = read('src/data/political/czechia/electoral_contestants.json');
   assert.equal(contestants.length, 79);
   assert.equal(new Set(contestants.map((c) => c.contestant_id)).size, 79);
   for (const c of contestants) {
-    assert.equal(c.contestant_kind, 'electoral_list_kind_not_established');
-    assert.equal(c.lead_party_id, null);
-    assert.equal(c.continuous_series_eligible, false);
+    assert.ok(['party_list', 'coalition'].includes(c.contestant_kind));
+    assert.equal(c.contestant_kind === 'coalition', c.csu_proposer_codes.length > 1);
+    if (c.contestant_kind === 'coalition') assert.equal(c.lead_party_id, null);
   }
-  assert.ok(!fs.existsSync(path.join(root, 'src/data/political/czechia/contestant_members.json')));
 });
 
 test('evidence integrity: raw files match their checksums; rights fields show no protected right for every distribution', () => {
@@ -63,16 +62,16 @@ test('evidence integrity: raw files match their checksums; rights fields show no
   }
   for (const source of read('src/data/political/czechia/political_source_registry.json')) assert.equal(sha(source.raw_path), source.raw_sha256, source.source_id);
   for (const file of ['ps2025', 'ps2017-2021']) assert.doesNotMatch(fs.readFileSync(path.join(root, `docs/political-data/raw/czechia/${file}/evidence.json`), 'utf8'), /@[a-z0-9-]+\.[a-z]{2,}|Slavníková|Bendl|Kupka/i, 'no personal data');
-  for (const source of read('src/data/political/czechia/political_source_registry.json')) if (source.licence_status.startsWith('no_protected')) assert.match(source.url, /^https:\/\/data\.csu\.gov\.cz\//, 'data comes only from DataStat');
+  for (const source of read('src/data/political/czechia/political_source_registry.json')) if (source.licence_status.startsWith('no_protected')) assert.match(source.url, /^https:\/\/(data\.csu\.gov\.cz|volby\.gov\.cz\/opendata\/ps20(17|21|25)\/)/, 'results come from DataStat, registers from the named open-data pages');
 });
 
 test('admission record: exact hashes, every mandatory gate closed, Germany never admissible', () => {
   const records = read(POLITICAL_ADMISSION_FILE).admissions;
-  for (const file of ['czechia_ps2025_admission', 'czechia_ps2017_2021_admission']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(`docs/political-data/${file}.json`).gates[gate].status, 'closed', gate);
+  for (const file of ['czechia_ps2025_admission', 'czechia_ps2017_2021_admission', 'czechia_identity_admission']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(`docs/political-data/${file}.json`).gates[gate].status, 'closed', gate);
   const { approved, problems } = approvedPoliticalAdmissionFiles(records, sha);
   assert.deepEqual(problems, []);
-  assert.deepEqual([...approved.keys()].sort(), [...POLITICAL_ADMISSIONS['czechia-ps-2017-2021'].paths].sort());
-  assert.deepEqual(records.map((x) => x.admission_id), ['czechia-ps-2025', 'czechia-ps-2017-2021']);
+  assert.deepEqual([...approved.keys()].sort(), [...POLITICAL_ADMISSIONS['czechia-identity'].paths].sort());
+  assert.deepEqual(records.map((x) => x.admission_id), ['czechia-ps-2025', 'czechia-ps-2017-2021', 'czechia-identity']);
   for (const [file, hash] of approved) assert.equal(sha(file), hash, file);
   const r = records.at(-1);
   assert.ok(approvedPoliticalAdmissionFiles([{ ...r, files: [...r.files, { path: 'src/data/political/germany/elections.json', sha256: 'a'.repeat(64) }] }], sha).problems.length, 'Germany cannot be added');
@@ -106,7 +105,7 @@ test('adapter: Czechia view, Germany unchanged, comparable list votes and docume
   assert.equal(data.politicalElectionViews().length, 7);
 });
 
-test('election-to-election: rule changes are recorded, Czech turnout and vote basis are comparable, lists are never linked', () => {
+test('election-to-election: rule changes are recorded, Czech turnout and vote basis are comparable', () => {
   const data = require('../../src/lib/politicalData.ts');
   const { compatibleTurnout, compatibleVoteBasis } = require('../../src/lib/politicalNational.ts');
   const { compareElections } = require('../../src/lib/politicalExplorer.ts');
@@ -121,8 +120,7 @@ test('election-to-election: rule changes are recorded, Czech turnout and vote ba
   const rows = Object.fromEntries(compareElections(e2017, e2021).map((r) => [r.key, r]));
   assert.ok(Math.abs(rows.turnout.difference - (65.43 - 60.84)) < 1e-9);
   assert.equal(rows.valid.difference, 5375090 - 5060759);
-  for (const e of [e2017, e2021, e2025]) for (const r of e.results) { assert.equal(r.partyId, null); assert.deepEqual(r.memberPartyIds, []); }
-  assert.equal(read('public/research-data/political/czechia/manifest.json').continuous_party_series, 0);
+  assert.equal(read('public/research-data/political/czechia/manifest.json').continuous_party_series, 7);
 });
 
 test('2017 vintage is labelled and the court revision is recorded without person data', () => {

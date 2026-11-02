@@ -1,0 +1,353 @@
+{
+ "schema_version": "atlas-czechia-register-evidence-v1",
+ "retrieval": {
+  "authorised_by": "owner reply 2026-11-03: one retrieval of these named files, rights verified per file",
+  "method": "one sequential request per file, 5 seconds apart, identifying User-Agent",
+  "host": "volby.gov.cz"
+ },
+ "excluded": [
+  {
+   "file": "https://volby.gov.cz/opendata/ps2025/csv_od/psrkl.csv",
+   "reason": "No national catalogue entry was found for the 2025 list register (only its composition table). Under the owner rule it stays unused, so 2025 lists have no register code (VSTRANA), no POCSTRVKO and no POCMANDCR cross-check here."
+  }
+ ],
+ "code_statements": [
+  {
+   "source": "https://volby.gov.cz/opendata/ps2025/PS2025regPopis.htm",
+   "statement": "VSTRANA in the list register is the internal code from the CVS code list, described there as a stabilised code."
+  },
+  {
+   "source": "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis.htm",
+   "statement": "CVS lists every electoral party and enables comparison over time between elections. No official statement of stability was located for NSTRANA."
+  }
+ ],
+ "distributions": [
+  {
+   "file": "PS2017reg20171021.zip",
+   "role": "registers package (definitive state 21 Oct 2017, matching the original-results vintage)",
+   "url": "https://volby.gov.cz/opendata/ps2017/PS2017reg20171021.zip",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/b0a73534d723d513a41861ab786d1d77",
+   "catalogue_url_host_note": "the catalogue links www.volby.cz, which redirects to volby.gov.cz",
+   "rights": {
+    "autorske_dilo": "Neobsahuje",
+    "originalni_databaze": "Neobsahuje",
+    "zvlastni_pravo_poriz_databaze": "Není chráněna",
+    "osobni_udaje": "Neobsahuje"
+   },
+   "retrieved_at": "2026-11-02T14:11:58.434Z",
+   "http_last_modified": "Wed, 18 Sep 2024 12:47:23 GMT",
+   "bytes": 352159,
+   "sha256": "0265622a90be539202cda1883c5ef489d4321822cae5d3c78597b0f1c9ea505f",
+   "used_member": "psrkl.xml",
+   "archived_path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+   "archived_sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61",
+   "not_extracted": [
+    "psrk.xml (candidate register)"
+   ]
+  },
+  {
+   "file": "PS2017ciselniky20170905_csv.zip",
+   "role": "code lists (state 5 Sep 2017)",
+   "url": "https://volby.gov.cz/opendata/ps2017/PS2017ciselniky20170905_csv.zip",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/9515dfca01af33f22b47da8dff6ced38",
+   "catalogue_url_host_note": "the catalogue links www.volby.cz, which redirects to volby.gov.cz",
+   "rights": {
+    "autorske_dilo": "Neobsahuje",
+    "originalni_databaze": "Neobsahuje",
+    "zvlastni_pravo_poriz_databaze": "Není chráněna",
+    "osobni_udaje": "Neobsahuje"
+   },
+   "retrieved_at": "2026-11-02T14:12:03.822Z",
+   "http_last_modified": "Wed, 18 Sep 2024 12:47:23 GMT",
+   "bytes": 181121,
+   "sha256": "0d71ec48c56a7ba465177a5394dd6849ec0da166efa35bbfe58231f7ef7a3d0c",
+   "members": {
+    "cns.csv": {
+     "sha256": "7ba1c0b3051d88c3c1ab387db497911aa20b6c43b519d432bd768291200ec9f2",
+     "archived_path": "docs/political-data/raw/czechia/registers/ps2017_cns_excerpt.csv",
+     "archived_sha256": "0f25c0aeb8b7b7d8b24a2cb417a6fdbb76c256d2e46b90078439c4c909edbe15"
+    },
+    "cvs.csv": {
+     "sha256": "d160f11b7e2c2bc90b98a377f4e186b711643835753a73f54a284e81023f9018",
+     "archived_path": "docs/political-data/raw/czechia/registers/ps2017_cvs_excerpt.csv",
+     "archived_sha256": "923f9e83bd32a92a40fef2a29a8dc8dbdbe73dd8b661abb0d3cba9a8c6d7d261"
+    }
+   },
+   "excerpt_note": "windows-1250 converted to UTF-8; only codes used by a 2017 list"
+  },
+  {
+   "file": "psrkl.csv",
+   "role": "list register",
+   "url": "https://volby.gov.cz/opendata/ps2021/csv_od/psrkl.csv",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/8ccd370635a42a306a27a2faf1c14a13",
+   "catalogue_url_host_note": "the catalogue links www.volby.cz, which redirects to volby.gov.cz",
+   "rights": {
+    "autorske_dilo": "Neobsahuje",
+    "originalni_databaze": "Neobsahuje",
+    "zvlastni_pravo_poriz_databaze": "Není chráněna",
+    "osobni_udaje": "Neobsahuje"
+   },
+   "retrieved_at": "2026-11-02T14:12:08.984Z",
+   "http_last_modified": "Wed, 18 Sep 2024 12:47:24 GMT",
+   "bytes": 5853,
+   "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702",
+   "archived_path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+   "archived_sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+  },
+  {
+   "file": "psrkl_slozeni.csv",
+   "role": "list register composition",
+   "url": "https://volby.gov.cz/opendata/ps2021/csv_od/psrkl_slozeni.csv",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/c036a0910e0628b3fa4abbb7ecdffe53",
+   "catalogue_url_host_note": "the catalogue links www.volby.cz, which redirects to volby.gov.cz",
+   "rights": {
+    "autorske_dilo": "Neobsahuje",
+    "originalni_databaze": "Neobsahuje",
+    "zvlastni_pravo_poriz_databaze": "Není chráněna",
+    "osobni_udaje": "Neobsahuje"
+   },
+   "retrieved_at": "2026-11-02T14:12:14.082Z",
+   "http_last_modified": "Wed, 18 Sep 2024 12:47:24 GMT",
+   "bytes": 316,
+   "sha256": "efa7f68e9f7f14327f98356c7e68058faecfbcc90123897f6cce7c2b61554662",
+   "archived_path": "docs/political-data/raw/czechia/registers/ps2021_psrkl_slozeni.csv",
+   "archived_sha256": "efa7f68e9f7f14327f98356c7e68058faecfbcc90123897f6cce7c2b61554662"
+  },
+  {
+   "file": "cns.csv",
+   "role": "proposing-party code list",
+   "url": "https://volby.gov.cz/opendata/ps2021/csv_od/cns.csv",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/3b1189943df0faf60d7f842f872065aa",
+   "catalogue_url_host_note": "the catalogue links www.volby.cz, which redirects to volby.gov.cz",
+   "rights": {
+    "autorske_dilo": "Neobsahuje",
+    "originalni_databaze": "Neobsahuje",
+    "zvlastni_pravo_poriz_databaze": "Není chráněna",
+    "osobni_udaje": "Neobsahuje"
+   },
+   "retrieved_at": "2026-11-02T14:12:29.809Z",
+   "http_last_modified": "Wed, 18 Sep 2024 12:47:24 GMT",
+   "bytes": 15825,
+   "sha256": "0de52cf8e79aa0ff401af4542a36ea3516c8f6dd6d8fb6159201204f4cf434c6",
+   "archived_path": "docs/political-data/raw/czechia/registers/ps2021_cns_excerpt.csv",
+   "archived_sha256": "f57376c0ea902520aa2df9964bc233a2ec8a9e6619b3fee061e6330b28348cec"
+  },
+  {
+   "file": "cvs.csv",
+   "role": "electoral-party code list",
+   "url": "https://volby.gov.cz/opendata/ps2021/csv_od/cvs.csv",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/b2383568a3b7887e6df9368a81d8e785",
+   "catalogue_url_host_note": "the catalogue links www.volby.cz, which redirects to volby.gov.cz",
+   "rights": {
+    "autorske_dilo": "Neobsahuje",
+    "originalni_databaze": "Neobsahuje",
+    "zvlastni_pravo_poriz_databaze": "Není chráněna",
+    "osobni_udaje": "Neobsahuje"
+   },
+   "retrieved_at": "2026-11-02T14:12:19.617Z",
+   "http_last_modified": "Wed, 18 Sep 2024 12:47:24 GMT",
+   "bytes": 139478,
+   "sha256": "2aa309c731d9f33a612763ed4b7086299d7163e050e4c3e57366415f06ad47d8",
+   "archived_path": "docs/political-data/raw/czechia/registers/ps2021_cvs_excerpt.csv",
+   "archived_sha256": "c4792547c4c49575a2ca1200e441481a63f9ed102447a96965f916b10d82cb55"
+  },
+  {
+   "file": "cvs_slozeni.csv",
+   "role": "electoral-party composition: retrieved, not used (the SLOZENI field of the list register is used)",
+   "url": "https://volby.gov.cz/opendata/ps2021/csv_od/cvs_slozeni.csv",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/ed9287acefded92cb0880007f90d4383",
+   "catalogue_url_host_note": "the catalogue links www.volby.cz, which redirects to volby.gov.cz",
+   "rights": {
+    "autorske_dilo": "Neobsahuje",
+    "originalni_databaze": "Neobsahuje",
+    "zvlastni_pravo_poriz_databaze": "Není chráněna",
+    "osobni_udaje": "Neobsahuje"
+   },
+   "retrieved_at": "2026-11-02T14:12:24.713Z",
+   "http_last_modified": "Wed, 18 Sep 2024 12:47:24 GMT",
+   "bytes": 20404,
+   "sha256": "6146c9165fe869469b401852f1d17279b84096c774b956794567e8d74a2f4ff1",
+   "archived_path": null
+  },
+  {
+   "file": "psrkl_slozeni.csv",
+   "role": "list register composition",
+   "url": "https://volby.gov.cz/opendata/ps2025/csv_od/psrkl_slozeni.csv",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/e7c18479a9eb2b4c089ee3837f5c3c88",
+   "catalogue_url_host_note": "the catalogue links www.volby.cz, which redirects to volby.gov.cz",
+   "rights": {
+    "autorske_dilo": "Neobsahuje",
+    "originalni_databaze": "Neobsahuje",
+    "zvlastni_pravo_poriz_databaze": "Není chráněna",
+    "osobni_udaje": "Neobsahuje"
+   },
+   "retrieved_at": "2026-11-02T14:12:34.972Z",
+   "http_last_modified": "Sun, 05 Oct 2025 00:30:00 GMT",
+   "bytes": 365,
+   "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a",
+   "archived_path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+   "archived_sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+  },
+  {
+   "file": "cns.csv",
+   "role": "proposing-party code list",
+   "url": "https://volby.gov.cz/opendata/ps2025/csv_od/cns.csv",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/17ed482af74bd808dd3461f19be4df6d",
+   "catalogue_url_host_note": "the catalogue links www.volby.cz, which redirects to volby.gov.cz",
+   "rights": {
+    "autorske_dilo": "Neobsahuje",
+    "originalni_databaze": "Neobsahuje",
+    "zvlastni_pravo_poriz_databaze": "Není chráněna",
+    "osobni_udaje": "Neobsahuje"
+   },
+   "retrieved_at": "2026-11-02T14:12:50.846Z",
+   "http_last_modified": "Sun, 05 Oct 2025 00:30:08 GMT",
+   "bytes": 13567,
+   "sha256": "28d1c7be79e65cfcff52c7c0d863b0c12f6df87c86b80d180973c9d779d69fa0",
+   "archived_path": "docs/political-data/raw/czechia/registers/ps2025_cns_excerpt.csv",
+   "archived_sha256": "70a251703aa3d8c79a01b30598dfc8d687f67d18b4c49903f437e859b655cb48"
+  },
+  {
+   "file": "cvs.csv",
+   "role": "electoral-party code list (rows whose code equals a sole proposer, and K rows with the 2025 coalition composition)",
+   "url": "https://volby.gov.cz/opendata/ps2025/csv_od/cvs.csv",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/d3b9d1bfb3ba3b63e34c030344a27d4e",
+   "catalogue_url_host_note": "the catalogue links www.volby.cz, which redirects to volby.gov.cz",
+   "rights": {
+    "autorske_dilo": "Neobsahuje",
+    "originalni_databaze": "Neobsahuje",
+    "zvlastni_pravo_poriz_databaze": "Není chráněna",
+    "osobni_udaje": "Neobsahuje"
+   },
+   "retrieved_at": "2026-11-02T14:12:40.381Z",
+   "http_last_modified": "Sun, 05 Oct 2025 00:30:08 GMT",
+   "bytes": 187516,
+   "sha256": "aaa96cbaf89d80afcf1aa37ad0825741588a2d25f51c4d2ecdfcc1b9f18b33f4",
+   "archived_path": "docs/political-data/raw/czechia/registers/ps2025_cvs_excerpt.csv",
+   "archived_sha256": "e967d896c4a03a7a34bcf43199e41f10f9e723137e4f94b4e993b9c834352329"
+  },
+  {
+   "file": "cvs_slozeni.csv",
+   "role": "electoral-party composition: retrieved, not used",
+   "url": "https://volby.gov.cz/opendata/ps2025/csv_od/cvs_slozeni.csv",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/18d8f7b74bc8c3aaffca1e5332c874b5",
+   "catalogue_url_host_note": "the catalogue links www.volby.cz, which redirects to volby.gov.cz",
+   "rights": {
+    "autorske_dilo": "Neobsahuje",
+    "originalni_databaze": "Neobsahuje",
+    "zvlastni_pravo_poriz_databaze": "Není chráněna",
+    "osobni_udaje": "Neobsahuje"
+   },
+   "retrieved_at": "2026-11-02T14:12:45.616Z",
+   "http_last_modified": "Sun, 05 Oct 2025 00:30:10 GMT",
+   "bytes": 26962,
+   "sha256": "6167de4af1e9519914a80a6bf1ebf7a03c7a2b753ed3862c193660989da5c4c3",
+   "archived_path": null
+  }
+ ],
+ "interior_ministry_register": {
+  "url": "https://mv.gov.cz/seznam-politickych-stran",
+  "reviewed_on": "2026-11-03",
+  "database_updated": "2026-10-26",
+  "reuse_decision": "No reuse terms were located. Used as citation only: registration numbers, identification numbers, addresses and named persons are not reproduced. The page lists home addresses and birth dates of officers; none of that was captured.",
+  "limits": [
+   "The page states extracts are informative only.",
+   "The history view prints the current name and abbreviation on every dated period, so it does not show past names. Dated periods exist, but their past names cannot be read from it.",
+   "No official crosswalk between MV records and ČSÚ NSTRANA codes was located; the crosswalk below compares the current register name with the 2025 ČSÚ code-list name of the same party."
+  ],
+  "reviewed": [
+   {
+    "nstrana": 768,
+    "record": 368,
+    "kind": "movement",
+    "name": "ANO 2011",
+    "abbreviation": "ANO",
+    "registered_before_2017_election": true,
+    "active": true
+   },
+   {
+    "nstrana": 53,
+    "record": 120,
+    "kind": "party",
+    "name": "Občanská demokratická strana",
+    "abbreviation": "ODS",
+    "registered_before_2017_election": true,
+    "active": true
+   },
+   {
+    "nstrana": 1,
+    "record": 112,
+    "kind": "party",
+    "name": "KDU-ČSL",
+    "abbreviation": "KDU-ČSL",
+    "registered_before_2017_election": true,
+    "active": true
+   },
+   {
+    "nstrana": 721,
+    "record": 321,
+    "kind": "party",
+    "name": "TOP 09",
+    "abbreviation": "TOP 09",
+    "registered_before_2017_election": true,
+    "active": true
+   },
+   {
+    "nstrana": 166,
+    "record": 228,
+    "kind": "movement",
+    "name": "STAROSTOVÉ A NEZÁVISLÍ",
+    "abbreviation": "STAN",
+    "registered_before_2017_election": true,
+    "active": true
+   },
+   {
+    "nstrana": 720,
+    "record": 320,
+    "kind": "party",
+    "name": "Česká pirátská strana",
+    "abbreviation": "Piráti",
+    "registered_before_2017_election": true,
+    "active": true
+   },
+   {
+    "nstrana": 1114,
+    "record": 468,
+    "kind": "movement",
+    "name": "Svoboda a přímá demokracie (SPD)",
+    "abbreviation": "SPD",
+    "registered_before_2017_election": true,
+    "active": true
+   },
+   {
+    "nstrana": 47,
+    "record": 107,
+    "kind": "party",
+    "name": "Komunistická strana Čech a Moravy",
+    "abbreviation": "KSČM",
+    "registered_before_2017_election": true,
+    "active": true
+   },
+   {
+    "nstrana": 7,
+    "record": 99,
+    "kind": "party",
+    "name": "Sociální demokracie",
+    "abbreviation": "SOCDEM",
+    "abbreviation_at_lists": "ČSSD",
+    "registered_before_2017_election": true,
+    "active": true,
+    "note": "Current status period starts in 2013, before the 2017 election. Not the 2025 list ČSSD – Česká suverenita sociální demokracie, which has code 759 and a separate register record."
+   },
+   {
+    "nstrana": 5,
+    "record": 142,
+    "kind": "party",
+    "name": "Strana zelených",
+    "abbreviation": "Zelení",
+    "registered_before_2017_election": true,
+    "active": true
+   }
+  ]
+ }
+}

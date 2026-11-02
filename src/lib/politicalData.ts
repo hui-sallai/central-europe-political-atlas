@@ -14,9 +14,14 @@ import czContestants from "@/data/political/czechia/electoral_contestants.json";
 import czLegislatures from "@/data/political/czechia/legislatures.json";
 import czSystems from "@/data/political/czechia/electoral_systems.json";
 import czSources from "@/data/political/czechia/political_source_registry.json";
+import czMembers from "@/data/political/czechia/contestant_members.json";
+import czParties from "@/data/political/czechia/political_parties.json";
+import czLinks from "@/data/political/czechia/party_identity_links.json";
 import type { PoliticalCountryView, PoliticalElectionView } from "./politicalExplorer";
 import { electionViewsFromStores, type PoliticalStores } from "./politicalStores";
 import { politicalPublicationProblems } from "./politicalNational";
+import type { PoliticalIdentityLink } from "./politicalIdentity";
+import { continuityEntities, type ContinuityParty } from "./politicalContinuity";
 
 export function politicalElectionViews(): PoliticalElectionView[] {
   const views = electionViewsFromStores({ elections, turnout, results, contestants, legislatures, systems, sources, members }, {
@@ -32,12 +37,22 @@ export function politicalElectionViews(): PoliticalElectionView[] {
  * docs/political-data/czechia_ps2017_2021_admission.json, with exact-hash political admission records.
  */
 export function politicalCzechElectionViews(): PoliticalElectionView[] {
-  const elections = electionViewsFromStores({ elections: czElections, turnout: czTurnout, results: czResults, contestants: czContestants, legislatures: czLegislatures, systems: czSystems, sources: czSources } as PoliticalStores, {
+  const elections = electionViewsFromStores({ elections: czElections, turnout: czTurnout, results: czResults, contestants: czContestants, legislatures: czLegislatures, systems: czSystems, sources: czSources, members: czMembers } as PoliticalStores, {
     slug: "czechia", name: { en: "Czechia", "zh-CN": "捷克" }, originalLanguage: "cs",
     voteLabel: { en: "List votes", "zh-CN": "名单票" },
   });
   for (const view of elections) if (politicalPublicationProblems(view.country!, view.sources, ["czechia"]).length) throw Error("Political source publication gate failed");
   return elections;
+}
+
+/** Reviewed Czech identity links (verified and explicitly unresolved) from the official registers. */
+export function politicalCzechIdentityLinks(): PoliticalIdentityLink[] {
+  return czLinks as PoliticalIdentityLink[];
+}
+
+/** Per-entity list participation for the priority Czech parties and the coalition with a repeated composition. */
+export function politicalCzechContinuity() {
+  return continuityEntities(politicalCzechElectionViews(), politicalCzechIdentityLinks(), czParties as ContinuityParty[]);
 }
 
 /**

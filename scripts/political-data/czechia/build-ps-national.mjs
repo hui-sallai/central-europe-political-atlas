@@ -2,7 +2,7 @@
 // (build-ps2025.mjs, unchanged rules) with 2017 and 2021 built here from committed official evidence only
 // (docs/political-data/raw/czechia/ps2017-2021/): ČSÚ DataStat VOLPS201703 and VOLPS202103 (votes, shares and seats by
 // electoral list) and the VOLPS03 national excerpt. Fail-closed: every total is reconciled before anything is written.
-// No network access; list kinds, coalition members and cross-election identities are not inferred from labels.
+// No network access; list kinds, coalition members and cross-election identities come from build-identity.mjs and never from labels.
 //
 // Usage: node scripts/political-data/czechia/build-ps-national.mjs [--write]   (default: check committed files)
 import fs from 'node:fs';
@@ -10,6 +10,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { buildCzechia2025, CZECH_STORES, parseCsv } from './build-ps2025.mjs';
+import { buildCzechIdentity, IDENTITY_STORES } from './build-identity.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const RAW = 'docs/political-data/raw/czechia/ps2017-2021';
@@ -36,7 +37,7 @@ const ELECTIONS = {
       ['coalition of three parties or movements', 15, 'Coalitions of three below 15% take no part (§ 49(1)(c)).', '三个政党或运动组成的联盟低于 15% 时不参与（第 49 条第 1 款 c 项）。'],
       ['coalition of four or more parties or movements', 20, 'Coalitions of four or more below 20% take no part (§ 49(1)(d)).', '四个及以上政党或运动组成的联盟低于 20% 时不参与（第 49 条第 1 款 d 项）。'],
     ],
-    notes: t('One scrutiny by successive divisors within 14 regions, 200 seats; thresholds 5%, 10%, 15% and 20% by list type. These rules differ from 2021 and 2025. Results are the original results: Supreme Administrative Court resolution Vol 58/2017-173 changed which candidate of one list was elected in one region; the official seats-by-list tables are identical before and after it, and any recalculated vote totals are not shown here. List kinds are not stated in the admitted data, so no threshold is assigned to individual lists. Published vote shares are truncated to two decimals.', '在 14 个选区内按连续除数（1、2、3……）进行一轮计票分配，共 200 席；门槛按名单类型分别为 5%、10%、15%、20%。这些规则与 2021、2025 年不同。此处为原始结果：最高行政法院第 Vol 58/2017-173 号裁定改变了一个选区内某名单的当选候选人；官方的各名单席位表在裁定前后完全相同，重新计算后的得票总数未在此显示。已准入的数据未注明名单类型，因此不为单个名单指定门槛。公布的得票率截断保留两位小数。'),
+    notes: t('One scrutiny by successive divisors within 14 regions, 200 seats; thresholds 5%, 10%, 15% and 20% by list type. These rules differ from 2021 and 2025. Results are the original results: Supreme Administrative Court resolution Vol 58/2017-173 changed which candidate of one list was elected in one region; the official seats-by-list tables are identical before and after it, and any recalculated vote totals are not shown here. List kinds come from the ČSÚ registers; no threshold outcome is computed for individual lists. Published vote shares are truncated to two decimals.', '在 14 个选区内按连续除数（1、2、3……）进行一轮计票分配，共 200 席；门槛按名单类型分别为 5%、10%、15%、20%。这些规则与 2021、2025 年不同。此处为原始结果：最高行政法院第 Vol 58/2017-173 号裁定改变了一个选区内某名单的当选候选人；官方的各名单席位表在裁定前后完全相同，重新计算后的得票总数未在此显示。名单类型来自捷克统计局登记册；不为单个名单计算门槛结果。公布的得票率截断保留两位小数。'),
   },
   2021: {
     code: 'VOLPS202103', listColumn: 'VSTRANAPS2021', start: '2021-10-08', end: '2021-10-09', lists: 22, status: 'official_final',
@@ -50,7 +51,7 @@ const ELECTIONS = {
       ['coalition of two parties or movements', 8, 'Coalitions of two below 8% take no part (§ 49(1)(b)).', '两个政党或运动组成的联盟低于 8% 时不参与（第 49 条第 1 款 b 项）。'],
       ['coalition of three or more parties or movements', 11, 'Coalitions of three or more below 11% take no part (§ 49(1)(c)).', '三个及以上政党或运动组成的联盟低于 11% 时不参与（第 49 条第 1 款 c 项）。'],
     ],
-    notes: t('Two scrutinies in 14 regions, 200 seats; thresholds 5%, 8% and 11% by list type, in force from 1 July 2021 and different from 2017. ČSÚ reports that Supreme Administrative Court ruling Vol 102/2021 reset one list\'s substitutes in one region and left the list of elected deputies unchanged. List kinds are not stated in the admitted data, so no threshold is assigned to individual lists. Published vote shares are truncated to two decimals.', '14 个选区、两轮计票分配，共 200 席；门槛按名单类型分别为 5%、8%、11%，自 2021 年 7 月 1 日起施行，与 2017 年不同。捷克统计局称，最高行政法院第 Vol 102/2021 号裁定重新确定了一个选区内某名单的候补人，当选议员名单不变。已准入的数据未注明名单类型，因此不为单个名单指定门槛。公布的得票率截断保留两位小数。'),
+    notes: t('Two scrutinies in 14 regions, 200 seats; thresholds 5%, 8% and 11% by list type, in force from 1 July 2021 and different from 2017. ČSÚ reports that Supreme Administrative Court ruling Vol 102/2021 reset one list\'s substitutes in one region and left the list of elected deputies unchanged. List kinds come from the ČSÚ registers; no threshold outcome is computed for individual lists. Published vote shares are truncated to two decimals.', '14 个选区、两轮计票分配，共 200 席；门槛按名单类型分别为 5%、8%、11%，自 2021 年 7 月 1 日起施行，与 2017 年不同。捷克统计局称，最高行政法院第 Vol 102/2021 号裁定重新确定了一个选区内某名单的候补人，当选议员名单不变。名单类型来自捷克统计局登记册；不为单个名单计算门槛结果。公布的得票率截断保留两位小数。'),
   },
 };
 
@@ -146,20 +147,25 @@ export function buildCzechiaNational() {
   const data = {};
   for (const store of CZECH_STORES) data[store] = [...history.stores[store], ...recent[store]];
   for (const store of CZECH_STORES) for (const key of [{ elections: 'election_id', electoral_contestants: 'contestant_id', election_results: 'result_id', legislatures: 'legislature_id', electoral_systems: 'electoral_system_id', political_source_registry: 'source_id' }[store]].filter(Boolean)) if (new Set(data[store].map((r) => r[key])).size !== data[store].length) fail(`duplicate ${key}`);
-  return { ...data, checks: { ...history.checks, 2025: recent.checks } };
+  const identity = buildCzechIdentity(data);
+  data.electoral_contestants = identity.contestants;
+  data.political_source_registry = [...data.political_source_registry, ...identity.sources];
+  for (const store of IDENTITY_STORES) data[store] = identity[store];
+  return { ...data, checks: { ...history.checks, 2025: recent.checks }, identity: identity.checks };
 }
 
 const cell = (v) => { if (v === null || v === undefined) return ''; const s = typeof v === 'object' ? JSON.stringify(v) : String(v); return /[",\r\n]/.test(s) ? `"${s.replaceAll('"', '""')}"` : s; };
 export function czechiaFiles(data) {
   const files = {};
-  for (const store of CZECH_STORES) files[`${STORE_DIR}/${store}.json`] = JSON.stringify(data[store], null, 2) + '\n';
-  for (const store of CZECH_STORES) {
+  const stores = [...CZECH_STORES, ...IDENTITY_STORES];
+  for (const store of stores) files[`${STORE_DIR}/${store}.json`] = JSON.stringify(data[store], null, 2) + '\n';
+  for (const store of stores) {
     files[`${EXPORT_DIR}/${store}.json`] = JSON.stringify(data[store], null, 2) + '\n';
     const keys = [...new Set(data[store].flatMap((row) => Object.keys(row)))];
     files[`${EXPORT_DIR}/${store}.csv`] = [keys.map(cell).join(','), ...data[store].map((row) => keys.map((k) => cell(row[k])).join(','))].join('\r\n') + '\r\n';
   }
-  files[`${EXPORT_DIR}/README.md`] = '# Czechia — Chamber of Deputies elections 2017, 2021 and 2025 (national level)\n\nThree elections: electoral lists with ČSÚ list codes, list votes, published (truncated) and derived shares, seats; registered voters, issued envelopes and turnout. Source: Český statistický úřad (ČSÚ), DataStat VOLPS201703, VOLPS202103, VOLPS202503 and VOLPS03; the national open-data catalogue records no copyright work, no original database, no database maker\'s right and no personal data for these distributions. Rules: Act 247/1995 Coll. (e-Sbírka informative versions); the thresholds and allocation method changed between 2017 and 2021.\n\n2017 figures are the original results: ČSÚ states that VOLPS201703 does not reflect Supreme Administrative Court resolution Vol 58/2017-173, which changed which candidate of one list was elected in one region; seats by list are unchanged.\n\nNot included: list kinds (party, movement or coalition), coalition membership, cross-election party identity (lists are never linked across elections here), regional results, candidates and preferential votes.\n';
-  files[`${EXPORT_DIR}/manifest.json`] = JSON.stringify({ schema_version: 'czechia-political-export-v1', country: 'czechia', elections: data.elections.map((e) => e.election_id), continuous_party_series: 0, files: Object.keys(files).filter((f) => f.startsWith(EXPORT_DIR) && !f.endsWith('manifest.json')).map((f) => ({ name: path.basename(f), sha256: sha(Buffer.from(files[f])) })) }, null, 2) + '\n';
+  files[`${EXPORT_DIR}/README.md`] = '# Czechia — Chamber of Deputies elections 2017, 2021 and 2025 (national level)\n\nThree elections: electoral lists with ČSÚ list codes, list votes, published (truncated) and derived shares, seats; registered voters, issued envelopes and turnout. Source: Český statistický úřad (ČSÚ), DataStat VOLPS201703, VOLPS202103, VOLPS202503 and VOLPS03; the national open-data catalogue records no copyright work, no original database, no database maker\'s right and no personal data for these distributions. Rules: Act 247/1995 Coll. (e-Sbírka informative versions); the thresholds and allocation method changed between 2017 and 2021.\n\n2017 figures are the original results: ČSÚ states that VOLPS201703 does not reflect Supreme Administrative Court resolution Vol 58/2017-173, which changed which candidate of one list was elected in one region; seats by list are unchanged.\n\nIdentity: each list is an election-specific contestant. political_parties, contestant_members and party_identity_links record its kind and proposers from the ČSÚ registers (no protected rights per catalogue metadata; 2025 uses the composition table, because the 2025 list register has no catalogue entry and is unused). A same_party link needs the same ČSÚ proposer code and an Interior Ministry register review, cited but not reproduced. Coalition votes and seats are never divided among members. Links with status unresolved are not continuity.\n\nNot included: regional results, candidates and preferential votes.\n';
+  files[`${EXPORT_DIR}/manifest.json`] = JSON.stringify({ schema_version: 'czechia-political-export-v1', country: 'czechia', elections: data.elections.map((e) => e.election_id), continuous_party_series: data.party_identity_links.filter((l) => l.relation === 'same_party' && l.status === 'verified' && !data.party_identity_links.some((x) => x.relation === 'same_party' && x.status === 'verified' && x.toContestant === l.fromContestant)).length, files: Object.keys(files).filter((f) => f.startsWith(EXPORT_DIR) && !f.endsWith('manifest.json')).map((f) => ({ name: path.basename(f), sha256: sha(Buffer.from(files[f])) })) }, null, 2) + '\n';
   return files;
 }
 

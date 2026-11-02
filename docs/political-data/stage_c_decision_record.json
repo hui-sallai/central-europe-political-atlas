@@ -24,7 +24,7 @@
     2025
    ],
    "scope": "Chamber of Deputies 2017, 2021 and 2025, national level",
-   "record": "docs/political-data/czechia_ps2017_2021_admission.json"
+   "record": "docs/political-data/czechia_identity_admission.json"
   }
  ],
  "owner_decisions": [
@@ -51,6 +51,12 @@
    "country": "czechia",
    "question": "ČSÚ DataStat distribution rights metadata, e-Sbírka rules, publication scope",
    "decision": "Accepted for VOLPS202503/VOLPS03; e-Sbírka registered; publish 2025 national result only (supersedes the volby.gov.cz route for 2025; the earlier 'wait for ČSÚ reply' decision still governs the volby.gov.cz files)."
+  },
+  {
+   "date": "2026-11-03",
+   "country": "czechia",
+   "question": "Register files from volby.gov.cz and their reuse evidence",
+   "decision": "One owner-authorised retrieval of named files; catalogue metadata closes reuse per file; files without it stay unused. The volby.gov.cz result files are still not used, and general automation stays not allowed."
   }
  ],
  "countries": {
@@ -186,7 +192,7 @@
    "ps2021 cvs.csv, cvs_slozeni.csv, cns.csv, psrkl.csv",
    "ps2025 cvs.csv, cvs_slozeni.csv, cns.csv and the 2025 list register"
   ],
-  "status": "unused; no continuous series published"
+  "status": "resolved 2026-11-03: register files retrieved once under owner authorisation, except the 2025 list register (no catalogue entry). Record: docs/political-data/czechia_identity_admission.json"
  },
  "poland_recheck": {
   "checked_on": "2026-11-02",

@@ -2,8 +2,8 @@
 // exports from committed official evidence only (docs/political-data/raw/czechia/ps2025/): ČSÚ DataStat VOLPS202503
 // (votes, shares and seats by electoral list), the VOLPS03 national 2025 excerpt (electorate, issued envelopes, turnout,
 // valid votes) and evidence.json (distribution rights, official pages, Act 247/1995 Coll. clauses). Fail-closed: every
-// total is reconciled against the official totals before anything is written. No network access, no inference of list
-// kind, coalition membership or cross-election party identity.
+// total is reconciled against the official totals before anything is written. No network access; list kind, coalition
+// membership and cross-election identity are added by build-identity.mjs from the official registers.
 //
 // Stores and exports are written by build-ps-national.mjs, which combines this election with 2017 and 2021.
 import fs from 'node:fs';
@@ -132,7 +132,7 @@ export function buildCzechia2025() {
       totalSeatsDefinition: t('200 deputies elected for four years (§ 24 of Act 247/1995 Coll.).', '200 名议员，任期四年（第 247/1995 号法律第 24 条）。'),
       sourceIds: [LAW],
     },
-    notes: t('Proportional representation in 14 regions, 200 seats. Which threshold applied to each list depends on whether it was a single party or movement or a coalition; the admitted datasets do not state list kinds, so the Atlas does not assign a threshold to individual lists. Published vote shares are truncated to two decimals.', '14 个选区的比例代表制，共 200 席。每个名单适用哪一门槛取决于其为单一政党／运动还是联盟；已准入的数据集未注明名单类型，因此 Atlas 不为单个名单指定门槛。公布的得票率截断保留两位小数。'),
+    notes: t('Proportional representation in 14 regions, 200 seats. Which threshold applied to each list depends on whether it was a single party or movement or a coalition; list kinds come from the ČSÚ registers, and no threshold outcome is computed for individual lists. Published vote shares are truncated to two decimals.', '14 个选区的比例代表制，共 200 席。每个名单适用哪一门槛取决于其为单一政党／运动还是联盟；名单类型来自捷克统计局登记册，不为单个名单计算门槛结果。公布的得票率截断保留两位小数。'),
     provenance: [lawProv(['system_family', 'allocation_method', 'base_seats', 'national_rules']), pageProv(['notes'])],
   }];
   const source = (id, institution, dataset, url, rawPath, rawSha, licenceUrl, licenceStatus, attribution) => ({ source_id: id, country: 'czechia', institution, dataset, tier: 'tier1_official', url, licence_status: licenceStatus, raw_redistribution: licenceStatus, licence_url: licenceUrl, attribution, retrieved_at: retrieved, raw_sha256: rawSha, raw_path: rawPath });

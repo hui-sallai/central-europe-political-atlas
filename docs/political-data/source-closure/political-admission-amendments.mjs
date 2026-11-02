@@ -11,10 +11,16 @@ const CZECH_PATHS = [
   'public/research-data/political/czechia/README.md',
   'public/research-data/political/czechia/manifest.json',
 ];
+const CZECH_IDENTITY_STORES = ['political_parties', 'contestant_members', 'party_identity_links'];
+const CZECH_IDENTITY_PATHS = [
+  ...CZECH_PATHS,
+  ...CZECH_IDENTITY_STORES.flatMap((s) => [`src/data/political/czechia/${s}.json`, `public/research-data/political/czechia/${s}.json`, `public/research-data/political/czechia/${s}.csv`]),
+];
 // Later admissions of a country share its files; each record's gate record stays required, and the last record's hashes apply.
 export const POLITICAL_ADMISSIONS = {
   'czechia-ps-2025': { approved_on: '2026-10-25', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2025_admission.json', paths: CZECH_PATHS },
   'czechia-ps-2017-2021': { approved_on: '2026-11-02', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2017_2021_admission.json', paths: CZECH_PATHS },
+  'czechia-identity': { approved_on: '2026-11-03', country: 'czechia', gate_record: 'docs/political-data/czechia_identity_admission.json', paths: CZECH_IDENTITY_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 const admissiblePath = (file, country) => country !== 'germany' && /^[a-z]+$/.test(country) && (file.startsWith(`src/data/political/${country}/`) || file.startsWith(`public/research-data/political/${country}/`));

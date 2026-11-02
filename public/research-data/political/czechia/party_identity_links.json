@@ -1,0 +1,484 @@
+[
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-24",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-13",
+    "relation": "alliance_membership",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "discontinuous: own list and coalition membership are different units; no votes or seats are attributed to a member"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-09",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-01",
+    "relation": "same_party",
+    "basis": "official_register",
+    "status": "verified",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ proposer code; one Interior Ministry registration active since before the first election"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-04",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-05",
+    "relation": "same_party",
+    "basis": "official_register",
+    "status": "verified",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ proposer code; one Interior Ministry registration active since before the first election"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-08",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-18",
+    "relation": "same_party",
+    "basis": "official_register",
+    "status": "verified",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ proposer code; one Interior Ministry registration active since before the first election"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-01",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-13",
+    "relation": "alliance_membership",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "discontinuous: own list and coalition membership are different units; no votes or seats are attributed to a member"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-16",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-17",
+    "relation": "same_party",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ code and code-list name; legal register not reviewed",
+    "code_list_name_changed": false
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-11",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-09",
+    "relation": "same_party",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ code and code-list name; legal register not reviewed",
+    "code_list_name_changed": false
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-05",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-06",
+    "relation": "same_party",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ code and code-list name; legal register not reviewed",
+    "code_list_name_changed": false
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-06",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-19",
+    "relation": "same_party",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ code and code-list name; legal register not reviewed",
+    "code_list_name_changed": false
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-07",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-23",
+    "relation": "same_party",
+    "basis": "official_register",
+    "status": "verified",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ proposer code; one Interior Ministry registration active since before the first election",
+    "intervening_coalition_lists": [
+      "ct-cz-ps2021-17"
+    ]
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-07",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-17",
+    "relation": "alliance_membership",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "discontinuous: own list and coalition membership are different units; no votes or seats are attributed to a member"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-17",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-23",
+    "relation": "alliance_membership",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "discontinuous: own list and coalition membership are different units; no votes or seats are attributed to a member"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-15",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-16",
+    "relation": "same_party",
+    "basis": "official_register",
+    "status": "verified",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ proposer code; one Interior Ministry registration active since before the first election",
+    "intervening_coalition_lists": [
+      "ct-cz-ps2021-17"
+    ]
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-15",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-17",
+    "relation": "alliance_membership",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "discontinuous: own list and coalition membership are different units; no votes or seats are attributed to a member"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-17",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-16",
+    "relation": "alliance_membership",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "discontinuous: own list and coalition membership are different units; no votes or seats are attributed to a member"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-20",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-13",
+    "relation": "alliance_membership",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "discontinuous: own list and coalition membership are different units; no votes or seats are attributed to a member"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-02",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-12",
+    "relation": "same_party",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ code but different code-list name; a rename and a reused code cannot be told apart without a dated official document",
+    "code_list_name_changed": true
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-03",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-07",
+    "relation": "same_party",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ code but different code-list name; a rename and a reused code cannot be told apart without a dated official document",
+    "code_list_name_changed": true
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-16",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-07",
+    "relation": "same_party",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ code but different code-list name; a rename and a reused code cannot be told apart without a dated official document",
+    "code_list_name_changed": true
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-21",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-20",
+    "relation": "same_party",
+    "basis": "official_register",
+    "status": "verified",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ proposer code; one Interior Ministry registration active since before the first election"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-20",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-22",
+    "relation": "same_party",
+    "basis": "official_register",
+    "status": "verified",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ proposer code; one Interior Ministry registration active since before the first election"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-29",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-04",
+    "relation": "same_party",
+    "basis": "official_register",
+    "status": "verified",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ proposer code; one Interior Ministry registration active since before the first election"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-04",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-06",
+    "relation": "same_party",
+    "basis": "official_register",
+    "status": "verified",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ proposer code; one Interior Ministry registration active since before the first election"
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-14",
+    "toElection": "el-cz-ps-2021-10-08",
+    "toContestant": "ct-cz-ps2021-09",
+    "relation": "same_party",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2021",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ code but different code-list name; a rename and a reused code cannot be told apart without a dated official document",
+    "code_list_name_changed": true
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2017-10-20",
+    "fromContestant": "ct-cz-ps2017-19",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-20",
+    "relation": "same_party",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2017",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ code but different code-list name; a rename and a reused code cannot be told apart without a dated official document",
+    "code_list_name_changed": true
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-19",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-02",
+    "relation": "same_party",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ code and code-list name; legal register not reviewed",
+    "code_list_name_changed": false
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-12",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-08",
+    "relation": "same_party",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ code but different code-list name; a rename and a reused code cannot be told apart without a dated official document",
+    "code_list_name_changed": true
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-15",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-13",
+    "relation": "same_party",
+    "basis": "unresolved",
+    "status": "unresolved",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same ČSÚ code and code-list name; legal register not reviewed",
+    "code_list_name_changed": false
+  },
+  {
+    "country": "czechia",
+    "fromElection": "el-cz-ps-2021-10-08",
+    "fromContestant": "ct-cz-ps2021-13",
+    "toElection": "el-cz-ps-2025-10-03",
+    "toContestant": "ct-cz-ps2025-11",
+    "relation": "same_coalition_composition",
+    "basis": "official_register",
+    "status": "verified",
+    "sourceIds": [
+      "src-cz-csu-registers-2021",
+      "src-cz-csu-registers-2025",
+      "src-cz-register-evidence"
+    ],
+    "note": "same official members and register code; a coalition is a list-level unit, not a legal party"
+  }
+]

@@ -1,0 +1,73 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "czechia-identity",
+ "country": "czechia",
+ "election_ids": [
+  "el-cz-ps-2017-10-20",
+  "el-cz-ps-2021-10-08",
+  "el-cz-ps-2025-10-03"
+ ],
+ "scope": "Identity layer over the already admitted Chamber of Deputies lists: list kind, proposers, coalition membership and reviewed continuity. No election result is re-imported or changed.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-03",
+   "decision": "Owner replies: 'Authorise one retrieval' of the named volby.gov.cz register files, and 'Yes, per file': a catalogue entry recording no copyright work, no protected database and no personal data closes that file's reuse gates. Files without such an entry stay unused."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/czechia/registers/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "supported_explicit_per_file",
+   "evidence_kind": "national_catalogue_distribution_rights_metadata",
+   "basis": "Per-file catalogue entries in evidence.json. The 2025 list register has no entry and is unused."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "cleared_for_register_files",
+   "evidence_kind": "national_catalogue_distribution_rights_metadata",
+   "basis": "Same per-file metadata. Interior Ministry register: no reuse terms located, so it is cited and registration identifiers are not reproduced."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "cleared_for_register_files",
+   "evidence_kind": "national_catalogue_distribution_rights_metadata",
+   "basis": "List registers and composition tables are archived in full, code lists as excerpts with the full file's checksum. The 2017 candidate register psrk.xml is neither extracted nor committed."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_retrieval",
+   "evidence_kind": "owner_decision",
+   "basis": "One sequential retrieval of 11 named files, 5 seconds apart, identifying User-Agent. volby.gov.cz stays automation-not-allowed otherwise. The Interior Ministry pages were read manually."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "basis": "Every admitted list resolves to official proposers; 2017 and 2021 also to a register type and seats. Missing for 2025 only: VSTRANA, POCSTRVKO and POCMANDCR."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "basis": "Unchanged: results stay as admitted; shares use valid list votes in all three elections."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "basis": "A list with one proposer is a party_list and with several a coalition; 53 seat counts cross-check between register and DataStat. Coalition votes and seats are never divided."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "basis": "Unchanged, except that notes no longer say list kinds are unknown. No threshold outcome is computed per list."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "basis": "2017 uses the register state of 21 October 2017, matching the original-results vintage that does not reflect Vol 58/2017-173. 2021 stays final, with Vol 102/2021 recorded as leaving elected deputies unchanged."
+  }
+ },
+ "continuity_rule": "same_party needs the same ČSÚ proposer code and an Interior Ministry review showing one registration active since before the first election. Names never link. Any other same-code pair stays explicitly unresolved.",
+ "limits": [
+  "No official crosswalk between Interior Ministry records and NSTRANA was located; the current register name and abbreviation are compared with the ČSÚ code list.",
+  "No official statement of NSTRANA stability was located, only for VSTRANA; in the 2017 and 2021 registers each single-party list has VSTRANA equal to NSTRANA.",
+  "The register history view prints the current name on every dated period, so past names cannot be read from it."
+ ],
+ "germany_change_allowed": false
+}

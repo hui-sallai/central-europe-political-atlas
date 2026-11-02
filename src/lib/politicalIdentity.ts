@@ -10,9 +10,9 @@ export function contestantIdentity(contestant:{contestant_id:string;contestant_k
 
 export type PoliticalIdentityLink = {
   country:string; fromElection:string; fromContestant:string; toElection:string; toContestant:string;
-  relation:"same_party"|"documented_rename"|"authority_series"|"merger"|"split"|"alliance_membership";
+  relation:"same_party"|"documented_rename"|"authority_series"|"merger"|"split"|"alliance_membership"|"same_coalition_composition";
   basis:"official_register"|"official_longitudinal_table"|"official_document"|"unresolved";
-  status:"verified"|"unresolved"|"disputed"; sourceIds:string[];
+  status:"verified"|"unresolved"|"disputed"; sourceIds:string[]; note?:string; code_list_name_changed?:boolean; intervening_coalition_lists?:string[];
 };
 export function continuousPartyLink(link:PoliticalIdentityLink,a:PoliticalElectionView,b:PoliticalElectionView):boolean {
   if(link.status!=="verified"||link.basis==="unresolved"||!link.sourceIds.length||!a.country||a.country!==b.country||a.chamber!==b.chamber||a.date>=b.date||link.country!==a.country||link.fromElection!==a.electionId||link.toElection!==b.electionId)return false;

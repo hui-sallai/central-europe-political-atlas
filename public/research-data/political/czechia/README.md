@@ -4,4 +4,6 @@ Three elections: electoral lists with ČSÚ list codes, list votes, published (t
 
 2017 figures are the original results: ČSÚ states that VOLPS201703 does not reflect Supreme Administrative Court resolution Vol 58/2017-173, which changed which candidate of one list was elected in one region; seats by list are unchanged.
 
-Not included: list kinds (party, movement or coalition), coalition membership, cross-election party identity (lists are never linked across elections here), regional results, candidates and preferential votes.
+Identity: each list is an election-specific contestant. political_parties, contestant_members and party_identity_links record its kind and proposers from the ČSÚ registers (no protected rights per catalogue metadata; 2025 uses the composition table, because the 2025 list register has no catalogue entry and is unused). A same_party link needs the same ČSÚ proposer code and an Interior Ministry register review, cited but not reproduced. Coalition votes and seats are never divided among members. Links with status unresolved are not continuity.
+
+Not included: regional results, candidates and preferential votes.

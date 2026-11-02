@@ -1,0 +1,2436 @@
+[
+  {
+    "atlas_party_id": "pp-cz-n0053",
+    "country": "czechia",
+    "entity_kind": "party",
+    "csu_proposer_code": 53,
+    "registered_name": "Občanská demokratická strana",
+    "abbreviation": "ODS",
+    "names_in_csu_code_list": {
+      "2017": "Občanská demokratická strana",
+      "2021": "Občanská demokratická strana",
+      "2025": "Občanská demokratická strana"
+    },
+    "identity_status": "register_reviewed_continuous_legal_entity",
+    "continuous_series_eligible": true,
+    "legal_register_citation": "https://mv.gov.cz/seznam-politickych-stran?id=120",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 53",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 53",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 53",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n0769",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 769,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Řád národa - Vlastenecká Unie"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 769",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n1177",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1177,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "CESTA ODPOVĚDNÉ SPOLEČNOSTI"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1177",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-n0007",
+    "country": "czechia",
+    "entity_kind": "party",
+    "csu_proposer_code": 7,
+    "registered_name": "Sociální demokracie",
+    "abbreviation": "SOCDEM",
+    "abbreviation_at_lists": "ČSSD",
+    "names_in_csu_code_list": {
+      "2017": "Česká strana sociálně demokratická",
+      "2021": "Česká strana sociálně demokratická"
+    },
+    "identity_status": "register_reviewed_continuous_legal_entity",
+    "continuous_series_eligible": true,
+    "legal_register_citation": "https://mv.gov.cz/seznam-politickych-stran?id=99",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 7",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 7",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n0098",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 98,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Volte Pravý Blok www.cibulka.net"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 98",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n1184",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1184,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Radostné Česko"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1184",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-n0166",
+    "country": "czechia",
+    "entity_kind": "movement",
+    "csu_proposer_code": 166,
+    "registered_name": "STAROSTOVÉ A NEZÁVISLÍ",
+    "abbreviation": "STAN",
+    "names_in_csu_code_list": {
+      "2017": "STAROSTOVÉ A NEZÁVISLÍ",
+      "2021": "STAROSTOVÉ A NEZÁVISLÍ",
+      "2025": "STAROSTOVÉ A NEZÁVISLÍ"
+    },
+    "identity_status": "register_reviewed_continuous_legal_entity",
+    "continuous_series_eligible": true,
+    "legal_register_citation": "https://mv.gov.cz/seznam-politickych-stran?id=228",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 166",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 166",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 166",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-n0047",
+    "country": "czechia",
+    "entity_kind": "party",
+    "csu_proposer_code": 47,
+    "registered_name": "Komunistická strana Čech a Moravy",
+    "abbreviation": "KSČM",
+    "names_in_csu_code_list": {
+      "2017": "Komunistická strana Čech a Moravy",
+      "2021": "Komunistická strana Čech a Moravy"
+    },
+    "identity_status": "register_reviewed_continuous_legal_entity",
+    "continuous_series_eligible": true,
+    "legal_register_citation": "https://mv.gov.cz/seznam-politickych-stran?id=107",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 47",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 47",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-n0005",
+    "country": "czechia",
+    "entity_kind": "party",
+    "csu_proposer_code": 5,
+    "registered_name": "Strana zelených",
+    "abbreviation": "Zelení",
+    "names_in_csu_code_list": {
+      "2017": "Strana zelených",
+      "2021": "Strana zelených"
+    },
+    "identity_status": "register_reviewed_continuous_legal_entity",
+    "continuous_series_eligible": true,
+    "legal_register_citation": "https://mv.gov.cz/seznam-politickych-stran?id=142",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 5",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 5",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n0137",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 137,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "ROZUMNÍ - stop migraci a diktátu EU-peníze občanům"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 137",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n1041",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1041,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Společ. proti develop. výstavbě v Prokop. údolí"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1041",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n0714",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 714,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Strana svobodných občanů"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 714",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n0155",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 155,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Blok proti islamizaci - Obrana domova"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 155",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n1173",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1173,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Občanská demokratická aliance"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1173",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-n0720",
+    "country": "czechia",
+    "entity_kind": "party",
+    "csu_proposer_code": 720,
+    "registered_name": "Česká pirátská strana",
+    "abbreviation": "Piráti",
+    "names_in_csu_code_list": {
+      "2017": "Česká pirátská strana",
+      "2021": "Česká pirátská strana",
+      "2025": "Česká pirátská strana"
+    },
+    "identity_status": "register_reviewed_continuous_legal_entity",
+    "continuous_series_eligible": true,
+    "legal_register_citation": "https://mv.gov.cz/seznam-politickych-stran?id=320",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 720",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 720",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 720",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n0762",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 762,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "OBČANÉ 2011-SPRAVEDLNOST PRO LIDI"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 762",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n1183",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1183,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Unie Hrdosti,Aktivity,Vlastenectví,Emp.,Lidsk.2017"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1183",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n1120",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1120,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Česká národní fronta"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1120",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n1178",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1178,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Referendum o Evropské unii"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1178",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-n0721",
+    "country": "czechia",
+    "entity_kind": "party",
+    "csu_proposer_code": 721,
+    "registered_name": "TOP 09",
+    "abbreviation": "TOP 09",
+    "names_in_csu_code_list": {
+      "2017": "TOP 09",
+      "2021": "TOP 09",
+      "2025": "TOP 09"
+    },
+    "identity_status": "register_reviewed_continuous_legal_entity",
+    "continuous_series_eligible": true,
+    "legal_register_citation": "https://mv.gov.cz/seznam-politickych-stran?id=321",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 721",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 721",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 721",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-n0768",
+    "country": "czechia",
+    "entity_kind": "movement",
+    "csu_proposer_code": 768,
+    "registered_name": "ANO 2011",
+    "abbreviation": "ANO",
+    "names_in_csu_code_list": {
+      "2017": "ANO 2011",
+      "2021": "ANO 2011",
+      "2025": "ANO 2011"
+    },
+    "identity_status": "register_reviewed_continuous_legal_entity",
+    "continuous_series_eligible": true,
+    "legal_register_citation": "https://mv.gov.cz/seznam-politickych-stran?id=368",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 768",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 768",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 768",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n1127",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1127,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Dobrá volba 2016"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1127",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n1125",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1125,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Sdružení pro republiku-Republ.str.Českosl.M.Sládka"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1125",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-n0001",
+    "country": "czechia",
+    "entity_kind": "party",
+    "csu_proposer_code": 1,
+    "registered_name": "KDU-ČSL",
+    "abbreviation": "KDU-ČSL",
+    "names_in_csu_code_list": {
+      "2017": "Křesťan.a demokrat.unie-Českosl.strana lidová",
+      "2021": "KDU-ČSL",
+      "2025": "KDU-ČSL"
+    },
+    "identity_status": "register_reviewed_continuous_legal_entity",
+    "continuous_series_eligible": true,
+    "legal_register_citation": "https://mv.gov.cz/seznam-politickych-stran?id=112",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 1",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n0002",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 2,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Česká strana národně sociální"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 2",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n1176",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1176,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "REALISTÉ"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1176",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n1182",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1182,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "SPORTOVCI"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1182",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n0156",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 156,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Dělnická strana sociální spravedlnosti"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 156",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-n1114",
+    "country": "czechia",
+    "entity_kind": "movement",
+    "csu_proposer_code": 1114,
+    "registered_name": "Svoboda a přímá demokracie (SPD)",
+    "abbreviation": "SPD",
+    "names_in_csu_code_list": {
+      "2017": "Svoboda a přímá demokracie - Tomio Okamura (SPD)",
+      "2021": "Svoboda a přímá demokracie (SPD)",
+      "2025": "Svoboda a přímá demokracie (SPD)"
+    },
+    "identity_status": "register_reviewed_continuous_legal_entity",
+    "continuous_series_eligible": true,
+    "legal_register_citation": "https://mv.gov.cz/seznam-politickych-stran?id=468",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1114",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 1114",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1114",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n0724",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 724,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Strana Práv Občanů"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 724",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2017-n1116",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1116,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2017": "Národ Sobě"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2017",
+        "source_url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+        "source_record_id": "NSTRANA 1116",
+        "retrieved_at": "2026-11-02T14:11:58.434Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2017_psrkl.xml",
+          "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n0752",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 752,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "Švýcarská demokracie (www.svycarska-demokracie.cz)"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 752",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n0759",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 759,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "VOLNÝ blok"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 759",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n0098",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 98,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "Volte Pravý Blok www.cibulka.net"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 98",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n0762",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 762,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "ALIANCE NÁRODNÍCH SIL"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 762",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n1227",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1227,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "Trikolora Svobodní Soukromníci"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 1227",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n1173",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1173,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "Aliance pro budoucnost"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 1173",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n1007",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1007,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "Hnutí Prameny"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 1007",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n0074",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 74,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "Levice"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 74",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n1245",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1245,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "PŘÍSAHA - občanské hnutí Roberta Šlachty"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 1245",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n1240",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1240,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "SENIOŘI 21"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 1240",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n1250",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1250,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "Urza.cz: Nechceme vaše hlasy"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 1250",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n0055",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 55,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "Koruna Česká (monarch.str.Čech, Moravy a Slezska)"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 55",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n1190",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1190,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "Moravské zemské hnutí"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 1190",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n1244",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1244,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "Otevřeme Česko normálnímu životu"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 1244",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2021-n0083",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 83,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2021": "Moravané"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2021",
+        "source_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "source_record_id": "NSTRANA 83",
+        "retrieved_at": "2026-11-02T14:12:08.984Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2021_psrkl.csv",
+          "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1706",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1706,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "\"Rebelové web: re3elove.cz\""
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1706",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1190",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1190,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Moravské zemské hnutí"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1190",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1282",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1282,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Jasný Signál Nezávislých"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1282",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1704",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1704,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "VÝZVA 2025"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1704",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1061",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1061,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "SMS – Stát Má Sloužit"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1061",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n0759",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 759,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "ČSSD – Česká suverenita sociální demokracie"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 759",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1245",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1245,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "PŘÍSAHA občanské hnutí"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1245",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n0074",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 74,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Levice"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 74",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1283",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1283,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Česká republika na 1. místě!"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1283",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n0752",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 752,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "ŠVÝCARSKÁ DEMOKRACIE"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 752",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1250",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1250,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Urza.cz: Nechceme vaše hlasy"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1250",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1281",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1281,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Hnutí občanů a podnikatelů"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1281",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1291",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1291,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Hnutí Generace"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1291",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n0055",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 55,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Koruna Česká (monarch.str.Čech, Moravy a Slezska)"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 55",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1272",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1272,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Volt Česko"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1272",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n0098",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 98,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Volte Pravý Blok www.cibulka.net"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 98",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1178",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1178,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Motoristé sobě"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1178",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n0140",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 140,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Balbínova poetická strana"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 140",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1707",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1707,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Hnutí Kruh"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1707",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1298",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1298,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Stačilo!"
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1298",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-cz-2025-n1705",
+    "country": "czechia",
+    "entity_kind": "party_or_movement_not_distinguished",
+    "csu_proposer_code": 1705,
+    "registered_name": null,
+    "abbreviation": null,
+    "names_in_csu_code_list": {
+      "2025": "Voluntia, protože dobrovol. je zákl. kamenem spol."
+    },
+    "identity_status": "election_specific_proposer_code_only",
+    "continuous_series_eligible": false,
+    "legal_register_citation": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-registers-2025",
+        "source_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+        "source_record_id": "NSTRANA 1705",
+        "retrieved_at": "2026-11-02T14:12:34.972Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/registers/ps2025_psrkl_slozeni.csv",
+          "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
+        },
+        "parser_version": "czechia-identity-v1",
+        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "fields_covered": [
+          "names_in_csu_code_list"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]
