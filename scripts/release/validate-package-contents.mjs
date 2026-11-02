@@ -1,11 +1,12 @@
 // Research package (zip) content safety: member inventory and member hashes instead of a container hash.
-// Checks path safety, forbidden content (local evidence, correspondence, secrets, blocked raw sources, CZ/SK/PL/AT
-// political data) and that every member is either a tracked repository file or an export generated from one.
+// Checks path safety, forbidden content (local evidence, correspondence, secrets, blocked raw sources, political data
+// without an exact owner admission) and that every member is either a tracked repository file or an export generated from one.
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { researchPackageFilename } from './research-package-name.mjs';
+import { approvedPoliticalAdmissionFiles, politicalPackageMemberProblem, POLITICAL_ADMISSION_FILE } from '../../docs/political-data/source-closure/political-admission-amendments.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const zipFile = process.argv[2] ?? path.join(root, 'public', 'research-data', researchPackageFilename());
@@ -28,11 +29,15 @@ for (let i = 0; i < count; i++) {
   members.push({ name, size, sha256: data ? crypto.createHash('sha256').update(data).digest('hex') : null, text: data && size < 5e6 ? data.toString('utf8') : '' });
   offset += 46 + nameLen + extraLen + commentLen;
 }
+const hashFile = (rel) => (fs.existsSync(path.join(root, rel)) ? crypto.createHash('sha256').update(fs.readFileSync(path.join(root, rel))).digest('hex') : null);
+const admitted = approvedPoliticalAdmissionFiles(JSON.parse(fs.readFileSync(path.join(root, POLITICAL_ADMISSION_FILE), 'utf8')).admissions, hashFile);
+failures.push(...admitted.problems);
 const SECRET = /(-----BEGIN [A-Z ]*PRIVATE KEY-----|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|AKIA[0-9A-Z]{16}|sk-[A-Za-z0-9]{32,}|xox[baprs]-[A-Za-z0-9-]{10,})/;
 for (const m of members) {
   if (m.name.startsWith('/') || m.name.includes('..') || m.name.includes('\\') || /^[a-zA-Z]:/.test(m.name)) failures.push(`${m.name}: unsafe path`);
   if (/(^|\/)(local-evidence|correspondence|inbox|owner-evidence|private)(\/|$)/i.test(m.name) || /\.(eml|msg|mbox)$/i.test(m.name)) failures.push(`${m.name}: private evidence or correspondence`);
-  if (/political\/(czechia|slovakia|poland|austria)\//i.test(m.name)) failures.push(`${m.name}: restricted Production 1B political data`);
+  const politicalProblem = politicalPackageMemberProblem(m.name, m.sha256, admitted.approved);
+  if (politicalProblem) failures.push(politicalProblem);
   if (/(^|\/)raw\//.test(m.name) && /(statistics\.sk|volby|kbw|bmi\.gv\.at)/i.test(m.name)) failures.push(`${m.name}: blocked raw source`);
   if (/\/Users\/|\/home\/[a-z]/.test(m.text)) failures.push(`${m.name}: contains a local filesystem path`);
   if (SECRET.test(m.text)) failures.push(`${m.name}: secret-like token`);

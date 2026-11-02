@@ -8,7 +8,7 @@ export type NationalRules = {
   minorityRepresentation: PoliticalLocalText | null; totalSeatsDefinition: PoliticalLocalText | null;
   sourceIds: string[];
 };
-export type TurnoutBasis = { numerator: "voters" | "envelopes_issued" | "ballots_cast" | "unknown"; denominator: "registered_electorate" | "eligible_population" | "unknown"; definition: string | null; sourceIds: string[] };
+export type TurnoutBasis = { numerator: "voters" | "envelopes_issued" | "ballots_cast" | "valid_ballots" | "unknown"; denominator: "registered_electorate" | "eligible_population" | "unknown"; definition: string | null; sourceIds: string[] };
 export type NationalBallotView = { definition: VoteDefinition; validVotes: number | null; invalidVotes: number | null; ballotsCast: number | null; results: PoliticalResult[] };
 export type NationalContext = { chamber: string; dateEnd: string | null; vintage: string; turnout: TurnoutBasis; rules: NationalRules; activeVote: VoteDefinition; ballots: NationalBallotView[] };
 export {voteDenominator,compatibleTurnout,compatibleVoteBasis} from "./politicalExplorer";

@@ -241,6 +241,26 @@
       "robots_note": "User-agent: * with empty Disallow",
       "reason": "Named by the owner in the Czech identity brief; manual browser reading only; no bulk reproduction until reuse is reviewed.",
       "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "eli.gov.pl",
+      "purpose": "Polish Journal of Laws (Dziennik Ustaw) ELI: PKW results notices read for national results",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-03",
+      "robots_note": "User-agent: * with empty Disallow",
+      "reason": "Owner-approved 2026-11-03: one reading per named document (PKW notices, Electoral Code, Copyright Act, Supreme Court validity resolutions, PKW communiqué); no automated collection.",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "api.sejm.gov.pl",
+      "purpose": "Sejm Chancellery ELI text service (not used: the host rejected the first request)",
+      "automation_allowed": false,
+      "manual_allowed": false,
+      "robots_checked_at": "2026-11-03",
+      "robots_note": "robots.txt request returned a Request Rejected page on 2026-11-03; not retried",
+      "reason": "Rejected the single robots.txt request; no retry and no workaround. eli.gov.pl is used instead.",
+      "status": "blocked"
     }
   ],
   "reference_hosts": {

@@ -65,15 +65,16 @@ for (const locale of ["zh-CN", "en"] as const) test(`publication-gate status nam
   await page.goto(locale === "en" ? "/en/politics/" : "/politics/", { waitUntil: "networkidle" });
   const status = page.locator("[data-politics-explorer] [data-admission-status]");
   await status.locator("summary").click();
-  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(2);
+  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(3);
   await expect(status.locator("[data-admission='germany']")).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='czechia']")).toHaveAttribute("data-admission-state", "admitted");
-  for (const country of ["slovakia", "poland", "austria", "hungary"]) await expect(status.locator(`[data-admission='${country}']`)).toHaveAttribute("data-admission-state", "blocked");
+  await expect(status.locator("[data-admission='poland']")).toHaveAttribute("data-admission-state", "admitted");
+  for (const country of ["slovakia", "austria", "hungary"]) await expect(status.locator(`[data-admission='${country}']`)).toHaveAttribute("data-admission-state", "blocked");
   await expect(status.locator("[data-admission='romania']")).toHaveAttribute("data-admission-state", "staged_not_published");
   await expect(status.locator("[data-admission='hungary']")).toContainText("robots.txt");
   expect(await status.innerText()).not.toMatch(/\d{1,3}(,\d{3})+|\d+(\.\d+)?\s?%/);
   if (locale === "en") expect(await status.innerText()).not.toMatch(/[㐀-鿿]/u);
-  for (const country of ["hungary", "poland", "slovakia"]) expect((await page.request.get(`/research-data/political/${country}/election_results.json`)).status()).toBe(404);
+  for (const country of ["hungary", "slovakia"]) expect((await page.request.get(`/research-data/political/${country}/election_results.json`)).status()).toBe(404);
 });
 
 for (const locale of ["zh-CN", "en"] as const) test(`Germany 2025 rule fields point to the sourced system description, and blocker causes are shown (${locale})`, async ({ page }) => {
@@ -95,7 +96,7 @@ for (const locale of ["zh-CN", "en"] as const) test(`Germany 2025 rule fields po
 for (const locale of ["zh-CN", "en"] as const) test(`Czech view: real 2017–2025 election comparison, rule differences and Germany comparison (${locale})`, async ({ page }) => {
   const prefix = locale === "en" ? "/en" : "";
   await page.goto(`${prefix}/politics/`, { waitUntil: "networkidle" });
-  await page.locator("[data-politics-country-view]").click();
+  await page.locator('[data-politics-country-view="czechia"]').click();
   await page.waitForURL(`**${prefix}/politics/czechia/`);
   const panel = page.locator("[data-politics-explorer]");
   await expect(panel.locator("tbody th button")).toHaveCount(3);
@@ -115,7 +116,7 @@ for (const locale of ["zh-CN", "en"] as const) test(`Czech view: real 2017–202
   await expect(panel.locator("[data-country-lists='germany']")).toBeVisible();
   await expect(panel).not.toContainText("Bundeswahlleiterin, Wiesbaden. Source links");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-  await panel.locator("[data-politics-country-view]").click();
+  await panel.locator('[data-politics-country-view="germany"]').click();
   await page.waitForURL(`**${prefix}/politics/`);
   await expect(page.locator("[data-politics-explorer] select").first().locator("option")).toHaveCount(1);
 });
@@ -136,4 +137,22 @@ test("Czech identity: party series, whole coalition figures and verified compari
   await expect(page.locator("[data-verified-table]")).toHaveCount(0);
   await page.goto("/politics/czechia/");
   await expect(page.locator("[data-czech-continuity] h2")).toHaveText("名单身份与连续性");
+});
+
+test("Poland: national results, whole coalition lists, register-verified series, comparison with Germany", async ({ page }) => {
+  await page.goto("/en/politics/poland/");
+  await expect(page.locator("h1")).toHaveText("Polish parliamentary elections");
+  const explorer = page.locator("[data-politics-explorer]");
+  await expect(explorer).toContainText("KOMITET WYBORCZY PRAWO I SPRAWIEDLIWOŚĆ");
+  await expect(explorer).toContainText("Coalition list");
+  await expect(page.locator("[data-politics-history] select").first().locator("option")).toHaveCount(6);
+  await expect(page.locator("[data-country-comparison]")).toBeVisible();
+  await expect(page.locator("[data-continuity-entity]")).toHaveCount(5);
+  const po = page.locator('[data-continuity-entity="Platforma Obywatelska RP"]');
+  await expect(po.locator('[data-continuity-status="no_list"]')).toHaveCount(2);
+  await expect(po.locator('[data-continuity-status="no_list"]').first()).toContainText("whose members are not stated");
+  await expect(page.locator("[data-continuity-unresolved] summary")).toContainText("5");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  await page.goto("/politics/poland/");
+  await expect(page.locator("h1")).toHaveText("波兰议会选举");
 });

@@ -1894,6 +1894,75 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-02"
+    },
+    {
+      "amendment_id": "political-poland-sejm-2026-11-03",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-03: Polish view of the same explorer, its data accessors, links between country views and status text; stores are covered only by docs/legal-security/political_admission_records.json",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "937713e1293f7849b6ad728fe78b72f0292dbccd00232f30628a98ba3dd676d2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "9d913f138e51a2405deecfea0ee5c3acdd1f98479a1b70bc78e7bded1b37fe5a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalNational.ts",
+          "sha256": "b1658896ce1c9615a22dead3f079c0a194b914f335a6f46c8c60cada2421b119",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalContinuity.ts",
+          "sha256": "ca639a0168e5d7f55112f2cda4b99b07ea1b8af3bbc11444fd0943cb5b31ab03",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalIdentity.ts",
+          "sha256": "fc99638fd4cfa6728da09c83ecdd17ef04a5c8b8386d3e4335eab638e0d99c58",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "ea115ad9d001d3f02471acf9719b22168a2137270a3ec40b05537a3bb6d77ad8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalContinuityPanel.tsx",
+          "sha256": "329a12c62442153fc672f583105f70ba1ecd18c21fa9e9972e76ade76e61dada",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/czechia/page.tsx",
+          "sha256": "466a761104cf5ea3f4a7ef536f6c858d79dcea97fce40101860e5d5accfebc0a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/czechia/page.tsx",
+          "sha256": "f2295989b786bafc481517f4c901f82b3e0c37cc2665b95fc62c23e88ce956d9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/poland/page.tsx",
+          "sha256": "154a0767f6cac4b343335f37dc264cbc1b591cb5a451c039e926a8a70c26ca9a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/poland/page.tsx",
+          "sha256": "4c9e5a3799a5f60ee891b8fd25658f13b6f53205440deca81d9e6ac48e33d0fc",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-02"
     }
   ]
 }

@@ -16,11 +16,19 @@ const CZECH_IDENTITY_PATHS = [
   ...CZECH_PATHS,
   ...CZECH_IDENTITY_STORES.flatMap((s) => [`src/data/political/czechia/${s}.json`, `public/research-data/political/czechia/${s}.json`, `public/research-data/political/czechia/${s}.csv`]),
 ];
+const POLISH_STORES = [...STORES, 'political_parties', 'contestant_members', 'party_identity_links'];
+const POLISH_PATHS = [
+  ...POLISH_STORES.map((s) => `src/data/political/poland/${s}.json`),
+  ...POLISH_STORES.flatMap((s) => [`public/research-data/political/poland/${s}.json`, `public/research-data/political/poland/${s}.csv`]),
+  'public/research-data/political/poland/README.md',
+  'public/research-data/political/poland/manifest.json',
+];
 // Later admissions of a country share its files; each record's gate record stays required, and the last record's hashes apply.
 export const POLITICAL_ADMISSIONS = {
   'czechia-ps-2025': { approved_on: '2026-10-25', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2025_admission.json', paths: CZECH_PATHS },
   'czechia-ps-2017-2021': { approved_on: '2026-11-02', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2017_2021_admission.json', paths: CZECH_PATHS },
   'czechia-identity': { approved_on: '2026-11-03', country: 'czechia', gate_record: 'docs/political-data/czechia_identity_admission.json', paths: CZECH_IDENTITY_PATHS },
+  'poland-sejm-2011-2023': { approved_on: '2026-11-03', country: 'poland', gate_record: 'docs/political-data/poland_sejm_admission.json', paths: POLISH_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 const admissiblePath = (file, country) => country !== 'germany' && /^[a-z]+$/.test(country) && (file.startsWith(`src/data/political/${country}/`) || file.startsWith(`public/research-data/political/${country}/`));
@@ -46,4 +54,11 @@ export function approvedPoliticalAdmissionFiles(records, hashOf = () => null) {
     if (seen.size !== allowed.size) problems.push('Incomplete political admission file set');
   }
   return { approved, problems };
+}
+
+/** Research package rule: a non-German country's political member must be an admitted file at its exact admitted hash. */
+export function politicalPackageMemberProblem(name, sha256, approved) {
+  const match = name.match(/(^|\/)political\/([a-z]+)\/(.+)$/i);
+  if (!match || match[2].toLowerCase() === 'germany') return null;
+  return approved.get(`public/research-data/political/${match[2]}/${match[3]}`) === sha256 ? null : `${name}: political data without an exact owner admission`;
 }

@@ -25,6 +25,17 @@
    ],
    "scope": "Chamber of Deputies 2017, 2021 and 2025, national level",
    "record": "docs/political-data/czechia_identity_admission.json"
+  },
+  {
+   "country": "poland",
+   "elections": [
+    2011,
+    2015,
+    2019,
+    2023
+   ],
+   "scope": "Sejm 2011–2023, national level",
+   "record": "docs/political-data/poland_sejm_admission.json"
   }
  ],
  "owner_decisions": [
@@ -57,29 +68,15 @@
    "country": "czechia",
    "question": "Register files from volby.gov.cz and their reuse evidence",
    "decision": "One owner-authorised retrieval of named files; catalogue metadata closes reuse per file; files without it stay unused. The volby.gov.cz result files are still not used, and general automation stays not allowed."
+  },
+  {
+   "date": "2026-11-03",
+   "country": "poland",
+   "question": "Gazette-published PKW result notices as a rights basis, and the gazette host",
+   "decision": "Accepted for national figures from those notices under Art. 4 of the Copyright Act; eli.gov.pl registered for one reading per named document. The danewyborcze.kbw.gov.pl files stay blocked until KBW replies."
   }
  ],
  "countries": {
-  "poland": {
-   "latest_election": "Sejm, 15 October 2023",
-   "entry_point": "https://sejmsenat2023.pkw.gov.pl/sejmsenat2023/pl/dane_w_arkuszach",
-   "causes": [
-    "reuse_restriction",
-    "missing_official_evidence",
-    "identity_unverified",
-    "internal_approval"
-   ],
-   "evidence": [
-    "reuse_restriction: the DANE WYBORCZE legal-information page has no content; no operative reuse terms exist to rely on, and none are substituted from another authority.",
-    "missing_official_evidence: national definitions, electoral-rule text and vintage decisions are open in the gate matrix.",
-    "identity_unverified: electoral committees (komitety wyborcze), including coalition committees, are election-specific contestants whose member parties are not yet documented.",
-    "internal_approval: production publication needs owner authorisation."
-   ],
-   "not_a_cause": [
-    "parser_incompatibility — CSV/XLSX sheets were located in the source audit"
-   ],
-   "next_step": "Owner sends the PKW/KBW contact packet."
-  },
   "slovakia": {
    "latest_election": "National Council, 30 September 2023",
    "entry_point": "https://slovak.statistics.sk/",
@@ -199,5 +196,18 @@
   "url": "https://danewyborcze.kbw.gov.pl/indexa114.html?title=Dane_Wyborcze:Informacje_prawne",
   "quote": "Ta strona nie posiada jeszcze zawartości.",
   "result": "No reuse terms; blocked. The national catalogue dane.gov.pl is not a registered host and was not contacted."
+ },
+ "poland_district_files": {
+  "scope": "District and polling-station files on danewyborcze.kbw.gov.pl; elections before 2011; party identity",
+  "causes": [
+   "reuse_restriction",
+   "identity_unverified"
+  ],
+  "evidence": [
+   "reuse_restriction: the DANE WYBORCZE legal-information page still has no content (rechecked 2026-11-03).",
+   "identity_unverified: coalition members are not stated; five parties have register numbers reviewed from PKW communiqués, the rest stay unresolved."
+  ],
+  "not_attempted": "Sejm 2001–2007 notices predate the Electoral Code and need their own rule review.",
+  "next_step": "Review further parties through PKW communiqués; the KBW contact packet remains unsent."
  }
 }

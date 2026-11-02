@@ -1,0 +1,350 @@
+{
+ "schema_version": "atlas-poland-sejm-evidence-v1",
+ "retrieval": {
+  "authorised_by": "owner replies 2026-11-03: one reading per named document on eli.gov.pl",
+  "method": "one sequential request per file, 5 seconds apart, identifying User-Agent",
+  "host": "eli.gov.pl",
+  "robots": "User-agent: * with empty Disallow, checked 2026-11-03"
+ },
+ "rights": {
+  "basis": "Act of 4 February 1994 on Copyright and Related Rights, Art. 4(2): official documents and materials are not subject to copyright",
+  "statute": {
+   "citation": "Dz.U. 2025 poz. 24",
+   "url": "https://eli.gov.pl/eli/DU/2025/24/ogl",
+   "pdf_url": "https://eli.gov.pl/eli/DU/2025/24/ogl/pol/pdf",
+   "pdf_sha256": "1c2e9a082a66fad6e26bba1d4d01a22bd67871657416729cea62b4b9f71cff86",
+   "retrieved_at": "2026-11-02T19:26:54.930Z"
+  },
+  "quote": "Art. 4. Nie stanowią przedmiotu prawa autorskiego: 1) akty normatywne lub ich urzędowe projekty; 2) urzędowe dokumenty, materiały, znaki i symbole;",
+  "owner_decision": "Owner reply 2026-11-03: gazette-published PKW result notices close the reuse gates for national figures only.",
+  "limits": [
+   "This is a reading of the statute, not advice from a lawyer or a statement by PKW. Commentary disputes how far \"official material\" extends; a notice published in the official gazette is a strong case, not a settled one.",
+   "It covers these notices only. The files on danewyborcze.kbw.gov.pl stay unused: that site's legal-information page is still empty (rechecked 2026-11-03)."
+  ]
+ },
+ "rules_clauses": {
+  "threshold": "Art. 196. § 1. W podziale mandatów w okręgach wyborczych uwzględnia się wyłącznie listy kandydatów na posłów tych komitetów wyborczych, których listy otrzymały co najmniej 5% ważnie oddanych głosów w skali kraju. § 2. Listy kandydatów na posłów koalicyjnych komitetów wyborczych uwzględnia się w podziale mandatów w okręgach wyborczych, jeżeli ich listy otrzymały co najmniej 8% ważnie oddanych głosów w skali kraju.",
+  "minority_exemption_start": "Art. 197. § 1. Komitety wyborcze utworzone przez wyborców zrzeszonych w zarejestrowanych organizacjach mniejszości narodowych mogą korzystać ze zwolnienia list tych komitetów z warunku, o którym mowa w art. 196 § 1",
+  "allocation": "Art. 232. § 1. Po otrzymaniu zawiadomienia, o którym mowa w art. 231 § 2, okręgowa komisja wyborcza dokonuje podziału mandatów pomiędzy uprawnione listy kandydatów w sposób następujący: 1) liczbę głosów ważnych oddanych na każdą z tych list w okręgu wyborczym dzieli się kolejno przez: 1; 2; 3; 4 i dalsze kolejne liczby aż do chwili, gdy z otrzymanych w ten sposób ilorazów da się uszeregować tyle kolejno największych liczb, ile wynosi liczba mandatów do rozdzielenia między te listy w okręgu; 2) każdej liście przyznaje się tyle mandatów, ile spośród ustalonego w powyższy sposób szeregu ilorazów przypada jej liczb kolejno największych.",
+  "committee_types": "§ 2. W wyborach do Sejmu i do Senatu oraz w wyborach do Parlamentu Europejskiego w Rzeczypospolitej Polskiej komitety wyborcze mogą być tworzone przez partie polityczne i koalicje partii politycznych oraz przez wyborców.",
+  "seats": "Art. 193. § 1. Do Sejmu wybiera się 460 posłów",
+  "committee_name": "Art. 92. § 1. Nazwa komitetu wyborczego partii politycznej zawiera wyrazy „Komitet Wyborczy” oraz nazwę partii politycznej lub skrót nazwy tej partii, wynikające z wpisu do ewidencji partii politycznych."
+ },
+ "rules_note": "Clauses are identical in the 2011 original, the 2019 consolidated text and the 2022 consolidated text. The 2015 notice cites the 2011 Act as amended; the version in force in 2015 was not read separately.",
+ "elections": {
+  "2011": {
+   "poll_date": "2011-10-09",
+   "notice_dated": "2011-10-11",
+   "notice": {
+    "citation": "Dz.U. 2011 poz. 1294",
+    "url": "https://eli.gov.pl/eli/DU/2011/1294/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/DU/2011/1294/ogl/pol/pdf",
+    "pdf_sha256": "2c4ed1bd90d91408fd726e9b023cf5ea1d2796b435e66ea428bc4c3b387bf240",
+    "retrieved_at": "2026-11-02T19:34:04.086Z"
+   },
+   "national_excerpt": {
+    "path": "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+    "sha256": "ea63d99beedaeb45fb7d03b968606f805bd412c495d2eeb603d231377bab8418",
+    "note": "text layer of Part I, extracted with macOS PDFKit; the PDF is identified by its checksum and is not redistributed because Part II lists candidates"
+   },
+   "validity_resolution": {
+    "citation": "Dz.U. 2011 poz. 1676",
+    "url": "https://eli.gov.pl/eli/DU/2011/1676/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/DU/2011/1676/ogl/pol/pdf",
+    "pdf_sha256": "ce28a1efaa48c9c4d165281b2c024832529a1298b487978eced2c2323baf3d7e",
+    "retrieved_at": "2026-11-02T19:34:11.312Z",
+    "finding": "Supreme Court declared the Sejm election valid"
+   },
+   "rules_text": {
+    "citation": "Dz.U. 2011 poz. 112",
+    "url": "https://eli.gov.pl/eli/DU/2011/112/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/DU/2011/112/ogl/pol/pdf",
+    "pdf_sha256": "7f5206f902d5c560d54235a49be36f1beff3a11de5413f3289ad5ecebdc4e059",
+    "retrieved_at": "2026-11-02T19:34:35.255Z"
+   }
+  },
+  "2015": {
+   "poll_date": "2015-10-25",
+   "notice_dated": "2015-10-27",
+   "notice": {
+    "citation": "Dz.U. 2015 poz. 1731",
+    "url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl/pol/pdf",
+    "pdf_sha256": "aee3e9cd0c731a6690a7b123109d11d227ecbcc46495b9ac954616472651c61a",
+    "retrieved_at": "2026-11-02T19:26:29.746Z"
+   },
+   "national_excerpt": {
+    "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+    "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd",
+    "note": "text layer of Part I, extracted with macOS PDFKit; the PDF is identified by its checksum and is not redistributed because Part II lists candidates"
+   },
+   "validity_resolution": {
+    "citation": "Dz.U. 2016 poz. 120",
+    "url": "https://eli.gov.pl/eli/DU/2016/120/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/DU/2016/120/ogl/pol/pdf",
+    "pdf_sha256": "ea56fad5fc0b14b62ecb972cbc058151db3892f38ad97c82e4c314b78c7864cd",
+    "retrieved_at": "2026-11-02T19:27:09.133Z",
+    "finding": "Supreme Court declared the Sejm election valid"
+   },
+   "rules_text": {
+    "citation": "Dz.U. 2011 poz. 112",
+    "url": "https://eli.gov.pl/eli/DU/2011/112/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/DU/2011/112/ogl/pol/pdf",
+    "pdf_sha256": "7f5206f902d5c560d54235a49be36f1beff3a11de5413f3289ad5ecebdc4e059",
+    "retrieved_at": "2026-11-02T19:34:35.255Z"
+   }
+  },
+  "2019": {
+   "poll_date": "2019-10-13",
+   "notice_dated": "2019-10-14",
+   "notice": {
+    "citation": "Dz.U. 2019 poz. 1955",
+    "url": "https://eli.gov.pl/eli/DU/2019/1955/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/DU/2019/1955/ogl/pol/pdf",
+    "pdf_sha256": "6bc9be08a9bbf1e53d365b6060ce830aefd00063b7673426f03b9fbbe19e293b",
+    "retrieved_at": "2026-11-02T19:26:08.591Z"
+   },
+   "national_excerpt": {
+    "path": "docs/political-data/raw/poland/sejm/sejm_2019_part_I.txt",
+    "sha256": "2804ce811f9a65b91a985343c5f2661b22bae5d95433014ae0b1c0548dbdf8ff",
+    "note": "text layer of Part I, extracted with macOS PDFKit; the PDF is identified by its checksum and is not redistributed because Part II lists candidates"
+   },
+   "validity_resolution": {
+    "citation": "Dz.U. 2020 poz. 9",
+    "url": "https://eli.gov.pl/eli/DU/2020/9/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/DU/2020/9/ogl/pol/pdf",
+    "pdf_sha256": "5718a64c97d06d02dcb25c2d4684521f62214fcbfd03de13819281a7e541c7a5",
+    "retrieved_at": "2026-11-02T19:34:17.647Z",
+    "finding": "Supreme Court declared the Sejm election valid"
+   },
+   "rules_text": {
+    "citation": "Dz.U. 2019 poz. 684",
+    "url": "https://eli.gov.pl/eli/DU/2019/684/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/DU/2019/684/ogl/pol/pdf",
+    "pdf_sha256": "248868b65b9de29b64b7475be5739556acd05d6994fc47a2af456b680e9d1755",
+    "retrieved_at": "2026-11-02T19:34:26.251Z"
+   }
+  },
+  "2023": {
+   "poll_date": "2023-10-15",
+   "notice_dated": "2023-10-17",
+   "notice": {
+    "citation": "Dz.U. 2023 poz. 2234",
+    "url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl/pol/pdf",
+    "pdf_sha256": "b3d99abcf2b40ac0343a29c97708936714f5ea9cb81d10655adb57f807d75c64",
+    "retrieved_at": "2026-11-02T19:19:00.000Z"
+   },
+   "national_excerpt": {
+    "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+    "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6",
+    "note": "text layer of Part I, extracted with macOS PDFKit; the PDF is identified by its checksum and is not redistributed because Part II lists candidates"
+   },
+   "validity_resolution": {
+    "citation": "Dz.U. 2024 poz. 52",
+    "url": "https://eli.gov.pl/eli/DU/2024/52/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/DU/2024/52/ogl/pol/pdf",
+    "pdf_sha256": "e8b0a3202d9ae8bf0655e4b97312cdb625b66502c64afc449d62cd4a93d1c8ec",
+    "retrieved_at": "2026-11-02T19:27:01.686Z",
+    "finding": "Supreme Court declared the Sejm election valid"
+   },
+   "rules_text": {
+    "citation": "Dz.U. 2022 poz. 1277",
+    "url": "https://eli.gov.pl/eli/DU/2022/1277/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/DU/2022/1277/ogl/pol/pdf",
+    "pdf_sha256": "bdeeea6985232fcffe4d1fc7f6f76f070a2bc02bdb893c38c1e7755a4ef11597",
+    "retrieved_at": "2026-11-02T19:26:46.073Z"
+   }
+  }
+ },
+ "identity_review": {
+  "rule": "A party committee name contains the party name or abbreviation as entered in the party register (Electoral Code Art. 92 § 1). A series link needs the same EwP number in PKW communiqués.",
+  "communiques": {
+   "2011": {
+    "citation": "M.P. 2012 poz. 881",
+    "url": "https://eli.gov.pl/eli/MP/2012/881/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/MP/2012/881/ogl/pol/pdf",
+    "pdf_sha256": "2056b9f5302e961a6a45e0e11631c0e95fe7edcfcdfd6c2ce17be46aa2282016",
+    "retrieved_at": "2026-11-03T08:29:10.601Z"
+   },
+   "2016": {
+    "citation": "M.P. 2017 poz. 981",
+    "url": "https://eli.gov.pl/eli/MP/2017/981/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/MP/2017/981/ogl/pol/pdf",
+    "pdf_sha256": "ddd923e84db0b817f80da3e0935e81093eb904c8a2e4ad4efeb57c0dd6963ac3",
+    "retrieved_at": "2026-11-03T08:27:27.844Z"
+   },
+   "2019": {
+    "citation": "M.P. 2020 poz. 621",
+    "url": "https://eli.gov.pl/eli/MP/2020/621/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/MP/2020/621/ogl/pol/pdf",
+    "pdf_sha256": "f072049e01ee08109ab50a91a91b7f507c137aa1d48e733efaafecdd6dfff59d",
+    "retrieved_at": "2026-11-03T08:27:21.114Z"
+   },
+   "2021": {
+    "citation": "M.P. 2022 poz. 584",
+    "url": "https://eli.gov.pl/eli/MP/2022/584/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/MP/2022/584/ogl/pol/pdf",
+    "pdf_sha256": "0f3d1b48946e41e00448b967b17b7481b8c8f07e8caecdaa670c7874d6ae3fa3",
+    "retrieved_at": "2026-11-03T08:31:47.653Z"
+   }
+  },
+  "parties": [
+   {
+    "ewp": 124,
+    "name": "Prawo i Sprawiedliwość",
+    "committee_names": [
+     "Prawo i Sprawiedliwość"
+    ],
+    "printed": [
+     {
+      "report_year": 2011,
+      "source": "MP_2012_881",
+      "printed": "Prawo i Sprawiedliwość (EwP 124)"
+     },
+     {
+      "report_year": 2016,
+      "source": "MP_2017_981",
+      "printed": "Prawo i Sprawiedliwość (EwP 124)"
+     },
+     {
+      "report_year": 2019,
+      "source": "MP_2020_621",
+      "printed": "Prawo i Sprawiedliwość (EwP 124)"
+     },
+     {
+      "report_year": 2021,
+      "source": "MP_2022_584",
+      "printed": "Prawo i Sprawiedliwość (EwP 124)"
+     }
+    ]
+   },
+   {
+    "ewp": 131,
+    "name": "Platforma Obywatelska Rzeczypospolitej Polskiej",
+    "label": "Platforma Obywatelska RP",
+    "committee_names": [
+     "Platforma Obywatelska RP"
+    ],
+    "printed": [
+     {
+      "report_year": 2011,
+      "source": "MP_2012_881",
+      "printed": "Platforma Obywatelska Rzeczypospolitej Polskiej (EwP 131)"
+     },
+     {
+      "report_year": 2016,
+      "source": "MP_2017_981",
+      "printed": "Platforma Obywatelska Rzeczypospolitej Polskiej (EwP 131)"
+     },
+     {
+      "report_year": 2019,
+      "source": "MP_2020_621",
+      "printed": "Platforma Obywatelska Rzeczypospolitej Polskiej (EwP 131)"
+     },
+     {
+      "report_year": 2021,
+      "source": "MP_2022_584",
+      "printed": "Platforma Obywatelska Rzeczypospolitej Polskiej (EwP 131)"
+     }
+    ]
+   },
+   {
+    "ewp": 34,
+    "name": "Polskie Stronnictwo Ludowe",
+    "committee_names": [
+     "Polskie Stronnictwo Ludowe"
+    ],
+    "printed": [
+     {
+      "report_year": 2011,
+      "source": "MP_2012_881",
+      "printed": "Polskie Stronnictwo Ludowe (EwP 34)"
+     },
+     {
+      "report_year": 2016,
+      "source": "MP_2017_981",
+      "printed": "Polskie Stronnictwo Ludowe (EwP 34)"
+     },
+     {
+      "report_year": 2019,
+      "source": "MP_2020_621",
+      "printed": "Polskie Stronnictwo Ludowe (EwP 34)"
+     },
+     {
+      "report_year": 2021,
+      "source": "MP_2022_584",
+      "printed": "Polskie Stronnictwo Ludowe (EwP 34)"
+     }
+    ]
+   },
+   {
+    "ewp": 87,
+    "name": "Nowa Lewica",
+    "label": "Nowa Lewica",
+    "label_at_lists": "Sojusz Lewicy Demokratycznej",
+    "committee_names": [
+     "Sojusz Lewicy Demokratycznej",
+     "Nowa Lewica"
+    ],
+    "printed": [
+     {
+      "report_year": 2011,
+      "source": "MP_2012_881",
+      "printed": "Sojusz Lewicy Demokratycznej (EwP 87)"
+     },
+     {
+      "report_year": 2016,
+      "source": "MP_2017_981",
+      "printed": "Sojusz Lewicy Demokratycznej (EwP 87)"
+     },
+     {
+      "report_year": 2019,
+      "source": "MP_2020_621",
+      "printed": "Sojusz Lewicy Demokratycznej (Nowa Lewica) (EwP 87)"
+     },
+     {
+      "report_year": 2021,
+      "source": "MP_2022_584",
+      "printed": "Nowa Lewica (EwP 87)"
+     }
+    ]
+   },
+   {
+    "ewp": 400,
+    "name": "Konfederacja Wolność i Niepodległość",
+    "committee_names": [
+     "Konfederacja Wolność i Niepodległość"
+    ],
+    "printed": [
+     {
+      "report_year": 2019,
+      "source": "MP_2020_621",
+      "printed": "Konfederacja Wolność i Niepodległość (EwP 400)"
+     },
+     {
+      "report_year": 2021,
+      "source": "MP_2022_584",
+      "printed": "Konfederacja Wolność i Niepodległość (EwP 400)"
+     }
+    ]
+   }
+  ],
+  "limits": [
+   "The latest communiqué read covers 2021, so the 2023 committee link rests on the register name printed for 2021 and on Art. 92 § 1. PKW's 2024 communiqué was not located on eli.gov.pl.",
+   "A coalition committee's members are not printed in these sources, so a party in a coalition has no figure and no link for that election.",
+   "The Art. 4 decision of 2026-11-03 named result notices; relying on it for these communiqués is an extension of the same basis.",
+   "The court register itself was not read."
+  ],
+  "committee_review": {
+   "read": {
+    "citation": "M.P. 2024 poz. 348",
+    "url": "https://eli.gov.pl/eli/MP/2024/348/ogl",
+    "pdf_url": "https://eli.gov.pl/eli/MP/2024/348/ogl/pol/pdf",
+    "pdf_sha256": "023ce405de0d6c3f4dae0a3a3dd73f2fa4aa0e59ba1619ed67ee74e5659c2b40",
+    "retrieved_at": "2026-11-02T19:33:04.355Z"
+   },
+   "finding": "The PKW communiqué of 13 March 2024 lists committees, including coalition committees, without member parties."
+  }
+ }
+}

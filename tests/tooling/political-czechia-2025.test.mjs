@@ -66,7 +66,7 @@ test('evidence integrity: raw files match their checksums; rights fields show no
 });
 
 test('admission record: exact hashes, every mandatory gate closed, Germany never admissible', () => {
-  const records = read(POLITICAL_ADMISSION_FILE).admissions;
+  const records = read(POLITICAL_ADMISSION_FILE).admissions.filter((x) => x.country === 'czechia');
   for (const file of ['czechia_ps2025_admission', 'czechia_ps2017_2021_admission', 'czechia_identity_admission']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(`docs/political-data/${file}.json`).gates[gate].status, 'closed', gate);
   const { approved, problems } = approvedPoliticalAdmissionFiles(records, sha);
   assert.deepEqual(problems, []);

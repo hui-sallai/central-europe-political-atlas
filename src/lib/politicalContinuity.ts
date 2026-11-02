@@ -11,7 +11,7 @@ export type ContinuityRow = {
   /** Own-list total, or the coalition's own total when the entity is the coalition. Null for a member of a coalition. */
   share: number | null; seats: number | null;
   coalition: { label: string; share: number | null; seats: number | null; memberCount: number } | null;
-  change: { fromYear: number; shareChange: number | null; seatsChange: number | null; rulesChanged: boolean; acrossCoalitionPeriod: boolean } | null;
+  change: { fromYear: number; shareChange: number | null; seatsChange: number | null; rulesChanged: boolean; acrossCoalitionPeriod: boolean; acrossMissingList?: boolean } | null;
 };
 export type ContinuityEntity = { id: string; label: string; kind: string; registerUrl: string | null; rows: ContinuityRow[] };
 
@@ -29,7 +29,7 @@ function partyEntity(party: ContinuityParty, elections: PoliticalElectionView[],
       const edge = verified.find((l) => l.toElection === e.electionId && l.toContestant === own.contestantId);
       const from = edge ? byId(elections, edge.fromElection) : null;
       const difference = edge && from ? partyLinkDifference(edge, from, e) : null;
-      return { ...base, status: "own_list", contestantId: own.contestantId, label: own.nativeLabel, share: own.publishedVoteShare, seats: own.seats, coalition: null, change: difference && from ? { fromYear: from.year, shareChange: difference.shareChange, seatsChange: difference.seatsChange, rulesChanged: rulesChanged(from, e), acrossCoalitionPeriod: Boolean(edge?.intervening_coalition_lists?.length) } : null };
+      return { ...base, status: "own_list", contestantId: own.contestantId, label: own.nativeLabel, share: own.publishedVoteShare, seats: own.seats, coalition: null, change: difference && from ? { fromYear: from.year, shareChange: difference.shareChange, seatsChange: difference.seatsChange, rulesChanged: rulesChanged(from, e), acrossCoalitionPeriod: Boolean(edge?.intervening_coalition_lists?.length), acrossMissingList: Boolean(edge?.elections_without_own_list?.length) } : null };
     }
     if (member) return { ...base, status: "coalition_member", contestantId: member.contestantId, label: null, share: null, seats: null, coalition: { label: member.nativeLabel, share: member.publishedVoteShare, seats: member.seats, memberCount: member.memberPartyIds?.length ?? 0 } };
     return { ...base, status: "no_list", contestantId: null, label: null, share: null, seats: null, coalition: null };

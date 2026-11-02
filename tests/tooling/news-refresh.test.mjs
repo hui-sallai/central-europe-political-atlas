@@ -25,7 +25,9 @@ test('batch exception pins every permitted file, with no other data or release a
  const {approved,problems}=approvedNewsFiles(records());assert.deepEqual(problems,[]);assert.equal(approved.size,NEWS_REFRESH_PATHS.length);
  const ui=approvedUiFiles(JSON.parse(fs.readFileSync('docs/legal-security/ui_governance_amendments.json','utf8')).amendments);assert.deepEqual(ui.problems,[]);
  // The event UI may have a later exact-hash presentation approval. News data and batch evidence retain their own pins.
- for(const [p,h] of approved)assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),p==='src/components/NewsExplorer.tsx'?(ui.approved.get(p)??h):h,p);
+ // The package builder may have a later exact-hash approval in a political admission record, which lists its countries.
+ const packageBuilder=JSON.parse(fs.readFileSync('docs/legal-security/political_admission_records.json','utf8')).admissions.map(x=>x.research_package_builder).filter(Boolean).at(-1);
+ for(const [p,h] of approved)assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),p==='src/components/NewsExplorer.tsx'?(ui.approved.get(p)??h):p===packageBuilder?.path?packageBuilder.sha256:h,p);
  const r=records()[0];
  for(const p of ['src/data/events/events.json','src/data/observations.json','src/data/release.json','src/lib/varEngine.ts','public/research-data/political/germany/elections.json','src/data/events/news_*'])assert.ok(approvedNewsFiles([{...r,files:[...r.files,{path:p,sha256:'a'.repeat(64)}]}]).problems.length,p);
  for(const flag of ['model_change_allowed','research_gate_change_allowed','enters_model'])assert.ok(approvedNewsFiles([{...r,[flag]:true}]).problems.length,flag);
@@ -39,7 +41,7 @@ test('exact news hashes pass; drift, unlisted additions and baseline deletions f
 test('workspace and notebook guards honour the same news hashes, never economic or election stores',()=>{
  const changed=NEWS_REFRESH_PATHS.filter(p=>p.startsWith('src/data/')||p.startsWith('public/')).join('\n');
  assert.deepEqual(unapprovedFrozenChanges(changed,'d68d0e10fa0c83b57e044af02e352379aa9e9d2d'),[]);
- for(const p of ['src/data/events/events.json','src/data/observations.json','src/data/release.json','src/lib/varEngine.ts','src/data/political/poland/elections.json'])assert.deepEqual(unapprovedFrozenChanges(p,'d68d0e10fa0c83b57e044af02e352379aa9e9d2d'),[p]);
+ for(const p of ['src/data/events/events.json','src/data/observations.json','src/data/release.json','src/lib/varEngine.ts','src/data/political/slovakia/elections.json'])assert.deepEqual(unapprovedFrozenChanges(p,'d68d0e10fa0c83b57e044af02e352379aa9e9d2d'),[p]);
 });
 
 const { weeklyNews20261018: batch18 }=require('../../src/lib/weeklyNews/2026-10-18.ts');

@@ -397,6 +397,167 @@
      "sha256": "0972b7f1c6734accee89b4039029a7ebf0b26921384f537704e41f2623fb3f6a"
     }
    ]
+  },
+  {
+   "admission_id": "poland-sejm-2011-2023",
+   "status": "owner_approved",
+   "approved_on": "2026-11-03",
+   "approved_by": "owner brief and replies 2026-11-03: Sejm 2011-2023 national figures from gazette-published PKW notices under Art. 4 of the Copyright Act",
+   "country": "poland",
+   "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+   "verification": "build-ps-national check, official-total reconciliation and closed admission gate record",
+   "gate_record": "docs/political-data/poland_sejm_admission.json",
+   "gate_record_sha256": "367cb33d75c7a4ec8c76db6aa8b60f1cff1bd842df8b456afc65036b42327a33",
+   "gates_closed": [
+    "reuse_right",
+    "normalized_republication",
+    "acquisition_route",
+    "source_files_complete",
+    "national_definition_complete",
+    "same_election_identity_complete",
+    "electoral_system_metadata_complete",
+    "vintage_decisions_complete"
+   ],
+   "germany_change_allowed": false,
+   "canonical_data_change_allowed": false,
+   "model_change_allowed": false,
+   "research_gate_change_allowed": false,
+   "release_version_change_allowed": false,
+   "files": [
+    {
+     "path": "src/data/political/poland/elections.json",
+     "sha256": "4f8efc3bee7b144b3b1c1810d5502b52b3673c7a4036a34399e359366b2d9152"
+    },
+    {
+     "path": "src/data/political/poland/election_turnout.json",
+     "sha256": "01fb0bb3385ef393ddccce042324ff0eb58a8ad1dca23a94267b192b1640647b"
+    },
+    {
+     "path": "src/data/political/poland/election_results.json",
+     "sha256": "110f3fc75f835b3fa335d3de557c68a88bd016a5cfd7ef34cabdb21d0f626734"
+    },
+    {
+     "path": "src/data/political/poland/electoral_contestants.json",
+     "sha256": "8be1f93fdb7c79c863bf7f77660418ef8940a4a8170339f87a761068ca0423e7"
+    },
+    {
+     "path": "src/data/political/poland/legislatures.json",
+     "sha256": "5e80fc06b546ff3ba2608b6faa82069ff0b54e995ca75079571051c49cd0d012"
+    },
+    {
+     "path": "src/data/political/poland/electoral_systems.json",
+     "sha256": "562c5e78a841862420be92fc29e3c52694e39ecc41370a5ebceaa3670257f082"
+    },
+    {
+     "path": "src/data/political/poland/political_source_registry.json",
+     "sha256": "ba1b9f732104121306aabd8cb9b09d207fd0df4f1d3ed169ff3765bd4577c02a"
+    },
+    {
+     "path": "src/data/political/poland/political_parties.json",
+     "sha256": "63d82fc8758f4d3b342fe8b364591309527b28720e4dac3f8546eeb576287620"
+    },
+    {
+     "path": "src/data/political/poland/contestant_members.json",
+     "sha256": "21559475fc67300e681c93286cdebbb27beda3459e3a5462557ac5c44edb9b16"
+    },
+    {
+     "path": "src/data/political/poland/party_identity_links.json",
+     "sha256": "ed75c244612a95e1195ac4b20ffbb7ca73758e1976a0e67826d68d9dfe69c93a"
+    },
+    {
+     "path": "public/research-data/political/poland/elections.json",
+     "sha256": "4f8efc3bee7b144b3b1c1810d5502b52b3673c7a4036a34399e359366b2d9152"
+    },
+    {
+     "path": "public/research-data/political/poland/elections.csv",
+     "sha256": "74c3026916841cd9bcc798c8575242c7f894df859c60394f5528286f8fd13c34"
+    },
+    {
+     "path": "public/research-data/political/poland/election_turnout.json",
+     "sha256": "01fb0bb3385ef393ddccce042324ff0eb58a8ad1dca23a94267b192b1640647b"
+    },
+    {
+     "path": "public/research-data/political/poland/election_turnout.csv",
+     "sha256": "b2986b8937f4be9704ec666a97babdc3a452c269fb1b3faf72dba5ac9eb91c19"
+    },
+    {
+     "path": "public/research-data/political/poland/election_results.json",
+     "sha256": "110f3fc75f835b3fa335d3de557c68a88bd016a5cfd7ef34cabdb21d0f626734"
+    },
+    {
+     "path": "public/research-data/political/poland/election_results.csv",
+     "sha256": "725affaa77f554fc2b7101ca62324eed5e0cb4568fa9360b9eaa0da4122c4f82"
+    },
+    {
+     "path": "public/research-data/political/poland/electoral_contestants.json",
+     "sha256": "8be1f93fdb7c79c863bf7f77660418ef8940a4a8170339f87a761068ca0423e7"
+    },
+    {
+     "path": "public/research-data/political/poland/electoral_contestants.csv",
+     "sha256": "29c86115d7264df8012573f2fa518d464eee713d8c82dee2baa2796d29650f18"
+    },
+    {
+     "path": "public/research-data/political/poland/legislatures.json",
+     "sha256": "5e80fc06b546ff3ba2608b6faa82069ff0b54e995ca75079571051c49cd0d012"
+    },
+    {
+     "path": "public/research-data/political/poland/legislatures.csv",
+     "sha256": "3fd5f1d3d2e49154930e4562b0f1e30cfce6bf4c6b11363dcd163f57f54debe7"
+    },
+    {
+     "path": "public/research-data/political/poland/electoral_systems.json",
+     "sha256": "562c5e78a841862420be92fc29e3c52694e39ecc41370a5ebceaa3670257f082"
+    },
+    {
+     "path": "public/research-data/political/poland/electoral_systems.csv",
+     "sha256": "7057f645418501b0c581c0f459cc553d7cfb1c1da7e6a0a43c532912e9fa97b9"
+    },
+    {
+     "path": "public/research-data/political/poland/political_source_registry.json",
+     "sha256": "ba1b9f732104121306aabd8cb9b09d207fd0df4f1d3ed169ff3765bd4577c02a"
+    },
+    {
+     "path": "public/research-data/political/poland/political_source_registry.csv",
+     "sha256": "d2ecee8cbd4bfa4eb89d528d93483a383d310c8817d4e12659d3a32c4eca36f7"
+    },
+    {
+     "path": "public/research-data/political/poland/political_parties.json",
+     "sha256": "63d82fc8758f4d3b342fe8b364591309527b28720e4dac3f8546eeb576287620"
+    },
+    {
+     "path": "public/research-data/political/poland/political_parties.csv",
+     "sha256": "e2c531a45db1386bd92fd386fe003129e903bbc29e28905aa34db02b2c7df523"
+    },
+    {
+     "path": "public/research-data/political/poland/contestant_members.json",
+     "sha256": "21559475fc67300e681c93286cdebbb27beda3459e3a5462557ac5c44edb9b16"
+    },
+    {
+     "path": "public/research-data/political/poland/contestant_members.csv",
+     "sha256": "14d1ecc5a301a483f33e2941e3d1bac9cfa57cd864fcb5a321e9c265904ea98a"
+    },
+    {
+     "path": "public/research-data/political/poland/party_identity_links.json",
+     "sha256": "ed75c244612a95e1195ac4b20ffbb7ca73758e1976a0e67826d68d9dfe69c93a"
+    },
+    {
+     "path": "public/research-data/political/poland/party_identity_links.csv",
+     "sha256": "e0478f82d6f9cb973b16900628524d357eb638a3835cb70177f4e3cb7125cd7b"
+    },
+    {
+     "path": "public/research-data/political/poland/README.md",
+     "sha256": "328a5bf0f55df293d5c4e20fe370338dea77f56cb5ce5132104713c4114f131f"
+    },
+    {
+     "path": "public/research-data/political/poland/manifest.json",
+     "sha256": "52678563d6fd78391ae83a9b28894ff9ae72137613f3b474b3c669851b6683bf"
+    }
+   ],
+   "research_package_builder": {
+    "path": "scripts/release/build-research-package.mjs",
+    "sha256": "cf6466b906edba9d516895daabbac7965b3d0733513d772f2984b6f9e568d759",
+    "reason": "adds admitted countries to the package; supersedes the news batch pin for this one file"
+   }
   }
  ]
 }

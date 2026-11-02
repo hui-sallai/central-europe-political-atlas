@@ -1,0 +1,1952 @@
+[
+  {
+    "result_id": "er-ct-pl-sejm2011-01",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2011-10-09",
+    "contestant_ref": "ct-pl-sejm2011-01",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 14369503,
+    "total_seats": 460,
+    "votes": 4295016,
+    "published_vote_share": 29.89,
+    "derived_vote_share": 29.889802034210927,
+    "seats": 157,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2011-10-11 (Dz.U. 2011 poz. 1294); validity declared by the Supreme Court (Dz.U. 2011 poz. 1676)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2011",
+        "source_url": "https://eli.gov.pl/eli/DU/2011/1294/ogl",
+        "source_record_id": "Part I, chapter 3, item 1",
+        "retrieved_at": "2026-11-02T19:34:04.086Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+          "sha256": "ea63d99beedaeb45fb7d03b968606f805bd412c495d2eeb603d231377bab8418"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2011-02",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2011-10-09",
+    "contestant_ref": "ct-pl-sejm2011-02",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 14369503,
+    "total_seats": 460,
+    "votes": 315393,
+    "published_vote_share": 2.19,
+    "derived_vote_share": 2.194877582056944,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2011-10-11 (Dz.U. 2011 poz. 1294); validity declared by the Supreme Court (Dz.U. 2011 poz. 1676)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2011",
+        "source_url": "https://eli.gov.pl/eli/DU/2011/1294/ogl",
+        "source_record_id": "Part I, chapter 3, item 2",
+        "retrieved_at": "2026-11-02T19:34:04.086Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+          "sha256": "ea63d99beedaeb45fb7d03b968606f805bd412c495d2eeb603d231377bab8418"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2011-03",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2011-10-09",
+    "contestant_ref": "ct-pl-sejm2011-03",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 14369503,
+    "total_seats": 460,
+    "votes": 1184303,
+    "published_vote_share": 8.24,
+    "derived_vote_share": 8.24178122235682,
+    "seats": 27,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2011-10-11 (Dz.U. 2011 poz. 1294); validity declared by the Supreme Court (Dz.U. 2011 poz. 1676)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2011",
+        "source_url": "https://eli.gov.pl/eli/DU/2011/1294/ogl",
+        "source_record_id": "Part I, chapter 3, item 3",
+        "retrieved_at": "2026-11-02T19:34:04.086Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+          "sha256": "ea63d99beedaeb45fb7d03b968606f805bd412c495d2eeb603d231377bab8418"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2011-04",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2011-10-09",
+    "contestant_ref": "ct-pl-sejm2011-04",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 14369503,
+    "total_seats": 460,
+    "votes": 1439490,
+    "published_vote_share": 10.02,
+    "derived_vote_share": 10.017674236889055,
+    "seats": 40,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2011-10-11 (Dz.U. 2011 poz. 1294); validity declared by the Supreme Court (Dz.U. 2011 poz. 1676)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2011",
+        "source_url": "https://eli.gov.pl/eli/DU/2011/1294/ogl",
+        "source_record_id": "Part I, chapter 3, item 4",
+        "retrieved_at": "2026-11-02T19:34:04.086Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+          "sha256": "ea63d99beedaeb45fb7d03b968606f805bd412c495d2eeb603d231377bab8418"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2011-05",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2011-10-09",
+    "contestant_ref": "ct-pl-sejm2011-05",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 14369503,
+    "total_seats": 460,
+    "votes": 1201628,
+    "published_vote_share": 8.36,
+    "derived_vote_share": 8.362349066630905,
+    "seats": 28,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2011-10-11 (Dz.U. 2011 poz. 1294); validity declared by the Supreme Court (Dz.U. 2011 poz. 1676)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2011",
+        "source_url": "https://eli.gov.pl/eli/DU/2011/1294/ogl",
+        "source_record_id": "Part I, chapter 3, item 5",
+        "retrieved_at": "2026-11-02T19:34:04.086Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+          "sha256": "ea63d99beedaeb45fb7d03b968606f805bd412c495d2eeb603d231377bab8418"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2011-06",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2011-10-09",
+    "contestant_ref": "ct-pl-sejm2011-06",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 14369503,
+    "total_seats": 460,
+    "votes": 79147,
+    "published_vote_share": 0.55,
+    "derived_vote_share": 0.5507984514147776,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2011-10-11 (Dz.U. 2011 poz. 1294); validity declared by the Supreme Court (Dz.U. 2011 poz. 1676)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2011",
+        "source_url": "https://eli.gov.pl/eli/DU/2011/1294/ogl",
+        "source_record_id": "Part I, chapter 3, item 6",
+        "retrieved_at": "2026-11-02T19:34:04.086Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+          "sha256": "ea63d99beedaeb45fb7d03b968606f805bd412c495d2eeb603d231377bab8418"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2011-07",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2011-10-09",
+    "contestant_ref": "ct-pl-sejm2011-07",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 14369503,
+    "total_seats": 460,
+    "votes": 5629773,
+    "published_vote_share": 39.18,
+    "derived_vote_share": 39.17862016522074,
+    "seats": 207,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2011-10-11 (Dz.U. 2011 poz. 1294); validity declared by the Supreme Court (Dz.U. 2011 poz. 1676)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2011",
+        "source_url": "https://eli.gov.pl/eli/DU/2011/1294/ogl",
+        "source_record_id": "Part I, chapter 3, item 7",
+        "retrieved_at": "2026-11-02T19:34:04.086Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+          "sha256": "ea63d99beedaeb45fb7d03b968606f805bd412c495d2eeb603d231377bab8418"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2011-08",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2011-10-09",
+    "contestant_ref": "ct-pl-sejm2011-08",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 14369503,
+    "total_seats": 460,
+    "votes": 9733,
+    "published_vote_share": 0.07,
+    "derived_vote_share": 0.06773372746433888,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2011-10-11 (Dz.U. 2011 poz. 1294); validity declared by the Supreme Court (Dz.U. 2011 poz. 1676)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2011",
+        "source_url": "https://eli.gov.pl/eli/DU/2011/1294/ogl",
+        "source_record_id": "Part I, chapter 3, item 8",
+        "retrieved_at": "2026-11-02T19:34:04.086Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+          "sha256": "ea63d99beedaeb45fb7d03b968606f805bd412c495d2eeb603d231377bab8418"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2011-09",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2011-10-09",
+    "contestant_ref": "ct-pl-sejm2011-09",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 14369503,
+    "total_seats": 460,
+    "votes": 151837,
+    "published_vote_share": 1.06,
+    "derived_vote_share": 1.0566614586461343,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2011-10-11 (Dz.U. 2011 poz. 1294); validity declared by the Supreme Court (Dz.U. 2011 poz. 1676)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2011",
+        "source_url": "https://eli.gov.pl/eli/DU/2011/1294/ogl",
+        "source_record_id": "Part I, chapter 3, item 9",
+        "retrieved_at": "2026-11-02T19:34:04.086Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+          "sha256": "ea63d99beedaeb45fb7d03b968606f805bd412c495d2eeb603d231377bab8418"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2011-10",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2011-10-09",
+    "contestant_ref": "ct-pl-sejm2011-10",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 14369503,
+    "total_seats": 460,
+    "votes": 35169,
+    "published_vote_share": 0.24,
+    "derived_vote_share": 0.24474750448919494,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2011-10-11 (Dz.U. 2011 poz. 1294); validity declared by the Supreme Court (Dz.U. 2011 poz. 1676)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2011",
+        "source_url": "https://eli.gov.pl/eli/DU/2011/1294/ogl",
+        "source_record_id": "Part I, chapter 3, item 10",
+        "retrieved_at": "2026-11-02T19:34:04.086Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+          "sha256": "ea63d99beedaeb45fb7d03b968606f805bd412c495d2eeb603d231377bab8418"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2011-11",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2011-10-09",
+    "contestant_ref": "ct-pl-sejm2011-11",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 14369503,
+    "total_seats": 460,
+    "votes": 28014,
+    "published_vote_share": 0.19,
+    "derived_vote_share": 0.19495455062015715,
+    "seats": 1,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2011-10-11 (Dz.U. 2011 poz. 1294); validity declared by the Supreme Court (Dz.U. 2011 poz. 1676)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2011",
+        "source_url": "https://eli.gov.pl/eli/DU/2011/1294/ogl",
+        "source_record_id": "Part I, chapter 3, item 11",
+        "retrieved_at": "2026-11-02T19:34:04.086Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+          "sha256": "ea63d99beedaeb45fb7d03b968606f805bd412c495d2eeb603d231377bab8418"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-01",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-01",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 5711687,
+    "published_vote_share": 37.58,
+    "derived_vote_share": 37.57522940928068,
+    "seats": 235,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 1",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-02",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-02",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 3661474,
+    "published_vote_share": 24.09,
+    "derived_vote_share": 24.087581396900177,
+    "seats": 138,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 2",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-03",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-03",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 550349,
+    "published_vote_share": 3.62,
+    "derived_vote_share": 3.6205572767149556,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 3",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-04",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-04",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 722999,
+    "published_vote_share": 4.76,
+    "derived_vote_share": 4.756362400054576,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 4",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-05",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-05",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 779875,
+    "published_vote_share": 5.13,
+    "derived_vote_share": 5.13053009304655,
+    "seats": 16,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 5",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-06",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-06",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 1147102,
+    "published_vote_share": 7.55,
+    "derived_vote_share": 7.546390550785555,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 6",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-07",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-07",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 1339094,
+    "published_vote_share": 8.81,
+    "derived_vote_share": 8.809440056955381,
+    "seats": 42,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 7",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-08",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-08",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 1155370,
+    "published_vote_share": 7.6,
+    "derived_vote_share": 7.600782886492313,
+    "seats": 28,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 8",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-09",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-09",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 15656,
+    "published_vote_share": 0.1,
+    "derived_vote_share": 0.10299545329281845,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 9",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-10",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-10",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 42731,
+    "published_vote_share": 0.28,
+    "derived_vote_share": 0.2811125903586756,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 10",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-11",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-11",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 3941,
+    "published_vote_share": 0.03,
+    "derived_vote_share": 0.025926487060998822,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 11",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-12",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-12",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 18668,
+    "published_vote_share": 0.12,
+    "derived_vote_share": 0.12281036804230551,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 12",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-13",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-13",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 4266,
+    "published_vote_share": 0.03,
+    "derived_vote_share": 0.02806455057148464,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 13",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-14",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-14",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 13113,
+    "published_vote_share": 0.09,
+    "derived_vote_share": 0.08626592865538633,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 14",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-15",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-15",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 4852,
+    "published_vote_share": 0.03,
+    "derived_vote_share": 0.031919643547314455,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 15",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-16",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-16",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 27530,
+    "published_vote_share": 0.18,
+    "derived_vote_share": 0.1811104259805373,
+    "seats": 1,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 16",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2015-17",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2015-10-25",
+    "contestant_ref": "ct-pl-sejm2015-17",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 15200671,
+    "total_seats": 460,
+    "votes": 1964,
+    "published_vote_share": 0.01,
+    "derived_vote_share": 0.012920482260289693,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2015-10-27 (Dz.U. 2015 poz. 1731); validity declared by the Supreme Court (Dz.U. 2016 poz. 120)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2015",
+        "source_url": "https://eli.gov.pl/eli/DU/2015/1731/ogl",
+        "source_record_id": "Part I, chapter 3, item 17",
+        "retrieved_at": "2026-11-02T19:26:29.746Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+          "sha256": "5b6b1f38e7fc7dc9bdc0b2a377214bd82ad6f2fdf797ddb16b7a1a7cbd17d6dd"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2019-01",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2019-10-13",
+    "contestant_ref": "ct-pl-sejm2019-01",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 18470710,
+    "total_seats": 460,
+    "votes": 1578523,
+    "published_vote_share": 8.55,
+    "derived_vote_share": 8.546087291717535,
+    "seats": 30,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2019-10-14 (Dz.U. 2019 poz. 1955); validity declared by the Supreme Court (Dz.U. 2020 poz. 9)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2019",
+        "source_url": "https://eli.gov.pl/eli/DU/2019/1955/ogl",
+        "source_record_id": "Part I, chapter 3, item 1",
+        "retrieved_at": "2026-11-02T19:26:08.591Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2019_part_I.txt",
+          "sha256": "2804ce811f9a65b91a985343c5f2661b22bae5d95433014ae0b1c0548dbdf8ff"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2019-02",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2019-10-13",
+    "contestant_ref": "ct-pl-sejm2019-02",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 18470710,
+    "total_seats": 460,
+    "votes": 8051935,
+    "published_vote_share": 43.59,
+    "derived_vote_share": 43.59299128187276,
+    "seats": 235,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2019-10-14 (Dz.U. 2019 poz. 1955); validity declared by the Supreme Court (Dz.U. 2020 poz. 9)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2019",
+        "source_url": "https://eli.gov.pl/eli/DU/2019/1955/ogl",
+        "source_record_id": "Part I, chapter 3, item 2",
+        "retrieved_at": "2026-11-02T19:26:08.591Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2019_part_I.txt",
+          "sha256": "2804ce811f9a65b91a985343c5f2661b22bae5d95433014ae0b1c0548dbdf8ff"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2019-03",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2019-10-13",
+    "contestant_ref": "ct-pl-sejm2019-03",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 18470710,
+    "total_seats": 460,
+    "votes": 2319946,
+    "published_vote_share": 12.56,
+    "derived_vote_share": 12.560134396566239,
+    "seats": 49,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2019-10-14 (Dz.U. 2019 poz. 1955); validity declared by the Supreme Court (Dz.U. 2020 poz. 9)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2019",
+        "source_url": "https://eli.gov.pl/eli/DU/2019/1955/ogl",
+        "source_record_id": "Part I, chapter 3, item 3",
+        "retrieved_at": "2026-11-02T19:26:08.591Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2019_part_I.txt",
+          "sha256": "2804ce811f9a65b91a985343c5f2661b22bae5d95433014ae0b1c0548dbdf8ff"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2019-04",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2019-10-13",
+    "contestant_ref": "ct-pl-sejm2019-04",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 18470710,
+    "total_seats": 460,
+    "votes": 1256953,
+    "published_vote_share": 6.81,
+    "derived_vote_share": 6.8051146923967725,
+    "seats": 11,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2019-10-14 (Dz.U. 2019 poz. 1955); validity declared by the Supreme Court (Dz.U. 2020 poz. 9)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2019",
+        "source_url": "https://eli.gov.pl/eli/DU/2019/1955/ogl",
+        "source_record_id": "Part I, chapter 3, item 4",
+        "retrieved_at": "2026-11-02T19:26:08.591Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2019_part_I.txt",
+          "sha256": "2804ce811f9a65b91a985343c5f2661b22bae5d95433014ae0b1c0548dbdf8ff"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2019-05",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2019-10-13",
+    "contestant_ref": "ct-pl-sejm2019-05",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 18470710,
+    "total_seats": 460,
+    "votes": 5060355,
+    "published_vote_share": 27.4,
+    "derived_vote_share": 27.396645824659693,
+    "seats": 134,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2019-10-14 (Dz.U. 2019 poz. 1955); validity declared by the Supreme Court (Dz.U. 2020 poz. 9)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2019",
+        "source_url": "https://eli.gov.pl/eli/DU/2019/1955/ogl",
+        "source_record_id": "Part I, chapter 3, item 5",
+        "retrieved_at": "2026-11-02T19:26:08.591Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2019_part_I.txt",
+          "sha256": "2804ce811f9a65b91a985343c5f2661b22bae5d95433014ae0b1c0548dbdf8ff"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2019-06",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2019-10-13",
+    "contestant_ref": "ct-pl-sejm2019-06",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 18470710,
+    "total_seats": 460,
+    "votes": 1765,
+    "published_vote_share": 0.01,
+    "derived_vote_share": 0.009555669489694767,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2019-10-14 (Dz.U. 2019 poz. 1955); validity declared by the Supreme Court (Dz.U. 2020 poz. 9)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2019",
+        "source_url": "https://eli.gov.pl/eli/DU/2019/1955/ogl",
+        "source_record_id": "Part I, chapter 3, item 6",
+        "retrieved_at": "2026-11-02T19:26:08.591Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2019_part_I.txt",
+          "sha256": "2804ce811f9a65b91a985343c5f2661b22bae5d95433014ae0b1c0548dbdf8ff"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2019-07",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2019-10-13",
+    "contestant_ref": "ct-pl-sejm2019-07",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 18470710,
+    "total_seats": 460,
+    "votes": 5448,
+    "published_vote_share": 0.03,
+    "derived_vote_share": 0.029495346957426106,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2019-10-14 (Dz.U. 2019 poz. 1955); validity declared by the Supreme Court (Dz.U. 2020 poz. 9)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2019",
+        "source_url": "https://eli.gov.pl/eli/DU/2019/1955/ogl",
+        "source_record_id": "Part I, chapter 3, item 7",
+        "retrieved_at": "2026-11-02T19:26:08.591Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2019_part_I.txt",
+          "sha256": "2804ce811f9a65b91a985343c5f2661b22bae5d95433014ae0b1c0548dbdf8ff"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2019-08",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2019-10-13",
+    "contestant_ref": "ct-pl-sejm2019-08",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 18470710,
+    "total_seats": 460,
+    "votes": 144773,
+    "published_vote_share": 0.78,
+    "derived_vote_share": 0.7837976991680342,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2019-10-14 (Dz.U. 2019 poz. 1955); validity declared by the Supreme Court (Dz.U. 2020 poz. 9)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2019",
+        "source_url": "https://eli.gov.pl/eli/DU/2019/1955/ogl",
+        "source_record_id": "Part I, chapter 3, item 8",
+        "retrieved_at": "2026-11-02T19:26:08.591Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2019_part_I.txt",
+          "sha256": "2804ce811f9a65b91a985343c5f2661b22bae5d95433014ae0b1c0548dbdf8ff"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2019-09",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2019-10-13",
+    "contestant_ref": "ct-pl-sejm2019-09",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 18470710,
+    "total_seats": 460,
+    "votes": 18918,
+    "published_vote_share": 0.1,
+    "derived_vote_share": 0.10242161779379354,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2019-10-14 (Dz.U. 2019 poz. 1955); validity declared by the Supreme Court (Dz.U. 2020 poz. 9)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2019",
+        "source_url": "https://eli.gov.pl/eli/DU/2019/1955/ogl",
+        "source_record_id": "Part I, chapter 3, item 9",
+        "retrieved_at": "2026-11-02T19:26:08.591Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2019_part_I.txt",
+          "sha256": "2804ce811f9a65b91a985343c5f2661b22bae5d95433014ae0b1c0548dbdf8ff"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2019-10",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2019-10-13",
+    "contestant_ref": "ct-pl-sejm2019-10",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 18470710,
+    "total_seats": 460,
+    "votes": 32094,
+    "published_vote_share": 0.17,
+    "derived_vote_share": 0.17375617937805315,
+    "seats": 1,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2019-10-14 (Dz.U. 2019 poz. 1955); validity declared by the Supreme Court (Dz.U. 2020 poz. 9)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2019",
+        "source_url": "https://eli.gov.pl/eli/DU/2019/1955/ogl",
+        "source_record_id": "Part I, chapter 3, item 10",
+        "retrieved_at": "2026-11-02T19:26:08.591Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2019_part_I.txt",
+          "sha256": "2804ce811f9a65b91a985343c5f2661b22bae5d95433014ae0b1c0548dbdf8ff"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2023-01",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2023-10-15",
+    "contestant_ref": "ct-pl-sejm2023-01",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 21596674,
+    "total_seats": 460,
+    "votes": 401054,
+    "published_vote_share": 1.86,
+    "derived_vote_share": 1.8570174277761475,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2023-10-17 (Dz.U. 2023 poz. 2234); validity declared by the Supreme Court (Dz.U. 2024 poz. 52)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2023",
+        "source_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+        "source_record_id": "Part I, chapter 3, item 1",
+        "retrieved_at": "2026-11-02T19:19:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+          "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2023-02",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2023-10-15",
+    "contestant_ref": "ct-pl-sejm2023-02",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 21596674,
+    "total_seats": 460,
+    "votes": 3110670,
+    "published_vote_share": 14.4,
+    "derived_vote_share": 14.403467867320682,
+    "seats": 65,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2023-10-17 (Dz.U. 2023 poz. 2234); validity declared by the Supreme Court (Dz.U. 2024 poz. 52)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2023",
+        "source_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+        "source_record_id": "Part I, chapter 3, item 2",
+        "retrieved_at": "2026-11-02T19:19:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+          "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2023-03",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2023-10-15",
+    "contestant_ref": "ct-pl-sejm2023-03",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 21596674,
+    "total_seats": 460,
+    "votes": 1859018,
+    "published_vote_share": 8.61,
+    "derived_vote_share": 8.6078902705111,
+    "seats": 26,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2023-10-17 (Dz.U. 2023 poz. 2234); validity declared by the Supreme Court (Dz.U. 2024 poz. 52)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2023",
+        "source_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+        "source_record_id": "Part I, chapter 3, item 3",
+        "retrieved_at": "2026-11-02T19:19:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+          "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2023-04",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2023-10-15",
+    "contestant_ref": "ct-pl-sejm2023-04",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 21596674,
+    "total_seats": 460,
+    "votes": 7640854,
+    "published_vote_share": 35.38,
+    "derived_vote_share": 35.3797719037663,
+    "seats": 194,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2023-10-17 (Dz.U. 2023 poz. 2234); validity declared by the Supreme Court (Dz.U. 2024 poz. 52)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2023",
+        "source_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+        "source_record_id": "Part I, chapter 3, item 4",
+        "retrieved_at": "2026-11-02T19:19:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+          "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2023-05",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2023-10-15",
+    "contestant_ref": "ct-pl-sejm2023-05",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 21596674,
+    "total_seats": 460,
+    "votes": 1547364,
+    "published_vote_share": 7.16,
+    "derived_vote_share": 7.164825472663059,
+    "seats": 18,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2023-10-17 (Dz.U. 2023 poz. 2234); validity declared by the Supreme Court (Dz.U. 2024 poz. 52)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2023",
+        "source_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+        "source_record_id": "Part I, chapter 3, item 5",
+        "retrieved_at": "2026-11-02T19:19:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+          "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2023-06",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2023-10-15",
+    "contestant_ref": "ct-pl-sejm2023-06",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 21596674,
+    "total_seats": 460,
+    "votes": 6629402,
+    "published_vote_share": 30.7,
+    "derived_vote_share": 30.696402603474958,
+    "seats": 157,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2023-10-17 (Dz.U. 2023 poz. 2234); validity declared by the Supreme Court (Dz.U. 2024 poz. 52)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2023",
+        "source_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+        "source_record_id": "Part I, chapter 3, item 6",
+        "retrieved_at": "2026-11-02T19:19:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+          "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2023-07",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2023-10-15",
+    "contestant_ref": "ct-pl-sejm2023-07",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 21596674,
+    "total_seats": 460,
+    "votes": 351099,
+    "published_vote_share": 1.63,
+    "derived_vote_share": 1.625708662361621,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2023-10-17 (Dz.U. 2023 poz. 2234); validity declared by the Supreme Court (Dz.U. 2024 poz. 52)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2023",
+        "source_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+        "source_record_id": "Part I, chapter 3, item 7",
+        "retrieved_at": "2026-11-02T19:19:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+          "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2023-08",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2023-10-15",
+    "contestant_ref": "ct-pl-sejm2023-08",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 21596674,
+    "total_seats": 460,
+    "votes": 24850,
+    "published_vote_share": 0.12,
+    "derived_vote_share": 0.11506401402364087,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2023-10-17 (Dz.U. 2023 poz. 2234); validity declared by the Supreme Court (Dz.U. 2024 poz. 52)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2023",
+        "source_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+        "source_record_id": "Part I, chapter 3, item 8",
+        "retrieved_at": "2026-11-02T19:19:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+          "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2023-09",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2023-10-15",
+    "contestant_ref": "ct-pl-sejm2023-09",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 21596674,
+    "total_seats": 460,
+    "votes": 4606,
+    "published_vote_share": 0.02,
+    "derived_vote_share": 0.021327358092269207,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2023-10-17 (Dz.U. 2023 poz. 2234); validity declared by the Supreme Court (Dz.U. 2024 poz. 52)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2023",
+        "source_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+        "source_record_id": "Part I, chapter 3, item 9",
+        "retrieved_at": "2026-11-02T19:19:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+          "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2023-10",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2023-10-15",
+    "contestant_ref": "ct-pl-sejm2023-10",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 21596674,
+    "total_seats": 460,
+    "votes": 25778,
+    "published_vote_share": 0.12,
+    "derived_vote_share": 0.11936097197188789,
+    "seats": 0,
+    "seat_basis": "stated in the notice",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2023-10-17 (Dz.U. 2023 poz. 2234); validity declared by the Supreme Court (Dz.U. 2024 poz. 52)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2023",
+        "source_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+        "source_record_id": "Part I, chapter 3, item 10",
+        "retrieved_at": "2026-11-02T19:19:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+          "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2023-11",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2023-10-15",
+    "contestant_ref": "ct-pl-sejm2023-11",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 21596674,
+    "total_seats": 460,
+    "votes": 823,
+    "published_vote_share": 0.004,
+    "derived_vote_share": 0.0038107719734992523,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2023-10-17 (Dz.U. 2023 poz. 2234); validity declared by the Supreme Court (Dz.U. 2024 poz. 52)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2023",
+        "source_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+        "source_record_id": "Part I, chapter 3, item 11",
+        "retrieved_at": "2026-11-02T19:19:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+          "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-pl-sejm2023-12",
+    "country": "poland",
+    "geography": "national",
+    "election_id": "el-pl-sejm-2023-10-15",
+    "contestant_ref": "ct-pl-sejm2023-12",
+    "vote_type": "sejm_list_vote",
+    "valid_votes": 21596674,
+    "total_seats": 460,
+    "votes": 1156,
+    "published_vote_share": 0.005,
+    "derived_vote_share": 0.005352676064842207,
+    "seats": 0,
+    "seat_basis": "excluded from seat allocation by the notice, recorded as 0",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: PKW notice of 2023-10-17 (Dz.U. 2023 poz. 2234); validity declared by the Supreme Court (Dz.U. 2024 poz. 52)",
+    "provenance": [
+      {
+        "source_id": "src-pl-pkw-notice-2023",
+        "source_url": "https://eli.gov.pl/eli/DU/2023/2234/ogl",
+        "source_record_id": "Part I, chapter 3, item 12",
+        "retrieved_at": "2026-11-02T19:19:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt",
+          "sha256": "8a7dca792144107dcada4f27d10ab52cdec7aa3b42437a6e08a6d760803735b6"
+        },
+        "parser_version": "poland-sejm-national-v1",
+        "parser_sha256": "d12fa8bd5d07048e4193189949b9261f35b9fcdfa6e5071de02782491ee1b9b1",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "in_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]
