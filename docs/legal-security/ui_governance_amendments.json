@@ -1695,6 +1695,25 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-25"
+    },
+    {
+      "amendment_id": "political-czechia-2017-2021-view-2026-11-02",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-02 (enable real Czech election-to-election comparisons through the existing Political Explorer): a Czech view of the same explorer, its data accessors, a link between the views and the updated status text; stores are covered only by docs/legal-security/political_admission_records.json",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        { "path": "src/lib/politicalData.ts", "sha256": "569d1a29cf6435abff8a726d5793904fb75e0a62e4b745ba90fffc81c9d82135", "classification": "DATA_PRESENTATION" },
+        { "path": "src/lib/politicalAdmission.ts", "sha256": "a91f27f4c5ec9faf475ba2154e91112a7705e620453e62b12f3205482fca7879", "classification": "DATA_PRESENTATION" },
+        { "path": "src/components/PoliticalExplorerAlpha.tsx", "sha256": "34eef946871c658ad9f55043841e39aeb6c704d5810443781fa07dbce198b822", "classification": "DATA_PRESENTATION" },
+        { "path": "src/app/(zh)/politics/czechia/page.tsx", "sha256": "b1d4739fb9180b79eba519b52fe5ac47caf4968e223ab24f2be9cd2aaadf1619", "classification": "DATA_PRESENTATION" },
+        { "path": "src/app/(english)/en/politics/czechia/page.tsx", "sha256": "6ed4a2f9df0f80067aa41d3e75795dbb83fa11cb2e1d33bdf39fcfdf398baf64", "classification": "DATA_PRESENTATION" }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-02"
     }
   ]
 }

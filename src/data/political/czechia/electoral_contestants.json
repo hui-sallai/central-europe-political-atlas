@@ -1,5 +1,1701 @@
 [
   {
+    "contestant_id": "ct-cz-ps2017-01",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "1",
+    "registered_label_native": "1 Občanská demokratická strana",
+    "historical_display_label": "Občanská demokratická strana",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 252",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-02",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "2",
+    "registered_label_native": "2 Řád národa - Vlastenecká unie",
+    "historical_display_label": "Řád národa - Vlastenecká unie",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 312",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-03",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "3",
+    "registered_label_native": "3 CESTA ODPOVĚDNÉ SPOLEČNOSTI",
+    "historical_display_label": "CESTA ODPOVĚDNÉ SPOLEČNOSTI",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 372",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-04",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "4",
+    "registered_label_native": "4 Česká strana sociálně demokratická",
+    "historical_display_label": "Česká strana sociálně demokratická",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 428",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-05",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "5",
+    "registered_label_native": "5 Volte Pravý Blok-stranu za ODVOLAT.polit.,NÍZKÉ daně,VYROVN.rozp.,MIN.byrokr.,SPRAV.just.,PŘÍMOU demokr. WWW.CIBULKA.NET",
+    "historical_display_label": "Volte Pravý Blok-stranu za ODVOLAT.polit.,NÍZKÉ daně,VYROVN.rozp.,MIN.byrokr.,SPRAV.just.,PŘÍMOU demokr. WWW.CIBULKA.NET",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 488",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-06",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "6",
+    "registered_label_native": "6 Radostné Česko",
+    "historical_display_label": "Radostné Česko",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 496",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-07",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "7",
+    "registered_label_native": "7 STAROSTOVÉ A NEZÁVISLÍ",
+    "historical_display_label": "STAROSTOVÉ A NEZÁVISLÍ",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 544",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-08",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "8",
+    "registered_label_native": "8 Komunistická strana Čech a Moravy",
+    "historical_display_label": "Komunistická strana Čech a Moravy",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 604",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-09",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "9",
+    "registered_label_native": "9 Strana zelených",
+    "historical_display_label": "Strana zelených",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 664",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-10",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "10",
+    "registered_label_native": "10 ROZUMNÍ - stop migraci a diktátu EU - peníze našim občanům, důchodcům, dětem, zdravotně postiženým...",
+    "historical_display_label": "ROZUMNÍ - stop migraci a diktátu EU - peníze našim občanům, důchodcům, dětem, zdravotně postiženým...",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 724",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-11",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "11",
+    "registered_label_native": "11 Společnost proti developerské výstavbě v Prokopském údolí",
+    "historical_display_label": "Společnost proti developerské výstavbě v Prokopském údolí",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 784",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-12",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "12",
+    "registered_label_native": "12 Strana svobodných občanů",
+    "historical_display_label": "Strana svobodných občanů",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 792",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-13",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "13",
+    "registered_label_native": "13 Blok proti islamizaci - Obrana domova",
+    "historical_display_label": "Blok proti islamizaci - Obrana domova",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 852",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-14",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "14",
+    "registered_label_native": "14 Občanská demokratická aliance",
+    "historical_display_label": "Občanská demokratická aliance",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 912",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-15",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "15",
+    "registered_label_native": "15 Česká pirátská strana",
+    "historical_display_label": "Česká pirátská strana",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 972",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-16",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "16",
+    "registered_label_native": "16 OBČANÉ 2011-SPRAVEDLNOST PRO LIDI",
+    "historical_display_label": "OBČANÉ 2011-SPRAVEDLNOST PRO LIDI",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1032",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-17",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "17",
+    "registered_label_native": "17 Unie Hrdosti, Aktivity, Vlastenectví, Empatie a Lidskosti 2017",
+    "historical_display_label": "Unie Hrdosti, Aktivity, Vlastenectví, Empatie a Lidskosti 2017",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1044",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-18",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "18",
+    "registered_label_native": "18 Česká národní fronta",
+    "historical_display_label": "Česká národní fronta",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1056",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-19",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "19",
+    "registered_label_native": "19 Referendum o Evropské unii",
+    "historical_display_label": "Referendum o Evropské unii",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1064",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-20",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "20",
+    "registered_label_native": "20 TOP 09",
+    "historical_display_label": "TOP 09",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1124",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-21",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "21",
+    "registered_label_native": "21 ANO 2011",
+    "historical_display_label": "ANO 2011",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1184",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-22",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "22",
+    "registered_label_native": "22 Dobrá volba 2016",
+    "historical_display_label": "Dobrá volba 2016",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1244",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-23",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "23",
+    "registered_label_native": "23 Sdružení pro republiku - Republikánská strana Československa Miroslava Sládka",
+    "historical_display_label": "Sdružení pro republiku - Republikánská strana Československa Miroslava Sládka",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1292",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-24",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "24",
+    "registered_label_native": "24 Křesťanská a demokratická unie - Československá strana lidová",
+    "historical_display_label": "Křesťanská a demokratická unie - Československá strana lidová",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1352",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-25",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "25",
+    "registered_label_native": "25 Česká strana národně sociální",
+    "historical_display_label": "Česká strana národně sociální",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1412",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-26",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "26",
+    "registered_label_native": "26 REALISTÉ",
+    "historical_display_label": "REALISTÉ",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1456",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-27",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "27",
+    "registered_label_native": "27 SPORTOVCI",
+    "historical_display_label": "SPORTOVCI",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1516",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-28",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "28",
+    "registered_label_native": "28 Dělnická strana sociální spravedlnosti",
+    "historical_display_label": "Dělnická strana sociální spravedlnosti",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1576",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-29",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "29",
+    "registered_label_native": "29 Svoboda a přímá demokracie - Tomio Okamura (SPD)",
+    "historical_display_label": "Svoboda a přímá demokracie - Tomio Okamura (SPD)",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1636",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-30",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "30",
+    "registered_label_native": "30 Strana Práv Občanů",
+    "historical_display_label": "Strana Práv Občanů",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1696",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2017-31",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "31",
+    "registered_label_native": "31 Národ Sobě",
+    "historical_display_label": "Národ Sobě",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv line 1756",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-01",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "01",
+    "registered_label_native": "1 Strana zelených",
+    "historical_display_label": "Strana zelených",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 28",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-02",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "02",
+    "registered_label_native": "2 Švýcarská demokracie (www.svycarska-demokracie.cz)",
+    "historical_display_label": "Švýcarská demokracie (www.svycarska-demokracie.cz)",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 32",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-03",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "03",
+    "registered_label_native": "3 VOLNÝ blok",
+    "historical_display_label": "VOLNÝ blok",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 36",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-04",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "04",
+    "registered_label_native": "4 Svoboda a přímá demokracie (SPD)",
+    "historical_display_label": "Svoboda a přímá demokracie (SPD)",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 40",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-05",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "05",
+    "registered_label_native": "5 Česká strana sociálně demokratická",
+    "historical_display_label": "Česká strana sociálně demokratická",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 44",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-06",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "06",
+    "registered_label_native": "6 Volte Pravý Blok-stranu za ODVOLAT.polit.,NÍZKÉ daně,VYROVN.rozp.,MIN.byrokr.,SPRAV.just.,PŘÍMOU demokr. WWW.CIBULKA.NET",
+    "historical_display_label": "Volte Pravý Blok-stranu za ODVOLAT.polit.,NÍZKÉ daně,VYROVN.rozp.,MIN.byrokr.,SPRAV.just.,PŘÍMOU demokr. WWW.CIBULKA.NET",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 48",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-07",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "07",
+    "registered_label_native": "7 ALIANCE NÁRODNÍCH SIL",
+    "historical_display_label": "ALIANCE NÁRODNÍCH SIL",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 52",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-08",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "08",
+    "registered_label_native": "8 Trikolora Svobodní Soukromníci",
+    "historical_display_label": "Trikolora Svobodní Soukromníci",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 56",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-09",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "09",
+    "registered_label_native": "9 Aliance pro budoucnost",
+    "historical_display_label": "Aliance pro budoucnost",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 60",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-10",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "10",
+    "registered_label_native": "10 Hnutí Prameny",
+    "historical_display_label": "Hnutí Prameny",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 64",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-11",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "11",
+    "registered_label_native": "11 Levice",
+    "historical_display_label": "Levice",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 68",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-12",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "12",
+    "registered_label_native": "12 PŘÍSAHA - občanské hnutí Roberta Šlachty",
+    "historical_display_label": "PŘÍSAHA - občanské hnutí Roberta Šlachty",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 72",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-13",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "13",
+    "registered_label_native": "13 SPOLU - ODS, KDU-ČSL, TOP 09",
+    "historical_display_label": "SPOLU - ODS, KDU-ČSL, TOP 09",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 76",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-14",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "14",
+    "registered_label_native": "14 SENIOŘI 21",
+    "historical_display_label": "SENIOŘI 21",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 80",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-15",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "15",
+    "registered_label_native": "15 Urza.cz: Nechc. vaše hl.; ke svob. se nelze provol. Odmítn. každou polit. funk. Jdeme jinou cestou - najd. ji na urza.cz",
+    "historical_display_label": "Urza.cz: Nechc. vaše hl.; ke svob. se nelze provol. Odmítn. každou polit. funk. Jdeme jinou cestou - najd. ji na urza.cz",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 84",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-16",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "16",
+    "registered_label_native": "16 Koruna Česká (monarchistická strana Čech, Moravy a Slezska)",
+    "historical_display_label": "Koruna Česká (monarchistická strana Čech, Moravy a Slezska)",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 88",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-17",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "17",
+    "registered_label_native": "17 PIRÁTI a STAROSTOVÉ",
+    "historical_display_label": "PIRÁTI a STAROSTOVÉ",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 92",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-18",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "18",
+    "registered_label_native": "18 Komunistická strana Čech a Moravy",
+    "historical_display_label": "Komunistická strana Čech a Moravy",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 96",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-19",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "19",
+    "registered_label_native": "19 Moravské zemské hnutí",
+    "historical_display_label": "Moravské zemské hnutí",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 100",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-20",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "20",
+    "registered_label_native": "20 ANO 2011",
+    "historical_display_label": "ANO 2011",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 104",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-21",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "21",
+    "registered_label_native": "21 Otevřeme Česko normálnímu životu",
+    "historical_display_label": "Otevřeme Česko normálnímu životu",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 108",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2021-22",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "csu_list_code": "22",
+    "registered_label_native": "22 Moravané",
+    "historical_display_label": "Moravané",
+    "display_label_rule": "official label without the leading ballot number when it equals the ČSÚ list code",
+    "lead_party_id": null,
+    "party_relation_status": "not_established_no_official_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv line 112",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "contestant_id": "ct-cz-ps2025-01",
     "country": "czechia",
     "election_id": "el-cz-ps-2025-10-03",
@@ -22,7 +1718,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -54,7 +1750,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -86,7 +1782,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -118,7 +1814,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -150,7 +1846,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -182,7 +1878,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -214,7 +1910,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -246,7 +1942,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -278,7 +1974,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -310,7 +2006,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -342,7 +2038,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -374,7 +2070,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -406,7 +2102,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -438,7 +2134,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -470,7 +2166,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -502,7 +2198,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -534,7 +2230,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -566,7 +2262,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -598,7 +2294,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -630,7 +2326,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -662,7 +2358,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -694,7 +2390,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -726,7 +2422,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -758,7 +2454,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -790,7 +2486,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -822,7 +2518,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"

@@ -1,5 +1,122 @@
 [
   {
+    "election_id": "el-cz-ps-2017-10-20",
+    "country": "czechia",
+    "election_type": "national_parliament",
+    "chamber": "Poslanecká sněmovna",
+    "date": "2017-10-20",
+    "date_end": "2017-10-21",
+    "year": 2017,
+    "legislature_id": "lg-cz-ps-2017",
+    "electoral_system_id": "es-cz-ps-2017",
+    "result_status": "official_final",
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "court_revision": {
+      "resolution": "Nejvyšší správní soud, Vol 58/2017-173 (19 November 2017)",
+      "url": "https://volby.gov.cz/cz/ps2017nss_usneseni_58_2017.pdf",
+      "operative_part": "Declares the election of one candidate of one list in the Central Bohemian Region invalid, declares another candidate of the same list elected, and resets that list's substitutes. First page read; candidates are not named here.",
+      "seats_by_list": "unchanged (official tables compared)",
+      "national_list_votes_after_resolution": "not established: the recalculated vote totals were not read",
+      "published_vintage": "original results; ČSÚ states that VOLPS201703 does not reflect the review"
+    },
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2017-2021-pages",
+        "source_url": "https://volby.gov.cz/app/ps2017/cs/seats-allocation",
+        "source_record_id": "seats-allocation page",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/evidence.json",
+          "sha256": "4fbedc450ce07a4e73aa1aa4fe166614e9f9d4dd17d3d32e49ff69ae523b32bd"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "date",
+          "date_end",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "national rows, Roky=2017, Uz02A=CZ",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "result_vintage"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-cz-ps-2021-10-08",
+    "country": "czechia",
+    "election_type": "national_parliament",
+    "chamber": "Poslanecká sněmovna",
+    "date": "2021-10-08",
+    "date_end": "2021-10-09",
+    "year": 2021,
+    "legislature_id": "lg-cz-ps-2021",
+    "electoral_system_id": "es-cz-ps-2021",
+    "result_status": "official_final",
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "court_revision": {
+      "resolution": "Nejvyšší správní soud, Vol 102/2021",
+      "url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+      "operative_part": "As summarised on ČSÚ's open-data page: a candidate's withdrawal in the South Moravian Region was invalid and the list's substitutes were reset; ČSÚ states the list of elected deputies is unchanged. The ruling itself was not read.",
+      "seats_by_list": "unchanged per ČSÚ",
+      "published_vintage": "VOLPS202103"
+    },
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2017-2021-pages",
+        "source_url": "https://volby.gov.cz/app/ps2021/cs/seats-allocation",
+        "source_record_id": "seats-allocation page",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/evidence.json",
+          "sha256": "4fbedc450ce07a4e73aa1aa4fe166614e9f9d4dd17d3d32e49ff69ae523b32bd"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "date",
+          "date_end",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "national rows, Roky=2021, Uz02A=CZ",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "result_vintage"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "election_id": "el-cz-ps-2025-10-03",
     "country": "czechia",
     "election_type": "national_parliament",
@@ -24,7 +141,7 @@
           "sha256": "b42f684c8d890c143a315ad94b8633e9ecc01815288cbc6210a740b01047f850"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "date",
           "date_end",
@@ -42,7 +159,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "result_vintage"
         ],

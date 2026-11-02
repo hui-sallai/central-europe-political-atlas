@@ -2,69 +2,71 @@
   "schema_version": "czechia-political-export-v1",
   "country": "czechia",
   "elections": [
+    "el-cz-ps-2017-10-20",
+    "el-cz-ps-2021-10-08",
     "el-cz-ps-2025-10-03"
   ],
   "continuous_party_series": 0,
   "files": [
     {
       "name": "elections.json",
-      "sha256": "67a877173f950d241c543e8a00da5dd1a31e9f4269bfbd9c0df896d23beff747"
+      "sha256": "b0feaa6f4ecc0b3638202fa55b1107180ae4c3973a7fe603607f986243cb0571"
     },
     {
       "name": "elections.csv",
-      "sha256": "865a668607147b95d6ffded689f3faa19761e54a8ab799339fd9daa92dc6fbc7"
+      "sha256": "9faf018c05171ad7be13e2be081126a6c225875c3cd99360b5af9e733acadcce"
     },
     {
       "name": "election_turnout.json",
-      "sha256": "3718e3294dd1ee44f950183dd036fc773e0de9996034889a0d1b40d9b3d21b7a"
+      "sha256": "a1fd83796c332564c65934bce778fe16d8162e50e627b13543d4af395e245a9d"
     },
     {
       "name": "election_turnout.csv",
-      "sha256": "112e50af0851ad007b53b029b803e10b7976aecaa0f548485f3964737b5cea95"
+      "sha256": "ed51b59dca24a955a47e1e219f6906a452e734c17d36504bc20aa6975d81606d"
     },
     {
       "name": "election_results.json",
-      "sha256": "fe796deb5b56f5699c066d41f649056c41126bd02c187d891fa6c40ba965cd3e"
+      "sha256": "d2f85c01f15594521cb8e59fea695c13b777436dc4a456bfbcff7ea49f725888"
     },
     {
       "name": "election_results.csv",
-      "sha256": "b29017ce960e5bfc0c0d2c1c23372a1e350ad1eb4c95747d6226b8a451fb8be4"
+      "sha256": "80c8d567db6db9d358c5e2c08e6bc9121bc86eb6859fd0edf55754b11e0e6cb2"
     },
     {
       "name": "electoral_contestants.json",
-      "sha256": "639044d4fb1a378ae661027e85bf85a167aba402f2ab417209dba4fa00be7490"
+      "sha256": "d50b20df8270124c535b2611b7bdbe171e59327bc53c9b54ab566781d00a8711"
     },
     {
       "name": "electoral_contestants.csv",
-      "sha256": "8e8d61bcd9031d00b5847918c39a146e1d7ed52acfeb60678fa5bdb2fe399fbc"
+      "sha256": "e5237ae6456c5a927db0d7f976d79bfa43001a5874a7f2b6f7b39786c1ed0423"
     },
     {
       "name": "legislatures.json",
-      "sha256": "281afacd56289ec4a4d06425f4c2d772560e8a62929b544a1fbdeda0560ed842"
+      "sha256": "23902518d7b12a6de7c3339bf9d270f8a586a870c56d2d0e59880bbdef90ebfc"
     },
     {
       "name": "legislatures.csv",
-      "sha256": "50739aff839b49ea001a3777ffb7268bbd07c2166428d94f1f99d2a605604a53"
+      "sha256": "ee2a625dd0ffa8b9522de9c2d1ce87f6dde11ae9e3008357008d3ee28b3f7f98"
     },
     {
       "name": "electoral_systems.json",
-      "sha256": "063a35c9c236edfa203401d2aca647cbb3772b98b1c86ed49c00caf00eb7c854"
+      "sha256": "350083205636c272278a86acf2f2b5616b322a49376c6547c6fe85d736a45576"
     },
     {
       "name": "electoral_systems.csv",
-      "sha256": "da8c9c570b3d1a03b15d2ffdb67f3460ade1ecf78d0011838a48c80726ee7265"
+      "sha256": "aa9afecd89f16ae9c02a728c3774f85dc4702d06e803df7cef7f45d6809a8714"
     },
     {
       "name": "political_source_registry.json",
-      "sha256": "6d7c84dd3b4d9609dd853d056837d86ae29c82c98a91264339ba36be57534aab"
+      "sha256": "c98ca6294721d86679fbbcd368dd490810c4169233d770a9a1b30c35bdaf879a"
     },
     {
       "name": "political_source_registry.csv",
-      "sha256": "732d629d32c56cc174506c3b98cff20907720f95819c861cf0983c4736cfada5"
+      "sha256": "2cb27b9dbfde4da21690253afaebb8b7cae67beacb8a3d7c414d81a04d32dcad"
     },
     {
       "name": "README.md",
-      "sha256": "f15b850493e9b5768163e7d9fca0fcda5acde6d289bb45399f799ecd848357ef"
+      "sha256": "842ba3246bcacae5ec50f1d97c520f4fb3beb8904855a5f1f084791d17e3ae26"
     }
   ]
 }

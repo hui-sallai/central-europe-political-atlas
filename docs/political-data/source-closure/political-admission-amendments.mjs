@@ -5,16 +5,16 @@
 export const POLITICAL_ADMISSION_FILE = 'docs/legal-security/political_admission_records.json';
 export const MANDATORY_ADMISSION_GATES = ['reuse_right', 'normalized_republication', 'acquisition_route', 'source_files_complete', 'national_definition_complete', 'same_election_identity_complete', 'electoral_system_metadata_complete', 'vintage_decisions_complete'];
 const STORES = ['elections', 'election_turnout', 'election_results', 'electoral_contestants', 'legislatures', 'electoral_systems', 'political_source_registry'];
+const CZECH_PATHS = [
+  ...STORES.map((s) => `src/data/political/czechia/${s}.json`),
+  ...STORES.flatMap((s) => [`public/research-data/political/czechia/${s}.json`, `public/research-data/political/czechia/${s}.csv`]),
+  'public/research-data/political/czechia/README.md',
+  'public/research-data/political/czechia/manifest.json',
+];
+// Later admissions of a country share its files; each record's gate record stays required, and the last record's hashes apply.
 export const POLITICAL_ADMISSIONS = {
-  'czechia-ps-2025': {
-    approved_on: '2026-10-25', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2025_admission.json',
-    paths: [
-      ...STORES.map((s) => `src/data/political/czechia/${s}.json`),
-      ...STORES.flatMap((s) => [`public/research-data/political/czechia/${s}.json`, `public/research-data/political/czechia/${s}.csv`]),
-      'public/research-data/political/czechia/README.md',
-      'public/research-data/political/czechia/manifest.json',
-    ],
-  },
+  'czechia-ps-2025': { approved_on: '2026-10-25', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2025_admission.json', paths: CZECH_PATHS },
+  'czechia-ps-2017-2021': { approved_on: '2026-11-02', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2017_2021_admission.json', paths: CZECH_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 const admissiblePath = (file, country) => country !== 'germany' && /^[a-z]+$/.test(country) && (file.startsWith(`src/data/political/${country}/`) || file.startsWith(`public/research-data/political/${country}/`));
@@ -27,7 +27,7 @@ export function approvedPoliticalAdmissionFiles(records, hashOf = () => null) {
     const admission = POLITICAL_ADMISSIONS[r.admission_id];
     if (!admission || r.approved_on !== admission.approved_on || r.country !== admission.country) { problems.push(`Unexpected political admission: ${r.admission_id}`); continue; }
     if (r.baseline !== 'd68d0e10fa0c83b57e044af02e352379aa9e9d2d') problems.push('Unexpected political admission baseline');
-    if (r.verification !== 'build-ps2025 check, official-total reconciliation and closed admission gate record') problems.push('Political admission verification required');
+    if (!/official-total reconciliation and closed admission gate record$/.test(r.verification ?? '')) problems.push('Political admission verification required');
     for (const flag of flags) if (r[flag] !== false) problems.push(`${flag} must be false`);
     if (r.gate_record !== admission.gate_record || !/^[0-9a-f]{64}$/.test(r.gate_record_sha256 ?? '') || hashOf(r.gate_record) !== r.gate_record_sha256) problems.push(`${r.admission_id}: gate record missing or changed`);
     if (JSON.stringify([...(r.gates_closed ?? [])].sort()) !== JSON.stringify([...MANDATORY_ADMISSION_GATES].sort())) problems.push(`${r.admission_id}: every mandatory gate must be recorded closed`);

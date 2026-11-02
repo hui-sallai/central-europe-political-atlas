@@ -1,5 +1,1966 @@
 [
   {
+    "result_id": "er-ct-cz-ps2017-01",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-01",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 572962,
+    "published_vote_share": 11.32,
+    "derived_vote_share": 11.32166143457928,
+    "seats": 25,
+    "published_seat_share": 12.5,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 252, 267, 282, 297",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-02",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-02",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 8735,
+    "published_vote_share": 0.17,
+    "derived_vote_share": 0.1726025681128068,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 312, 327, 342, 357",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-03",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-03",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 3758,
+    "published_vote_share": 0.07,
+    "derived_vote_share": 0.07425763605814859,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 372, 386, 400, 414",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-04",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-04",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 368347,
+    "published_vote_share": 7.27,
+    "derived_vote_share": 7.278493206256216,
+    "seats": 15,
+    "published_seat_share": 7.5,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 428, 443, 458, 473",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-05",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-05",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 491,
+    "published_vote_share": 0,
+    "derived_vote_share": 0.00970210199695342,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 488, 490, 492, 494",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-06",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-06",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 3852,
+    "published_vote_share": 0.07,
+    "derived_vote_share": 0.07611506495369569,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 496, 508, 520, 532",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-07",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-07",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 262157,
+    "published_vote_share": 5.18,
+    "derived_vote_share": 5.180191350744029,
+    "seats": 6,
+    "published_seat_share": 3,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 544, 559, 574, 589",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-08",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-08",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 393100,
+    "published_vote_share": 7.76,
+    "derived_vote_share": 7.767609562122995,
+    "seats": 15,
+    "published_seat_share": 7.5,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 604, 619, 634, 649",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-09",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-09",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 74335,
+    "published_vote_share": 1.46,
+    "derived_vote_share": 1.468850818622266,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 664, 679, 694, 709",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-10",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-10",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 36528,
+    "published_vote_share": 0.72,
+    "derived_vote_share": 0.7217889648568525,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 724, 739, 754, 769",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-11",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-11",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 438,
+    "published_vote_share": 0,
+    "derived_vote_share": 0.008654828257974742,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 784, 786, 788, 790",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-12",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-12",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 79229,
+    "published_vote_share": 1.56,
+    "derived_vote_share": 1.56555568048192,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 792, 807, 822, 837",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-13",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-13",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 5077,
+    "published_vote_share": 0.1,
+    "derived_vote_share": 0.10032092024141043,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 852, 867, 882, 897",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-14",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-14",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 8030,
+    "published_vote_share": 0.15,
+    "derived_vote_share": 0.1586718513962036,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 912, 927, 942, 957",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-15",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-15",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 546393,
+    "published_vote_share": 10.79,
+    "derived_vote_share": 10.79666113324108,
+    "seats": 22,
+    "published_seat_share": 11,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 972, 987, 1002, 1017",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-16",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-16",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 359,
+    "published_vote_share": 0,
+    "derived_vote_share": 0.007093797590440485,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1032, 1035, 1038, 1041",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-17",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-17",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 436,
+    "published_vote_share": 0,
+    "derived_vote_share": 0.008615308494239698,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1044, 1047, 1050, 1053",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-18",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-18",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 117,
+    "published_vote_share": 0,
+    "derived_vote_share": 0.0023119061785001026,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1056, 1058, 1060, 1062",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-19",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-19",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 4276,
+    "published_vote_share": 0.08,
+    "derived_vote_share": 0.08449325486552511,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1064, 1079, 1094, 1109",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-20",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-20",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 268811,
+    "published_vote_share": 5.31,
+    "derived_vote_share": 5.311673604690522,
+    "seats": 7,
+    "published_seat_share": 3.5,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1124, 1139, 1154, 1169",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-21",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-21",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 1500113,
+    "published_vote_share": 29.64,
+    "derived_vote_share": 29.642055667934397,
+    "seats": 78,
+    "published_seat_share": 39,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1184, 1199, 1214, 1229",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-22",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-22",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 3722,
+    "published_vote_share": 0.07,
+    "derived_vote_share": 0.07354628031091778,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1244, 1256, 1268, 1280",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-23",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-23",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 9857,
+    "published_vote_share": 0.19,
+    "derived_vote_share": 0.19477315556816674,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1292, 1307, 1322, 1337",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-24",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-24",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 293643,
+    "published_vote_share": 5.8,
+    "derived_vote_share": 5.802350991224834,
+    "seats": 10,
+    "published_seat_share": 5,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1352, 1367, 1382, 1397",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-25",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-25",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 1573,
+    "published_vote_share": 0.03,
+    "derived_vote_share": 0.03108229417761249,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1412, 1423, 1434, 1445",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-26",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-26",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 35995,
+    "published_vote_share": 0.71,
+    "derived_vote_share": 0.7112569478214631,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1456, 1471, 1486, 1501",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-27",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-27",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 10593,
+    "published_vote_share": 0.2,
+    "derived_vote_share": 0.20931642862266311,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1516, 1531, 1546, 1561",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-28",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-28",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 10402,
+    "published_vote_share": 0.2,
+    "derived_vote_share": 0.20554229118596637,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1576, 1591, 1606, 1621",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-29",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-29",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 538574,
+    "published_vote_share": 10.64,
+    "derived_vote_share": 10.642158616918925,
+    "seats": 22,
+    "published_seat_share": 11,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1636, 1651, 1666, 1681",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-30",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-30",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 18556,
+    "published_vote_share": 0.36,
+    "derived_vote_share": 0.36666436793374274,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1696, 1711, 1726, 1741",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2017-31",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2017-10-20",
+    "contestant_ref": "ct-cz-ps2017-31",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5060759,
+    "total_seats": 200,
+    "votes": 300,
+    "published_vote_share": 0,
+    "derived_vote_share": 0.005927964560256673,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "original results: ČSÚ DataStat VOLPS201703 v1 (data updated 2026-08-13); does not reflect Supreme Administrative Court resolution Vol 58/2017-173",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps201703",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv",
+        "source_record_id": "VOLPS201703.csv lines 1756, 1758, 1760, 1762",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+          "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-01",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-01",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 53343,
+    "published_vote_share": 0.99,
+    "derived_vote_share": 0.9924112898574722,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 28, 29, 30, 31",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-02",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-02",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 16823,
+    "published_vote_share": 0.31,
+    "derived_vote_share": 0.3129808059027849,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 32, 33, 34, 35",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-03",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-03",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 71587,
+    "published_vote_share": 1.33,
+    "derived_vote_share": 1.3318288624004435,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 36, 37, 38, 39",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-04",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-04",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 513910,
+    "published_vote_share": 9.56,
+    "derived_vote_share": 9.560956188640562,
+    "seats": 20,
+    "published_seat_share": 10,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 40, 41, 42, 43",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-05",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-05",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 250397,
+    "published_vote_share": 4.65,
+    "derived_vote_share": 4.65847083490695,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 44, 45, 46, 47",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-06",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-06",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 586,
+    "published_vote_share": 0.01,
+    "derived_vote_share": 0.010902143033884084,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 48, 49, 50, 51",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-07",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-07",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 5167,
+    "published_vote_share": 0.09,
+    "derived_vote_share": 0.09612862296259225,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 52, 53, 54, 55",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-08",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-08",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 148463,
+    "published_vote_share": 2.76,
+    "derived_vote_share": 2.7620560772005676,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 56, 57, 58, 59",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-09",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-09",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 11531,
+    "published_vote_share": 0.21,
+    "derived_vote_share": 0.21452664048415931,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 60, 61, 62, 63",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-10",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-10",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 8599,
+    "published_vote_share": 0.15,
+    "derived_vote_share": 0.1599787166354424,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 64, 65, 66, 67",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-11",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-11",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 639,
+    "published_vote_share": 0.01,
+    "derived_vote_share": 0.0118881730352422,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 68, 69, 70, 71",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-12",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-12",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 251562,
+    "published_vote_share": 4.68,
+    "derived_vote_share": 4.68014489059718,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 72, 73, 74, 75",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-13",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-13",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 1493905,
+    "published_vote_share": 27.79,
+    "derived_vote_share": 27.793116022243346,
+    "seats": 71,
+    "published_seat_share": 35.5,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 76, 77, 78, 79",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-14",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-14",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 3698,
+    "published_vote_share": 0.06,
+    "derived_vote_share": 0.06879884801928898,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 80, 81, 82, 83",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-15",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-15",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 6775,
+    "published_vote_share": 0.12,
+    "derived_vote_share": 0.12604440111700455,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 84, 85, 86, 87",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-16",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-16",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 8635,
+    "published_vote_share": 0.16,
+    "derived_vote_share": 0.16064847286277997,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 88, 89, 90, 91",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-17",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-17",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 839776,
+    "published_vote_share": 15.62,
+    "derived_vote_share": 15.623477932462526,
+    "seats": 37,
+    "published_seat_share": 18.5,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 92, 93, 94, 95",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-18",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-18",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 193817,
+    "published_vote_share": 3.6,
+    "derived_vote_share": 3.60583729760804,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 96, 97, 98, 99",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-19",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-19",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 1648,
+    "published_vote_share": 0.03,
+    "derived_vote_share": 0.03065995174034295,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 100, 101, 102, 103",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-20",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-20",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 1458140,
+    "published_vote_share": 27.12,
+    "derived_vote_share": 27.127731814723106,
+    "seats": 72,
+    "published_seat_share": 36,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 104, 105, 106, 107",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-21",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-21",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 21804,
+    "published_vote_share": 0.4,
+    "derived_vote_share": 0.40564902169079964,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 108, 109, 110, 111",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2021-22",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2021-10-08",
+    "contestant_ref": "ct-cz-ps2021-22",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5375090,
+    "total_seats": 200,
+    "votes": 14285,
+    "published_vote_share": 0.26,
+    "derived_vote_share": 0.26576299187548486,
+    "seats": 0,
+    "published_seat_share": 0,
+    "result_vintage": "final: ČSÚ DataStat VOLPS202103 v1 (data updated 2026-08-12)",
+    "provenance": [
+      {
+        "source_id": "src-cz-csu-volps202103",
+        "source_url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv",
+        "source_record_id": "VOLPS202103.csv lines 112, 113, 114, 115",
+        "retrieved_at": "2026-11-02T11:24:02Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+          "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
+        },
+        "parser_version": "czechia-ps-national-v1",
+        "parser_sha256": "658b2fde01e06a83940f977993bd1e8ad5184d8bf0f1e91429ec08f3d84e4c57",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats",
+          "published_seat_share"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "result_id": "er-ct-cz-ps2025-01",
     "country": "czechia",
     "geography": "national",
@@ -25,7 +1986,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -62,7 +2023,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -99,7 +2060,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -136,7 +2097,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -173,7 +2134,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -210,7 +2171,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -247,7 +2208,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -284,7 +2245,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -321,7 +2282,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -358,7 +2319,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -395,7 +2356,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -432,7 +2393,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -469,7 +2430,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -506,7 +2467,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -543,7 +2504,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -580,7 +2541,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -617,7 +2578,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -654,7 +2615,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -691,7 +2652,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -728,7 +2689,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -765,7 +2726,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -802,7 +2763,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -839,7 +2800,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -876,7 +2837,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -913,7 +2874,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -950,7 +2911,7 @@
           "sha256": "ff86f0c18c713d5e762f1e4128496e81585e0fd42fbff2fa4e8380e520f5cd7a"
         },
         "parser_version": "czechia-ps2025-v1",
-        "parser_sha256": "d7b592c2aab18290979d05df5c0115c36beeda3499c2d4e059a45f78dcd09090",
+        "parser_sha256": "3e10d7fc815e55de8fb633d3ba412926ec8bb964b6bac7619b9a3d605f897413",
         "fields_covered": [
           "votes",
           "published_vote_share",

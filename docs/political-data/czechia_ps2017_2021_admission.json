@@ -1,0 +1,78 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "czechia-ps-2017-2021",
+ "country": "czechia",
+ "election_ids": [
+  "el-cz-ps-2017-10-20",
+  "el-cz-ps-2021-10-08"
+ ],
+ "scope": "Chamber of Deputies elections of 20–21 October 2017 and 8–9 October 2021, national level only. The 2025 election keeps its own gate record. 2002–2013 and the volby.gov.cz files are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-02",
+   "decision": "Owner brief: admit Czechia 2017 and 2021 using the official ČSÚ data and the existing pipeline, with dataset-specific reuse evidence. Applied to exactly VOLPS201703, VOLPS202103 and the 2017/2021 rows of VOLPS03. For review: this uses the same evidence kind the owner accepted for 2025 on 2026-10-25, on distributions that decision did not name."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/czechia/ps2017-2021/evidence.json",
+  "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv",
+  "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv",
+  "docs/political-data/raw/czechia/ps2017-2021/VOLPS03_cz_2017_2021_excerpt.csv"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "supported_explicit",
+   "evidence_kind": "national_catalogue_distribution_rights_metadata",
+   "basis": "For every distribution of VOLPS201703 and VOLPS202103 (CSV, JSON, DataStat API) the national open-data catalogue records: copyright work — none; original database — none; database maker's right — not protected; personal data — none (evidence.json). VOLPS03 was recorded in the same way for the 2025 admission."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "cleared",
+   "evidence_kind": "national_catalogue_distribution_rights_metadata",
+   "basis": "No protected right exists in these distributions according to their catalogue metadata."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "cleared",
+   "evidence_kind": "national_catalogue_distribution_rights_metadata",
+   "basis": "VOLPS201703.csv and VOLPS202103.csv are redistributed in full; VOLPS03 as an excerpt with the full file's checksum."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "manual_public_download_of_documented_distribution",
+   "evidence_kind": "national_catalogue_distribution_rights_metadata",
+   "basis": "Single retrieval of the documented DataStat links on 2026-11-02 with an identifying User-Agent; data.csu.gov.cz has no robots.txt. No file from volby.gov.cz is used as data."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "basis": "VOLPS201703 and VOLPS202103 hold votes, published vote share, seats and seat share for all lists (31 and 22) and the national total; VOLPS03 holds registered voters, issued envelopes, published turnout and valid votes."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "basis": "List votes are the only national ballot; shares use total valid votes and are truncated to two decimals (verified for all 53 lists); turnout is issued envelopes / registered voters (verified to 0.005 points); seats are whole-chamber seats out of 200. Ballots cast and invalid votes remain missing."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "basis": "Each list is identified by its ČSÚ ballot code and official label within its own election. List kind, coalition membership and links between elections are recorded as not established."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "basis": "Act 247/1995 Coll. (e-Sbírka informative texts). 2017: thresholds 5/10/15/20%, one scrutiny by divisors 1, 2, 3 … within regions. 2021: thresholds 5/8/11%, regional quota votes ÷ (seats + 2), national second scrutiny. Minority-representation rules not reviewed and shown as missing."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "basis": "2017: original results, labelled as such; ČSÚ states VOLPS201703 does not reflect Vol 58/2017-173. The ruling concerned which candidate of one list was elected in one region; official seats-by-list tables are identical before and after it. Recalculated vote totals were not read and are not claimed. 2021: VOLPS202103; ČSÚ reports that ruling Vol 102/2021 reset one list's substitutes and left the elected deputies unchanged."
+  }
+ },
+ "not_established": [
+  "list kind (party / movement / coalition)",
+  "coalition member parties",
+  "which threshold applied to each list",
+  "cross-election party identity and continuous party series",
+  "2017 list votes after the court recalculation",
+  "ballots cast and invalid votes",
+  "minority-representation rules"
+ ],
+ "overall_readiness": "ADMITTED_BY_OWNER_BRIEF_FOR_REVIEW"
+}

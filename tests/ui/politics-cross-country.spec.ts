@@ -91,3 +91,31 @@ for (const locale of ["zh-CN", "en"] as const) test(`Germany 2025 rule fields po
   await expect(status.locator("[data-admission='hungary'] [data-admission-cause='reuse_restriction']")).toHaveCount(0);
   await expect(status.locator("[data-admission='germany'] [data-admission-cause]")).toHaveCount(0);
 });
+
+for (const locale of ["zh-CN", "en"] as const) test(`Czech view: real 2017–2025 election comparison, rule differences and Germany comparison (${locale})`, async ({ page }) => {
+  const prefix = locale === "en" ? "/en" : "";
+  await page.goto(`${prefix}/politics/`, { waitUntil: "networkidle" });
+  await page.locator("[data-politics-country-view]").click();
+  await page.waitForURL(`**${prefix}/politics/czechia/`);
+  const panel = page.locator("[data-politics-explorer]");
+  await expect(panel.locator("tbody th button")).toHaveCount(3);
+  const details = panel.locator("[data-national-research]");
+  await details.locator("summary").click();
+  await expect(details).toContainText("11%");
+  await panel.locator("select").nth(1).selectOption({ label: "2017" });
+  await expect(panel.locator("#politics-system")).toContainText("Vol 58/2017-173");
+  await expect(details).toContainText("20%");
+  await page.getByLabel(locale === "en" ? "Compare 2017 with" : "将 2017 年与以下选举比较").selectOption({ label: "2021" });
+  const compare = panel.locator("[data-compare-aggregates]");
+  await expect(compare).toBeVisible();
+  await expect(compare.locator("tbody tr").first()).toContainText("4.6");
+  // Lists are never linked across elections, and no party series is offered.
+  await expect(panel.locator("[data-politics-history] select").first().locator("option")).toHaveCount(1);
+  await expect(panel.locator("[data-country-comparison]")).toBeVisible();
+  await expect(panel.locator("[data-country-lists='germany']")).toBeVisible();
+  await expect(panel).not.toContainText("Bundeswahlleiterin, Wiesbaden. Source links");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  await panel.locator("[data-politics-country-view]").click();
+  await page.waitForURL(`**${prefix}/politics/`);
+  await expect(page.locator("[data-politics-explorer] select").first().locator("option")).toHaveCount(1);
+});

@@ -182,7 +182,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
         </table>
       </div>
       <p>{en ? "Derived shares = count / election denominator × 100. Missing seats remain missing, not zero. Rounded vote shares do not determine electoral qualification." : "计算占比＝票数或席位数／对应选举分母×100。缺失席位不转换为零；四舍五入的票率不能用于判断资格门槛。"}</p>
-      <p>{en ? "Source: Die Bundeswahlleiterin, Wiesbaden. Source links identify the election evidence." : "来源：Die Bundeswahlleiterin, Wiesbaden。来源链接指向对应选举证据。"}</p>
+      {countrySlug==="germany"?<p>{en ? "Source: Die Bundeswahlleiterin, Wiesbaden. Source links identify the election evidence." : "来源：Die Bundeswahlleiterin, Wiesbaden。来源链接指向对应选举证据。"}</p>:null}
       </details>
       <section className="card p-5" aria-labelledby="politics-compare-title" data-politics-compare>
         <h3 id="politics-compare-title" className="font-semibold">{en ? "Compare two elections" : "比较两届选举"}</h3>
@@ -216,6 +216,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
       {contextInputs ? <details id="politics-context-disclosure" className="card scroll-mt-24 p-5" open={contextOpen} onToggle={event=>setContextOpen(event.currentTarget.open)} data-context-disclosure><summary className="cursor-pointer font-semibold">{en ? "Explore election-economic historical context" : "探索选举与经济历史背景"}</summary><p className="mt-2 text-sm">{en ? "Published annual and monthly observations, verified events and a source-linked timeline. Historical context only, not an explanation of voting behaviour." : "已发布年度与月度观测、已核验事件和可查来源的时间线。仅为历史背景，不解释投票行为。"}</p>{contextOpen ? <PoliticalEconomicContext election={election} comparison={other ?? null} inputs={contextInputs} locale={locale}/> : null}</details> : null}
       <section className="card p-5" data-politics-cross-country>
         <h3 className="font-semibold">{en ? "Comparing countries" : "跨国比较"}</h3>
+        <p className="mt-2 text-sm"><a data-politics-country-view className="text-[var(--accent)] underline" href={localizedRoute(countrySlug==="germany"?"/politics/czechia/":"/politics/",locale)}>{countrySlug==="germany"?(en?"Open Czechia's elections: compare 2017, 2021 and 2025":"查看捷克选举：比较 2017、2021 和 2025 年"):(en?"Back to Germany's elections":"返回德国选举")}</a></p>
         {comparisonCountries.length && comparedCountry && comparedCountryElection ? <>
           <div className="mt-3 flex flex-wrap gap-4">
             <label className="text-sm">{en ? "Compare with country" : "比较的国家"}<select className="field-control block" value={comparedCountry.slug} onChange={(event) => { setOtherCountry(event.target.value); setOtherCountryElection(""); }}>{comparisonCountries.map((item) => <option key={item.slug} value={item.slug}>{item.name[locale]}</option>)}</select></label>
@@ -246,6 +247,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
           <p>{en ? `Result vintage: “${election.resultVintage}”. A corrected vintage replaces the earlier figures for that election and is stated wherever it applies.` : `结果版本：“${election.resultVintage}”。更正版本会取代该届选举的早期数字，并在适用处注明。`}</p>
           <p>{en ? "Reuse: each source below links to the publisher's reuse terms; the Atlas redistributes only data whose terms allow it." : "复用：下方每个来源都链接到发布方的复用条款；Atlas 只再分发条款允许的数据。"}</p>
         </div>
+        {countrySlug === "czechia" && <p className="mt-4"><a href="/research-data/political/czechia/election_results.csv" className="underline">{en ? "Results CSV (2017, 2021, 2025)" : "结果CSV（2017、2021、2025）"}</a></p>}
         {countrySlug === "germany" && <p className="mt-4"><a href="/research-data/political/germany/election_results.csv" className="underline">{en ? "Results CSV (all seven elections)" : "结果CSV（七届选举）"}</a>{" · "}<a href="/research-data/political/germany/manifest.json" className="underline">{en ? "Twelve-store JSON/CSV manifest" : "十二张表JSON／CSV清单"}</a>{" · "}<a href="/research-data/political/germany/election_turnout.csv" className="underline">{en ? "Turnout CSV" : "投票率CSV"}</a>{" · "}<a href="/research-data/political/germany/electoral_systems.csv" className="underline">{en ? "Electoral-system rules CSV" : "选举制度规则CSV"}</a></p>}
       </details>
     </>}

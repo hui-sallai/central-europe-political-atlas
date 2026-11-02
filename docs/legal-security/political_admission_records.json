@@ -121,6 +121,126 @@
           "sha256": "d48f7c0601b60b3824315e71ab025627b72f02e4ad6bf763f91f8b010ce96728"
         }
       ]
+    },
+    {
+      "admission_id": "czechia-ps-2017-2021",
+      "status": "owner_approved",
+      "approved_on": "2026-11-02",
+      "approved_by": "owner brief 2026-11-02: admit Czechia 2017 and 2021 using the official ČSÚ data and the existing publication pipeline",
+      "country": "czechia",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "verification": "build-ps-national check, official-total reconciliation and closed admission gate record",
+      "gate_record": "docs/political-data/czechia_ps2017_2021_admission.json",
+      "gate_record_sha256": "0d70922c98b62f1216ded2420fba6a3561b3dc652aa00421c4465534c983124b",
+      "gates_closed": [
+        "reuse_right",
+        "normalized_republication",
+        "acquisition_route",
+        "source_files_complete",
+        "national_definition_complete",
+        "same_election_identity_complete",
+        "electoral_system_metadata_complete",
+        "vintage_decisions_complete"
+      ],
+      "germany_change_allowed": false,
+      "canonical_data_change_allowed": false,
+      "model_change_allowed": false,
+      "research_gate_change_allowed": false,
+      "release_version_change_allowed": false,
+      "files": [
+        {
+          "path": "src/data/political/czechia/elections.json",
+          "sha256": "b0feaa6f4ecc0b3638202fa55b1107180ae4c3973a7fe603607f986243cb0571"
+        },
+        {
+          "path": "src/data/political/czechia/election_turnout.json",
+          "sha256": "a1fd83796c332564c65934bce778fe16d8162e50e627b13543d4af395e245a9d"
+        },
+        {
+          "path": "src/data/political/czechia/election_results.json",
+          "sha256": "d2f85c01f15594521cb8e59fea695c13b777436dc4a456bfbcff7ea49f725888"
+        },
+        {
+          "path": "src/data/political/czechia/electoral_contestants.json",
+          "sha256": "d50b20df8270124c535b2611b7bdbe171e59327bc53c9b54ab566781d00a8711"
+        },
+        {
+          "path": "src/data/political/czechia/legislatures.json",
+          "sha256": "23902518d7b12a6de7c3339bf9d270f8a586a870c56d2d0e59880bbdef90ebfc"
+        },
+        {
+          "path": "src/data/political/czechia/electoral_systems.json",
+          "sha256": "350083205636c272278a86acf2f2b5616b322a49376c6547c6fe85d736a45576"
+        },
+        {
+          "path": "src/data/political/czechia/political_source_registry.json",
+          "sha256": "c98ca6294721d86679fbbcd368dd490810c4169233d770a9a1b30c35bdaf879a"
+        },
+        {
+          "path": "public/research-data/political/czechia/elections.json",
+          "sha256": "b0feaa6f4ecc0b3638202fa55b1107180ae4c3973a7fe603607f986243cb0571"
+        },
+        {
+          "path": "public/research-data/political/czechia/elections.csv",
+          "sha256": "9faf018c05171ad7be13e2be081126a6c225875c3cd99360b5af9e733acadcce"
+        },
+        {
+          "path": "public/research-data/political/czechia/election_turnout.json",
+          "sha256": "a1fd83796c332564c65934bce778fe16d8162e50e627b13543d4af395e245a9d"
+        },
+        {
+          "path": "public/research-data/political/czechia/election_turnout.csv",
+          "sha256": "ed51b59dca24a955a47e1e219f6906a452e734c17d36504bc20aa6975d81606d"
+        },
+        {
+          "path": "public/research-data/political/czechia/election_results.json",
+          "sha256": "d2f85c01f15594521cb8e59fea695c13b777436dc4a456bfbcff7ea49f725888"
+        },
+        {
+          "path": "public/research-data/political/czechia/election_results.csv",
+          "sha256": "80c8d567db6db9d358c5e2c08e6bc9121bc86eb6859fd0edf55754b11e0e6cb2"
+        },
+        {
+          "path": "public/research-data/political/czechia/electoral_contestants.json",
+          "sha256": "d50b20df8270124c535b2611b7bdbe171e59327bc53c9b54ab566781d00a8711"
+        },
+        {
+          "path": "public/research-data/political/czechia/electoral_contestants.csv",
+          "sha256": "e5237ae6456c5a927db0d7f976d79bfa43001a5874a7f2b6f7b39786c1ed0423"
+        },
+        {
+          "path": "public/research-data/political/czechia/legislatures.json",
+          "sha256": "23902518d7b12a6de7c3339bf9d270f8a586a870c56d2d0e59880bbdef90ebfc"
+        },
+        {
+          "path": "public/research-data/political/czechia/legislatures.csv",
+          "sha256": "ee2a625dd0ffa8b9522de9c2d1ce87f6dde11ae9e3008357008d3ee28b3f7f98"
+        },
+        {
+          "path": "public/research-data/political/czechia/electoral_systems.json",
+          "sha256": "350083205636c272278a86acf2f2b5616b322a49376c6547c6fe85d736a45576"
+        },
+        {
+          "path": "public/research-data/political/czechia/electoral_systems.csv",
+          "sha256": "aa9afecd89f16ae9c02a728c3774f85dc4702d06e803df7cef7f45d6809a8714"
+        },
+        {
+          "path": "public/research-data/political/czechia/political_source_registry.json",
+          "sha256": "c98ca6294721d86679fbbcd368dd490810c4169233d770a9a1b30c35bdaf879a"
+        },
+        {
+          "path": "public/research-data/political/czechia/political_source_registry.csv",
+          "sha256": "2cb27b9dbfde4da21690253afaebb8b7cae67beacb8a3d7c414d81a04d32dcad"
+        },
+        {
+          "path": "public/research-data/political/czechia/README.md",
+          "sha256": "842ba3246bcacae5ec50f1d97c520f4fb3beb8904855a5f1f084791d17e3ae26"
+        },
+        {
+          "path": "public/research-data/political/czechia/manifest.json",
+          "sha256": "8cf007f93cdab7b1fcb0dd7c7729bc702b4a90c72aa08d733cdf66e23b6765bc"
+        }
+      ]
     }
   ]
 }

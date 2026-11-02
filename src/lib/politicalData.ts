@@ -28,15 +28,28 @@ export function politicalElectionViews(): PoliticalElectionView[] {
 }
 
 /**
- * Other countries with authorised, published election stores, for cross-country comparison. A country is added here only
- * after explicit owner authorisation, a closed admission gate record and an exact-hash political admission record
- * (Czechia 2025: docs/political-data/czechia_ps2025_admission.json). Candidate packages in staging are never imported.
+ * Czechia's admitted elections (2017, 2021, 2025): docs/political-data/czechia_ps2025_admission.json and
+ * docs/political-data/czechia_ps2017_2021_admission.json, with exact-hash political admission records.
  */
-export function politicalComparisonCountries(): PoliticalCountryView[] {
+export function politicalCzechElectionViews(): PoliticalElectionView[] {
   const elections = electionViewsFromStores({ elections: czElections, turnout: czTurnout, results: czResults, contestants: czContestants, legislatures: czLegislatures, systems: czSystems, sources: czSources } as PoliticalStores, {
     slug: "czechia", name: { en: "Czechia", "zh-CN": "捷克" }, originalLanguage: "cs",
     voteLabel: { en: "List votes", "zh-CN": "名单票" },
   });
   for (const view of elections) if (politicalPublicationProblems(view.country!, view.sources, ["czechia"]).length) throw Error("Political source publication gate failed");
-  return [{ slug: "czechia", name: { en: "Czechia", "zh-CN": "捷克" }, elections }];
+  return elections;
+}
+
+/**
+ * Other countries with authorised, published election stores, for cross-country comparison. A country is added here only
+ * after explicit owner authorisation, a closed admission gate record and an exact-hash political admission record.
+ * Candidate packages in staging are never imported.
+ */
+export function politicalComparisonCountries(): PoliticalCountryView[] {
+  return [{ slug: "czechia", name: { en: "Czechia", "zh-CN": "捷克" }, elections: politicalCzechElectionViews() }];
+}
+
+/** Germany as the comparison country for the Czech view of the explorer. */
+export function politicalGermanComparisonCountry(): PoliticalCountryView[] {
+  return [{ slug: "germany", name: { en: "Germany", "zh-CN": "德国" }, elections: politicalElectionViews() }];
 }

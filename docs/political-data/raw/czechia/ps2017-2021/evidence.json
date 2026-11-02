@@ -1,0 +1,79 @@
+{
+ "schema_version": "atlas-political-evidence-v1",
+ "country": "czechia",
+ "elections": ["Volby do Poslanecké sněmovny Parlamentu ČR, 20–21 October 2017", "Volby do Poslanecké sněmovny Parlamentu ČR, 8–9 October 2021"],
+ "captured_on": "2026-11-02",
+ "note": "Evidence for the Czechia 2017 and 2021 admission (owner brief 2026-11-02). Page texts were read in a browser; only the quoted fields are stored. No personal data (contact names, e-mail addresses, candidate names) is stored.",
+ "datasets": [
+  {
+   "code": "VOLPS201703", "election_year": 2017,
+   "title": "Získané mandáty ve volbách do Poslanecké sněmovny podle volebních stran",
+   "publisher": "Český statistický úřad",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/c65fbe2bd063072b45442c72e56d1046",
+   "datastat_info": { "url": "https://data.csu.gov.cz/datastat/info/SADA/VOLPS201703", "version": "1", "data_last_updated": "2026-08-13", "records": 1762, "description_quote": "V datech za rok 2017 nejsou zohledněny výsledky přezkumu Nejvyššího správního soudu." },
+   "distributions": [
+    { "format": "CSV", "url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/csv", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" }, "content_length": 298533, "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b", "archived_path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.csv" },
+    { "format": "JSON", "url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/distribuce/json", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" } },
+    { "format": "DataStat API", "url": "https://data.csu.gov.cz/api/katalog/v1/sady/VOLPS201703/vybery", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" } }
+   ],
+   "schema": { "url": "https://data.csu.gov.cz/opendata/sady/VOLPS201703/schema/csv", "sha256": "e1200b6b2fbf699f041f5072da4ffa6dc6eec34ff92f18c54604eef926c2ca28", "archived_path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS201703.schema.json" }
+  },
+  {
+   "code": "VOLPS202103", "election_year": 2021,
+   "title": "Získané mandáty ve volbách do Poslanecké sněmovny podle volebních stran",
+   "publisher": "Český statistický úřad",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/294eb88a17149f9e8724e921e9e90206",
+   "datastat_info": { "url": "https://data.csu.gov.cz/datastat/info/SADA/VOLPS202103", "version": "1", "data_last_updated": "2026-08-12", "records": 1370 },
+   "distributions": [
+    { "format": "CSV", "url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/csv", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" }, "content_length": 230642, "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d", "archived_path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.csv" },
+    { "format": "JSON", "url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/distribuce/json", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" } },
+    { "format": "DataStat API", "url": "https://data.csu.gov.cz/api/katalog/v1/sady/VOLPS202103/vybery", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" } }
+   ],
+   "schema": { "url": "https://data.csu.gov.cz/opendata/sady/VOLPS202103/schema/csv", "sha256": "7d27b4d63cdfc8d49c97dca8d0f3c143995cedcf09afd4aff3d520e432a549b4", "archived_path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS202103.schema.json" }
+  },
+  {
+   "code": "VOLPS03", "election_year": null,
+   "title": "Základní údaje o volbách do Poslanecké sněmovny podle vybraných území",
+   "publisher": "Český statistický úřad",
+   "catalogue_page": "https://data.gov.cz/datová-sada?iri=https://data.gov.cz/zdroj/datové-sady/00025593/b395b9ea48510326fefb237056201d07",
+   "use": "Same distribution and rights evidence as the 2025 admission (docs/political-data/raw/czechia/ps2025/evidence.json); the national rows for 2017 and 2021 are archived here as an excerpt.",
+   "distributions": [
+    { "format": "CSV", "url": "https://data.csu.gov.cz/opendata/sady/VOLPS03/distribuce/csv", "rights": { "autorske_dilo": "Neobsahuje", "originalni_databaze": "Neobsahuje", "zvlastni_pravo_poriz_databaze": "Není chráněna", "osobni_udaje": "Neobsahuje" }, "sha256": "dc174b79619a6d418509e537d613192e62528492cbf7381ac6f54c5c5f37fa08", "retrieved_at": "2026-10-25T04:53:42Z", "archived_path": null, "excerpt": { "path": "docs/political-data/raw/czechia/ps2017-2021/VOLPS03_cz_2017_2021_excerpt.csv", "sha256": "e378abe7f64e98fa15ed704b83ebacc5d31bf49b9f96ada8d7084d50f6adf6e6", "selection": "rows with Roky in (2017, 2021) and Uz0234569C=CZ, with their source line numbers" } }
+   ]
+  }
+ ],
+ "retrieval": { "batch_completed_at": "2026-11-02T11:24:02Z", "method": "single manual retrieval of the documented 'Soubor ke stažení' links with an identifying User-Agent, 5 s apart; no API querying", "robots": "data.csu.gov.cz has no robots.txt (the path returns the DataStat application page)" },
+ "official_pages": [
+  { "url": "https://volby.gov.cz/app/ps2017/cs/seats-allocation", "observed_at": "2026-11-02", "quotes": ["Volby do Poslanecké sněmovny Parlamentu České republiky konané ve dnech 20.–21. 10. 2017"], "finding": "Original results. Seats by list: ANO 78, ODS 25, Piráti 22, SPD 22, ČSSD 15, KSČM 15, KDU-ČSL 10, TOP 09 7, STAN 6; total 200 — identical to VOLPS201703." },
+  { "url": "https://volby.gov.cz/app/ps2017nss/cs/seats-allocation", "observed_at": "2026-11-02", "finding": "Recalculated results after the court resolution. The table of seats by list and region is identical, cell by cell, to the original results." },
+  { "url": "https://volby.gov.cz/app/ps2021/cs/seats-allocation", "observed_at": "2026-11-02", "quotes": ["Volby do Poslanecké sněmovny Parlamentu České republiky konané ve dnech 8.–9. 10. 2021"], "finding": "Seats by list: ANO 72, SPOLU 71, Piráti+STAN 37, SPD 20; total 200 — identical to VOLPS202103." },
+  { "url": "https://volby.gov.cz/app/ps2025/cs/home", "observed_at": "2026-10-25", "quotes": ["Údaje o procentech platných hlasů jsou uváděny na dvě desetinná místa bez zaokrouhlení."], "finding": "The truncation rule is stated on the 2025 page; the same rule reproduces all 53 published 2017 and 2021 shares, which the builder verifies." }
+ ],
+ "court_revisions": {
+  "2017": { "resolution": "Nejvyšší správní soud, Vol 58/2017-173 (19 November 2017)", "url": "https://volby.gov.cz/cz/ps2017nss_usneseni_58_2017.pdf", "operative_part": "Declares the election of one candidate of one list in the Central Bohemian Region invalid, declares another candidate of the same list elected, and resets that list's substitutes. First page read; candidates are not named here.", "seats_by_list": "unchanged (official tables compared)", "national_list_votes_after_resolution": "not established: the recalculated vote totals were not read", "published_vintage": "original results; ČSÚ states that VOLPS201703 does not reflect the review" },
+  "2021": { "resolution": "Nejvyšší správní soud, Vol 102/2021", "url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm", "operative_part": "As summarised on ČSÚ's open-data page: a candidate's withdrawal in the South Moravian Region was invalid and the list's substitutes were reset; ČSÚ states the list of elected deputies is unchanged. The ruling itself was not read.", "seats_by_list": "unchanged per ČSÚ", "published_vintage": "VOLPS202103" }
+ },
+ "statutes": {
+  "2017": {
+   "act": "Zákon č. 247/1995 Sb.", "version": "znění 13. 4. 2017 – 18. 5. 2018", "url": "https://e-sbirka.gov.cz/sb/1995/247/2017-04-13?zalozka=text", "status": "informativní znění systému e-Sbírka (informative consolidated text)", "captured_sections": "§ 48 to § 51, browser innerText", "captured_sha256": "7306b7a491d8ff382ab92b2dbda5ebcdaa2fd706ad6f60a81e986e1c4587d36f",
+   "clauses": {
+    "s49_1a": "které politické strany nebo politická hnutí získaly méně než 5 procent,",
+    "s49_1b": "které koalice, složené ze 2 politických stran, popřípadě politických hnutí získaly méně než 10 procent,",
+    "s49_1c": "které koalice, složené ze 3 politických stran, popřípadě politických hnutí získaly méně než 15 procent,",
+    "s49_1d": "které koalice, složené z nejméně 4 a více politických stran, popřípadě politických hnutí získaly méně než 20 procent z celkového počtu platných hlasů.",
+    "s50_1": "Počet platných hlasů pro každou z politických stran, politických hnutí a koalic, které postoupily do skrutinia, se v rámci každého volebního kraje postupně dělí čísly 1; 2; 3 a dále vždy číslem o 1 vyšším."
+   }
+  },
+  "2021": {
+   "act": "Zákon č. 247/1995 Sb.", "version": "znění 1. 7. 2021 – 30. 6. 2024", "url": "https://e-sbirka.gov.cz/sb/1995/247/2021-07-01?zalozka=text", "status": "informativní znění systému e-Sbírka (informative consolidated text)", "captured_sections": "§ 48 to § 51, browser innerText", "captured_sha256": "aad6da07e46d3812a394a76d8a4bcfeb9838f724a56057ce4ddc69398f2cc430",
+   "clauses": {
+    "s24": "Poslanecká sněmovna má 200 poslanců, kteří jsou voleni na dobu čtyř let.",
+    "s49_1a": "které politické strany nebo politická hnutí získaly méně než 5 procent z celkového počtu platných hlasů,",
+    "s49_1b": "které koalice složené ze 2 politických stran, popřípadě politických hnutí získaly méně než 8 procent z celkového počtu platných hlasů,",
+    "s49_1c": "které koalice složené ze 3 a více politických stran, popřípadě politických hnutí získaly méně než 11 procent z celkového počtu platných hlasů.",
+    "s50_2": "… se vydělí počtem mandátů, které byly tomuto volebnímu kraji přiděleny, zvětšeným o dvě; číslo takto vypočtené a zaokrouhlené na jednotky je krajským volebním číslem.",
+    "s51_2": "Ve druhém skrutiniu se sečtou zbytky hlasů … Tento součet se vydělí počtem mandátů, které nebyly v prvním skrutiniu přikázány, zvětšeným o jednu."
+   }
+  }
+ }
+}

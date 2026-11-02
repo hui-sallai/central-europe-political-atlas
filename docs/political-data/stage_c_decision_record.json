@@ -19,10 +19,12 @@
   {
    "country": "czechia",
    "elections": [
+    2017,
+    2021,
     2025
    ],
-   "scope": "Chamber of Deputies 2025, national level",
-   "record": "docs/political-data/czechia_ps2025_admission.json"
+   "scope": "Chamber of Deputies 2017, 2021 and 2025, national level",
+   "record": "docs/political-data/czechia_ps2017_2021_admission.json"
   }
  ],
  "owner_decisions": [
@@ -173,6 +175,23 @@
    "2021 list votes are available only at polling-station level from separate distributions on an unregistered host (www.volby.cz); admitting them needs its own owner rights decision, manual staging and an aggregation rule, and would still lack seats.",
    "No historical party-series relationship can be established without at least two admitted elections and the official list-composition registers."
   ],
-  "unblock": "Owner sends the ČSÚ contact packet; with a reply confirming reuse of the volby.gov.cz open-data files, the existing staging builder (scripts/political-data/czechia/build-candidate.mjs) and the Production 1B gates can admit 2002–2021, and the CVS composition registers can document coalition membership."
+  "unblock": "Owner sends the ČSÚ contact packet; with a reply confirming reuse of the volby.gov.cz open-data files, the existing staging builder (scripts/political-data/czechia/build-candidate.mjs) and the Production 1B gates can admit 2002–2021, and the CVS composition registers can document coalition membership.",
+  "correction_2026_11_02": "This review was wrong for 2017 and 2021. Its catalogue searches were too narrow: ČSÚ publishes VOLPS201703 and VOLPS202103 (votes and seats by list) with the same rights metadata as VOLPS202503. Both elections are now admitted. The statements below about 2021 seats and 2017 list-level data are superseded; 2002–2013 were still not found in list-level form."
+ },
+ "czech_identity_blocker": {
+  "recorded_on": "2026-11-02",
+  "finding": "ČSÚ's list register CVS states it covers electoral parties from all elections since 1998 and enables comparison over time ('Umožňuje tak časové srovnání'), with a list kind (TYPVS) and composition. Linking ballot numbers to register codes needs psrkl. All of these files are on volby.gov.cz, registered with automation not permitted, and the owner chose to stage files from that host.",
+  "needed": [
+   "ps2017 registers and číselníky",
+   "ps2021 cvs.csv, cvs_slozeni.csv, cns.csv, psrkl.csv",
+   "ps2025 cvs.csv, cvs_slozeni.csv, cns.csv and the 2025 list register"
+  ],
+  "status": "unused; no continuous series published"
+ },
+ "poland_recheck": {
+  "checked_on": "2026-11-02",
+  "url": "https://danewyborcze.kbw.gov.pl/indexa114.html?title=Dane_Wyborcze:Informacje_prawne",
+  "quote": "Ta strona nie posiada jeszcze zawartości.",
+  "result": "No reuse terms; blocked. The national catalogue dane.gov.pl is not a registered host and was not contacted."
  }
 }

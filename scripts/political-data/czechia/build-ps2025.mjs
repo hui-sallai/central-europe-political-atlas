@@ -5,7 +5,7 @@
 // total is reconciled against the official totals before anything is written. No network access, no inference of list
 // kind, coalition membership or cross-election party identity.
 //
-// Usage: node scripts/political-data/czechia/build-ps2025.mjs [--write]   (default: check that committed files match)
+// Stores and exports are written by build-ps-national.mjs, which combines this election with 2017 and 2021.
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -13,14 +13,12 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const RAW = 'docs/political-data/raw/czechia/ps2025';
-const STORE_DIR = 'src/data/political/czechia';
-const EXPORT_DIR = 'public/research-data/political/czechia';
 export const CZECH_STORES = ['elections', 'election_turnout', 'election_results', 'electoral_contestants', 'legislatures', 'electoral_systems', 'political_source_registry'];
 const sha = (buf) => crypto.createHash('sha256').update(buf).digest('hex');
 const read = (rel) => fs.readFileSync(path.join(root, rel));
 const fail = (msg) => { throw new Error(`Czechia 2025 build failed: ${msg}`); };
 
-function parseCsv(text) {
+export function parseCsv(text) {
   const rows = []; let row = [], cell = '', quoted = false;
   for (let i = 0; i < text.length; i += 1) {
     const ch = text[i];
@@ -146,30 +144,4 @@ export function buildCzechia2025() {
     source(PAGE, 'Český statistický úřad', 'volby.gov.cz PS 2025 results application: seats-allocation and home pages (quoted)', evidence.official_pages[0].url, `${RAW}/evidence.json`, evidenceSha, 'https://csu.gov.cz/conditions_for_use_and_further_dissemination', 'quoted_facts_only', 'Český statistický úřad (ČSÚ), volby.gov.cz'),
   ];
   return { elections, election_turnout, election_results, electoral_contestants, legislatures, electoral_systems, political_source_registry, checks: { lists: contestants.length, validVotes, totalSeats, registered, envelopes, turnout } };
-}
-
-const cell = (v) => { if (v === null || v === undefined) return ''; const s = typeof v === 'object' ? JSON.stringify(v) : String(v); return /[",\r\n]/.test(s) ? `"${s.replaceAll('"', '""')}"` : s; };
-export function czechiaFiles(data) {
-  const files = {};
-  for (const store of CZECH_STORES) files[`${STORE_DIR}/${store}.json`] = JSON.stringify(data[store], null, 2) + '\n';
-  for (const store of CZECH_STORES) {
-    files[`${EXPORT_DIR}/${store}.json`] = JSON.stringify(data[store], null, 2) + '\n';
-    const keys = [...new Set(data[store].flatMap((row) => Object.keys(row)))];
-    files[`${EXPORT_DIR}/${store}.csv`] = [keys.map(cell).join(','), ...data[store].map((row) => keys.map((k) => cell(row[k])).join(','))].join('\r\n') + '\r\n';
-  }
-  files[`${EXPORT_DIR}/README.md`] = '# Czechia — Chamber of Deputies election 2025 (national level)\n\nOne election, 3–4 October 2025: 26 electoral lists with ČSÚ list codes, list votes, published (truncated) and derived shares, seats; registered voters, issued envelopes and turnout. Source: Český statistický úřad (ČSÚ), DataStat VOLPS202503 and VOLPS03; the national open-data catalogue records no copyright work, no original database, no database maker\'s right and no personal data for these distributions. Rules: Act 247/1995 Coll. (e-Sbírka informative version).\n\nNot included: list kinds (party, movement or coalition), coalition membership, cross-election party identity, regional results, candidates and preferential votes.\n';
-  files[`${EXPORT_DIR}/manifest.json`] = JSON.stringify({ schema_version: 'czechia-political-export-v1', country: 'czechia', elections: ['el-cz-ps-2025-10-03'], continuous_party_series: 0, files: Object.keys(files).filter((f) => f.startsWith(EXPORT_DIR) && !f.endsWith('manifest.json')).map((f) => ({ name: path.basename(f), sha256: sha(Buffer.from(files[f])) })) }, null, 2) + '\n';
-  return files;
-}
-
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const data = buildCzechia2025();
-  const files = czechiaFiles(data);
-  if (process.argv.includes('--write')) {
-    for (const [rel, content] of Object.entries(files)) { fs.mkdirSync(path.dirname(path.join(root, rel)), { recursive: true }); fs.writeFileSync(path.join(root, rel), content); }
-  } else {
-    const stale = Object.entries(files).filter(([rel, content]) => !fs.existsSync(path.join(root, rel)) || fs.readFileSync(path.join(root, rel), 'utf8') !== content).map(([rel]) => rel);
-    if (stale.length) { console.error(`Czechia 2025 stores or exports out of date: ${stale.join(', ')}`); process.exit(1); }
-  }
-  console.log(JSON.stringify({ status: 'pass', ...data.checks, files: Object.keys(files).length }));
 }
