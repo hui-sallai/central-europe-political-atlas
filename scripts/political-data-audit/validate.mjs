@@ -96,7 +96,7 @@ for (const base of ["src/data", "public/research-data"]) {
     if(approved&&rel===`${base}/political`){
       // Germany plus owner-admitted countries; an admitted country's inventory is exactly its admission record's file list.
       const admissions=(fs.existsSync(path.join(root,POLITICAL_ADMISSION_FILE))?JSON.parse(fs.readFileSync(path.join(root,POLITICAL_ADMISSION_FILE),'utf8')).admissions:[]).filter(r=>r.status==='owner_approved'&&POLITICAL_ADMISSIONS[r.admission_id]);
-      const admittedDirs=admissions.map(r=>r.country);
+      const admittedDirs=[...new Set(admissions.map(r=>r.country))];
       check(JSON.stringify(fs.readdirSync(path.join(root,rel)).sort())===JSON.stringify(['germany',...admittedDirs].sort()),'Only Germany and owner-admitted countries allowed');
       for(const r of admissions){const expected=POLITICAL_ADMISSIONS[r.admission_id].paths.filter(p=>p.startsWith(`${rel}/${r.country}/`)).map(p=>p.slice(rel.length+r.country.length+2)).sort();check(JSON.stringify(fs.readdirSync(path.join(root,rel,r.country)).sort())===JSON.stringify(expected),`Exact admitted political inventory: ${r.country}`);}
       const allowed=base==='src/data'?stores.map(s=>`${s}.json`):[...stores.flatMap(s=>[`${s}.json`,`${s}.csv`]),'manifest.json','README.md'];
