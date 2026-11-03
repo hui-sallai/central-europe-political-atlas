@@ -5,7 +5,7 @@ import { annualPoints, type AnnualHistory } from "./annualComparison";
 import { isPublished } from "./freshnessCore";
 import type { MonthlyHistoryRuntime } from "@/components/useMonthlyHistory";
 
-export const CONTEXT_ANNUAL_IDS = ["real_gdp_growth", "gdp_per_capita_eur", "hicp_inflation", "unemployment_rate", "government_debt_gdp"];
+export const CONTEXT_ANNUAL_IDS = ["real_gdp_growth", "gdp_per_capita_eur", "hicp_inflation", "unemployment_rate", "government_debt_gdp", "fiscal_balance_gdp"];
 export const CONTEXT_MONTHLY_IDS = ["hicp_annual_rate", "unemployment_rate_monthly", "industrial_production_index"];
 export type ContextPoint = { id: string; country: string; indicator: string; frequency: "annual" | "monthly"; period: string; value: number | null; unit: string; status: string; source: string; sourceUrl: string; definition: string; comparable: boolean; layer: string };
 export type ContextMonthlyMeta = { country: string; indicator: string; source_url: string; source_dataset: string; definition_version: string; unit: string; seasonal_adjustment: string; revision_status: string };

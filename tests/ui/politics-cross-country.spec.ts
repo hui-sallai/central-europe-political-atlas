@@ -173,3 +173,18 @@ test("Slovakia: 2023 list results, stated kinds only, and comparison with three 
   await page.goto("/politics/slovakia/");
   await expect(page.locator("h1")).toHaveText("斯洛伐克议会选举");
 });
+
+for (const [route, country] of [["/en/politics/slovakia/", "slovakia"], ["/en/politics/poland/", "poland"], ["/politics/czechia/", "czechia"]] as const) test(`election-macro comparison across four countries from ${country}`, async ({ page }) => {
+  await page.goto(route);
+  await page.locator("[data-context-disclosure] > summary").click();
+  const table = page.locator("[data-election-macro]");
+  await expect(table).toBeVisible();
+  await expect(table.locator("[data-macro-election]")).toHaveCount(15);
+  await expect(table.locator('[data-macro-election="el-sk-nrsr-2023-09-30"]')).toHaveAttribute("data-macro-status", "published");
+  await expect(table.locator('[data-macro-election="el-sk-nrsr-2023-09-30"]')).toContainText("2022");
+  await table.locator("select").first().selectOption("real_gdp_growth");
+  await expect(table.locator('[data-macro-election="el-de-bt-2013-09-22"]')).toHaveAttribute("data-macro-status", "missing");
+  await table.locator("select").nth(1).selectOption("retrospective_calendar_year");
+  await expect(table.locator('[data-macro-election="el-sk-nrsr-2023-09-30"]')).toContainText("2023");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+});

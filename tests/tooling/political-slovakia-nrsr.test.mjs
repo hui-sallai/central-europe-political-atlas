@@ -74,13 +74,29 @@ test('evidence: checksums, rights limits, no candidate names, statistics.sk neve
   assert.equal(net.automation_allowed, false);
 });
 
+test('rights evidence: 2023 version cited; § 5(b) and the database right are recorded as uncertain, not assumed', () => {
+  const { rights } = read('docs/political-data/raw/slovakia/nrsr2023/evidence.json');
+  assert.equal(rights.statute.url, 'https://static.slov-lex.sk/static/SK/ZZ/2015/185/20230201.html');
+  assert.equal(rights.statute.version, '1 February 2023');
+  assert.match(rights.statute.sha256, /^[0-9a-f]{64}$/);
+  for (const s of read(`${STORE}/political_source_registry.json`)) { assert.equal(s.licence_url, rights.statute.url, s.source_id); assert.doesNotMatch(s.licence_url, /20190101/); }
+  assert.match(rights.findings.join(' '), /not relied on as settled/);
+  assert.match(rights.findings.join(' '), /not assumed/);
+  assert.match(rights.limits.join(' '), /No licence or written permission exists/);
+  assert.match(rights.database_right.quote_138_3, /nepodstatnej časti/);
+  assert.match(rights.statutory_publication, /zverejní celkové výsledky/);
+  assert.equal(read('docs/political-data/slovakia_rights_evidence_admission.json').gates.reuse_right.value, 'statutory_reading_owner_decision_uncertainty_recorded');
+  assert.equal(row(16).votes, 681017, 'figures unchanged');
+  assert.equal(results.reduce((n, r) => n + r.seats, 0), 150);
+});
+
 test('admission: exact hashes, closed gates, Germany inadmissible; other elections and files stay blocked', () => {
   const records = read(POLITICAL_ADMISSION_FILE).admissions.filter((x) => x.country === 'slovakia');
-  assert.equal(records.length, 1);
-  for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read('docs/political-data/slovakia_nrsr2023_admission.json').gates[gate].status, 'closed', gate);
+  assert.deepEqual(records.map((x) => x.admission_id), ['slovakia-nrsr-2023', 'slovakia-rights-evidence']);
+  for (const file of ['slovakia_nrsr2023_admission', 'slovakia_rights_evidence_admission']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(`docs/political-data/${file}.json`).gates[gate].status, 'closed', gate);
   const { approved, problems } = approvedPoliticalAdmissionFiles(records, sha);
   assert.deepEqual(problems, []);
-  assert.deepEqual([...approved.keys()].sort(), [...POLITICAL_ADMISSIONS['slovakia-nrsr-2023'].paths].sort());
+  assert.deepEqual([...approved.keys()].sort(), [...POLITICAL_ADMISSIONS['slovakia-rights-evidence'].paths].sort());
   for (const [file, hash] of approved) assert.equal(sha(file), hash, file);
   assert.equal(read('docs/political-data/source-closure/gate_matrix.json').countries.find((c) => c.country === 'slovakia').overall_readiness, 'NOT_READY');
   assert.ok(approvedPoliticalAdmissionFiles([{ ...records[0], files: [...records[0].files, { path: 'src/data/political/germany/elections.json', sha256: 'a'.repeat(64) }] }], sha).problems.length);

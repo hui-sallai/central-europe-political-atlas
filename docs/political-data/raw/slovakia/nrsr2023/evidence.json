@@ -35,17 +35,30 @@
   }
  },
  "rights": {
-  "basis": "Act 185/2015 Coll. (Copyright Act) § 5(a) information and § 5(b) official decisions are not subject to copyright",
+  "basis": "Act 185/2015 Coll. (Copyright Act), version of 1 February 2023: § 5(a) excludes information from copyright. § 5(b) excludes official decisions, but it is not established that these minutes are one.",
   "statute": {
-   "url": "https://static.slov-lex.sk/pdf/SK/ZZ/2015/185/ZZ_2015_185_20190101.pdf",
-   "sha256": "47d474cd3e5864e0f0a1c505d1df1d0efbec2ef71861a6c8e0571410f4582ca4",
-   "version": "1 January 2019"
+   "url": "https://static.slov-lex.sk/static/SK/ZZ/2015/185/20230201.html",
+   "sha256": "d358ab0040605ab64cac889612ed8903aaaa5c98368e262dc7f308c83da15642",
+   "version": "1 February 2023",
+   "corrects": "https://static.slov-lex.sk/pdf/SK/ZZ/2015/185/ZZ_2015_185_20190101.pdf"
   },
   "quote": "Za predmet autorského práva sa nepovažuje a) myšlienka, spôsob, systém, metóda, koncept, princíp, objav alebo informácia, ktorá bola vyjadrená, opísaná, vysvetlená, znázornená alebo zahrnutá do diela, b) text právneho predpisu, úradné rozhodnutie alebo súdne rozhodnutie",
-  "owner_decision": "Owner reply 2026-11-03: use the State Commission minutes, publishing national figures only, on § 5(a) and (b).",
+  "database_right": {
+   "quote_135": "Ak databáza vykazuje kvalitatívne alebo kvantitatívne podstatný vklad do získania, overenia alebo predvedenia jej obsahu, má zhotoviteľ databázy výhradné právo databázu použiť a udeliť súhlas na extrakciu alebo reutilizáciu celého obsahu databázy alebo jej kvalitatívne alebo kvantitatívne podstatnej časti.",
+   "quote_138_3": "Do osobitného práva k databáze nezasahuje používateľ databázy, ktorý bez súhlasu zhotoviteľa databázy vykoná extrakciu alebo reutilizáciu kvalitatívne alebo kvantitatívne nepodstatnej časti jej obsahu, a to na akýkoľvek účel."
+  },
+  "statutory_publication": "Štátna komisia zverejní celkové výsledky volieb po podpísaní zápisnice o výsledku volieb",
+  "minutes_required_content": "Štátna komisia vyhotoví zápisnicu o výsledku volieb",
+  "owner_decision": "Owner reply 2026-11-03: use the State Commission minutes, publishing national figures only, on § 5(a) and (b). Findings of 2026-11-04 narrow how that basis is described and are flagged for owner review.",
+  "findings": [
+   "§ 5(a) and (b) read the same in the 2019 and 2023 versions, so correcting the version changes the citation, not the wording.",
+   "Act 180/2014 § 69 calls this document minutes (zápisnica) and requires the State Commission to publish overall results. Nothing read classifies it as an official decision (úradné rozhodnutie), so § 5(b) is not relied on as settled.",
+   "The published figures are facts the State Commission must publish, which supports § 5(a). § 5(a) concerns information within a work and does not by itself clear a selection or a dataset.",
+   "The database right (§ 135) arises only with a substantial investment in a database. It was not established whether the minutes are a database. § 138(3) permits extracting an insubstantial part; the national section is 2 of 69 pages, yet it may be qualitatively substantial, so that exception is not assumed."
+  ],
   "limits": [
-   "This is a reading of the statute, not advice from a lawyer or a statement by the State Commission. It is weaker than the Polish basis: § 5 names information and official decisions, not official documents in general, and whether these minutes are an official decision was not settled.",
-   "The version of the Copyright Act read is that of 1 January 2019.",
+   "This is a reading of the statute, not advice from a lawyer or a statement by the State Commission. No licence or written permission exists.",
+   "The 1 February 2023 version was read as named by the owner; whether a later amendment took effect before 30 September 2023 was not checked.",
    "ŠÚ SR files on volby.statistics.sk were not used. Those terms prohibit robots and similar tools, and their CC BY 4.0 grant names www.statistics.sk.",
    "Legal challenges to the 2023 result were not reviewed."
   ]

@@ -2012,6 +2012,85 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-02"
+    },
+    {
+      "amendment_id": "political-election-macro-2026-11-04",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-04: election-macro comparison through the existing context panel for all admitted countries, with corrected Slovak rights status text; stores are covered only by docs/legal-security/political_admission_records.json",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/lib/electionMacroLinkage.ts",
+          "sha256": "6edb9e52a3e08c3128548f5917ff74c9f466ecb968ae7bd8053777f9ffe211a2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalEconomicContext.ts",
+          "sha256": "34ea56df9d008b402966a1539bea20a83a8cb84cd5f5842631239316f3a3258e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalContextData.ts",
+          "sha256": "c1e0855b164a95fbc1e628f11654ecb9882a408ea16f5a9f9c40cda6bbc3d642",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "a39a483de182fc348980801581d410f84aae27f7ad32840b3bacd083b4cc0dae",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalElectionMacroTable.tsx",
+          "sha256": "c792c640b09561d0a13a2877da1a28e30aaf0e6346bd53ba7395909396cc8313",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalEconomicContext.tsx",
+          "sha256": "a66e8a317dfb143c6d7ba6751675f01c56087adbc966d0a52f02f1b4e2536d89",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "ea2512f23152d2bc31b0fcd54db3757bf5a3f3d0eb0446dc564cc63c7b0a1365",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/czechia/page.tsx",
+          "sha256": "86fb19ac8a2a4cffa0942f33943fcd07a2fbd98429cc77f5ba01e2022ddabbca",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/czechia/page.tsx",
+          "sha256": "7b97f2532612e0d8683e322b85ffff10b48634099ec13a412e3cad6f60f06124",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/poland/page.tsx",
+          "sha256": "fa3c36ff6edd32b7f9f39b9f09d7a0e9dc463d742105d6e76558446e4df564cd",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/poland/page.tsx",
+          "sha256": "782b673db5d3460ee836045f26388a74047a6bae5bf593cb95bac8707c1a619b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/slovakia/page.tsx",
+          "sha256": "0b2e8e046b7a390103e4ebd514ccc8371164ef04b8e95e3bdbb0ea5d126ab335",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/slovakia/page.tsx",
+          "sha256": "65b555022c728c31ad0924720923c941ff5d3c044ce245cea67137f694d38690",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-02"
     }
   ]
 }

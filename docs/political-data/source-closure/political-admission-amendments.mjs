@@ -37,6 +37,7 @@ export const POLITICAL_ADMISSIONS = {
   'poland-sejm-2011-2023': { approved_on: '2026-11-03', country: 'poland', gate_record: 'docs/political-data/poland_sejm_admission.json', paths: POLISH_PATHS },
   'poland-evidence-links': { approved_on: '2026-11-03', country: 'poland', gate_record: 'docs/political-data/poland_evidence_links_admission.json', paths: POLISH_PATHS },
   'slovakia-nrsr-2023': { approved_on: '2026-11-03', country: 'slovakia', gate_record: 'docs/political-data/slovakia_nrsr2023_admission.json', paths: SLOVAK_PATHS },
+  'slovakia-rights-evidence': { approved_on: '2026-11-04', country: 'slovakia', gate_record: 'docs/political-data/slovakia_rights_evidence_admission.json', paths: SLOVAK_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 const admissiblePath = (file, country) => country !== 'germany' && /^[a-z]+$/.test(country) && (file.startsWith(`src/data/political/${country}/`) || file.startsWith(`public/research-data/political/${country}/`));

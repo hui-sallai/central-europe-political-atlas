@@ -834,6 +834,126 @@
      "sha256": "b79aaf1b6ec8fcbcfd892a5bc8cffefd448dca7bd1f8df8c982f36081e97b58b"
     }
    ]
+  },
+  {
+   "admission_id": "slovakia-rights-evidence",
+   "status": "owner_approved",
+   "approved_on": "2026-11-04",
+   "approved_by": "owner brief 2026-11-04: rights evidence corrected to the February 2023 version; figures unchanged, uncertainty recorded",
+   "country": "slovakia",
+   "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+   "verification": "build-ps-national check, official-total reconciliation and closed admission gate record",
+   "gate_record": "docs/political-data/slovakia_rights_evidence_admission.json",
+   "gate_record_sha256": "cb198257b16180ce46185bc6a8ff3535e90de4f5bb591062498ac6784250f0bc",
+   "gates_closed": [
+    "reuse_right",
+    "normalized_republication",
+    "acquisition_route",
+    "source_files_complete",
+    "national_definition_complete",
+    "same_election_identity_complete",
+    "electoral_system_metadata_complete",
+    "vintage_decisions_complete"
+   ],
+   "germany_change_allowed": false,
+   "canonical_data_change_allowed": false,
+   "model_change_allowed": false,
+   "research_gate_change_allowed": false,
+   "release_version_change_allowed": false,
+   "files": [
+    {
+     "path": "src/data/political/slovakia/elections.json",
+     "sha256": "50f08b88325803f8894ee536d1fd76d8594ecad31b4333074e7bd922c99ba980"
+    },
+    {
+     "path": "src/data/political/slovakia/election_turnout.json",
+     "sha256": "d4352f5953a1c63231be493d7ec9366b90070dadf160fab99e1744f23c9e1c1d"
+    },
+    {
+     "path": "src/data/political/slovakia/election_results.json",
+     "sha256": "6748547f1dbf007bb803d45615dc6abadaf5251ae1a61b35a60f153b4e4c485e"
+    },
+    {
+     "path": "src/data/political/slovakia/electoral_contestants.json",
+     "sha256": "881e674e2f5506dd76df141663d38a6877a84dba0db15bef465a1b277cee039f"
+    },
+    {
+     "path": "src/data/political/slovakia/legislatures.json",
+     "sha256": "98ea94c9f7a03c8e2055fc9467598a12d5dbb462195c00474a32872c6a6546f2"
+    },
+    {
+     "path": "src/data/political/slovakia/electoral_systems.json",
+     "sha256": "1521a09ad88f3cb95177a2af09f69c917fc725d4f4a879c61e92ce500b6f0a44"
+    },
+    {
+     "path": "src/data/political/slovakia/political_source_registry.json",
+     "sha256": "58c4a07ffb60b92bcdae21134b6bc63ca2443d611b637dc76ab6cb5847fd390f"
+    },
+    {
+     "path": "public/research-data/political/slovakia/elections.json",
+     "sha256": "50f08b88325803f8894ee536d1fd76d8594ecad31b4333074e7bd922c99ba980"
+    },
+    {
+     "path": "public/research-data/political/slovakia/elections.csv",
+     "sha256": "58455b70a11f5958f3443f8b63f512b5eedd732fc5ceca479cd6523cc69aaea8"
+    },
+    {
+     "path": "public/research-data/political/slovakia/election_turnout.json",
+     "sha256": "d4352f5953a1c63231be493d7ec9366b90070dadf160fab99e1744f23c9e1c1d"
+    },
+    {
+     "path": "public/research-data/political/slovakia/election_turnout.csv",
+     "sha256": "d7c2ae66ef2f5f7b686cf7cee09dcd54defb07881650bffd3e8ea0e8871263a9"
+    },
+    {
+     "path": "public/research-data/political/slovakia/election_results.json",
+     "sha256": "6748547f1dbf007bb803d45615dc6abadaf5251ae1a61b35a60f153b4e4c485e"
+    },
+    {
+     "path": "public/research-data/political/slovakia/election_results.csv",
+     "sha256": "9eab1a3e2d321142dde5dc47eccfc4b4dc710e66781efcfc55edd8a64377c6b6"
+    },
+    {
+     "path": "public/research-data/political/slovakia/electoral_contestants.json",
+     "sha256": "881e674e2f5506dd76df141663d38a6877a84dba0db15bef465a1b277cee039f"
+    },
+    {
+     "path": "public/research-data/political/slovakia/electoral_contestants.csv",
+     "sha256": "f2eaa3d52312e850125aee1968e5cdafe324d4856526d81939eb11ccc56515db"
+    },
+    {
+     "path": "public/research-data/political/slovakia/legislatures.json",
+     "sha256": "98ea94c9f7a03c8e2055fc9467598a12d5dbb462195c00474a32872c6a6546f2"
+    },
+    {
+     "path": "public/research-data/political/slovakia/legislatures.csv",
+     "sha256": "5fe394c427f28b177063b8a9226c8430448a0926ea1f1d43cefa46502ae6190b"
+    },
+    {
+     "path": "public/research-data/political/slovakia/electoral_systems.json",
+     "sha256": "1521a09ad88f3cb95177a2af09f69c917fc725d4f4a879c61e92ce500b6f0a44"
+    },
+    {
+     "path": "public/research-data/political/slovakia/electoral_systems.csv",
+     "sha256": "ff6cdb6f3286805818778ca6d662cdd40f0230f161b75939de9e908f189189f0"
+    },
+    {
+     "path": "public/research-data/political/slovakia/political_source_registry.json",
+     "sha256": "58c4a07ffb60b92bcdae21134b6bc63ca2443d611b637dc76ab6cb5847fd390f"
+    },
+    {
+     "path": "public/research-data/political/slovakia/political_source_registry.csv",
+     "sha256": "fdcdcaddae25ef8152435b6a95d051d56ea878240cff25490104b96e507c609e"
+    },
+    {
+     "path": "public/research-data/political/slovakia/README.md",
+     "sha256": "789c3aa5d6f320a562cb08ff1a8611e9a6fb18a580ca43735d58b826c5c56c9a"
+    },
+    {
+     "path": "public/research-data/political/slovakia/manifest.json",
+     "sha256": "8fe0e72a1b48f7bca1ed51a184fe5f4eb4f243915fdb98f7c52845afb3afe9b1"
+    }
+   ]
   }
  ]
 }

@@ -14,12 +14,13 @@ import type { Event } from "@/types/Event";
 import type { EvidenceDraft } from "@/lib/researchNotebook";
 import { NotebookCollect } from "./NotebookCollect";
 import { ResearchTimeSeriesChart, monthIndex, indexToPeriod } from "./ResearchTimeSeriesChart";
+import { PoliticalElectionMacroTable } from "./PoliticalElectionMacroTable";
 
 export type PoliticalContextInputs = { observations: Observation[]; indicators: Indicator[]; events: Event[]; monthlyMetadata: ContextMonthlyMeta[] };
 const monthlyNames: Record<string,{en:string;zh:string}> = {hicp_annual_rate:{en:"HICP inflation (monthly year-on-year rate)",zh:"HICP 通胀（月度同比率）"},unemployment_rate_monthly:{en:"Unemployment rate (monthly, seasonally adjusted)",zh:"失业率（月度，季调）"},industrial_production_index:{en:"Industrial production (2021=100, seasonal/calendar adjusted)",zh:"工业生产（2021=100，季调日历调整）"}};
 const eventTypes: Record<string,{en:string;zh:string}> = {fiscal:{en:"Fiscal policy",zh:"财政"},EU_funds:{en:"EU funds",zh:"欧盟资金"},macro:{en:"Macroeconomy",zh:"宏观经济"},energy:{en:"Energy",zh:"能源"},industrial_policy:{en:"Industrial policy",zh:"产业政策"},FDI:{en:"Direct investment",zh:"直接投资"},China:{en:"China relations",zh:"对华关系"},election:{en:"Election",zh:"选举"},regional:{en:"Regional",zh:"地区"}};
 
-export function PoliticalEconomicContext({ election, comparison, inputs, locale }: {election:PoliticalElectionView;comparison:PoliticalElectionView|null;inputs:PoliticalContextInputs;locale:Locale}) {
+export function PoliticalEconomicContext({ election, comparison, inputs, locale, allElections=[] }: {election:PoliticalElectionView;comparison:PoliticalElectionView|null;inputs:PoliticalContextInputs;locale:Locale;allElections?:PoliticalElectionView[]}) {
   const en=locale==="en",country=election.country??"germany";
   const [frequency,setFrequency]=useState<"annual"|"monthly">("annual");
   const [indicatorId,setIndicatorId]=useState("real_gdp_growth"),[monthlyId,setMonthlyId]=useState("hicp_annual_rate");
@@ -35,7 +36,8 @@ export function PoliticalEconomicContext({ election, comparison, inputs, locale 
     for(const job of jobs)fetch(`${base}/research-data/${job.file}`,{signal:controller.signal}).then(r=>{if(!r.ok)throw Error(job.file);return r.json();}).then(data=>{job.apply(data);setLoads(s=>({...s,[job.key]:"ready"}));}).catch(()=>{if(!controller.signal.aborted)setLoads(s=>({...s,[job.key]:"error"}));});
     return()=>controller.abort();
   },[]);
-  const points=useMemo(()=>[...contextAnnualPoints(inputs.observations,annual,inputs.indicators),...contextMonthlyPoints(monthly,current,inputs.monthlyMetadata)].filter(p=>p.country===country),[inputs,annual,monthly,current,country]);
+  const allAnnualPoints=useMemo(()=>contextAnnualPoints(inputs.observations,annual,inputs.indicators),[inputs,annual]);
+  const points=useMemo(()=>[...allAnnualPoints,...contextMonthlyPoints(monthly,current,inputs.monthlyMetadata)].filter(p=>p.country===country),[allAnnualPoints,inputs,monthly,current,country]);
   const available=points.filter(contextPublished);
   const annualIds=inputs.indicators.filter(i=>available.some(p=>p.frequency==="annual"&&p.indicator===i.id));
   const monthlyIds=Object.keys(monthlyNames).filter(id=>available.some(p=>p.frequency==="monthly"&&p.indicator===id));
@@ -108,5 +110,6 @@ export function PoliticalEconomicContext({ election, comparison, inputs, locale 
       <div className="mt-3 overflow-x-auto" role="region" tabIndex={0} aria-label={en?"Context observations (scrollable)":"背景观测（可横向滚动）"}><table className="w-full min-w-[800px] text-left text-sm" data-context-observations><caption className="text-left">{name} · {frequency}</caption><thead><tr>{[en?"Period":"期间",en?"Published value":"已发布值",en?"Unit":"单位",en?"Status":"状态",en?"Source / definition":"来源／定义",en?"Timing relative to elections":"与选举的时间关系"].map(t=><th scope="col" key={t} className="p-2">{t}</th>)}</tr></thead><tbody>{selectedPoints.map(p=><tr key={p.id} className="border-t border-[var(--line)]"><th scope="row" className="p-2 font-normal">{p.period}</th><td className="metric-number p-2">{contextPublished(p)?format(p.value):"—"}</td><td>{unit(p.unit)}</td><td>{status(p)}</td><td className="p-2">{p.sourceUrl?<a href={p.sourceUrl} className="underline">{p.source}</a>:p.source}<p lang="en" className="break-words text-xs">{p.definition}</p><p className="text-xs">{p.layer}</p></td><td className="p-2 text-xs">{selectedElections.map((e,i)=><p key={e.electionId}>{e.year}: {inContextRange(p.period,ranges[i])?timing(p,e):(en?"Outside this election's selected range":"不在该选举所选范围内")}</p>)}</td></tr>)}</tbody></table></div>
     </details>
     <div className="flex flex-wrap items-center gap-4"><button type="button" className="underline" disabled={!selectedPoints.length} onClick={exportCsv}>{en?"Export context observations CSV":"导出背景观测 CSV"}</button><NotebookCollect create={draft} label={en?"Collect historical context":"收藏历史背景"}/></div>
-  </section>;
+
+    {allElections.length>1&&annual?<PoliticalElectionMacroTable elections={allElections} points={allAnnualPoints} locale={locale}/>:null}  </section>;
 }

@@ -1,6 +1,7 @@
 import PoliticalExplorerAlpha from "@/components/PoliticalExplorerAlpha";
 import { PoliticalContinuityPanel } from "@/components/PoliticalContinuityPanel";
 import { politicalCzechContinuity, politicalCzechElectionViews, politicalCzechIdentityLinks, politicalCzechComparisonCountries } from "@/lib/politicalData";
+import { politicalContextData } from "@/lib/politicalContextData";
 import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({ title: "Czech parliamentary elections", description: "Official Czech Chamber of Deputies list votes, seats, turnout and electoral rules for 2017, 2021 and 2025.", path: "/en/politics/czechia/", locale: "en" });
-export default function Page() { return <main className="page-shell"><p className="editorial-kicker">Political Explorer Alpha</p><h1 className="mt-4 mb-6 text-4xl font-semibold">Czech parliamentary elections</h1><PoliticalExplorerAlpha elections={politicalCzechElectionViews()} comparisonCountries={politicalCzechComparisonCountries()} identityLinks={politicalCzechIdentityLinks()} /><PoliticalContinuityPanel data={politicalCzechContinuity()} locale="en" /></main>; }
+export default function Page() { return <main className="page-shell"><p className="editorial-kicker">Political Explorer Alpha</p><h1 className="mt-4 mb-6 text-4xl font-semibold">Czech parliamentary elections</h1><PoliticalExplorerAlpha elections={politicalCzechElectionViews()} comparisonCountries={politicalCzechComparisonCountries()} contextInputs={politicalContextData("czechia")} identityLinks={politicalCzechIdentityLinks()} /><PoliticalContinuityPanel data={politicalCzechContinuity()} locale="en" /></main>; }
