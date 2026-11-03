@@ -4,7 +4,7 @@
 import type { PoliticalElectionView } from "./politicalExplorer";
 import { partyLinkDifference, sourceVerifiedPartySeries, type PoliticalIdentityLink } from "./politicalIdentity";
 
-export type ContinuityParty = { atlas_party_id: string; entity_kind: string; abbreviation: string | null; abbreviation_at_lists?: string; registered_name: string | null; continuous_series_eligible: boolean; legal_register_citation: string | null };
+export type ContinuityParty = { atlas_party_id: string; entity_kind: string; abbreviation: string | null; abbreviation_at_lists?: string; registered_name: string | null; continuous_series_eligible: boolean; legal_register_citation: string | null; identity_evidence?: { report_year: number; citation: string; url: string }[] };
 export type ContinuityStatus = "own_list" | "coalition_list" | "coalition_member" | "no_list";
 export type ContinuityRow = {
   electionId: string; year: number; vintage: string; status: ContinuityStatus; contestantId: string | null; label: string | null;
@@ -13,7 +13,7 @@ export type ContinuityRow = {
   coalition: { label: string; share: number | null; seats: number | null; memberCount: number } | null;
   change: { fromYear: number; shareChange: number | null; seatsChange: number | null; rulesChanged: boolean; acrossCoalitionPeriod: boolean; acrossMissingList?: boolean } | null;
 };
-export type ContinuityEntity = { id: string; label: string; kind: string; registerUrl: string | null; rows: ContinuityRow[] };
+export type ContinuityEntity = { id: string; label: string; kind: string; registerUrl: string | null; evidenceLinks?: { reportYear: number; citation: string; url: string }[]; rows: ContinuityRow[] };
 
 const rulesChanged = (a: PoliticalElectionView, b: PoliticalElectionView) => a.system.allocationMethod !== b.system.allocationMethod || JSON.stringify(a.national?.rules.thresholds?.map((t) => t.percent)) !== JSON.stringify(b.national?.rules.thresholds?.map((t) => t.percent));
 const sorted = (elections: PoliticalElectionView[]) => [...elections].sort((a, b) => a.date.localeCompare(b.date));
@@ -34,7 +34,7 @@ function partyEntity(party: ContinuityParty, elections: PoliticalElectionView[],
     if (member) return { ...base, status: "coalition_member", contestantId: member.contestantId, label: null, share: null, seats: null, coalition: { label: member.nativeLabel, share: member.publishedVoteShare, seats: member.seats, memberCount: member.memberPartyIds?.length ?? 0 } };
     return { ...base, status: "no_list", contestantId: null, label: null, share: null, seats: null, coalition: null };
   });
-  return { id: party.atlas_party_id, label: party.abbreviation_at_lists ? `${party.abbreviation} (${party.abbreviation_at_lists})` : party.abbreviation ?? party.registered_name ?? party.atlas_party_id, kind: party.entity_kind, registerUrl: party.legal_register_citation, rows };
+  return { id: party.atlas_party_id, label: party.abbreviation_at_lists ? `${party.abbreviation} (${party.abbreviation_at_lists})` : party.abbreviation ?? party.registered_name ?? party.atlas_party_id, kind: party.entity_kind, registerUrl: party.legal_register_citation, evidenceLinks: party.identity_evidence?.map((e) => ({ reportYear: e.report_year, citation: e.citation, url: e.url })), rows };
 }
 
 function coalitionEntity(chain: PoliticalIdentityLink[], elections: PoliticalElectionView[]): ContinuityEntity {

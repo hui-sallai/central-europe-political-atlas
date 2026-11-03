@@ -1,0 +1,67 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "slovakia-nrsr-2023",
+ "country": "slovakia",
+ "election_ids": [
+  "el-sk-nrsr-2023-09-30"
+ ],
+ "scope": "National Council election of 30 September 2023, national level only, from the State Commission minutes. ŠÚ SR files on volby.statistics.sk are not covered, and 2020, 2016 and 2012 are not admitted.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-03",
+   "decision": "Owner reply: read the State Commission minutes on minv.sk and publish national figures only, on Copyright Act § 5(a) and (b); no statistics.sk contact."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/slovakia/nrsr2023/evidence.json",
+  "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_exclusion_owner_accepted",
+   "evidence_kind": "statute_section_5_copyright_act",
+   "basis": "Copyright Act § 5(a) excludes information and § 5(b) official decisions. This is a reading of the statute accepted by the owner, weaker than a licence; whether the minutes are an official decision was not settled."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_from_minutes",
+   "evidence_kind": "statute_section_5_copyright_act",
+   "basis": "Same basis, national figures only."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "national_section_excerpt_only",
+   "evidence_kind": "statute_section_5_copyright_act",
+   "basis": "Only the section before the first elected candidate is archived, with the PDF checksum. Candidate names are not committed."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "One request to www.minv.sk, whose robots.txt disallows only /?poslat-stranku. statistics.sk stays blocked and was not contacted."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "basis": "The minutes hold voters on the rolls, voters who took part, turnout, votes and shares for 25 lists, and elected counts per list."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "basis": "List votes sum to the printed total; shares and turnout reproduce as truncated values; elected counts sum to 150 and match the printed totals of 33 women and 117 men. Invalid votes are not stated and not reconstructed."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "basis": "Each list keeps its number and printed name. A kind is stated only for the 7 lists that passed a threshold (6 parties, 1 coalition); 18 lists stay not established. Coalition members are not derived and coalition votes are never divided."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "basis": "Act 180/2014 Coll. §§ 66 and 68, version of 1 March 2023, quoted in the evidence record; the minutes apply the 5% and 7% thresholds."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "basis": "The State Commission minutes are the final determination. Legal challenges to the result were not reviewed."
+  }
+ },
+ "continuity": "None: one election cannot form a series, and no party register was reviewed. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

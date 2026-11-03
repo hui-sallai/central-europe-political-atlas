@@ -1,0 +1,33 @@
+[
+  {
+    "source_id": "src-sk-state-commission-minutes-2023",
+    "country": "slovakia",
+    "institution": "Štátna komisia pre voľby a kontrolu financovania politických strán",
+    "dataset": "Zápisnica Štátnej komisie pre voľby a kontrolu financovania politických strán o výsledku volieb do Národnej rady Slovenskej republiky, 30. septembra 2023",
+    "tier": "tier1_official",
+    "url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+    "licence_status": "official_record_facts_section_5_copyright_act",
+    "raw_redistribution": "national_section_excerpt_only_candidates_not_redistributed",
+    "licence_url": "https://static.slov-lex.sk/pdf/SK/ZZ/2015/185/ZZ_2015_185_20190101.pdf",
+    "attribution": "Štátna komisia pre voľby a kontrolu financovania politických strán",
+    "retrieved_at": "2026-11-03T11:00:18.625Z",
+    "raw_sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11",
+    "raw_path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+    "publisher_pdf_sha256": "b85158bc7dad2bff4aded19a99c9ad432a5a4e138f63dd8fe45f5ccbc9942e20"
+  },
+  {
+    "source_id": "src-sk-act-180-2014",
+    "country": "slovakia",
+    "institution": "Slov-Lex",
+    "dataset": "Act 180/2014 Coll. §§ 66, 68, version of 1 March 2023 (quoted clauses)",
+    "tier": "tier1_official",
+    "url": "https://static.slov-lex.sk/pdf/SK/ZZ/2014/180/ZZ_2014_180_20230301.pdf",
+    "licence_status": "statute_not_subject_to_copyright",
+    "raw_redistribution": "quoted_clauses_only",
+    "licence_url": "https://static.slov-lex.sk/pdf/SK/ZZ/2015/185/ZZ_2015_185_20190101.pdf",
+    "attribution": "Zbierka zákonov, Slov-Lex",
+    "retrieved_at": "2026-11-03T11:00:18.625Z",
+    "raw_sha256": "b0671d7d08f6f54f5b300146e21508bdc9cc6bd4d37b7e5872ce4604ab604d31",
+    "raw_path": "docs/political-data/raw/slovakia/nrsr2023/evidence.json"
+  }
+]

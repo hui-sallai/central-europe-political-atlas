@@ -1,0 +1,927 @@
+[
+  {
+    "result_id": "er-ct-sk-nrsr2023-01",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-01",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 9358,
+    "published_vote_share": 0.31,
+    "derived_vote_share": 0.3153075444692132,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 1",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-02",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-02",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 1817,
+    "published_vote_share": 0.06,
+    "derived_vote_share": 0.06122182178890365,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 2",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-03",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-03",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 533136,
+    "published_vote_share": 17.96,
+    "derived_vote_share": 17.963432680929518,
+    "seats": 32,
+    "seat_basis": "sum of the printed women and men elected for this list",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 3",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-04",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-04",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 2401,
+    "published_vote_share": 0.08,
+    "derived_vote_share": 0.08089906115308623,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 4",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-05",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-05",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 264137,
+    "published_vote_share": 8.89,
+    "derived_vote_share": 8.899806462221047,
+    "seats": 16,
+    "seat_basis": "sum of the printed women and men elected for this list",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 5",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-06",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-06",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 9867,
+    "published_vote_share": 0.33,
+    "derived_vote_share": 0.33245774110683124,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 6",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-07",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-07",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 3486,
+    "published_vote_share": 0.11,
+    "derived_vote_share": 0.11745694593071994,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 7",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-08",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-08",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 1262,
+    "published_vote_share": 0.04,
+    "derived_vote_share": 0.04252170561232604,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 8",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-09",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-09",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 7935,
+    "published_vote_share": 0.26,
+    "derived_vote_share": 0.2673611204705286,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 9",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-10",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-10",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 1335,
+    "published_vote_share": 0.04,
+    "derived_vote_share": 0.04498136053284886,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 10",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-11",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-11",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 1332,
+    "published_vote_share": 0.04,
+    "derived_vote_share": 0.04488027882378628,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 11",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-12",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-12",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 187645,
+    "published_vote_share": 6.32,
+    "derived_vote_share": 6.322492432349382,
+    "seats": 11,
+    "seat_basis": "sum of the printed women and men elected for this list",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 12",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-13",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-13",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 65673,
+    "published_vote_share": 2.21,
+    "derived_vote_share": 2.2127796930889763,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 13",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-14",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-14",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 2786,
+    "published_vote_share": 0.09,
+    "derived_vote_share": 0.09387121381611754,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 14",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-15",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-15",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 166995,
+    "published_vote_share": 5.62,
+    "derived_vote_share": 5.626713334968611,
+    "seats": 10,
+    "seat_basis": "sum of the printed women and men elected for this list",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 15",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-16",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-16",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 681017,
+    "published_vote_share": 22.94,
+    "derived_vote_share": 22.946120753557402,
+    "seats": 42,
+    "seat_basis": "sum of the printed women and men elected for this list",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 16",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-17",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-17",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 436415,
+    "published_vote_share": 14.7,
+    "derived_vote_share": 14.704524686848867,
+    "seats": 27,
+    "seat_basis": "sum of the printed women and men elected for this list",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 17",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-18",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-18",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 130183,
+    "published_vote_share": 4.38,
+    "derived_vote_share": 4.386373376964691,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 18",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-19",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-19",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 2315,
+    "published_vote_share": 0.07,
+    "derived_vote_share": 0.07800138549329222,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 19",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-20",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-20",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 771,
+    "published_vote_share": 0.02,
+    "derived_vote_share": 0.025977999229083497,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 20",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-21",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-21",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 25003,
+    "published_vote_share": 0.84,
+    "derived_vote_share": 0.8424486572305769,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 21",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-22",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-22",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 87006,
+    "published_vote_share": 2.93,
+    "derived_vote_share": 2.9315717262329946,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 22",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-23",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-23",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 202515,
+    "published_vote_share": 6.82,
+    "derived_vote_share": 6.823520770269578,
+    "seats": 12,
+    "seat_basis": "sum of the printed women and men elected for this list",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 23",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-24",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-24",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 2407,
+    "published_vote_share": 0.08,
+    "derived_vote_share": 0.0811012245712114,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 24",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-sk-nrsr2023-25",
+    "country": "slovakia",
+    "geography": "national",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_ref": "ct-sk-nrsr2023-25",
+    "vote_type": "nrsr_list_vote",
+    "valid_votes": 2967896,
+    "total_seats": 150,
+    "votes": 141099,
+    "published_vote_share": 4.75,
+    "derived_vote_share": 4.754176022340405,
+    "seats": 0,
+    "seat_basis": "did not pass a threshold, recorded as 0",
+    "published_seat_share": null,
+    "result_vintage": "final: State Commission minutes on the result of the election of 30 September 2023",
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 25",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]

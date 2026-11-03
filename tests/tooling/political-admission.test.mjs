@@ -22,12 +22,12 @@ test('admitted countries are exactly the countries whose official stores are imp
   const imported = [...new Set([...fs.readFileSync(path.join(root, 'src/lib/politicalData.ts'), 'utf8').matchAll(/@\/data\/political\/([a-z]+)\//g)].map((m) => m[1]))].sort();
   assert.deepEqual([...admittedCountrySlugs].sort(), imported);
   assert.deepEqual(fs.readdirSync(path.join(root, 'src/data/political')).filter((d) => fs.statSync(path.join(root, 'src/data/political', d)).isDirectory()).sort(), imported);
-  assert.deepEqual(imported, ['czechia', 'germany', 'poland']);
+  assert.deepEqual(imported, ['czechia', 'germany', 'poland', 'slovakia']);
 });
 
 test('gate-matrix countries stay blocked unless a separate owner-approved admission record exists', () => {
   const admitted = new Set(read('docs/legal-security/political_admission_records.json').admissions.filter((a) => a.status === 'owner_approved').map((a) => a.country));
-  assert.deepEqual([...admitted], ['czechia', 'poland']);
+  assert.deepEqual([...admitted], ['czechia', 'poland', 'slovakia']);
   for (const country of gateMatrix.countries) {
     const row = politicalAdmissions.find((r) => r.slug === country.country);
     assert.ok(row, country.country);

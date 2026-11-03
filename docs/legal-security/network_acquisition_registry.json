@@ -261,6 +261,36 @@
       "robots_note": "robots.txt request returned a Request Rejected page on 2026-11-03; not retried",
       "reason": "Rejected the single robots.txt request; no retry and no workaround. eli.gov.pl is used instead.",
       "status": "blocked"
+    },
+    {
+      "host": "bip.warszawa.so.gov.pl",
+      "purpose": "Warsaw Regional Court public information bulletin: register of political parties (evidence only, named by the owner)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-03",
+      "robots_note": "Disallows paths containing pdf or szukaj; the register search also needs reCAPTCHA, so it is not used",
+      "reason": "Named in the owner brief of 2026-11-03; manual reading only.",
+      "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "www.slovensko.sk",
+      "purpose": "Slovak central public administration portal: election service page (evidence only, named by the owner)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-03",
+      "robots_note": "Crawl-delay 5; disallows /sk/externa-sprava/ and /setup/",
+      "reason": "Named in the owner brief of 2026-11-03; manual reading only.",
+      "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "www.minv.sk",
+      "purpose": "Slovak Interior Ministry: State Commission result minutes for National Council elections",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-03",
+      "robots_note": "pending",
+      "reason": "Owner-approved 2026-11-03: one reading per named minutes document; national figures only.",
+      "status": "allowed_review_due"
     }
   ],
   "reference_hosts": {

@@ -1,0 +1,81 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "poland-evidence-links",
+ "country": "poland",
+ "election_ids": [
+  "el-pl-sejm-2011-10-09",
+  "el-pl-sejm-2015-10-25",
+  "el-pl-sejm-2019-10-13",
+  "el-pl-sejm-2023-10-15"
+ ],
+ "scope": "Correction only: Polish party identity evidence now lists each PKW communiqué that prints the EwP number and is labelled as such. No election result or link changes.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-03",
+   "decision": "Owner replies: register the gazette hosts for named documents; accept gazette-published PKW notices as closing the reuse gates for national figures under Art. 4 of the Copyright Act; allow one reading each of the Electoral Code, Copyright Act, Supreme Court validity resolutions and the PKW communiqué."
+  },
+  {
+   "date": "2026-11-03",
+   "decision": "Owner brief: correct misleading evidence labels without changing verified results."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/poland/sejm/evidence.json",
+  "docs/political-data/raw/poland/sejm/sejm_2011_part_I.txt",
+  "docs/political-data/raw/poland/sejm/sejm_2015_part_I.txt",
+  "docs/political-data/raw/poland/sejm/sejm_2019_part_I.txt",
+  "docs/political-data/raw/poland/sejm/sejm_2023_part_I.txt"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_exclusion_owner_accepted",
+   "evidence_kind": "statute_official_documents_art_4",
+   "basis": "Art. 4(2) of the Copyright Act excludes official documents and materials from copyright. This is a reading of the statute, accepted by the owner, not a statement by PKW; commentary disputes how far 'official material' extends."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_from_gazette_notices",
+   "evidence_kind": "statute_official_documents_art_4",
+   "basis": "Same basis, national figures only."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "part_I_excerpt_only",
+   "evidence_kind": "statute_official_documents_art_4",
+   "basis": "Only Part I text is archived, with the PDF checksum. Part II names every candidate and is not committed."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_readings",
+   "evidence_kind": "owner_decision",
+   "basis": "One sequential request per named document on eli.gov.pl, 5 seconds apart; robots.txt allows all paths. api.sejm.gov.pl rejected its first request and is unused."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "basis": "Each notice's Part I holds electorate, ballots, turnout, valid and invalid votes, and votes and seats by committee."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "basis": "Published turnout reproduces as valid ballots / eligible voters; valid plus invalid votes equal valid ballots; list votes sum to valid votes; seats sum to 460; shares reproduce within rounding."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "basis": "Each list keeps its printed committee name and list number (not unique: three 2023 committees share number 11). Committee type follows the official name under Art. 84 § 2. Coalition members are not stated and not derived; coalition votes and seats are never divided."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "basis": "Art. 193, 196, 197 and 232 are identical in the 2011, 2019 and 2022 texts. The version in force in 2015 was not read separately; the 2015 notice applies Art. 196 § 1 and § 2."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "basis": "Each election uses the PKW notice, and the Supreme Court declared each election valid. A search for later corrections to the notices was not exhaustive."
+  }
+ },
+ "continuity": "A same_party link needs Electoral Code Art. 92 § 1 and the same EwP number printed by PKW in Monitor Polski. Five parties reviewed; other repeated committee names stay unresolved.",
+ "germany_change_allowed": false,
+ "evidence_limits": [
+  "The latest communiqué read covers 2021; the 2023 link rests on that and Art. 92 § 1.",
+  "The owner's Art. 4 decision named result notices; these communiqués use the same basis, flagged for owner review before publication."
+ ]
+}

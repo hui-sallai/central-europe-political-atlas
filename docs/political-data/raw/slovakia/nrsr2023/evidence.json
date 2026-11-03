@@ -1,0 +1,74 @@
+{
+ "schema_version": "atlas-slovakia-nrsr-evidence-v1",
+ "retrieval": {
+  "authorised_by": "owner reply 2026-11-03: read the State Commission minutes, national figures only",
+  "method": "one request, identifying User-Agent",
+  "robots": "www.minv.sk disallows only /?poslat-stranku, checked 2026-11-03"
+ },
+ "minutes": {
+  "title": "Zápisnica Štátnej komisie pre voľby a kontrolu financovania politických strán o výsledku volieb do Národnej rady Slovenskej republiky, 30. septembra 2023",
+  "url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+  "url_note": "the file name says NR20, but the document is the 2023 minutes",
+  "pdf_sha256": "b85158bc7dad2bff4aded19a99c9ad432a5a4e138f63dd8fe45f5ccbc9942e20",
+  "retrieved_at": "2026-11-03T11:00:18.625Z",
+  "pages": 69,
+  "national_excerpt": {
+   "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+   "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11",
+   "note": "text layer before the first elected candidate; page-one labels were checked visually against the rendered page"
+  }
+ },
+ "elected_counts": {
+  "note": "printed women and men counts per list, summed; no candidate name is stored",
+  "printed_totals": {
+   "women": 33,
+   "men": 117
+  },
+  "by_list": {
+   "3": 32,
+   "5": 16,
+   "12": 11,
+   "15": 10,
+   "16": 42,
+   "17": 27,
+   "23": 12
+  }
+ },
+ "rights": {
+  "basis": "Act 185/2015 Coll. (Copyright Act) § 5(a) information and § 5(b) official decisions are not subject to copyright",
+  "statute": {
+   "url": "https://static.slov-lex.sk/pdf/SK/ZZ/2015/185/ZZ_2015_185_20190101.pdf",
+   "sha256": "47d474cd3e5864e0f0a1c505d1df1d0efbec2ef71861a6c8e0571410f4582ca4",
+   "version": "1 January 2019"
+  },
+  "quote": "Za predmet autorského práva sa nepovažuje a) myšlienka, spôsob, systém, metóda, koncept, princíp, objav alebo informácia, ktorá bola vyjadrená, opísaná, vysvetlená, znázornená alebo zahrnutá do diela, b) text právneho predpisu, úradné rozhodnutie alebo súdne rozhodnutie",
+  "owner_decision": "Owner reply 2026-11-03: use the State Commission minutes, publishing national figures only, on § 5(a) and (b).",
+  "limits": [
+   "This is a reading of the statute, not advice from a lawyer or a statement by the State Commission. It is weaker than the Polish basis: § 5 names information and official decisions, not official documents in general, and whether these minutes are an official decision was not settled.",
+   "The version of the Copyright Act read is that of 1 January 2019.",
+   "ŠÚ SR files on volby.statistics.sk were not used. Those terms prohibit robots and similar tools, and their CC BY 4.0 grant names www.statistics.sk.",
+   "Legal challenges to the 2023 result were not reviewed."
+  ]
+ },
+ "rules": {
+  "source": {
+   "url": "https://static.slov-lex.sk/pdf/SK/ZZ/2014/180/ZZ_2014_180_20230301.pdf",
+   "sha256": "f4d86c3dadad21e9ce086e974380d86ef94826812b4ffa5c218b98191dd79b15",
+   "version": "1 March 2023"
+  },
+  "thresholds": "§ 66 (1) Štátna komisia zisťuje, koľko platných hlasov celkovo bolo odovzdaných pre každú politickú stranu a koalíciu. (2) Štátna komisia ďalej zisťuje, a) ktoré politické strany získali menej ako päť percent z celkového počtu odovzdaných platných hlasov, b) ktoré koalície zložené z dvoch alebo troch politických strán získali menej ako sedem percent z celkového počtu odovzdaných platných hlasov, c) ktoré koalície zložené najmenej zo štyroch politických strán získali menej ako desať percent z celkového počtu odovzdaných platných hlasov.",
+  "allocation": "§ 68 Prideľovanie mandátov (1) Súčet platných hlasov odovzdaných pre postupujúce politické strany alebo koalície sa vydelí číslom 151. Číslo, ktoré vyšlo týmto delením, zaokrúhlené na celé číslo je republikovým volebným číslom."
+ },
+ "not_admitted": {
+  "elections": [
+   2020,
+   2016,
+   2012
+  ],
+  "reason": "State Commission minutes were not located outside statistics.sk; the commission archive is described as starting in 2023."
+ },
+ "slovensko_sk": {
+  "url": "https://www.slovensko.sk/sk/detail-sluzby?externalCode=ks_330290",
+  "finding": "The service catalogue says ŠÚ SR provides final results as CSV over HTTP without authentication. It states no licence and does not change the ŠÚ SR terms."
+ }
+}

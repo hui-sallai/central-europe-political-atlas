@@ -1,0 +1,852 @@
+[
+  {
+    "contestant_id": "ct-sk-nrsr2023-01",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 1,
+    "registered_label_native": "Pirátska strana - Slovensko",
+    "historical_display_label": "Pirátska strana - Slovensko",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 1",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-02",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 2,
+    "registered_label_native": "PRINCÍP",
+    "historical_display_label": "PRINCÍP",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 2",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-03",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "party_list",
+    "kind_basis": "stated by the threshold finding in the minutes",
+    "list_number": 3,
+    "registered_label_native": "Progresívne Slovensko",
+    "historical_display_label": "Progresívne Slovensko",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 3",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-04",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 4,
+    "registered_label_native": "SPOLOČNE OBČANIA SLOVENSKA",
+    "historical_display_label": "SPOLOČNE OBČANIA SLOVENSKA",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 4",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-05",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "coalition",
+    "kind_basis": "stated by the threshold finding in the minutes",
+    "list_number": 5,
+    "registered_label_native": "OĽANO A PRIATELIA: OBYČAJNÍ ĽUDIA (OĽANO), NEZÁVISLÍ KANDIDÁTI (NEKA), NOVA, SLOBODNÍ A ZODPOVEDNÍ, PAČIVALE ROMA, MAGYAR SZÍVEK a Kresťanská únia a ZA ĽUDÍ",
+    "historical_display_label": "OĽANO A PRIATELIA: OBYČAJNÍ ĽUDIA (OĽANO), NEZÁVISLÍ KANDIDÁTI (NEKA), NOVA, SLOBODNÍ A ZODPOVEDNÍ, PAČIVALE ROMA, MAGYAR SZÍVEK a Kresťanská únia a ZA ĽUDÍ",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "coalition_members_not_established_no_vote_or_seat_attribution",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 5",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-06",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 6,
+    "registered_label_native": "Komunistická strana Slovenska",
+    "historical_display_label": "Komunistická strana Slovenska",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 6",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-07",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 7,
+    "registered_label_native": "Maďarské fórum, Občianski demokrati Slovenska, Za regióny, Rómska koalícia, Demokratická strana",
+    "historical_display_label": "Maďarské fórum, Občianski demokrati Slovenska, Za regióny, Rómska koalícia, Demokratická strana",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 7",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-08",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 8,
+    "registered_label_native": "Vlastenecký blok",
+    "historical_display_label": "Vlastenecký blok",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 8",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-09",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 9,
+    "registered_label_native": "Modrí, Most - Híd",
+    "historical_display_label": "Modrí, Most - Híd",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 9",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-10",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 10,
+    "registered_label_native": "SPRAVODLIVOSŤ",
+    "historical_display_label": "SPRAVODLIVOSŤ",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 10",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-11",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 11,
+    "registered_label_native": "Slovenské Hnutie Obrody",
+    "historical_display_label": "Slovenské Hnutie Obrody",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 11",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-12",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "party_list",
+    "kind_basis": "stated by the threshold finding in the minutes",
+    "list_number": 12,
+    "registered_label_native": "Sloboda a Solidarita",
+    "historical_display_label": "Sloboda a Solidarita",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 12",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-13",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 13,
+    "registered_label_native": "SME RODINA",
+    "historical_display_label": "SME RODINA",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 13",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-14",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 14,
+    "registered_label_native": "MySlovensko",
+    "historical_display_label": "MySlovensko",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 14",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-15",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "party_list",
+    "kind_basis": "stated by the threshold finding in the minutes",
+    "list_number": 15,
+    "registered_label_native": "Slovenská národná strana",
+    "historical_display_label": "Slovenská národná strana",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 15",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-16",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "party_list",
+    "kind_basis": "stated by the threshold finding in the minutes",
+    "list_number": 16,
+    "registered_label_native": "SMER - sociálna demokracia",
+    "historical_display_label": "SMER - sociálna demokracia",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 16",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-17",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "party_list",
+    "kind_basis": "stated by the threshold finding in the minutes",
+    "list_number": 17,
+    "registered_label_native": "HLAS - sociálna demokracia",
+    "historical_display_label": "HLAS - sociálna demokracia",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 17",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-18",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 18,
+    "registered_label_native": "SZÖVETSÉG - Magyarok. Nemzetiségek. Regiók. | ALIANCIA - Maďari. Národnosti. Regióny",
+    "historical_display_label": "SZÖVETSÉG - Magyarok. Nemzetiségek. Regiók. | ALIANCIA - Maďari. Národnosti. Regióny",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 18",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-19",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 19,
+    "registered_label_native": "SRDCE vlastenci a dôchodcovia - SLOVENSKÁ NÁRODNÁ JEDNOTA",
+    "historical_display_label": "SRDCE vlastenci a dôchodcovia - SLOVENSKÁ NÁRODNÁ JEDNOTA",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 19",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-20",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 20,
+    "registered_label_native": "SDKÚ - DS - Slovenská demokratická a kresťanská únia - Demokratická strana",
+    "historical_display_label": "SDKÚ - DS - Slovenská demokratická a kresťanská únia - Demokratická strana",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 20",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-21",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 21,
+    "registered_label_native": "Kotlebovci - Ľudová strana Naše Slovensko",
+    "historical_display_label": "Kotlebovci - Ľudová strana Naše Slovensko",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 21",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-22",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 22,
+    "registered_label_native": "Demokrati",
+    "historical_display_label": "Demokrati",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 22",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-23",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "party_list",
+    "kind_basis": "stated by the threshold finding in the minutes",
+    "list_number": 23,
+    "registered_label_native": "Kresťanskodemokratické hnutie",
+    "historical_display_label": "Kresťanskodemokratické hnutie",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 23",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-24",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 24,
+    "registered_label_native": "KARMA",
+    "historical_display_label": "KARMA",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 24",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-sk-nrsr2023-25",
+    "country": "slovakia",
+    "election_id": "el-sk-nrsr-2023-09-30",
+    "contestant_kind": "electoral_list_kind_not_established",
+    "kind_basis": "the minutes state a kind only for lists that passed a threshold",
+    "list_number": 25,
+    "registered_label_native": "REPUBLIKA",
+    "historical_display_label": "REPUBLIKA",
+    "display_label_rule": "official list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-sk-state-commission-minutes-2023",
+        "source_url": "https://www.minv.sk/swift_data/source/verejna_sprava/volby_a_referendum/100_nr_sr/NR20_ZapisnicaStK.pdf",
+        "source_record_id": "minutes, list 25",
+        "retrieved_at": "2026-11-03T11:00:18.625Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovakia/nrsr2023/nrsr_2023_national_section.txt",
+          "sha256": "ee12ee1da260014da8579000fa17b5c1b4c2a5b6c1b0509efd518f18f504bc11"
+        },
+        "parser_version": "slovakia-nrsr-national-v1",
+        "parser_sha256": "d898f7da89f0183cda68751a1c077cadda8925c829fed2dcdb9f79ab6406b01e",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]

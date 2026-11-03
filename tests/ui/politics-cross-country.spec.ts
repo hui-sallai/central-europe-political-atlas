@@ -65,16 +65,17 @@ for (const locale of ["zh-CN", "en"] as const) test(`publication-gate status nam
   await page.goto(locale === "en" ? "/en/politics/" : "/politics/", { waitUntil: "networkidle" });
   const status = page.locator("[data-politics-explorer] [data-admission-status]");
   await status.locator("summary").click();
-  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(3);
+  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(4);
   await expect(status.locator("[data-admission='germany']")).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='czechia']")).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='poland']")).toHaveAttribute("data-admission-state", "admitted");
-  for (const country of ["slovakia", "austria", "hungary"]) await expect(status.locator(`[data-admission='${country}']`)).toHaveAttribute("data-admission-state", "blocked");
+  await expect(status.locator("[data-admission='slovakia']")).toHaveAttribute("data-admission-state", "admitted");
+  for (const country of ["austria", "hungary"]) await expect(status.locator(`[data-admission='${country}']`)).toHaveAttribute("data-admission-state", "blocked");
   await expect(status.locator("[data-admission='romania']")).toHaveAttribute("data-admission-state", "staged_not_published");
   await expect(status.locator("[data-admission='hungary']")).toContainText("robots.txt");
   expect(await status.innerText()).not.toMatch(/\d{1,3}(,\d{3})+|\d+(\.\d+)?\s?%/);
   if (locale === "en") expect(await status.innerText()).not.toMatch(/[㐀-鿿]/u);
-  for (const country of ["hungary", "slovakia"]) expect((await page.request.get(`/research-data/political/${country}/election_results.json`)).status()).toBe(404);
+  for (const country of ["hungary", "austria"]) expect((await page.request.get(`/research-data/political/${country}/election_results.json`)).status()).toBe(404);
 });
 
 for (const locale of ["zh-CN", "en"] as const) test(`Germany 2025 rule fields point to the sourced system description, and blocker causes are shown (${locale})`, async ({ page }) => {
@@ -87,7 +88,7 @@ for (const locale of ["zh-CN", "en"] as const) test(`Germany 2025 rule fields po
   await expect(details).not.toContainText(locale === "en" ? "Not established in the authorised structured records" : "授权结构记录中尚未确立");
   const status = page.locator("[data-admission-status]");
   await status.locator("summary").click();
-  await expect(status.locator("[data-admission='slovakia'] [data-admission-cause='reuse_restriction']")).toBeVisible();
+  await expect(status.locator("[data-admission='austria'] [data-admission-cause='reuse_restriction']")).toBeVisible();
   await expect(status.locator("[data-admission='czechia'] [data-admission-cause]")).toHaveCount(0);
   await expect(status.locator("[data-admission='hungary'] [data-admission-cause='reuse_restriction']")).toHaveCount(0);
   await expect(status.locator("[data-admission='germany'] [data-admission-cause]")).toHaveCount(0);
@@ -155,4 +156,20 @@ test("Poland: national results, whole coalition lists, register-verified series,
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   await page.goto("/politics/poland/");
   await expect(page.locator("h1")).toHaveText("波兰议会选举");
+});
+
+test("Slovakia: 2023 list results, stated kinds only, and comparison with three countries", async ({ page }) => {
+  await page.goto("/en/politics/slovakia/");
+  await expect(page.locator("h1")).toHaveText("Slovak parliamentary election");
+  const explorer = page.locator("[data-politics-explorer]");
+  await expect(explorer).toContainText("SMER - sociálna demokracia");
+  await expect(explorer).toContainText("Coalition list");
+  await expect(page.locator("[data-country-comparison]")).toBeVisible();
+  for (const slug of ["germany", "czechia", "poland"]) await expect(page.locator(`[data-politics-country-view="${slug}"]`)).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  await page.goto("/en/politics/poland/");
+  await expect(page.locator('[data-continuity-entity="Prawo i Sprawiedliwość"] [data-identity-evidence]')).toContainText("not a register extract");
+  await expect(page.locator('[data-continuity-entity="Prawo i Sprawiedliwość"] [data-identity-evidence] a')).toHaveCount(4);
+  await page.goto("/politics/slovakia/");
+  await expect(page.locator("h1")).toHaveText("斯洛伐克议会选举");
 });

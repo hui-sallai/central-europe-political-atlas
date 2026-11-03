@@ -558,6 +558,282 @@
     "sha256": "cf6466b906edba9d516895daabbac7965b3d0733513d772f2984b6f9e568d759",
     "reason": "adds admitted countries to the package; supersedes the news batch pin for this one file"
    }
+  },
+  {
+   "admission_id": "poland-evidence-links",
+   "status": "owner_approved",
+   "approved_on": "2026-11-03",
+   "approved_by": "owner brief 2026-11-03: correct Polish identity evidence labels without changing results",
+   "country": "poland",
+   "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+   "verification": "build-ps-national check, official-total reconciliation and closed admission gate record",
+   "gate_record": "docs/political-data/poland_evidence_links_admission.json",
+   "gate_record_sha256": "05483d21b7bc302a3d2cc7f95f6b0f304a7887df5b9a5cbb22b6a98b1cab0e8e",
+   "gates_closed": [
+    "reuse_right",
+    "normalized_republication",
+    "acquisition_route",
+    "source_files_complete",
+    "national_definition_complete",
+    "same_election_identity_complete",
+    "electoral_system_metadata_complete",
+    "vintage_decisions_complete"
+   ],
+   "germany_change_allowed": false,
+   "canonical_data_change_allowed": false,
+   "model_change_allowed": false,
+   "research_gate_change_allowed": false,
+   "release_version_change_allowed": false,
+   "files": [
+    {
+     "path": "src/data/political/poland/elections.json",
+     "sha256": "fbf8e9c8c911e5ec60ef406297dce23feceddd8d6ae64d9249c71dd23ecf9b86"
+    },
+    {
+     "path": "src/data/political/poland/election_turnout.json",
+     "sha256": "fa71c69a25e7364e7c2128f1d526b69a82413aba85a57eb0f4e9d4ae29d0719e"
+    },
+    {
+     "path": "src/data/political/poland/election_results.json",
+     "sha256": "9ff8f14cce979ddd6bf808721ca5e88a3f998fa4454b8040ebeb5d3ee7c12924"
+    },
+    {
+     "path": "src/data/political/poland/electoral_contestants.json",
+     "sha256": "08ede1a781a3342f757ec0cbd88136e1d4442e708d400c0172a695995c13dfeb"
+    },
+    {
+     "path": "src/data/political/poland/legislatures.json",
+     "sha256": "3c5c0978d58207c97cc95626d397a405905799d727c3a27051beb8c87c837f66"
+    },
+    {
+     "path": "src/data/political/poland/electoral_systems.json",
+     "sha256": "a66786a71bd75f8a203a62f5645973bc57892e9ce6c31887b4ad5ffd69ab20c3"
+    },
+    {
+     "path": "src/data/political/poland/political_source_registry.json",
+     "sha256": "16f231639b309f4789b13cc5e30af5aac7bb9a827734fe8173793ceca99d301f"
+    },
+    {
+     "path": "src/data/political/poland/political_parties.json",
+     "sha256": "fb2a07ab4c927b619dde53aa3c9c1a315c547e356957af95c3a40bf51850dc5a"
+    },
+    {
+     "path": "src/data/political/poland/contestant_members.json",
+     "sha256": "ac806912fc3ba2229c1b82374981ba8c357636a33c9b88653a4989b5a972ca04"
+    },
+    {
+     "path": "src/data/political/poland/party_identity_links.json",
+     "sha256": "ed75c244612a95e1195ac4b20ffbb7ca73758e1976a0e67826d68d9dfe69c93a"
+    },
+    {
+     "path": "public/research-data/political/poland/elections.json",
+     "sha256": "fbf8e9c8c911e5ec60ef406297dce23feceddd8d6ae64d9249c71dd23ecf9b86"
+    },
+    {
+     "path": "public/research-data/political/poland/elections.csv",
+     "sha256": "b7e2bef19f75bb9ae6e1147a954cecc8aa032fbf1a30765e37330194f2a0522a"
+    },
+    {
+     "path": "public/research-data/political/poland/election_turnout.json",
+     "sha256": "fa71c69a25e7364e7c2128f1d526b69a82413aba85a57eb0f4e9d4ae29d0719e"
+    },
+    {
+     "path": "public/research-data/political/poland/election_turnout.csv",
+     "sha256": "0db954bfb6a30b7bc8d7bc7bea730775b91a4288ea807f79756d3858e6f3c82d"
+    },
+    {
+     "path": "public/research-data/political/poland/election_results.json",
+     "sha256": "9ff8f14cce979ddd6bf808721ca5e88a3f998fa4454b8040ebeb5d3ee7c12924"
+    },
+    {
+     "path": "public/research-data/political/poland/election_results.csv",
+     "sha256": "028c3cadf9daee6a446c94ea48785c05af0d1c568f3d7f348daf789545543d53"
+    },
+    {
+     "path": "public/research-data/political/poland/electoral_contestants.json",
+     "sha256": "08ede1a781a3342f757ec0cbd88136e1d4442e708d400c0172a695995c13dfeb"
+    },
+    {
+     "path": "public/research-data/political/poland/electoral_contestants.csv",
+     "sha256": "3874060a29a379eeac868de6b97ef6e1471df1c3f5ae9ab12b2502953104a76f"
+    },
+    {
+     "path": "public/research-data/political/poland/legislatures.json",
+     "sha256": "3c5c0978d58207c97cc95626d397a405905799d727c3a27051beb8c87c837f66"
+    },
+    {
+     "path": "public/research-data/political/poland/legislatures.csv",
+     "sha256": "b24bd315e3b9af111d281be6656aaf82ac4bfaf9cdacd75788913fb3178a2923"
+    },
+    {
+     "path": "public/research-data/political/poland/electoral_systems.json",
+     "sha256": "a66786a71bd75f8a203a62f5645973bc57892e9ce6c31887b4ad5ffd69ab20c3"
+    },
+    {
+     "path": "public/research-data/political/poland/electoral_systems.csv",
+     "sha256": "4673c24658a5bc3c0d97cb0d0820073b052fe59ef33309a75b8a543e68cdf461"
+    },
+    {
+     "path": "public/research-data/political/poland/political_source_registry.json",
+     "sha256": "16f231639b309f4789b13cc5e30af5aac7bb9a827734fe8173793ceca99d301f"
+    },
+    {
+     "path": "public/research-data/political/poland/political_source_registry.csv",
+     "sha256": "dc53c239119b37d0912d85b19cf2429bbb96cb9c2650c278ced333b573507add"
+    },
+    {
+     "path": "public/research-data/political/poland/political_parties.json",
+     "sha256": "fb2a07ab4c927b619dde53aa3c9c1a315c547e356957af95c3a40bf51850dc5a"
+    },
+    {
+     "path": "public/research-data/political/poland/political_parties.csv",
+     "sha256": "fdd393b0b67632eea7cca1fb8696d0dc28ead4e7a92eea596ad7fe35bea19f57"
+    },
+    {
+     "path": "public/research-data/political/poland/contestant_members.json",
+     "sha256": "ac806912fc3ba2229c1b82374981ba8c357636a33c9b88653a4989b5a972ca04"
+    },
+    {
+     "path": "public/research-data/political/poland/contestant_members.csv",
+     "sha256": "f533d39a02dcbb5106e176b67596b8e44ee1f04fe515124d41b2d8feb5d13751"
+    },
+    {
+     "path": "public/research-data/political/poland/party_identity_links.json",
+     "sha256": "ed75c244612a95e1195ac4b20ffbb7ca73758e1976a0e67826d68d9dfe69c93a"
+    },
+    {
+     "path": "public/research-data/political/poland/party_identity_links.csv",
+     "sha256": "e0478f82d6f9cb973b16900628524d357eb638a3835cb70177f4e3cb7125cd7b"
+    },
+    {
+     "path": "public/research-data/political/poland/README.md",
+     "sha256": "328a5bf0f55df293d5c4e20fe370338dea77f56cb5ce5132104713c4114f131f"
+    },
+    {
+     "path": "public/research-data/political/poland/manifest.json",
+     "sha256": "7400890881b0c788f51428e5f57a502252a2458fe18468bdeace1b95887024c8"
+    }
+   ]
+  },
+  {
+   "admission_id": "slovakia-nrsr-2023",
+   "status": "owner_approved",
+   "approved_on": "2026-11-03",
+   "approved_by": "owner brief and reply 2026-11-03: National Council 2023 national figures from State Commission minutes on Copyright Act section 5",
+   "country": "slovakia",
+   "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+   "verification": "build-ps-national check, official-total reconciliation and closed admission gate record",
+   "gate_record": "docs/political-data/slovakia_nrsr2023_admission.json",
+   "gate_record_sha256": "3014a2dd39de94b866bdd96d1b79c0df680b240f89755cf78d78f227fbba2333",
+   "gates_closed": [
+    "reuse_right",
+    "normalized_republication",
+    "acquisition_route",
+    "source_files_complete",
+    "national_definition_complete",
+    "same_election_identity_complete",
+    "electoral_system_metadata_complete",
+    "vintage_decisions_complete"
+   ],
+   "germany_change_allowed": false,
+   "canonical_data_change_allowed": false,
+   "model_change_allowed": false,
+   "research_gate_change_allowed": false,
+   "release_version_change_allowed": false,
+   "files": [
+    {
+     "path": "src/data/political/slovakia/elections.json",
+     "sha256": "fa1e820996fb61f3f198d3b44830a029d13e257803bec5a87b447878456eaed8"
+    },
+    {
+     "path": "src/data/political/slovakia/election_turnout.json",
+     "sha256": "5270d5a8f1e25ca416dd0bbfdff526dda3ddbca25eea17b617f8e2399da02b46"
+    },
+    {
+     "path": "src/data/political/slovakia/election_results.json",
+     "sha256": "9c4877dc10157905ca0ecc01f7fd4a64c5ecf37576b5171e467aa4a5cff81f95"
+    },
+    {
+     "path": "src/data/political/slovakia/electoral_contestants.json",
+     "sha256": "4f4335e9f537edd13966640b37e894f7a2cda221a24a6c51483fc1e38b8e3880"
+    },
+    {
+     "path": "src/data/political/slovakia/legislatures.json",
+     "sha256": "0d8402aaebf1f8dd00c3ae340e2a7b5479587c8fe6565404523f1658a574f228"
+    },
+    {
+     "path": "src/data/political/slovakia/electoral_systems.json",
+     "sha256": "d242ebe952a5483ce2e9956ae4a867829fbfb9920be11f4fae2ec7d22fc860d6"
+    },
+    {
+     "path": "src/data/political/slovakia/political_source_registry.json",
+     "sha256": "259cc733d7babfe0776a7a869d6a9c4df779d687f398d6238a708c7043f94789"
+    },
+    {
+     "path": "public/research-data/political/slovakia/elections.json",
+     "sha256": "fa1e820996fb61f3f198d3b44830a029d13e257803bec5a87b447878456eaed8"
+    },
+    {
+     "path": "public/research-data/political/slovakia/elections.csv",
+     "sha256": "9a92636d201c11dcb1b435c5ab04a22ac1439dca799e834341d704085bbd0cd5"
+    },
+    {
+     "path": "public/research-data/political/slovakia/election_turnout.json",
+     "sha256": "5270d5a8f1e25ca416dd0bbfdff526dda3ddbca25eea17b617f8e2399da02b46"
+    },
+    {
+     "path": "public/research-data/political/slovakia/election_turnout.csv",
+     "sha256": "23221df70f72da32d20578668d0065569a8b211b96e76774bc07f1d85bac0f7b"
+    },
+    {
+     "path": "public/research-data/political/slovakia/election_results.json",
+     "sha256": "9c4877dc10157905ca0ecc01f7fd4a64c5ecf37576b5171e467aa4a5cff81f95"
+    },
+    {
+     "path": "public/research-data/political/slovakia/election_results.csv",
+     "sha256": "63ce550f096134f4f6958aa4dd21d29291c49528e4158c72152029a8f23e30b0"
+    },
+    {
+     "path": "public/research-data/political/slovakia/electoral_contestants.json",
+     "sha256": "4f4335e9f537edd13966640b37e894f7a2cda221a24a6c51483fc1e38b8e3880"
+    },
+    {
+     "path": "public/research-data/political/slovakia/electoral_contestants.csv",
+     "sha256": "cdcbed8efd6212001c40d7e27f8e8489c0293860515d9d216146fdd1a4243891"
+    },
+    {
+     "path": "public/research-data/political/slovakia/legislatures.json",
+     "sha256": "0d8402aaebf1f8dd00c3ae340e2a7b5479587c8fe6565404523f1658a574f228"
+    },
+    {
+     "path": "public/research-data/political/slovakia/legislatures.csv",
+     "sha256": "7e76e2dc1e3222227bc99e23ab6a5dffbbeac40737a3eed22124077e5b593dc2"
+    },
+    {
+     "path": "public/research-data/political/slovakia/electoral_systems.json",
+     "sha256": "d242ebe952a5483ce2e9956ae4a867829fbfb9920be11f4fae2ec7d22fc860d6"
+    },
+    {
+     "path": "public/research-data/political/slovakia/electoral_systems.csv",
+     "sha256": "1973ebe44a3ad6627cb3186da044cdd27b7f5d64836c8569a4b1c0e91d2ef847"
+    },
+    {
+     "path": "public/research-data/political/slovakia/political_source_registry.json",
+     "sha256": "259cc733d7babfe0776a7a869d6a9c4df779d687f398d6238a708c7043f94789"
+    },
+    {
+     "path": "public/research-data/political/slovakia/political_source_registry.csv",
+     "sha256": "aaeace93a48f732f272d3bea296658d91709d05d202e95ba1660093612c88685"
+    },
+    {
+     "path": "public/research-data/political/slovakia/README.md",
+     "sha256": "aba3c69a5e63ddcd7daa836a4e788ef380d9552c8542a754e96ec41858d24935"
+    },
+    {
+     "path": "public/research-data/political/slovakia/manifest.json",
+     "sha256": "b79aaf1b6ec8fcbcfd892a5bc8cffefd448dca7bd1f8df8c982f36081e97b58b"
+    }
+   ]
   }
  ]
 }

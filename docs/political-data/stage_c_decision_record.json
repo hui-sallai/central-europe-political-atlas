@@ -36,6 +36,14 @@
    ],
    "scope": "Sejm 2011–2023, national level",
    "record": "docs/political-data/poland_sejm_admission.json"
+  },
+  {
+   "country": "slovakia",
+   "elections": [
+    2023
+   ],
+   "scope": "National Council 2023, national level",
+   "record": "docs/political-data/slovakia_nrsr2023_admission.json"
   }
  ],
  "owner_decisions": [
@@ -74,26 +82,15 @@
    "country": "poland",
    "question": "Gazette-published PKW result notices as a rights basis, and the gazette host",
    "decision": "Accepted for national figures from those notices under Art. 4 of the Copyright Act; eli.gov.pl registered for one reading per named document. The danewyborcze.kbw.gov.pl files stay blocked until KBW replies."
+  },
+  {
+   "date": "2026-11-03",
+   "country": "slovakia",
+   "question": "Source route for the National Council elections",
+   "decision": "State Commission minutes on minv.sk, national figures only, on Copyright Act § 5(a) and (b); statistics.sk stays blocked."
   }
  ],
  "countries": {
-  "slovakia": {
-   "latest_election": "National Council, 30 September 2023",
-   "entry_point": "https://slovak.statistics.sk/",
-   "causes": [
-    "reuse_restriction",
-    "missing_official_evidence",
-    "identity_unverified",
-    "internal_approval"
-   ],
-   "evidence": [
-    "reuse_restriction: CC BY 4.0 terms cover information released through www.statistics.sk; their application to the election files is unconfirmed, and the terms prohibit robots and crawlers, so no automated access is possible.",
-    "missing_official_evidence: the CSV packages were located but not parsed; source files are incomplete in the gate matrix.",
-    "identity_unverified: list identities and coalitions are not documented from the official register.",
-    "internal_approval: production publication needs owner authorisation."
-   ],
-   "next_step": "Owner sends the ŠÚ SR contact packet; files can then be staged manually."
-  },
   "hungary": {
    "latest_election": "National Assembly, 12 April 2026",
    "entry_point": "https://www.valasztas.hu/orszaggyulesi-valasztasok",
@@ -205,9 +202,21 @@
   ],
   "evidence": [
    "reuse_restriction: the DANE WYBORCZE legal-information page still has no content (rechecked 2026-11-03).",
-   "identity_unverified: coalition members are not stated; five parties have register numbers reviewed from PKW communiqués, the rest stay unresolved."
+   "identity_unverified: coalition members are not stated; five parties have register numbers printed in PKW communiqués. The court register was not usable: search needs reCAPTCHA and robots.txt disallows it."
   ],
   "not_attempted": "Sejm 2001–2007 notices predate the Electoral Code and need their own rule review.",
   "next_step": "Review further parties through PKW communiqués; the KBW contact packet remains unsent."
+ },
+ "slovakia_other_elections": {
+  "scope": "2020, 2016, 2012 and ŠÚ SR files on volby.statistics.sk",
+  "causes": [
+   "reuse_restriction",
+   "missing_official_evidence"
+  ],
+  "evidence": [
+   "reuse_restriction: ŠÚ SR terms prohibit robots and similar tools, and their CC BY 4.0 grant names www.statistics.sk, not the election site.",
+   "missing_official_evidence: State Commission minutes for these elections were not located outside statistics.sk."
+  ],
+  "next_step": "Owner sends the ŠÚ SR contact packet, or downloads the files by hand and decides the terms' scope."
  }
 }

@@ -105,6 +105,20 @@ test('party series need the same register number; a shared name alone stays unre
   assert.equal(left.rows[2].change.acrossMissingList, true);
 });
 
+test('Polish identity links are labelled for what they are and differ by the years that print each number', () => {
+  for (const p of parties) {
+    assert.equal(p.legal_register_citation, null, 'a PKW communiqué is not a register entry');
+    assert.ok(p.identity_evidence.length >= 2, p.registered_name);
+    for (const e of p.identity_evidence) { assert.match(e.url, /^https:\/\/eli\.gov\.pl\/eli\/MP\//); assert.match(e.printed, new RegExp(`EwP ${p.party_register_number_ewp}\\)`)); assert.match(e.citation, /^M\.P\. /); }
+  }
+  assert.deepEqual(parties.find((p) => p.party_register_number_ewp === 400).identity_evidence.map((e) => e.report_year), [2019, 2021]);
+  assert.match(parties.find((p) => p.party_register_number_ewp === 87).identity_evidence.find((e) => e.report_year === 2019).printed, /Nowa Lewica/);
+  const limits = read('docs/political-data/raw/poland/sejm/evidence.json').identity_review.limits.join(' ');
+  assert.match(limits, /reCAPTCHA/);
+  assert.match(limits, /not register extracts/);
+  assert.doesNotMatch(fs.readFileSync(path.join(root, 'src/components/PoliticalContinuityPanel.tsx'), 'utf8'), /evidenceLinks[^\n]*Register entry/);
+});
+
 test('evidence: notice checksums, rights basis and limits; no candidates or addresses committed', () => {
   const evidence = read('docs/political-data/raw/poland/sejm/evidence.json');
   for (const e of Object.values(evidence.elections)) {
@@ -125,20 +139,20 @@ test('evidence: notice checksums, rights basis and limits; no candidates or addr
 
 test('admission: exact hashes, closed gates, Germany inadmissible, blocked file route still open', () => {
   const record = read(POLITICAL_ADMISSION_FILE).admissions.filter((x) => x.country === 'poland');
-  assert.equal(record.length, 1);
-  for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read('docs/political-data/poland_sejm_admission.json').gates[gate].status, 'closed', gate);
+  assert.deepEqual(record.map((x) => x.admission_id), ['poland-sejm-2011-2023', 'poland-evidence-links']);
+  for (const file of ['poland_sejm_admission', 'poland_evidence_links_admission']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(`docs/political-data/${file}.json`).gates[gate].status, 'closed', gate);
   const { approved, problems } = approvedPoliticalAdmissionFiles(record, sha);
   assert.deepEqual(problems, []);
-  assert.deepEqual([...approved.keys()].sort(), [...POLITICAL_ADMISSIONS['poland-sejm-2011-2023'].paths].sort());
+  assert.deepEqual([...approved.keys()].sort(), [...POLITICAL_ADMISSIONS['poland-evidence-links'].paths].sort());
   for (const [file, hash] of approved) assert.equal(sha(file), hash, file);
   assert.equal(read('docs/political-data/source-closure/gate_matrix.json').countries.find((c) => c.country === 'poland').overall_readiness, 'NOT_READY');
   assert.ok(approvedPoliticalAdmissionFiles([{ ...record[0], files: [...record[0].files, { path: 'src/data/political/germany/elections.json', sha256: 'a'.repeat(64) }] }], sha).problems.length);
 });
 
 test('comparison: three-way availability; Germany and Czechia views unchanged in size; different turnout definitions are not differenced', () => {
-  assert.deepEqual(data.politicalComparisonCountries().map((c) => c.slug), ['czechia', 'poland']);
-  assert.deepEqual(data.politicalCzechComparisonCountries().map((c) => c.slug), ['germany', 'poland']);
-  assert.deepEqual(data.politicalPolishComparisonCountries().map((c) => c.slug), ['germany', 'czechia']);
+  assert.deepEqual(data.politicalComparisonCountries().map((c) => c.slug), ['czechia', 'poland', 'slovakia']);
+  assert.deepEqual(data.politicalCzechComparisonCountries().map((c) => c.slug), ['germany', 'poland', 'slovakia']);
+  assert.deepEqual(data.politicalPolishComparisonCountries().map((c) => c.slug), ['germany', 'czechia', 'slovakia']);
   assert.equal(data.politicalElectionViews().length, 7);
   assert.equal(data.politicalCzechElectionViews().length, 3);
   const { compatibleTurnout } = require('../../src/lib/politicalNational.ts');
@@ -156,7 +170,7 @@ test('research package includes every admitted country', () => {
   assert.equal(politicalPackageMemberProblem('political/poland/manifest.json', sha(manifest), approved), null);
   assert.ok(politicalPackageMemberProblem('political/poland/manifest.json', '0'.repeat(64), approved), 'a changed file is refused');
   assert.ok(politicalPackageMemberProblem('political/poland/extra.csv', sha(manifest), approved), 'an unlisted file is refused');
-  assert.ok(politicalPackageMemberProblem('political/slovakia/manifest.json', sha(manifest), approved), 'a country without admission is refused');
+  assert.ok(politicalPackageMemberProblem('political/hungary/manifest.json', sha(manifest), approved), 'a country without admission is refused');
   assert.ok(politicalPackageMemberProblem('political/austria/x.csv', 'a', approved));
   assert.equal(politicalPackageMemberProblem('political/germany/manifest.json', 'a', approved), null);
 });
