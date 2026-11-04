@@ -49,9 +49,9 @@ test('views stay separate: last complete year never includes the election year, 
   assert.equal(only.retrospective.value, 99);
 });
 
-test('published before election day is never claimed without release dates', () => {
-  for (const r of rows) assert.deepEqual(r.publishedBeforeElection, { status: 'not_established', reason: 'first_release_dates_not_recorded' });
-  assert.ok(electionMacroCoverage(rows).every((c) => c.publishedBeforeElection === 0));
+test('non-pilot elections still claim no pre-election publication', () => {
+  const pilots = new Set(['el-sk-nrsr-2023-09-30', 'el-pl-sejm-2023-10-15', 'el-cz-ps-2025-10-03', 'el-de-bt-2025-02-23']);
+  for (const r of rows) if (!pilots.has(r.electionId)) assert.deepEqual(r.publishedBeforeElection, { status: 'not_established', reason: 'first_release_dates_not_recorded', note: null });
 });
 
 test('official figures carry through unchanged with provenance', () => {
@@ -86,7 +86,7 @@ test('no party attribution or pooled cross-country figure exists; export keeps e
   const header = csv.split('\n')[0];
   for (const field of ['country', 'election_id', 'election_date', 'indicator', 'view', 'observation_period', 'value', 'unit', 'value_status', 'includes_post_election_months', 'published_before_election', 'source', 'source_url', 'definition', 'data_layer', 'result_vintage', 'turnout_numerator', 'limitation']) assert.ok(header.replace("\uFEFF", "").split(",").includes(field), field);
   assert.equal(csv.split('\n').length, 1 + rows.length * 2);
-  assert.match(csv, /not the figures available at the time; no causal or party attribution/);
+  assert.match(csv, /not the figure available at the time; as_of fields come from dated releases where documented\. No causal or party attribution/);
   assert.match(csv, /"4\.59"/, 'differences carry no floating-point noise');
   const ui = fs.readFileSync(path.join(root, 'src/components/PoliticalElectionMacroTable.tsx'), 'utf8');
   assert.match(ui, /do not show that economic conditions caused/);

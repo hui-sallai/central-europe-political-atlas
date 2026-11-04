@@ -1,0 +1,579 @@
+{
+ "schema_version": "atlas-election-information-evidence-v1",
+ "scope": "Pilot: the latest admitted election in each of the four countries. Eurostat Euro Indicators news releases only.",
+ "limits": [
+  "A release date shows when Eurostat published the printed value. A national statistical office may have published earlier, so this is the earliest release located, not a proven first publication anywhere.",
+  "Whether no newer release existed before polling day rests on the next release date printed in a release where available; 2023 PDF releases do not print one, so those rest on the releases located.",
+  "Monthly and quarterly releases are used because annual figures for the election year did not exist yet. They are not the same measure as the annual indicator in the Last complete year view.",
+  "Publication does not show that any voter saw or used a figure."
+ ],
+ "pilots": [
+  {
+   "election_id": "el-sk-nrsr-2023-09-30",
+   "country": "slovakia"
+  },
+  {
+   "election_id": "el-pl-sejm-2023-10-15",
+   "country": "poland"
+  },
+  {
+   "election_id": "el-cz-ps-2025-10-03",
+   "country": "czechia"
+  },
+  {
+   "election_id": "el-de-bt-2025-02-23",
+   "country": "germany"
+  }
+ ],
+ "not_located": [
+  {
+   "country": "czechia",
+   "indicator": "unemployment_rate",
+   "note": "The Eurostat release with August 2025 unemployment was not located, so the last release before polling day is unknown."
+  }
+ ],
+ "releases": {
+  "2-19092023-ap": {
+   "topic": "HICP annual rate news release",
+   "published_on": "2023-09-19",
+   "url": "https://ec.europa.eu/eurostat/documents/2995521/17524083/2-19092023-AP-EN.pdf/7b701ff5-0011-ccc9-8cde-9f559f345ce9",
+   "sha256": "6a86cca540455857ed11b37a53cf20ba23f9e360600df81518127568a590ccbc",
+   "retrieved_at": "2026-11-04T05:44:35.247Z",
+   "next_release_stated": null
+  },
+  "2-29092023-ap": {
+   "topic": "HICP flash estimate news release",
+   "published_on": "2023-09-29",
+   "url": "https://ec.europa.eu/eurostat/documents/2995521/17599940/2-29092023-AP-EN.pdf/0b9816d1-8250-6b6b-6269-7658e3191c6b",
+   "sha256": "14f3df5f87b9738d1dfc228d4dd94c6b354474f3ac04232bcaf82cae6b331fda",
+   "retrieved_at": "2026-11-04T05:44:38.449Z",
+   "next_release_stated": null
+  },
+  "2-17092025-ap": {
+   "topic": "HICP annual rate news release",
+   "published_on": "2025-09-17",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-17092025-ap",
+   "sha256": "14799f174f8f67252be941b0298ea1f4f6ee4a033fbe5427e19857dd7bcee4da",
+   "retrieved_at": "2026-11-04T05:44:51.738Z",
+   "next_release_stated": "17 October 2025"
+  },
+  "2-17012025-ap": {
+   "topic": "HICP annual rate news release",
+   "published_on": "2025-01-17",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-17012025-ap",
+   "sha256": "1ef2890b13645b5ccf75bd4a690580e1ed4885d1bf5e19cc8ef03f525106f51a",
+   "retrieved_at": "2026-11-04T05:45:12.437Z",
+   "next_release_stated": "24 February 2025"
+  },
+  "2-03022025-ap": {
+   "topic": "HICP flash estimate news release",
+   "published_on": "2025-02-03",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-03022025-ap",
+   "sha256": "94b1c442cdf11165c5fc0b6d8a92a068be0293cc5ea018e176283880ed7d2667",
+   "retrieved_at": "2026-11-04T05:45:08.979Z",
+   "next_release_stated": "3 March 2025"
+  },
+  "2-24022025-ap": {
+   "topic": "HICP annual rate news release",
+   "published_on": "2025-02-24",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-24022025-ap",
+   "sha256": "b907266338aa49dc7ac4a24ad5fc6a4aec8bf7582c3251f15aa1ed394378e66d",
+   "retrieved_at": "2026-11-04T05:45:15.999Z",
+   "next_release_stated": "19 March 2025"
+  },
+  "3-31082023-bp": {
+   "topic": "unemployment news release",
+   "published_on": "2023-08-31",
+   "url": "https://ec.europa.eu/eurostat/documents/2995521/17396142/3-31082023-BP-EN.pdf/24b6c427-dac2-84c2-618c-5981030f13bf",
+   "sha256": "6980ae5ee2f225be03f426a3b707d986402eb4b45849952a452c8e8be71b81e1",
+   "retrieved_at": "2026-11-04T05:44:41.755Z",
+   "next_release_stated": null
+  },
+  "3-02102023-ap": {
+   "topic": "unemployment news release",
+   "published_on": "2023-10-02",
+   "url": "https://ec.europa.eu/eurostat/documents/2995521/17602217/3-02102023-AP-EN.pdf/ffbb9c08-7100-2774-f099-d3ab657d14eb",
+   "sha256": "40b8394a51ff690e8a466e0915141e51b5cdde567311bf7440d67f796b80ede1",
+   "retrieved_at": "2026-11-04T05:44:45.072Z",
+   "next_release_stated": null
+  },
+  "3-30012025-bp": {
+   "topic": "unemployment news release",
+   "published_on": "2025-01-30",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/3-30012025-bp",
+   "sha256": "4daff8fe2276e1a9d7b370d28d1f58ba681a8b6018a85130ce177e9c75d2fb27",
+   "retrieved_at": "2026-11-04T05:46:47.108Z",
+   "next_release_stated": "4 March 2025"
+  },
+  "2-07092023-ap": {
+   "topic": "GDP news release",
+   "published_on": "2023-09-07",
+   "url": "https://ec.europa.eu/eurostat/documents/2995521/17467476/2-07092023-AP-EN.pdf",
+   "sha256": "2e7cfe8a8f493758bb753c3e508e9394983eaffcfc26f642ab4f9b3752057650",
+   "retrieved_at": "2026-11-04T05:44:48.474Z",
+   "next_release_stated": null
+  },
+  "2-05092025-ap": {
+   "topic": "GDP news release",
+   "published_on": "2025-09-05",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-05092025-ap",
+   "sha256": "afeadcf6e8ac14ec4849bd4388ef5e0053942642544b15671671e3d9a13b3070",
+   "retrieved_at": "2026-11-04T05:44:58.808Z",
+   "next_release_stated": "5 December 2025"
+  },
+  "2-30012025-ap": {
+   "topic": "GDP preliminary flash news release",
+   "published_on": "2025-01-30",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-30012025-ap",
+   "sha256": "87efbb0f65cae0f02ad5fdf9ae6c2e29e50627bae63ed75ae12f3895e5829369",
+   "retrieved_at": "2026-11-04T05:45:29.921Z",
+   "next_release_stated": "30 April 2025"
+  },
+  "2-14022025-ap": {
+   "topic": "GDP news release",
+   "published_on": "2025-02-14",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-14022025-ap",
+   "sha256": "dedefc34fccb6e49eca4ab47fea9c9e9394be3ec56aa3773f2dc22c2deac1d65",
+   "retrieved_at": "2026-11-04T05:45:22.892Z",
+   "next_release_stated": "15 May 2025"
+  },
+  "2-21042023-ap": {
+   "topic": "EDP deficit and debt news release",
+   "published_on": "2023-04-21",
+   "url": "https://ec.europa.eu/eurostat/documents/2995521/16349856/2-21042023-AP-EN.pdf/6c5d7d4d-1988-dd8b-ea8e-7af2f5049031",
+   "sha256": "a442482ed0040be115bb0e499a464c447d82dff50119fb52558e2900ec4c1e31",
+   "retrieved_at": "2026-11-04T05:44:28.384Z",
+   "next_release_stated": null
+  },
+  "2-23102023-ap": {
+   "topic": "EDP deficit and debt news release",
+   "published_on": "2023-10-23",
+   "url": "https://ec.europa.eu/eurostat/documents/2995521/17724161/2-23102023-AP-EN.pdf/307ffc6e-1bd7-0dbe-337b-7a85645c8e35",
+   "sha256": "7d45b5448b417a1ea58988e1d81c06896a63ac7e8ad5506ed0926f49290c0330",
+   "retrieved_at": "2026-11-04T05:44:31.853Z",
+   "next_release_stated": null
+  },
+  "2-22042025-ap": {
+   "topic": "EDP deficit and debt news release",
+   "published_on": "2025-04-22",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-22042025-ap",
+   "sha256": "421385bc82fee32a559280848f4cd016beff081621bfe6ac04499858b0b1462a",
+   "retrieved_at": "2026-11-04T05:45:02.140Z",
+   "next_release_stated": "21 October 2025"
+  },
+  "2-21102025-ap": {
+   "topic": "EDP deficit and debt news release",
+   "published_on": "2025-10-21",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-21102025-ap",
+   "sha256": "2d316b28cda725995b47dbba506b8980d6d02ef34f9dc50a903d895e6465f37c",
+   "retrieved_at": "2026-11-04T05:45:05.640Z",
+   "next_release_stated": "22 April 2026"
+  },
+  "2-22102024-ap": {
+   "topic": "EDP deficit and debt news release",
+   "published_on": "2024-10-22",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-22102024-ap",
+   "sha256": "6840500b03cdc88d59719a0a0cf60374fae45e65dc84276f8a54f87a586494a5",
+   "retrieved_at": "2026-11-04T05:46:43.887Z",
+   "next_release_stated": "22 April 2025"
+  }
+ },
+ "observations": [
+  {
+   "country": "slovakia",
+   "indicator": "hicp_inflation",
+   "frequency": "monthly",
+   "period": "2023-08",
+   "unit": "%",
+   "release": "2-19092023-ap",
+   "value": 9.6,
+   "flash_estimate": false,
+   "printed_row": "Slovakia 13.4 14.8 14.0 12.3 11.3 10.3 9.6 0.1",
+   "column": 6
+  },
+  {
+   "country": "slovakia",
+   "indicator": "hicp_inflation",
+   "frequency": "monthly",
+   "period": "2023-09",
+   "unit": "%",
+   "release": "2-29092023-ap",
+   "value": 8.9,
+   "flash_estimate": true,
+   "printed_row": "Slovakia 13.6 14.0 12.3 11.3 10.3 9.6 8.9e 0.3e",
+   "column": 6
+  },
+  {
+   "country": "poland",
+   "indicator": "hicp_inflation",
+   "frequency": "monthly",
+   "period": "2023-08",
+   "unit": "%",
+   "release": "2-19092023-ap",
+   "value": 9.5,
+   "flash_estimate": false,
+   "printed_row": "Poland 14.8 15.2 14.0 12.5 11.0 10.3 9.5 0.1",
+   "column": 6
+  },
+  {
+   "country": "czechia",
+   "indicator": "hicp_inflation",
+   "frequency": "monthly",
+   "period": "2025-08",
+   "unit": "%",
+   "release": "2-17092025-ap",
+   "value": 2.4,
+   "flash_estimate": false,
+   "printed_row": "Czechia 2.4 2.7 1.7 2.3 2.8 2.5 2.4 0.0",
+   "column": 6
+  },
+  {
+   "country": "germany",
+   "indicator": "hicp_inflation",
+   "frequency": "monthly",
+   "period": "2024-12",
+   "unit": "%",
+   "release": "2-17012025-ap",
+   "value": 2.8,
+   "flash_estimate": false,
+   "printed_row": "Germany 3.8 2.6 2.0 1.8 2.4 2.4 2.8 0.7",
+   "column": 6
+  },
+  {
+   "country": "germany",
+   "indicator": "hicp_inflation",
+   "frequency": "monthly",
+   "period": "2025-01",
+   "unit": "%",
+   "release": "2-03022025-ap",
+   "value": 2.8,
+   "flash_estimate": true,
+   "printed_row": "Germany 3.1 2.0 1.8 2.4 2.4 2.8 2.8e -0.2e",
+   "column": 6
+  },
+  {
+   "country": "germany",
+   "indicator": "hicp_inflation",
+   "frequency": "monthly",
+   "period": "2025-01",
+   "unit": "%",
+   "release": "2-24022025-ap",
+   "value": 2.8,
+   "flash_estimate": false,
+   "printed_row": "Germany 3.1 2.0 1.8 2.4 2.4 2.8 2.8 -0.2",
+   "column": 6
+  },
+  {
+   "country": "slovakia",
+   "indicator": "unemployment_rate",
+   "frequency": "monthly",
+   "period": "2023-07",
+   "unit": "% of active population",
+   "release": "3-31082023-bp",
+   "value": 5.8,
+   "flash_estimate": false,
+   "printed_row": "Slovakia 6.1 5.9 5.9 5.8 5.8",
+   "column": 4
+  },
+  {
+   "country": "slovakia",
+   "indicator": "unemployment_rate",
+   "frequency": "monthly",
+   "period": "2023-07",
+   "unit": "% of active population",
+   "release": "3-02102023-ap",
+   "value": 5.8,
+   "flash_estimate": false,
+   "printed_row": "Slovakia 6.0 5.9 5.8 5.8 5.8",
+   "column": 3
+  },
+  {
+   "country": "slovakia",
+   "indicator": "unemployment_rate",
+   "frequency": "monthly",
+   "period": "2023-08",
+   "unit": "% of active population",
+   "release": "3-02102023-ap",
+   "value": 5.8,
+   "flash_estimate": false,
+   "printed_row": "Slovakia 6.0 5.9 5.8 5.8 5.8",
+   "column": 4
+  },
+  {
+   "country": "poland",
+   "indicator": "unemployment_rate",
+   "frequency": "monthly",
+   "period": "2023-08",
+   "unit": "% of active population",
+   "release": "3-02102023-ap",
+   "value": 2.8,
+   "flash_estimate": false,
+   "printed_row": "Poland 2.9 2.8 2.8 2.8 2.8",
+   "column": 4
+  },
+  {
+   "country": "germany",
+   "indicator": "unemployment_rate",
+   "frequency": "monthly",
+   "period": "2024-12",
+   "unit": "% of active population",
+   "release": "3-30012025-bp",
+   "value": 3.4,
+   "flash_estimate": false,
+   "printed_row": "Germany 3.2 3.4 3.4 3.4 3.4",
+   "column": 4
+  },
+  {
+   "country": "slovakia",
+   "indicator": "real_gdp_growth",
+   "frequency": "quarterly",
+   "period": "2023Q2",
+   "unit": "% on same quarter of previous year",
+   "release": "2-07092023-ap",
+   "value": 1.3,
+   "flash_estimate": false,
+   "printed_row": "Slovakia 0.4 0.3 0.3 0.4 1.2 1.0 1.1 1.3",
+   "column": 7
+  },
+  {
+   "country": "poland",
+   "indicator": "real_gdp_growth",
+   "frequency": "quarterly",
+   "period": "2023Q2",
+   "unit": "% on same quarter of previous year",
+   "release": "2-07092023-ap",
+   "value": -1.4,
+   "flash_estimate": false,
+   "printed_row": "Poland 1.2 -2.0 1.6 -2.2 5.0 1.0 -0.6 -1.4",
+   "column": 7
+  },
+  {
+   "country": "czechia",
+   "indicator": "real_gdp_growth",
+   "frequency": "quarterly",
+   "period": "2025Q2",
+   "unit": "% on same quarter of previous year",
+   "release": "2-05092025-ap",
+   "value": 2.6,
+   "flash_estimate": false,
+   "printed_row": "Czechia 0.6 0.8 0.7 0.5 1.5 1.9 2.4 2.6",
+   "column": 7
+  },
+  {
+   "country": "germany",
+   "indicator": "real_gdp_growth",
+   "frequency": "quarterly",
+   "period": "2024Q4",
+   "unit": "% on same quarter of previous year",
+   "release": "2-30012025-ap",
+   "value": -0.2,
+   "flash_estimate": false,
+   "printed_row": "Germany 0.2 -0.3 0.1 -0.2 -0.1 -0.2 -0.3 -0.2",
+   "column": 7
+  },
+  {
+   "country": "germany",
+   "indicator": "real_gdp_growth",
+   "frequency": "quarterly",
+   "period": "2024Q4",
+   "unit": "% on same quarter of previous year",
+   "release": "2-14022025-ap",
+   "value": -0.2,
+   "flash_estimate": false,
+   "printed_row": "Germany 0.2 -0.3 0.1 -0.2 -0.1 -0.2 -0.3 -0.2",
+   "column": 7
+  },
+  {
+   "country": "slovakia",
+   "indicator": "fiscal_balance_gdp",
+   "frequency": "annual",
+   "period": "2022",
+   "unit": "% of GDP",
+   "release": "2-21042023-ap",
+   "value": -2,
+   "flash_estimate": false,
+   "printed_row": "Slovakia, Government deficit (-) / surplus (+) (% of GDP) -1.2 -5.4 -5.4 -2.0",
+   "column": 3
+  },
+  {
+   "country": "slovakia",
+   "indicator": "government_debt_gdp",
+   "frequency": "annual",
+   "period": "2022",
+   "unit": "% of GDP",
+   "release": "2-21042023-ap",
+   "value": 57.8,
+   "flash_estimate": false,
+   "printed_row": "Slovakia, Government debt (% of GDP) 48.0 58.9 61.0 57.8",
+   "column": 3
+  },
+  {
+   "country": "slovakia",
+   "indicator": "fiscal_balance_gdp",
+   "frequency": "annual",
+   "period": "2022",
+   "unit": "% of GDP",
+   "release": "2-23102023-ap",
+   "value": -2,
+   "flash_estimate": false,
+   "printed_row": "Slovakia, Government deficit (-) / surplus (+) (% of GDP) -1.2 -5.4 -5.2 -2.0",
+   "column": 3
+  },
+  {
+   "country": "slovakia",
+   "indicator": "government_debt_gdp",
+   "frequency": "annual",
+   "period": "2022",
+   "unit": "% of GDP",
+   "release": "2-23102023-ap",
+   "value": 57.8,
+   "flash_estimate": false,
+   "printed_row": "Slovakia, Government debt (% of GDP) 48.0 58.9 61.1 57.8",
+   "column": 3
+  },
+  {
+   "country": "poland",
+   "indicator": "fiscal_balance_gdp",
+   "frequency": "annual",
+   "period": "2022",
+   "unit": "% of GDP",
+   "release": "2-21042023-ap",
+   "value": -3.7,
+   "flash_estimate": false,
+   "printed_row": "Poland, Government deficit (-) / surplus (+) (% of GDP) -0.7 -6.9 -1.8 -3.7",
+   "column": 3
+  },
+  {
+   "country": "poland",
+   "indicator": "government_debt_gdp",
+   "frequency": "annual",
+   "period": "2022",
+   "unit": "% of GDP",
+   "release": "2-21042023-ap",
+   "value": 49.1,
+   "flash_estimate": false,
+   "printed_row": "Poland, Government debt (% of GDP) 45.7 57.2 53.6 49.1",
+   "column": 3
+  },
+  {
+   "country": "poland",
+   "indicator": "fiscal_balance_gdp",
+   "frequency": "annual",
+   "period": "2022",
+   "unit": "% of GDP",
+   "release": "2-23102023-ap",
+   "value": -3.7,
+   "flash_estimate": false,
+   "printed_row": "Poland, Government deficit (-) / surplus (+) (% of GDP) -0.7 -6.9 -1.8 -3.7",
+   "column": 3
+  },
+  {
+   "country": "poland",
+   "indicator": "government_debt_gdp",
+   "frequency": "annual",
+   "period": "2022",
+   "unit": "% of GDP",
+   "release": "2-23102023-ap",
+   "value": 49.3,
+   "flash_estimate": false,
+   "printed_row": "Poland, Government debt (% of GDP) 45.7 57.2 53.6 49.3",
+   "column": 3
+  },
+  {
+   "country": "czechia",
+   "indicator": "fiscal_balance_gdp",
+   "frequency": "annual",
+   "period": "2024",
+   "unit": "% of GDP",
+   "release": "2-22042025-ap",
+   "value": -2.2,
+   "flash_estimate": false,
+   "printed_row": "Czechia, Government deficit (-) / surplus (+) (% of GDP) -5.0 -3.1 -3.8 -2.2",
+   "column": 3
+  },
+  {
+   "country": "czechia",
+   "indicator": "government_debt_gdp",
+   "frequency": "annual",
+   "period": "2024",
+   "unit": "% of GDP",
+   "release": "2-22042025-ap",
+   "value": 43.6,
+   "flash_estimate": false,
+   "printed_row": "Czechia, Government debt (% of GDP) 40.7 42.5 42.5 43.6",
+   "column": 3
+  },
+  {
+   "country": "czechia",
+   "indicator": "fiscal_balance_gdp",
+   "frequency": "annual",
+   "period": "2024",
+   "unit": "% of GDP",
+   "release": "2-21102025-ap",
+   "value": -2,
+   "flash_estimate": false,
+   "printed_row": "Czechia, Government deficit (-) / surplus (+) (% of GDP) -5.0 -3.1 -3.7 -2.0",
+   "column": 3
+  },
+  {
+   "country": "czechia",
+   "indicator": "government_debt_gdp",
+   "frequency": "annual",
+   "period": "2024",
+   "unit": "% of GDP",
+   "release": "2-21102025-ap",
+   "value": 43.3,
+   "flash_estimate": false,
+   "printed_row": "Czechia, Government debt (% of GDP) 40.7 42.5 42.2 43.3",
+   "column": 3
+  },
+  {
+   "country": "germany",
+   "indicator": "fiscal_balance_gdp",
+   "frequency": "annual",
+   "period": "2023",
+   "unit": "% of GDP",
+   "release": "2-22102024-ap",
+   "value": -2.6,
+   "flash_estimate": false,
+   "printed_row": "Germany, Government deficit (-) / surplus (+) (% of GDP) -4.4 -3.2 -2.1 -2.6",
+   "column": 3
+  },
+  {
+   "country": "germany",
+   "indicator": "government_debt_gdp",
+   "frequency": "annual",
+   "period": "2023",
+   "unit": "% of GDP",
+   "release": "2-22102024-ap",
+   "value": 62.9,
+   "flash_estimate": false,
+   "printed_row": "Germany, Government debt (% of GDP) 68.0 68.1 65.0 62.9",
+   "column": 3
+  },
+  {
+   "country": "germany",
+   "indicator": "fiscal_balance_gdp",
+   "frequency": "annual",
+   "period": "2023",
+   "unit": "% of GDP",
+   "release": "2-22042025-ap",
+   "value": -2.5,
+   "flash_estimate": false,
+   "printed_row": "Germany, Government deficit (-) / surplus (+) (% of GDP) -3.2 -2.1 -2.5 -2.8",
+   "column": 2
+  },
+  {
+   "country": "germany",
+   "indicator": "government_debt_gdp",
+   "frequency": "annual",
+   "period": "2023",
+   "unit": "% of GDP",
+   "release": "2-22042025-ap",
+   "value": 62.9,
+   "flash_estimate": false,
+   "printed_row": "Germany, Government debt (% of GDP) 68.1 65.0 62.9 62.5",
+   "column": 2
+  }
+ ]
+}

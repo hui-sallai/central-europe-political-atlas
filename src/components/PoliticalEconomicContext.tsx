@@ -15,6 +15,7 @@ import type { EvidenceDraft } from "@/lib/researchNotebook";
 import { NotebookCollect } from "./NotebookCollect";
 import { ResearchTimeSeriesChart, monthIndex, indexToPeriod } from "./ResearchTimeSeriesChart";
 import { PoliticalElectionMacroTable } from "./PoliticalElectionMacroTable";
+import { electionCountryRoute, electionSourceCitations } from "@/lib/electionMacroLinkage";
 
 export type PoliticalContextInputs = { observations: Observation[]; indicators: Indicator[]; events: Event[]; monthlyMetadata: ContextMonthlyMeta[] };
 const monthlyNames: Record<string,{en:string;zh:string}> = {hicp_annual_rate:{en:"HICP inflation (monthly year-on-year rate)",zh:"HICP 通胀（月度同比率）"},unemployment_rate_monthly:{en:"Unemployment rate (monthly, seasonally adjusted)",zh:"失业率（月度，季调）"},industrial_production_index:{en:"Industrial production (2021=100, seasonal/calendar adjusted)",zh:"工业生产（2021=100，季调日历调整）"}};
@@ -37,7 +38,8 @@ export function PoliticalEconomicContext({ election, comparison, inputs, locale,
     return()=>controller.abort();
   },[]);
   const allAnnualPoints=useMemo(()=>contextAnnualPoints(inputs.observations,annual,inputs.indicators),[inputs,annual]);
-  const points=useMemo(()=>[...allAnnualPoints,...contextMonthlyPoints(monthly,current,inputs.monthlyMetadata)].filter(p=>p.country===country),[allAnnualPoints,inputs,monthly,current,country]);
+  const allPoints=useMemo(()=>[...allAnnualPoints,...contextMonthlyPoints(monthly,current,inputs.monthlyMetadata)],[allAnnualPoints,inputs,monthly,current]);
+  const points=useMemo(()=>allPoints.filter(p=>p.country===country),[allPoints,country]);
   const available=points.filter(contextPublished);
   const annualIds=inputs.indicators.filter(i=>available.some(p=>p.frequency==="annual"&&p.indicator===i.id));
   const monthlyIds=Object.keys(monthlyNames).filter(id=>available.some(p=>p.frequency==="monthly"&&p.indicator===id));
@@ -74,8 +76,8 @@ export function PoliticalEconomicContext({ election, comparison, inputs, locale,
   const timeline=[...selectedElections.map(e=>({key:e.electionId,date:e.date,kind:"election",label:en?`Election ${e.year}`:`${e.year} 年选举`,href:e.sources[0]?.url??"",source:en?"Official election evidence":"官方选举证据"})),...selectedPoints.map(p=>({key:p.id,date:p.period,kind:"observation",label:`${name}: ${contextPublished(p)?format(p.value):"—"} ${unit(p.unit)}`,href:p.sourceUrl,source:p.source})),...selectedEvents.map(e=>({key:e.id,date:e.date,kind:"event",label:eventName(e),href:e.source_url!,source:e.source_name}))].sort((a,b)=>a.date.localeCompare(b.date)||a.key.localeCompare(b.key));
   function exportCsv(){const content=selectedElections.map((e,i)=>contextCsv(selections[i],e.electionId,ranges[i],{electionDate:e.date,perspective,comparisonMode:comparison?"two_elections":"single_election",referenceMode:mode}).split("\r\n")).flatMap((lines,i)=>i?lines.slice(1):lines).join("\r\n");const url=URL.createObjectURL(new Blob(["\uFEFF",content],{type:"text/csv;charset=utf-8"}));const link=document.createElement("a");link.href=url;link.download=`political-economic-context-${country}-${frequency}.csv`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
   function draft():EvidenceDraft {
-    const url=new URL(`${localizedRoute("/politics/",locale)}${window.location.search}${window.location.hash}`,"https://hy-central-europe-analysis.org");url.searchParams.set("election",election.electionId);if(comparison)url.searchParams.set("compare",comparison.electionId);else url.searchParams.delete("compare");url.searchParams.set("context","1");url.searchParams.set("context_frequency",frequency);url.searchParams.set("context_indicator",selectedId??"");url.searchParams.set("context_range",mode);url.searchParams.set("context_perspective",perspective);url.searchParams.set("context_from",String(start));url.searchParams.set("context_to",String(end));
-    const sources=[...new Map([...selectedPoints.filter(p=>p.sourceUrl).map(p=>({institution:p.source,dataset:p.definition,url:p.sourceUrl,layer:p.layer})),...selectedEvents.map(e=>({institution:e.source_name,dataset:e.title,url:e.source_url!,layer:"verified_event"})),...selectedElections.flatMap(e=>e.sources.map(s=>({institution:"Die Bundeswahlleiterin, Wiesbaden",dataset:s.title,url:s.url,layer:"tier1_official"})))].map(s=>[s.url,s])).values()];
+    const url=new URL(`${localizedRoute(electionCountryRoute(country),locale)}${window.location.search}${window.location.hash}`,"https://hy-central-europe-analysis.org");url.searchParams.set("election",election.electionId);if(comparison)url.searchParams.set("compare",comparison.electionId);else url.searchParams.delete("compare");url.searchParams.set("context","1");url.searchParams.set("context_frequency",frequency);url.searchParams.set("context_indicator",selectedId??"");url.searchParams.set("context_range",mode);url.searchParams.set("context_perspective",perspective);url.searchParams.set("context_from",String(start));url.searchParams.set("context_to",String(end));
+    const sources=[...new Map([...selectedPoints.filter(p=>p.sourceUrl).map(p=>({institution:p.source,dataset:p.definition,url:p.sourceUrl,layer:p.layer})),...selectedEvents.map(e=>({institution:e.source_name,dataset:e.title,url:e.source_url!,layer:"verified_event"})),...electionSourceCitations(selectedElections)].map(s=>[s.url,s])).values()];
     // Record a reproducible selected view, not hundreds of invented notebook observations. Individual IDs stay in the CSV.
     return {type:"series_view",title:`${country} election-economic context`,labels:{en:"Election-economic historical context","zh-CN":"选举与经济历史背景"},url:url.href,canonical_ids:selectedElections.map(e=>e.electionId),countries:[country],periods:ranges.flatMap(r=>[r.from,r.to]),layer:"descriptive_political_economic_context",sources,warnings:[warning],warning_labels:{[locale]:[warning]},comparability:"descriptive_context_not_causal",metadata:{filters:{election:election.electionId,election_date:election.date,compare:comparison?.electionId??"",comparison_date:comparison?.date??"",comparison_mode:comparison?"two_elections":"single_election",perspective,frequency,indicator:selectedId??"",range:mode,from:start,to:end},row_count:selectedPoints.length,reference:ranges.map(r=>`${r.from}–${r.to}`).join("; ")}};
   }
@@ -111,5 +113,5 @@ export function PoliticalEconomicContext({ election, comparison, inputs, locale,
     </details>
     <div className="flex flex-wrap items-center gap-4"><button type="button" className="underline" disabled={!selectedPoints.length} onClick={exportCsv}>{en?"Export context observations CSV":"导出背景观测 CSV"}</button><NotebookCollect create={draft} label={en?"Collect historical context":"收藏历史背景"}/></div>
 
-    {allElections.length>1&&annual?<PoliticalElectionMacroTable elections={allElections} points={allAnnualPoints} locale={locale}/>:null}  </section>;
+    {allElections.length>1&&annual?<PoliticalElectionMacroTable elections={allElections} points={allPoints} locale={locale}/>:null}  </section>;
 }

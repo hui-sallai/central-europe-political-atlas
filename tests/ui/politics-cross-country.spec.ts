@@ -188,3 +188,18 @@ for (const [route, country] of [["/en/politics/slovakia/", "slovakia"], ["/en/po
   await expect(table.locator('[data-macro-election="el-sk-nrsr-2023-09-30"]')).toContainText("2023");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
 });
+
+test("published before polling day: dated values stay separate from current figures", async ({ page }) => {
+  await page.goto("/en/politics/slovakia/");
+  await page.locator("[data-context-disclosure] > summary").click();
+  const table = page.locator("[data-election-as-of]");
+  await expect(table).toBeVisible();
+  await expect(table.locator("[data-as-of-row]")).toHaveCount(20);
+  const deficit = table.locator('[data-as-of-row="el-sk-nrsr-2023-09-30:fiscal_balance_gdp"]');
+  await expect(deficit).toContainText("−2.0");
+  await expect(deficit).toContainText("−1.6");
+  await expect(table.locator('[data-as-of-row="el-cz-ps-2025-10-03:unemployment_rate"]')).toHaveAttribute("data-as-of-status", "not_established");
+  await expect(table.locator('[data-as-of-row="el-de-bt-2025-02-23:hicp_inflation"]')).toContainText("flash estimate");
+  await expect(table.locator('[data-as-of-row="el-sk-nrsr-2023-09-30:real_gdp_growth"]')).toContainText("Not held for this period");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+});
