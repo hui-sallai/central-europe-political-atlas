@@ -54,7 +54,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
       const other = params.get("compare");
       setCompareId(elections.some(e => e.electionId === other) ? other! : "");
       setComparisonMode(params.get("comparison_mode") === "labels" ? "labels" : "verified");
-      if (params.get("context") === "1") setContextOpen(true);
+      if (params.get("context") === "1" || params.has("research_q")) setContextOpen(true);
     };
     restore(); window.addEventListener("popstate", restore);
     return () => window.removeEventListener("popstate", restore);

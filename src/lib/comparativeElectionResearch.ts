@@ -10,7 +10,7 @@ import type { PoliticalElectionView } from "./politicalExplorer";
 import type { PoliticalIdentityLink } from "./politicalIdentity";
 import { compareVerifiedSeries } from "./politicalSeriesComparison";
 
-export const RESEARCH_METHOD_VERSION = "atlas-comparative-election-research-v1";
+export const RESEARCH_METHOD_VERSION = "atlas-comparative-election-research-v2";
 export const RESEARCH_VIEWS = ["last_complete_year", "election_calendar_year", "last_complete_month", "released_before_election"] as const;
 export type ResearchView = typeof RESEARCH_VIEWS[number];
 export type ResearchFrequency = "annual" | "monthly" | "quarterly";
@@ -252,12 +252,14 @@ export function directionAcrossCountries(associations: Association[]) {
 }
 
 // D ---------------------------------------------------------------------------------------------------------------------
-export type ViewRelation = "same_period_revision" | "different_period" | "different_frequency" | "no_observation";
+export type ViewRelation = "same_period_revision" | "different_period" | "different_frequency" | "different_definition" | "no_observation";
 export type ReleasedVersusView = { view: Exclude<ResearchView, "released_before_election">; period: string | null; frequency: ResearchFrequency | null; value: number | null; relation: ViewRelation; difference: number | null };
+export type RevisionBlock = "no_current_series_at_frequency" | "frequency_differs" | "unit_differs" | "definition_differs" | "current_value_not_held" | "release_not_documented";
+export type RevisionGate = { status: "identical_measure" | "not_comparable"; reason: RevisionBlock | null; currentSeries: string | null; dataset: string | null };
 export type ReleasedComparison = {
   country: string; electionId: string; electionDate: string; indicator: ElectionMacroIndicator; status: "documented" | "not_established"; reason: string | null;
   frequency: ResearchFrequency | null; period: string | null; value: number | null; unit: string | null; flashEstimate: boolean | null; publishedOn: string | null; daysBeforeElection: number | null; monthsFromPeriodEndToElection: number | null;
-  sourceUrl: string | null; releaseSha256: string | null; currentValue: number | null; revisionSinceRelease: number | null; versus: ReleasedVersusView[];
+  sourceUrl: string | null; releaseSha256: string | null; gate: RevisionGate; currentValue: number | null; revisionSinceRelease: number | null; versus: ReleasedVersusView[];
 };
 const days = (a: string, b: string) => Math.round((Date.parse(b) - Date.parse(a)) / 86400000);
 function periodEndMonth(period: string) {
@@ -266,20 +268,111 @@ function periodEndMonth(period: string) {
   return quarter ? `${quarter[1]}-${String(Number(quarter[2]) * 3).padStart(2, "0")}` : period;
 }
 
-export function releasedVersusRetrospective(rows: ElectionMacroRow[], observations: ResearchObservation[], selection: ResearchSelection): ReleasedComparison[] {
-  const documentedElections = new Set(rows.filter((r) => r.publishedBeforeElection.status === "documented").map((r) => r.electionId));
-  return rows.filter((r) => documentedElections.has(r.electionId) && selection.electionIds.includes(r.electionId) && selection.indicators.includes(r.indicator)).map((r) => {
-    const released = r.publishedBeforeElection;
-    const own = observations.find((o) => o.electionId === r.electionId && o.indicator === r.indicator && o.view === "released_before_election")!;
-    const versus = (["last_complete_year", "election_calendar_year", "last_complete_month"] as const).map((view): ReleasedVersusView => {
-      const o = observations.find((x) => x.electionId === r.electionId && x.indicator === r.indicator && x.view === view)!;
-      if (o.status !== "observed" || own.value === null) return { view, period: o.period, frequency: o.frequency, value: null, relation: "no_observation", difference: null };
-      const relation: ViewRelation = o.frequency !== own.frequency ? "different_frequency" : o.period === own.period ? "same_period_revision" : "different_period";
-      return { view, period: o.period, frequency: o.frequency, value: o.value, relation, difference: r6(o.value! - own.value) };
-    });
-    if (released.status !== "documented") return { country: r.country, electionId: r.electionId, electionDate: r.electionDate, indicator: r.indicator, status: "not_established" as const, reason: released.reason, frequency: null, period: null, value: null, unit: null, flashEstimate: null, publishedOn: null, daysBeforeElection: null, monthsFromPeriodEndToElection: null, sourceUrl: null, releaseSha256: null, currentValue: null, revisionSinceRelease: null, versus };
-    return { country: r.country, electionId: r.electionId, electionDate: r.electionDate, indicator: r.indicator, status: "documented" as const, reason: null, frequency: own.frequency, period: released.period, value: released.value, unit: released.unit, flashEstimate: released.flashEstimate, publishedOn: released.publishedOn, daysBeforeElection: days(released.publishedOn, r.electionDate), monthsFromPeriodEndToElection: monthsBetween(periodEndMonth(released.period), r.electionDate), sourceUrl: released.sourceUrl, releaseSha256: released.releaseSha256, currentValue: released.current.value, revisionSinceRelease: released.revisionSinceRelease, versus };
+// The current series that measures exactly what a release printed. An indicator without an entry has no such series.
+const RELEASE_CURRENT_MEASURE: Partial<Record<ElectionMacroIndicator, { series: string; frequency: ResearchFrequency; dataset: string; releaseUnit: string; currentUnit: string }>> = {
+  hicp_inflation: { series: "hicp_annual_rate", frequency: "monthly", dataset: "prc_hicp_minr", releaseUnit: "%", currentUnit: "RCH_A" },
+  unemployment_rate: { series: "unemployment_rate_monthly", frequency: "monthly", dataset: "une_rt_m", releaseUnit: "% of active population", currentUnit: "PC_ACT" },
+  fiscal_balance_gdp: { series: "fiscal_balance_gdp", frequency: "annual", dataset: "gov_10dd_edpt1", releaseUnit: "% of GDP", currentUnit: "% GDP" },
+  government_debt_gdp: { series: "government_debt_gdp", frequency: "annual", dataset: "gov_10dd_edpt1", releaseUnit: "% of GDP", currentUnit: "% GDP" },
+};
+/** A difference is a revision only for one indicator, period, frequency, unit and definition. Each failure has its own reason. */
+export function revisionGate(indicator: ElectionMacroIndicator, country: string, released: { frequency: string; period: string; unit: string } | null, points: ContextPoint[]): { gate: RevisionGate; point: ContextPoint | null } {
+  const measure = RELEASE_CURRENT_MEASURE[indicator];
+  const blocked = (reason: RevisionBlock, point: ContextPoint | null = null) => ({ gate: { status: "not_comparable" as const, reason, currentSeries: measure?.series ?? null, dataset: measure?.dataset ?? null }, point });
+  if (!released) return blocked("release_not_documented");
+  if (!measure) return blocked("no_current_series_at_frequency");
+  if (released.frequency !== measure.frequency) return blocked("frequency_differs");
+  const point = points.find((p) => p.country === country && p.indicator === measure.series && p.frequency === measure.frequency && p.period === released.period) ?? null;
+  if (!point || !contextPublished(point) || point.value === null) return blocked("current_value_not_held");
+  if (released.unit !== measure.releaseUnit || point.unit !== measure.currentUnit) return blocked("unit_differs", point);
+  if (datasetOf(point) !== measure.dataset || !point.comparable) return blocked("definition_differs", point);
+  return { gate: { status: "identical_measure", reason: null, currentSeries: measure.series, dataset: measure.dataset }, point };
+}
+
+function compareReleased(r: ElectionMacroRow, observations: ResearchObservation[], points: ContextPoint[]): ReleasedComparison {
+  const released = r.publishedBeforeElection;
+  const documented = released.status === "documented" ? released : null;
+  const own = observations.find((o) => o.electionId === r.electionId && o.indicator === r.indicator && o.view === "released_before_election")!;
+  const { gate, point } = revisionGate(r.indicator, r.country, documented, points);
+  const versus = (["last_complete_year", "election_calendar_year", "last_complete_month"] as const).map((view): ReleasedVersusView => {
+    const o = observations.find((x) => x.electionId === r.electionId && x.indicator === r.indicator && x.view === view)!;
+    if (o.status !== "observed" || own.value === null) return { view, period: o.period, frequency: o.frequency, value: o.status === "observed" ? o.value : null, relation: "no_observation", difference: null };
+    const relation: ViewRelation = o.frequency !== own.frequency ? "different_frequency" : o.period !== own.period ? "different_period" : gate.status === "identical_measure" ? "same_period_revision" : "different_definition";
+    // Only a revision is subtracted. A monthly or quarterly release minus an annual rate, or two different periods, is not a difference of one measure.
+    return { view, period: o.period, frequency: o.frequency, value: o.value, relation, difference: relation === "same_period_revision" ? r6(o.value! - own.value) : null };
   });
+  if (!documented) return { country: r.country, electionId: r.electionId, electionDate: r.electionDate, indicator: r.indicator, status: "not_established", reason: released.status === "not_established" ? released.reason : null, frequency: null, period: null, value: null, unit: null, flashEstimate: null, publishedOn: null, daysBeforeElection: null, monthsFromPeriodEndToElection: null, sourceUrl: null, releaseSha256: null, gate, currentValue: null, revisionSinceRelease: null, versus };
+  const identical = gate.status === "identical_measure";
+  return { country: r.country, electionId: r.electionId, electionDate: r.electionDate, indicator: r.indicator, status: "documented", reason: null, frequency: own.frequency, period: documented.period, value: documented.value, unit: documented.unit, flashEstimate: documented.flashEstimate, publishedOn: documented.publishedOn, daysBeforeElection: days(documented.publishedOn, r.electionDate), monthsFromPeriodEndToElection: monthsBetween(periodEndMonth(documented.period), r.electionDate), sourceUrl: documented.sourceUrl, releaseSha256: documented.releaseSha256, gate, currentValue: identical ? point!.value : null, revisionSinceRelease: identical ? r6(point!.value! - documented.value) : null, versus };
+}
+
+export function releasedVersusRetrospective(rows: ElectionMacroRow[], observations: ResearchObservation[], selection: ResearchSelection, points: ContextPoint[]): ReleasedComparison[] {
+  const documentedElections = new Set(rows.filter((r) => r.publishedBeforeElection.status === "documented").map((r) => r.electionId));
+  return rows.filter((r) => documentedElections.has(r.electionId) && selection.electionIds.includes(r.electionId) && selection.indicators.includes(r.indicator)).map((r) => compareReleased(r, observations, points));
+}
+
+// One election inspected in full: what was public before polling day, kept apart from what is known now.
+export type AsOfConditionCode = RevisionBlock | "first_release_dates_not_recorded" | "last_release_not_located" | "revision_identical_measure" | "flash_estimate" | "annual_view_is_different_measure" | "latest_published_year_older" | "election_year_after_polling" | "last_month_not_documented_as_released" | "view_has_no_observation";
+type LocalText = { en: string; zh: string };
+export const AS_OF_CONDITIONS: Record<AsOfConditionCode, LocalText> = {
+  release_not_documented: { en: "No dated release is documented for this figure, so no revision can be calculated.", zh: "此数字没有注明日期的发布记录，因此无法计算修订。" },
+  no_current_series_at_frequency: { en: "The Atlas holds no current series at this frequency, so no revision can be calculated. The annual figure is not used instead.", zh: "Atlas 没有此频率的当前序列，因此无法计算修订，也不用年度数字代替。" },
+  frequency_differs: { en: "The current series has another frequency, so no revision is calculated.", zh: "当前序列频率不同，因此不计算修订。" },
+  unit_differs: { en: "The units differ, so no revision is calculated.", zh: "单位不同，因此不计算修订。" },
+  definition_differs: { en: "The definitions differ, so no revision is calculated.", zh: "定义不同，因此不计算修订。" },
+  current_value_not_held: { en: "The Atlas holds no current value for this period, so no revision can be calculated.", zh: "Atlas 没有此期间的当前数值，因此无法计算修订。" },
+  first_release_dates_not_recorded: { en: "Dated releases have been read only for the latest election in each country. For this election, what was public before polling day is not established.", zh: "目前只查阅了每个国家最近一届选举的注明日期发布。此届选举投票日前已公布的内容尚未确定。" },
+  last_release_not_located: { en: "The last release before polling day was not located, so this figure is not established. It is not filled from current data.", zh: "未找到投票日前的最后一次发布，因此此数字未确定，也不用当前数据填补。" },
+  revision_identical_measure: { en: "Same indicator, period, frequency, unit and definition, so current minus released is a revision.", zh: "指标、期间、频率、单位和定义都相同，因此当前值减已发布值为修订。" },
+  flash_estimate: { en: "The released figure is a flash estimate.", zh: "已发布数字是快速估算。" },
+  annual_view_is_different_measure: { en: "The annual figures are a different measure from this monthly or quarterly release, so nothing is subtracted between them.", zh: "年度数字与此月度或季度发布属于不同度量，因此不相减。" },
+  latest_published_year_older: { en: "The last complete year had not been published in any release read before polling day. The latest published year was older.", zh: "在所查阅的投票日前发布中，最后完整年度尚未公布；当时已公布的最新年度更早。" },
+  election_year_after_polling: { en: "The election-year figure includes months after polling day and did not exist at polling day.", zh: "选举年度数字包含投票日后的月份，在投票日尚不存在。" },
+  last_month_not_documented_as_released: { en: "The last complete month is later than the released period. No release read shows that month's figure was public before polling day.", zh: "最后完整月份晚于已发布期间。所查阅的发布未显示该月数字在投票日前已公布。" },
+  view_has_no_observation: { en: "At least one retrospective view has no observation for this election. The gap stays empty.", zh: "至少一个回顾视图没有此届选举的观测，缺口保持为空。" },
+};
+export type CaseView = { view: Exclude<ResearchView, "released_before_election">; period: string | null; frequency: ResearchFrequency | null; value: number | null; unit: string | null; status: ObservationStatus; source: string | null; sourceUrl: string | null; layer: string | null; vintage: ResearchObservation["vintage"]; includesPostElectionMonths: boolean; relation: ViewRelation; difference: number | null };
+export type CaseLaterRelease = { publishedOn: string; value: number; url: string; afterPolling: boolean; changeFromReleased: number };
+export type AsOfCaseRow = Omit<ReleasedComparison, "versus"> & {
+  releaseTopic: string | null; earliestLocatedRelease: string | null; printedRow: string | null; laterReleases: CaseLaterRelease[];
+  current: { value: number | null; period: string | null; unit: string | null; dataset: string | null; source: string | null; sourceUrl: string | null; layer: string | null; vintage: "current_published" | null };
+  views: CaseView[]; conditions: AsOfConditionCode[]; computationRule: string;
+};
+export type AsOfCase = { electionId: string; country: string; electionDate: string; status: "documented" | "partly_documented" | "not_documented"; rows: AsOfCaseRow[]; summary: LocalText };
+
+/** Works for any admitted election. An election without dated releases returns its retrospective figures and an explicit gap. */
+export function asOfCase(electionId: string, rows: ElectionMacroRow[], observations: ResearchObservation[], points: ContextPoint[], selection: ResearchSelection): AsOfCase | null {
+  const own = rows.filter((r) => r.electionId === electionId);
+  if (!own.length) return null;
+  const caseRows = own.filter((r) => selection.indicators.includes(r.indicator)).map((r): AsOfCaseRow => {
+    const { versus, ...comparison } = compareReleased(r, observations, points);
+    const released = r.publishedBeforeElection.status === "documented" ? r.publishedBeforeElection : null;
+    const { point } = revisionGate(r.indicator, r.country, released, points);
+    const views = versus.map((v): CaseView => { const o = observations.find((x) => x.electionId === electionId && x.indicator === r.indicator && x.view === v.view)!; return { ...v, value: o.status === "observed" ? o.value : null, unit: o.unit, status: o.status, source: o.source, sourceUrl: o.sourceUrl, layer: o.layer, vintage: o.vintage, includesPostElectionMonths: o.includesPostElectionMonths }; });
+    const view = (name: CaseView["view"]) => views.find((v) => v.view === name)!;
+    const conditions: AsOfConditionCode[] = [];
+    if (!released) { conditions.push(comparison.reason === "last_release_not_located" ? "last_release_not_located" : "first_release_dates_not_recorded"); }
+    else {
+      conditions.push(comparison.gate.status === "identical_measure" ? "revision_identical_measure" : comparison.gate.reason!);
+      if (released.flashEstimate) conditions.push("flash_estimate");
+      if (comparison.frequency !== "annual" && views.some((v) => v.frequency === "annual" && v.value !== null)) conditions.push("annual_view_is_different_measure");
+      if (comparison.frequency === "annual" && view("last_complete_year").relation === "different_period") conditions.push("latest_published_year_older");
+      if (view("last_complete_month").relation === "different_period") conditions.push("last_month_not_documented_as_released");
+    }
+    if (view("election_calendar_year").value !== null) conditions.push("election_year_after_polling");
+    if (views.some((v) => v.status !== "observed" && v.status !== "no_series_at_frequency")) conditions.push("view_has_no_observation");
+    return {
+      ...comparison, views, conditions, releaseTopic: released?.releaseTopic ?? null, earliestLocatedRelease: released?.earliestLocatedRelease ?? null, printedRow: released?.printedRow ?? null,
+      laterReleases: (released?.laterReleases ?? []).map((l) => ({ ...l, afterPolling: l.publishedOn >= r.electionDate, changeFromReleased: r6(l.value - released!.value) })),
+      current: comparison.gate.status === "identical_measure" ? { value: point!.value, period: comparison.period, unit: point!.unit, dataset: comparison.gate.dataset, source: point!.source, sourceUrl: point!.sourceUrl, layer: point!.layer, vintage: "current_published" } : { value: null, period: comparison.period, unit: null, dataset: comparison.gate.dataset, source: null, sourceUrl: null, layer: null, vintage: null },
+      computationRule: comparison.gate.status === "identical_measure" ? "revision = current value minus released value, for one indicator, period, frequency, unit and definition" : `no revision calculated: ${comparison.gate.reason}`,
+    };
+  });
+  const documented = caseRows.filter((r) => r.status === "documented"), withCurrent = documented.filter((r) => r.revisionSinceRelease !== null), moved = withCurrent.filter((r) => r.revisionSinceRelease !== 0);
+  const summary: LocalText = documented.length
+    ? { en: `${documented.length} of ${caseRows.length} figures have a dated release before polling day. ${withCurrent.length} can be compared with a current value of the identical measure, and ${moved.length} of those have been revised.`, zh: `${caseRows.length} 个数字中有 ${documented.length} 个有投票日前注明日期的发布。其中 ${withCurrent.length} 个可与相同度量的当前值比较，${moved.length} 个已被修订。` }
+    : { en: "No figure for this election has a documented release before polling day. Only retrospective current data can be shown, and it does not show what was public at the time.", zh: "此届选举没有任何数字有投票日前的发布记录。只能显示回顾性的当前数据，它不表示当时已公布的内容。" };
+  return { electionId, country: own[0].country, electionDate: own[0].electionDate, status: !documented.length ? "not_documented" : documented.length === caseRows.length ? "documented" : "partly_documented", rows: caseRows, summary };
 }
 
 export type DirectionCheck = { indicator: ElectionMacroIndicator; electionA: string; electionB: string; releasedDifference: number; views: { view: ResearchView; difference: number | null; directionChanged: boolean | null; sameFrequencyAsReleased: boolean | null }[] };
@@ -290,7 +383,8 @@ export function directionChecks(released: ReleasedComparison[], selection: Resea
   const checks: DirectionCheck[] = [], spreads: SpreadCheck[] = [];
   for (const indicator of selection.indicators) {
     const rows = released.filter((r) => r.indicator === indicator && r.status === "documented").sort((a, b) => a.electionDate.localeCompare(b.electionDate));
-    if (rows.length < 2) continue;
+    // A gap between elections needs one frequency and unit among the released figures themselves.
+    if (rows.length < 2 || new Set(rows.map((r) => `${r.frequency}|${r.unit}`)).size > 1) continue;
     rows.forEach((a, i) => rows.slice(i + 1).forEach((b) => checks.push({
       indicator, electionA: a.electionId, electionB: b.electionId, releasedDifference: r6(b.value! - a.value!),
       views: views.map((view) => { const x = a.versus.find((v) => v.view === view)!, y = b.versus.find((v) => v.view === view)!; if (x.value === null || y.value === null || x.frequency !== y.frequency) return { view, difference: null, directionChanged: null, sameFrequencyAsReleased: null }; const difference = r6(y.value - x.value); return { view, difference, directionChanged: Math.sign(difference) !== Math.sign(b.value! - a.value!), sameFrequencyAsReleased: x.frequency === a.frequency && y.frequency === b.frequency }; }),
@@ -342,8 +436,30 @@ export function researchFindings(results: ResearchResults, elections: PoliticalE
   return { A: a, B: b, C: c, D: d };
 }
 
+// Availability ---------------------------------------------------------------------------------------------------------
+export type QuestionAvailability = { status: "available" | "partial" | "unavailable"; reason: Text | null };
+/** Each question reports what the selected evidence allows, so an empty table always has a stated reason. */
+export function researchAvailability(results: ResearchResults): Record<ResearchQuestion, QuestionAvailability> {
+  const { selection, a, b, c, d } = results;
+  const none = (reason: Text): QuestionAvailability => ({ status: "unavailable", reason });
+  const partial = (reason: Text): QuestionAvailability => ({ status: "partial", reason });
+  const ok: QuestionAvailability = { status: "available", reason: null };
+  const noPair: Text = selection.countries.includes("slovakia") && selection.countries.length === 1
+    ? { en: "Slovakia has one admitted election, so it has no pair of successive elections.", zh: "斯洛伐克只有一届已准入选举，因此没有相邻选举。" }
+    : { en: "The selection holds no two neighbouring elections in one country. An unselected election is not bridged.", zh: "所选范围内没有同一国家的两届相邻选举。不会跨越未选中的选举。" };
+  const calculated = b.filter((x) => x.status === "calculated").length;
+  const coefficients = c.associations.filter((x) => x.status === "coefficient").length, directions = c.associations.filter((x) => x.status === "direction_only").length;
+  const documented = d.released.filter((x) => x.status === "documented").length, gaps = d.released.length - documented;
+  return {
+    A: !a.measures.length ? none({ en: "No selected election has a figure in this view.", zh: "所选选举在此视图中没有数字。" }) : a.gaps.length ? partial({ en: `${a.gaps.length} selected figures have no observation in this view and stay empty.`, zh: `所选范围中有 ${a.gaps.length} 个数字在此视图中没有观测，保持为空。` }) : ok,
+    B: !b.length ? none(noPair) : !calculated ? none(selection.view === "released_before_election" ? { en: "Released figures cover only the latest election in each country, so no change between elections can use them.", zh: "已发布数字只覆盖每个国家最近一届选举，因此选举之间的变化无法使用。" } : { en: "No indicator has the identical measure at both elections of a pair.", zh: "没有指标在相邻两届选举中具有相同度量。" }) : calculated < b.length ? partial({ en: `${b.length - calculated} of ${b.length} changes are withheld. The table gives each reason.`, zh: `${b.length} 个变化中有 ${b.length - calculated} 个未计算，表格列出原因。` }) : ok,
+    C: !c.pairs.length ? none(noPair) : coefficients ? ok : directions ? partial({ en: `No selected country has the ${MIN_PAIRS_FOR_COEFFICIENT} pairs a coefficient needs, so only direction counts appear.`, zh: `所选国家都不足 ${MIN_PAIRS_FOR_COEFFICIENT} 组，无法计算系数，因此只显示方向计数。` }) : none({ en: "No pair has both a macroeconomic change and a turnout or verified list change in this view.", zh: "在此视图中，没有一组同时具有宏观变化和投票率或已核实名单变化。" }),
+    D: !documented ? none({ en: "No selected election has dated releases. They have been read only for the latest election in each country.", zh: "所选选举都没有注明日期的发布。目前只查阅了每个国家最近一届选举。" }) : gaps ? partial({ en: `${gaps} selected figures have no located release and stay not established.`, zh: `所选范围中有 ${gaps} 个数字未找到发布记录，保持未确定。` }) : ok,
+  };
+}
+
 // Run and export ---------------------------------------------------------------------------------------------------------
-export function runComparativeResearch(rawSelection: Partial<ResearchSelection>, elections: PoliticalElectionView[], points: ContextPoint[], links: PoliticalIdentityLink[]) {
+export function runComparativeResearch(rawSelection: Partial<ResearchSelection>, elections: PoliticalElectionView[], points: ContextPoint[], links: PoliticalIdentityLink[], options: { question?: ResearchQuestion; caseElectionId?: string | null } = {}) {
   const selection = normalizeSelection(rawSelection, elections);
   const rows = electionMacroRows(elections, points);
   const observations = researchObservations(elections, points);
@@ -351,9 +467,9 @@ export function runComparativeResearch(rawSelection: Partial<ResearchSelection>,
   const b = successiveElectionChanges(pairs, observations, points, selection);
   const relationship = relationshipPairs(pairs, b, links, elections);
   const associations = electionAssociations(relationship, selection);
-  const released = releasedVersusRetrospective(rows, observations, selection);
+  const released = releasedVersusRetrospective(rows, observations, selection, points);
   return {
-    selection, observations: observations.filter((o) => o.view === selection.view && inSelection(o, selection)), allViewObservations: observations.filter((o) => inSelection(o, selection)),
+    question: options.question ?? "A" as ResearchQuestion, asOf: options.caseElectionId ? asOfCase(options.caseElectionId, rows, observations, points, selection) : null, selection, observations: observations.filter((o) => o.view === selection.view && inSelection(o, selection)), allViewObservations: observations.filter((o) => inSelection(o, selection)),
     a: compareAcrossElections(observations, selection), b, c: { pairs: relationship, associations, direction: directionAcrossCountries(associations) }, d: { released, ...directionChecks(released, selection) },
   };
 }
@@ -363,7 +479,7 @@ export const RESEARCH_RULES = [
   "Successive changes join neighbouring admitted elections in one country. An unselected election is not bridged.",
   "Values from the 2000-2020 history and the 2021+ snapshot use the same Eurostat dataset and query, and a change between them is flagged as crossing data layers.",
   "Released figures come only from dated Eurostat releases issued before polling day. A missing release stays not established and is never filled from current data.",
-  "A revision is reported only for the same frequency and period. Other gaps between views show a different period or frequency.",
+  "A revision is calculated only for one indicator, period, frequency, unit and definition. A release is never subtracted from a figure of another frequency or period.",
   "Turnout changes need one country and one published basis. List changes use verified links only; coalition totals are not assigned to members and members have no figure.",
   `Coefficients are within one country, on at least ${MIN_PAIRS_FOR_COEFFICIENT} pairs, and are shown with a leave-one-out range. Below that, only direction counts appear. Pairs are not pooled across countries because turnout bases differ.`,
   "Verified list movement is half the sum of absolute share changes among verified units. It is not party-system volatility, and its coverage is reported.",
@@ -384,7 +500,7 @@ export function researchEvidencePackage(results: ResearchResults, elections: Pol
   const selected = elections.filter((e) => results.selection.electionIds.includes(e.electionId));
   const macroRows = results.allViewObservations.filter((o) => o.view === "released_before_election" && o.status === "observed");
   return {
-    schema_version: RESEARCH_METHOD_VERSION, descriptive_only: true, selection: results.selection,
+    schema_version: RESEARCH_METHOD_VERSION, descriptive_only: true, question: results.question, selection: results.selection,
     method: { rules: RESEARCH_RULES, limits: RESEARCH_LIMITS, min_pairs_for_coefficient: MIN_PAIRS_FOR_COEFFICIENT },
     elections: selected.map((e) => ({ election_id: e.electionId, country: countryOf(e), date: e.date, chamber: e.chamber ?? null, published_turnout: e.publishedTurnout, turnout_numerator: e.national?.turnout.numerator ?? null, turnout_denominator: e.national?.turnout.denominator ?? null, result_vintage: e.resultVintage, sources: e.sources.map((s) => ({ id: s.id, institution: s.institution ?? null, url: s.url, sha256: s.sha256, retrieved_at: s.retrievedAt })) })),
     observations: results.allViewObservations,
@@ -393,6 +509,8 @@ export function researchEvidencePackage(results: ResearchResults, elections: Pol
     question_b: results.b,
     question_c: { pairs: results.c.pairs.map((p) => ({ country: p.pair.country, from_election: p.pair.from.electionId, to_election: p.pair.to.electionId, months_between: p.pair.monthsBetween, turnout: p.turnout, verified_lists: p.lists })), associations: results.c.associations, direction_across_countries: results.c.direction },
     question_d: results.d,
+    as_of_case: results.asOf,
+    availability: researchAvailability(results),
     findings: researchFindings(results, elections),
   };
 }
@@ -402,7 +520,20 @@ export async function researchDigest(evidence: ReturnType<typeof researchEvidenc
   return [...new Uint8Array(bytes)].map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-const CSV_HEADER = ["record_type", "country", "election_id", "comparison_election_id", "indicator", "view", "frequency", "observation_period", "comparison_period", "value", "comparison_value", "difference", "unit", "status", "reason", "measure_key", "vintage", "data_layer", "published_on", "release_sha256", "source_url", "note"];
+const CSV_HEADER = ["record_type", "country", "election_id", "comparison_election_id", "indicator", "view", "frequency", "observation_period", "comparison_period", "value", "comparison_value", "difference", "unit", "status", "reason", "measure_key", "vintage", "data_layer", "published_on", "release_sha256", "source_url", "note", "question", "selected_question", "election_date", "computation_rule", "comparability"];
+const RECORD_QUESTION: Record<string, string> = { observation: "A | B | C | D", across_elections: "A", successive_change: "B", turnout_change: "C", verified_list_movement: "C", verified_unit_change: "C", association: "C", released_versus_view: "D", direction_check: "D", as_of_case: "D", as_of_case_view: "D" };
+const RECORD_RULE: Record<string, string> = {
+  observation: "value as published for this view; a gap stays empty",
+  across_elections: "minimum, maximum, range and median within one indicator, frequency, Eurostat dataset and unit",
+  successive_change: "later minus earlier election, within one country and one measure",
+  turnout_change: "later minus earlier election, within one country and one published basis",
+  verified_list_movement: "half the sum of absolute share changes among verified units",
+  verified_unit_change: "later minus earlier share of one verified unit",
+  association: "Pearson and Spearman within one country, on at least 5 pairs",
+  released_versus_view: "difference is calculated only for a same-period revision of the identical measure",
+  direction_check: "sign of the gap between two elections, later minus earlier; a sign comparison, not a subtraction across views",
+  as_of_case_view: "difference is calculated only for a same-period revision of the identical measure",
+};
 export function researchCsv(results: ResearchResults): string {
   const cell = (v: unknown) => { const s = String(v ?? ""); return `"${(typeof v === "string" && /^[=+\-@\t\r]/.test(s) ? `'${s}` : s).replaceAll('"', '""')}"`; };
   const lines: unknown[][] = [];
@@ -417,5 +548,15 @@ export function researchCsv(results: ResearchResults): string {
   for (const a of results.c.associations) lines.push(["association", a.country, "", "", a.indicator, a.view, "", "", "", a.pearson, a.spearman, "", "coefficient", a.status, "", a.outcome, "", "", "", "", "", `n=${a.n}; leave-one-out ${a.leaveOneOutPearson ? `${a.leaveOneOutPearson.min} to ${a.leaveOneOutPearson.max}` : "none"}; same-layer pairs ${a.sameDataLayerPairs}, Pearson ${a.sameDataLayerPearson ?? "none"}; same direction ${a.sameDirection ?? "n/a"}, opposite ${a.oppositeDirection ?? "n/a"}; value is Pearson and comparison_value is Spearman; association only, not causation`]);
   for (const r of results.d.released) for (const v of r.versus) lines.push(["released_versus_view", r.country, r.electionId, "", r.indicator, v.view, v.frequency, r.period, v.period, r.value, v.value, v.difference, r.unit, r.status, r.reason, v.relation, "dated_release", "", r.publishedOn, r.releaseSha256, r.sourceUrl, `value is the released figure and comparison_value is the current figure for the view; current same-period value ${r.currentValue ?? "not held"}; revision ${r.revisionSinceRelease ?? "none"}`]);
   for (const x of results.d.checks) for (const v of x.views) lines.push(["direction_check", "", x.electionB, x.electionA, x.indicator, v.view, "", "", "", x.releasedDifference, v.difference, "", "", v.directionChanged === null ? "not_comparable" : v.directionChanged ? "direction_differs" : "direction_same", "", "", "", "", "", "", "", "value is the released gap and comparison_value is the gap in the view, later minus earlier election"]);
-  return `﻿${[CSV_HEADER.join(","), ...lines.map((line) => line.map(cell).join(","))].join("\n")}`;
+  const asOf = results.asOf;
+  const comparability = new Map<unknown[], string>(), rules = new Map<unknown[], string>();
+  if (asOf) for (const r of asOf.rows) {
+    const later = r.laterReleases.map((l) => `${l.publishedOn}: ${l.value}${l.afterPolling ? " (after polling day)" : ""}`).join(" | ");
+    const line: unknown[] = ["as_of_case", r.country, r.electionId, "", r.indicator, "released_before_election", r.frequency, r.period, r.current.period, r.value, r.current.value, r.revisionSinceRelease, r.unit, r.status, r.reason ?? r.gate.reason, r.gate.status, r.current.vintage ? `dated_release; ${r.current.vintage}` : r.status === "documented" ? "dated_release" : "", r.current.layer, r.publishedOn, r.releaseSha256, r.sourceUrl, `value is the released figure and comparison_value is the current figure for the same period; earliest located release ${r.earliestLocatedRelease ?? "none"}; flash estimate ${r.flashEstimate ?? "n/a"}; later releases ${later || "none recorded"}; current source ${r.current.sourceUrl ?? "not held"}; publication does not show that voters saw a figure`];
+    lines.push(line); rules.set(line, r.computationRule); comparability.set(line, r.conditions.map((code) => AS_OF_CONDITIONS[code].en).join(" "));
+    for (const v of r.views) lines.push(["as_of_case_view", r.country, r.electionId, "", r.indicator, v.view, v.frequency, r.period, v.period, r.value, v.value, v.difference, v.unit, v.status, "", v.relation, v.vintage, v.layer, "", "", v.sourceUrl, v.includesPostElectionMonths ? "includes months after polling day; not available at polling day" : "value is the released figure and comparison_value is the current figure for the view"]);
+  }
+  const dateOf = new Map<string, string>([...results.allViewObservations.map((o) => [o.electionId, o.electionDate] as [string, string]), ...(asOf ? [[asOf.electionId, asOf.electionDate] as [string, string]] : [])]);
+  const full = lines.map((line) => { const type = String(line[0]); return [...line, RECORD_QUESTION[type], results.question, dateOf.get(String(line[2])) ?? "", rules.get(line) ?? RECORD_RULE[type], comparability.get(line) ?? (type.startsWith("released") || type === "as_of_case_view" ? String(line[15]) : "")]; });
+  return `﻿${[CSV_HEADER.join(","), ...full.map((line) => line.map(cell).join(","))].join("\n")}`;
 }

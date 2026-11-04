@@ -2174,6 +2174,40 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-02"
+    },
+    {
+      "amendment_id": "political-comparative-question-d-2026-11-05",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-05 (stage D3 completion): executable question D case view, research_q deep links, revision gates and export fields in the existing research workflow; no election store or research data changes",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/lib/comparativeElectionResearch.ts",
+          "sha256": "e0c3d42313f946ab98010f31337f6e0ac38246ab0034f95384a218cb1354241a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalComparativeResearch.tsx",
+          "sha256": "e17cf8449dbb5f75c611873691776ef76641dd245708717c31d7563edf8b21ab",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalEconomicContext.tsx",
+          "sha256": "eb1100e17a9579189b179cee9d2f7fa69bbc3e29eecd9dc5e01070b991ed643a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "92a9806d047561d10668d65260ddc683d921e487db35fe9ad6987784a339d4d5",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-05"
     }
   ]
 }

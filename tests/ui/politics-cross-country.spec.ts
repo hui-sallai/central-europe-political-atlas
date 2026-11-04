@@ -255,3 +255,61 @@ for (const locale of ["en", "zh-CN"] as const) test(`comparative research workfl
   const [csv] = await Promise.all([page.waitForEvent("download"), again.locator("[data-research-export-csv]").click()]);
   expect(csv.suggestedFilename()).toBe("election-comparative-research.csv");
 });
+
+for (const locale of ["en", "zh-CN"] as const) test(`research deep link: Poland 2023 question D opens, restores and exports (${locale})`, async ({ page }) => {
+  test.setTimeout(240000);
+  const base = locale === "en" ? "/en/politics/poland/" : "/politics/poland/";
+  await page.goto(`${base}?context=1&research_q=D`, { waitUntil: "networkidle" });
+  const panel = page.locator("[data-comparative-research]");
+  await expect(panel.locator("[data-research-question]")).toHaveValue("D", { timeout: 60000 });
+  await expect(panel).toBeInViewport();
+  expect(new URL(page.url()).searchParams.get("research_countries"), "an untouched deep link stays short").toBeNull();
+  const box = panel.locator('[data-research-case="el-pl-sejm-2023-10-15"]');
+  await expect(box).toHaveAttribute("data-research-case-status", "documented");
+  await expect(box.locator("[data-research-case-row]")).toHaveCount(5);
+  const hicp = box.locator('[data-research-case-row="hicp_inflation"]');
+  await expect(hicp.locator("[data-research-case-released]")).toContainText("9.5");
+  await expect(hicp.locator("[data-research-case-released]")).toContainText("2023-08");
+  await expect(hicp.locator('[data-research-case-view="last_complete_year"]')).toHaveAttribute("data-research-relation", "different_frequency");
+  await expect(hicp.locator('[data-research-case-view="election_calendar_year"]')).toContainText("10.9");
+  await expect(box).not.toContainText(/RCH_A|PC_ACT/);
+  await expect(hicp.locator("[data-research-case-evidence] a")).toHaveAttribute("href", /2-19092023/);
+  const debt = box.locator('[data-research-case-row="government_debt_gdp"]');
+  await expect(debt.locator("[data-research-case-revision]")).toHaveAttribute("data-research-case-revision", "-0.3");
+  await expect(debt.locator("[data-research-case-later]")).toContainText("49.3");
+  await expect(box.locator('[data-research-case-row="real_gdp_growth"] [data-research-condition="no_current_series_at_frequency"]')).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  // The export carries the question and case that are on the page.
+  const [csv] = await Promise.all([page.waitForEvent("download"), panel.locator("[data-research-export-csv]").click()]);
+  const text = await (await import("node:fs/promises")).readFile(await csv.path(), "utf8");
+  expect(text).toMatch(/"as_of_case","poland","el-pl-sejm-2023-10-15","","government_debt_gdp".*"49\.1","48\.8","-0\.3"/);
+  // Changing the question keeps the selection, and every question gives a result.
+  await panel.locator('[data-research-country="germany"]').uncheck();
+  await panel.locator("[data-research-question]").selectOption("B");
+  await expect(panel.locator("[data-research-b-table]")).toBeVisible();
+  await page.waitForFunction(() => { const q = new URLSearchParams(location.search); return q.get("research_q") === "B" && q.get("context") === "1" && !q.get("research_countries")?.includes("germany"); });
+  await panel.locator("[data-research-question]").selectOption("C");
+  await expect(panel.locator("[data-research-c-pairs]")).toBeVisible();
+  await expect(panel.locator('[data-research-availability="partial"]')).toBeVisible();
+  await panel.locator("[data-research-question]").selectOption("A");
+  await expect(panel.locator("[data-research-a-table]")).toBeVisible();
+  // An election without dated releases says so; a pilot chosen here survives a reload.
+  await panel.locator("[data-research-question]").selectOption("D");
+  await panel.locator("[data-research-case-select]").selectOption("el-pl-sejm-2019-10-13");
+  await expect(panel.locator("[data-research-case]")).toHaveAttribute("data-research-case-status", "not_documented");
+  await expect(panel.locator('[data-research-condition="first_release_dates_not_recorded"]')).toHaveCount(5);
+  await panel.locator("[data-research-case-select]").selectOption("el-cz-ps-2025-10-03");
+  await page.waitForFunction(() => new URLSearchParams(location.search).get("research_case") === "el-cz-ps-2025-10-03");
+  await page.reload({ waitUntil: "networkidle" });
+  const again = page.locator("[data-comparative-research]");
+  await expect(again.locator("[data-research-case]")).toHaveAttribute("data-research-case", "el-cz-ps-2025-10-03", { timeout: 60000 });
+  await expect(again.locator("[data-research-case]")).toHaveAttribute("data-research-case-status", "partly_documented");
+  await expect(again.locator('[data-research-case-row="unemployment_rate"]')).toHaveAttribute("data-research-case-row-status", "not_established");
+  // The page's election parameter and a bare research_q keep working.
+  await page.goto(`${base}?election=el-pl-sejm-2019-10-13&research_q=D`, { waitUntil: "networkidle" });
+  await expect(page.locator("[data-research-case]")).toHaveAttribute("data-research-case", "el-pl-sejm-2019-10-13", { timeout: 60000 });
+  await page.goto(`${base}?context=1&research_q=C`, { waitUntil: "networkidle" });
+  await expect(page.locator("[data-research-question]")).toHaveValue("C", { timeout: 60000 });
+  await page.goto(`${base}?context=1&research_q=nonsense`, { waitUntil: "networkidle" });
+  await expect(page.locator("[data-research-question]")).toHaveValue("A", { timeout: 60000 });
+});

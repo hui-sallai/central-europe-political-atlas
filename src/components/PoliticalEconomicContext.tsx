@@ -117,6 +117,6 @@ export function PoliticalEconomicContext({ election, comparison, inputs, locale,
 
     {allElections.length>1&&annual?<PoliticalElectionMacroTable elections={allElections} points={allPoints} locale={locale}/>:null}
   </section>
-    {allElections.length>1?(Object.values(loads).every(v=>v==="ready")?<PoliticalComparativeResearch elections={allElections} points={allPoints} links={inputs.identityLinks??[]} locale={locale}/>:<p className="mt-6 text-sm" role="status" data-comparative-research-waiting>{Object.values(loads).includes("error")?(en?"The comparative research workflow is unavailable because a history file could not be loaded. It does not run on partial data, which would look like missing evidence.":"由于历史文件读取失败，比较研究流程不可用。它不会在部分数据上运行，否则会被误读为证据缺失。"):(en?"Loading the comparative research workflow…":"正在载入比较研究流程…")}</p>):null}
+    {allElections.length>1?(Object.values(loads).every(v=>v==="ready")?<PoliticalComparativeResearch elections={allElections} points={allPoints} links={inputs.identityLinks??[]} locale={locale} focusElectionId={election.electionId}/>:<p className="mt-6 text-sm" role="status" data-comparative-research-waiting>{Object.values(loads).includes("error")?(en?"The comparative research workflow is unavailable because a history file could not be loaded. It does not run on partial data, which would look like missing evidence.":"由于历史文件读取失败，比较研究流程不可用。它不会在部分数据上运行，否则会被误读为证据缺失。"):(en?"Loading the comparative research workflow…":"正在载入比较研究流程…")}</p>):null}
   </>;
 }

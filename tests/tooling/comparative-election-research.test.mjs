@@ -305,7 +305,123 @@ test('the workflow is reachable from the existing context panel on all four coun
   assert.match(panel, /PoliticalComparativeResearch elections=\{allElections\}/);
   assert.match(panel, /every\(v=>v==="ready"\)/, 'it never runs on partial histories');
   const ui = fs.readFileSync(path.join(root, 'src/components/PoliticalComparativeResearch.tsx'), 'utf8');
-  for (const param of ['research_q', 'research_view', 'research_countries', 'research_elections', 'research_indicators']) assert.ok(ui.includes(param), param);
+  for (const param of ['research_q', 'research_case', 'research_view', 'research_countries', 'research_elections', 'research_indicators']) assert.ok(ui.includes(param), param);
   assert.doesNotMatch(ui, /winner|predictive|probability of/i);
   assert.ok(new Set(links.map((l) => l.country)).size >= 2, 'links for Czechia and Poland reach every page');
+});
+
+const caseOf = (id, selection = {}, opts = {}) => R.runComparativeResearch(selection, elections, opts.points ?? points, links, { question: 'D', caseElectionId: id }).asOf;
+const caseRow = (c, indicator) => c.rows.find((r) => r.indicator === indicator);
+const caseView = (r, view) => r.views.find((v) => v.view === view);
+
+test('Poland 2023 is the regression case: released, later, current and retrospective figures stay separate', () => {
+  const c = caseOf(PL23);
+  assert.deepEqual([c.electionDate, c.status, c.rows.length], ['2023-10-15', 'documented', 5]);
+  const hicp = caseRow(c, 'hicp_inflation');
+  assert.deepEqual([hicp.period, hicp.frequency, hicp.value, hicp.publishedOn, hicp.flashEstimate, hicp.current.value, hicp.revisionSinceRelease], ['2023-08', 'monthly', 9.5, '2023-09-19', false, 9.5, 0]);
+  assert.deepEqual([caseView(hicp, 'last_complete_year').value, caseView(hicp, 'last_complete_year').period, caseView(hicp, 'last_complete_year').relation, caseView(hicp, 'last_complete_year').difference], [13.2, '2022', 'different_frequency', null], 'a monthly rate is never subtracted from an annual rate');
+  assert.deepEqual([caseView(hicp, 'election_calendar_year').value, caseView(hicp, 'election_calendar_year').includesPostElectionMonths, caseView(hicp, 'election_calendar_year').difference], [10.9, true, null]);
+  assert.deepEqual([caseView(hicp, 'last_complete_month').period, caseView(hicp, 'last_complete_month').relation, caseView(hicp, 'last_complete_month').difference], ['2023-09', 'different_period', null]);
+  assert.ok(hicp.conditions.includes('last_month_not_documented_as_released'));
+  const debt = caseRow(c, 'government_debt_gdp');
+  assert.deepEqual([debt.value, debt.current.value, debt.revisionSinceRelease, debt.gate.status], [49.1, 48.8, -0.3, 'identical_measure']);
+  assert.deepEqual(debt.laterReleases.map((l) => [l.publishedOn, l.value, l.afterPolling, l.changeFromReleased]), [['2023-10-23', 49.3, true, 0.2]]);
+  assert.equal(caseRow(c, 'fiscal_balance_gdp').revisionSinceRelease, 0.3);
+  const gdp = caseRow(c, 'real_gdp_growth');
+  assert.deepEqual([gdp.value, gdp.frequency, gdp.gate.reason, gdp.current.value, gdp.revisionSinceRelease], [-1.4, 'quarterly', 'no_current_series_at_frequency', null, null]);
+  assert.deepEqual([caseView(gdp, 'last_complete_year').value, caseView(gdp, 'last_complete_year').difference], [5.3, null]);
+  assert.match(c.summary.en, /^5 of 5 figures .* 4 can be compared .* 2 of those have been revised/);
+  for (const r of c.rows) { assert.ok(r.publishedOn < c.electionDate); assert.match(r.releaseSha256, /^[0-9a-f]{64}$/); assert.match(r.sourceUrl, /^https:\/\/ec\.europa\.eu\/eurostat\//); assert.ok(r.printedRow.startsWith('Poland')); assert.ok(r.conditions.length && r.computationRule); assert.ok(r.conditions.every((code) => R.AS_OF_CONDITIONS[code])); }
+});
+
+test('other pilots report their own evidence, and elections without dated releases stay not established', () => {
+  const de = caseOf(DE25);
+  assert.equal(de.status, 'documented');
+  assert.ok(caseRow(de, 'fiscal_balance_gdp').conditions.includes('latest_published_year_older'));
+  const sk = caseOf(SK);
+  assert.ok(caseRow(sk, 'hicp_inflation').conditions.includes('flash_estimate'));
+  assert.equal(caseRow(sk, 'hicp_inflation').period, '2023-09');
+  assert.deepEqual(caseRow(sk, 'hicp_inflation').current.period, '2023-09');
+  assert.equal(caseRow(sk, 'fiscal_balance_gdp').revisionSinceRelease, 0.4);
+  const cz = caseOf(CZ25);
+  assert.equal(cz.status, 'partly_documented');
+  const un = caseRow(cz, 'unemployment_rate');
+  assert.deepEqual([un.status, un.value, un.current.value, un.revisionSinceRelease, un.conditions[0]], ['not_established', null, null, null, 'last_release_not_located']);
+  assert.equal(caseView(un, 'last_complete_month').value, 3, 'the current figure stays in its own view and is not used as the released figure');
+  const old = caseOf(PL19);
+  assert.equal(old.status, 'not_documented');
+  assert.ok(old.rows.every((r) => r.status === 'not_established' && r.value === null && r.publishedOn === null && r.conditions[0] === 'first_release_dates_not_recorded'));
+  assert.ok(old.rows.some((r) => caseView(r, 'last_complete_year').value !== null), 'retrospective figures remain visible');
+  assert.equal(caseOf('el-does-not-exist'), null);
+  assert.ok(caseOf(PL23).rows.every((r) => r.country === 'poland' && r.printedRow.startsWith('Poland')));
+  assert.ok(caseOf(DE25).rows.every((r) => r.country === 'germany' && r.printedRow.startsWith('Germany')));
+});
+
+test('a revision needs one period, frequency, unit and definition; every failure blocks the subtraction with its own reason', () => {
+  const alter = (series, period, change) => points.map((p) => (p.country === 'poland' && p.indicator === series && p.period === period ? { ...p, ...change } : p));
+  const debt = (pts) => caseRow(caseOf(PL23, {}, { points: pts }), 'government_debt_gdp');
+  const unit = debt(alter('government_debt_gdp', '2022', { unit: 'MIO_EUR' }));
+  assert.deepEqual([unit.gate.reason, unit.revisionSinceRelease, unit.current.value, caseView(unit, 'last_complete_year').difference], ['unit_differs', null, null, null]);
+  const def = debt(alter('government_debt_gdp', '2022', { definition: 'Eurostat une_rt_a', sourceUrl: 'https://ec.europa.eu/x' }));
+  assert.deepEqual([def.gate.reason, def.revisionSinceRelease], ['definition_differs', null]);
+  const gone = debt(points.filter((p) => !(p.country === 'poland' && p.indicator === 'government_debt_gdp' && p.period === '2022')));
+  assert.deepEqual([gone.gate.reason, gone.revisionSinceRelease, gone.status, gone.value], ['current_value_not_held', null, 'documented', 49.1]);
+  assert.equal(R.revisionGate('hicp_inflation', 'poland', { frequency: 'annual', period: '2022', unit: '%' }, points).gate.reason, 'frequency_differs');
+  assert.equal(R.revisionGate('hicp_inflation', 'poland', null, points).gate.reason, 'release_not_documented');
+  // Every released figure in every pilot: subtraction happens only for a same-period revision, and matches D2 exactly.
+  const { electionMacroRows } = require('../../src/lib/electionMacroLinkage.ts');
+  const d2 = electionMacroRows(elections, points);
+  for (const r of run().d.released) {
+    for (const v of r.versus) assert.equal(v.difference !== null, v.relation === 'same_period_revision', `${r.electionId} ${r.indicator} ${v.view}`);
+    const a = d2.find((x) => x.electionId === r.electionId && x.indicator === r.indicator).publishedBeforeElection;
+    if (a.status === 'documented') { assert.equal(r.revisionSinceRelease, a.revisionSinceRelease, 'D2 revision preserved'); assert.equal(r.currentValue, a.current.value); }
+  }
+  const row = (id, frequency, unitName, value) => ({ electionId: id, electionDate: id, indicator: 'hicp_inflation', status: 'documented', frequency, unit: unitName, value, versus: ['last_complete_year', 'election_calendar_year', 'last_complete_month'].map((view) => ({ view, value: null, frequency: null })) });
+  const mixed = R.directionChecks([row('a', 'monthly', '%', 1), row('b', 'annual', '%', 2)], { indicators: ['hicp_inflation'] });
+  assert.deepEqual([mixed.checks.length, mixed.spreads.length], [0, 0], 'released figures of different frequency are never differenced');
+});
+
+test('every question reports a result or a stated reason it is unavailable', () => {
+  const status = (selection, q) => R.researchAvailability(run(selection))[q];
+  assert.equal(status({}, 'A').status, 'partial');
+  assert.equal(status({ countries: ['slovakia'] }, 'B').status, 'unavailable');
+  assert.match(status({ countries: ['slovakia'] }, 'B').reason.en, /one admitted election/);
+  assert.equal(status({ countries: ['slovakia'] }, 'C').status, 'unavailable');
+  assert.equal(status({ countries: ['poland'] }, 'C').status, 'partial');
+  assert.match(status({ countries: ['poland'] }, 'C').reason.en, /direction counts/);
+  assert.equal(status({ countries: ['germany'] }, 'C').status, 'available');
+  assert.equal(status({ view: 'released_before_election' }, 'B').status, 'unavailable');
+  assert.match(status({ view: 'released_before_election' }, 'B').reason.en, /latest election/);
+  assert.equal(status({ electionIds: [PL19] }, 'D').status, 'unavailable');
+  assert.equal(status({ countries: ['czechia'] }, 'D').status, 'partial');
+  assert.equal(status({ countries: ['poland'] }, 'D').status, 'available');
+  for (const s of [{}, { countries: ['slovakia'] }, { electionIds: [] }, { indicators: [] }]) for (const q of R.RESEARCH_QUESTIONS) { const a = status(s, q); assert.ok(a.status === 'available' || (a.reason.en && a.reason.zh), `${q} ${JSON.stringify(s)}`); }
+});
+
+test('exports name the question, election, vintage, rule and comparability, and match the on-page calculation', () => {
+  const results = R.runComparativeResearch({ countries: ['poland'] }, elections, points, links, { question: 'D', caseElectionId: PL23 });
+  const pkg = R.researchEvidencePackage(results, elections);
+  assert.equal(pkg.schema_version, R.RESEARCH_METHOD_VERSION);
+  assert.equal(pkg.question, 'D');
+  assert.equal(pkg.as_of_case.electionId, PL23);
+  assert.ok(pkg.availability.D.status);
+  const [header, ...lines] = R.researchCsv(results).replace('﻿', '').split('\n');
+  const columns = header.split(',');
+  for (const name of ['question', 'selected_question', 'election_id', 'election_date', 'indicator', 'observation_period', 'value', 'unit', 'source_url', 'published_on', 'vintage', 'computation_rule', 'comparability', 'reason']) assert.ok(columns.includes(name), name);
+  const parse = (line) => [...line.matchAll(/"((?:[^"]|"")*)"/g)].map((m) => m[1]);
+  const rows = lines.map(parse).map((cells) => { assert.equal(cells.length, columns.length); return Object.fromEntries(columns.map((c, i) => [c, cells[i]])); });
+  assert.ok(rows.every((r) => r.selected_question === 'D' && r.question && r.computation_rule));
+  const debt = rows.find((r) => r.record_type === 'as_of_case' && r.indicator === 'government_debt_gdp');
+  assert.deepEqual([debt.election_id, debt.election_date, debt.observation_period, debt.value, debt.comparison_value, debt.difference, debt.published_on, debt.vintage], [PL23, '2023-10-15', '2022', '49.1', '48.8', '-0.3', '2023-04-21', 'dated_release; current_published']);
+  assert.match(debt.source_url, /2-21042023/);
+  assert.match(debt.note, /2023-10-23: 49\.3 \(after polling day\)/);
+  assert.match(debt.comparability, /Same indicator, period, frequency, unit and definition/);
+  const gdp = rows.find((r) => r.record_type === 'as_of_case' && r.indicator === 'real_gdp_growth');
+  assert.deepEqual([gdp.difference, gdp.comparison_value, gdp.reason], ['', '', 'no_current_series_at_frequency']);
+  for (const r of rows.filter((x) => x.record_type === 'as_of_case_view' || x.record_type === 'released_versus_view')) if (r.measure_key !== 'same_period_revision') assert.equal(r.difference, '', `${r.indicator} ${r.view}`);
+  const hicpAnnual = rows.find((r) => r.record_type === 'released_versus_view' && r.indicator === 'hicp_inflation' && r.view === 'last_complete_year');
+  assert.deepEqual([hicpAnnual.value, hicpAnnual.comparison_value, hicpAnnual.difference, hicpAnnual.measure_key], ['9.5', '13.2', '', 'different_frequency']);
+  const none = R.researchCsv(R.runComparativeResearch({ countries: ['poland'] }, elections, points, links, { question: 'D', caseElectionId: PL19 }));
+  assert.match(none, /"as_of_case","poland","el-pl-sejm-2019-10-13".*"not_established","first_release_dates_not_recorded"/);
+  assert.equal(R.researchCsv(run()).split('\n')[1].includes('"A"'), true, 'the default question is A');
 });
