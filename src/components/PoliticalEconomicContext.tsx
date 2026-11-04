@@ -15,9 +15,11 @@ import type { EvidenceDraft } from "@/lib/researchNotebook";
 import { NotebookCollect } from "./NotebookCollect";
 import { ResearchTimeSeriesChart, monthIndex, indexToPeriod } from "./ResearchTimeSeriesChart";
 import { PoliticalElectionMacroTable } from "./PoliticalElectionMacroTable";
+import { PoliticalComparativeResearch } from "./PoliticalComparativeResearch";
+import type { PoliticalIdentityLink } from "@/lib/politicalIdentity";
 import { electionCountryRoute, electionSourceCitations } from "@/lib/electionMacroLinkage";
 
-export type PoliticalContextInputs = { observations: Observation[]; indicators: Indicator[]; events: Event[]; monthlyMetadata: ContextMonthlyMeta[] };
+export type PoliticalContextInputs = { observations: Observation[]; indicators: Indicator[]; events: Event[]; monthlyMetadata: ContextMonthlyMeta[]; identityLinks?: PoliticalIdentityLink[] };
 const monthlyNames: Record<string,{en:string;zh:string}> = {hicp_annual_rate:{en:"HICP inflation (monthly year-on-year rate)",zh:"HICP 通胀（月度同比率）"},unemployment_rate_monthly:{en:"Unemployment rate (monthly, seasonally adjusted)",zh:"失业率（月度，季调）"},industrial_production_index:{en:"Industrial production (2021=100, seasonal/calendar adjusted)",zh:"工业生产（2021=100，季调日历调整）"}};
 const eventTypes: Record<string,{en:string;zh:string}> = {fiscal:{en:"Fiscal policy",zh:"财政"},EU_funds:{en:"EU funds",zh:"欧盟资金"},macro:{en:"Macroeconomy",zh:"宏观经济"},energy:{en:"Energy",zh:"能源"},industrial_policy:{en:"Industrial policy",zh:"产业政策"},FDI:{en:"Direct investment",zh:"直接投资"},China:{en:"China relations",zh:"对华关系"},election:{en:"Election",zh:"选举"},regional:{en:"Regional",zh:"地区"}};
 
@@ -84,7 +86,7 @@ export function PoliticalEconomicContext({ election, comparison, inputs, locale,
   useEffect(()=>{const params=new URLSearchParams(window.location.search),timer=window.setTimeout(()=>{if(params.get("context_frequency")==="monthly")setFrequency("monthly");const id=params.get("context_indicator");if(id){setIndicatorId(id);setMonthlyId(id);}const range=params.get("context_range");if(["year","prior3","prior5","following2","custom"].includes(range??""))setMode(range as ContextRangeMode);if(params.get("context_perspective")==="pre_election")setPerspective("pre_election");for(const [key,set] of [["context_from",setStart],["context_to",setEnd]] as const){const v=Number(params.get(key));if(params.has(key)&&Number.isInteger(v)&&v>=2000&&v<=2100)set(v);}setUrlReady(true);},0);return()=>window.clearTimeout(timer);},[]);
   useEffect(()=>{if(!urlReady)return;const url=new URL(window.location.href);for(const [key,value] of Object.entries({context:"1",context_frequency:frequency,context_indicator:frequency==="annual"?indicatorId:monthlyId,context_range:mode,context_perspective:perspective,context_from:String(start),context_to:String(end)}))url.searchParams.set(key,value);window.history.replaceState(null,"",url);},[urlReady,frequency,indicatorId,monthlyId,mode,perspective,start,end]);
 
-  return <section className="mt-4 space-y-5" aria-labelledby="politics-context-title" data-politics-context>
+  return <><section className="mt-4 space-y-5" aria-labelledby="politics-context-title" data-politics-context>
     <h3 id="politics-context-title" className="text-xl font-semibold">{en?"Political-economic historical context":"政治与经济历史背景"}</h3><p className="text-sm" role="note">{warning}</p>
     <label className="block text-sm">{en?"Research perspective":"研究视角"}<select className="field-control mt-2" value={perspective} onChange={e=>{const value=e.target.value as ContextPerspective;setPerspective(value);setMode(value==="pre_election"?"prior3":"year");}}><option value="pre_election">{en?"A · Historical pre-election context":"A · 历史选举前背景"}</option><option value="retrospective">{en?"B · Retrospective economic context":"B · 回顾性经济背景"}</option></select></label>
     <p className="text-sm" data-context-perspective>{perspective==="pre_election"?(en?"Only complete observation periods preceding the election are shown. This does not establish publication before election day: first-publication timing is not documented. Later and election-overlapping periods are excluded.":"仅显示结束于选举之前的完整观测期间。首次发布时间未记录，因此不能称为选举当天已知信息。选举后及覆盖选举的观测期间被排除。"):(en?"Retrospective view using current published/revised data. Election-year and subsequent observations are explicitly not information available to voters beforehand.":"使用当前已发布／修订数据的回顾性视图。选举年及之后的观测不表示选民事先可获得的信息。")}</p>
@@ -113,5 +115,8 @@ export function PoliticalEconomicContext({ election, comparison, inputs, locale,
     </details>
     <div className="flex flex-wrap items-center gap-4"><button type="button" className="underline" disabled={!selectedPoints.length} onClick={exportCsv}>{en?"Export context observations CSV":"导出背景观测 CSV"}</button><NotebookCollect create={draft} label={en?"Collect historical context":"收藏历史背景"}/></div>
 
-    {allElections.length>1&&annual?<PoliticalElectionMacroTable elections={allElections} points={allPoints} locale={locale}/>:null}  </section>;
+    {allElections.length>1&&annual?<PoliticalElectionMacroTable elections={allElections} points={allPoints} locale={locale}/>:null}
+  </section>
+    {allElections.length>1?(Object.values(loads).every(v=>v==="ready")?<PoliticalComparativeResearch elections={allElections} points={allPoints} links={inputs.identityLinks??[]} locale={locale}/>:<p className="mt-6 text-sm" role="status" data-comparative-research-waiting>{Object.values(loads).includes("error")?(en?"The comparative research workflow is unavailable because a history file could not be loaded. It does not run on partial data, which would look like missing evidence.":"由于历史文件读取失败，比较研究流程不可用。它不会在部分数据上运行，否则会被误读为证据缺失。"):(en?"Loading the comparative research workflow…":"正在载入比较研究流程…")}</p>):null}
+  </>;
 }

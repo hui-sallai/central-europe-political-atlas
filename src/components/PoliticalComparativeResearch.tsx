@@ -1,0 +1,156 @@
+"use client";
+import { useEffect, useMemo, useState } from "react";
+import { localeDate, localeNumber, type Locale } from "@/i18n/config";
+import { ELECTION_MACRO_INDICATORS, type ElectionMacroIndicator } from "@/lib/electionMacroLinkage";
+import { RESEARCH_LIMITS, RESEARCH_METHOD_VERSION, RESEARCH_QUESTIONS, RESEARCH_RULES, RESEARCH_VIEWS, researchCsv, researchDigest, researchEvidencePackage, researchFindings, runComparativeResearch, type ObservationStatus, type ResearchObservation, type ResearchQuestion, type ResearchView, type ViewRelation } from "@/lib/comparativeElectionResearch";
+import type { ContextPoint } from "@/lib/politicalEconomicContext";
+import type { PoliticalElectionView } from "@/lib/politicalExplorer";
+import type { PoliticalIdentityLink } from "@/lib/politicalIdentity";
+
+const RULES_ZH = ["直接比较要求指标、频率、欧盟统计局数据集和单位都相同。年度、月度和季度数字绝不作为同一度量相减。", "相邻选举变化只连接同一国家内相邻的已准入选举，不跨越未选中的选举。", "2000—2020 年历史数据与 2021 年起的快照使用相同的欧盟统计局数据集和查询条件，跨越两者的变化会标明跨数据层。", "已发布数字仅来自投票日前发布、注明日期的欧盟统计局新闻稿。未找到发布记录时保持未确定，绝不用当前数据填补。", "只有频率和期间都相同才称为修订。视图之间的其他差距表示期间或频率不同。", "投票率变化要求同一国家且公布口径相同。名单变化只使用已核实关联；联盟合计不分配给成员，成员没有单独数字。", "系数仅在同一国家内、至少 5 组时计算，并附留一法范围。不足时只显示方向计数。由于投票率口径不同，不跨国合并。", "已核实名单变动为已核实单位得票率绝对变化之和的一半。它不是政党体系波动率，其覆盖范围会一并报告。", "任何数字都不表示经济状况导致了选举结果，也不表示任何政党造成了经济变化。政党按名称列出，不预测任何结果。"];
+const LIMITS_ZH = ["当前数据视图中的数字可能包含选举后的修订。", "已发布数字只覆盖每个国家最近一届选举，因此选举之间的变化暂时无法使用。", "捷克 2025 年 8 月失业率：未找到发布记录，因此该数字未确定。", "Atlas 没有季度 GDP 序列，因此已发布的 GDP 数字没有当前数值。", "年度失业率始于 2021 年，德国年度 GDP 始于 2021 年。月度失业率德国始于 2009 年，波兰和斯洛伐克始于 2015 年。", "Atlas 没有执政党数据，因此没有任何数字将政党地位与经济状况相关联。", "在很少的组数上比较多个指标和两个结果，出现一些较大的系数在偶然情况下也可预期。", "发布日期是找到的最早日期，并非已证实的首次发布；已发布也不表示选民看到了该数字。"];
+
+function initialParam(key: string) { return typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get(key); }
+const listParam = (key: string) => { const v = initialParam(key); return v === null ? null : v.split(",").filter(Boolean); };
+
+// Comparative workflow over existing election, economic, provenance and identity contracts. The selection is kept in the
+// URL, and the export carries the selection, rules, evidence and results.
+export function PoliticalComparativeResearch({ elections, points, links, locale }: { elections: PoliticalElectionView[]; points: ContextPoint[]; links: PoliticalIdentityLink[]; locale: Locale }) {
+  const en = locale === "en";
+  const [question, setQuestion] = useState<ResearchQuestion>(() => { const q = initialParam("research_q"); return RESEARCH_QUESTIONS.includes(q as ResearchQuestion) ? q as ResearchQuestion : "A"; });
+  const [view, setView] = useState<ResearchView>(() => { const v = initialParam("research_view"); return RESEARCH_VIEWS.includes(v as ResearchView) ? v as ResearchView : "last_complete_year"; });
+  const countriesAll = useMemo(() => [...new Set(elections.map((e) => e.country ?? "germany"))].sort(), [elections]);
+  const [countries, setCountries] = useState<string[]>(() => listParam("research_countries")?.filter((c) => countriesAll.includes(c)) ?? countriesAll);
+  const [electionIds, setElectionIds] = useState<string[]>(() => listParam("research_elections")?.filter((id) => elections.some((e) => e.electionId === id)) ?? elections.map((e) => e.electionId));
+  const [indicators, setIndicators] = useState<ElectionMacroIndicator[]>(() => (listParam("research_indicators")?.filter((i) => (ELECTION_MACRO_INDICATORS as readonly string[]).includes(i)) as ElectionMacroIndicator[] | undefined) ?? [...ELECTION_MACRO_INDICATORS]);
+  const [digest, setDigest] = useState<string | null>(null);
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    for (const [key, value] of Object.entries({ research_q: question, research_view: view, research_countries: countries.join(","), research_elections: electionIds.join(","), research_indicators: indicators.join(",") })) url.searchParams.set(key, value);
+    window.history.replaceState(null, "", url);
+  }, [question, view, countries, electionIds, indicators]);
+  const results = useMemo(() => runComparativeResearch({ countries, electionIds, indicators, view }, elections, points, links), [countries, electionIds, indicators, view, elections, points, links]);
+  const findings = useMemo(() => researchFindings(results, elections), [results, elections]);
+
+  const names: Record<ElectionMacroIndicator, string> = en ? { hicp_inflation: "HICP inflation", real_gdp_growth: "Real GDP growth", unemployment_rate: "Unemployment rate", fiscal_balance_gdp: "Government balance (% of GDP)", government_debt_gdp: "Government debt (% of GDP)" } : { hicp_inflation: "HICP 通胀", real_gdp_growth: "实际 GDP 增长", unemployment_rate: "失业率", fiscal_balance_gdp: "政府收支差额（占 GDP %）", government_debt_gdp: "政府债务（占 GDP %）" };
+  const viewNames: Record<ResearchView, string> = en ? { last_complete_year: "Last complete year before the election (annual, current data)", election_calendar_year: "Election calendar year (annual, current data, includes later months)", last_complete_month: "Last complete month before the election (monthly, current data)", released_before_election: "Released before polling day (dated releases, mixed frequency)" } : { last_complete_year: "选举前最后一个完整年度（年度，当前数据）", election_calendar_year: "选举所在日历年（年度，当前数据，包含之后的月份）", last_complete_month: "选举前最后一个完整月份（月度，当前数据）", released_before_election: "投票日前已发布（注明日期的发布，频率不一）" };
+  const shortView: Record<ResearchView, string> = en ? { last_complete_year: "Last complete year", election_calendar_year: "Election year", last_complete_month: "Last complete month", released_before_election: "Released" } : { last_complete_year: "最后完整年度", election_calendar_year: "选举年度", last_complete_month: "最后完整月份", released_before_election: "已发布" };
+  const questionNames: Record<ResearchQuestion, string> = en ? { A: "A · How did conditions differ across elections?", B: "B · How did conditions change between successive elections?", C: "C · Which descriptive associations appear with turnout and verified list changes?", D: "D · What changes with figures released before polling day?" } : { A: "A · 各届选举的宏观环境有何不同？", B: "B · 相邻两届选举之间的经济状况如何变化？", C: "C · 与投票率和已核实名单变化之间有哪些描述性关联？", D: "D · 改用投票日前已发布的数字后有何变化？" };
+  const frequency = (f: string | null) => (f === null ? "—" : en ? { annual: "Annual", monthly: "Monthly", quarterly: "Quarterly" }[f] ?? f : { annual: "年度", monthly: "月度", quarterly: "季度" }[f] ?? f);
+  const statusText: Record<ObservationStatus, string> = en ? { observed: "Observed", missing: "No published figure", pending: "Pending publication", no_series_at_frequency: "No monthly series", not_established: "Not established" } : { observed: "已观测", missing: "无已发布数字", pending: "待发布", no_series_at_frequency: "无月度序列", not_established: "未确定" };
+  const reasons: Record<string, string> = en ? { released_figure_not_documented_for_both_elections: "No dated release for both elections", no_monthly_series_for_this_indicator: "No monthly series", observation_missing_for_one_election: "Missing for at least one election", definition_differs: "Definitions differ", no_verified_unit_in_both_elections: "No verified unit in both" } : { released_figure_not_documented_for_both_elections: "两届选举未都有注明日期的发布", no_monthly_series_for_this_indicator: "无月度序列", observation_missing_for_one_election: "至少一届选举缺失", definition_differs: "定义不同", no_verified_unit_in_both_elections: "两届没有共同的已核实单位" };
+  const relationText: Record<ViewRelation, string> = en ? { same_period_revision: "same period: revision", different_period: "different period", different_frequency: "different frequency", no_observation: "no figure" } : { same_period_revision: "同一期间：修订", different_period: "不同期间", different_frequency: "不同频率", no_observation: "无数字" };
+  const num = (v: number | null | undefined, digits = 1) => (v === null || v === undefined ? "—" : localeNumber(v, locale, { minimumFractionDigits: digits, maximumFractionDigits: digits }));
+  const delta = (v: number | null | undefined, digits = 1) => (v === null || v === undefined ? "—" : `${v > 0 ? "+" : v < 0 ? "−" : ""}${num(Math.abs(v), digits)}`);
+  const coefficient = (v: number | null | undefined) => (v === null || v === undefined ? "—" : `${v < 0 ? "−" : ""}${num(Math.abs(v), 3)}`);
+  const electionOf = (id: string) => elections.find((e) => e.electionId === id);
+  const countryName = (slug: string) => elections.find((e) => (e.country ?? "germany") === slug)?.countryName?.[locale] ?? slug;
+  const electionName = (id: string) => { const e = electionOf(id); return e ? `${countryName(e.country ?? "germany")} ${e.year}` : id; };
+  const toggle = <T,>(list: T[], value: T, set: (next: T[]) => void) => set(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
+  const toggleCountry = (slug: string) => {
+    const on = countries.includes(slug);
+    toggle(countries, slug, setCountries);
+    const own = elections.filter((e) => (e.country ?? "germany") === slug).map((e) => e.electionId);
+    setElectionIds(on ? electionIds.filter((id) => !own.includes(id)) : [...new Set([...electionIds, ...own])]);
+  };
+  const measures = results.a.measures;
+  const observationOf = (electionId: string, indicator: ElectionMacroIndicator): ResearchObservation | undefined => results.observations.find((o) => o.electionId === electionId && o.indicator === indicator);
+  const selectedElections = elections.filter((e) => results.selection.electionIds.includes(e.electionId)).sort((a, b) => (a.country ?? "").localeCompare(b.country ?? "") || a.date.localeCompare(b.date));
+  const statusCounts = results.observations.reduce<Record<string, number>>((all, o) => ({ ...all, [o.status]: (all[o.status] ?? 0) + 1 }), {});
+
+  function download(content: string, name: string, type: string) {
+    const url = URL.createObjectURL(new Blob([content], { type }));
+    const anchor = document.createElement("a"); anchor.href = url; anchor.download = name; anchor.click(); URL.revokeObjectURL(url);
+  }
+  async function exportEvidence() {
+    const evidence = researchEvidencePackage(results, elections);
+    const sha = await researchDigest(evidence);
+    setDigest(sha);
+    const commit = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/research-data/deployment_provenance.json`).then((r) => (r.ok ? r.json() : null)).then((p) => p?.source_commit ?? null).catch(() => null);
+    download(JSON.stringify({ evidence_sha256: sha, site_source_commit: commit, selection_url: window.location.href, evidence }, null, 2), "election-comparative-research.json", "application/json");
+  }
+  const scroll = (label: string, table: React.ReactNode) => <div className="mt-3 overflow-x-auto" role="region" tabIndex={0} aria-label={label}>{table}</div>;
+  const th = (labels: string[]) => <thead><tr>{labels.map((t) => <th scope="col" key={t} className="p-2">{t}</th>)}</tr></thead>;
+
+  return <section className="mt-8 border-t border-[var(--line)] pt-5" aria-labelledby="comparative-research-title" data-comparative-research data-research-method={RESEARCH_METHOD_VERSION}>
+    <h4 id="comparative-research-title" className="text-lg font-semibold">{en ? "Comparative research workflow" : "比较研究流程"}</h4>
+    <p className="mt-2 text-sm" role="note" data-research-boundary>{en ? "Descriptive only. An association is not a cause: nothing here shows that economic conditions changed a result or that a party changed the economy. Parties are not ranked and no result is predicted." : "仅作描述。关联不等于因果：这里没有任何内容表示经济状况改变了选举结果，或政党改变了经济。不对政党排名，也不预测任何结果。"}</p>
+    <div className="mt-4 grid gap-4 md:grid-cols-2">
+      <label className="block text-sm">{en ? "Research question" : "研究问题"}<select className="field-control mt-2 block w-full" value={question} data-research-question onChange={(e) => setQuestion(e.target.value as ResearchQuestion)}>{RESEARCH_QUESTIONS.map((q) => <option key={q} value={q}>{questionNames[q]}</option>)}</select></label>
+      {question === "D" ? <p className="text-sm" data-research-view-note>{en ? "This question compares all views, so no single view is selected." : "此问题比较所有视图，因此无需选择单一视图。"}</p> : <label className="block text-sm">{en ? "Economic evidence" : "经济证据"}<select className="field-control mt-2 block w-full" value={view} data-research-view onChange={(e) => setView(e.target.value as ResearchView)}>{RESEARCH_VIEWS.map((v) => <option key={v} value={v}>{viewNames[v]}</option>)}</select></label>}
+    </div>
+    <fieldset className="mt-4 text-sm" data-research-countries><legend className="font-semibold">{en ? "Countries" : "国家"}</legend><div className="mt-1 flex flex-wrap gap-x-4 gap-y-1">{countriesAll.map((c) => <label key={c}><input type="checkbox" className="mr-1" checked={countries.includes(c)} data-research-country={c} onChange={() => toggleCountry(c)} />{countryName(c)}</label>)}</div></fieldset>
+    <fieldset className="mt-3 text-sm" data-research-elections><legend className="font-semibold">{en ? "Elections" : "选举"}</legend><div className="mt-1 flex flex-wrap gap-x-4 gap-y-1">{elections.filter((e) => countries.includes(e.country ?? "germany")).sort((a, b) => (a.country ?? "").localeCompare(b.country ?? "") || a.date.localeCompare(b.date)).map((e) => <label key={e.electionId}><input type="checkbox" className="mr-1" checked={electionIds.includes(e.electionId)} data-research-election={e.electionId} onChange={() => toggle(electionIds, e.electionId, setElectionIds)} />{electionName(e.electionId)}</label>)}</div></fieldset>
+    <fieldset className="mt-3 text-sm" data-research-indicators><legend className="font-semibold">{en ? "Indicators" : "指标"}</legend><div className="mt-1 flex flex-wrap gap-x-4 gap-y-1">{ELECTION_MACRO_INDICATORS.map((i) => <label key={i}><input type="checkbox" className="mr-1" checked={indicators.includes(i)} data-research-indicator={i} onChange={() => toggle(indicators, i, setIndicators)} />{names[i]}</label>)}</div></fieldset>
+
+    <div className="mt-5" data-research-findings={question}><h5 className="font-semibold">{en ? "What the selected evidence shows" : "所选证据显示的内容"}</h5>
+      {findings[question].length ? <ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{findings[question].map((f) => <li key={f.en}>{en ? f.en : f.zh}</li>)}</ul> : <p className="mt-2 text-sm" role="status">{en ? "No figure can be calculated for this selection. The tables below show why." : "所选范围无法计算任何数字。下方表格说明了原因。"}</p>}
+    </div>
+
+    {question === "A" ? <div data-research-a>
+      {scroll(en ? "Observations by election (scrollable)" : "各届选举的观测（可横向滚动）", <table className="w-full min-w-[820px] text-left text-sm" data-research-a-table>
+        {th([en ? "Election" : "选举", ...indicators.map((i) => names[i])])}
+        <tbody>{selectedElections.map((e) => <tr key={e.electionId} className="border-t border-[var(--line)]" data-research-row={e.electionId}><th scope="row" className="p-2 font-normal">{electionName(e.electionId)}<span className="block text-xs">{localeDate(e.date, locale)}</span></th>{indicators.map((i) => { const o = observationOf(e.electionId, i), m = measures.find((x) => x.measureKey === o?.measureKey), row = m?.rows.find((x) => x.electionId === e.electionId); return <td key={i} className="p-2" data-research-cell={o?.status}>{o?.status === "observed" ? <>{num(o.value)}<span className="block text-xs">{frequency(o.frequency)} · {o.period}{o.flashEstimate ? (en ? " · flash" : " · 快速估算") : ""}</span>{row && m && m.n > 1 ? <span className="block text-xs">{en ? "vs median " : "相对中位数 "}{delta(row.differenceFromMedian)}</span> : null}{o.sourceUrl ? <a className="block text-xs underline" href={o.sourceUrl}>{en ? "Source" : "来源"}</a> : null}</> : <span className="text-xs">{o ? statusText[o.status] : "—"}</span>}</td>; })}</tr>)}</tbody>
+      </table>)}
+      {measures.length ? scroll(en ? "Summary by measure (scrollable)" : "按度量汇总（可横向滚动）", <table className="w-full min-w-[720px] text-left text-sm" data-research-a-summary>
+        {th([en ? "Measure" : "度量", en ? "Frequency and dataset" : "频率与数据集", en ? "Elections" : "选举数", en ? "Lowest" : "最低", en ? "Highest" : "最高", en ? "Median" : "中位数", en ? "Range" : "极差", en ? "Flags" : "标记"])}
+        <tbody>{measures.map((m) => <tr key={m.measureKey} className="border-t border-[var(--line)]" data-research-measure={m.measureKey}><th scope="row" className="p-2 font-normal">{names[m.indicator]}<span className="block text-xs">{m.unit}</span></th><td className="p-2 text-xs">{frequency(m.frequency)} · {m.dataset}</td><td className="p-2">{m.n}</td><td className="p-2">{num(m.min.value)}</td><td className="p-2">{num(m.max.value)}</td><td className="p-2">{num(m.median, 2)}</td><td className="p-2">{num(m.range)}</td><td className="p-2 text-xs">{[m.flags.differentCalendarPeriods ? (en ? "different calendar periods" : "不同日历期间") : null, m.flags.mixedDataLayers ? (en ? "two Atlas data layers" : "两个 Atlas 数据层") : null, m.flags.mixedReleaseMaturity ? (en ? "flash and later estimates" : "快速估算与后续估算并存") : null, m.flags.includesPostElectionMonths ? (en ? "includes months after polling day" : "包含投票日后的月份") : null].filter(Boolean).join(" · ") || "—"}</td></tr>)}</tbody>
+      </table>) : null}
+    </div> : null}
+
+    {question === "B" ? <div data-research-b>
+      <p className="mt-3 text-sm">{en ? "Later minus earlier election, within one country and one measure. Changes flagged as crossing data layers use the same Eurostat dataset and query; the stricter table above withholds them because their source labels differ." : "后一届减前一届，限同一国家、同一度量。标明跨数据层的变化使用相同的欧盟统计局数据集和查询条件；上方更严格的表格因来源标签不同而未显示这些变化。"}</p>
+      {scroll(en ? "Changes between successive elections (scrollable)" : "相邻选举之间的变化（可横向滚动）", <table className="w-full min-w-[920px] text-left text-sm" data-research-b-table>
+        {th([en ? "Elections" : "选举", en ? "Indicator" : "指标", en ? "Periods" : "期间", en ? "Earlier" : "前值", en ? "Later" : "后值", en ? "Change" : "变化", en ? "Path between (observed, mean, low to high)" : "其间路径（已观测、均值、低至高）", en ? "Note" : "说明"])}
+        <tbody>{results.b.map((c) => <tr key={`${c.fromElection}:${c.toElection}:${c.indicator}`} className="border-t border-[var(--line)]" data-research-change={c.status} data-research-pair={`${c.fromElection}:${c.toElection}:${c.indicator}`}><th scope="row" className="p-2 font-normal">{electionName(c.fromElection)} → {electionOf(c.toElection)?.year}<span className="block text-xs">{c.monthsBetween} {en ? "months" : "个月"}</span></th><td className="p-2">{names[c.indicator]}</td><td className="p-2 text-xs">{frequency(c.frequency)}: {c.fromPeriod ?? "—"} → {c.toPeriod ?? "—"}</td><td className="p-2">{num(c.fromValue)}</td><td className="p-2">{num(c.toValue)}</td><td className="p-2 font-semibold">{delta(c.change)}</td><td className="p-2 text-xs">{c.path ? `${c.path.observed}/${c.path.expected} · ${num(c.path.mean, 2)} · ${num(c.path.min)} ${en ? "to" : "至"} ${num(c.path.max)}` : "—"}</td><td className="p-2 text-xs">{c.status === "withheld" ? (en ? "Withheld: " : "未计算：") + (reasons[c.reason!] ?? c.reason) : c.crossesDataLayer ? (en ? "Crosses Atlas data layers" : "跨 Atlas 数据层") : "—"}</td></tr>)}</tbody>
+      </table>)}
+    </div> : null}
+
+    {question === "C" ? <div data-research-c>
+      <p className="mt-3 text-sm" role="note">{en ? `Each row is one pair of neighbouring elections. Verified list movement is half the sum of absolute share changes among units joined by verified links; the coverage shows how much of the vote those units hold. Germany uses the authority's series, and Czechia and Poland use register links, so these figures differ in basis across countries.` : "每行是一组相邻选举。已核实名单变动为已核实关联单位得票率绝对变化之和的一半；覆盖范围显示这些单位所占的选票。德国使用选举机构序列，捷克和波兰使用登记册关联，因此各国数字的依据不同。"}</p>
+      {scroll(en ? "Election pairs (scrollable)" : "相邻选举（可横向滚动）", <table className="w-full min-w-[980px] text-left text-sm" data-research-c-pairs>
+        {th([en ? "Elections" : "选举", en ? "Turnout change (points)" : "投票率变化（百分点）", en ? "Verified list movement (points)" : "已核实名单变动（百分点）", en ? "Verified units and vote covered (%)" : "已核实单位与覆盖选票（%）", ...indicators.map((i) => `${names[i]}: ${en ? "change" : "变化"}`)])}
+        <tbody>{results.c.pairs.map((p) => <tr key={`${p.pair.from.electionId}:${p.pair.to.electionId}`} className="border-t border-[var(--line)]" data-research-c-pair={p.pair.to.electionId}><th scope="row" className="p-2 font-normal">{electionName(p.pair.from.electionId)} → {p.pair.to.year}</th><td className="p-2">{delta(p.turnout.change, 2)}<span className="block text-xs">{p.turnout.basis ?? p.turnout.reason}</span></td><td className="p-2">{num(p.lists.verifiedShareMovement, 2)}{p.lists.rulesChanged ? <span className="block text-xs">{en ? "Seat rules changed" : "席位规则已变"}</span> : null}</td><td className="p-2 text-xs">{p.lists.units.length} · {num(p.lists.coveredShareFrom)} → {num(p.lists.coveredShareTo)}{p.lists.unresolvedLinks ? <span className="block">{en ? `${p.lists.unresolvedLinks} unresolved links excluded` : `已排除 ${p.lists.unresolvedLinks} 个未确定关联`}</span> : null}</td>{indicators.map((i) => { const c = p.macro.find((m) => m.indicator === i); return <td key={i} className="p-2">{delta(c?.change)}{c?.crossesDataLayer ? <span className="block text-xs">{en ? "crosses layers" : "跨数据层"}</span> : null}</td>; })}</tr>)}</tbody>
+      </table>)}
+      {scroll(en ? "Associations within one country (scrollable)" : "同一国家内的关联（可横向滚动）", <table className="w-full min-w-[920px] text-left text-sm" data-research-c-associations>
+        <caption className="mb-1 text-left text-sm font-semibold">{en ? `Associations within one country. Coefficients need at least 5 pairs; they describe these elections only.` : "同一国家内的关联。系数至少需要 5 组，只描述这些选举。"}</caption>
+        {th([en ? "Country" : "国家", en ? "Indicator change" : "指标变化", en ? "Compared with" : "比较对象", en ? "Pairs" : "组数", "Pearson", "Spearman", en ? "Dropping one pair" : "去掉一组后", en ? "Same data layer only" : "仅同一数据层", en ? "Same / opposite direction" : "同向／反向"])}
+        <tbody>{results.c.associations.filter((a) => a.n > 0).map((a) => <tr key={`${a.country}:${a.indicator}:${a.outcome}`} className="border-t border-[var(--line)]" data-research-association={`${a.country}:${a.indicator}:${a.outcome}`} data-research-association-status={a.status}><th scope="row" className="p-2 font-normal">{countryName(a.country)}</th><td className="p-2">{names[a.indicator]}</td><td className="p-2">{a.outcome === "turnout_change" ? (en ? "Turnout change" : "投票率变化") : (en ? "Verified list movement" : "已核实名单变动")}</td><td className="p-2">{a.n}</td>{a.status === "coefficient" ? <><td className="p-2">{coefficient(a.pearson)}</td><td className="p-2">{coefficient(a.spearman)}</td><td className="p-2">{a.leaveOneOutPearson ? `${coefficient(a.leaveOneOutPearson.min)} ${en ? "to" : "至"} ${coefficient(a.leaveOneOutPearson.max)}` : "—"}</td><td className="p-2">{a.sameDataLayerPearson === null ? "—" : `${coefficient(a.sameDataLayerPearson)} (n=${a.sameDataLayerPairs})`}</td></> : <td className="p-2 text-xs" colSpan={4}>{en ? "Too few pairs for a coefficient" : "组数太少，不计算系数"}</td>}<td className="p-2">{a.sameDirection === null ? "—" : `${a.sameDirection} / ${a.oppositeDirection}`}</td></tr>)}</tbody>
+      </table>)}
+      {results.c.direction.length ? <p className="mt-3 text-sm" data-research-c-direction>{en ? "Across countries, as pair counts and not a pooled coefficient (indicator and turnout change in the same direction / opposite): " : "跨国比较，仅为组数，不合并系数（指标与投票率变化同向／反向）："}{results.c.direction.map((d) => `${names[d.indicator]} ${d.sameDirection}/${d.oppositeDirection} ${en ? "of" : "／共"} ${d.pairs}`).join(" · ")}</p> : null}
+      <details className="mt-4 text-sm" data-research-c-units><summary className="cursor-pointer font-semibold">{en ? "Verified units behind each pair" : "每组相邻选举中的已核实单位"}</summary>
+        <p className="mt-2">{en ? "Listed by name. Only units with a verified link and a published share in both elections appear; coalition totals stay whole and are not assigned to members." : "按名称列出。只显示两届都有已核实关联和已公布得票率的单位；联盟合计保持完整，不分配给成员。"}</p>
+        {results.c.pairs.map((p) => <div key={p.pair.to.electionId} className="mt-3"><h6 className="font-semibold">{electionName(p.pair.from.electionId)} → {p.pair.to.year}</h6>{p.lists.units.length ? <ul className="mt-1 grid gap-1 sm:grid-cols-2">{p.lists.units.map((u) => <li key={u.id} data-research-unit={u.kind}><span lang={p.pair.to.originalLanguage ?? "de"}>{u.label}</span>{u.kind === "coalition" ? (en ? " (coalition)" : "（联盟）") : ""}: {num(u.fromShare, 2)} → {num(u.toShare, 2)} ({delta(u.shareChange, 2)})</li>)}</ul> : <p>{reasons.no_verified_unit_in_both_elections}</p>}</div>)}
+      </details>
+    </div> : null}
+
+    {question === "D" ? <div data-research-d>
+      <p className="mt-3 text-sm" role="note">{en ? "Released figures cover the latest election in each country. A gap between views is a revision only when frequency and period match. Otherwise it shows that a different measure was used, and the annual figure for the election year did not yet exist at polling day." : "已发布数字覆盖每个国家最近一届选举。只有频率和期间都相同，视图之间的差距才是修订；否则表示使用了不同的度量，而选举年度的年度数字在投票日尚不存在。"}</p>
+      {scroll(en ? "Released figures against each view (scrollable)" : "已发布数字与各视图比较（可横向滚动）", <table className="w-full min-w-[1080px] text-left text-sm" data-research-d-table>
+        {th([en ? "Election" : "选举", en ? "Indicator" : "指标", en ? "Released before polling day" : "投票日前已发布", en ? "Timing" : "时间", en ? "Current, same period" : "同期当前值", en ? "Revision" : "修订", shortView.last_complete_year, shortView.election_calendar_year, shortView.last_complete_month])}
+        <tbody>{results.d.released.map((r) => <tr key={`${r.electionId}:${r.indicator}`} className="border-t border-[var(--line)]" data-research-released={`${r.electionId}:${r.indicator}`} data-research-released-status={r.status}><th scope="row" className="p-2 font-normal">{electionName(r.electionId)}</th><td className="p-2">{names[r.indicator]}</td>{r.status === "documented" ? <><td className="p-2">{num(r.value)}<span className="block text-xs">{frequency(r.frequency)} · {r.period}{r.flashEstimate ? (en ? " · flash" : " · 快速估算") : ""}</span>{r.sourceUrl ? <a className="block text-xs underline" href={r.sourceUrl}>{en ? "Release" : "新闻稿"}</a> : null}</td><td className="p-2 text-xs">{localeDate(r.publishedOn!, locale)}<span className="block">{en ? `${r.daysBeforeElection} days before polling` : `投票日前 ${r.daysBeforeElection} 天`}</span></td><td className="p-2">{r.currentValue === null ? (en ? "Not held" : "未持有") : num(r.currentValue)}</td><td className="p-2">{delta(r.revisionSinceRelease)}</td></> : <td className="p-2" colSpan={4}>{en ? "Not established: no dated release was located. It is not filled from current data." : "未确定：未找到注明日期的发布记录，不用当前数据填补。"}</td>}{r.versus.map((v) => <td key={v.view} className="p-2" data-research-relation={v.relation}>{num(v.value)}<span className="block text-xs">{v.period ?? "—"} · {relationText[v.relation]}</span></td>)}</tr>)}</tbody>
+      </table>)}
+      {results.d.spreads.length ? scroll(en ? "Range across the same elections (scrollable)" : "相同选举之间的极差（可横向滚动）", <table className="w-full min-w-[640px] text-left text-sm" data-research-d-spreads>
+        <caption className="mb-1 text-left text-sm font-semibold">{en ? "Gap between highest and lowest election, by view" : "各视图中最高与最低选举之间的差距"}</caption>
+        {th([en ? "Indicator" : "指标", shortView.released_before_election, shortView.last_complete_year, shortView.election_calendar_year, shortView.last_complete_month])}
+        <tbody>{results.d.spreads.map((s) => <tr key={s.indicator} className="border-t border-[var(--line)]"><th scope="row" className="p-2 font-normal">{names[s.indicator]}<span className="block text-xs">{s.elections} {en ? "elections" : "届选举"}</span></th><td className="p-2">{num(s.released)}</td>{s.views.map((v) => <td key={v.view} className="p-2">{num(v.range)}{v.range !== null && !v.sameElectionSet ? <span className="block text-xs">{en ? `only ${v.elections} elections` : `仅 ${v.elections} 届`}</span> : null}</td>)}</tr>)}</tbody>
+      </table>) : null}
+      {results.d.checks.length ? <details className="mt-4 text-sm" data-research-d-checks><summary className="cursor-pointer font-semibold">{en ? `Does the gap between two elections keep its sign? (${results.d.checks.length} pairs)` : `两届选举之间差距的方向是否保持？（${results.d.checks.length} 组）`}</summary>
+        {scroll(en ? "Direction checks (scrollable)" : "方向检查（可横向滚动）", <table className="w-full min-w-[760px] text-left text-sm"><thead><tr>{[en ? "Indicator" : "指标", en ? "Elections (later minus earlier)" : "选举（后减前）", shortView.released_before_election, shortView.last_complete_year, shortView.election_calendar_year, shortView.last_complete_month].map((t) => <th scope="col" key={t} className="p-2">{t}</th>)}</tr></thead>
+          <tbody>{results.d.checks.map((c) => <tr key={`${c.indicator}:${c.electionA}:${c.electionB}`} className="border-t border-[var(--line)]"><td className="p-2">{names[c.indicator]}</td><td className="p-2">{electionName(c.electionB)} − {electionName(c.electionA)}</td><td className="p-2">{delta(c.releasedDifference)}</td>{c.views.map((v) => <td key={v.view} className="p-2" data-research-direction={v.directionChanged === null ? "none" : v.directionChanged ? "differs" : "same"}>{delta(v.difference)}{v.directionChanged ? <span className="block text-xs">{en ? "sign differs" : "方向不同"}</span> : null}</td>)}</tr>)}</tbody></table>)}
+      </details> : null}
+    </div> : null}
+
+    <p className="mt-4 text-sm" data-research-coverage>{en ? "Evidence status for the selected view: " : "所选视图的证据状态："}{Object.entries(statusCounts).map(([k, v]) => `${statusText[k as ObservationStatus]} ${v}`).join(" · ") || "—"}</p>
+    <details className="mt-3 text-sm" data-research-methods><summary className="cursor-pointer font-semibold">{en ? "Comparability rules and remaining gaps" : "可比性规则与现存缺口"}</summary>
+      <h5 className="mt-3 font-semibold">{en ? "Rules applied" : "适用规则"}</h5><ol className="mt-1 list-decimal space-y-1 pl-5">{(en ? RESEARCH_RULES : RULES_ZH).map((r) => <li key={r}>{r}</li>)}</ol>
+      <h5 className="mt-3 font-semibold">{en ? "Limits and gaps" : "限制与缺口"}</h5><ul className="mt-1 list-disc space-y-1 pl-5">{(en ? RESEARCH_LIMITS : LIMITS_ZH).map((r) => <li key={r}>{r}</li>)}</ul>
+    </details>
+    <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
+      <button type="button" className="underline" data-research-export-json onClick={() => void exportEvidence()}>{en ? "Export evidence and methods (JSON)" : "导出证据与方法（JSON）"}</button>
+      <button type="button" className="underline" data-research-export-csv onClick={() => download(researchCsv(results), "election-comparative-research.csv", "text/csv;charset=utf-8")}>{en ? "Export all records (CSV)" : "导出全部记录（CSV）"}</button>
+      {digest ? <span className="break-all text-xs" data-research-digest>SHA-256: {digest}</span> : null}
+    </div>
+    <p className="mt-2 text-xs">{en ? "This page's address keeps the selection, and the export holds the rules, evidence, results and a digest. The same data and selection give the same digest." : "本页网址保存所选范围，导出文件包含规则、证据、结果和摘要。相同的数据和所选范围会得到相同的摘要。"}</p>
+  </section>;
+}

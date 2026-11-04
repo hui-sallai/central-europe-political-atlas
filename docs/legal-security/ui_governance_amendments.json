@@ -2135,6 +2135,45 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-02"
+    },
+    {
+      "amendment_id": "political-comparative-research-2026-11-04",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-04 (stage D3): reproducible descriptive comparative research workflow in the existing context panel over existing election, economic, provenance and identity contracts; no election store or research data changes",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/lib/comparativeElectionResearch.ts",
+          "sha256": "db25e75b11777fe783b52e59ad5cb2a93dc0c57e032a1f83a03f46fd99c1981d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalComparativeResearch.tsx",
+          "sha256": "bb38c6389972fe24efe397139eaf882d5486ee7c8be116bc3e8420730ea88667",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalEconomicContext.tsx",
+          "sha256": "75e174bc4a8762d54dc1f1bff9830dce7072709806826984a500bb828e6749c2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalContextData.ts",
+          "sha256": "35bb37d3336414a8e8d21e88babe07b492e3133cb0cd0e12f083b3e8638e13b6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalContinuity.ts",
+          "sha256": "7988d972ca2b0d0f8281d6b367412abae62659bed54b1941a35c8fd019b52a3f",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-02"
     }
   ]
 }

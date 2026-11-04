@@ -15,7 +15,7 @@ export type ContinuityRow = {
 };
 export type ContinuityEntity = { id: string; label: string; kind: string; registerUrl: string | null; evidenceLinks?: { reportYear: number; citation: string; url: string }[]; rows: ContinuityRow[] };
 
-const rulesChanged = (a: PoliticalElectionView, b: PoliticalElectionView) => a.system.allocationMethod !== b.system.allocationMethod || JSON.stringify(a.national?.rules.thresholds?.map((t) => t.percent)) !== JSON.stringify(b.national?.rules.thresholds?.map((t) => t.percent));
+export const rulesChanged = (a: PoliticalElectionView, b: PoliticalElectionView) => a.system.allocationMethod !== b.system.allocationMethod || JSON.stringify(a.national?.rules.thresholds?.map((t) => t.percent)) !== JSON.stringify(b.national?.rules.thresholds?.map((t) => t.percent));
 const sorted = (elections: PoliticalElectionView[]) => [...elections].sort((a, b) => a.date.localeCompare(b.date));
 const byId = (elections: PoliticalElectionView[], id: string) => elections.find((e) => e.electionId === id)!;
 

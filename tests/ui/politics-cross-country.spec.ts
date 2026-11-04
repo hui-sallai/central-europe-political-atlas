@@ -203,3 +203,55 @@ test("published before polling day: dated values stay separate from current figu
   await expect(table.locator('[data-as-of-row="el-sk-nrsr-2023-09-30:real_gdp_growth"]')).toContainText("Not held for this period");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
 });
+
+for (const locale of ["en", "zh-CN"] as const) test(`comparative research workflow answers each question from a shareable selection and exports evidence (${locale})`, async ({ page }) => {
+  const en = locale === "en";
+  await page.goto(`${en ? "/en" : ""}/politics/slovakia/?context=1`, { waitUntil: "networkidle" });
+  const panel = page.locator("[data-comparative-research]");
+  await expect(panel).toBeVisible({ timeout: 30000 });
+  await expect(panel.locator("[data-research-boundary]")).toContainText(en ? "An association is not a cause" : "关联不等于因果");
+  // A: all fifteen elections, one row each, gaps stated.
+  await expect(panel.locator("[data-research-a-table] [data-research-row]")).toHaveCount(15);
+  await expect(panel.locator('[data-research-row="el-de-bt-2013-09-22"] [data-research-cell="missing"]').first()).toBeVisible();
+  await expect(panel.locator("[data-research-findings='A']")).toContainText(en ? "from 0.1 (Poland 2015) to 13.2 (Poland 2023)" : "从 0.1（波兰 2015）到 13.2（波兰 2023）");
+  // B: unselecting a middle election removes its pairs and never joins its neighbours.
+  await panel.locator("[data-research-question]").selectOption("B");
+  await expect(panel.locator('[data-research-pair="el-pl-sejm-2019-10-13:el-pl-sejm-2023-10-15:hicp_inflation"]')).toContainText("+12");
+  await panel.locator('[data-research-election="el-cz-ps-2021-10-08"]').uncheck();
+  await expect(panel.locator('[data-research-pair*="el-cz-ps-2021-10-08"]')).toHaveCount(0);
+  await expect(panel.locator('[data-research-pair*="el-cz-ps-2017-10-20:el-cz-ps-2025-10-03"]')).toHaveCount(0);
+  await panel.locator('[data-research-election="el-cz-ps-2021-10-08"]').check();
+  // The released view cannot produce a change between elections.
+  await panel.locator("[data-research-view]").selectOption("released_before_election");
+  await expect(panel.locator('[data-research-change="calculated"]')).toHaveCount(0);
+  await panel.locator("[data-research-view]").selectOption("last_complete_year");
+  // C: coefficients only where enough pairs exist, within one country.
+  await panel.locator("[data-research-question]").selectOption("C");
+  await expect(panel.locator('[data-research-association="germany:government_debt_gdp:turnout_change"]')).toHaveAttribute("data-research-association-status", "coefficient");
+  await expect(panel.locator('[data-research-association="poland:government_debt_gdp:turnout_change"]')).toHaveAttribute("data-research-association-status", "direction_only");
+  await expect(panel.locator("[data-research-c-direction]")).toBeVisible();
+  // D: revision, different period and missing evidence stay distinct.
+  await panel.locator("[data-research-question]").selectOption("D");
+  await expect(panel.locator("[data-research-released]")).toHaveCount(20);
+  await expect(panel.locator('[data-research-released="el-cz-ps-2025-10-03:unemployment_rate"]')).toHaveAttribute("data-research-released-status", "not_established");
+  await expect(panel.locator('[data-research-released="el-sk-nrsr-2023-09-30:fiscal_balance_gdp"] [data-research-relation="same_period_revision"]').first()).toBeVisible();
+  await expect(panel.locator('[data-research-released="el-de-bt-2025-02-23:fiscal_balance_gdp"] [data-research-relation="different_period"]').first()).toBeVisible();
+  // The address reproduces a narrowed selection after reload.
+  await panel.locator('[data-research-country="germany"]').uncheck();
+  await page.waitForFunction(() => new URLSearchParams(location.search).get("research_q") === "D" && !new URLSearchParams(location.search).get("research_countries")?.includes("germany"));
+  await page.reload({ waitUntil: "networkidle" });
+  const again = page.locator("[data-comparative-research]");
+  await expect(again.locator("[data-research-question]")).toHaveValue("D", { timeout: 30000 });
+  await expect(again.locator('[data-research-country="germany"]')).not.toBeChecked();
+  await expect(again.locator("[data-research-released]")).toHaveCount(15);
+  // Both exports hold the evidence; the JSON records a digest and the selection.
+  const [json] = await Promise.all([page.waitForEvent("download"), again.locator("[data-research-export-json]").click()]);
+  expect(json.suggestedFilename()).toBe("election-comparative-research.json");
+  const pkg = JSON.parse(await (await import("node:fs/promises")).readFile(await json.path(), "utf8"));
+  expect(pkg.evidence_sha256).toMatch(/^[0-9a-f]{64}$/);
+  expect(pkg.evidence.descriptive_only).toBe(true);
+  expect(pkg.evidence.selection.countries).toEqual(["czechia", "poland", "slovakia"]);
+  await expect(again.locator("[data-research-digest]")).toContainText(pkg.evidence_sha256);
+  const [csv] = await Promise.all([page.waitForEvent("download"), again.locator("[data-research-export-csv]").click()]);
+  expect(csv.suggestedFilename()).toBe("election-comparative-research.csv");
+});
