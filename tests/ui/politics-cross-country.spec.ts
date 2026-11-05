@@ -176,14 +176,15 @@ test("Slovakia: 2023 list results, stated kinds only, and comparison with three 
   await expect(page.locator("h1")).toHaveText("斯洛伐克议会选举");
 });
 
-for (const locale of ["en", "zh-CN"] as const) test(`Hungary: list tier only, separate ballots, computed figures labelled, research reachable (${locale})`, async ({ page }) => {
+for (const locale of ["en", "zh-CN"] as const) test(`Hungary: whole chamber attributed, separate ballots, computed figures labelled, research reachable (${locale})`, async ({ page }) => {
   test.setTimeout(180000);
   const en = locale === "en";
   await page.goto(`${en ? "/en" : ""}/politics/hungary/`, { waitUntil: "networkidle" });
   await expect(page.locator("h1")).toHaveText(en ? "Hungarian parliamentary elections" : "匈牙利议会选举");
   const explorer = page.locator("[data-politics-explorer]");
   await expect(explorer).toContainText("Tisztelet és Szabadság Párt");
-  await expect(explorer).toContainText(en ? "93 of the 199 seats" : "199 席中的 93 席");
+  await expect(explorer).toContainText(en ? "93 national list seats and 106 single-member district seats" : "93 个全国名单席位和 106 个单一选区席位");
+  await expect(page.locator('[data-chart-list="ct-hu-ogy26-p02"] [data-chart-seats="whole_chamber"]')).toContainText(en ? "141 seats (list 45 + constituency 96)" : "141 席（名单 45 + 单选区 96）");
   await expect(explorer).toContainText(en ? "Turnout, computed from official counts" : "投票率，根据官方人数计算");
   await expect(page.locator("[data-politics-summary]")).toContainText(en ? "computed within this ballot" : "在此选票内计算");
   await expect(page.locator("[data-politics-summary]")).toContainText("79");
@@ -195,6 +196,11 @@ for (const locale of ["en", "zh-CN"] as const) test(`Hungary: list tier only, se
   await expect(explorer).toContainText(noLink);
   await expect(page.locator("body")).not.toContainText("—%");
   await expect(explorer).not.toContainText(en ? "see verified series comparison below" : "已核实序列比较见下方");
+  // Across countries only whole-chamber seats are set side by side: Tisza 141 ÷ 199, never its 45 list seats ÷ 199.
+  const hu = page.locator("[data-country-comparison] [data-country-lists='hungary']");
+  await expect(hu).toContainText("141");
+  await expect(hu).toContainText("70.9%");
+  await expect(hu).not.toContainText("22.6%");
   await page.goto(`${en ? "/en" : ""}/politics/hungary/?election=el-hu-ogy-2022-04-03&vote_type=hu_nationality_list_vote`, { waitUntil: "networkidle" });
   await expect(page.locator("[data-politics-explorer]")).toContainText("MAGYARORSZÁGI NÉMETEK ORSZÁGOS ÖNKORMÁNYZATA");
   await expect(page.locator("[data-politics-explorer]")).not.toContainText("MI HAZÁNK MOZGALOM");

@@ -11,7 +11,7 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "attribution": "Nemzeti Választási Bizottság",
     "retrieved_at": "2026-11-05T13:04:31Z",
-    "raw_sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc",
+    "raw_sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
     "publisher_pdf_sha256": "b958153abf1c2b1969f93f1ccf07a93634436a6ca66db2e55668efd50415f145"
   },
@@ -27,9 +27,43 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "attribution": "Nemzeti Választási Bizottság",
     "retrieved_at": "2026-11-05T13:04:22Z",
-    "raw_sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc",
+    "raw_sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
     "publisher_pdf_sha256": "3468005c850df14af823f01b87b79f945dadbca3b89840d750730a2c50a3b398"
+  },
+  {
+    "source_id": "src-hu-nvi-composition-2022",
+    "country": "hungary",
+    "institution": "Nemzeti Választási Iroda",
+    "dataset": "Országgyűlés összetétele – Országgyűlési Választás 2022",
+    "tier": "tier1_official",
+    "url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+    "licence_status": "official_result_publication_section_1_4_copyright_act_owner_reading_no_licence",
+    "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
+    "retrieved_at": "2026-11-05T19:40:49Z",
+    "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
+    "raw_sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497",
+    "raw_record": "chamber_composition.2022",
+    "access": "read by hand once in a browser; the page is built in the browser and its data endpoints were not requested",
+    "use": "constituency and whole-chamber seat counts of the lists in the minutes, only after reconciliation",
+    "not_used": "candidate names, constituency-level results and any per-district figure"
+  },
+  {
+    "source_id": "src-hu-nvi-composition-2026",
+    "country": "hungary",
+    "institution": "Nemzeti Választási Iroda",
+    "dataset": "Országgyűlés összetétele – Országgyűlési képviselők választása 2026",
+    "tier": "tier1_official",
+    "url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+    "licence_status": "official_result_publication_section_1_4_copyright_act_owner_reading_no_licence",
+    "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
+    "retrieved_at": "2026-11-05T19:40:49Z",
+    "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
+    "raw_sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497",
+    "raw_record": "chamber_composition.2026",
+    "access": "read by hand once in a browser; the page is built in the browser and its data endpoints were not requested",
+    "use": "constituency and whole-chamber seat counts of the lists in the minutes, only after reconciliation",
+    "not_used": "candidate names, constituency-level results and any per-district figure"
   },
   {
     "source_id": "src-hu-act-ccIII-2011",
@@ -43,7 +77,7 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "attribution": "Nemzeti Jogszabálytár",
     "retrieved_at": "2026-11-05T13:05:59Z",
-    "raw_sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc",
+    "raw_sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json"
   }
 ]

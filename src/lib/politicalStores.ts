@@ -10,9 +10,9 @@ export type PoliticalStores = {
   members?:ElectionMembership[];
   elections: Array<{ election_id: string; year: number; date: string; date_end?: string | null; chamber: string; legislature_id: string; electoral_system_id: string; result_vintage: string; provenance?:Provenance[] }>;
   turnout: Array<{ election_id: string; vote_type?: string; eligible_voters: number | null; voters: number | null; valid_second_votes?: number | null; invalid_second_votes?: number | null; valid_votes?: number | null; invalid_votes?: number | null; ballots_cast?: number | null; published_turnout: number | null; turnout_definition?: string | null; turnout_basis?: TurnoutBasis; provenance?: Provenance[] }>;
-  results: Array<{ election_id: string; contestant_ref: string; vote_type?: string; second_votes?: number | null; votes?: number | null; published_vote_share: number | null; seats: number | null; provenance: Provenance[] }>;
+  results: Array<{ election_id: string; contestant_ref: string; vote_type?: string; second_votes?: number | null; votes?: number | null; published_vote_share: number | null; seats: number | null; constituency_seats?: number | null; whole_chamber_seats?: number | null; provenance: Provenance[] }>;
   contestants: Array<{ contestant_id: string; historical_display_label: string; contestant_kind?: string; lead_party_id?: string | null }>;
-  legislatures: Array<{ legislature_id: string; total_seats: number | null; provenance?:Provenance[] }>;
+  legislatures: Array<{ legislature_id: string; total_seats: number | null; seat_attribution?: "complete" | "none"; national_list_seats?: number | null; constituency_seats?: number | null; provenance?:Provenance[] }>;
   systems: Array<{ electoral_system_id: string; system_family: string; allocation_method: string; base_seats: number | null; vote_type: string; vote_definitions?: VoteDefinition[]; national_rules?: NationalRules; notes: PoliticalLocalText; provenance: Provenance[] }>;
   sources: Array<{ source_id: string; dataset: string; url: string; raw_sha256?: string; retrieved_at?: string; licence_url?: string; institution?:string }>;
 };
@@ -33,6 +33,16 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
     if(new Set(definitions.map(d=>d.id)).size!==definitions.length||!definitions.some(d=>d.id===system.vote_type))throw Error("Duplicate or missing primary vote definition");
     if(rows.some(r=>r.vote_type&&!definitions.some(d=>d.id===r.vote_type)))throw Error("Undeclared vote type");
     for(const d of definitions)if(!["list","constituency","minority","other"].includes(d.kind)||!["valid_votes","ballots_cast","unknown"].includes(d.denominator)||!["whole_chamber","tier_only","unavailable"].includes(d.seatScope)||!d.sourceIds.length||d.sourceIds.some(id=>!stores.sources.some(s=>s.source_id===id)))throw Error("Unverified vote definition");
+    // Whole-chamber attribution is all or nothing: every row of every ballot carries list, constituency and whole-chamber seats, the
+    // tiers add up to the chamber, and no row is left without attribution. Anything less leaves the election at its tier.
+    const complete=legislature.seat_attribution==="complete";
+    if(complete){
+      const tiers=[legislature.national_list_seats,legislature.constituency_seats,legislature.total_seats];
+      if(tiers.some(v=>v===null||v===undefined||!Number.isSafeInteger(v)||v<0)||legislature.national_list_seats!+legislature.constituency_seats!!==legislature.total_seats)throw Error("Seat tiers do not make up the chamber");
+      for(const r of rows)if([r.seats,r.constituency_seats,r.whole_chamber_seats].some(v=>v===null||v===undefined||!Number.isSafeInteger(v)||v<0)||r.seats!+r.constituency_seats!!==r.whole_chamber_seats)throw Error("Incomplete whole-chamber attribution");
+      const total=(k:"seats"|"constituency_seats"|"whole_chamber_seats")=>rows.reduce((n,r)=>n+(r[k]??0),0);
+      if(total("seats")!==legislature.national_list_seats||total("constituency_seats")!==legislature.constituency_seats||total("whole_chamber_seats")!==legislature.total_seats)throw Error("Attributed seats do not reconcile with the chamber");
+    }else if(rows.some(r=>(r.constituency_seats??null)!==null||(r.whole_chamber_seats??null)!==null))throw Error("Whole-chamber seats without complete attribution");
     const rules=system.national_rules;
     for(const id of [...definitions.flatMap(d=>d.sourceIds),...(rules?.sourceIds??[]),...(rules?.thresholds??[]).flatMap(t=>t.sourceIds)]){if(!stores.sources.some(s=>s.source_id===id))throw Error("Unregistered rule source");sourceIds.add(id);}
     if(rules?.thresholds?.some(t=>t.percent!==null&&(!Number.isFinite(t.percent)||t.percent<0||t.percent>100)))throw Error("Invalid legal threshold");
@@ -43,7 +53,7 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
         const contestant=stores.contestants.find(c=>c.contestant_id===row.contestant_ref);
         if(!contestant||!row.provenance.length||!stores.sources.some(s=>s.source_id===row.provenance[0].source_id))throw Error("Unresolved contestant or source");
         const votes=row.votes!==undefined?row.votes:row.second_votes??null;
-        return {contestantId:row.contestant_ref,nativeLabel:contestant.historical_display_label,secondVotes:votes,votes,voteType:definition.id,publishedVoteShare:row.published_vote_share,seats:row.seats,sourceId:row.provenance[0].source_id,contestantKind:contestant.contestant_kind,...contestantIdentity(contestant,country.slug,election.election_id,stores.members??[],stores.sources.map(s=>s.source_id))};
+        return {contestantId:row.contestant_ref,nativeLabel:contestant.historical_display_label,secondVotes:votes,votes,voteType:definition.id,publishedVoteShare:row.published_vote_share,seats:row.seats,...(complete?{constituencySeats:row.constituency_seats??null,chamberSeats:row.whole_chamber_seats??null}:{}),sourceId:row.provenance[0].source_id,contestantKind:contestant.contestant_kind,...contestantIdentity(contestant,country.slug,election.election_id,stores.members??[],stores.sources.map(s=>s.source_id))};
       });
       if(new Set(results.map(r=>r.contestantId)).size!==results.length)throw Error("Duplicate contestant within vote type");
       const validVotes=count?.valid_votes!==undefined?count.valid_votes:count?.valid_second_votes??null;
@@ -52,6 +62,7 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
       for(const r of results)for(const value of [r.votes,r.seats])if(value!==null&&(!Number.isSafeInteger(value)||value<0))throw Error("Invalid national count");
       if(validVotes!==null&&results.reduce((n,r)=>n+(r.votes??0),0)>validVotes)throw Error("Votes exceed the defined denominator");
       if(definition.seatScope==="whole_chamber"&&legislature.total_seats!==null&&results.reduce((n,r)=>n+(r.seats??0),0)>legislature.total_seats)throw Error("Allocated seats exceed the chamber total");
+      if(definition.tierSeats!==undefined&&(!Number.isSafeInteger(definition.tierSeats)||definition.tierSeats<=0||definition.seatScope!=="tier_only"))throw Error("Invalid seat tier");
       return {definition,validVotes,invalidVotes:count?.invalid_votes!==undefined?count.invalid_votes:count?.invalid_second_votes??null,ballotsCast:count?.ballots_cast??null,results};
     });
     const primary=ballots.find(b=>b.definition.id===system.vote_type)!;
@@ -68,6 +79,7 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
       turnoutDefinition: counts.turnout_definition ?? null,
       national:{chamber:election.chamber,dateEnd:election.date_end??null,vintage:election.result_vintage,activeVote:primary.definition,ballots,
         turnout:counts.turnout_basis??{numerator:country.slug==="germany"?"voters":"unknown",denominator:country.slug==="germany"?"registered_electorate":"unknown",definition:counts.turnout_definition??null,sourceIds:(counts.provenance??[]).map(p=>p.source_id)},
+        chamberAttribution:complete?"complete":"none",seatTiers:complete?{nationalList:legislature.national_list_seats!,constituency:legislature.constituency_seats!}:null,
         rules:system.national_rules??{nationalAllocation:system.allocation_method,districtAllocation:null,thresholds:null,minorityRepresentation:null,totalSeatsDefinition:null,sourceIds:system.provenance.map(p=>p.source_id)}},
     };
   });

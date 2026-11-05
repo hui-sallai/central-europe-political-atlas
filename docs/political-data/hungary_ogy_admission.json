@@ -6,7 +6,7 @@
   "el-hu-ogy-2022-04-03",
   "el-hu-ogy-2026-04-12"
  ],
- "scope": "National Assembly elections of 3 April 2022 and 12 April 2026, national list tier only (93 of 199 seats), from the National Election Commission minutes. Constituency results, 2018 and earlier elections, and the results application's figures are not covered.",
+ "scope": "National Assembly elections of 3 April 2022 and 12 April 2026, all 199 seats: votes and national list seats from the National Election Commission minutes, single-member district seats per list from the election office's composition pages (aggregate counts only). Constituency votes and per-district results, 2018 and earlier elections, and the results application's other figures are not covered.",
  "owner_decisions": [
   {
    "date": "2026-11-05",
@@ -19,6 +19,10 @@
   {
    "date": "2026-11-05",
    "decision": "Owner reply: leave 2018 out for now."
+  },
+  {
+   "date": "2026-11-06",
+   "decision": "Owner reply: extend the Copyright Act § 1(4) reading to the office's official composition pages for aggregate seat counts per election only, no candidate names; one reading by hand; the build fails unless list seats match the minutes and the tiers come to 93 + 106 = 199."
   }
  ],
  "evidence_files": [
@@ -33,9 +37,9 @@
   },
   "normalized_republication": {
    "status": "closed",
-   "value": "national_figures_from_minutes",
+   "value": "national_figures_from_minutes_and_composition_seat_counts",
    "evidence_kind": "statute_section_1_4_copyright_act",
-   "basis": "Same basis, national figures transcribed from the minutes only. The database right in § 84/A was not settled, so application data and its generated CSV are not republished."
+   "basis": "Same basis: national figures transcribed from the minutes, plus district seat counts per list from the composition pages. The database right in § 84/A was not settled; only a handful of aggregate counts per election are taken from the application, and its data and generated CSV are not republished."
   },
   "raw_redistribution": {
    "status": "closed",
@@ -47,15 +51,15 @@
    "status": "closed",
    "value": "owner_authorised_single_reading",
    "evidence_kind": "owner_decision",
-   "basis": "One request per named PDF on static.valasztas.hu, whose robots.txt allows all paths. www.valasztas.hu stays blocked and was not contacted."
+   "basis": "One request per named PDF on static.valasztas.hu, whose robots.txt allows all paths. www.valasztas.hu stays blocked and was not contacted. The composition pages on vtr.valasztas.hu (robots.txt allows all paths) were read once by hand in a browser on 2026-11-05 UTC; their data endpoints were not requested."
   },
   "source_files_complete": {
    "status": "closed",
-   "basis": "The minutes hold registers, participation, ballots, votes for every party and nationality list, surplus votes, thresholds, the preferential quota and national list seats."
+   "basis": "The minutes hold registers, participation, ballots, votes for every party and nationality list, surplus votes, thresholds, the preferential quota and national list seats. The composition pages hold list and district seats per nominating organisation for all 199 seats."
   },
   "national_definition_complete": {
    "status": "closed",
-   "basis": "Party-list and nationality-list votes reconcile separately to printed totals and together to valid ballots; registers, participation and ballots reconcile; printed thresholds and quotas reproduce; recomputing the highest-averages allocation gives the printed seats. Constituency votes are not held and no list has a whole-chamber seat total here."
+   "basis": "Party-list and nationality-list votes reconcile separately to printed totals and together to valid ballots; registers, participation and ballots reconcile; printed thresholds and quotas reproduce; recomputing the highest-averages allocation gives the printed seats. Every composition row matches a list of the minutes with the same list seats, district seats total 106, list seats 93 and all seats 199; a nationality list holds no district seat. Constituency votes are not held."
   },
   "same_election_identity_complete": {
    "status": "closed",

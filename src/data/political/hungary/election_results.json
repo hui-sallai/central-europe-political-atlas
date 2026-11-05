@@ -12,7 +12,10 @@
     "published_vote_share": null,
     "derived_vote_share": 34.62398819392894,
     "seats": 38,
-    "seat_basis": "national list seats printed in the minutes; constituency seats are not included",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 19,
+    "whole_chamber_seats": 57,
+    "seat_basis": "national list seats printed in the minutes; constituency and whole-chamber seats from the election office's composition page, reconciled to 93 + 106 = 199",
     "surplus_votes": 1579149,
     "votes_for_list_seat_allocation": 3526480,
     "published_seat_share": null,
@@ -25,15 +28,32 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats",
           "surplus_votes",
           "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, party list 1",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -52,7 +72,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.7062306362209905,
     "seats": 0,
-    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency seats are not included",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency and whole-chamber seats from the election office's composition page, reconciled to 93 + 106 = 199",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -65,15 +88,32 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats",
           "surplus_votes",
           "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, party list 2",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -92,7 +132,10 @@
     "published_vote_share": null,
     "derived_vote_share": 3.290266658961902,
     "seats": 0,
-    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency seats are not included",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency and whole-chamber seats from the election office's composition page, reconciled to 93 + 106 = 199",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -105,15 +148,32 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats",
           "surplus_votes",
           "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, party list 3",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -132,7 +192,10 @@
     "published_vote_share": null,
     "derived_vote_share": 1.0477710262302806,
     "seats": 0,
-    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency seats are not included",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency and whole-chamber seats from the election office's composition page, reconciled to 93 + 106 = 199",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -145,15 +208,32 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats",
           "surplus_votes",
           "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, party list 4",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -172,7 +252,10 @@
     "published_vote_share": null,
     "derived_vote_share": 5.911694500131129,
     "seats": 6,
-    "seat_basis": "national list seats printed in the minutes; constituency seats are not included",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 6,
+    "seat_basis": "national list seats printed in the minutes; constituency and whole-chamber seats from the election office's composition page, reconciled to 93 + 106 = 199",
     "surplus_votes": 307064,
     "votes_for_list_seat_allocation": 639551,
     "published_seat_share": null,
@@ -185,15 +268,32 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats",
           "surplus_votes",
           "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, party list 5",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -212,7 +312,10 @@
     "published_vote_share": null,
     "derived_vote_share": 54.42004898452676,
     "seats": 48,
-    "seat_basis": "national list seats printed in the minutes; constituency seats are not included",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 87,
+    "whole_chamber_seats": 135,
+    "seat_basis": "national list seats printed in the minutes; constituency and whole-chamber seats from the election office's composition page, reconciled to 93 + 106 = 199",
     "surplus_votes": 1330256,
     "votes_for_list_seat_allocation": 4390962,
     "published_seat_share": null,
@@ -225,15 +328,32 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats",
           "surplus_votes",
           "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, party list 6",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -252,7 +372,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.5320711604374082,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -265,13 +388,30 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 1",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -290,7 +430,10 @@
     "published_vote_share": null,
     "derived_vote_share": 1.7169903704912681,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -303,13 +446,30 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 2",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -328,7 +488,10 @@
     "published_vote_share": null,
     "derived_vote_share": 5.745062836624776,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -341,13 +504,30 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 3",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -366,7 +546,10 @@
     "published_vote_share": null,
     "derived_vote_share": 1.2926391382405744,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -379,13 +562,30 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 4",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -404,7 +604,10 @@
     "published_vote_share": null,
     "derived_vote_share": 2.105434960013057,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -417,13 +620,30 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 5",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -442,7 +662,10 @@
     "published_vote_share": null,
     "derived_vote_share": 3.9432022196833687,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -455,13 +678,30 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 6",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -480,7 +720,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.5124857189489147,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -493,13 +736,30 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 7",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -518,7 +778,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.9172515097111148,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -531,13 +794,30 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 8",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -556,7 +836,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.7148686143300147,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -569,13 +852,30 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 9",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -594,7 +894,10 @@
     "published_vote_share": null,
     "derived_vote_share": 80.39823731026604,
     "seats": 1,
-    "seat_basis": "preferential nationality seat printed in the minutes",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 1,
+    "seat_basis": "preferential nationality seat printed in the minutes; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -607,13 +910,30 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 10",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -632,7 +952,10 @@
     "published_vote_share": null,
     "derived_vote_share": 1.3644524236983842,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -645,13 +968,30 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 11",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -670,7 +1010,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.7573037375550841,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -683,13 +1026,30 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2022",
+        "source_url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 12",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -708,7 +1068,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.8215989534633326,
     "seats": 0,
-    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency seats are not included",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency and whole-chamber seats from the election office's composition page, reconciled to 93 + 106 = 199",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -721,15 +1084,32 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats",
           "surplus_votes",
           "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, party list 1",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -748,7 +1128,10 @@
     "published_vote_share": null,
     "derived_vote_share": 53.5330257007979,
     "seats": 45,
-    "seat_basis": "national list seats printed in the minutes; constituency seats are not included",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 96,
+    "whole_chamber_seats": 141,
+    "seat_basis": "national list seats printed in the minutes; constituency and whole-chamber seats from the election office's composition page, reconciled to 93 + 106 = 199",
     "surplus_votes": 1364783,
     "votes_for_list_seat_allocation": 4750673,
     "published_seat_share": null,
@@ -761,15 +1144,32 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats",
           "surplus_votes",
           "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, party list 2",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -788,7 +1188,10 @@
     "published_vote_share": null,
     "derived_vote_share": 5.666084097961347,
     "seats": 6,
-    "seat_basis": "national list seats printed in the minutes; constituency seats are not included",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 6,
+    "seat_basis": "national list seats printed in the minutes; constituency and whole-chamber seats from the election office's composition page, reconciled to 93 + 106 = 199",
     "surplus_votes": 345252,
     "votes_for_list_seat_allocation": 703624,
     "published_seat_share": null,
@@ -801,15 +1204,32 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats",
           "surplus_votes",
           "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, party list 3",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -828,7 +1248,10 @@
     "published_vote_share": null,
     "derived_vote_share": 1.1114550799685432,
     "seats": 0,
-    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency seats are not included",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency and whole-chamber seats from the election office's composition page, reconciled to 93 + 106 = 199",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -841,15 +1264,32 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats",
           "surplus_votes",
           "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, party list 4",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -868,7 +1308,10 @@
     "published_vote_share": null,
     "derived_vote_share": 38.867836167808875,
     "seats": 42,
-    "seat_basis": "national list seats printed in the minutes; constituency seats are not included",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 10,
+    "whole_chamber_seats": 52,
+    "seat_basis": "national list seats printed in the minutes; constituency and whole-chamber seats from the election office's composition page, reconciled to 93 + 106 = 199",
     "surplus_votes": 1982535,
     "votes_for_list_seat_allocation": 4440872,
     "published_seat_share": null,
@@ -881,15 +1324,32 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats",
           "surplus_votes",
           "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, party list 5",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -908,7 +1368,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.2579350863366053,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -921,13 +1384,30 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 1",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -946,7 +1426,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.3797377659955578,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -959,13 +1442,30 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 2",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -984,7 +1484,10 @@
     "published_vote_share": null,
     "derived_vote_share": 3.121492202240214,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -997,13 +1500,30 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 3",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -1022,7 +1542,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.3510783119581572,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -1035,13 +1558,30 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 4",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -1060,7 +1600,10 @@
     "published_vote_share": null,
     "derived_vote_share": 43.989873659573455,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -1073,13 +1616,30 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 5",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -1098,7 +1658,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.2770413890282057,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -1111,13 +1674,30 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 6",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -1136,7 +1716,10 @@
     "published_vote_share": null,
     "derived_vote_share": 45.86229132335029,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -1149,13 +1732,30 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 7",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -1174,7 +1774,10 @@
     "published_vote_share": null,
     "derived_vote_share": 1.2228033722624252,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -1187,13 +1790,30 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 8",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -1212,7 +1832,10 @@
     "published_vote_share": null,
     "derived_vote_share": 1.0508466480380216,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -1225,13 +1848,30 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 9",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -1250,7 +1890,10 @@
     "published_vote_share": null,
     "derived_vote_share": 2.1542356284779443,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -1263,13 +1906,30 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 10",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -1288,7 +1948,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.42750352272455877,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -1301,13 +1964,30 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 11",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }
@@ -1326,7 +2006,10 @@
     "published_vote_share": null,
     "derived_vote_share": 0.9051610900145686,
     "seats": 0,
-    "seat_basis": "no seat in the minutes, recorded as 0",
+    "seat_scope": "national_list_tier",
+    "constituency_seats": 0,
+    "whole_chamber_seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0; a nationality list holds no constituency seat",
     "surplus_votes": null,
     "votes_for_list_seat_allocation": null,
     "published_seat_share": null,
@@ -1339,13 +2022,30 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "votes",
           "seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-composition-2026",
+        "source_url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+        "source_record_id": "composition page, nationality list 12",
+        "retrieved_at": "2026-11-05T19:40:49Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
+        "fields_covered": [
+          "constituency_seats",
+          "whole_chamber_seats"
         ],
         "published_or_derived": "published"
       }

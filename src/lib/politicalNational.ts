@@ -1,7 +1,7 @@
 import type { PoliticalElectionView, PoliticalLocalText, PoliticalResult, PoliticalSource } from "./politicalExplorer";
 
 export type VoteKind = "list" | "constituency" | "minority" | "other";
-export type VoteDefinition = { id: string; kind: VoteKind; label: PoliticalLocalText; denominator: "valid_votes" | "ballots_cast" | "unknown"; seatScope: "whole_chamber" | "tier_only" | "unavailable"; sourceIds: string[] };
+export type VoteDefinition = { id: string; kind: VoteKind; label: PoliticalLocalText; denominator: "valid_votes" | "ballots_cast" | "unknown"; seatScope: "whole_chamber" | "tier_only" | "unavailable"; sourceIds: string[]; /** Seats of the tier a tier-only ballot fills (Hungary: 93 national list seats). */ tierSeats?: number };
 export type NationalRules = {
   nationalAllocation: string | null; districtAllocation: string | null;
   thresholds: Array<{ appliesTo: string; percent: number | null; description: PoliticalLocalText; sourceIds: string[] }> | null;
@@ -10,7 +10,7 @@ export type NationalRules = {
 };
 export type TurnoutBasis = { numerator: "voters" | "envelopes_issued" | "ballots_cast" | "valid_ballots" | "unknown"; denominator: "registered_electorate" | "eligible_population" | "unknown"; definition: string | null; sourceIds: string[] };
 export type NationalBallotView = { definition: VoteDefinition; validVotes: number | null; invalidVotes: number | null; ballotsCast: number | null; results: PoliticalResult[] };
-export type NationalContext = { chamber: string; dateEnd: string | null; vintage: string; turnout: TurnoutBasis; rules: NationalRules; activeVote: VoteDefinition; ballots: NationalBallotView[] };
+export type NationalContext = { chamber: string; dateEnd: string | null; vintage: string; turnout: TurnoutBasis; rules: NationalRules; activeVote: VoteDefinition; ballots: NationalBallotView[]; /** "complete" only when every seat of the chamber is attributed to a ballot entity in the stores. */ chamberAttribution?: "complete" | "none"; seatTiers?: { nationalList: number; constituency: number } | null };
 export {voteDenominator,compatibleTurnout,compatibleVoteBasis} from "./politicalExplorer";
 
 /** Existing legacy secondVotes fields remain aliases of the actively selected ballot, not a German assumption. */

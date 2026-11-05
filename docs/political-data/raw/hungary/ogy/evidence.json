@@ -13,6 +13,10 @@
     {
       "date": "2026-11-05",
       "decision": "Leave 2018 out for now."
+    },
+    {
+      "date": "2026-11-06",
+      "decision": "Extend the Copyright Act § 1(4) reading to the election office's official composition pages for a few aggregate seat counts per election only, no candidate names. Read each page once by hand; the build fails unless list seats match the minutes and the tiers come to 106 + 93 = 199. Recorded as the owner's reading, not a licence."
     }
   ],
   "minutes": {
@@ -116,10 +120,46 @@
       "kind_basis": "Printed list name in the minutes; the official application shows rows 1 and 6 with several nominating organisations, read by hand. No official 'joint list' label was read for 2022, so this basis is weaker than for 2026."
     }
   },
+  "chamber_composition": {
+    "2026": {
+      "election_id": "el-hu-ogy-2026-04-12",
+      "url": "https://vtr.valasztas.hu/ogy2026/orszaggyules-osszetetele",
+      "page_heading": "Országgyűlés összetétele – Országgyűlési képviselők választása 2026",
+      "read_at": "2026-11-05T19:40:49Z",
+      "page_states": "Adatok frissítve: 2026. május 8. 00:00:00; Feldolgozottság: 100%",
+      "method": "read by hand in a browser: the page's seat list was counted with only 'Országos listás mandátumok' ticked, then with only 'Egyéni választókerületi mandátumok' ticked, then with both. Only the counts were recorded; member names shown by the page were not recorded.",
+      "attribution_basis": "Each row of the page groups seats by the nominating organisations (jelölő szervezetek). A row is attributed to the list of the minutes nominated by exactly the same organisations; its list seats must equal the minutes. Constituency seats of jointly nominated candidates stay with that joint entity and are never divided among its organisations.",
+      "rows": [
+        { "ballot": "party", "row": 2, "label_on_page": "TISZA", "list_seats": 45, "constituency_seats": 96, "total_seats": 141 },
+        { "ballot": "party", "row": 5, "label_on_page": "FIDESZ KDNP", "list_seats": 42, "constituency_seats": 10, "total_seats": 52 },
+        { "ballot": "party", "row": 3, "label_on_page": "Mi Hazánk", "list_seats": 6, "constituency_seats": 0, "total_seats": 6 }
+      ],
+      "printed_totals": {"constituency_seats": 106, "list_seats": 93, "total_seats": 199},
+      "unattributed_seats": 0,
+      "nationality_seats_on_page": 0
+    },
+    "2022": {
+      "election_id": "el-hu-ogy-2022-04-03",
+      "url": "https://vtr.valasztas.hu/ogy2022/orszaggyules-osszetetele",
+      "page_heading": "Országgyűlés összetétele – Országgyűlési Választás 2022",
+      "read_at": "2026-11-05T19:40:49Z",
+      "page_states": "frissítve: 2022. április 16. 11:13:17; Feldolgozottság: 100,00%",
+      "method": "read by hand in a browser from the page's table 'Jelölő szervezet / Összes mandátum / Listás / Egyéni'. Only the counts were recorded; member names shown by the page were not recorded.",
+      "attribution_basis": "Each row of the page groups seats by the nominating organisations (jelölő szervezetek). A row is attributed to the list of the minutes nominated by exactly the same organisations; its list seats must equal the minutes. Constituency seats of jointly nominated candidates stay with that joint entity and are never divided among its organisations.",
+      "rows": [
+        { "ballot": "party", "row": 6, "label_on_page": "FIDESZ KDNP", "list_seats": 48, "constituency_seats": 87, "total_seats": 135 },
+        { "ballot": "party", "row": 1, "label_on_page": "DK JOBBIK LMP MSZP MOMENTUM PÁRBESZÉD", "list_seats": 38, "constituency_seats": 19, "total_seats": 57 },
+        { "ballot": "party", "row": 5, "label_on_page": "MI HAZÁNK", "list_seats": 6, "constituency_seats": 0, "total_seats": 6 },
+        { "ballot": "nationality", "row": 10, "label_on_page": "MNOÖ", "list_seats": 1, "constituency_seats": 0, "total_seats": 1, "note": "the page prints no constituency figure for this row; a nationality list cannot win a constituency seat" }
+      ],
+      "printed_totals": {"constituency_seats": 106, "list_seats": 93, "total_seats": 199},
+      "unattributed_seats": 0
+    }
+  },
   "cross_checks": [
     "2026: all five party lists' votes and list seats in the minutes equal the official application's table and its generated CSV.",
     "2022: all six party lists' votes and list seats, the registers, the participation and the ballot counts in the minutes equal the official application's page, read by hand.",
-    "2026 and 2022: the application's seat-composition pages show 199 seats. For 2026 and for the 2022 Fidesz-KDNP row, subtracting the minutes' list seats gives constituency seats that are consistent with 106 single-member districts. These application figures are a check only and are not published here."
+    "2026 and 2022: the composition pages, read on 2026-11-05, account for all 199 seats; their list seats equal the minutes for every list."
   ],
   "csv_check": {
     "what": "The application's 'Lista letöltése (.csv)' button on the 2026 party-list tab.",

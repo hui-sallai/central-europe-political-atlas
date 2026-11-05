@@ -2330,6 +2330,50 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-06"
+    },
+    {
+      "amendment_id": "political-hungary-whole-chamber-2026-11-06",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-06 (stage C6.1) and reply: explicit seat scopes (whole-chamber seats and share ÷ chamber size only where every seat is attributed; list-tier seats and share ÷ the tier's size otherwise; cross-country seat comparison only for whole-chamber elections) and Hungary's whole-chamber attribution; stores are covered only by docs/legal-security/political_admission_records.json",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/lib/politicalExplorer.ts",
+          "sha256": "bb35333c71cfad687b42e5394f69b9e019824e172e4adab443d3d49dbb675f2c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalNational.ts",
+          "sha256": "58fb69d14a5da75fa866a8e34f563c972fb04c4ef5410d42928250afb58da279",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalStores.ts",
+          "sha256": "df4b874e019a5731276d1629198200f9805d9aafe732ab0c66ccfc64cf82031d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "8b0df206e10507d46b511f6b060949ed5739c30ed93523b975d628dd3d330d3a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "01252b6eb84959ddb361d99c35b0e447963d863f32fce9b904df1faff68d5131",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalCountryComparison.tsx",
+          "sha256": "8707fedeb17128f6ab2a48ebebd0c608b9dde05af4b0c6f7971617c607cd02ea",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-06"
     }
   ]
 }

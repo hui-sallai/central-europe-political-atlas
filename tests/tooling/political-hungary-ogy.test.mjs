@@ -6,7 +6,7 @@ import crypto from 'node:crypto';
 import Module, { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
-import { buildHungary, highestAverages, hungaryFiles, reconcile, NATIONALITY_VOTE, PARTY_VOTE } from '../../scripts/political-data/hungary/build-ogy-national.mjs';
+import { buildHungary, highestAverages, hungaryFiles, reconcile, reconcileComposition, NATIONALITY_VOTE, PARTY_VOTE } from '../../scripts/political-data/hungary/build-ogy-national.mjs';
 import { MANDATORY_ADMISSION_GATES, POLITICAL_ADMISSION_FILE, POLITICAL_ADMISSIONS, approvedPoliticalAdmissionFiles } from '../../docs/political-data/source-closure/political-admission-amendments.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -77,20 +77,72 @@ test('shares and turnout are computed, labelled as computed, and never carry the
   assert.deepEqual(explorer.turnoutForDisplay(german), { value: german.publishedTurnout, computed: false });
 });
 
-test('seats shown are list seats only: 93 of 199, with no whole-chamber share or vote-to-seat difference', () => {
+test('whole chamber: 93 list + 106 constituency = 199 in both elections, with the official 2026 totals', () => {
+  const seats = (view, label) => { const r = view.national.ballots.flatMap((b) => b.results).find((x) => x.nativeLabel === label); return [r.seats, r.constituencySeats, r.chamberSeats]; };
   for (const view of views) {
     const all = view.national.ballots.flatMap((b) => b.results);
-    assert.equal(all.reduce((n, r) => n + r.seats, 0), 93);
-    assert.equal(explorer.measureValue(view.results[0], view, 'seat_share'), null);
-    for (const r of view.results) assert.equal(national.voteSeatDifference(view, r), null);
+    assert.equal(view.national.chamberAttribution, 'complete');
+    assert.deepEqual(view.national.seatTiers, { nationalList: 93, constituency: 106 });
+    assert.equal(all.reduce((n, r) => n + r.seats, 0), 93, 'national list seats, party plus nationality lists');
+    assert.equal(all.reduce((n, r) => n + r.constituencySeats, 0), 106);
+    assert.equal(all.reduce((n, r) => n + r.chamberSeats, 0), 199);
+    assert.ok(all.every((r) => r.seats + r.constituencySeats === r.chamberSeats));
+    assert.ok(view.national.ballots[1].results.every((r) => r.constituencySeats === 0), 'a nationality list holds no constituency seat');
     assert.equal(view.system.baseSeats, 199);
-    assert.match(view.notes.en, /93 of the 199 seats/);
-    assert.match(view.notes.en, /do not show which list won the most seats overall/);
+    assert.match(view.notes.en, /Every seat is attributed here/);
+    for (const r of view.results) assert.equal(national.voteSeatDifference(view, r), null, 'list votes are never set against whole-chamber seats');
   }
-  const german = v22.national.ballots[1].results.find((r) => r.seats > 0);
-  assert.equal(german.nativeLabel, 'MAGYARORSZÁGI NÉMETEK ORSZÁGOS ÖNKORMÁNYZATA');
-  assert.equal(german.seats, 1);
+  assert.deepEqual(seats(v26, 'Tisztelet és Szabadság Párt'), [45, 96, 141]);
+  assert.deepEqual(seats(v26, 'FIDESZ - Magyar Polgári Szövetség-Kereszténydemokrata Néppárt'), [42, 10, 52]);
+  assert.deepEqual(seats(v26, 'Mi Hazánk Mozgalom'), [6, 0, 6]);
+  assert.deepEqual(seats(v22, 'FIDESZ - MAGYAR POLGÁRI SZÖVETSÉG-KERESZTÉNYDEMOKRATA NÉPPÁRT'), [48, 87, 135]);
+  assert.deepEqual(seats(v22, v22.results.find((r) => r.contestantKind === 'coalition' && /PÁRBESZÉD/.test(r.nativeLabel)).nativeLabel), [38, 19, 57]);
+  assert.deepEqual(seats(v22, 'MI HAZÁNK MOZGALOM'), [6, 0, 6]);
+  assert.deepEqual(seats(v22, 'MAGYARORSZÁGI NÉMETEK ORSZÁGOS ÖNKORMÁNYZATA'), [1, 0, 1], 'the elected nationality-list representative is kept');
   assert.ok(v26.national.ballots[1].results.every((r) => r.seats === 0));
+});
+
+test('seat shares use the denominator of their scope: whole chamber ÷ 199, list tier ÷ 93, never list seats ÷ 199', () => {
+  const tisza = v26.results.find((r) => r.nativeLabel === 'Tisztelet és Szabadság Párt');
+  assert.equal(explorer.seatMeasureScope(v26), 'whole_chamber');
+  assert.equal(explorer.measureValue(tisza, v26, 'seats'), 141);
+  assert.equal(explorer.measureValue(tisza, v26, 'seat_share'), 100 * 141 / 199);
+  assert.equal(explorer.chamberSeatShare(tisza, v26), 100 * 141 / 199);
+  assert.equal(explorer.listTierSeatShare(tisza, v26), 100 * 45 / 93);
+  assert.notEqual(explorer.measureValue(tisza, v26, 'seat_share'), 100 * 45 / 199);
+  // The same election without attribution falls back to the list tier, and nothing is shown as whole-chamber representation.
+  const tier = { ...v26, national: { ...v26.national, chamberAttribution: 'none' }, results: v26.results.map((r) => ({ ...r, constituencySeats: null, chamberSeats: null })) };
+  const t = tier.results.find((r) => r.nativeLabel === 'Tisztelet és Szabadság Párt');
+  assert.equal(explorer.seatMeasureScope(tier), 'national_list_tier');
+  assert.equal(explorer.chamberSeats(t, tier), null);
+  assert.equal(explorer.chamberSeatShare(t, tier), null);
+  assert.equal(explorer.measureValue(t, tier, 'seats'), 45);
+  assert.equal(explorer.measureValue(t, tier, 'seat_share'), 100 * 45 / 93);
+  const country = explorer.compareCountries(tier, data.politicalElectionViews().at(-1));
+  assert.equal(country.rows.find((r) => r.key === 'seat_lists').a, null, 'a list-tier election has no whole-chamber count across countries');
+  assert.equal(explorer.compareCountries(v26, data.politicalElectionViews().at(-1)).rows.find((r) => r.key === 'seat_lists').a, 3);
+  assert.equal(explorer.compareElections(tier, v22).find((r) => r.key === 'seat_lists').difference, null, 'list-tier and whole-chamber counts are not differenced');
+  // Whole-chamber elsewhere is unchanged: seats ÷ chamber size.
+  const de = data.politicalElectionViews().at(-1);
+  assert.equal(explorer.seatMeasureScope(de), 'whole_chamber');
+  assert.equal(explorer.measureValue(de.results[0], de, 'seat_share'), explorer.descriptiveShare(de.results[0].seats, de.totalSeats));
+  for (const v of [...data.politicalCzechElectionViews(), ...data.politicalPolishElectionViews(), ...data.politicalSlovakElectionViews()]) assert.equal(explorer.seatMeasureScope(v), 'whole_chamber', v.electionId);
+});
+
+test('composition fails closed: an unattributed, mismatched or missing seat stops the build', () => {
+  const m = evidence.minutes['2026'], comp = evidence.chamber_composition['2026'];
+  const of = reconcileComposition(m, comp);
+  assert.equal(of('party', 2), 96);
+  assert.equal(of('party', 4), 0, 'a list the page does not show holds no seat, because the page accounts for all 199');
+  const change = (f) => { const c = structuredClone(comp); f(c); return c; };
+  assert.throws(() => reconcileComposition(m, change((c) => { c.rows[0].list_seats = 44; c.rows[0].total_seats = 140; })), /differ from the minutes/);
+  assert.throws(() => reconcileComposition(m, change((c) => { c.rows[0].constituency_seats = 95; })), /list plus constituency/);
+  assert.throws(() => reconcileComposition(m, change((c) => { c.rows[0].constituency_seats = 95; c.rows[0].total_seats = 140; })), /constituency seats ≠ 106/);
+  assert.throws(() => reconcileComposition(m, change((c) => { c.rows.push({ ballot: 'party', row: 9, list_seats: 0, constituency_seats: 0, total_seats: 0 }); })), /not a list of the minutes/);
+  assert.throws(() => reconcileComposition(m, change((c) => { c.rows.pop(); })), /missing from the page/);
+  assert.throws(() => reconcileComposition(m, change((c) => { c.unattributed_seats = 1; })), /outside the lists/);
+  assert.throws(() => reconcileComposition(evidence.minutes['2022'], change((c) => { c.rows.push({ ballot: 'nationality', row: 10, list_seats: 0, constituency_seats: 1, total_seats: 1 }); })), /another election/);
+  assert.ok(Object.values(evidence.chamber_composition).every((c) => /names .*not recorded/.test(c.method)));
 });
 
 test('reconciliation fails closed: a changed figure stops the build, and the allocation is recomputed', () => {
@@ -120,7 +172,10 @@ test('joint lists stay whole; no party or link is created; no series between 202
   for (const store of ['contestant_members', 'political_parties', 'party_identity_links']) assert.ok(!fs.existsSync(path.join(root, STORE, `${store}.json`)), store);
   assert.ok(contestants.every((c) => c.continuous_series_eligible === false && c.lead_party_id === null));
   assert.equal(read('public/research-data/political/hungary/manifest.json').continuous_party_series, 0);
-  assert.equal(read('public/research-data/political/hungary/manifest.json').coverage, 'national_list_tier_93_of_199_seats');
+  assert.equal(read('public/research-data/political/hungary/manifest.json').coverage, 'whole_chamber_199_of_199_seats_attributed');
+  const ids = (year, re) => evidence.minutes[year].party_lists.filter((l) => re.test(l.label)).map((l) => l.id);
+  assert.notDeepEqual(ids('2022', /^MI HAZÁNK/i), ids('2026', /^Mi Hazánk/i), 'the minutes number nominating organisations per election, so an id is no identity');
+  assert.notDeepEqual(ids('2022', /KUTYA/i), ids('2026', /Kutya/i));
 });
 
 test('evidence: rights limits recorded, checksums only, no PDF, no CSV, no personal names', () => {
@@ -135,7 +190,7 @@ test('evidence: rights limits recorded, checksums only, no PDF, no CSV, no perso
   const dir = path.join(root, 'docs/political-data/raw/hungary/ogy');
   assert.deepEqual(fs.readdirSync(dir), ['evidence.json']);
   assert.ok(!fs.readdirSync(path.join(root, 'public/research-data/political/hungary')).some((f) => /partlistak|\.pdf$/.test(f)));
-  for (const s of read(`${STORE}/political_source_registry.json`)) { assert.equal(sha(s.raw_path), s.raw_sha256, s.source_id); assert.doesNotMatch(s.url, /www\.valasztas\.hu|vtr\.valasztas\.hu/); assert.match(s.licence_url, /njt\.jog\.gov\.hu/); }
+  for (const s of read(`${STORE}/political_source_registry.json`)) { assert.equal(sha(s.raw_path), s.raw_sha256, s.source_id); assert.doesNotMatch(s.url, /www\.valasztas\.hu/); if (/vtr\.valasztas\.hu/.test(s.url)) assert.match(s.source_id, /^src-hu-nvi-composition-20(22|26)$/, 'the application is a source only for composition counts'); assert.match(s.licence_url, /njt\.jog\.gov\.hu/); }
   const fields = read(`${STORE}/electoral_contestants.json`).flatMap((c) => Object.keys(c));
   assert.ok(!fields.some((k) => /candidate|person|deput/i.test(k)));
   const net = read('docs/legal-security/network_acquisition_registry.json').hosts;

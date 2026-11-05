@@ -1,5 +1,5 @@
 import { localeDate, localeNumber, type Locale } from "@/i18n/config";
-import { chartResults, compareCountries, descriptiveShare, type CountryComparisonRow, type PoliticalElectionView } from "@/lib/politicalExplorer";
+import { chamberSeatShare, chamberSeats, chartResults, compareCountries, descriptiveShare, seatMeasureScope, type CountryComparisonRow, type PoliticalElectionView } from "@/lib/politicalExplorer";
 
 // Two national parliamentary elections from different countries, side by side. Presentational and stateless: the
 // explorer chooses the elections. Values are shown as published or as labelled derived shares; nothing is subtracted,
@@ -22,16 +22,18 @@ export function PoliticalCountryComparison({ a, b, locale }: { a: PoliticalElect
     <div className="overflow-x-auto" role="region" tabIndex={0} aria-label={en ? `Lists, ${name(election)} (scrollable)` : `${name(election)} 的名单（可横向滚动）`}>
       <table className="w-full min-w-[420px] text-left text-sm" data-country-lists={election.country}>
         <caption className="mb-2 text-left font-semibold">{name(election)} · {election.voteLabel?.[locale] ?? election.system.voteType}</caption>
-        <thead><tr><th scope="col">{en ? "List (original label)" : "名单（原文名称）"}</th><th scope="col">{en ? "Vote share" : "得票率"}</th><th scope="col">{en ? "Seats" : "席位"}</th><th scope="col">{en ? "Seat share (derived)" : "席位占比（计算值）"}</th></tr></thead>
+        <thead><tr><th scope="col">{en ? "List (original label)" : "名单（原文名称）"}</th><th scope="col">{en ? "Vote share" : "得票率"}</th><th scope="col">{en ? "Whole-chamber seats" : "全议院席位"}</th><th scope="col">{en ? "Whole-chamber seat share (derived)" : "全议院席位占比（计算值）"}</th></tr></thead>
         <tbody>{chartResults(election).map((result) => {
           const derived = result.publishedVoteShare === null;
           const share = derived ? descriptiveShare(result.secondVotes, election.validSecondVotes) : result.publishedVoteShare;
-          const seatShare = descriptiveShare(result.seats, election.totalSeats);
+          // Only whole-chamber seats are set side by side across countries; a list-tier count is shown as such, with no share.
+          const whole = seatMeasureScope(election) === "whole_chamber";
+          const seatShare = whole ? chamberSeatShare(result, election) : null;
           return <tr key={result.contestantId} className="border-t border-[var(--line)]" data-share-basis={derived ? "derived" : "published"}>
             <th scope="row" className="py-2 font-normal"><span lang={election.originalLanguage} data-original-language={election.originalLanguage}>{result.nativeLabel}</span></th>
             <td className="metric-number">{number(share, 1)}{share === null ? "" : "%"}<span className="block text-xs text-[var(--muted)]">{derived ? (en ? "derived" : "计算值") : (en ? "published" : "官方公布")}</span></td>
-            <td className="metric-number">{number(result.seats)}</td>
-            <td className="metric-number">{number(seatShare, 1)}{seatShare === null ? "" : "%"}</td>
+            <td className="metric-number" data-seat-scope={whole ? "whole_chamber" : "national_list_tier"}>{whole ? number(chamberSeats(result, election)) : <>{en ? "not established" : "尚未确定"}<span className="block text-xs text-[var(--muted)]">{en ? `list tier only: ${number(result.seats)}` : `仅名单层：${number(result.seats)}`}</span></>}</td>
+            <td className="metric-number">{whole ? `${number(seatShare, 1)}${seatShare === null ? "" : "%"}` : (en ? "not comparable" : "不可比较")}</td>
           </tr>;
         })}</tbody>
       </table>
@@ -45,6 +47,7 @@ export function PoliticalCountryComparison({ a, b, locale }: { a: PoliticalElect
           : (en ? "These elections were held in the same year, on different dates. " : "两场选举在同一年举行，但日期不同。")}
         {en ? "They were run under different electoral systems, for different chambers and with different kinds of lists, so the figures are shown side by side and are not differenced or ranked." : "两国的选举制度、议院和名单类型都不同，因此数字只并排显示，不做相减或排名。"}
         {comparison.sameAllocationMethod ? "" : (en ? " The seat-allocation methods differ." : "席位分配方法也不同。")}
+        {[a, b].some((e) => seatMeasureScope(e) !== "whole_chamber") ? (en ? " One election holds only list-tier seats, so its seats are not set against whole-chamber representation." : "其中一场选举只有名单层席位，因此其席位不与全议院代表席位对照。") : ""}
       </p>
       <div className="overflow-x-auto" role="region" tabIndex={0} aria-label={en ? "Two elections side by side (scrollable)" : "两场选举并排对照（可横向滚动）"}>
         <table className="w-full min-w-[520px] text-left text-sm" data-country-facts>

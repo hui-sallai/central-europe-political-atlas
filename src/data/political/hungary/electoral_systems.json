@@ -20,6 +20,7 @@
         },
         "denominator": "valid_votes",
         "seatScope": "tier_only",
+        "tierSeats": 93,
         "sourceIds": [
           "src-hu-nvb-minutes-2022",
           "src-hu-act-ccIII-2011"
@@ -34,6 +35,7 @@
         },
         "denominator": "valid_votes",
         "seatScope": "tier_only",
+        "tierSeats": 93,
         "sourceIds": [
           "src-hu-nvb-minutes-2022",
           "src-hu-act-ccIII-2011"
@@ -92,8 +94,8 @@
       ]
     },
     "notes": {
-      "en": "Mixed system with 199 seats. The list and seat figures here cover only the national list tier: 93 of the 199 seats. Seats won in the 106 single-member districts are not shown for any list, so these figures do not show which list won the most seats overall. Shares are computed here within each ballot. The election office's application prints shares over party-list and nationality-list votes together, so its figures differ. One nationality list reached the preferential quota and received one seat, leaving 92 seats for party lists. A joint list's votes and seats are not divided among its organisations.",
-      "zh-CN": "混合选制，共 199 席。此处的名单和席位数字仅涵盖全国名单层级，即 199 席中的 93 席。任何名单都不显示 106 个单一选区赢得的席位，因此这些数字不能说明哪个名单赢得的总席位最多。得票率在各选票内部计算。选举办公室的应用程序按政党名单票和民族名单票合计计算得票率，因此数字不同。一个民族名单达到优惠配额并获得一席，政党名单分配其余 92 席。联合名单的票数和席位不分配给其各组织。"
+      "en": "Mixed system with 199 seats: 93 national list seats and 106 single-member district seats. Every seat is attributed here: list seats come from the minutes, district seats from the election office's composition page, and the two add up to 199. \"National list seats\" are the list tier only; \"whole-chamber seats\" add the district seats. Shares are computed here within each ballot. The election office's application prints shares over party-list and nationality-list votes together, so its figures differ. One nationality list reached the preferential quota and received one seat, leaving 92 seats for party lists. A joint list's votes and seats, including the district seats of candidates nominated by the same organisations, are not divided among its organisations.",
+      "zh-CN": "混合选制，共 199 席：93 个全国名单席位和 106 个单一选区席位。此处每个席位都已归属：名单席位来自会议记录，选区席位来自选举办公室的议会构成页面，两者合计 199 席。\"全国名单席位\"仅指名单层级；\"全议院席位\"另加选区席位。得票率在各选票内部计算。选举办公室的应用程序按政党名单票和民族名单票合计计算得票率，因此数字不同。一个民族名单达到优惠配额并获得一席，政党名单分配其余 92 席。联合名单的票数和席位（包括由相同组织共同提名的候选人赢得的选区席位）不分配给其各组织。"
     },
     "provenance": [
       {
@@ -103,10 +105,10 @@
         "retrieved_at": "2026-11-05T13:05:59Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "system_family",
           "allocation_method",
@@ -122,10 +124,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "notes"
         ],
@@ -154,6 +156,7 @@
         },
         "denominator": "valid_votes",
         "seatScope": "tier_only",
+        "tierSeats": 93,
         "sourceIds": [
           "src-hu-nvb-minutes-2026",
           "src-hu-act-ccIII-2011"
@@ -168,6 +171,7 @@
         },
         "denominator": "valid_votes",
         "seatScope": "tier_only",
+        "tierSeats": 93,
         "sourceIds": [
           "src-hu-nvb-minutes-2026",
           "src-hu-act-ccIII-2011"
@@ -226,8 +230,8 @@
       ]
     },
     "notes": {
-      "en": "Mixed system with 199 seats. The list and seat figures here cover only the national list tier: 93 of the 199 seats. Seats won in the 106 single-member districts are not shown for any list, so these figures do not show which list won the most seats overall. Shares are computed here within each ballot. The election office's application prints shares over party-list and nationality-list votes together, so its figures differ. No nationality list reached the preferential quota, so all 93 list seats went to party lists. A joint list's votes and seats are not divided among its organisations.",
-      "zh-CN": "混合选制，共 199 席。此处的名单和席位数字仅涵盖全国名单层级，即 199 席中的 93 席。任何名单都不显示 106 个单一选区赢得的席位，因此这些数字不能说明哪个名单赢得的总席位最多。得票率在各选票内部计算。选举办公室的应用程序按政党名单票和民族名单票合计计算得票率，因此数字不同。没有民族名单达到优惠配额，因此 93 个名单席位全部分配给政党名单。联合名单的票数和席位不分配给其各组织。"
+      "en": "Mixed system with 199 seats: 93 national list seats and 106 single-member district seats. Every seat is attributed here: list seats come from the minutes, district seats from the election office's composition page, and the two add up to 199. \"National list seats\" are the list tier only; \"whole-chamber seats\" add the district seats. Shares are computed here within each ballot. The election office's application prints shares over party-list and nationality-list votes together, so its figures differ. No nationality list reached the preferential quota, so all 93 list seats went to party lists. A joint list's votes and seats, including the district seats of candidates nominated by the same organisations, are not divided among its organisations.",
+      "zh-CN": "混合选制，共 199 席：93 个全国名单席位和 106 个单一选区席位。此处每个席位都已归属：名单席位来自会议记录，选区席位来自选举办公室的议会构成页面，两者合计 199 席。\"全国名单席位\"仅指名单层级；\"全议院席位\"另加选区席位。得票率在各选票内部计算。选举办公室的应用程序按政党名单票和民族名单票合计计算得票率，因此数字不同。没有民族名单达到优惠配额，因此 93 个名单席位全部分配给政党名单。联合名单的票数和席位（包括由相同组织共同提名的候选人赢得的选区席位）不分配给其各组织。"
     },
     "provenance": [
       {
@@ -237,10 +241,10 @@
         "retrieved_at": "2026-11-05T13:05:59Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "system_family",
           "allocation_method",
@@ -256,10 +260,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "parser_sha256": "b8f57e077454f39792224f301748646d45853a5cb71dda6557224cd2737e7424",
         "fields_covered": [
           "notes"
         ],
