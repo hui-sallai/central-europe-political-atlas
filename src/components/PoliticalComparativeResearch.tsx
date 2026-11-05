@@ -6,6 +6,8 @@ import { AS_OF_CONDITIONS, researchAvailability, RESEARCH_LIMITS, RESEARCH_METHO
 import type { ContextPoint } from "@/lib/politicalEconomicContext";
 import type { PoliticalElectionView } from "@/lib/politicalExplorer";
 import type { PoliticalIdentityLink } from "@/lib/politicalIdentity";
+import type { CaseModelObservation } from "@/lib/researchCaseModels";
+import { PoliticalResearchCase } from "./PoliticalResearchCase";
 
 const RULES_ZH = ["直接比较要求指标、频率、欧盟统计局数据集和单位都相同。年度、月度和季度数字绝不作为同一度量相减。", "相邻选举变化只连接同一国家内相邻的已准入选举，不跨越未选中的选举。", "2000—2020 年历史数据与 2021 年起的快照使用相同的欧盟统计局数据集和查询条件，跨越两者的变化会标明跨数据层。", "已发布数字仅来自投票日前发布、注明日期的欧盟统计局新闻稿。未找到发布记录时保持未确定，绝不用当前数据填补。", "只有指标、期间、频率、单位和定义都相同才计算修订。已发布数字绝不与其他频率或期间的数字相减。", "投票率变化要求同一国家且公布口径相同。名单变化只使用已核实关联；联盟合计不分配给成员，成员没有单独数字。", "系数仅在同一国家内、至少 5 组时计算，并附留一法范围。不足时只显示方向计数。由于投票率口径不同，不跨国合并。", "已核实名单变动为已核实单位得票率绝对变化之和的一半。它不是政党体系波动率，其覆盖范围会一并报告。", "任何数字都不表示经济状况导致了选举结果，也不表示任何政党造成了经济变化。政党按名称列出，不预测任何结果。"];
 const LIMITS_ZH = ["当前数据视图中的数字可能包含选举后的修订。", "已发布数字只覆盖德国、捷克、波兰和斯洛伐克最近一届选举，因此选举之间的变化暂时无法使用。", "捷克 2025 年 8 月失业率：未找到发布记录，因此该数字未确定。", "Atlas 没有季度 GDP 序列，因此已发布的 GDP 数字没有当前数值。", "年度失业率始于 2021 年，德国年度 GDP 始于 2021 年。月度失业率德国始于 2009 年，波兰和斯洛伐克始于 2015 年。", "Atlas 没有执政党数据，因此没有任何数字将政党地位与经济状况相关联。", "在很少的组数上比较多个指标和两个结果，出现一些较大的系数在偶然情况下也可预期。", "发布日期是找到的最早日期，并非已证实的首次发布；已发布也不表示选民看到了该数字。"];
@@ -15,7 +17,7 @@ const listParam = (key: string) => { const v = initialParam(key); return v === n
 
 // Comparative workflow over existing election, economic, provenance and identity contracts. The selection is kept in the
 // URL, and the export carries the selection, rules, evidence and results.
-export function PoliticalComparativeResearch({ elections, points, links, locale, focusElectionId }: { elections: PoliticalElectionView[]; points: ContextPoint[]; links: PoliticalIdentityLink[]; locale: Locale; focusElectionId?: string }) {
+export function PoliticalComparativeResearch({ elections, points, links, models = [], locale, focusElectionId }: { elections: PoliticalElectionView[]; points: ContextPoint[]; links: PoliticalIdentityLink[]; models?: CaseModelObservation[]; locale: Locale; focusElectionId?: string }) {
   const en = locale === "en";
   const [question, setQuestion] = useState<ResearchQuestion>(() => { const q = initialParam("research_q")?.toUpperCase(); return RESEARCH_QUESTIONS.includes(q as ResearchQuestion) ? q as ResearchQuestion : "A"; });
   const [view, setView] = useState<ResearchView>(() => { const v = initialParam("research_view"); return RESEARCH_VIEWS.includes(v as ResearchView) ? v as ResearchView : "last_complete_year"; });
@@ -189,5 +191,6 @@ export function PoliticalComparativeResearch({ elections, points, links, locale,
       {digest ? <span className="break-all text-xs" data-research-digest>SHA-256: {digest}</span> : null}
     </div>
     <p className="mt-2 text-xs">{en ? "This page's address keeps the selection, and the export holds the rules, evidence, results and a digest. The same data and selection give the same digest." : "本页网址保存所选范围，导出文件包含规则、证据、结果和摘要。相同的数据和所选范围会得到相同的摘要。"}</p>
+    <PoliticalResearchCase elections={elections} points={points} links={links} models={models} locale={locale} />
   </section>;
 }

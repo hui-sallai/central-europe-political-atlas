@@ -365,3 +365,28 @@ for (const locale of ["en", "zh-CN"] as const) test(`research deep link: Poland 
   await page.goto(`${base}?context=1&research_q=nonsense`, { waitUntil: "networkidle" });
   await expect(page.locator("[data-research-question]")).toHaveValue("A", { timeout: 60000 });
 });
+
+for (const locale of ["en", "zh-CN"] as const) test(`research case: one protocol, twelve pairs, reproducible export from any country page (${locale})`, async ({ page }) => {
+  test.setTimeout(180000);
+  const en = locale === "en";
+  const digests: string[] = [];
+  for (const country of ["poland", "hungary"]) {
+    await page.goto(`${en ? "/en" : ""}/politics/${country}/?research_study=d4`, { waitUntil: "networkidle" });
+    const study = page.locator("[data-research-study='d4-turnout-and-pre-election-conditions']");
+    await expect(study).toBeVisible({ timeout: 60000 });
+    await expect(study).toHaveAttribute("open", "");
+    await expect(study.locator("[data-study-pair]")).toHaveCount(12);
+    await expect(study.locator("[data-research-study-findings]")).toContainText(en ? "Turnout rose in 10 and fell in 2 of 12 pairs" : "12 组中投票率上升 10 组、下降 2 组");
+    await expect(study.locator("[data-study-pair='el-hu-ogy-2022-04-03|el-hu-ogy-2026-04-12']")).toContainText(en ? "no verified identity" : "无已核实身份");
+    await expect(study.locator("[data-study-model='calculated']")).toHaveCount(2);
+    await expect(study).not.toContainText(/forecast|predict|rank|预测|排名/i);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+    const [download] = await Promise.all([page.waitForEvent("download"), study.locator("[data-research-study-export-json]").click()]);
+    const text = await (await import("node:fs")).promises.readFile((await download.path())!, "utf8");
+    const json = JSON.parse(text);
+    expect(json.evidence.pairs).toHaveLength(12);
+    digests.push(json.evidence_sha256);
+    await expect(study.locator("[data-research-study-digest]")).toContainText(json.evidence_sha256);
+  }
+  expect(digests[0]).toBe(digests[1]);
+});

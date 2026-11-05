@@ -1,4 +1,5 @@
 "use client";
+import type { CaseModelObservation } from "@/lib/researchCaseModels";
 import { useEffect, useMemo, useState } from "react";
 import { localeDate, localeNumber, localizedRoute, type Locale } from "@/i18n/config";
 import { englishText } from "@/i18n/reviewedText";
@@ -19,7 +20,7 @@ import { PoliticalComparativeResearch } from "./PoliticalComparativeResearch";
 import type { PoliticalIdentityLink } from "@/lib/politicalIdentity";
 import { electionCountryRoute, electionSourceCitations } from "@/lib/electionMacroLinkage";
 
-export type PoliticalContextInputs = { observations: Observation[]; indicators: Indicator[]; events: Event[]; monthlyMetadata: ContextMonthlyMeta[]; identityLinks?: PoliticalIdentityLink[] };
+export type PoliticalContextInputs = { observations: Observation[]; indicators: Indicator[]; events: Event[]; monthlyMetadata: ContextMonthlyMeta[]; identityLinks?: PoliticalIdentityLink[]; researchCaseModels?: CaseModelObservation[] };
 const monthlyNames: Record<string,{en:string;zh:string}> = {hicp_annual_rate:{en:"HICP inflation (monthly year-on-year rate)",zh:"HICP 通胀（月度同比率）"},unemployment_rate_monthly:{en:"Unemployment rate (monthly, seasonally adjusted)",zh:"失业率（月度，季调）"},industrial_production_index:{en:"Industrial production (2021=100, seasonal/calendar adjusted)",zh:"工业生产（2021=100，季调日历调整）"}};
 const eventTypes: Record<string,{en:string;zh:string}> = {fiscal:{en:"Fiscal policy",zh:"财政"},EU_funds:{en:"EU funds",zh:"欧盟资金"},macro:{en:"Macroeconomy",zh:"宏观经济"},energy:{en:"Energy",zh:"能源"},industrial_policy:{en:"Industrial policy",zh:"产业政策"},FDI:{en:"Direct investment",zh:"直接投资"},China:{en:"China relations",zh:"对华关系"},election:{en:"Election",zh:"选举"},regional:{en:"Regional",zh:"地区"}};
 
@@ -117,6 +118,6 @@ export function PoliticalEconomicContext({ election, comparison, inputs, locale,
 
     {allElections.length>1&&annual?<PoliticalElectionMacroTable elections={allElections} points={allPoints} locale={locale}/>:null}
   </section>
-    {allElections.length>1?(Object.values(loads).every(v=>v==="ready")?<PoliticalComparativeResearch elections={allElections} points={allPoints} links={inputs.identityLinks??[]} locale={locale} focusElectionId={election.electionId}/>:<p className="mt-6 text-sm" role="status" data-comparative-research-waiting>{Object.values(loads).includes("error")?(en?"The comparative research workflow is unavailable because a history file could not be loaded. It does not run on partial data, which would look like missing evidence.":"由于历史文件读取失败，比较研究流程不可用。它不会在部分数据上运行，否则会被误读为证据缺失。"):(en?"Loading the comparative research workflow…":"正在载入比较研究流程…")}</p>):null}
+    {allElections.length>1?(Object.values(loads).every(v=>v==="ready")?<PoliticalComparativeResearch elections={allElections} points={allPoints} links={inputs.identityLinks??[]} models={inputs.researchCaseModels??[]} locale={locale} focusElectionId={election.electionId}/>:<p className="mt-6 text-sm" role="status" data-comparative-research-waiting>{Object.values(loads).includes("error")?(en?"The comparative research workflow is unavailable because a history file could not be loaded. It does not run on partial data, which would look like missing evidence.":"由于历史文件读取失败，比较研究流程不可用。它不会在部分数据上运行，否则会被误读为证据缺失。"):(en?"Loading the comparative research workflow…":"正在载入比较研究流程…")}</p>):null}
   </>;
 }

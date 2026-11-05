@@ -13,6 +13,8 @@ export type PoliticalResult = {
   constituencySeats?: number | null;
   /** Whole-chamber seats (list plus constituency), only where every seat of the chamber is attributed. */
   chamberSeats?: number | null;
+  /** Source of the constituency and whole-chamber seats, where it differs from the row's vote source. */
+  chamberSeatSourceId?: string | null;
   sourceId: string;
   votes?: number | null;
   voteType?: string;

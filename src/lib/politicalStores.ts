@@ -5,7 +5,7 @@ import type { PoliticalElectionView, PoliticalLocalText } from "./politicalExplo
 import type { NationalRules, TurnoutBasis, VoteDefinition } from "./politicalNational";
 import { contestantIdentity, type ElectionMembership } from "./politicalIdentity";
 
-type Provenance = { source_id: string };
+type Provenance = { source_id: string; fields_covered?: string[] };
 export type PoliticalStores = {
   members?:ElectionMembership[];
   elections: Array<{ election_id: string; year: number; date: string; date_end?: string | null; chamber: string; legislature_id: string; electoral_system_id: string; result_vintage: string; provenance?:Provenance[] }>;
@@ -53,7 +53,7 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
         const contestant=stores.contestants.find(c=>c.contestant_id===row.contestant_ref);
         if(!contestant||!row.provenance.length||!stores.sources.some(s=>s.source_id===row.provenance[0].source_id))throw Error("Unresolved contestant or source");
         const votes=row.votes!==undefined?row.votes:row.second_votes??null;
-        return {contestantId:row.contestant_ref,nativeLabel:contestant.historical_display_label,secondVotes:votes,votes,voteType:definition.id,publishedVoteShare:row.published_vote_share,seats:row.seats,...(complete?{constituencySeats:row.constituency_seats??null,chamberSeats:row.whole_chamber_seats??null}:{}),sourceId:row.provenance[0].source_id,contestantKind:contestant.contestant_kind,...contestantIdentity(contestant,country.slug,election.election_id,stores.members??[],stores.sources.map(s=>s.source_id))};
+        return {contestantId:row.contestant_ref,nativeLabel:contestant.historical_display_label,secondVotes:votes,votes,voteType:definition.id,publishedVoteShare:row.published_vote_share,seats:row.seats,...(complete?{constituencySeats:row.constituency_seats??null,chamberSeats:row.whole_chamber_seats??null,chamberSeatSourceId:row.provenance.find(p=>p.fields_covered?.includes("whole_chamber_seats"))?.source_id??null}:{}),sourceId:row.provenance[0].source_id,contestantKind:contestant.contestant_kind,...contestantIdentity(contestant,country.slug,election.election_id,stores.members??[],stores.sources.map(s=>s.source_id))};
       });
       if(new Set(results.map(r=>r.contestantId)).size!==results.length)throw Error("Duplicate contestant within vote type");
       const validVotes=count?.valid_votes!==undefined?count.valid_votes:count?.valid_second_votes??null;
