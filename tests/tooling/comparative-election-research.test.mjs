@@ -19,7 +19,9 @@ const R = require('../../src/lib/comparativeElectionResearch.ts');
 
 const inputs = context.politicalContextData('germany');
 const points = [...contextAnnualPoints(inputs.observations, read('public/research-data/annual_history_runtime.json'), inputs.indicators), ...contextMonthlyPoints(read('public/research-data/monthly_history_runtime.json'), read('public/research-data/high_frequency_runtime.json').records, inputs.monthlyMetadata)];
-const elections = [...data.politicalElectionViews(), ...data.politicalComparisonCountries().flatMap((c) => c.elections)];
+const allAdmitted = [...data.politicalElectionViews(), ...data.politicalComparisonCountries().flatMap((c) => c.elections)];
+// The original four countries keep their exact results; Hungary is checked separately.
+const elections = allAdmitted.filter((e) => e.country !== 'hungary');
 const links = inputs.identityLinks;
 const run = (selection = {}) => R.runComparativeResearch(selection, elections, points, links);
 const SK = 'el-sk-nrsr-2023-09-30', PL23 = 'el-pl-sejm-2023-10-15', PL19 = 'el-pl-sejm-2019-10-13', CZ25 = 'el-cz-ps-2025-10-03', CZ21 = 'el-cz-ps-2021-10-08', CZ17 = 'el-cz-ps-2017-10-20', DE25 = 'el-de-bt-2025-02-23', DE21 = 'el-de-bt-2021-09-26', DE17 = 'el-de-bt-2017-09-24';
@@ -185,7 +187,7 @@ test('C: coefficient arithmetic is right, and few pairs give direction counts on
   const all = run();
   for (const v of all.c.associations) if (v.n < R.MIN_PAIRS_FOR_COEFFICIENT) { assert.notEqual(v.status, 'coefficient'); assert.equal(v.pearson, null); assert.equal(v.spearman, null); }
   assert.deepEqual([...new Set(all.c.associations.filter((v) => v.status === 'coefficient').map((v) => v.country))], ['germany'], 'only Germany has enough pairs');
-  assert.ok(all.c.associations.every((v) => ['germany', 'czechia', 'poland', 'slovakia'].includes(v.country)), 'every association belongs to one country');
+  assert.ok(all.c.associations.every((v) => ['germany', 'czechia', 'poland', 'slovakia', 'hungary'].includes(v.country)), 'every association belongs to one country');
   assert.equal(all.c.associations.find((v) => v.country === 'germany' && v.indicator === 'real_gdp_growth' && v.outcome === 'turnout_change').status, 'no_pairs');
   const direction = all.c.direction.find((d) => d.indicator === 'government_debt_gdp');
   assert.deepEqual([direction.pairs, direction.sameDirection, direction.oppositeDirection], [11, 4, 7]);
@@ -296,8 +298,8 @@ test('existing research results are preserved: D1 and D2 coverage and the electi
   const rows = electionMacroRows(elections, points);
   assert.equal(rows.length, 75);
   assert.deepEqual(Object.fromEntries(electionMacroCoverage(rows).map((c) => [c.indicator, [c.lastCompleteYear, c.retrospective, c.publishedBeforeElection]])), { hicp_inflation: [15, 15, 4], real_gdp_growth: [9, 10, 4], unemployment_rate: [4, 6, 3], fiscal_balance_gdp: [15, 15, 4], government_debt_gdp: [15, 15, 4] });
-  assert.deepEqual([...new Set(elections.map((e) => e.country))].sort(), ['czechia', 'germany', 'poland', 'slovakia']);
-  assert.deepEqual(['czechia', 'germany', 'poland', 'slovakia'].map((c) => elections.filter((e) => e.country === c).length), [3, 7, 4, 1]);
+  assert.deepEqual([...new Set(allAdmitted.map((e) => e.country))].sort(), ['czechia', 'germany', 'hungary', 'poland', 'slovakia']);
+  assert.deepEqual(['czechia', 'germany', 'hungary', 'poland', 'slovakia'].map((c) => allAdmitted.filter((e) => e.country === c).length), [3, 7, 2, 4, 1]);
 });
 
 test('the workflow is reachable from the existing context panel on all four country pages', () => {
@@ -405,7 +407,7 @@ test('every question reports a result or a stated reason it is unavailable', () 
   // A gap elsewhere is named, and the inspected election is not implied to share it.
   const all = R.researchAvailability(R.runComparativeResearch({}, elections, points, links, { question: 'D', caseElectionId: PL23 })).D;
   assert.equal(all.status, 'partial');
-  assert.match(all.reason.en, /^1 selected figure has no located release and stays not established \(Czechia 2025, unemployment\)\. 11 selected elections have no dated releases, because they have been read only for the latest election in each country\. Poland 2023, inspected below, has a dated release for every selected figure\.$/);
+  assert.match(all.reason.en, /^1 selected figure has no located release and stays not established \(Czechia 2025, unemployment\)\. 11 selected elections have no dated releases, because they have been read only for the latest election in Germany, Czechia, Poland and Slovakia\. Poland 2023, inspected below, has a dated release for every selected figure\.$/);
   assert.doesNotMatch(all.reason.zh, /[a-z]{4}/);
   const inspectedGap = R.researchAvailability(R.runComparativeResearch({}, elections, points, links, { question: 'D', caseElectionId: 'el-cz-ps-2025-10-03' })).D;
   assert.doesNotMatch(inspectedGap.reason.en, /inspected below/);

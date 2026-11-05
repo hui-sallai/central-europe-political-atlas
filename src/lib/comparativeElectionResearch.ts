@@ -6,7 +6,7 @@
 import { electionMacroRows, ELECTION_MACRO_INDICATORS, electionPeriods, type ElectionMacroIndicator, type ElectionMacroRow } from "./electionMacroLinkage";
 import { contextPublished, type ContextPoint } from "./politicalEconomicContext";
 import { linkedUnitComparison, rulesChanged } from "./politicalContinuity";
-import type { PoliticalElectionView } from "./politicalExplorer";
+import { turnoutForDisplay, type PoliticalElectionView } from "./politicalExplorer";
 import type { PoliticalIdentityLink } from "./politicalIdentity";
 import { compareVerifiedSeries } from "./politicalSeriesComparison";
 
@@ -202,10 +202,11 @@ export type TurnoutChange = { fromTurnout: number | null; toTurnout: number | nu
 /** Only within one country and only on one published basis. */
 export function turnoutChange({ from, to }: ElectionPair): TurnoutChange {
   const x = from.national?.turnout, y = to.national?.turnout;
-  const base = { fromTurnout: from.publishedTurnout, toTurnout: to.publishedTurnout, fromVintage: from.resultVintage, toVintage: to.resultVintage };
-  if (from.publishedTurnout === null || to.publishedTurnout === null) return { ...base, change: null, basis: null, status: "withheld", reason: "turnout_not_published" };
-  if (!x || !y || x.numerator !== y.numerator || x.denominator !== y.denominator) return { ...base, change: null, basis: null, status: "withheld", reason: "turnout_basis_differs" };
-  return { ...base, change: r6(to.publishedTurnout - from.publishedTurnout), basis: `${x.numerator} / ${x.denominator}`, status: "calculated", reason: null };
+  const a = turnoutForDisplay(from), b = turnoutForDisplay(to);
+  const base = { fromTurnout: a.value, toTurnout: b.value, fromVintage: from.resultVintage, toVintage: to.resultVintage };
+  if (a.value === null || b.value === null) return { ...base, change: null, basis: null, status: "withheld", reason: "turnout_not_published" };
+  if (!x || !y || a.computed !== b.computed || x.numerator !== y.numerator || x.denominator !== y.denominator) return { ...base, change: null, basis: null, status: "withheld", reason: "turnout_basis_differs" };
+  return { ...base, change: r6(b.value - a.value), basis: `${x.numerator} / ${x.denominator}${a.computed ? " (computed from official counts)" : ""}`, status: "calculated", reason: null };
 }
 
 // C ---------------------------------------------------------------------------------------------------------------------
@@ -321,7 +322,7 @@ export const AS_OF_CONDITIONS: Record<AsOfConditionCode, LocalText> = {
   unit_differs: { en: "The units differ, so no revision is calculated.", zh: "单位不同，因此不计算修订。" },
   definition_differs: { en: "The definitions differ, so no revision is calculated.", zh: "定义不同，因此不计算修订。" },
   current_value_not_held: { en: "The Atlas holds no current value for this period, so no revision can be calculated.", zh: "Atlas 没有此期间的当前数值，因此无法计算修订。" },
-  first_release_dates_not_recorded: { en: "Dated releases have been read only for the latest election in each country. For this election, what was public before polling day is not established.", zh: "目前只查阅了每个国家最近一届选举的注明日期发布。此届选举投票日前已公布的内容尚未确定。" },
+  first_release_dates_not_recorded: { en: "Dated releases have been read only for the latest election in Germany, Czechia, Poland and Slovakia. For this election, what was public before polling day is not established.", zh: "目前只查阅了德国、捷克、波兰和斯洛伐克最近一届选举的注明日期发布。此届选举投票日前已公布的内容尚未确定。" },
   last_release_not_located: { en: "The last release before polling day was not located, so this figure is not established. It is not filled from current data.", zh: "未找到投票日前的最后一次发布，因此此数字未确定，也不用当前数据填补。" },
   revision_identical_measure: { en: "Same indicator, period, frequency, unit and definition, so current minus released is a revision.", zh: "指标、期间、频率、单位和定义都相同，因此当前值减已发布值为修订。" },
   flash_estimate: { en: "The released figure is a flash estimate.", zh: "已发布数字是快速估算。" },
@@ -399,7 +400,7 @@ export function directionChecks(released: ReleasedComparison[], selection: Resea
 type Text = { en: string; zh: string };
 export type ResearchResults = ReturnType<typeof runComparativeResearch>;
 const year = (id: string) => id.match(/(\d{4})-\d{2}-\d{2}$/)?.[1] ?? id;
-const COUNTRY: Record<string, Text> = { germany: { en: "Germany", zh: "德国" }, czechia: { en: "Czechia", zh: "捷克" }, poland: { en: "Poland", zh: "波兰" }, slovakia: { en: "Slovakia", zh: "斯洛伐克" } };
+const COUNTRY: Record<string, Text> = { germany: { en: "Germany", zh: "德国" }, czechia: { en: "Czechia", zh: "捷克" }, poland: { en: "Poland", zh: "波兰" }, slovakia: { en: "Slovakia", zh: "斯洛伐克" }, hungary: { en: "Hungary", zh: "匈牙利" } };
 const INDICATOR: Record<ElectionMacroIndicator, Text> = { hicp_inflation: { en: "HICP inflation", zh: "HICP 通胀" }, real_gdp_growth: { en: "real GDP growth", zh: "实际 GDP 增长" }, unemployment_rate: { en: "unemployment", zh: "失业率" }, fiscal_balance_gdp: { en: "government balance", zh: "政府收支差额" }, government_debt_gdp: { en: "government debt", zh: "政府债务" } };
 const electionLabel = (id: string, elections: PoliticalElectionView[], l: keyof Text) => { const e = elections.find((x) => x.electionId === id); return `${e ? COUNTRY[countryOf(e)]?.[l] ?? countryOf(e) : id} ${year(id)}`; };
 const signed = (v: number) => `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v)}`;
@@ -442,7 +443,7 @@ function releasedCoverage(gaps: ReleasedComparison[], unread: number, inspected:
   const named = (x: ReleasedComparison, zh: boolean) => `${COUNTRY[x.country][zh ? "zh" : "en"]} ${x.electionDate.slice(0, 4)}${zh ? "：" : ", "}${INDICATOR[x.indicator][zh ? "zh" : "en"]}`;
   const parts: Text[] = [];
   if (gaps.length) parts.push({ en: `${gaps.length === 1 ? "1 selected figure has no located release and stays" : `${gaps.length} selected figures have no located release and stay`} not established (${gaps.map((x) => named(x, false)).join("; ")}).`, zh: `所选范围中有 ${gaps.length} 个数字未找到发布记录，保持未确定（${gaps.map((x) => named(x, true)).join("；")}）。` });
-  if (unread) parts.push({ en: `${unread === 1 ? "1 selected election has" : `${unread} selected elections have`} no dated releases, because they have been read only for the latest election in each country.`, zh: `所选范围中有 ${unread} 届选举没有注明日期的发布，因为目前只查阅了每个国家最近一届选举。` });
+  if (unread) parts.push({ en: `${unread === 1 ? "1 selected election has" : `${unread} selected elections have`} no dated releases, because they have been read only for the latest election in Germany, Czechia, Poland and Slovakia.`, zh: `所选范围中有 ${unread} 届选举没有注明日期的发布，因为目前只查阅了德国、捷克、波兰和斯洛伐克最近一届选举。` });
   if (inspected?.status === "documented") parts.push({ en: `${COUNTRY[inspected.country].en} ${inspected.electionDate.slice(0, 4)}, inspected below, has a dated release for every selected figure.`, zh: `下方查看的${COUNTRY[inspected.country].zh} ${inspected.electionDate.slice(0, 4)} 年选举，每个所选数字都有注明日期的发布。` });
   return { en: parts.map((p) => p.en).join(" "), zh: parts.map((p) => p.zh).join("") };
 }
@@ -463,9 +464,9 @@ export function researchAvailability(results: ResearchResults): Record<ResearchQ
   const unread = selection.electionIds.filter((id) => !d.released.some((x) => x.electionId === id)).length;
   return {
     A: !a.measures.length ? none({ en: "No selected election has a figure in this view.", zh: "所选选举在此视图中没有数字。" }) : a.gaps.length ? partial({ en: `${a.gaps.length === 1 ? "1 selected figure has no observation in this view and stays empty." : `${a.gaps.length} selected figures have no observation in this view and stay empty.`}`, zh: `所选范围中有 ${a.gaps.length} 个数字在此视图中没有观测，保持为空。` }) : ok,
-    B: !b.length ? none(noPair) : !calculated ? none(selection.view === "released_before_election" ? { en: "Released figures cover only the latest election in each country, so no change between elections can use them.", zh: "已发布数字只覆盖每个国家最近一届选举，因此选举之间的变化无法使用。" } : { en: "No indicator has the identical measure at both elections of a pair.", zh: "没有指标在相邻两届选举中具有相同度量。" }) : calculated < b.length ? partial({ en: `${b.length - calculated} of ${b.length} changes are withheld. The table gives each reason.`, zh: `${b.length} 个变化中有 ${b.length - calculated} 个未计算，表格列出原因。` }) : ok,
+    B: !b.length ? none(noPair) : !calculated ? none(selection.view === "released_before_election" ? { en: "Released figures cover only the latest election in Germany, Czechia, Poland and Slovakia, so no change between elections can use them.", zh: "已发布数字只覆盖德国、捷克、波兰和斯洛伐克最近一届选举，因此选举之间的变化无法使用。" } : { en: "No indicator has the identical measure at both elections of a pair.", zh: "没有指标在相邻两届选举中具有相同度量。" }) : calculated < b.length ? partial({ en: `${b.length - calculated} of ${b.length} changes are withheld. The table gives each reason.`, zh: `${b.length} 个变化中有 ${b.length - calculated} 个未计算，表格列出原因。` }) : ok,
     C: !c.pairs.length ? none(noPair) : coefficients ? ok : directions ? partial({ en: `No selected country has the ${MIN_PAIRS_FOR_COEFFICIENT} pairs a coefficient needs, so only direction counts appear.`, zh: `所选国家都不足 ${MIN_PAIRS_FOR_COEFFICIENT} 组，无法计算系数，因此只显示方向计数。` }) : none({ en: "No pair has both a macroeconomic change and a turnout or verified list change in this view.", zh: "在此视图中，没有一组同时具有宏观变化和投票率或已核实名单变化。" }),
-    D: !documented ? none({ en: "No selected election has dated releases. They have been read only for the latest election in each country.", zh: "所选选举都没有注明日期的发布。目前只查阅了每个国家最近一届选举。" }) : gaps.length || unread ? partial(releasedCoverage(gaps, unread, results.asOf)) : ok,
+    D: !documented ? none({ en: "No selected election has dated releases. They have been read only for the latest election in Germany, Czechia, Poland and Slovakia.", zh: "所选选举都没有注明日期的发布。目前只查阅了德国、捷克、波兰和斯洛伐克最近一届选举。" }) : gaps.length || unread ? partial(releasedCoverage(gaps, unread, results.asOf)) : ok,
   };
 }
 
@@ -498,10 +499,10 @@ export const RESEARCH_RULES = [
 ] as const;
 export const RESEARCH_LIMITS = [
   "Figures in the current-data views may include revisions made after the election.",
-  "Released figures cover only the latest election in each country, so changes between elections cannot yet use them.",
+  "Released figures cover only the latest election in Germany, Czechia, Poland and Slovakia, so changes between elections cannot yet use them.",
   "Czech unemployment for August 2025: the release was not located, so the figure is not established.",
   "The Atlas holds no quarterly GDP series, so released GDP figures have no current value.",
-  "Annual unemployment starts in 2021, and annual German GDP starts in 2021. Monthly unemployment starts in 2009 for Germany and 2015 for Poland and Slovakia.",
+  "Annual unemployment starts in 2021, and annual German GDP starts in 2021. Monthly unemployment starts in 2009 for Germany and 2015 for Poland, Slovakia and Hungary.",
   "The Atlas records no governing-party data, so no figure relates a party's position to economic conditions.",
   "Several indicators are shown against two outcomes on few pairs, so some sizeable coefficients are expected by chance.",
   "A release date is the earliest located, not proven first publication, and publication does not show that voters saw a figure.",

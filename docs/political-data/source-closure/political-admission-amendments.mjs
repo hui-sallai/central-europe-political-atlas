@@ -29,6 +29,12 @@ const SLOVAK_PATHS = [
   'public/research-data/political/slovakia/README.md',
   'public/research-data/political/slovakia/manifest.json',
 ];
+const HUNGARIAN_PATHS = [
+  ...STORES.map((s) => `src/data/political/hungary/${s}.json`),
+  ...STORES.flatMap((s) => [`public/research-data/political/hungary/${s}.json`, `public/research-data/political/hungary/${s}.csv`]),
+  'public/research-data/political/hungary/README.md',
+  'public/research-data/political/hungary/manifest.json',
+];
 // Later admissions of a country share its files; each record's gate record stays required, and the last record's hashes apply.
 export const POLITICAL_ADMISSIONS = {
   'czechia-ps-2025': { approved_on: '2026-10-25', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2025_admission.json', paths: CZECH_PATHS },
@@ -37,6 +43,7 @@ export const POLITICAL_ADMISSIONS = {
   'poland-sejm-2011-2023': { approved_on: '2026-11-03', country: 'poland', gate_record: 'docs/political-data/poland_sejm_admission.json', paths: POLISH_PATHS },
   'poland-evidence-links': { approved_on: '2026-11-03', country: 'poland', gate_record: 'docs/political-data/poland_evidence_links_admission.json', paths: POLISH_PATHS },
   'slovakia-nrsr-2023': { approved_on: '2026-11-03', country: 'slovakia', gate_record: 'docs/political-data/slovakia_nrsr2023_admission.json', paths: SLOVAK_PATHS },
+  'hungary-ogy-2022-2026': { approved_on: '2026-11-05', country: 'hungary', gate_record: 'docs/political-data/hungary_ogy_admission.json', paths: HUNGARIAN_PATHS },
   'slovakia-rights-evidence': { approved_on: '2026-11-04', country: 'slovakia', gate_record: 'docs/political-data/slovakia_rights_evidence_admission.json', paths: SLOVAK_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];

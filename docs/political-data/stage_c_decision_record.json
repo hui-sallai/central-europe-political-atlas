@@ -44,6 +44,15 @@
    ],
    "scope": "National Council 2023, national level",
    "record": "docs/political-data/slovakia_nrsr2023_admission.json"
+  },
+  {
+   "country": "hungary",
+   "elections": [
+    2022,
+    2026
+   ],
+   "scope": "National Assembly 2022 and 2026, national list tier only (93 of 199 seats)",
+   "record": "docs/political-data/hungary_ogy_admission.json"
   }
  ],
  "owner_decisions": [
@@ -88,24 +97,15 @@
    "country": "slovakia",
    "question": "Source route for the National Council elections",
    "decision": "State Commission minutes on minv.sk, national figures only, on Copyright Act § 5(a) and (b); statistics.sk stays blocked."
+  },
+  {
+   "date": "2026-11-05",
+   "country": "hungary",
+   "question": "Reuse basis, file readings and 2018",
+   "decision": "National figures from the commission minutes on Copyright Act § 1(4); one reading each of the 2026 and 2022 minutes, the 2026 CSV as a local cross-check only, njt.hu registered for statutes; 2018 left out. Constituency seats per list are not covered."
   }
  ],
  "countries": {
-  "hungary": {
-   "latest_election": "National Assembly, 12 April 2026",
-   "entry_point": "https://www.valasztas.hu/orszaggyulesi-valasztasok",
-   "causes": [
-    "missing_official_evidence",
-    "identity_unverified",
-    "internal_approval"
-   ],
-   "evidence": [
-    "missing_official_evidence: the entry point is on www.valasztas.hu, whose robots.txt disallows all agents, so the Atlas did not request it; the reuse terms (Impresszum) are on the same host and are unreviewed, not known to be restrictive. The results application vtr.valasztas.hu offers no downloadable file.",
-    "identity_unverified: joint lists (for example Fidesz–KDNP) and nationality lists are election-specific contestants; member composition must come from official list registration.",
-    "internal_approval: production publication needs owner authorisation."
-   ],
-   "next_step": "Owner reads the NVI terms personally or asks NVI, and identifies an official downloadable result file. Record: docs/political-data/hungary_source_status.json."
-  },
   "austria": {
    "latest_election": "Nationalrat, 29 September 2024",
    "causes": [
@@ -218,5 +218,10 @@
    "missing_official_evidence: State Commission minutes for these elections were not located outside statistics.sk."
   ],
   "next_step": "Owner sends the ŠÚ SR contact packet, or downloads the files by hand and decides the terms' scope."
+ },
+ "hungary_other_elections": {
+  "2018": "Application page returns 404 and the archive is on robots-blocked www.valasztas.hu; left out by owner decision 2026-11-05.",
+  "constituency_tier": "Per-list constituency seats and votes are not covered by the decision on the minutes.",
+  "record": "docs/political-data/hungary_source_status.json"
  }
 }

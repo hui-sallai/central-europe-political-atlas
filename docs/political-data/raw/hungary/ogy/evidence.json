@@ -1,0 +1,171 @@
+{
+  "schema_version": "atlas-hungary-ogy-evidence-v1",
+  "scope": "National Assembly elections of 12 April 2026 and 3 April 2022, national list tier only, transcribed from the National Election Commission minutes on the national list result. The PDFs are scanned images: figures were read from the page images and reconciled by scripts/political-data/hungary/build-ogy-national.mjs. Neither the PDFs nor their page images are committed, because later pages carry candidate names and committee members' names and signatures. No name of a person is recorded here.",
+  "owner_decisions": [
+    {
+      "date": "2026-11-05",
+      "decision": "Publish national figures from the minutes only on Copyright Act § 1(4), recorded as the owner's reading of the statute. No candidate names; the CSV is never republished."
+    },
+    {
+      "date": "2026-11-05",
+      "decision": "One reading each of the 2026 and 2022 list-election minutes, plus the 2026 CSV for a local cross-check only. Register njt.hu to read the statutes."
+    },
+    {
+      "date": "2026-11-05",
+      "decision": "Leave 2018 out for now."
+    }
+  ],
+  "minutes": {
+    "2026": {
+      "election_id": "el-hu-ogy-2026-04-12",
+      "polling_day": "2026-04-12",
+      "title": "Jegyzőkönyv az országos listás választás eredményéről, 2026. április 29.",
+      "url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+      "retrieved_at": "2026-11-05T13:04:22Z",
+      "http_last_modified": "2026-04-29T15:39:01Z",
+      "pdf_sha256": "3468005c850df14af823f01b87b79f945dadbca3b89840d750730a2c50a3b398",
+      "pdf_size_bytes": 4634697,
+      "pages": 12,
+      "pages_transcribed": [1, 2, 3, 4, 5, 6, 7],
+      "pages_not_transcribed": "8 to 12 name elected candidates, committee members and signatures",
+      "drawn_up_on": "2026-04-29",
+      "registers": { "address_rolls": 7303591, "transfer": 224081, "foreign_mission": 90730, "postal": 494244, "total": 8112646 },
+      "participation": { "at_polling_stations": 5770351, "transfer_and_foreign_envelopes": 300572, "valid_postal_documents": 337439, "total": 6408362 },
+      "ballots": { "stamped_ballots": 6404403, "invalid": 37670, "valid": 6366733 },
+      "party_lists": [
+        { "row": 1, "id": 270, "label": "Magyar Kétfarkú Kutya Párt", "votes": 51965 },
+        { "row": 2, "id": 263, "label": "Tisztelet és Szabadság Párt", "votes": 3385890, "surplus": 1364783, "total_for_allocation": 4750673, "seats": 45 },
+        { "row": 3, "id": 157, "label": "Mi Hazánk Mozgalom", "votes": 358372, "surplus": 345252, "total_for_allocation": 703624, "seats": 6 },
+        { "row": 4, "id": 242, "label": "Demokratikus Koalíció", "votes": 70298 },
+        { "row": 5, "id": 228, "label": "FIDESZ - Magyar Polgári Szövetség-Kereszténydemokrata Néppárt", "votes": 2458337, "surplus": 1982535, "total_for_allocation": 4440872, "seats": 42 }
+      ],
+      "party_list_total": 6324862,
+      "nationality_lists": [
+        { "row": 1, "id": 143, "label": "Bolgár Országos Önkormányzat", "votes": 108 },
+        { "row": 2, "id": 204, "label": "Magyarországi Görögök Országos Önkormányzata", "votes": 159 },
+        { "row": 3, "id": 188, "label": "Országos Horvát Önkormányzat", "votes": 1307 },
+        { "row": 4, "id": 211, "label": "Országos Lengyel Önkormányzat", "votes": 147 },
+        { "row": 5, "id": 235, "label": "Magyarországi Németek Országos Önkormányzata", "votes": 18419 },
+        { "row": 6, "id": 129, "label": "Országos Örmény Önkormányzat", "votes": 116 },
+        { "row": 7, "id": 136, "label": "Magyarországi Romák Országos Önkormányzata", "votes": 19203 },
+        { "row": 8, "id": 164, "label": "Magyarországi Románok Országos Önkormányzata", "votes": 512 },
+        { "row": 9, "id": 171, "label": "Országos Ruszin Önkormányzat", "votes": 440 },
+        { "row": 10, "id": 256, "label": "Országos Szlovák Önkormányzat", "votes": 902 },
+        { "row": 11, "id": 190, "label": "Országos Szlovén Önkormányzat", "votes": 179 },
+        { "row": 12, "id": 112, "label": "Országos Ukrán Nemzetiségi Önkormányzat", "votes": 379 }
+      ],
+      "nationality_list_total": 41871,
+      "printed_thresholds": { "five_percent": 318337, "ten_percent": 636674, "fifteen_percent": 955010 },
+      "qualifying_totals": { "list_votes": 6202599, "surplus": 3692570, "total": 9895169 },
+      "all_national_list_votes": 9937040,
+      "preferential_quota": 26712,
+      "preferential_seats": [],
+      "list_seats_to_distribute": 93,
+      "constituency_minutes_summarised": 106,
+      "joint_party_list_rows": [5],
+      "kind_basis": "Printed list name in the minutes; list type 'Közös lista' for row 5 and 'Önálló lista' for the others in the official application's generated CSV of the party-list table, read once and not committed."
+    },
+    "2022": {
+      "election_id": "el-hu-ogy-2022-04-03",
+      "polling_day": "2022-04-03",
+      "title": "Jegyzőkönyv a listás választás eredményéről, 2022. április 14.",
+      "url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+      "retrieved_at": "2026-11-05T13:04:31Z",
+      "http_last_modified": "2025-08-14T17:46:19Z",
+      "pdf_sha256": "b958153abf1c2b1969f93f1ccf07a93634436a6ca66db2e55668efd50415f145",
+      "pdf_size_bytes": 284313,
+      "pages": 8,
+      "pages_transcribed": [1, 2, 3],
+      "pages_not_transcribed": "4 to 8 name elected candidates, committee members and signatures",
+      "drawn_up_on": "2022-04-14",
+      "registers": { "address_rolls": 7536144, "transfer": 157551, "foreign_mission": 65480, "postal": 456129, "total": 8215304 },
+      "participation": { "at_polling_stations": 5241436, "transfer_and_foreign_envelopes": 206980, "valid_postal_documents": 268766, "total": 5717182 },
+      "ballots": { "stamped_ballots": 5711925, "invalid": 57065, "valid": 5654860 },
+      "party_lists": [
+        { "row": 1, "id": 246, "label": "DEMOKRATIKUS KOALÍCIÓ-JOBBIK MAGYARORSZÁGÉRT MOZGALOM-MOMENTUM MOZGALOM-MAGYAR SZOCIALISTA PÁRT-LMP - MAGYARORSZÁG ZÖLD PÁRTJA-PÁRBESZÉD MAGYARORSZÁGÉRT PÁRT", "votes": 1947331, "surplus": 1579149, "total_for_allocation": 3526480, "seats": 38 },
+        { "row": 2, "id": 293, "label": "NORMÁLIS ÉLET PÁRTJA", "votes": 39720 },
+        { "row": 3, "id": 250, "label": "MAGYAR KÉTFARKÚ KUTYA PÁRT", "votes": 185052 },
+        { "row": 4, "id": 281, "label": "MEGOLDÁS MOZGALOM", "votes": 58929 },
+        { "row": 5, "id": 169, "label": "MI HAZÁNK MOZGALOM", "votes": 332487, "surplus": 307064, "total_for_allocation": 639551, "seats": 6 },
+        { "row": 6, "id": 267, "label": "FIDESZ - MAGYAR POLGÁRI SZÖVETSÉG-KERESZTÉNYDEMOKRATA NÉPPÁRT", "votes": 3060706, "surplus": 1330256, "total_for_allocation": 4390962, "seats": 48 }
+      ],
+      "party_list_total": 5624225,
+      "nationality_lists": [
+        { "row": 1, "id": 195, "label": "ORSZÁGOS ÖRMÉNY ÖNKORMÁNYZAT", "votes": 163 },
+        { "row": 2, "id": 208, "label": "MAGYARORSZÁGI ROMÁNOK ORSZÁGOS ÖNKORMÁNYZATA", "votes": 526 },
+        { "row": 3, "id": 148, "label": "ORSZÁGOS HORVÁT ÖNKORMÁNYZAT", "votes": 1760 },
+        { "row": 4, "id": 183, "label": "UKRÁN ORSZÁGOS ÖNKORMÁNYZAT", "votes": 396 },
+        { "row": 5, "id": 117, "label": "ORSZÁGOS RUSZIN ÖNKORMÁNYZAT", "votes": 645 },
+        { "row": 6, "id": 239, "label": "ORSZÁGOS SZLOVÁK ÖNKORMÁNYZAT", "votes": 1208 },
+        { "row": 7, "id": 131, "label": "BOLGÁR ORSZÁGOS ÖNKORMÁNYZAT", "votes": 157 },
+        { "row": 8, "id": 222, "label": "ORSZÁGOS LENGYEL ÖNKORMÁNYZAT", "votes": 281 },
+        { "row": 9, "id": 152, "label": "ORSZÁGOS SZLOVÉN ÖNKORMÁNYZAT", "votes": 219 },
+        { "row": 10, "id": 215, "label": "MAGYARORSZÁGI NÉMETEK ORSZÁGOS ÖNKORMÁNYZATA", "votes": 24630, "seats": 1, "preferential": true, "reached_five_percent": false, "votes_less_quota": 1545 },
+        { "row": 11, "id": 124, "label": "SZERB ORSZÁGOS ÖNKORMÁNYZAT", "votes": 418 },
+        { "row": 12, "id": 176, "label": "MAGYARORSZÁGI GÖRÖGÖK ORSZÁGOS ÖNKORMÁNYZATA", "votes": 232 }
+      ],
+      "nationality_list_total": 30635,
+      "printed_thresholds": { "five_percent": 282743, "ten_percent": 565486, "fifteen_percent": 848229 },
+      "qualifying_totals": { "list_votes": 5340524, "surplus": 3216469, "total": 8556993 },
+      "all_national_list_votes": 8587628,
+      "preferential_quota": 23085,
+      "preferential_seats": [10],
+      "list_seats_to_distribute": 92,
+      "constituency_minutes_summarised": 106,
+      "joint_party_list_rows": [1, 6],
+      "kind_basis": "Printed list name in the minutes; the official application shows rows 1 and 6 with several nominating organisations, read by hand. No official 'joint list' label was read for 2022, so this basis is weaker than for 2026."
+    }
+  },
+  "cross_checks": [
+    "2026: all five party lists' votes and list seats in the minutes equal the official application's table and its generated CSV.",
+    "2022: all six party lists' votes and list seats, the registers, the participation and the ballot counts in the minutes equal the official application's page, read by hand.",
+    "2026 and 2022: the application's seat-composition pages show 199 seats. For 2026 and for the 2022 Fidesz-KDNP row, subtracting the minutes' list seats gives constituency seats that are consistent with 106 single-member districts. These application figures are a check only and are not published here."
+  ],
+  "csv_check": {
+    "what": "The application's 'Lista letöltése (.csv)' button on the 2026 party-list tab.",
+    "finding": "The file is generated in the browser from the page's own data (a blob address with a filename carrying the download date), with no publisher statement, version, checksum or licence. It is not a separately published dataset, so it is used as a cross-check and not as the source of record."
+  },
+  "finality": {
+    "2026": "Minutes drawn up on 29 April 2026. The official application shows 'Jogerő állapota: Jogerős' and 'Adatok frissítve: 2026. május 8.' Press reports say the Curia rejected two review requests; no Curia or commission decision text was read, because the commission's decisions are on a robots-blocked host.",
+    "2022": "Minutes drawn up on 14 April 2022. The official application shows 'Jogerő állapota: jogerős' and an update of 16 April 2022. No Curia or commission decision text was read."
+  },
+  "rights": {
+    "statute": { "title": "1999. évi LXXVI. törvény a szerzői jogról", "url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00", "sha256": "63a549d115269efd65618926eb37f3bbeec8e98f727fa3559d2d9e02faf2edb0", "retrieved_at": "2026-11-05T13:05:58Z", "version": "version served on the retrieval date" },
+    "quote": "Nem tartoznak e törvény védelme alá a jogszabályok, közjogi szervezetszabályozó eszközök, a bírósági vagy hatósági határozatok, a hatósági vagy más hivatalos közlemények és ügyiratok, valamint más hasonló rendelkezések.",
+    "section": "§ 1(4)",
+    "database_right": {
+      "section": "§ 84/A(1)",
+      "quote": "Ha a törvény eltérően nem rendelkezik, az adatbázis ( 60/A. § ) előállítójának hozzájárulása szükséges ahhoz, hogy az adatbázis tartalmának egészét vagy jelentős részét",
+      "finding": "Whether this applies to the application's data was not settled, which is why the minutes are the source of record and the CSV is not republished."
+    },
+    "statutory_publication": {
+      "title": "2013. évi XXXVI. törvény a választási eljárásról",
+      "url": "https://njt.jog.gov.hu/jogszabaly/2013-36-00-00",
+      "sha256": "582927bf153b409c083044efe52d1b65b69327e8c8e6476225ac36b0d7510349",
+      "retrieved_at": "2026-11-05T13:08:50Z",
+      "section": "§ 76(2)(e)",
+      "quote": "A Nemzeti Választási Iroda a honlapján folyamatosan, legalább napi frissítéssel közzéteszi a névjegyzékekkel, a szavazással és a választás eredményével összefüggő közérdekű és közérdekből nyilvános adatokat, így különösen [...] e) a választás szavazóköri eredményét és a választás eredményét megállapító jegyzőkönyvek tartalmát."
+    },
+    "limits": [
+      "This is the owner's reading of the statute, not a statement by the National Election Office, and not advice from a lawyer.",
+      "No licence or written permission exists.",
+      "The National Election Office's Impresszum and any reuse terms are on www.valasztas.hu, whose robots.txt disallows all agents. They were not read and could contain conditions.",
+      "Statutory public-interest status is a duty to publish. It does not by itself grant a reuse licence.",
+      "National figures only. The PDFs are identified by checksum and not redistributed."
+    ]
+  },
+  "rules": {
+    "source": { "title": "2011. évi CCIII. törvény az országgyűlési képviselők választásáról", "url": "https://njt.jog.gov.hu/jogszabaly/2011-203-00-00", "sha256": "99f826717cd38069f17862f708aa93c9708b50f1c12203e9305f0c734569f6f6", "retrieved_at": "2026-11-05T13:05:59Z", "version": "version served on the retrieval date, not the version in force on each polling day; both sets of minutes apply the same thresholds and method" },
+    "seats": "Az országgyűlési képviselők száma százkilencvenkilenc. (2) Százhat országgyűlési képviselőt egyéni választókerületben, kilencvenhárom országgyűlési képviselőt országos listán választanak.",
+    "constituency": "Az egyéni választókerületben az a jelölt lesz országgyűlési képviselő, aki a legtöbb érvényes szavazatot kapta.",
+    "thresholds": "Nem szerezhet mandátumot az a pártlista, amely a pártlistákra és a nemzetiségi listákra leadott összes érvényes szavazat legalább öt százalékát nem érte el. (2) A közös pártlista nem szerezhet mandátumot, ha a pártlistákra és a nemzetiségi listákra leadott összes érvényes szavazat legalább tíz százalékát, kettőnél több párt által állított közös pártlista esetében legalább tizenöt százalékát nem érte el.",
+    "quota": "az összes országos listás szavazatot el kell osztani kilencvenhárommal, és az eredményt tovább kell osztani néggyel; az így kapott hányados egész része a kedvezményes kvóta",
+    "allocation": "minden pártlista, illetve nemzetiségi lista szavazatai alatt képezünk egy számoszlopot, amelynek első száma az adott lista szavazatainak a fele, a következő szám a harmada, a negyede stb."
+  },
+  "not_admitted": {
+    "elections": [2018],
+    "2018": "vtr.valasztas.hu/ogy2018 returns 404, and the older archive would be on robots-blocked www.valasztas.hu. Left out by owner decision.",
+    "earlier": "2014 was not investigated. 2002 to 2010 used a different 386-seat, two-round system.",
+    "not_included_for_admitted_elections": "Per-list constituency seats and votes (106 separate minutes, not authorised for reading), county results, candidates, elected deputies, and the application's printed shares."
+  }
+}

@@ -2,7 +2,7 @@
   "schema_version": "atlas-network-acquisition-registry-v1",
   "state": "enforced_by_legal-security_validator",
   "rule": "Unknown host = block. Blocked host = block before request. No user-agent spoofing, proxy rotation, CAPTCHA/auth bypass, rate-limit evasion, robots evasion or hidden-endpoint discovery.",
-  "checked_at": "2026-10-03",
+  "checked_at": "2026-11-05",
   "hosts": [
     {
       "host": "ec.europa.eu",
@@ -198,9 +198,9 @@
       "purpose": "Hungarian National Election Office results application (per-election paths, e.g. /ogy2022); evidence inspection only",
       "automation_allowed": false,
       "manual_allowed": true,
-      "robots_checked_at": "2026-10-25",
+      "robots_checked_at": "2026-11-05",
       "robots_note": "robots.txt: 'User-agent: * Disallow:' (all paths allowed)",
-      "reason": "Owner-approved 2026-10-25 for manual evidence review only. The JavaScript results application shows national list results and seat totals but no download link and no licence or terms text; it links its Impresszum on www.valasztas.hu (blocked). No data acquisition until reuse terms are confirmed.",
+      "reason": "Owner-approved 2026-10-25 for manual evidence review, and 2026-11-05 for one reading of the 2026 party-list CSV as a local cross-check (never committed). The CSV is generated in the browser from the page's data, with no licence or terms. Application figures are not published; automation is not allowed. The Impresszum is on www.valasztas.hu (blocked).",
       "status": "evidence_only_pending_publisher"
     },
     {
@@ -290,6 +290,36 @@
       "robots_checked_at": "2026-11-03",
       "robots_note": "pending",
       "reason": "Owner-approved 2026-11-03: one reading per named minutes document; national figures only.",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "static.valasztas.hu",
+      "purpose": "Hungarian National Election Office file host: national list result minutes",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-05",
+      "robots_note": "robots.txt: 'User-agent: * Disallow:' (all paths allowed)",
+      "reason": "Owner-approved 2026-11-05: one reading per named minutes document (2026, 2022); national figures only. Constituency and territorial minutes are not authorised.",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "njt.hu",
+      "purpose": "Hungarian national legislation database (redirects to njt.jog.gov.hu)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-05",
+      "robots_note": "Allows /jogszabaly/*; disallows /search/*",
+      "reason": "Owner-approved 2026-11-05 to read statutes.",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "njt.jog.gov.hu",
+      "purpose": "Hungarian national legislation database: Acts LXXVI of 1999, CCIII of 2011 and XXXVI of 2013",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-05",
+      "robots_note": "Allows /jogszabaly/*; disallows /search/*",
+      "reason": "Target of the owner-approved njt.hu registration of 2026-11-05; statutes only, one reading per act.",
       "status": "allowed_review_due"
     }
   ],

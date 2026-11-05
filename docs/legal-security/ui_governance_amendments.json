@@ -2208,6 +2208,75 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-05"
+    },
+    {
+      "amendment_id": "political-hungary-ogy-2026-11-05",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-05 (stage C6): Hungarian view of the same explorer, comparison across five countries, computed shares and turnout labelled as computed where the source prints none; stores are covered only by docs/legal-security/political_admission_records.json",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "1d84de73fce8840a3aedf64750e2582ee97a3eee37a7e8e741aa5ed47e19f5f6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "3e7b4c5a51377ec14f7b9b69a2e3e6d83e875aa4bc88d2d01d217e4c6316be2d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalContextData.ts",
+          "sha256": "46db2ba6d74de1f2693912937004e8860ac276393b36de3616019da1d69b8034",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalExplorer.ts",
+          "sha256": "289cbc25a7a140862b1cc426f2bb6dddaff5f0e625098272ba2d74ad52261f5f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionMacroLinkage.ts",
+          "sha256": "1a495b25acaf85fa3cb09f8ac49ff9147dc5714631065d0c220dcdd416008b17",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/comparativeElectionResearch.ts",
+          "sha256": "e1181394c5f9d175188b076d514f7a2262992cf4ffa8243b8065870b3df0fdfd",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "c371d91bcf24fdec79dd49bcf9c09a0b34d6afaeb2109e88d4813e3b8f64138f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalComparativeResearch.tsx",
+          "sha256": "4e1812d75c7c4824e0d0b7f59c8925dc0c01a722e5fd8f909482ecde75fae80c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalElectionMacroTable.tsx",
+          "sha256": "f6c20409329157cf73e50e68c6c26a49f01c41eecabb4ecb9c72cf36d1e00d54",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/hungary/page.tsx",
+          "sha256": "ebb20ed803ccfd7f33bf797df523737ad5f1b422d1ea06592202c793572cbb5e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/hungary/page.tsx",
+          "sha256": "5b43a72fe6d566f8898cd43ae464b512b9f7322f9d5273c3b56d6e865c8852b8",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-05"
     }
   ]
 }

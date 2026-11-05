@@ -54,6 +54,18 @@ export function voteDenominator(e:PoliticalElectionView):number|null {
   const b=e.national.ballots.find(b=>b.definition.id===e.national!.activeVote.id);
   return e.national.activeVote.denominator==="valid_votes"?b?.validVotes??null:e.national.activeVote.denominator==="ballots_cast"?b?.ballotsCast??null:null;
 }
+/** The published share, or the share computed within the active ballot where the source prints none. Never a mix of ballots. */
+export function shareForDisplay(result:PoliticalResult,e:PoliticalElectionView):{value:number|null;computed:boolean} {
+  if(result.publishedVoteShare!==null)return{value:result.publishedVoteShare,computed:false};
+  return{value:descriptiveShare(result.secondVotes,voteDenominator(e)),computed:true};
+}
+/** The published turnout, or voters / registered electorate where the source prints counts but no percentage. */
+export function turnoutForDisplay(e:PoliticalElectionView):{value:number|null;computed:boolean} {
+  if(e.publishedTurnout!==null)return{value:e.publishedTurnout,computed:false};
+  const basis=e.national?.turnout;
+  if(basis?.numerator!=="voters"||basis.denominator!=="registered_electorate"||e.voters===null||!e.eligibleVoters)return{value:null,computed:false};
+  return{value:100*e.voters/e.eligibleVoters,computed:true};
+}
 export function compatibleTurnout(a:PoliticalElectionView,b:PoliticalElectionView):boolean {
   const x=a.national?.turnout,y=b.national?.turnout;
   return Boolean(x&&y&&x.numerator!=="unknown"&&x.denominator!=="unknown"&&x.numerator===y.numerator&&x.denominator===y.denominator&&x.definition&&x.definition===y.definition);
@@ -72,9 +84,9 @@ export function measureValue(result: PoliticalResult, election: PoliticalElectio
   }
 }
 
-/** Lists shown in the charts: every list that won seats, plus lists at or above one percent of published second votes. */
+/** Lists shown in the charts: every list that won seats, plus lists at or above one percent of the selected ballot. */
 export function chartResults(election: PoliticalElectionView): PoliticalResult[] {
-  return election.results.filter((result) => (result.seats ?? 0) > 0 || (result.publishedVoteShare ?? 0) >= 1).sort((a, b) => (b.secondVotes ?? 0) - (a.secondVotes ?? 0));
+  return election.results.filter((result) => (result.seats ?? 0) > 0 || (shareForDisplay(result, election).value ?? 0) >= 1).sort((a, b) => (b.secondVotes ?? 0) - (a.secondVotes ?? 0));
 }
 
 export type ElectionAggregate = { key: "turnout" | "eligible" | "voters" | "valid" | "seats" | "lists" | "seat_lists"; a: number | null; b: number | null; difference: number | null };

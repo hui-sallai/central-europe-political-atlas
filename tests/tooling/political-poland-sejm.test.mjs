@@ -150,9 +150,9 @@ test('admission: exact hashes, closed gates, Germany inadmissible, blocked file 
 });
 
 test('comparison: three-way availability; Germany and Czechia views unchanged in size; different turnout definitions are not differenced', () => {
-  assert.deepEqual(data.politicalComparisonCountries().map((c) => c.slug), ['czechia', 'poland', 'slovakia']);
-  assert.deepEqual(data.politicalCzechComparisonCountries().map((c) => c.slug), ['germany', 'poland', 'slovakia']);
-  assert.deepEqual(data.politicalPolishComparisonCountries().map((c) => c.slug), ['germany', 'czechia', 'slovakia']);
+  assert.deepEqual(data.politicalComparisonCountries().map((c) => c.slug), ['czechia', 'poland', 'slovakia', 'hungary']);
+  assert.deepEqual(data.politicalCzechComparisonCountries().map((c) => c.slug), ['germany', 'poland', 'slovakia', 'hungary']);
+  assert.deepEqual(data.politicalPolishComparisonCountries().map((c) => c.slug), ['germany', 'czechia', 'slovakia', 'hungary']);
   assert.equal(data.politicalElectionViews().length, 7);
   assert.equal(data.politicalCzechElectionViews().length, 3);
   const { compatibleTurnout } = require('../../src/lib/politicalNational.ts');

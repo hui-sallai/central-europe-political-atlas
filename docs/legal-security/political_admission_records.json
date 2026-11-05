@@ -954,6 +954,126 @@
      "sha256": "8fe0e72a1b48f7bca1ed51a184fe5f4eb4f243915fdb98f7c52845afb3afe9b1"
     }
    ]
+  },
+  {
+   "admission_id": "hungary-ogy-2022-2026",
+   "status": "owner_approved",
+   "approved_on": "2026-11-05",
+   "approved_by": "owner brief and replies 2026-11-05: National Assembly 2022 and 2026 national list tier from commission minutes on Copyright Act section 1(4)",
+   "country": "hungary",
+   "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+   "verification": "build-ogy-national check, official-total and seat-allocation reconciliation; official-total reconciliation and closed admission gate record",
+   "gate_record": "docs/political-data/hungary_ogy_admission.json",
+   "gate_record_sha256": "e66c03d55004e5394add7ed97fbaf75f89a997c3f85ea39edc96d3d4ce4f241d",
+   "gates_closed": [
+    "reuse_right",
+    "normalized_republication",
+    "acquisition_route",
+    "source_files_complete",
+    "national_definition_complete",
+    "same_election_identity_complete",
+    "electoral_system_metadata_complete",
+    "vintage_decisions_complete"
+   ],
+   "germany_change_allowed": false,
+   "canonical_data_change_allowed": false,
+   "model_change_allowed": false,
+   "research_gate_change_allowed": false,
+   "release_version_change_allowed": false,
+   "files": [
+    {
+     "path": "src/data/political/hungary/elections.json",
+     "sha256": "20f142ed1092e1073a82c529506c37c1e4a3f1ee0e49e4af3a6dfd32bb6d6c27"
+    },
+    {
+     "path": "src/data/political/hungary/election_turnout.json",
+     "sha256": "906f6c4e3a9a087de8bf637c6bfe790901825646017d0da73fa988e52e18905d"
+    },
+    {
+     "path": "src/data/political/hungary/election_results.json",
+     "sha256": "21c0ca28567e38c41c4aa271babed8d7e5ea3249e50353f10a967c7c760dedba"
+    },
+    {
+     "path": "src/data/political/hungary/electoral_contestants.json",
+     "sha256": "501a4c1b5ee3b8b85e2357a07af52e2c391be2835d37efddc9744e3ca934a703"
+    },
+    {
+     "path": "src/data/political/hungary/legislatures.json",
+     "sha256": "ada1127d70495223c08fcca0c6372592289ef9c5f391369942fbf8495d9147d7"
+    },
+    {
+     "path": "src/data/political/hungary/electoral_systems.json",
+     "sha256": "97808d7cbb7a5aeb556155020849b5d10e60410b6ed49ea044178f2cd1ebca5b"
+    },
+    {
+     "path": "src/data/political/hungary/political_source_registry.json",
+     "sha256": "de635d27aae289db40aa81b351c10e87fc3599cec3883b8411bc6c4a9954e7b9"
+    },
+    {
+     "path": "public/research-data/political/hungary/elections.json",
+     "sha256": "20f142ed1092e1073a82c529506c37c1e4a3f1ee0e49e4af3a6dfd32bb6d6c27"
+    },
+    {
+     "path": "public/research-data/political/hungary/elections.csv",
+     "sha256": "df08f875207154c05bf2d7b3a58eee92a1180f308252604a5e248f297044fd87"
+    },
+    {
+     "path": "public/research-data/political/hungary/election_turnout.json",
+     "sha256": "906f6c4e3a9a087de8bf637c6bfe790901825646017d0da73fa988e52e18905d"
+    },
+    {
+     "path": "public/research-data/political/hungary/election_turnout.csv",
+     "sha256": "8d0a3dae04807fc301b6b5af28f5a94e823882f297be1f3a9fb965cf53a54851"
+    },
+    {
+     "path": "public/research-data/political/hungary/election_results.json",
+     "sha256": "21c0ca28567e38c41c4aa271babed8d7e5ea3249e50353f10a967c7c760dedba"
+    },
+    {
+     "path": "public/research-data/political/hungary/election_results.csv",
+     "sha256": "5c290ed2785143ac7c3fc0648a6cf6f18aecc168274fbe07dd9805faa57145c9"
+    },
+    {
+     "path": "public/research-data/political/hungary/electoral_contestants.json",
+     "sha256": "501a4c1b5ee3b8b85e2357a07af52e2c391be2835d37efddc9744e3ca934a703"
+    },
+    {
+     "path": "public/research-data/political/hungary/electoral_contestants.csv",
+     "sha256": "7992ee85ffbbe469f4552f2ccd1b60b61ebe58e9bf16989aa3b3e22817d86fe7"
+    },
+    {
+     "path": "public/research-data/political/hungary/legislatures.json",
+     "sha256": "ada1127d70495223c08fcca0c6372592289ef9c5f391369942fbf8495d9147d7"
+    },
+    {
+     "path": "public/research-data/political/hungary/legislatures.csv",
+     "sha256": "52d6fe75869518b65ecbd69ffc4b9d81e6d67161a594903dc655cf6faebe72ec"
+    },
+    {
+     "path": "public/research-data/political/hungary/electoral_systems.json",
+     "sha256": "97808d7cbb7a5aeb556155020849b5d10e60410b6ed49ea044178f2cd1ebca5b"
+    },
+    {
+     "path": "public/research-data/political/hungary/electoral_systems.csv",
+     "sha256": "71b39267292b679896926ecf92af9f04ce161bd64e9feb1acbcdf075ca0ec6dc"
+    },
+    {
+     "path": "public/research-data/political/hungary/political_source_registry.json",
+     "sha256": "de635d27aae289db40aa81b351c10e87fc3599cec3883b8411bc6c4a9954e7b9"
+    },
+    {
+     "path": "public/research-data/political/hungary/political_source_registry.csv",
+     "sha256": "f2197c8d6a2b68ba94ae97fd4a1729d4c5ae8231085489af5b58cd65eb3a0638"
+    },
+    {
+     "path": "public/research-data/political/hungary/README.md",
+     "sha256": "3fead90a7fde7e212575e0f7db53d98716c525664004ea58d9d72e2ec30ffa70"
+    },
+    {
+     "path": "public/research-data/political/hungary/manifest.json",
+     "sha256": "40140b773cff8b49b23cff1b4d1ebca2bc74d320f3be7909f71694f54dc9dd16"
+    }
+   ]
   }
  ]
 }

@@ -18,12 +18,15 @@ const { electionPeriods, electionMacroRows, electionMacroCoverage, electionMacro
 const annual = JSON.parse(fs.readFileSync(path.join(root, 'public/research-data/annual_history_runtime.json'), 'utf8'));
 const inputs = context.politicalContextData('germany');
 const points = contextAnnualPoints(inputs.observations, annual, inputs.indicators);
-const elections = [...data.politicalElectionViews(), ...data.politicalComparisonCountries().flatMap((c) => c.elections)];
+const allAdmitted = [...data.politicalElectionViews(), ...data.politicalComparisonCountries().flatMap((c) => c.elections)];
+// The original four countries keep their exact results; Hungary is checked separately.
+const elections = allAdmitted.filter((e) => e.country !== 'hungary');
 const rows = electionMacroRows(elections, points);
 const row = (electionId, indicator) => rows.find((r) => r.electionId === electionId && r.indicator === indicator);
 
 test('every admitted election is matched to every indicator, with missing values kept explicit', () => {
   assert.equal(elections.length, 15);
+  assert.equal(allAdmitted.length, 17);
   assert.equal(rows.length, 15 * ELECTION_MACRO_INDICATORS.length);
   assert.deepEqual([...new Set(rows.map((r) => r.country))].sort(), ['czechia', 'germany', 'poland', 'slovakia']);
   assert.deepEqual(Object.fromEntries(electionMacroCoverage(rows).map((c) => [c.indicator, [c.lastCompleteYear, c.retrospective, c.elections]])), { hicp_inflation: [15, 15, 15], real_gdp_growth: [9, 10, 15], unemployment_rate: [4, 6, 15], fiscal_balance_gdp: [15, 15, 15], government_debt_gdp: [15, 15, 15] });
@@ -93,8 +96,20 @@ test('no party attribution or pooled cross-country figure exists; export keeps e
   assert.doesNotMatch(ui, /\bcorrelat|\bregress|forecast|\bprobabilit/i);
 });
 
-test('the panel is enabled for all four admitted countries through the existing contract', () => {
-  for (const [slug, route] of [['czechia', 'czechia'], ['poland', 'poland'], ['slovakia', 'slovakia']]) for (const group of ['(zh)/politics', '(english)/en/politics']) assert.match(fs.readFileSync(path.join(root, 'src/app', group, route, 'page.tsx'), 'utf8'), new RegExp(`politicalContextData\\("${slug}"\\)`));
-  assert.deepEqual([...new Set(inputs.observations.map((o) => o.country_slug))].sort(), ['czechia', 'germany', 'poland', 'slovakia']);
+test('the panel is enabled for all admitted countries through the existing contract', () => {
+  for (const [slug, route] of [['czechia', 'czechia'], ['poland', 'poland'], ['slovakia', 'slovakia'], ['hungary', 'hungary']]) for (const group of ['(zh)/politics', '(english)/en/politics']) assert.match(fs.readFileSync(path.join(root, 'src/app', group, route, 'page.tsx'), 'utf8'), new RegExp(`politicalContextData\\("${slug}"\\)`));
+  assert.deepEqual([...new Set(inputs.observations.map((o) => o.country_slug))].sort(), ['czechia', 'germany', 'hungary', 'poland', 'slovakia']);
   assert.ok(inputs.events.every((e) => e.country_slug === 'germany'), 'events stay with the page country');
+});
+
+test('Hungary joins the same linkage: 2022 and 2026 rows, a turnout change on one computed basis, nothing claimed as released before polling', () => {
+  const hu = electionMacroRows(allAdmitted.filter((e) => e.country === 'hungary'), points);
+  assert.equal(hu.length, 2 * ELECTION_MACRO_INDICATORS.length);
+  assert.ok(hu.every((r) => r.publishedBeforeElection.status !== 'documented' && r.turnout.published === null));
+  const later = hu.find((r) => r.electionId === 'el-hu-ogy-2026-04-12');
+  assert.ok(Math.abs(later.turnout.computed - (6408362 / 8112646) * 100) < 1e-9);
+  assert.ok(Math.abs(later.turnout.changeSincePrevious - ((6408362 / 8112646) - (5717182 / 8215304)) * 100) < 1e-9);
+  assert.equal(hu.find((r) => r.electionId === 'el-hu-ogy-2022-04-03').turnout.changeSincePrevious, null);
+  const election2026 = hu.filter((r) => r.electionId === 'el-hu-ogy-2026-04-12');
+  assert.ok(election2026.every((r) => r.retrospective.status !== 'published'), 'the calendar year of a 2026 election is not complete, so it stays a gap');
 });

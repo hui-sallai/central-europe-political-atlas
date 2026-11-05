@@ -3,7 +3,7 @@
 // A retrospective calendar year (includes months after the election), B last complete year before the election, and
 // C information demonstrably published before election day, documented only where a dated official release was read.
 import { contextDifference, contextPublished, type ContextPoint } from "./politicalEconomicContext";
-import type { PoliticalElectionView } from "./politicalExplorer";
+import { turnoutForDisplay, type PoliticalElectionView } from "./politicalExplorer";
 import evidence from "./electionInformationEvidence.json";
 
 export const ELECTION_MACRO_INDICATORS = ["hicp_inflation", "real_gdp_growth", "unemployment_rate", "fiscal_balance_gdp", "government_debt_gdp"] as const;
@@ -20,7 +20,7 @@ export type ElectionMacroRow = {
   /** View C. A value appears only when read from a dated release before polling day; it is never filled from current data. */
   publishedBeforeElection: PublishedBeforeElection;
   electionSources: { id: string; institution: string; url: string }[];
-  turnout: { published: number | null; numerator: string | null; denominator: string | null; changeSincePrevious: number | null };
+  turnout: { published: number | null; computed: number | null; numerator: string | null; denominator: string | null; changeSincePrevious: number | null };
   seats: number | null; allocationMethod: string | null; thresholds: number[] | null; resultVintage: string; sourceIds: string[];
 };
 
@@ -69,8 +69,9 @@ function cell(points: ContextPoint[], country: string, indicator: string, period
 
 /** Turnout changes only within one country and only when numerator and denominator match. */
 function turnoutChange(a: PoliticalElectionView, b: PoliticalElectionView): number | null {
-  if (a.publishedTurnout === null || b.publishedTurnout === null || a.national?.turnout.numerator !== b.national?.turnout.numerator || a.national?.turnout.denominator !== b.national?.turnout.denominator) return null;
-  return b.publishedTurnout - a.publishedTurnout;
+  const x = turnoutForDisplay(a), y = turnoutForDisplay(b);
+  if (x.value === null || y.value === null || x.computed !== y.computed || a.national?.turnout.numerator !== b.national?.turnout.numerator || a.national?.turnout.denominator !== b.national?.turnout.denominator) return null;
+  return y.value - x.value;
 }
 
 export function electionMacroRows(elections: PoliticalElectionView[], points: ContextPoint[]): ElectionMacroRow[] {
@@ -88,7 +89,7 @@ export function electionMacroRows(elections: PoliticalElectionView[], points: Co
         retrospective: { ...cell(points, country, indicator, periods.retrospective, "retrospective_calendar_year"), changeSincePreviousElection: change((d) => electionPeriods(d).retrospective, election.date) },
         publishedBeforeElection: publishedBeforeElection(election, indicator, points),
         electionSources: election.sources.map((s) => ({ id: s.id, institution: s.institution ?? "Institution not recorded", url: s.url })),
-        turnout: { published: election.publishedTurnout, numerator: election.national?.turnout.numerator ?? null, denominator: election.national?.turnout.denominator ?? null, changeSincePrevious: previous ? turnoutChange(previous, election) : null },
+        turnout: { published: election.publishedTurnout, computed: turnoutForDisplay(election).computed ? turnoutForDisplay(election).value : null, numerator: election.national?.turnout.numerator ?? null, denominator: election.national?.turnout.denominator ?? null, changeSincePrevious: previous ? turnoutChange(previous, election) : null },
         seats: election.totalSeats, allocationMethod: election.system.allocationMethod, thresholds: election.national?.rules.thresholds?.map((t) => t.percent).filter((p): p is number => p !== null) ?? null, resultVintage: election.resultVintage, sourceIds: election.sources.map((s) => s.id),
       };
     });

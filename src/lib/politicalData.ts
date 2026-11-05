@@ -34,6 +34,13 @@ import skContestants from "@/data/political/slovakia/electoral_contestants.json"
 import skLegislatures from "@/data/political/slovakia/legislatures.json";
 import skSystems from "@/data/political/slovakia/electoral_systems.json";
 import skSources from "@/data/political/slovakia/political_source_registry.json";
+import huElections from "@/data/political/hungary/elections.json";
+import huTurnout from "@/data/political/hungary/election_turnout.json";
+import huResults from "@/data/political/hungary/election_results.json";
+import huContestants from "@/data/political/hungary/electoral_contestants.json";
+import huLegislatures from "@/data/political/hungary/legislatures.json";
+import huSystems from "@/data/political/hungary/electoral_systems.json";
+import huSources from "@/data/political/hungary/political_source_registry.json";
 import type { PoliticalCountryView, PoliticalElectionView } from "./politicalExplorer";
 import { electionViewsFromStores, type PoliticalStores } from "./politicalStores";
 import { politicalPublicationProblems } from "./politicalNational";
@@ -101,21 +108,33 @@ export function politicalSlovakElectionViews(): PoliticalElectionView[] {
   return elections;
 }
 
+/** Hungary's admitted National Assembly elections (2022, 2026), national list tier: docs/political-data/hungary_ogy_admission.json. */
+export function politicalHungarianElectionViews(): PoliticalElectionView[] {
+  const elections = electionViewsFromStores({ elections: huElections, turnout: huTurnout, results: huResults, contestants: huContestants, legislatures: huLegislatures, systems: huSystems, sources: huSources } as PoliticalStores, {
+    slug: "hungary", name: { en: "Hungary", "zh-CN": "匈牙利" }, originalLanguage: "hu",
+    voteLabel: { en: "Party-list votes", "zh-CN": "政党名单票" },
+  });
+  for (const view of elections) if (politicalPublicationProblems(view.country!, view.sources, ["hungary"]).length) throw Error("Political source publication gate failed");
+  return elections;
+}
+
 /**
  * Other countries with authorised, published election stores, for cross-country comparison. A country is added here only
  * after explicit owner authorisation, a closed admission gate record and an exact-hash political admission record.
  * Candidate packages in staging are never imported.
  */
 export function politicalComparisonCountries(): PoliticalCountryView[] {
-  return [czechCountry(), polishCountry(), slovakCountry()];
+  return [czechCountry(), polishCountry(), slovakCountry(), hungarianCountry()];
 }
 
 const germanCountry = (): PoliticalCountryView => ({ slug: "germany", name: { en: "Germany", "zh-CN": "德国" }, elections: politicalElectionViews() });
 function czechCountry(): PoliticalCountryView { return { slug: "czechia", name: { en: "Czechia", "zh-CN": "捷克" }, elections: politicalCzechElectionViews() }; }
 function slovakCountry(): PoliticalCountryView { return { slug: "slovakia", name: { en: "Slovakia", "zh-CN": "斯洛伐克" }, elections: politicalSlovakElectionViews() }; }
+function hungarianCountry(): PoliticalCountryView { return { slug: "hungary", name: { en: "Hungary", "zh-CN": "匈牙利" }, elections: politicalHungarianElectionViews() }; }
 function polishCountry(): PoliticalCountryView { return { slug: "poland", name: { en: "Poland", "zh-CN": "波兰" }, elections: politicalPolishElectionViews() }; }
 
-/** Comparison countries for the Czech, Polish and Slovak views of the explorer. */
-export function politicalCzechComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), polishCountry(), slovakCountry()]; }
-export function politicalPolishComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), slovakCountry()]; }
-export function politicalSlovakComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), polishCountry()]; }
+/** Comparison countries for the Czech, Polish, Slovak and Hungarian views of the explorer. */
+export function politicalCzechComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), polishCountry(), slovakCountry(), hungarianCountry()]; }
+export function politicalPolishComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), slovakCountry(), hungarianCountry()]; }
+export function politicalSlovakComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), polishCountry(), hungarianCountry()]; }
+export function politicalHungarianComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), polishCountry(), slovakCountry()]; }

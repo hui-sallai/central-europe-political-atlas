@@ -14,7 +14,7 @@ const researchOut = path.join(out, "research-data");
 const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const releaseConfig = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "release.json"), "utf8"));
 const requiredRoutes = ["", "map", "countries", "data", "news", "models", "scenarios", "methodology", "historical-extension", "legal", "privacy", ...["poland", "hungary", "czechia", "slovakia", "germany", "austria", "romania", "slovenia", "croatia", "serbia"].map((country) => `countries/${country}`)];
-requiredRoutes.push("notebook", "politics", "politics/czechia", "politics/poland", "politics/slovakia", "workspaces", ...["inflation_monetary_policy", "trade_external_exposure", "fiscal_macro_conditions", "regional_development"].map(id => `workspaces/${id}`));
+requiredRoutes.push("notebook", "politics", "politics/czechia", "politics/poland", "politics/slovakia", "politics/hungary", "workspaces", ...["inflation_monetary_policy", "trade_external_exposure", "fiscal_macro_conditions", "regional_development"].map(id => `workspaces/${id}`));
 requiredRoutes.push(...requiredRoutes.filter(route => route !== "historical-extension").map(route => `en${route ? `/${route}` : ""}`));
 const englishOnlyRoutes = new Set(["portfolio", "portfolio/data-pipeline", "portfolio/trade-exposure", "portfolio/localization-qa", "portfolio/ai-evaluation"]);
 requiredRoutes.push(...englishOnlyRoutes);

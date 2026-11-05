@@ -1,0 +1,72 @@
+[
+  {
+    "election_id": "el-hu-ogy-2022-04-03",
+    "country": "hungary",
+    "election_type": "national_parliament",
+    "chamber": "Országgyűlés",
+    "date": "2022-04-03",
+    "date_end": null,
+    "date_basis": "heading of the official results application, read by hand; the minutes state when they were drawn up, not the polling day",
+    "year": 2022,
+    "legislature_id": "lg-hu-ogy-2022",
+    "electoral_system_id": "es-hu-ogy-2022",
+    "result_status": "official_final",
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, title",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "chamber",
+          "result_vintage"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hu-ogy-2026-04-12",
+    "country": "hungary",
+    "election_type": "national_parliament",
+    "chamber": "Országgyűlés",
+    "date": "2026-04-12",
+    "date_end": null,
+    "date_basis": "heading of the official results application, read by hand; the minutes state when they were drawn up, not the polling day",
+    "year": 2026,
+    "legislature_id": "lg-hu-ogy-2026",
+    "electoral_system_id": "es-hu-ogy-2026",
+    "result_status": "official_final",
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, title",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "chamber",
+          "result_vintage"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]

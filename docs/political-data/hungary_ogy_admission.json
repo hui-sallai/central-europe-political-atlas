@@ -1,0 +1,75 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "hungary-ogy-2022-2026",
+ "country": "hungary",
+ "election_ids": [
+  "el-hu-ogy-2022-04-03",
+  "el-hu-ogy-2026-04-12"
+ ],
+ "scope": "National Assembly elections of 3 April 2022 and 12 April 2026, national list tier only (93 of 199 seats), from the National Election Commission minutes. Constituency results, 2018 and earlier elections, and the results application's figures are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-05",
+   "decision": "Owner reply: publish national figures from the minutes only on Copyright Act § 1(4), recorded as a reading of the statute, weaker than a licence; no candidate names; the CSV is never republished."
+  },
+  {
+   "date": "2026-11-05",
+   "decision": "Owner reply: one reading each of the 2026 and 2022 minutes, the 2026 CSV for a local cross-check only, and njt.hu registered for the statutes."
+  },
+  {
+   "date": "2026-11-05",
+   "decision": "Owner reply: leave 2018 out for now."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/hungary/ogy/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "statute_section_1_4_copyright_act",
+   "basis": "Copyright Act § 1(4) excludes official notices and case documents, and Act XXXVI of 2013 § 76(2)(e) requires the National Election Office to publish the content of the result minutes as public-interest data. This is a reading accepted by the owner, weaker than a licence. The office's Impresszum is on a robots-blocked host and was not read, so it could contain conditions."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_from_minutes",
+   "evidence_kind": "statute_section_1_4_copyright_act",
+   "basis": "Same basis, national figures transcribed from the minutes only. The database right in § 84/A was not settled, so application data and its generated CSV are not republished."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The PDFs and page images are not committed; they are identified by checksum. Pages naming candidates and committee members are not transcribed."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "One request per named PDF on static.valasztas.hu, whose robots.txt allows all paths. www.valasztas.hu stays blocked and was not contacted."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "basis": "The minutes hold registers, participation, ballots, votes for every party and nationality list, surplus votes, thresholds, the preferential quota and national list seats."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "basis": "Party-list and nationality-list votes reconcile separately to printed totals and together to valid ballots; registers, participation and ballots reconcile; printed thresholds and quotas reproduce; recomputing the highest-averages allocation gives the printed seats. Constituency votes are not held and no list has a whole-chamber seat total here."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "basis": "Each list keeps its number, identifier and printed name. Joint lists stay one contestant; their votes and seats are not divided. Kinds rest on the printed name and the official application; for 2022 no official joint-list label was read. Nationality lists are a separate kind and ballot. No party register was reviewed."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "basis": "Act CCIII of 2011 §§ 3, 13, 14 and 16 quoted in the evidence record, in the version served on the retrieval date; both sets of minutes apply the same thresholds and method."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "basis": "The commission's minutes are the result determination, and the official application shows each result as legally final with matching figures. Commission and Curia decision texts were not read."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between 2022 and 2026, even where a name repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

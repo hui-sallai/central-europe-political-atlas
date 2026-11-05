@@ -20,7 +20,9 @@ const evidence = read('src/lib/electionInformationEvidence.json');
 const inputs = context.politicalContextData('germany');
 const annual = read('public/research-data/annual_history_runtime.json'), monthly = read('public/research-data/monthly_history_runtime.json'), current = read('public/research-data/high_frequency_runtime.json');
 const points = [...contextAnnualPoints(inputs.observations, annual, inputs.indicators), ...contextMonthlyPoints(monthly, current.records, inputs.monthlyMetadata)];
-const elections = [...data.politicalElectionViews(), ...data.politicalComparisonCountries().flatMap((c) => c.elections)];
+const allAdmitted = [...data.politicalElectionViews(), ...data.politicalComparisonCountries().flatMap((c) => c.elections)];
+// The original four countries keep their exact results; Hungary is checked separately.
+const elections = allAdmitted.filter((e) => e.country !== 'hungary');
 const rows = electionMacroRows(elections, points);
 const SK = 'el-sk-nrsr-2023-09-30', PL = 'el-pl-sejm-2023-10-15', CZ = 'el-cz-ps-2025-10-03', DE = 'el-de-bt-2025-02-23';
 const asOf = (id, indicator) => rows.find((r) => r.electionId === id && r.indicator === indicator).publishedBeforeElection;

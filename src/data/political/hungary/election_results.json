@@ -1,0 +1,1354 @@
+[
+  {
+    "result_id": "er-ct-hu-ogy22-p01",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-p01",
+    "vote_type": "hu_party_list_vote",
+    "valid_votes": 5624225,
+    "total_seats": 199,
+    "votes": 1947331,
+    "published_vote_share": null,
+    "derived_vote_share": 34.62398819392894,
+    "seats": 38,
+    "seat_basis": "national list seats printed in the minutes; constituency seats are not included",
+    "surplus_votes": 1579149,
+    "votes_for_list_seat_allocation": 3526480,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, party list 1",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats",
+          "surplus_votes",
+          "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-p02",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-p02",
+    "vote_type": "hu_party_list_vote",
+    "valid_votes": 5624225,
+    "total_seats": 199,
+    "votes": 39720,
+    "published_vote_share": null,
+    "derived_vote_share": 0.7062306362209905,
+    "seats": 0,
+    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency seats are not included",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, party list 2",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats",
+          "surplus_votes",
+          "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-p03",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-p03",
+    "vote_type": "hu_party_list_vote",
+    "valid_votes": 5624225,
+    "total_seats": 199,
+    "votes": 185052,
+    "published_vote_share": null,
+    "derived_vote_share": 3.290266658961902,
+    "seats": 0,
+    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency seats are not included",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, party list 3",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats",
+          "surplus_votes",
+          "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-p04",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-p04",
+    "vote_type": "hu_party_list_vote",
+    "valid_votes": 5624225,
+    "total_seats": 199,
+    "votes": 58929,
+    "published_vote_share": null,
+    "derived_vote_share": 1.0477710262302806,
+    "seats": 0,
+    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency seats are not included",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, party list 4",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats",
+          "surplus_votes",
+          "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-p05",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-p05",
+    "vote_type": "hu_party_list_vote",
+    "valid_votes": 5624225,
+    "total_seats": 199,
+    "votes": 332487,
+    "published_vote_share": null,
+    "derived_vote_share": 5.911694500131129,
+    "seats": 6,
+    "seat_basis": "national list seats printed in the minutes; constituency seats are not included",
+    "surplus_votes": 307064,
+    "votes_for_list_seat_allocation": 639551,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, party list 5",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats",
+          "surplus_votes",
+          "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-p06",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-p06",
+    "vote_type": "hu_party_list_vote",
+    "valid_votes": 5624225,
+    "total_seats": 199,
+    "votes": 3060706,
+    "published_vote_share": null,
+    "derived_vote_share": 54.42004898452676,
+    "seats": 48,
+    "seat_basis": "national list seats printed in the minutes; constituency seats are not included",
+    "surplus_votes": 1330256,
+    "votes_for_list_seat_allocation": 4390962,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, party list 6",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats",
+          "surplus_votes",
+          "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-n01",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-n01",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 30635,
+    "total_seats": 199,
+    "votes": 163,
+    "published_vote_share": null,
+    "derived_vote_share": 0.5320711604374082,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, nationality list 1",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-n02",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-n02",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 30635,
+    "total_seats": 199,
+    "votes": 526,
+    "published_vote_share": null,
+    "derived_vote_share": 1.7169903704912681,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, nationality list 2",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-n03",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-n03",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 30635,
+    "total_seats": 199,
+    "votes": 1760,
+    "published_vote_share": null,
+    "derived_vote_share": 5.745062836624776,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, nationality list 3",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-n04",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-n04",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 30635,
+    "total_seats": 199,
+    "votes": 396,
+    "published_vote_share": null,
+    "derived_vote_share": 1.2926391382405744,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, nationality list 4",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-n05",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-n05",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 30635,
+    "total_seats": 199,
+    "votes": 645,
+    "published_vote_share": null,
+    "derived_vote_share": 2.105434960013057,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, nationality list 5",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-n06",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-n06",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 30635,
+    "total_seats": 199,
+    "votes": 1208,
+    "published_vote_share": null,
+    "derived_vote_share": 3.9432022196833687,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, nationality list 6",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-n07",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-n07",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 30635,
+    "total_seats": 199,
+    "votes": 157,
+    "published_vote_share": null,
+    "derived_vote_share": 0.5124857189489147,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, nationality list 7",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-n08",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-n08",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 30635,
+    "total_seats": 199,
+    "votes": 281,
+    "published_vote_share": null,
+    "derived_vote_share": 0.9172515097111148,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, nationality list 8",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-n09",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-n09",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 30635,
+    "total_seats": 199,
+    "votes": 219,
+    "published_vote_share": null,
+    "derived_vote_share": 0.7148686143300147,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, nationality list 9",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-n10",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-n10",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 30635,
+    "total_seats": 199,
+    "votes": 24630,
+    "published_vote_share": null,
+    "derived_vote_share": 80.39823731026604,
+    "seats": 1,
+    "seat_basis": "preferential nationality seat printed in the minutes",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, nationality list 10",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-n11",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-n11",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 30635,
+    "total_seats": 199,
+    "votes": 418,
+    "published_vote_share": null,
+    "derived_vote_share": 1.3644524236983842,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, nationality list 11",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy22-n12",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2022-04-03",
+    "contestant_ref": "ct-hu-ogy22-n12",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 30635,
+    "total_seats": 199,
+    "votes": 232,
+    "published_vote_share": null,
+    "derived_vote_share": 0.7573037375550841,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2022",
+        "source_url": "https://static.valasztas.hu/dyn/ogy2022/jkvimage/OrszList/OGY-OL.pdf",
+        "source_record_id": "minutes, nationality list 12",
+        "retrieved_at": "2026-11-05T13:04:31Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-p01",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-p01",
+    "vote_type": "hu_party_list_vote",
+    "valid_votes": 6324862,
+    "total_seats": 199,
+    "votes": 51965,
+    "published_vote_share": null,
+    "derived_vote_share": 0.8215989534633326,
+    "seats": 0,
+    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency seats are not included",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, party list 1",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats",
+          "surplus_votes",
+          "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-p02",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-p02",
+    "vote_type": "hu_party_list_vote",
+    "valid_votes": 6324862,
+    "total_seats": 199,
+    "votes": 3385890,
+    "published_vote_share": null,
+    "derived_vote_share": 53.5330257007979,
+    "seats": 45,
+    "seat_basis": "national list seats printed in the minutes; constituency seats are not included",
+    "surplus_votes": 1364783,
+    "votes_for_list_seat_allocation": 4750673,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, party list 2",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats",
+          "surplus_votes",
+          "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-p03",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-p03",
+    "vote_type": "hu_party_list_vote",
+    "valid_votes": 6324862,
+    "total_seats": 199,
+    "votes": 358372,
+    "published_vote_share": null,
+    "derived_vote_share": 5.666084097961347,
+    "seats": 6,
+    "seat_basis": "national list seats printed in the minutes; constituency seats are not included",
+    "surplus_votes": 345252,
+    "votes_for_list_seat_allocation": 703624,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, party list 3",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats",
+          "surplus_votes",
+          "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-p04",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-p04",
+    "vote_type": "hu_party_list_vote",
+    "valid_votes": 6324862,
+    "total_seats": 199,
+    "votes": 70298,
+    "published_vote_share": null,
+    "derived_vote_share": 1.1114550799685432,
+    "seats": 0,
+    "seat_basis": "no national list seat in the minutes, recorded as 0; constituency seats are not included",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, party list 4",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats",
+          "surplus_votes",
+          "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-p05",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-p05",
+    "vote_type": "hu_party_list_vote",
+    "valid_votes": 6324862,
+    "total_seats": 199,
+    "votes": 2458337,
+    "published_vote_share": null,
+    "derived_vote_share": 38.867836167808875,
+    "seats": 42,
+    "seat_basis": "national list seats printed in the minutes; constituency seats are not included",
+    "surplus_votes": 1982535,
+    "votes_for_list_seat_allocation": 4440872,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, party list 5",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats",
+          "surplus_votes",
+          "votes_for_list_seat_allocation"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-n01",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-n01",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 41871,
+    "total_seats": 199,
+    "votes": 108,
+    "published_vote_share": null,
+    "derived_vote_share": 0.2579350863366053,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, nationality list 1",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-n02",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-n02",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 41871,
+    "total_seats": 199,
+    "votes": 159,
+    "published_vote_share": null,
+    "derived_vote_share": 0.3797377659955578,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, nationality list 2",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-n03",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-n03",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 41871,
+    "total_seats": 199,
+    "votes": 1307,
+    "published_vote_share": null,
+    "derived_vote_share": 3.121492202240214,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, nationality list 3",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-n04",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-n04",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 41871,
+    "total_seats": 199,
+    "votes": 147,
+    "published_vote_share": null,
+    "derived_vote_share": 0.3510783119581572,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, nationality list 4",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-n05",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-n05",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 41871,
+    "total_seats": 199,
+    "votes": 18419,
+    "published_vote_share": null,
+    "derived_vote_share": 43.989873659573455,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, nationality list 5",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-n06",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-n06",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 41871,
+    "total_seats": 199,
+    "votes": 116,
+    "published_vote_share": null,
+    "derived_vote_share": 0.2770413890282057,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, nationality list 6",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-n07",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-n07",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 41871,
+    "total_seats": 199,
+    "votes": 19203,
+    "published_vote_share": null,
+    "derived_vote_share": 45.86229132335029,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, nationality list 7",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-n08",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-n08",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 41871,
+    "total_seats": 199,
+    "votes": 512,
+    "published_vote_share": null,
+    "derived_vote_share": 1.2228033722624252,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, nationality list 8",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-n09",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-n09",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 41871,
+    "total_seats": 199,
+    "votes": 440,
+    "published_vote_share": null,
+    "derived_vote_share": 1.0508466480380216,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, nationality list 9",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-n10",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-n10",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 41871,
+    "total_seats": 199,
+    "votes": 902,
+    "published_vote_share": null,
+    "derived_vote_share": 2.1542356284779443,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, nationality list 10",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-n11",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-n11",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 41871,
+    "total_seats": 199,
+    "votes": 179,
+    "published_vote_share": null,
+    "derived_vote_share": 0.42750352272455877,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, nationality list 11",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-hu-ogy26-n12",
+    "country": "hungary",
+    "geography": "national",
+    "election_id": "el-hu-ogy-2026-04-12",
+    "contestant_ref": "ct-hu-ogy26-n12",
+    "vote_type": "hu_nationality_list_vote",
+    "valid_votes": 41871,
+    "total_seats": 199,
+    "votes": 379,
+    "published_vote_share": null,
+    "derived_vote_share": 0.9051610900145686,
+    "seats": 0,
+    "seat_basis": "no seat in the minutes, recorded as 0",
+    "surplus_votes": null,
+    "votes_for_list_seat_allocation": null,
+    "published_seat_share": null,
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2026",
+        "source_url": "https://static.valasztas.hu/dyn/jkvimage/2026/OGY/OLER/OGY-OLER_v01.pdf",
+        "source_record_id": "minutes, nationality list 12",
+        "retrieved_at": "2026-11-05T13:04:22Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]

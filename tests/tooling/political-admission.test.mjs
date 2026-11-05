@@ -22,12 +22,12 @@ test('admitted countries are exactly the countries whose official stores are imp
   const imported = [...new Set([...fs.readFileSync(path.join(root, 'src/lib/politicalData.ts'), 'utf8').matchAll(/@\/data\/political\/([a-z]+)\//g)].map((m) => m[1]))].sort();
   assert.deepEqual([...admittedCountrySlugs].sort(), imported);
   assert.deepEqual(fs.readdirSync(path.join(root, 'src/data/political')).filter((d) => fs.statSync(path.join(root, 'src/data/political', d)).isDirectory()).sort(), imported);
-  assert.deepEqual(imported, ['czechia', 'germany', 'poland', 'slovakia']);
+  assert.deepEqual(imported, ['czechia', 'germany', 'hungary', 'poland', 'slovakia']);
 });
 
 test('gate-matrix countries stay blocked unless a separate owner-approved admission record exists', () => {
   const admitted = new Set(read('docs/legal-security/political_admission_records.json').admissions.filter((a) => a.status === 'owner_approved').map((a) => a.country));
-  assert.deepEqual([...admitted], ['czechia', 'poland', 'slovakia']);
+  assert.deepEqual([...admitted], ['czechia', 'poland', 'slovakia', 'hungary']);
   for (const country of gateMatrix.countries) {
     const row = politicalAdmissions.find((r) => r.slug === country.country);
     assert.ok(row, country.country);
@@ -40,14 +40,13 @@ test('gate-matrix countries stay blocked unless a separate owner-approved admiss
   assert.equal(replies.length, 0, 'a publisher reply must be reviewed against the gates before this test is updated');
 });
 
-test('Hungary: registered hosts, robots-blocked terms, no stored values, NOT_READY', () => {
-  assert.equal(hungary.overall_readiness, 'NOT_READY');
-  assert.equal(hungary.production_authorised, false);
-  assert.match(hungary.data_stored, /^none/);
-  assert.ok(hungary.observations.every((o) => o.stored_values === 'none'));
-  const open = Object.entries(hungary.gates).filter(([name, gate]) => name !== 'raw_redistribution' && gate.status !== 'closed').map(([name]) => name).sort();
-  assert.deepEqual(open, [...hungary.open_mandatory_gates].sort());
-  assert.deepEqual([...gateMatrix.mandatory_gates].sort(), [...hungary.open_mandatory_gates].sort(), 'same mandatory gates as the Production 1B model');
+test('Hungary: 2022 and 2026 admitted; hosts registered; the robots-blocked terms host stays unvisited', () => {
+  assert.equal(hungary.overall_readiness, 'ADMITTED_LIST_TIER_2022_2026');
+  assert.equal(hungary.production_authorised, true);
+  assert.match(hungary.data_stored, /No constituency, candidate or application figure/);
+  assert.ok(hungary.observations.every((o) => o.stored_values === 'none from the application'));
+  assert.deepEqual(hungary.open_mandatory_gates, []);
+  assert.deepEqual(Object.entries(hungary.gates).filter(([name, gate]) => name !== 'raw_redistribution' && gate.status !== 'closed'), []);
   for (const entry of hungary.network) {
     const host = network.hosts.find((h) => h.host === entry.host);
     assert.ok(host, `${entry.host} registered`);
@@ -55,8 +54,9 @@ test('Hungary: registered hosts, robots-blocked terms, no stored values, NOT_REA
     assert.equal(host.automation_allowed, false);
   }
   assert.equal(network.hosts.find((h) => h.host === 'www.valasztas.hu').manual_allowed, false, 'robots-blocked host is not visited');
-  assert.equal(politicalAdmissions.find((r) => r.slug === 'hungary').state, 'blocked');
-  assert.ok(!fs.existsSync(path.join(root, 'src/data/political/hungary')));
+  assert.equal(network.hosts.find((h) => h.host === 'www.valasztas.hu').status, 'blocked');
+  assert.equal(politicalAdmissions.find((r) => r.slug === 'hungary').state, 'admitted');
+  assert.match(hungary.elections_in_scope.find((e) => e.date === '2018-04-08').status, /^blocked/);
 });
 
 test('Romania stays staged; reasons are bilingual and make no unsupported claims', () => {

@@ -1,0 +1,64 @@
+[
+  {
+    "legislature_id": "lg-hu-ogy-2022",
+    "country": "hungary",
+    "chamber": "Országgyűlés",
+    "official_term": null,
+    "election_id": "el-hu-ogy-2022-04-03",
+    "total_seats": 199,
+    "seat_count_basis": "statutory_total_not_current_composition",
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2022-04-14; the official application shows the result as legally final",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-hu-act-ccIII-2011",
+        "source_url": "https://njt.jog.gov.hu/jogszabaly/2011-203-00-00",
+        "source_record_id": "Act CCIII of 2011 §§ 3, 13, 14, 16 (quoted)",
+        "retrieved_at": "2026-11-05T13:05:59Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "total_seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-hu-ogy-2026",
+    "country": "hungary",
+    "chamber": "Országgyűlés",
+    "official_term": null,
+    "election_id": "el-hu-ogy-2026-04-12",
+    "total_seats": 199,
+    "seat_count_basis": "statutory_total_not_current_composition",
+    "result_vintage": "final: National Election Commission minutes on the national list result, drawn up on 2026-04-29; the official application shows the result as legally final",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-hu-act-ccIII-2011",
+        "source_url": "https://njt.jog.gov.hu/jogszabaly/2011-203-00-00",
+        "source_record_id": "Act CCIII of 2011 §§ 3, 13, 14, 16 (quoted)",
+        "retrieved_at": "2026-11-05T13:05:59Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "501fe433de80be41dda84e56e6372354ba545470f5d621b808e114b27d4c89dc"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "7eff7ada81e82d7f24018898f6aefe5e896924a4d1073b486d56c9272db65926",
+        "fields_covered": [
+          "total_seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]
