@@ -2277,6 +2277,30 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-05"
+    },
+    {
+      "amendment_id": "political-explorer-wording-2026-11-06",
+      "status": "owner_approved",
+      "approved_by": "owner reply 2026-11-06: fix both wording problems found on the live Hungary page (missing percentages read as a bare dash; the verified series pointer shows only where a verified series holds the list)",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "32e39d584014001ce7df09dada9de0fa21948048a31ac80548fb0fa462572724",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalEconomicContext.tsx",
+          "sha256": "79792dabdf7c64bf106e5e00b2179229a6d1a88844c2de5a68ef019dd6532b01",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-06"
     }
   ]
 }

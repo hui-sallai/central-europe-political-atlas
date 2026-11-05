@@ -189,6 +189,12 @@ for (const locale of ["en", "zh-CN"] as const) test(`Hungary: list tier only, se
   await expect(page.locator("[data-politics-summary]")).toContainText("79");
   await expect(page.locator('[data-chart-list="ct-hu-ogy26-p02"]')).toContainText("45");
   await expect(explorer).not.toContainText("Országos Örmény Önkormányzat", { ignoreCase: true });
+  // Missing values read as a bare dash, and no list is pointed at a verified series Hungary does not have.
+  await page.evaluate(() => document.querySelectorAll("details").forEach((d) => { d.open = true; }));
+  const noLink = en ? "no verified link to another election" : "没有与其他届选举的已核实关联";
+  await expect(explorer).toContainText(noLink);
+  await expect(page.locator("body")).not.toContainText("—%");
+  await expect(explorer).not.toContainText(en ? "see verified series comparison below" : "已核实序列比较见下方");
   await page.goto(`${en ? "/en" : ""}/politics/hungary/?election=el-hu-ogy-2022-04-03&vote_type=hu_nationality_list_vote`, { waitUntil: "networkidle" });
   await expect(page.locator("[data-politics-explorer]")).toContainText("MAGYARORSZÁGI NÉMETEK ORSZÁGOS ÖNKORMÁNYZATA");
   await expect(page.locator("[data-politics-explorer]")).not.toContainText("MI HAZÁNK MOZGALOM");
@@ -201,6 +207,14 @@ for (const locale of ["en", "zh-CN"] as const) test(`Hungary: list tier only, se
   await expect(research.locator("[data-research-case]")).toHaveAttribute("data-research-case-status", "not_documented");
   await page.goto("/en/politics/");
   await expect(page.locator('[data-politics-country-view="hungary"]')).toBeVisible();
+});
+
+test("a list keeps the verified series pointer only where a verified series holds it", async ({ page }) => {
+  await page.goto("/en/politics/poland/", { waitUntil: "networkidle" });
+  await page.evaluate(() => document.querySelectorAll("details").forEach((d) => { d.open = true; }));
+  const explorer = page.locator("[data-politics-explorer]");
+  await expect(explorer).toContainText("see verified series comparison below");
+  await expect(explorer).toContainText("no verified link to another election");
 });
 
 for (const [route, country] of [["/en/politics/slovakia/", "slovakia"], ["/en/politics/poland/", "poland"], ["/politics/czechia/", "czechia"]] as const) test(`election-macro comparison across four countries from ${country}`, async ({ page }) => {
