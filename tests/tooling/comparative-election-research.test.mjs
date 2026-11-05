@@ -394,7 +394,22 @@ test('every question reports a result or a stated reason it is unavailable', () 
   assert.match(status({ view: 'released_before_election' }, 'B').reason.en, /latest election/);
   assert.equal(status({ electionIds: [PL19] }, 'D').status, 'unavailable');
   assert.equal(status({ countries: ['czechia'] }, 'D').status, 'partial');
-  assert.equal(status({ countries: ['poland'] }, 'D').status, 'available');
+  assert.equal(status({ electionIds: [PL23] }, 'D').status, 'available');
+  assert.equal(status({ electionIds: [PL23] }, 'D').reason, null);
+  const poland = status({ countries: ['poland'] }, 'D');
+  assert.equal(poland.status, 'partial');
+  assert.match(poland.reason.en, /^3 selected elections have no dated releases/);
+  const czech = status({ electionIds: ['el-cz-ps-2025-10-03'] }, 'D');
+  assert.equal(czech.reason.en, '1 selected figure has no located release and stays not established (Czechia 2025, unemployment).');
+  assert.match(czech.reason.zh, /捷克 2025：失业/);
+  // A gap elsewhere is named, and the inspected election is not implied to share it.
+  const all = R.researchAvailability(R.runComparativeResearch({}, elections, points, links, { question: 'D', caseElectionId: PL23 })).D;
+  assert.equal(all.status, 'partial');
+  assert.match(all.reason.en, /^1 selected figure has no located release and stays not established \(Czechia 2025, unemployment\)\. 11 selected elections have no dated releases, because they have been read only for the latest election in each country\. Poland 2023, inspected below, has a dated release for every selected figure\.$/);
+  assert.doesNotMatch(all.reason.zh, /[a-z]{4}/);
+  const inspectedGap = R.researchAvailability(R.runComparativeResearch({}, elections, points, links, { question: 'D', caseElectionId: 'el-cz-ps-2025-10-03' })).D;
+  assert.doesNotMatch(inspectedGap.reason.en, /inspected below/);
+  assert.doesNotMatch(status({}, 'A').reason.en, /^1 selected figures/);
   for (const s of [{}, { countries: ['slovakia'] }, { electionIds: [] }, { indicators: [] }]) for (const q of R.RESEARCH_QUESTIONS) { const a = status(s, q); assert.ok(a.status === 'available' || (a.reason.en && a.reason.zh), `${q} ${JSON.stringify(s)}`); }
 });
 

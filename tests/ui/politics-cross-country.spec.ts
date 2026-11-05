@@ -267,6 +267,9 @@ for (const locale of ["en", "zh-CN"] as const) test(`research deep link: Poland 
   const box = panel.locator('[data-research-case="el-pl-sejm-2023-10-15"]');
   await expect(box).toHaveAttribute("data-research-case-status", "documented");
   await expect(box.locator("[data-research-case-row]")).toHaveCount(5);
+  // The selection's gap is named, so it is not read as a gap in the inspected election.
+  await expect(panel.locator('[data-research-availability="partial"]')).toContainText(locale === "en" ? "Czechia 2025" : "捷克 2025");
+  await expect(panel.locator('[data-research-availability="partial"]')).toContainText(locale === "en" ? "Poland 2023" : "波兰 2023");
   const hicp = box.locator('[data-research-case-row="hicp_inflation"]');
   await expect(hicp.locator("[data-research-case-released]")).toContainText("9.5");
   await expect(hicp.locator("[data-research-case-released]")).toContainText("2023-08");

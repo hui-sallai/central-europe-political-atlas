@@ -437,6 +437,16 @@ export function researchFindings(results: ResearchResults, elections: PoliticalE
 }
 
 // Availability ---------------------------------------------------------------------------------------------------------
+/** Says which figures and elections lack a release, so a gap elsewhere in the selection is not read as a gap in the inspected election. */
+function releasedCoverage(gaps: ReleasedComparison[], unread: number, inspected: AsOfCase | null): Text {
+  const named = (x: ReleasedComparison, zh: boolean) => `${COUNTRY[x.country][zh ? "zh" : "en"]} ${x.electionDate.slice(0, 4)}${zh ? "：" : ", "}${INDICATOR[x.indicator][zh ? "zh" : "en"]}`;
+  const parts: Text[] = [];
+  if (gaps.length) parts.push({ en: `${gaps.length === 1 ? "1 selected figure has no located release and stays" : `${gaps.length} selected figures have no located release and stay`} not established (${gaps.map((x) => named(x, false)).join("; ")}).`, zh: `所选范围中有 ${gaps.length} 个数字未找到发布记录，保持未确定（${gaps.map((x) => named(x, true)).join("；")}）。` });
+  if (unread) parts.push({ en: `${unread === 1 ? "1 selected election has" : `${unread} selected elections have`} no dated releases, because they have been read only for the latest election in each country.`, zh: `所选范围中有 ${unread} 届选举没有注明日期的发布，因为目前只查阅了每个国家最近一届选举。` });
+  if (inspected?.status === "documented") parts.push({ en: `${COUNTRY[inspected.country].en} ${inspected.electionDate.slice(0, 4)}, inspected below, has a dated release for every selected figure.`, zh: `下方查看的${COUNTRY[inspected.country].zh} ${inspected.electionDate.slice(0, 4)} 年选举，每个所选数字都有注明日期的发布。` });
+  return { en: parts.map((p) => p.en).join(" "), zh: parts.map((p) => p.zh).join("") };
+}
+
 export type QuestionAvailability = { status: "available" | "partial" | "unavailable"; reason: Text | null };
 /** Each question reports what the selected evidence allows, so an empty table always has a stated reason. */
 export function researchAvailability(results: ResearchResults): Record<ResearchQuestion, QuestionAvailability> {
@@ -449,12 +459,13 @@ export function researchAvailability(results: ResearchResults): Record<ResearchQ
     : { en: "The selection holds no two neighbouring elections in one country. An unselected election is not bridged.", zh: "所选范围内没有同一国家的两届相邻选举。不会跨越未选中的选举。" };
   const calculated = b.filter((x) => x.status === "calculated").length;
   const coefficients = c.associations.filter((x) => x.status === "coefficient").length, directions = c.associations.filter((x) => x.status === "direction_only").length;
-  const documented = d.released.filter((x) => x.status === "documented").length, gaps = d.released.length - documented;
+  const documented = d.released.filter((x) => x.status === "documented").length, gaps = d.released.filter((x) => x.status !== "documented");
+  const unread = selection.electionIds.filter((id) => !d.released.some((x) => x.electionId === id)).length;
   return {
-    A: !a.measures.length ? none({ en: "No selected election has a figure in this view.", zh: "所选选举在此视图中没有数字。" }) : a.gaps.length ? partial({ en: `${a.gaps.length} selected figures have no observation in this view and stay empty.`, zh: `所选范围中有 ${a.gaps.length} 个数字在此视图中没有观测，保持为空。` }) : ok,
+    A: !a.measures.length ? none({ en: "No selected election has a figure in this view.", zh: "所选选举在此视图中没有数字。" }) : a.gaps.length ? partial({ en: `${a.gaps.length === 1 ? "1 selected figure has no observation in this view and stays empty." : `${a.gaps.length} selected figures have no observation in this view and stay empty.`}`, zh: `所选范围中有 ${a.gaps.length} 个数字在此视图中没有观测，保持为空。` }) : ok,
     B: !b.length ? none(noPair) : !calculated ? none(selection.view === "released_before_election" ? { en: "Released figures cover only the latest election in each country, so no change between elections can use them.", zh: "已发布数字只覆盖每个国家最近一届选举，因此选举之间的变化无法使用。" } : { en: "No indicator has the identical measure at both elections of a pair.", zh: "没有指标在相邻两届选举中具有相同度量。" }) : calculated < b.length ? partial({ en: `${b.length - calculated} of ${b.length} changes are withheld. The table gives each reason.`, zh: `${b.length} 个变化中有 ${b.length - calculated} 个未计算，表格列出原因。` }) : ok,
     C: !c.pairs.length ? none(noPair) : coefficients ? ok : directions ? partial({ en: `No selected country has the ${MIN_PAIRS_FOR_COEFFICIENT} pairs a coefficient needs, so only direction counts appear.`, zh: `所选国家都不足 ${MIN_PAIRS_FOR_COEFFICIENT} 组，无法计算系数，因此只显示方向计数。` }) : none({ en: "No pair has both a macroeconomic change and a turnout or verified list change in this view.", zh: "在此视图中，没有一组同时具有宏观变化和投票率或已核实名单变化。" }),
-    D: !documented ? none({ en: "No selected election has dated releases. They have been read only for the latest election in each country.", zh: "所选选举都没有注明日期的发布。目前只查阅了每个国家最近一届选举。" }) : gaps ? partial({ en: `${gaps} selected figures have no located release and stay not established.`, zh: `所选范围中有 ${gaps} 个数字未找到发布记录，保持未确定。` }) : ok,
+    D: !documented ? none({ en: "No selected election has dated releases. They have been read only for the latest election in each country.", zh: "所选选举都没有注明日期的发布。目前只查阅了每个国家最近一届选举。" }) : gaps.length || unread ? partial(releasedCoverage(gaps, unread, results.asOf)) : ok,
   };
 }
 
