@@ -38,6 +38,10 @@ export function missingFromSchema(xsd) {
   return names.filter((name) => !new RegExp(`name=["']${name}["']`).test(xsd));
 }
 
+// Single-pass entity decoding (no double unescaping: "&amp;lt;" stays "&lt;"); same entity set as before.
+const ENTITIES = { "&amp;": "&", "&quot;": '"', "&lt;": "<", "&gt;": ">", "&apos;": "'" };
+const decodeEntities = (value) => value.replace(/&(?:amp|quot|lt|gt|apos);/g, (entity) => ENTITIES[entity]);
+
 /** Minimal XML scanner: elements with attributes and parent path. Text content is not needed here. */
 export function scanXml(xml) {
   const out = [], stack = [];
@@ -45,7 +49,7 @@ export function scanXml(xml) {
     const [, closing, name, attrText, selfClosing] = match;
     if (name.startsWith("?") || name.startsWith("!")) continue;
     if (closing) { stack.pop(); continue; }
-    const attributes = Object.fromEntries([...attrText.matchAll(/([\w.-]+)\s*=\s*"([^"]*)"/g)].map(([, key, value]) => [key, value.replaceAll("&amp;", "&").replaceAll("&quot;", '"').replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&apos;", "'")]));
+    const attributes = Object.fromEntries([...attrText.matchAll(/([\w.-]+)\s*=\s*"([^"]*)"/g)].map(([, key, value]) => [key, decodeEntities(value)]));
     out.push({ name, attributes, path: [...stack] });
     if (!selfClosing) stack.push(name);
   }

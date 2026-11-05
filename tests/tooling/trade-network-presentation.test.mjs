@@ -119,7 +119,9 @@ test('CSV excludes invalid groups; preserves missing, raw units, definitions, so
  assert.ok(missing.includes('"germany_share","","fraction (0–1)","missing_not_zero"'));
  assert.ok(csv.includes(String(find('hungary',2025).metrics.weighted_trade_volume)));
  for(const field of ['source_url','coverage_threshold','schema_version','pack_generated_at','data_provenance'])assert.ok(csv.includes(field));
- assert.ok(csv.includes('https://comtradeplus.un.org/'));
+ const [head,...dataRows]=csv.split('\r\n');const urlColumn=head.split(',').indexOf('source_url');
+ assert.ok(urlColumn>=0);
+ for(const row of dataRows){const cells=[...row.matchAll(/"((?:[^"]|"")*)"/g)].map(m=>m[1]);assert.equal(cells.length,head.split(',').length);assert.equal(new URL(cells[urlColumn]).hostname,'comtradeplus.un.org');}
 });
 test('CSV neutralizes string formulas without changing canonical records',()=>{
  const g=structuredClone(find('hungary',2025));g.reporter='=formula';g.metrics.country=g.reporter;g.coverage.reporter_country=g.reporter;

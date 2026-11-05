@@ -19,6 +19,11 @@ test('the builder refuses to read the results unless the official XSD declares e
   assert.ok(STRUCTURE.list.attributes.includes('KSTRANA'));
 });
 
+test('attribute entities are decoded once, so escaped text is never decoded twice', () => {
+  const [el] = scanXml('<STRANA NAZ_STR="A &amp; B &lt;C&gt; &quot;D&quot; &apos;E&apos; &amp;lt;F&amp;gt; &amp;amp;"/>');
+  assert.equal(el.attributes.NAZ_STR, `A & B <C> "D" 'E' &lt;F&gt; &amp;`);
+});
+
 test('national totals: published values kept, regional rows used only for official seat sums', () => {
   const c = nationalCandidate(scanXml(xml));
   assert.equal(c.turnout.valid_votes, 690);
