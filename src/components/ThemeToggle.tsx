@@ -45,6 +45,3 @@ export function ThemeToggle() {
     </button>
   );
 }
-
-// Runs before hydration (inlined in <head>): resolve the stored preference or the system setting.
-export const themeBootScript = `(function(){try{var p=localStorage.getItem("${KEY}");var d=p==="dark"||(p!=="light"&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.dataset.theme=d?"dark":"light";}catch(e){}})();`;

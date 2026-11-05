@@ -2301,6 +2301,35 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-06"
+    },
+    {
+      "amendment_id": "theme-boot-hydration-2026-11-06",
+      "status": "owner_approved",
+      "approved_by": "owner reply 2026-11-06: move the theme boot script out of the client ThemeToggle module so <head> no longer hydrates from a client-chunk reference (intermittent React #418)",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/LocaleDocument.tsx",
+          "sha256": "7ba0d5534eefd4aa8672415f65bbbfa2d26c86a63ccdb69dbd6c21a698da95d3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ThemeToggle.tsx",
+          "sha256": "d457c8a1bbe0df3868d03d1f8e7361c989bf970b48c4c0df43c7b222e53bbf34",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/themeBoot.ts",
+          "sha256": "36466823d32ba64014c75c4bb215abf962b72ffa70197891d3890f9d56feca2f",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-06"
     }
   ]
 }
