@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { englishText } from "@/i18n/reviewedText";
 import { formatWithUnit } from "@/lib/format";
@@ -11,6 +11,7 @@ import { attachOverlappingEvents, buildLineSegments, computeEventWindow, type Hi
 import { NotebookCollect } from "@/components/NotebookCollect";
 import type { Event } from "@/types/Event";
 import type { EventWindowResult } from "@/types/EventWindow";
+import { compareEventMechanisms, eventMechanismCsv, eventMechanismDigest, eventMechanismEvidence, type EventMechanismRecord, type WindowSummary } from "@/lib/eventMechanismResearch";
 
 // End-to-end case-study dossier for a reviewed event. Documentary content comes from eventCaseStudies.ts and the event's
 // analysis record; every number comes from published Atlas observations, and every monthly window is computed by the
@@ -73,7 +74,7 @@ function AnnualChart({ points, eventYear, label }: { points: Array<{ year: numbe
   );
 }
 
-export function EventCaseStudy({ event, events, series, loadState }: { event: Event; events: Event[]; series: HighFrequencyPoint[]; loadState: "loading" | "ready" | "error" }) {
+export function EventCaseStudy({ event, events, series, loadState, mechanisms = [] }: { event: Event; events: Event[]; series: HighFrequencyPoint[]; loadState: "loading" | "ready" | "error"; mechanisms?: EventMechanismRecord[] }) {
   const en = useLocale() === "en";
   const t = (text: Bi) => (en ? text.en : text.zh);
   const study = getEventCaseStudy(event.event_id);
@@ -99,6 +100,28 @@ export function EventCaseStudy({ event, events, series, loadState }: { event: Ev
 
   // Overlapping verified events: the same engine function, over the same ±12-month window, even when no monthly series is linked.
   const overlaps = useMemo(() => monthly?.result.overlapping_events ?? attachOverlappingEvents(computeEventWindow(event, [], { preMonths: 12, postMonths: 12 }), events).overlapping_events, [monthly, event, events]);
+
+  // E1: the window summary enters the export from the same engine result shown above, so the export matches the page.
+  const windowSummary = useMemo((): WindowSummary | null => {
+    const r = monthly?.result;
+    if (!study?.window || !r || r.gate === "insufficient_data") return null;
+    const c = monthly?.comparisonResult, x = monthly?.externalResult;
+    return { outcome: study.window.outcome, gate: r.gate, eventPeriod: r.event_period, preMean: r.pre_period_mean, eventValue: r.event_period_value, postMean: r.post_period_mean, change: r.absolute_change_pre_to_post, pre: r.pre_observations, post: r.post_observations, missing: r.missing_periods, definition: monthly?.definition ?? null, traceIds: [...r.data_trace].sort(), comparison: c && c.gate !== "insufficient_data" ? { country: study.window.comparison!.country, preMean: c.pre_period_mean, postMean: c.post_period_mean, change: c.absolute_change_pre_to_post } : null, external: x && x.gate !== "insufficient_data" ? { outcome: study.window.external!.outcome, preMean: x.pre_period_mean, postMean: x.post_period_mean, change: x.absolute_change_pre_to_post } : null, sourceUrl: study.window.source.url };
+  }, [study, monthly]);
+  const mechanism = mechanisms.find((m) => m.event_id === event.event_id) ?? null;
+  const comparison = useMemo(() => (mechanisms.length > 1 ? compareEventMechanisms([...mechanisms].sort((a, b) => a.event_id.localeCompare(b.event_id))) : null), [mechanisms]);
+  const windows = useMemo(() => (windowSummary ? { [event.event_id]: windowSummary } : {}), [windowSummary, event.event_id]);
+  const [digest, setDigest] = useState<string | null>(null);
+  function download(content: string, name: string, type: string) {
+    const url = URL.createObjectURL(new Blob([content], { type }));
+    const a = document.createElement("a"); a.href = url; a.download = name; a.click(); URL.revokeObjectURL(url);
+  }
+  async function exportJson() {
+    const evidence = eventMechanismEvidence(mechanisms, windows);
+    const sha = await eventMechanismDigest(evidence);
+    setDigest(sha);
+    download(JSON.stringify({ evidence_sha256: sha, evidence }, null, 2), "event-mechanism-research.json", "application/json");
+  }
 
   const focused = useRef(false);
   useEffect(() => {
@@ -276,6 +299,45 @@ export function EventCaseStudy({ event, events, series, loadState }: { event: Ev
             <p className="text-xs text-[var(--muted)]">{en ? "Saves the case link, its configuration and source references. It is a live research link, not a frozen historical result." : "保存案例链接、配置与来源引用。这是实时研究链接，不是冻结的历史结果。"}</p>
           </div>
         </Section>
+        {mechanism ? <Section id="mechanism-research" n={10} title={en ? "Structured research chain and comparison (E1)" : "结构化研究链条与比较（E1）"}>
+          <div data-e1-record={mechanism.case_id}>
+            <p className="text-xs text-[var(--muted)]">{en ? "A · Event" : "A · 事件"}</p>
+            <p data-e1-event><span className="font-semibold">{t(mechanism.event.responsible.institution)}</span> · {mechanism.event.responsible.primary_source_kind === "company_statement" ? (en ? "company statement (not an official public record)" : "企业声明（不是官方公共记录）") : (en ? "official EU publication" : "欧盟官方发布")} · <a href={mechanism.event.responsible.primary_source_url} target="_blank" rel="noreferrer" className="text-[var(--accent)] underline">{en ? "primary source" : "主要来源"} ↗</a></p>
+            <p className="text-xs">{t(mechanism.event.responsible.decision)}</p>
+          </div>
+          <div>
+            <p className="text-xs text-[var(--muted)]">{en ? "B · Mechanism: institutions and conditions" : "B · 机制：相关机构与条件"}</p>
+            <ul className="list-disc pl-5">{mechanism.mechanism.institutions.map((x) => <li key={x.en}>{t(x)}</li>)}</ul>
+            <ul className="mt-2 grid gap-1" data-e1-conditions>{mechanism.mechanism.conditions.map((c) => <li key={c.condition.en} data-e1-condition={c.status}><span className={`mr-2 text-xs font-semibold ${c.status === "documented" ? "text-[var(--accent)]" : "text-[var(--muted)]"}`}>{c.status === "documented" ? (en ? "Documented" : "有记录") : (en ? "Not documented" : "无记录")}</span>{t(c.condition)}</li>)}</ul>
+          </div>
+          <div>
+            <p className="text-xs text-[var(--muted)]">{en ? "C · Indicators not held" : "C · 未掌握的指标"}</p>
+            <ul className="list-disc pl-5" data-e1-missing>{mechanism.indicators.missing.map((x) => <li key={x.en}>{t(x)}</li>)}</ul>
+            {mechanism.political.interval ? <p className="mt-2" data-e1-interval>{en ? `Between the admitted ${mechanism.political.interval.fromDate.slice(0, 4)} and ${mechanism.political.interval.toDate.slice(0, 4)} elections (the event is ${mechanism.political.interval.monthsAfterFrom} months after the first and ${mechanism.political.interval.monthsBeforeTo} months before the second).` : `位于已准入的 ${mechanism.political.interval.fromDate.slice(0, 4)} 年与 ${mechanism.political.interval.toDate.slice(0, 4)} 年选举之间（事件在前一届之后 ${mechanism.political.interval.monthsAfterFrom} 个月、后一届之前 ${mechanism.political.interval.monthsBeforeTo} 个月）。`} <a href={`${en ? "/en" : ""}${mechanism.political.interval.studyPath}`} className="text-[var(--accent)] underline">{en ? "Open the election research case" : "打开选举研究案例"}</a></p> : null}
+          </div>
+          <div>
+            <p className="text-xs text-[var(--muted)]">{en ? "D · Evidence assessment" : "D · 证据评估"}</p>
+            <div className="grid gap-3 sm:grid-cols-2" data-e1-assessment>
+              {([["documented", en ? "Directly documented" : "直接有记录", mechanism.assessment.documented], ["contemporaneous", en ? "Only contemporaneous" : "仅为同期", mechanism.assessment.contemporaneous], ["hypothesis", en ? "Research hypothesis" : "研究假设", mechanism.assessment.hypotheses], ["causality", en ? "Needed to establish causality" : "确立因果所需", mechanism.assessment.causalityRequirements]] as Array<[string, string, Bi[]]>).map(([key, label, items]) => <div key={key} data-e1-assessment-kind={key}><p className="font-semibold">{label}</p><ul className="list-disc pl-5">{items.map((x) => <li key={x.en}>{t(x)}</li>)}</ul></div>)}
+            </div>
+          </div>
+          {comparison ? <div>
+            <p className="text-xs text-[var(--muted)]">{en ? "E · Comparison across the reviewed cases" : "E · 已审阅案例之间的比较"}</p>
+            <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={en ? "Comparison of cases (scrollable)" : "案例比较（可横向滚动）"}>
+              <table className="research-data-table min-w-[720px] text-left text-xs" data-e1-comparison>
+                <thead><tr><th className="px-2 py-1">{en ? "Dimension" : "维度"}</th>{Object.keys(comparison.rows[0].values).map((id) => <th key={id} className="px-2 py-1">{t(mechanisms.find((m) => m.event_id === id)!.event.title)}</th>)}</tr></thead>
+                <tbody>{comparison.rows.map((row) => <tr key={row.key} data-e1-dimension={row.key}><th scope="row" className="px-2 py-1 font-normal">{t(row.label)}{row.note ? <span className="block text-[var(--muted)]">{t(row.note)}</span> : null}</th>{Object.entries(row.values).map(([id, v]) => <td key={id} className="px-2 py-1">{v}</td>)}</tr>)}</tbody>
+              </table>
+            </div>
+            <ul className="mt-2 list-disc pl-5" data-e1-findings>{comparison.findings.map((f) => <li key={f.en}>{t(f)}</li>)}</ul>
+          </div> : null}
+          <div className="flex flex-wrap items-center gap-4">
+            <button type="button" className="underline" data-e1-export-json onClick={() => void exportJson()}>{en ? "Export the research chains (JSON)" : "导出研究链条（JSON）"}</button>
+            <button type="button" className="underline" data-e1-export-csv onClick={() => download(eventMechanismCsv(mechanisms, windows), "event-mechanism-research.csv", "text/csv;charset=utf-8")}>{en ? "Export the research chains (CSV)" : "导出研究链条（CSV）"}</button>
+            {digest ? <span className="break-all text-xs" data-e1-digest>SHA-256: {digest}</span> : null}
+          </div>
+          <p className="text-xs text-[var(--muted)]">{en ? "Both cases in one export, each record naming its sources in a shared index. The monthly window enters only for the case shown, from the engine result above. Nothing here estimates an event effect." : "两个案例在同一导出文件中，每条记录都在共享索引中注明来源。月度窗口只计入当前显示的案例，取自上方的引擎结果。这里不估计任何事件效应。"}</p>
+        </Section> : null}
       </div>
     </article>
   );

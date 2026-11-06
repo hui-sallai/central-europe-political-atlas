@@ -68,7 +68,7 @@ export type CaseCountrySummary = {
 export type CaseDirection = { indicator: ElectionMacroIndicator; pairs: number; same: number; opposite: number; withoutCountry: { country: string; pairs: number; same: number; opposite: number }[] };
 export type CaseVintageRow = { country: string; electionId: string; electionDate: string; indicator: ElectionMacroIndicator; released: { period: string; frequency: string; value: number; unit: string; publishedOn: string; flashEstimate: boolean | null; sourceUrl: string | null } | null; reason: string | null; lastCompleteYear: { period: string | null; value: number | null }; relation: string; revision: number | null };
 export type CaseModelVintage = { electionId: string; country: string; modelId: CaseModelId; currentScore: number | null; currentYear: number; releasedScore: number | null; releasedPeriod: string | null; samePeriod: boolean | null; difference: number | null; status: string; reason: string | null };
-export type CaseContextElection = { country: string; electionId: string; date: string; turnout: number | null; turnoutComputed: boolean; observations: { indicator: ElectionMacroIndicator; period: string | null; value: number | null; status: string }[]; models: { modelId: CaseModelId; year: number; score: number | null }[]; reason: Text };
+export type CaseContextElection = { country: string; electionId: string; date: string; turnout: number | null; turnoutComputed: boolean; observations: { indicator: ElectionMacroIndicator; period: string | null; value: number | null; status: string; frequency: string | null; dataset: string | null; layer: string | null; source: string | null; sourceUrl: string | null; measureKey: string | null }[]; models: { modelId: CaseModelId; year: number; score: number | null }[]; reason: Text };
 export type CaseComparability = { country: string; elections: number; family: string; allocation: string[]; turnoutBasis: string; seatScope: string[]; note: Text };
 
 function viewChange(c: SuccessiveChange): CaseViewChange {
@@ -147,7 +147,7 @@ export function runResearchCase(elections: PoliticalElectionView[], points: Cont
     const all = runComparativeResearch({ countries: [countryOf(e)], view: "last_complete_year" }, elections, points, links);
     return {
       country: countryOf(e), electionId: e.electionId, date: e.date, turnout: t.value, turnoutComputed: t.computed,
-      observations: RESEARCH_CASE.indicators.map((indicator) => { const o = all.allViewObservations.find((x) => x.electionId === e.electionId && x.indicator === indicator && x.view === "last_complete_year"); return { indicator, period: o?.period ?? null, value: o?.value ?? null, status: o?.status ?? "missing" }; }),
+      observations: RESEARCH_CASE.indicators.map((indicator) => { const o = all.allViewObservations.find((x) => x.electionId === e.electionId && x.indicator === indicator && x.view === "last_complete_year"); return { indicator, period: o?.period ?? null, value: o?.value ?? null, status: o?.status ?? "missing", frequency: o?.frequency ?? null, dataset: o?.dataset ?? null, layer: o?.layer ?? null, source: o?.source ?? null, sourceUrl: o?.sourceUrl ?? null, measureKey: o?.measureKey ?? null }; }),
       models: MODEL_IDS.map((id) => { const m = model(e.electionId, id); return { modelId: id, year: m?.inputYear ?? Number(electionPeriods(e.date).lastComplete), score: m?.score ?? null }; }),
       reason: { en: "One admitted election, so there is no change between elections. Shown as context only.", zh: "只有一届已准入选举，因此没有选举之间的变化。仅作背景。" },
     };
@@ -161,7 +161,7 @@ export function runResearchCase(elections: PoliticalElectionView[], points: Cont
 
   const withheld = pairs.flatMap((p) => p.indicators.flatMap((i) => i.primary.status === "withheld" ? [{ country: p.country, fromElection: p.fromElection, toElection: p.toElection, indicator: i.indicator, reason: i.primary.reason }] : []));
   const modelGaps = pairs.flatMap((p) => p.models.filter((m) => m.status === "unavailable").map((m) => ({ country: p.country, fromElection: p.fromElection, toElection: p.toElection, modelId: m.modelId, reason: m.reason })));
-  return { protocol: RESEARCH_CASE, elections: scoped, primary, sensitivity, pairs, countries, direction, vintage, modelVintage, context, comparability, missing: { withheld, modelGaps, noVerifiedIdentity: pairs.filter((p) => p.lists.verifiedShareMovement === null).map((p) => `${p.fromElection} → ${p.toElection}`) } };
+  return { protocol: RESEARCH_CASE, elections: scoped, allElections: elections, modelObservations: models, primary, sensitivity, pairs, countries, direction, vintage, modelVintage, context, comparability, missing: { withheld, modelGaps, noVerifiedIdentity: pairs.filter((p) => p.lists.verifiedShareMovement === null).map((p) => `${p.fromElection} → ${p.toElection}`) } };
 }
 export type ResearchCaseResult = ReturnType<typeof runResearchCase>;
 
@@ -194,6 +194,40 @@ export function researchCaseFindings(r: ResearchCaseResult): Text[] {
   return out;
 }
 
+// Source index ---------------------------------------------------------------------------------------------------------
+// Every exported record names the source records it rests on, by an id that resolves to one entry of the index. Ids are
+// built from the records themselves (election source id, Eurostat dataset and data layer, release checksum, model input
+// observation id), so the same data always give the same index.
+export type CaseSource = { id: string; kind: "election_source" | "macro_series" | "dated_release" | "model_input"; institution: string | null; title: string | null; url: string | null; sha256: string | null; date: string | null; detail: string | null };
+const macroId = (o: { country: string; indicator: string; frequency: string | null; dataset: string | null; layer: string | null }) => `macro:${o.country}:${o.indicator}:${o.frequency}:${o.dataset}:${o.layer}`;
+
+export function researchCaseSources(r: ResearchCaseResult) {
+  const index = new Map<string, CaseSource>();
+  const add = (x: CaseSource) => { if (!index.has(x.id)) index.set(x.id, x); return x.id; };
+  const electionOf = (id: string) => r.allElections.find((e) => e.electionId === id)!;
+  const electionSources = (id: string, ids: string[]) => { const e = electionOf(id); return ids.flatMap((sid) => { const x = e.sources.find((y) => y.id === sid); return x ? [add({ id: x.id, kind: "election_source", institution: x.institution ?? null, title: x.title, url: x.url, sha256: x.sha256 ?? null, date: x.retrievedAt ?? null, detail: null })] : []; }); };
+  const turnoutRefs = (id: string) => { const e = electionOf(id); return electionSources(id, e.national?.turnout.sourceIds.length ? e.national.turnout.sourceIds : e.sources.map((x) => x.id)); };
+  const resultRefs = (id: string) => electionSources(id, [...new Set(electionOf(id).results.map((x) => x.sourceId))]);
+  const ruleRefs = (id: string) => { const e = electionOf(id); return electionSources(id, e.national?.rules.sourceIds.length ? e.national.rules.sourceIds : e.sources.map((x) => x.id)); };
+  const obs = (electionId: string, indicator: string, view: string) => r.primary.allViewObservations.find((o) => o.electionId === electionId && o.indicator === indicator && o.view === view) ?? r.sensitivity.allViewObservations.find((o) => o.electionId === electionId && o.indicator === indicator && o.view === view);
+  const macroRefs = (electionId: string, indicator: string, view: string) => { const o = obs(electionId, indicator, view); if (!o || o.status !== "observed") return []; if (o.vintage === "dated_release") return [add({ id: `release:${o.releaseSha256}`, kind: "dated_release", institution: "Eurostat", title: o.source, url: o.sourceUrl, sha256: o.releaseSha256, date: o.publishedOn, detail: o.measureKey })]; return [add({ id: macroId(o), kind: "macro_series", institution: "Eurostat", title: o.source, url: o.sourceUrl, sha256: null, date: null, detail: o.measureKey })]; };
+  const modelRefs = (electionId: string, modelId: string, released = false) => { const m = r.modelObservations.find((x) => x.electionId === electionId && x.modelId === modelId); if (!m) return []; if (released) return m.released.inputs.map((i) => add({ id: `release-input:${m.electionId}:${i.indicator}:${i.period}`, kind: "dated_release", institution: "Eurostat", title: `${i.indicator} ${i.period}`, url: i.sourceUrl, sha256: null, date: i.publishedOn, detail: `${m.modelId} ${m.formulaVersion}` })); return m.inputs.map((i) => add({ id: `model-input:${i.observationId}`, kind: "model_input", institution: null, title: `${i.indicator} ${i.year}`, url: i.sourceUrl, sha256: null, date: null, detail: `${m.modelId} ${m.formulaVersion} ${m.weightVersion}` })); };
+  const uniq = (ids: string[]) => [...new Set(ids)].sort();
+  const pairs = r.pairs.map((p) => ({
+    from_election: p.fromElection, to_election: p.toElection,
+    turnout: uniq([...turnoutRefs(p.fromElection), ...turnoutRefs(p.toElection)]),
+    lists: uniq([...resultRefs(p.fromElection), ...resultRefs(p.toElection)]),
+    rules: uniq([...ruleRefs(p.fromElection), ...ruleRefs(p.toElection)]),
+    indicators: Object.fromEntries(p.indicators.map((i) => [i.indicator, { last_complete_year: uniq([...macroRefs(p.fromElection, i.indicator, "last_complete_year"), ...macroRefs(p.toElection, i.indicator, "last_complete_year")]), election_calendar_year: uniq([...macroRefs(p.fromElection, i.indicator, "election_calendar_year"), ...macroRefs(p.toElection, i.indicator, "election_calendar_year")]) }])),
+    models: Object.fromEntries(p.models.map((m) => [m.modelId, uniq([...modelRefs(p.fromElection, m.modelId), ...modelRefs(p.toElection, m.modelId)])])),
+  }));
+  const vintage = r.vintage.map((v) => ({ election_id: v.electionId, indicator: v.indicator, refs: uniq([...macroRefs(v.electionId, v.indicator, "released_before_election"), ...macroRefs(v.electionId, v.indicator, "last_complete_year")]) }));
+  const modelVintage = r.modelVintage.map((m) => ({ election_id: m.electionId, model: m.modelId, refs: uniq([...modelRefs(m.electionId, m.modelId), ...modelRefs(m.electionId, m.modelId, true)]) }));
+  // Context elections sit outside the primary run; their observations carry their own source fields.
+  const context = r.context.flatMap((c) => c.observations.map((o) => ({ election_id: c.electionId, indicator: o.indicator, refs: o.status === "observed" ? [add({ id: macroId({ country: c.country, indicator: o.indicator, frequency: o.frequency, dataset: o.dataset, layer: o.layer }), kind: "macro_series", institution: "Eurostat", title: o.source, url: o.sourceUrl, sha256: null, date: null, detail: o.measureKey })] : [] })));
+  return { index: [...index.values()].sort((a, b) => a.id.localeCompare(b.id)), pairs, vintage, model_vintage: modelVintage, context };
+}
+
 /** Everything the result rests on, in a fixed order, so the same data always give the same bytes and digest. */
 export function researchCaseEvidence(r: ResearchCaseResult) {
   return {
@@ -203,6 +237,7 @@ export function researchCaseEvidence(r: ResearchCaseResult) {
     observations: r.primary.allViewObservations,
     pairs: r.pairs, countries: r.countries, direction: r.direction, vintage: r.vintage, model_vintage: r.modelVintage, context: r.context, comparability: r.comparability, missing: r.missing,
     findings: researchCaseFindings(r),
+    source_index: researchCaseSources(r),
   };
 }
 export async function researchCaseDigest(evidence: ReturnType<typeof researchCaseEvidence>) {
@@ -210,22 +245,26 @@ export async function researchCaseDigest(evidence: ReturnType<typeof researchCas
   return [...new Uint8Array(bytes)].map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-const HEADER = ["record_type", "country", "election_id", "comparison_election_id", "indicator_or_model", "view", "period", "comparison_period", "value", "comparison_value", "difference", "unit", "status", "reason", "note"];
+const HEADER = ["record_type", "country", "election_id", "comparison_election_id", "indicator_or_model", "view", "period", "comparison_period", "value", "comparison_value", "difference", "unit", "status", "reason", "note", "source_refs", "method_version"];
 /** One flat table of the case. value is the later or released figure and comparison_value the earlier or current one, as each note says. */
 export function researchCaseCsv(r: ResearchCaseResult): string {
   const cell = (v: unknown) => { const x = String(v ?? ""); return `"${(typeof v === "string" && /^[=+\-@\t\r]/.test(x) ? `'${x}` : x).replaceAll('"', '""')}"`; };
   const rows: unknown[][] = [];
+  const src = researchCaseSources(r);
+  const refs = (ids: string[]) => ids.join("; ");
+  const pairRefs = (p: CasePair) => src.pairs.find((x) => x.from_election === p.fromElection && x.to_election === p.toElection)!;
   for (const p of r.pairs) {
-    rows.push(["turnout_change", p.country, p.toElection, p.fromElection, "turnout", "", p.toDate, p.fromDate, p.turnout.toTurnout, p.turnout.fromTurnout, p.turnout.change, "percentage points", p.turnout.status, p.turnout.reason, p.turnout.basis]);
-    rows.push(["verified_list_movement", p.country, p.toElection, p.fromElection, "verified lists", "", "", "", p.lists.verifiedShareMovement, "", "", "percentage points", p.lists.verifiedShareMovement === null ? "withheld" : "calculated", p.lists.verifiedShareMovement === null ? "no_verified_unit_in_both_elections" : "", `${p.lists.identityBasis}; units ${p.lists.units}; covered share ${p.lists.coveredShareFrom} to ${p.lists.coveredShareTo}`]);
-    rows.push(["seat_rules", p.country, p.toElection, p.fromElection, "seat allocation", "", "", "", p.rules.toAllocation, p.rules.fromAllocation, "", "", p.rules.rulesChanged ? "rules_changed" : "rules_unchanged", "", `base seats ${p.rules.fromBaseSeats} to ${p.rules.toBaseSeats}; seat scope ${p.rules.seatScopeFrom} to ${p.rules.seatScopeTo}`]);
-    for (const i of p.indicators) for (const v of [i.primary, i.sensitivity]) rows.push(["indicator_change", p.country, p.toElection, p.fromElection, i.indicator, v.view, v.toPeriod, v.fromPeriod, v.toValue, v.fromValue, v.change, v.unit, v.status, v.reason, `${v.view === "election_calendar_year" ? "includes months after polling day; " : ""}sign agreement ${i.signAgreement}; direction with turnout ${v === i.primary ? i.directionWithTurnout ?? "n/a" : "see sensitivity counts"}${v.crossesDataLayer ? "; crosses data layers" : ""}${v.pathObserved !== null ? `; inter-election mean ${v.pathMean} (${v.pathObserved} of ${v.pathExpected} periods)` : ""}`]);
-    for (const m of p.models) rows.push(["model_change", p.country, p.toElection, p.fromElection, m.modelId, "last_complete_year", String(m.toYear), String(m.fromYear), m.toScore, m.fromScore, m.change, "index 0-100", m.status, m.reason, "descriptive context; does not measure voting intention"]);
+    rows.push(["turnout_change", p.country, p.toElection, p.fromElection, "turnout", "", p.toDate, p.fromDate, p.turnout.toTurnout, p.turnout.fromTurnout, p.turnout.change, "percentage points", p.turnout.status, p.turnout.reason, p.turnout.basis, refs(pairRefs(p).turnout)]);
+    rows.push(["verified_list_movement", p.country, p.toElection, p.fromElection, "verified lists", "", "", "", p.lists.verifiedShareMovement, "", "", "percentage points", p.lists.verifiedShareMovement === null ? "withheld" : "calculated", p.lists.verifiedShareMovement === null ? "no_verified_unit_in_both_elections" : "", `${p.lists.identityBasis}; units ${p.lists.units}; covered share ${p.lists.coveredShareFrom} to ${p.lists.coveredShareTo}`, refs(pairRefs(p).lists)]);
+    rows.push(["seat_rules", p.country, p.toElection, p.fromElection, "seat allocation", "", "", "", p.rules.toAllocation, p.rules.fromAllocation, "", "", p.rules.rulesChanged ? "rules_changed" : "rules_unchanged", "", `base seats ${p.rules.fromBaseSeats} to ${p.rules.toBaseSeats}; seat scope ${p.rules.seatScopeFrom} to ${p.rules.seatScopeTo}`, refs(pairRefs(p).rules)]);
+    for (const i of p.indicators) for (const v of [i.primary, i.sensitivity]) rows.push(["indicator_change", p.country, p.toElection, p.fromElection, i.indicator, v.view, v.toPeriod, v.fromPeriod, v.toValue, v.fromValue, v.change, v.unit, v.status, v.reason, `${v.view === "election_calendar_year" ? "includes months after polling day; " : ""}sign agreement ${i.signAgreement}; direction with turnout ${v === i.primary ? i.directionWithTurnout ?? "n/a" : "see sensitivity counts"}${v.crossesDataLayer ? "; crosses data layers" : ""}${v.pathObserved !== null ? `; inter-election mean ${v.pathMean} (${v.pathObserved} of ${v.pathExpected} periods)` : ""}`, refs(pairRefs(p).indicators[i.indicator][v.view as "last_complete_year" | "election_calendar_year"])]);
+    for (const m of p.models) rows.push(["model_change", p.country, p.toElection, p.fromElection, m.modelId, "last_complete_year", String(m.toYear), String(m.fromYear), m.toScore, m.fromScore, m.change, "index 0-100", m.status, m.reason, "descriptive context; does not measure voting intention", refs(pairRefs(p).models[m.modelId])]);
   }
-  for (const c of r.countries) for (const i of c.indicators) rows.push(["country_direction", c.country, "", "", i.indicator, "last_complete_year", "", "", i.same, i.opposite, "", "pairs", i.status, "", `n=${i.n}; value counts pairs moving with turnout and comparison_value against it; Pearson ${i.pearson ?? "none"}; Spearman ${i.spearman ?? "none"}; election-year view ${i.sensitivitySame}/${i.sensitivityOpposite} of ${i.sensitivityN}`]);
-  for (const d of r.direction) for (const w of d.withoutCountry) rows.push(["direction_without_country", w.country, "", "", d.indicator, "last_complete_year", "", "", w.same, w.opposite, "", "pairs", "count", "", `all countries ${d.same}/${d.opposite} of ${d.pairs}; without ${w.country} ${w.same}/${w.opposite} of ${w.pairs}`]);
-  for (const v of r.vintage) rows.push(["released_versus_current", v.country, v.electionId, "", v.indicator, "released_before_election", v.released?.period ?? "", v.lastCompleteYear.period, v.released?.value ?? "", v.lastCompleteYear.value, v.revision, v.released?.unit ?? "", v.released ? "documented" : "not_established", v.reason, `released ${v.released?.publishedOn ?? "not located"}; relation to last complete year ${v.relation}`]);
-  for (const m of r.modelVintage) rows.push(["model_released_versus_current", m.country, m.electionId, "", m.modelId, "released_before_election", m.releasedPeriod ?? "", String(m.currentYear), m.releasedScore, m.currentScore, m.difference, "index 0-100", m.status, m.reason, "difference is current minus released, only for the same year"]);
-  for (const c of r.context) for (const o of c.observations) rows.push(["context_election", c.country, c.electionId, "", o.indicator, "last_complete_year", o.period, "", o.value, "", "", "", o.status, "single_admitted_election", c.reason.en]);
-  return `﻿${[HEADER.join(","), ...rows.map((row) => row.map(cell).join(","))].join("\n")}`;
+  for (const c of r.countries) for (const i of c.indicators) rows.push(["country_direction", c.country, "", "", i.indicator, "last_complete_year", "", "", i.same, i.opposite, "", "pairs", i.status, "", `n=${i.n}; value counts pairs moving with turnout and comparison_value against it; Pearson ${i.pearson ?? "none"}; Spearman ${i.spearman ?? "none"}; election-year view ${i.sensitivitySame}/${i.sensitivityOpposite} of ${i.sensitivityN}`, "derived from indicator_change and turnout_change rows"]);
+  for (const d of r.direction) for (const w of d.withoutCountry) rows.push(["direction_without_country", w.country, "", "", d.indicator, "last_complete_year", "", "", w.same, w.opposite, "", "pairs", "count", "", `all countries ${d.same}/${d.opposite} of ${d.pairs}; without ${w.country} ${w.same}/${w.opposite} of ${w.pairs}`, "derived from indicator_change and turnout_change rows"]);
+  for (const v of r.vintage) rows.push(["released_versus_current", v.country, v.electionId, "", v.indicator, "released_before_election", v.released?.period ?? "", v.lastCompleteYear.period, v.released?.value ?? "", v.lastCompleteYear.value, v.revision, v.released?.unit ?? "", v.released ? "documented" : "not_established", v.reason, `released ${v.released?.publishedOn ?? "not located"}; relation to last complete year ${v.relation}`, refs(src.vintage.find((x) => x.election_id === v.electionId && x.indicator === v.indicator)!.refs)]);
+  for (const m of r.modelVintage) rows.push(["model_released_versus_current", m.country, m.electionId, "", m.modelId, "released_before_election", m.releasedPeriod ?? "", String(m.currentYear), m.releasedScore, m.currentScore, m.difference, "index 0-100", m.status, m.reason, "difference is current minus released, only for the same year", refs(src.model_vintage.find((x) => x.election_id === m.electionId && x.model === m.modelId)!.refs)]);
+  for (const c of r.context) for (const o of c.observations) rows.push(["context_election", c.country, c.electionId, "", o.indicator, "last_complete_year", o.period, "", o.value, "", "", "", o.status, "single_admitted_election", c.reason.en, refs(src.context.find((x) => x.election_id === c.electionId && x.indicator === o.indicator)!.refs)]);
+  for (const x of src.index) rows.push(["source", "", "", "", x.id, x.kind, x.date ?? "", "", x.sha256 ?? "", "", "", "", "indexed", "", [x.institution, x.title, x.url, x.detail].filter(Boolean).join(" | "), x.id]);
+  return `﻿${[HEADER.join(","), ...rows.map((row) => [...row.slice(0, 16), ...Array(Math.max(0, 16 - row.length)).fill(""), RESEARCH_CASE.methodVersion].map(cell).join(","))].join("\n")}`;
 }

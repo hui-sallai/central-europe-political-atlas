@@ -9,7 +9,7 @@ for (const locale of ["zh-CN", "en"] as const) {
     const id = "cz-2023-10-16-repowereu-plan";
     await page.goto(url(locale, id, "czechia"), { waitUntil: "networkidle" });
     const study = dossier(page, id);
-    await expect(study.locator("[data-case-section]")).toHaveCount(9);
+    await expect(study.locator("[data-case-section]")).toHaveCount(10);
     await expect(study.locator("[data-case-stage='legal_adoption']")).toHaveAttribute("data-documented", "true");
     await expect(study.locator("[data-case-stage='observed_outcome']")).toHaveAttribute("data-documented", "false");
     await expect(study.locator("[data-case-date-note]")).toContainText("2023-10-16");
@@ -69,4 +69,28 @@ test("the Event Library links only reviewed cases to the dossier", async ({ page
   await page.goto("/news/?country=poland&from=2024-04-23&to=2024-04-23", { waitUntil: "networkidle" });
   await expect(page.locator("#pl-2024-04-23-nuctech-fsr-inspection [data-event-entry]").first()).toBeVisible();
   await expect(page.locator("#pl-2024-04-23-nuctech-fsr-inspection [data-event-entry='case']")).toHaveCount(0);
+});
+
+for (const locale of ["en", "zh-CN"] as const) test(`E1 research chain: both cases in one traced export, documented and hypothetical kept apart (${locale})`, async ({ page }) => {
+  test.setTimeout(120000);
+  const en = locale === "en";
+  await page.goto(url(locale, "cz-2023-10-16-repowereu-plan", "czechia"), { waitUntil: "networkidle" });
+  const e1 = page.locator('[data-case-section="mechanism-research"]');
+  await expect(e1).toBeVisible({ timeout: 60000 });
+  await expect(e1.locator("[data-e1-condition='not_documented']")).toHaveCount(2);
+  await expect(e1.locator("[data-e1-dimension]")).toHaveCount(14);
+  await expect(e1.locator("[data-e1-assessment-kind='hypothesis']")).toBeVisible();
+  await expect(e1.locator("[data-e1-interval]")).toContainText(en ? "24 months after the first" : "前一届之后 24 个月");
+  await expect(e1).not.toContainText(/forecast|predict|rank|预测|排名/i);
+  await expect(page.locator("[data-case-window]")).toHaveAttribute("data-case-window", "full");
+  const [download] = await Promise.all([page.waitForEvent("download"), e1.locator("[data-e1-export-json]").click()]);
+  const json = JSON.parse(await (await import("node:fs")).promises.readFile((await download.path())!, "utf8"));
+  expect(json.evidence.records).toHaveLength(2);
+  expect(json.evidence.effect_estimated).toBe(false);
+  expect(json.evidence.windows["cz-2023-10-16-repowereu-plan"].gate).toBe("full");
+  expect(json.evidence.source_index.index.length).toBeGreaterThan(20);
+  await expect(e1.locator("[data-e1-digest]")).toContainText(json.evidence_sha256);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  await page.goto(url(locale, "hu-2022-08-12-catl-debrecen", "hungary"), { waitUntil: "networkidle" });
+  await expect(page.locator('[data-case-section="mechanism-research"] [data-e1-event]')).toContainText(en ? "company statement" : "企业声明");
 });

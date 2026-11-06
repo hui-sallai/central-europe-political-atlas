@@ -152,7 +152,7 @@ test('export: the same data give the same bytes in any input order; findings mak
   assert.equal(parsed.descriptive_only, true);
   assert.equal(parsed.pairs.length, 12);
   const csv = C.researchCaseCsv(result).replace(/^﻿/, '').split('\n');
-  assert.equal(csv[0], 'record_type,country,election_id,comparison_election_id,indicator_or_model,view,period,comparison_period,value,comparison_value,difference,unit,status,reason,note');
+  assert.equal(csv[0], 'record_type,country,election_id,comparison_election_id,indicator_or_model,view,period,comparison_period,value,comparison_value,difference,unit,status,reason,note,source_refs,method_version');
   assert.equal(csv.filter((l) => l.startsWith('"turnout_change"')).length, 12);
   assert.equal(csv.filter((l) => l.startsWith('"indicator_change"')).length, 12 * 5 * 2);
   const text = C.researchCaseFindings(result).map((f) => `${f.en} ${f.zh}`).join(' ');
@@ -179,4 +179,29 @@ test('Hungary presentation: rules and vintage name both official sources and no 
     for (const r of e.national.ballots.flatMap((b) => b.results)) assert.match(r.chamberSeatSourceId, /^src-hu-nvi-composition-20(22|26)$/);
     assert.ok(e.sources.some((s) => s.institution === 'Nemzeti Választási Iroda') && e.sources.some((s) => s.institution === 'Nemzeti Választási Bizottság'));
   }
+});
+
+test('traceability: every exported record names source records that resolve in one shared index', () => {
+  const evidence = C.researchCaseEvidence(result);
+  const index = evidence.source_index.index, ids = new Set(index.map((x) => x.id));
+  assert.equal(ids.size, index.length, 'unique ids');
+  assert.ok(index.every((x) => x.url && /^https:\/\//.test(x.url)), 'every indexed source has a URL');
+  assert.deepEqual([...new Set(index.map((x) => x.kind))].sort(), ['dated_release', 'election_source', 'macro_series', 'model_input']);
+  const parse = (line) => line.match(/"((?:[^"]|"")*)"/g).map((x) => x.slice(1, -1).replace(/""/g, '"'));
+  const rows = C.researchCaseCsv(result).replace(/^\uFEFF/, '').split('\n').slice(1).map(parse);
+  assert.ok(rows.every((r) => r.length === 17 && r[16] === C.RESEARCH_CASE.methodVersion));
+  const sourceRows = rows.filter((r) => r[0] === 'source');
+  assert.deepEqual(sourceRows.map((r) => r[4]), index.map((x) => x.id), 'the CSV carries the same index as the JSON');
+  for (const r of rows.filter((x) => x[0] !== 'source')) {
+    const refs = r[15].split('; ').filter(Boolean);
+    for (const id of refs) assert.ok(ids.has(id) || id.startsWith('derived from'), `${r[0]} ${id}`);
+    if (!refs.length) assert.ok(['withheld', 'unavailable', 'missing', 'not_established'].includes(r[12]) || (r[0] === 'indicator_change' && r[8] === '' && r[9] === ''), `${r[0]} ${r[12]} has no source`);
+    if (['turnout_change', 'verified_list_movement', 'seat_rules'].includes(r[0])) assert.ok(refs.length && refs.every((id) => index.find((x) => x.id === id).kind === 'election_source'), r[0]);
+  }
+  const hu = evidence.source_index.pairs.find((p) => p.from_election === 'el-hu-ogy-2022-04-03');
+  assert.ok(hu.rules.some((id) => /^src-hu-nvi-composition-/.test(id)) || hu.lists.some((id) => /^src-hu-nvb-minutes-/.test(id)));
+  assert.ok(hu.models.fiscal_pressure.every((id) => id.startsWith('model-input:')) && hu.models.fiscal_pressure.length === 4);
+  const released = evidence.source_index.vintage.filter((v) => v.refs.some((id) => id.startsWith('release:')));
+  assert.ok(released.length > 0 && released.every((v) => ['el-de-bt-2025-02-23', 'el-cz-ps-2025-10-03', 'el-pl-sejm-2023-10-15'].includes(v.election_id)));
+  assert.ok(evidence.source_index.context.filter((c) => c.refs.length).length >= 4, 'Slovakia context observations are traced too');
 });

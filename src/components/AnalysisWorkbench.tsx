@@ -1,4 +1,5 @@
 "use client";
+import type { EventMechanismRecord } from "@/lib/eventMechanismResearch";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { analysisNames } from "@/i18n/presentation";
@@ -41,7 +42,7 @@ const LocalProjectionWorkbench = dynamic(() => import("@/components/LocalProject
   loading: () => <p className="mt-6 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载本地投影工作区…</p>,
 });
 
-type WorkbenchProps = { countries: Country[]; cards: ModelCard[]; outputs: ModelOutput[]; events: Event[] };
+type WorkbenchProps = { countries: Country[]; cards: ModelCard[]; outputs: ModelOutput[]; events: Event[]; mechanisms?: EventMechanismRecord[] };
 export function AnalysisWorkbench(props: WorkbenchProps) {
   const query = useSearchParams();
   const routeKey=new URLSearchParams(query.toString());
@@ -54,7 +55,7 @@ export function AnalysisWorkbench(props: WorkbenchProps) {
   }
   return <LocalizedContent>{<AnalysisWorkbenchContent key={routeKey.toString()} {...props} />}</LocalizedContent>;
 }
-function AnalysisWorkbenchContent({ countries, cards, events }: WorkbenchProps) {
+function AnalysisWorkbenchContent({ countries, cards, events, mechanisms = [] }: WorkbenchProps) {
   const locale = useLocale();
   const searchParams = useSearchParams();
   const requestedSkill = searchParams.get("skill");
@@ -94,6 +95,7 @@ function AnalysisWorkbenchContent({ countries, cards, events }: WorkbenchProps) 
           initialCountry={route.countrySlug}
           initialEvent={searchParams.get("event") ?? undefined}
           initialOutcome={searchParams.get("outcome") ?? undefined}
+          mechanisms={mechanisms}
         />
       ) : category === "macro_time_series" ? (
         <div className="mt-6 grid gap-6">

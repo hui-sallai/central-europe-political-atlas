@@ -14,6 +14,10 @@ export type AlternativeKind = "business_cycle" | "eu_policy" | "energy_prices" |
 export interface CaseMilestone { date: string; stage: CaseStage; text: Bi; source_url: string }
 export interface CaseChainLink { step: Bi; basis: ChainBasis; timing: Bi }
 export interface CaseSource { label: string; url: string; supports: Bi }
+/** Who took the documented decision, and what kind of document records it. A company statement is not an official public record. */
+export interface CaseResponsible { institution: Bi; kind: "eu_institutions" | "national_government" | "private_company"; decision: Bi; primary_source_url: string; primary_source_kind: "official_eu_publication" | "company_statement" }
+/** A condition the mechanism needs before any indicator could reflect it, and whether a cited source documents that it was met. */
+export interface CaseCondition { condition: Bi; status: "documented" | "not_documented" }
 
 export interface EventCaseStudy {
   event_id: string;
@@ -50,6 +54,13 @@ export interface EventCaseStudy {
   can_establish: Bi[];
   cannot_establish: Bi[];
   sources: CaseSource[];
+  /** E1 structured research chain: the deciding institution, the institutions the mechanism runs through, its conditions,
+   * the indicators that would be needed but are not held, and what a causal claim would require. */
+  responsible: CaseResponsible;
+  mechanism_institutions: Bi[];
+  conditions: CaseCondition[];
+  missing_indicators: Bi[];
+  causality_requirements: Bi[];
 }
 
 const COMMISSION_RRP = "https://reforms-investments.ec.europa.eu/czechias-recovery-and-resilience-plan";
@@ -120,6 +131,34 @@ export const eventCaseStudies: EventCaseStudy[] = [
       { zh: "REPowerEU 投资的实施进度或完成情况：来源没有记录。", en: "Whether, or how far, the REPowerEU investments have been carried out: the sources do not record it." },
       { zh: "捷克与斯洛伐克之差的含义：两国的价格机制与政策不同，差异不是计划的作用。", en: "What the gap between Czechia and Slovakia means: their price mechanisms and policies differ, so the gap is not an effect of the plan." },
     ],
+    responsible: {
+      institution: { zh: "欧盟理事会与欧盟委员会（对捷克复苏计划的批准、评估和付款决定）", en: "The Council of the EU and the European Commission (approval, assessment and payment decisions on Czechia's recovery plan)" },
+      kind: "eu_institutions",
+      decision: { zh: "计划更新，加入 REPowerEU 章节（委员会页面：2023 年 10 月 17 日）；此前委员会已作出积极评估。", en: "The plan was updated to add the REPowerEU chapter (Commission page: 17 October 2023), after the Commission's positive assessment." },
+      primary_source_url: COMMISSION_RRP,
+      primary_source_kind: "official_eu_publication",
+    },
+    mechanism_institutions: [
+      { zh: "复苏与韧性基金：按里程碑与目标分期付款，截止期为 2026 年 8 月。", en: "The Recovery and Resilience Facility: payment in instalments against milestones and targets, due by August 2026." },
+      { zh: "能源市场与电网：计划资助的电网接入、可再生能源与能源安全投资。", en: "Energy markets and the grid: the grid-access, renewable and energy-security investments the plan funds." },
+    ],
+    conditions: [
+      { condition: { zh: "REPowerEU 章节获通过。", en: "The REPowerEU chapter is adopted." }, status: "documented" },
+      { condition: { zh: "整个计划的付款获授权（2024 年 12 月决定，部分暂停）。", en: "Payments under the plan as a whole are authorised (December 2024 decision, partly suspended)." }, status: "documented" },
+      { condition: { zh: "REPowerEU 各项投资获得资金并开工实施。", en: "The individual REPowerEU investments are funded and carried out." }, status: "not_documented" },
+      { condition: { zh: "投资完成并改变能源供应结构，从而可能体现在年度能源平衡中。", en: "The investments are completed and change the energy-supply structure, so that annual energy balances could reflect them." }, status: "not_documented" },
+    ],
+    missing_indicators: [
+      { zh: "REPowerEU 各项措施的拨付与完成数据（来源未单列）。", en: "Disbursement and completion data for the individual REPowerEU measures (not separated in the sources)." },
+      { zh: "捷克国内受管制能源价格和支持措施的记录。", en: "A record of Czech regulated energy prices and support measures." },
+      { zh: "投资完成后年份的能源进口依赖：已发布年份尚未覆盖。", en: "Energy import dependency for years after the investments are completed: the published years do not reach them." },
+      { zh: "这些指标的历史数据版本：Atlas 只保存当前公布值及其更新日期。", en: "Historical data vintages of these indicators: the Atlas holds only current published values and their update date." },
+    ],
+    causality_requirements: [
+      { zh: "措施层面的拨付与完成日期，以区分通过日与实际投资时间。", en: "Measure-level disbursement and completion dates, to separate the adoption date from when investment actually happens." },
+      { zh: "一个在能源价格冲击上可比但未受该措施影响的比较对象，或拨付时间上的外生变化，并事先确定识别策略。", en: "A comparison unit with comparable exposure to energy-price shocks but not covered by the measure, or exogenous variation in disbursement timing, under an identification strategy fixed in advance." },
+      { zh: "对批发天然气价格、受管制价格和国内支持措施的控制。", en: "Controls for wholesale gas prices, regulated prices and domestic support measures." },
+    ],
     sources: [
       { label: "European Commission — Czechia's recovery and resilience plan", url: COMMISSION_RRP, supports: { zh: "计划金额、REPowerEU 赠款、通过与付款节点。", en: "Plan amounts, REPowerEU grant, adoption and payment milestones." } },
       { label: "European Commission (Atlas event source)", url: "https://commission.europa.eu/business-economy-euro/economic-recovery/recovery-and-resilience-facility/country-pages/czechias-recovery-and-resilience-plan_en", supports: { zh: "Atlas 事件记录引用的原始地址（现重定向至上一页面）。", en: "The original address cited by the Atlas event record (now redirects to the page above)." } },
@@ -181,6 +220,34 @@ export const eventCaseStudies: EventCaseStudy[] = [
       { zh: "投资是否、何时、以多大规模实际到位：公告不是已完成的投资。", en: "Whether, when or how much of the investment has actually been made: an announcement is not a completed investment." },
       { zh: "该项目在匈牙利直接投资流入、制造业占比或汽车出口中的份额：国家总量无法归因于单个项目。", en: "This project's share of Hungary's direct-investment inflow, manufacturing share or automotive exports: national totals cannot be attributed to one project." },
       { zh: "公告对任何指标的影响：没有对照组，也没有识别策略。", en: "Any effect of the announcement on any indicator: there is no comparison group and no identification strategy." },
+    ],
+    responsible: {
+      institution: { zh: "CATL（宁德时代，企业）", en: "CATL (Contemporary Amperex Technology, a company)" },
+      kind: "private_company",
+      decision: { zh: "企业投资公告，开工须经股东大会批准；Atlas 来源中没有政府决定或许可记录。", en: "A corporate investment announcement, with construction subject to shareholder-meeting approval; the Atlas sources record no government decision or permit." },
+      primary_source_url: CATL,
+      primary_source_kind: "company_statement",
+    },
+    mechanism_institutions: [
+      { zh: "国际收支统计（BPM6）：直接投资在资金跨境流动时记录。", en: "Balance-of-payments statistics (BPM6): direct investment is recorded when capital crosses the border." },
+      { zh: "国民账户与贸易统计：投产后的产出与出口按经济活动分类记录。", en: "National accounts and trade statistics: output and exports after production starts are recorded by economic activity." },
+    ],
+    conditions: [
+      { condition: { zh: "投资计划已公告。", en: "The investment plan is announced." }, status: "documented" },
+      { condition: { zh: "股东大会批准并开工。", en: "Shareholder approval is given and construction starts." }, status: "not_documented" },
+      { condition: { zh: "投资资金实际跨境流入匈牙利。", en: "Investment capital actually flows into Hungary across the border." }, status: "not_documented" },
+      { condition: { zh: "工厂投产，产出归入所观察指标的分类。", en: "The plant starts production, and its output falls in the classification of the observed indicators." }, status: "not_documented" },
+    ],
+    missing_indicators: [
+      { zh: "项目层面的资金流动数据：国家直接投资总量无法分离单个项目。", en: "Project-level capital-flow data: the national direct-investment total cannot isolate one project." },
+      { zh: "月度直接投资序列。", en: "A monthly direct-investment series." },
+      { zh: "工厂产出与投产日期，以及电池出口所属分类的核验。", en: "The plant's output and production start date, and a check of which classification battery exports fall in." },
+      { zh: "这些指标的历史数据版本：Atlas 只保存当前公布值及其更新日期。", en: "Historical data vintages of these indicators: the Atlas holds only current published values and their update date." },
+    ],
+    causality_requirements: [
+      { zh: "项目层面的资金到位、开工与投产记录。", en: "Project-level records of capital arrival, construction start and production start." },
+      { zh: "反事实基准，例如经过验证的合成对照，并与同期其他外资项目分开。", en: "A counterfactual benchmark, such as a validated synthetic control, kept apart from concurrent foreign-investment projects." },
+      { zh: "对汽车行业周期、欧洲需求和能源成本的控制，并事先确定识别策略。", en: "Controls for the automotive cycle, European demand and energy costs, under an identification strategy fixed in advance." },
     ],
     sources: [
       { label: "CATL — announcement of the Debrecen plant", url: CATL, supports: { zh: "投资额、产能、地点、占地、开工条件与首个客户。", en: "Amount, capacity, location, site area, construction condition and first customer." } },

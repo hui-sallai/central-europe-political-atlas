@@ -1,4 +1,5 @@
 "use client";
+import type { EventMechanismRecord } from "@/lib/eventMechanismResearch";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { englishText } from "@/i18n/reviewedText";
@@ -73,8 +74,9 @@ function formatChange(value: number | null, semantics: EventChangeSemantics) {
   return signed(value, "");
 }
 
-export function EventWindowWorkbench({ countries, events, initialCountry, initialEvent, initialOutcome }: {
+export function EventWindowWorkbench({ countries, events, initialCountry, initialEvent, initialOutcome, mechanisms = [] }: {
   countries: Country[];
+  mechanisms?: EventMechanismRecord[];
   events: Event[];
   initialCountry?: string;
   initialEvent?: string;
@@ -256,7 +258,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
         </section>
       ) : null}
 
-      {selectedEvent && getEventCaseStudy(selectedEvent.event_id) ? <EventCaseStudy event={selectedEvent} events={events} series={series} loadState={loadState} /> : null}
+      {selectedEvent && getEventCaseStudy(selectedEvent.event_id) ? <EventCaseStudy event={selectedEvent} events={events} series={series} loadState={loadState} mechanisms={mechanisms} /> : null}
 
       {selectedEvent ? <EventAnalysisPanel event={selectedEvent} availability={availability} onOpenWindow={(id) => { setOutcome(id); setWindowMonths(12); run(id, 12); }} /> : null}
 

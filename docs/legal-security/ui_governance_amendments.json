@@ -2433,6 +2433,60 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-06"
+    },
+    {
+      "amendment_id": "event-mechanism-research-e1-2026-11-06",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-06 (D4 final acceptance and stage E1): a shared source index for the D4 case exports, and a structured event-mechanism research chain (event, mechanism, indicators, evidence assessment, comparison) over the two reviewed case studies, joined to the D4 election pairs and the pressure models' own outputs; event registries and the window engine are only read",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/lib/eventCaseStudies.ts",
+          "sha256": "39de802fe1acd3410e341d996551771cf13bd31baf674d245fb0d12c43222c93",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/eventMechanismResearch.ts",
+          "sha256": "6894a9ec90c3d10edd1248cc35dfa6fb1a8eb008cd3620c6354f46368434653f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/eventMechanismResearch.server.ts",
+          "sha256": "5ed76c1f58d8bafc24237bc56fc978739f12c0c7e98cbd280d9038c0961b7132",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/EventCaseStudy.tsx",
+          "sha256": "f0f3cb55283b565f39f6306abb95b7822d66c478097864720b76cbb2b133f6a1",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/EventWindowWorkbench.tsx",
+          "sha256": "24fd3f64bb5b07566bb74ea711261cf61242cd2ca2ffa5fa99211a15345d260a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/AnalysisWorkbench.tsx",
+          "sha256": "fd9462597bf936f18cc190a674737c22d2dd68f8edf7da7f81e0e20e561dc819",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ModelsPageContent.tsx",
+          "sha256": "c10a07c436839bf8a71f6ba64cf22f8c740762e298fb07b744950c12cfb372d3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/comparativeResearchCase.ts",
+          "sha256": "b89f4d26829f4832772269e10f0cc703acef213d92f355ceb7e381aee5bb426b",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-06"
     }
   ]
 }

@@ -8,6 +8,7 @@ import { ModelsPageTabs } from "@/components/ModelsPageTabs";
 import { buildIndicatorComparisonColumn } from "@/lib/indicatorComparison";
 import { buildModelComparison, type ModelComparisonResult } from "@/lib/modelComparisonGate";
 import { modelCards, modelOutputs } from "@/lib/modelFramework";
+import { eventMechanismRecords } from "@/lib/eventMechanismResearch.server";
 import { platformStatus } from "@/lib/platformStatus";
 import { researchCountries, researchEvents, researchIndicators, researchObservations } from "@/lib/researchData";
 import { AnnualComparisonWorkbench } from "./AnnualComparisonWorkbench";
@@ -79,7 +80,7 @@ export function ModelsPageContent() {
       </header>
       <Suspense fallback={<p className="mt-8 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载分析工作台…</p>}>
         <ModelsPageTabs
-          runAnalysis={<AnalysisWorkbench countries={researchCountries} cards={modelCards} outputs={modelOutputs} events={researchEvents} />}
+          runAnalysis={<AnalysisWorkbench countries={researchCountries} cards={modelCards} outputs={modelOutputs} events={researchEvents} mechanisms={eventMechanismRecords()} />}
           compareCountries={
           <section aria-labelledby="cross-country-comparison-title">
             <header className="max-w-4xl border-b border-[var(--line)] pb-6">
