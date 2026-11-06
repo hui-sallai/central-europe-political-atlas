@@ -37,6 +37,8 @@ test('the evidence passes its own rules, and each rule rejects a violating recor
   broken((l) => { l.find((m) => m.id === 'cz-e2-07-grid-milestone-suspended').amounts[0].value = 97629788.5; }, /bad amount/);
   broken((l) => { l.find((m) => m.id === 'cz-e2-05-repowereu-prefinancing').event_date = '2023-01-01'; l.find((m) => m.id === 'cz-e2-05-repowereu-prefinancing').publication_date = '2023-01-01'; }, /implementation precedes announcement/);
   broken((l) => { l.find((m) => m.id === 'hu-e2-10-module-output').quantities[0].kind = 'company_reported_output'; l.find((m) => m.id === 'hu-e2-10-module-output').document_kind = 'national_gazette'; }, /company-reported output must cite the company/);
+  broken((l) => { l.find((m) => m.id === 'cz-e21-18-distribution-grid-completed').stage = 'realized_outcome'; }, /assessed or designated capacity .* not a realised outcome/);
+  broken((l) => { l.find((m) => m.id === 'hu-e2-06-permits-litigated').quantities = [{ value: 1, unit: 'MW', kind: 'count', label: 'x' }]; }, /disputed claim carries no amount/);
 });
 
 test('stage chronology: records are ordered by date, and each case moves from announcement to approval to implementation', () => {
@@ -54,7 +56,7 @@ test('stage chronology: records are ordered by date, and each case moves from an
 test('documentary status per stage: verified needs an official record; a company statement stays announced; outcomes are not inferred', () => {
   const status = (id) => Object.fromEntries(rec(id).implementation.stages.map((s) => [s.stage, s.status]));
   assert.deepEqual(status(CZ), { announcement: 'verified', approval: 'verified', implementation: 'verified', realized_outcome: 'unavailable' });
-  assert.deepEqual(status(HU), { announcement: 'announced', approval: 'verified', implementation: 'announced', realized_outcome: 'announced' });
+  assert.deepEqual(status(HU), { announcement: 'announced', approval: 'verified', implementation: 'verified', realized_outcome: 'announced' }, 'the county office documents the first-phase occupancy permit (E2.1)');
   for (const m of all) {
     if (m.status === 'verified') assert.ok(I.isOfficial(m.document_kind) && /^https:\/\//.test(m.url), m.id);
     if (m.document_kind === 'company_statement') assert.equal(m.status, 'announced', m.id);
@@ -70,11 +72,11 @@ test('source identity: each record names its institution, reference, publication
   const hosts = new Set();
   for (const m of all) {
     assert.ok(m.institution.en && m.institution.zh && m.document_ref, m.id);
-    assert.equal(m.retrieved, '2026-11-06');
+    assert.equal(m.retrieved, /-e21-/.test(m.id) || ['hu-e2-06-permits-litigated', 'hu-e2-07-support-unavailable'].includes(m.id) ? '2026-11-07' : '2026-11-06', m.id);
     if (m.url) { hosts.add(new URL(m.url).hostname); assert.notEqual(m.document_kind, 'none_located'); }
     if (/\.pdf|letoltes|\/pdf$/.test(m.url ?? '')) assert.match(m.document_sha256 ?? '', /^[0-9a-f]{64}$/, `${m.id} PDF hash`);
   }
-  assert.deepEqual([...hosts].sort(), ['commission.europa.eu', 'data.consilium.europa.eu', 'ec.europa.eu', 'kormanyhivatalok.hu', 'kyodonewsprwire.jp', 'magyarkozlony.hu', 'reforms-investments.ec.europa.eu', 'www.catl.com']);
+  assert.deepEqual([...hosts].sort(), ['birosag.hu', 'commission.europa.eu', 'data.consilium.europa.eu', 'ec.europa.eu', 'kormanyhivatalok.hu', 'kyodonewsprwire.jp', 'magyarkozlony.hu', 'reforms-investments.ec.europa.eu', 'www.catl.com']);
   for (const blocked of ['valasztas.hu', 'statistics.sk', 'bmi.gv.at', 'api.sejm.gov.pl']) assert.ok(![...hosts].some((h) => h.endsWith(blocked)), blocked);
   // The same gazette issue backs two acts; the same permit decision backs two claims. Each act is a separate record.
   assert.equal(byId('hu-e2-02-priority-decree').document_sha256, byId('hu-e2-03-grid-budget').document_sha256);
@@ -99,7 +101,7 @@ test('monetary units: currency, exactness and kind are explicit; plans and payme
   assert.doesNotMatch(Object.values(cmp.values).join(' '), /€|EUR \d|HUF \d|total/, 'the comparison counts amounts and never adds them');
   // Capacities keep their kind: announced 100 GWh is not the permitted 40 GWh and neither is output.
   const q = all.flatMap((m) => m.quantities.map((x) => [m.id, x.kind, x.value, x.unit]));
-  assert.deepEqual(q.filter((x) => x[3] === 'GWh_per_year'), [['hu-e2-01-announcement', 'announced_capacity', 100, 'GWh_per_year'], ['hu-e2-05-permit-modified', 'permitted_capacity', 40, 'GWh_per_year'], ['hu-e2-11-trial-production', 'announced_capacity', 100, 'GWh_per_year']]);
+  assert.deepEqual(q.filter((x) => x[3] === 'GWh_per_year'), [['hu-e2-01-announcement', 'announced_capacity', 100, 'GWh_per_year'], ['hu-e2-05-permit-modified', 'permitted_capacity', 40, 'GWh_per_year'], ['hu-e2-11-trial-production', 'announced_capacity', 100, 'GWh_per_year'], ['hu-e21-13-permit-fourth-amendment', 'permitted_capacity', 40.7, 'GWh_per_year'], ['hu-e21-13-permit-fourth-amendment', 'permitted_capacity', 18.9, 'GWh_per_year'], ['hu-e21-13-permit-fourth-amendment', 'permitted_capacity', 59.6, 'GWh_per_year']]);
 });
 
 test('observation links: national scope, current vintage, timing computed from stored years, definitions checked', () => {
@@ -116,7 +118,7 @@ test('observation links: national scope, current vintage, timing computed from s
   assert.equal(link(HU, 'automotive_export_share').use, 'not_comparable', 'battery manufacturing (C27) is outside NACE C29');
   assert.equal(link(HU, 'manufacturing_share_gdp').measurement, 'classification_compatible');
   assert.equal(link(HU, 'fdi_inflow').timing, 'anchor_undated', 'no dated capital flow exists to align with');
-  assert.equal(rec(CZ).implementation.unresolved.length, 4); assert.equal(rec(HU).implementation.unresolved.length, 4);
+  assert.equal(rec(CZ).implementation.unresolved.length, 7); assert.equal(rec(HU).implementation.unresolved.length, 5);
 });
 
 test('export: reproducible bytes, every implementation reference resolves, E1 windows and frozen inputs unchanged', () => {
@@ -133,7 +135,7 @@ test('export: reproducible bytes, every implementation reference resolves, E1 wi
   const typed = (t) => lines.filter((l) => l.startsWith(`"${t}"`));
   assert.equal(typed('implementation_milestone').length, all.length);
   assert.equal(typed('implementation_stage').length, 8);
-  assert.equal(typed('unresolved_claim').length, 8);
+  assert.equal(typed('unresolved_claim').length, 12);
   assert.ok(typed('implementation_milestone').every((l) => /"document:[a-z0-9-]+"|,"","atlas-event/.test(l)));
   assert.ok(typed('implementation_stage').every((l) => l.includes('documentary evidence status, not a performance score')));
   assert.equal(ev.windows[CZ].gate, 'full'); assert.equal(ev.windows[HU], null);
@@ -142,4 +144,29 @@ test('export: reproducible bytes, every implementation reference resolves, E1 wi
   for (const x of pins) assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, x.path))).digest('hex'), x.sha256, x.path);
   const text = [...all.flatMap((m) => [m.claim.en, m.note?.en ?? '']), ...Object.values(I.unresolvedImplementationClaims).flat().map((u) => u.en)].join(' ');
   assert.doesNotMatch(text, /caused|led to|boosted|resulted in|impact of|predict|forecast|\brank/i);
+});
+
+test('E2.1: new primary documents keep preliminary, historical, disputed and company claims apart', () => {
+  // Czechia: the final request is assessed, not paid; the grid investment is completed capacity to connect, not supply.
+  const req = byId('cz-e21-17-final-request-assessed');
+  assert.deepEqual([req.scope, req.amounts.map((a) => [a.kind, a.value])], ['whole_plan', [['requested', 951_000_000]]]);
+  assert.match(req.note.en, /not an authorisation or a payment/);
+  const grid = byId('cz-e21-18-distribution-grid-completed');
+  assert.deepEqual([grid.stage, grid.scope, grid.quantities.map((q) => [q.kind, q.value, q.unit])], ['implementation', 'event_specific', [['assessed_connection_capacity_added', 2133.9, 'MW']]]);
+  assert.match(grid.claim.en, /C7\.1\.I1/); assert.match(grid.note.en, /not installed generation or energy supplied/);
+  assert.ok(byId('cz-e21-20-acceleration-areas').quantities.filter((q) => q.unit === 'MW').every((q) => q.kind === 'designated_estimated_capacity'));
+  for (const id of ['cz-e21-18-distribution-grid-completed', 'cz-e21-19-electricity-data-centre', 'cz-e21-20-acceleration-areas']) assert.equal(byId(id).document_sha256, 'a53b0eb97916280924ae3e66f383c1907011f41c0f9b9c34e729b80723240d20', id);
+  assert.equal(rec(CZ).implementation.stages.find((s) => s.stage === 'realized_outcome').status, 'unavailable', 'no outcome is inferred from completed investments');
+  assert.match(byId('cz-e2-16-outcome-unavailable').claim.en, /no processing times/);
+  // Hungary: the 2023 permit is historical; the 2025 amendment states its own capacities; the court outcome is press-only.
+  assert.doesNotMatch(byId('hu-e2-04-environmental-permit').claim.en, /\bis valid\b/); assert.match(byId('hu-e2-04-environmental-permit').note.en, /not a statement of current validity/);
+  const amend = byId('hu-e21-13-permit-fourth-amendment');
+  assert.deepEqual([amend.event_date, amend.document_sha256.slice(0, 8)], ['2025-11-17', '0664bdde']);
+  assert.match(amend.note.en, /does not record when it became final/); assert.match(amend.note.en, /same project phase/);
+  const court = byId('hu-e2-06-permits-litigated');
+  assert.deepEqual([court.status, court.document_kind, court.event_date], ['disputed', 'court_notice', '2026-10-29']);
+  assert.match(court.note.en, /reported only by the press/);
+  assert.deepEqual([byId('hu-e21-15-occupancy-first-phase').status, byId('hu-e2-08-occupancy-permit').status], ['verified', 'announced'], 'the official record is added beside the company statement, which stays announced');
+  assert.equal(byId('hu-e2-07-support-unavailable').status, 'unavailable', 'a press-reported contract does not make support verified');
+  assert.ok(['hu-e2-10-module-output', 'hu-e2-11-trial-production'].every((id) => byId(id).status === 'announced'));
 });

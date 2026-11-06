@@ -35,7 +35,8 @@ for (const locale of ["zh-CN", "en"] as const) {
     await page.goto(url(locale, id, "hungary"), { waitUntil: "networkidle" });
     const study = dossier(page, id);
     await expect(study.locator("[data-case-stage='announcement']")).toHaveAttribute("data-documented", "true");
-    await expect(study.locator("[data-case-stage='implementation']")).toHaveAttribute("data-documented", "false");
+    await expect(study.locator("[data-case-stage='implementation']")).toHaveAttribute("data-documented", "true");
+    await expect(study.locator("[data-case-stage='observed_outcome']")).toHaveAttribute("data-documented", "false");
     await expect(study.locator("[data-case-stage='legal_adoption']")).toHaveAttribute("data-documented", "true");
     await expect(study.locator("[data-case-chain='unsupported_connection']")).toContainText(locale === "en" ? "announced amount" : "公告金额");
     for (const indicator of ["fdi_inflow", "manufacturing_share_gdp", "automotive_export_share"]) await expect(study.locator(`[data-case-annual='${indicator}']`)).toBeVisible();
@@ -103,14 +104,15 @@ for (const locale of ["en", "zh-CN"] as const) test(`E2 implementation evidence:
   const e2 = page.locator('[data-case-section="mechanism-research"] [data-e2-implementation]');
   await expect(e2).toBeVisible({ timeout: 60000 });
   for (const [stage, status] of [["announcement", "verified"], ["approval", "verified"], ["implementation", "verified"], ["realized_outcome", "unavailable"]]) await expect(e2.locator(`[data-e2-stage='${stage}']`)).toHaveAttribute("data-e2-status", status);
-  await expect(e2.locator("[data-e2-milestone]")).toHaveCount(16);
+  await expect(e2.locator("[data-e2-milestone]")).toHaveCount(20);
+  await expect(e2.locator("[data-e2-milestone='cz-e21-18-distribution-grid-completed']")).toContainText("2,133.9");
   await expect(e2.locator("[data-e2-milestone='cz-e2-07-grid-milestone-suspended']")).toContainText("97,629,788");
   await expect(e2.locator("[data-e2-milestone='cz-e2-09-payment-2025-09']")).toHaveAttribute("data-e2-scope", "whole_plan");
   const dates = await e2.locator("[data-e2-milestone] td:first-child").allInnerTexts();
   const dated = dates.map((d) => d.split("\n")[0].trim()).filter((d) => /^\d{4}/.test(d));
   expect(dated).toEqual([...dated].sort());
   await expect(e2.locator("[data-e2-link='energy_import_dependency']")).toHaveAttribute("data-e2-use", "context_only");
-  await expect(e2.locator("[data-e2-unresolved] li")).toHaveCount(4);
+  await expect(e2.locator("[data-e2-unresolved] li")).toHaveCount(7);
   if (en) expect(await noCjkOutsideOriginals(page, "[data-e2-implementation]")).not.toMatch(/[㐀-鿿]/u);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   const e1 = page.locator('[data-case-section="mechanism-research"]');
@@ -123,7 +125,9 @@ for (const locale of ["en", "zh-CN"] as const) test(`E2 implementation evidence:
   const hu = page.locator('[data-case-section="mechanism-research"] [data-e2-implementation]');
   await expect(hu.locator("[data-e2-stage='approval']")).toHaveAttribute("data-e2-status", "verified");
   await expect(hu.locator("[data-e2-stage='approval']")).toContainText(en ? "1 disputed" : "1 项有争议");
-  for (const stage of ["announcement", "implementation", "realized_outcome"]) await expect(hu.locator(`[data-e2-stage='${stage}']`)).toHaveAttribute("data-e2-status", "announced");
+  for (const [stage, status] of [["announcement", "announced"], ["implementation", "verified"], ["realized_outcome", "announced"]]) await expect(hu.locator(`[data-e2-stage='${stage}']`)).toHaveAttribute("data-e2-status", status);
+  await expect(hu.locator("[data-e2-milestone='hu-e21-13-permit-fourth-amendment']")).toContainText("40.7");
+  await expect(hu.locator("[data-e2-milestone='hu-e2-06-permits-litigated']")).toHaveAttribute("data-e2-milestone-status", "disputed");
   await expect(hu.locator("[data-e2-milestone='hu-e2-05-permit-modified']")).toContainText("40");
   await expect(hu.locator("[data-e2-link='automotive_export_share']")).toHaveAttribute("data-e2-use", "not_comparable");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);

@@ -80,6 +80,8 @@ const groupDigits = (v: number) => String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ",
 const E2_LABEL: Record<string, Bi> = {
   requested: { en: "requested", zh: "申请" }, allocated: { en: "allocated", zh: "分配" }, budgeted: { en: "budgeted", zh: "预算" }, authorised: { en: "authorised", zh: "授权" }, paid: { en: "paid", zh: "已支付" }, suspended: { en: "suspended", zh: "暂停" }, suspension_lifted: { en: "suspension lifted", zh: "解除暂停" }, reduced: { en: "reduced", zh: "削减" }, announced_investment: { en: "announced investment", zh: "公告投资" },
   announced_capacity: { en: "announced capacity", zh: "公告产能" }, permitted_capacity: { en: "permitted capacity", zh: "许可产能" }, company_reported_output: { en: "company-reported output", zh: "企业报告的产出" }, reported_progress: { en: "reported progress", zh: "报告的进展" }, count: { en: "count", zh: "数量" },
+  assessed_connection_capacity_added: { en: "assessed added connection capacity", zh: "经评估新增的接入容量" }, designated_estimated_capacity: { en: "estimated capacity of designated areas", zh: "划定区域的估计容量" },
+  MW: { en: "MW", zh: "MW" }, areas: { en: "areas", zh: "个区域" },
   GWh_per_year: { en: "GWh a year", zh: "GWh/年" }, modules: { en: "modules", zh: "个模组" }, percent: { en: "%", zh: "%" }, milestones_and_targets: { en: "milestones and targets", zh: "个里程碑和目标" },
   anchor_undated: { en: "the linked record is undated", zh: "关联记录无日期" }, no_published_values: { en: "no published values", zh: "无已发布数值" }, published_years_reach_anchor: { en: "published years reach the linked record", zh: "已发布年份覆盖关联记录" }, no_published_year_after_anchor: { en: "no published year after the linked record", zh: "关联记录之后没有已发布年份" },
   context_only: { en: "context only", zh: "仅作背景" }, not_comparable: { en: "not comparable", zh: "不可比" },

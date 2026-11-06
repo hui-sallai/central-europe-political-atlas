@@ -36,7 +36,7 @@ test('A event: both reviewed cases, with date, country, deciding institution and
   assert.match(rec(CZ).event.dateNote.en, /17 October 2023/);
   assert.equal(rec(HU).event.responsible.kind, 'private_company');
   assert.equal(rec(HU).event.responsible.primary_source_kind, 'company_statement');
-  assert.deepEqual(rec(HU).event.stagesDocumented, ['announcement', 'legal_adoption'], 'the gazette decree and county permit document approval; implementation is not officially documented');
+  assert.deepEqual(rec(HU).event.stagesDocumented, ['announcement', 'legal_adoption', 'implementation'], 'the gazette decree and county permit document approval; the county office documents the first-phase occupancy permit; no outcome is officially documented');
 });
 
 test('B and D: documented, hypothetical and unsupported links stay apart; later conditions are not documented', () => {
