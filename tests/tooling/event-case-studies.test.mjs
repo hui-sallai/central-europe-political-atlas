@@ -50,7 +50,7 @@ test('milestones and stages are documented, never inferred; an announcement is n
     assert.ok(!study.stages_documented.includes('observed_outcome') || study.milestones.some((m) => m.stage === 'observed_outcome'), 'no observed outcome without a documented milestone');
   }
   const catl = eventCaseStudies.find((s) => s.event_id === 'hu-2022-08-12-catl-debrecen');
-  assert.deepEqual(catl.stages_documented, ['announcement']);
+  assert.deepEqual(catl.stages_documented, ['announcement', 'legal_adoption']);
   assert.ok(catl.stages_not_documented.includes('implementation') && catl.stages_not_documented.includes('observed_outcome'));
   assert.ok(catl.chain.some((l) => l.basis === 'unsupported_connection' && /announced amount/.test(l.step.en)), 'announced amount is explicitly not realised FDI');
   const repower = eventCaseStudies.find((s) => s.event_id === 'cz-2023-10-16-repowereu-plan');

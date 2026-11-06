@@ -2487,8 +2487,7 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-06"
-    }
-    ,
+    },
     {
       "amendment_id": "d4-e1-acceptance-observation-provenance-2026-11-06",
       "status": "owner_approved",
@@ -2499,6 +2498,40 @@
           "path": "src/lib/eventMechanismResearch.ts",
           "sha256": "39c74e552a27ba33496b2a667d4a432ce84c86e81bdeeb9baf5ea6562aaba5d7",
           "classification": "SOURCE_ATTRIBUTION_UI"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-06"
+    },
+    {
+      "amendment_id": "event-implementation-evidence-e2-2026-11-06",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-06 (stage E2): dated primary-document implementation evidence for the two reviewed E1 cases (announcement, approval, implementation, realised outcome), recorded as documentary status with institution, dates, reference, amounts and units, joined to existing observations only where definitions are compatible; no effect estimates, no new data import; event registries and the window engine are only read",
+      "baseline": "36f2ddc6d76afa94ad03a2b86a33a0df80862d8d",
+      "files": [
+        {
+          "path": "src/lib/eventImplementationEvidence.ts",
+          "sha256": "a15c1c0302172406bc696e58663d7a615628acc4d201d48d1548f081539cca29",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/eventMechanismResearch.ts",
+          "sha256": "6a6cf87ef78ae810be10d5d3c03fa63259815e5c6cb8f06c90b07045210eca9a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/eventCaseStudies.ts",
+          "sha256": "7f950389c730b864d3f5b543b47ab843727e5ff104fb334bafb9c426eb08935f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/EventCaseStudy.tsx",
+          "sha256": "99d9e1c45f0c10b3811964cd6a6e3f0790d4e244a8ddf62fd0bb790c0c84c4db",
+          "classification": "DATA_PRESENTATION"
         }
       ],
       "canonical_data_change_allowed": false,

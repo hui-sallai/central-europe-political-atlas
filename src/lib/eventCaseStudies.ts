@@ -65,6 +65,8 @@ export interface EventCaseStudy {
 
 const COMMISSION_RRP = "https://reforms-investments.ec.europa.eu/czechias-recovery-and-resilience-plan";
 const CATL = "https://www.catl.com/en/news/983.html";
+const HU_GAZETTE = "https://magyarkozlony.hu/dokumentumok/42e5fb83baf68b5dd9d6de9b45bac8b612316a85/letoltes";
+const HU_PERMIT = "https://kormanyhivatalok.hu/system/files/dokumentum/hajdu-bihar/2023-08/hb_17_ikv_01008_46_2023_hatarozat_alairt.pdf";
 
 export const eventCaseStudies: EventCaseStudy[] = [
   {
@@ -171,18 +173,19 @@ export const eventCaseStudies: EventCaseStudy[] = [
       zh: "CATL 德布勒森电池工厂公告实际确定了什么？匈牙利已发布的直接投资、制造业和汽车出口指标能说明什么、不能说明什么？",
       en: "What did CATL's Debrecen battery-plant announcement actually establish, and what can — and cannot — Hungary's published direct-investment, manufacturing and automotive-export indicators tell us?",
     },
-    stages_documented: ["announcement"],
-    stages_not_documented: ["legal_adoption", "implementation", "observed_outcome"],
+    stages_documented: ["announcement", "legal_adoption"],
+    stages_not_documented: ["implementation", "observed_outcome"],
     establishes: [
       { zh: "CATL 于 2022 年 8 月 12 日宣布在德布勒森南部工业园建设其第二座欧洲电池工厂，投资额 73.4 亿欧元，规划产能 100 GWh，占地 221 公顷。", en: "On 12 August 2022 CATL announced its second European battery plant, in the Southern Industrial Park of Debrecen, with an investment of €7.34 billion, a planned capacity of 100 GWh and a site of 221 hectares." },
       { zh: "公告称，经股东大会批准后，首批生产设施将于 2022 年内开工；梅赛德斯-奔驰是初始产能的首个也是最大客户。", en: "The announcement said that, subject to shareholder-meeting approval, construction of the first production facilities would start within 2022, and named Mercedes-Benz as the first and biggest customer of the initial capacity." },
     ],
     uncertain: [
       { zh: "股东大会批准、开工、实际资金到位和投产均未在 Atlas 来源中记录；项目记录状态为“在建 / 量产进度待跟踪”。", en: "Shareholder approval, the start of construction, the capital actually invested and the start of production are not recorded in the Atlas sources; the project record's status is \"under construction / production progress to be tracked\"." },
-      { zh: "当地项目公司、土地与许可主体、政府补贴及签署方仍待核验。", en: "The local project company, the land and permit holders, any government subsidy and its signatories are still to be verified." },
+      { zh: "许可持有人为 Contemporary Amperex Technology Hungary Kft.（州政府办公室环境许可）；政府补贴及其签署方仍未在官方来源中找到。", en: "The permit holder is Contemporary Amperex Technology Hungary Kft. (the county government office's environmental permit); any government subsidy and its signatories are still not found in an official source." },
     ],
     milestones: [
       { date: "2022-08-12", stage: "announcement", text: { zh: "CATL 公告投资计划：73.4 亿欧元、100 GWh、德布勒森南部工业园、221 公顷。", en: "CATL announced the investment plan: €7.34 billion, 100 GWh, Southern Industrial Park of Debrecen, 221 hectares." }, source_url: CATL },
+      { date: "2022-08-18", stage: "legal_adoption", text: { zh: "政府令 323/2022 修订德布勒森工业场地的优先审批规则和边界（未点名投资者）；州政府办公室随后向 CATL 匈牙利子公司签发环境许可（见第 10 节 E2）。", en: "Government Decree 323/2022 amended the priority-procedure rules and boundary of the industrial site in Debrecen (the investor is not named); the county government office later issued the environmental permit to CATL's Hungarian subsidiary (see section 10, E2)." }, source_url: HU_GAZETTE },
     ],
     chain: [
       { step: { zh: "CATL 公告了投资额、产能和地点。", en: "CATL announced the investment amount, capacity and location." }, basis: "documented_fact", timing: { zh: "2022 年 8 月", en: "August 2022" } },
@@ -224,7 +227,7 @@ export const eventCaseStudies: EventCaseStudy[] = [
     responsible: {
       institution: { zh: "CATL（宁德时代，企业）", en: "CATL (Contemporary Amperex Technology, a company)" },
       kind: "private_company",
-      decision: { zh: "企业投资公告，开工须经股东大会批准；Atlas 来源中没有政府决定或许可记录。", en: "A corporate investment announcement, with construction subject to shareholder-meeting approval; the Atlas sources record no government decision or permit." },
+      decision: { zh: "企业投资公告，开工须经股东大会批准；政府法令和环境许可另作为实施证据记录（E2）。", en: "A corporate investment announcement, with construction subject to shareholder-meeting approval; government acts and the environmental permit are recorded separately as implementation evidence (E2)." },
       primary_source_url: CATL,
       primary_source_kind: "company_statement",
     },
@@ -250,6 +253,8 @@ export const eventCaseStudies: EventCaseStudy[] = [
       { zh: "对汽车行业周期、欧洲需求和能源成本的控制，并事先确定识别策略。", en: "Controls for the automotive cycle, European demand and energy costs, under an identification strategy fixed in advance." },
     ],
     sources: [
+      { label: "Magyar Közlöny 2022/137 — Government Decree 323/2022 and Resolution 1415/2022", url: HU_GAZETTE, supports: { zh: "场地优先审批规则与边界，以及经济区电网工程预算。", en: "Priority-procedure rules and boundary of the site, and the budget for the zone's grid works." } },
+      { label: "Hajdú-Bihar County Government Office — permit decision HB/17-IKV/01008-46/2023", url: HU_PERMIT, supports: { zh: "许可持有人、地块、活动分类与许可产能。", en: "Permit holder, plot, activity classification and permitted capacity." } },
       { label: "CATL — announcement of the Debrecen plant", url: CATL, supports: { zh: "投资额、产能、地点、占地、开工条件与首个客户。", en: "Amount, capacity, location, site area, construction condition and first customer." } },
     ],
   },

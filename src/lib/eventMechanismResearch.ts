@@ -8,8 +8,10 @@ import { annualPhase, type CaseChainLink, type EventCaseStudy } from "./eventCas
 import type { Event } from "@/types/Event";
 import type { Observation } from "@/types/Observation";
 import type { EventWindowResult } from "@/types/EventWindow";
+import { IMPLEMENTATION_EVIDENCE_METHOD, implementationFor, implementationLinkSpecs, implementationStageStatus, unresolvedImplementationClaims } from "./eventImplementationEvidence";
 
-export const EVENT_MECHANISM_METHOD = "atlas-event-mechanism-research-v1";
+// v2 adds the E2 implementation evidence (stages, dated documents, observation compatibility) to each record.
+export const EVENT_MECHANISM_METHOD = "atlas-event-mechanism-research-v2";
 
 /** Built at build time from the admitted elections (D4 protocol) and the models' own outputs. */
 export type MechanismPoliticalContext = {
@@ -53,6 +55,15 @@ export function buildEventMechanismRecord(study: EventCaseStudy, event: Event, a
       source: { url: source?.source_url ?? null, dataset: source?.source_dataset ?? null, name: source?.source_name ?? null, updatedAt: source?.updated_at ?? null }, vintage: "current_published_only",
     };
   });
+  const milestones = implementationFor(event.event_id);
+  const links = implementationLinkSpecs.filter((x) => x.event_id === event.event_id).map((spec) => {
+    const a = annual.find((x) => x.indicatorId === spec.indicator_id) ?? null, anchor = milestones.find((m) => m.id === spec.anchor) ?? null;
+    const anchorYear = anchor ? Number((anchor.event_date ?? anchor.publication_date ?? "").slice(0, 4)) || null : null;
+    const latest = a?.latestPublishedYear ?? null;
+    const timing = !anchor?.event_date ? "anchor_undated" : latest === null ? "no_published_values" : latest >= anchorYear! ? "published_years_reach_anchor" : "no_published_year_after_anchor";
+    return { indicatorId: spec.indicator_id, anchor: spec.anchor, anchorStage: anchor?.stage ?? null, anchorStatus: anchor?.status ?? null, anchorYear, latestPublishedYear: latest, geography: a ? (a.geography === event.country_slug ? "national_total" : a.geography) : "not_held", timing, measurement: spec.measurement, vintage: a?.vintage ?? null, use: spec.measurement === "classification_incompatible" ? "not_comparable" : "context_only", reason: spec.reason };
+  });
+  const implementation = { method_version: IMPLEMENTATION_EVIDENCE_METHOD, milestones, stages: implementationStageStatus(milestones), links, unresolved: unresolvedImplementationClaims[event.event_id] ?? [] };
   const by = (basis: CaseChainLink["basis"]) => study.chain.filter((l) => l.basis === basis).map((l) => l.step);
   const contemporaneous: Bi[] = [
     ...annual.map((a): Bi => {
@@ -76,6 +87,7 @@ export function buildEventMechanismRecord(study: EventCaseStudy, event: Event, a
     event: { date: event.date, country: event.country_slug, title: study.title, responsible: study.responsible, stagesDocumented: study.stages_documented, stagesNotDocumented: study.stages_not_documented, dateNote: study.date_note ?? null, milestones: study.milestones, establishes: study.establishes, uncertain: study.uncertain },
     mechanism: { channel: analysis.mechanism.channel, affectedActors: analysis.mechanism.affected_actors, institutions: study.mechanism_institutions, conditions: study.conditions, links: study.chain },
     indicators: { annual, monthly: study.window ? { outcome: study.window.outcome, months: study.window.months, role: study.window.role, comparisonCountry: study.window.comparison?.country ?? null, external: study.window.external?.outcome ?? null, sourceUrl: study.window.source.url } : null, monthlyBlocker: study.window_blocker ?? null, missing: study.missing_indicators },
+    implementation,
     political,
     assessment: { documented: [...by("documented_fact"), ...by("documented_mechanism"), ...study.conditions.filter((c) => c.status === "documented").map((c) => c.condition)], contemporaneous, hypotheses: by("research_hypothesis"), unsupported: by("unsupported_connection"), notDocumented: study.conditions.filter((c) => c.status === "not_documented").map((c) => c.condition), causalityRequirements: study.causality_requirements, cannotEstablish: study.cannot_establish },
     alternatives: study.alternatives, sources: study.sources,
@@ -102,6 +114,8 @@ export function compareEventMechanisms(records: EventMechanismRecord[]): { rows:
     row("turnout", { en: "Turnout change across that interval", zh: "该间隔的投票率变化" }, (r) => r.political.interval?.turnoutChange == null ? "not established" : `${sg(r.political.interval.turnoutChange)} points (${r.political.interval.turnoutBasis})`, { en: "Contemporaneous with the event, not attributable to it.", zh: "与事件同期，不能归因于事件。" }),
     row("models", { en: "Fiscal pressure over the interval", zh: "该间隔的财政压力" }, (r) => { const m = r.political.interval?.models.find((x) => x.modelId === "fiscal_pressure"); return !m ? "—" : m.change === null ? `unavailable (${m.reason})` : `${m.fromScore} → ${m.toScore} (${m.fromYear}→${m.toYear})`; }),
     row("alternatives", { en: "Competing explanations listed", zh: "列出的其他解释" }, (r) => r.alternatives.map((a) => a.kind).join(", ")),
+    row("implementation_stages", { en: "Documentary status by stage (E2)", zh: "各阶段的文件证据状态（E2）" }, (r) => r.implementation.stages.map((s) => `${s.stage} ${s.status}`).join("; "), { en: "Evidence status, not a performance score.", zh: "证据状态，不是绩效评分。" }),
+    row("implementation_money", { en: "Money documented (E2)", zh: "有记录的资金（E2）" }, (r) => { const m = r.implementation.milestones.flatMap((x) => x.amounts.map((a) => ({ ...a, scope: x.scope }))); const n = (f: (a: (typeof m)[number]) => boolean) => m.filter(f).length; return `paid: ${n((a) => a.kind === "paid" && a.scope === "event_specific")} event-specific, ${n((a) => a.kind === "paid" && a.scope !== "event_specific")} whole-plan; authorised/budgeted: ${n((a) => a.kind === "authorised" || a.kind === "budgeted")}; announced only: ${n((a) => a.kind === "announced_investment")}`; }, { en: "Counts of amounts by kind; amounts are never added across kinds or currencies.", zh: "按类别计数；不同类别或币种的金额从不相加。" }),
     row("identification", { en: "Validated identification strategy", zh: "经验证的识别策略" }, () => "none: no effect is estimated"),
   ];
   const kinds = records.map((r) => new Set(r.alternatives.map((a) => a.kind)));
@@ -111,6 +125,7 @@ export function compareEventMechanisms(records: EventMechanismRecord[]): { rows:
     { en: `The decision makers differ: ${records.map((r) => `${r.event_id} ${r.event.responsible.kind} (${r.event.responsible.primary_source_kind})`).join("; ")}. An EU decision has a public decision record; a company announcement does not establish construction or investment.`, zh: `决策方不同：${records.map((r) => `${r.event_id} ${r.event.responsible.kind}（${r.event.responsible.primary_source_kind}）`).join("；")}。欧盟决定有公开的决定记录；企业公告不能证实开工或投资。` },
     { en: `${records.filter((r) => r.indicators.monthly).length} of ${records.length} cases has an explained monthly indicator (${records.filter((r) => r.indicators.monthly).map((r) => r.event_id).join(", ") || "none"}). Annual national totals reach ${records.map((r) => `${r.event_id} ${Math.max(...r.indicators.annual.map((a) => a.latestPublishedYear ?? 0))}`).join(" and ")}; ${(() => { const after = records.map((r) => ({ id: r.event_id, n: Math.max(...r.indicators.annual.map((x) => x.yearsAfterEvent ?? 0)) })).sort((x, y) => x.n - y.n)[0]; return `${after.id} has only ${after.n} published ${after.n === 1 ? "year" : "years"} after its event`; })()}.`, zh: `${records.length} 个案例中有 ${records.filter((r) => r.indicators.monthly).length} 个有经说明的月度指标（${records.filter((r) => r.indicators.monthly).map((r) => r.event_id).join("、") || "无"}）。年度国家总量最新到 ${records.map((r) => `${r.event_id} ${Math.max(...r.indicators.annual.map((a) => a.latestPublishedYear ?? 0))} 年`).join(" 和 ")}；${(() => { const after = records.map((r) => ({ id: r.event_id, n: Math.max(...r.indicators.annual.map((x) => x.yearsAfterEvent ?? 0)) })).sort((x, y) => x.n - y.n)[0]; return `${after.id} 在事件之后只有 ${after.n} 个已发布年份`; })()}。` },
     { en: `Each event falls inside a pair of admitted elections, so the election-level turnout and macro changes of that pair are contemporaneous context. They are not evidence about the event.`, zh: `每个事件都落在一对已准入选举之间，因此该组的选举投票率和宏观变化只是同期背景，不是关于事件的证据。` },
+    { en: `Implementation evidence (E2): ${records.map((r) => `${r.event_id} ${r.implementation.stages.map((s) => `${s.stage} ${s.status}`).join(", ")}`).join("; ")}. Neither case has an official record of a realised outcome, and no published indicator isolates either event.`, zh: `实施证据（E2）：${records.map((r) => `${r.event_id} ${r.implementation.stages.map((s) => `${s.stage} ${s.status}`).join("，")}`).join("；")}。两个案例都没有已实现结果的官方记录，也没有已发布指标能够分离出任一事件。` },
     { en: `Competing explanations listed in both cases: ${shared.join(", ") || "none"}. No validated identification strategy exists for either case, so no event effect is estimated.`, zh: `两个案例共同列出的其他解释：${shared.join("、") || "无"}。两个案例都没有经验证的识别策略，因此不估计任何事件效应。` },
   ];
   void ids;
@@ -118,7 +133,7 @@ export function compareEventMechanisms(records: EventMechanismRecord[]): { rows:
 }
 
 // Export -------------------------------------------------------------------------------------------------------------
-export type MechanismSource = { id: string; kind: "case_source" | "milestone_source" | "annual_observation" | "monthly_observation" | "election_source" | "model_input"; url: string | null; label: string; detail: string | null };
+export type MechanismSource = { id: string; kind: "case_source" | "milestone_source" | "implementation_document" | "annual_observation" | "monthly_observation" | "election_source" | "model_input"; url: string | null; label: string; detail: string | null };
 export function eventMechanismSources(records: EventMechanismRecord[], windows: Record<string, WindowSummary | null> = {}) {
   const index = new Map<string, MechanismSource>();
   const add = (x: MechanismSource) => { if (!index.has(x.id)) index.set(x.id, x); return x.id; };
@@ -126,12 +141,13 @@ export function eventMechanismSources(records: EventMechanismRecord[], windows: 
     const sources = r.sources.map((s) => add({ id: `source:${s.url}`, kind: "case_source", url: s.url, label: s.label, detail: s.supports.en }));
     const milestones = r.event.milestones.map((m) => add({ id: `source:${m.source_url}`, kind: "milestone_source", url: m.source_url, label: `${m.date} ${m.stage}`, detail: null }));
     const annual = r.indicators.annual.flatMap((a) => a.observations.filter((o) => o.value !== null).map((o) => add({ id: `observation:${o.observationId}`, kind: "annual_observation", url: o.sourceUrl, label: `${a.indicatorId} ${a.geography} ${o.year}`, detail: o.sourceDataset ?? o.sourceName })));
+    const implementation = r.implementation.milestones.filter((m) => m.url).map((m) => add({ id: `document:${m.id}`, kind: "implementation_document", url: m.url, label: m.document_ref, detail: [m.institution.en, m.publication_date ? `published ${m.publication_date}` : null, `retrieved ${m.retrieved}`, m.document_sha256 ? `sha256 ${m.document_sha256}` : null].filter(Boolean).join("; ") }));
     const w = windows[r.event_id];
     const monthly = w ? w.traceIds.map((id) => add({ id: `monthly:${id}`, kind: "monthly_observation", url: w.sourceUrl, label: `${w.outcome} ${id}`, detail: w.definition })) : [];
     const elections = (r.political.interval?.electionSources ?? []).map((s) => add({ id: `election:${s.id}`, kind: "election_source", url: s.url, label: `${s.electionId} ${s.institution ?? ""}`.trim(), detail: null }));
     const models = r.political.models.flatMap((m) => m.years.flatMap((y) => y.inputs.map((i) => add({ id: `model-input:${i.observationId}`, kind: "model_input", url: i.sourceUrl, label: `${m.modelId} ${y.year} ${i.indicator}`, detail: `${m.formulaVersion} ${m.weightVersion}` }))));
     const uniq = (x: string[]) => [...new Set(x)].sort();
-    return { event_id: r.event_id, event: uniq([...sources, ...milestones]), annual: uniq(annual), monthly: uniq(monthly), election: uniq(elections), models: uniq(models) };
+    return { event_id: r.event_id, event: uniq([...sources, ...milestones]), implementation: uniq(implementation), annual: uniq(annual), monthly: uniq(monthly), election: uniq(elections), models: uniq(models) };
   });
   return { index: [...index.values()].sort((a, b) => a.id.localeCompare(b.id)), refs };
 }
@@ -152,6 +168,11 @@ export function eventMechanismCsv(records: EventMechanismRecord[], windows: Reco
     const ref = ev.source_index.refs.find((x) => x.event_id === r.event_id)!, j = (x: string[]) => x.join("; ");
     rows.push(["event", r.event_id, "A", "decision", r.event.date, r.event.responsible.institution.en, r.event.stagesDocumented.join(" | "), r.event.responsible.primary_source_kind, r.event.responsible.decision.en, j(ref.event)]);
     for (const m of r.event.milestones) rows.push(["milestone", r.event_id, "A", m.stage, m.date, m.text.en, "documented", "cited source", "", `source:${m.source_url}`]);
+    const money = (a: { value: number; currency: string; kind: string; label: string; net_of_prefinancing: boolean | null; precision: string }) => `${a.currency} ${a.value} ${a.kind} (${a.label}${a.net_of_prefinancing === true ? ", net of pre-financing" : ""}${a.precision === "rounded_as_published" ? ", rounded as published" : ""})`;
+    for (const m of r.implementation.milestones) rows.push(["implementation_milestone", r.event_id, "A", `${m.stage}: ${m.id}`, m.event_date ?? "", m.claim.en, m.status, m.document_kind, [`${m.institution.en}; ${m.document_ref}; scope ${m.scope}; published ${m.publication_date ?? "n/a"}; date precision ${m.date_precision}`, ...m.amounts.map(money), ...m.quantities.map((q) => `${q.value} ${q.unit} ${q.kind} (${q.label})`), m.note?.en].filter(Boolean).join(" | "), m.url ? `document:${m.id}` : ""]);
+    for (const s of r.implementation.stages) rows.push(["implementation_stage", r.event_id, "D", s.stage, "", `${s.verified} verified, ${s.announced} announced, ${s.disputed} disputed, ${s.unavailable} unavailable`, s.status, "documentary evidence status, not a performance score", "", j(ref.implementation.filter((id) => s.ids.some((x) => id === `document:${x}`)))]);
+    for (const l of r.implementation.links) rows.push(["implementation_link", r.event_id, "C", l.indicatorId, l.latestPublishedYear === null ? "" : String(l.latestPublishedYear), l.anchor, l.use, `${l.geography}; ${l.timing}; ${l.measurement}; ${l.vintage ?? "not held"}`, l.reason.en, ""]);
+    for (const u of r.implementation.unresolved) rows.push(["unresolved_claim", r.event_id, "D", "", "", u.en, "unresolved", "", "", ""]);
     for (const l of r.mechanism.links) rows.push(["mechanism_link", r.event_id, "B", l.step.en, l.timing.en, "", l.basis, l.basis === "unsupported_connection" ? "shown so it is not assumed" : "", "", ""]);
     for (const c of r.mechanism.conditions) rows.push(["mechanism_condition", r.event_id, "B", c.condition.en, "", "", c.status, "", "", c.status === "documented" ? j(ref.event) : ""]);
     for (const a of r.indicators.annual) for (const o of a.observations) rows.push(["annual_observation", r.event_id, "C", a.indicatorId, String(o.year), o.value, o.value === null ? "not_published" : "published", o.phase, `${a.geography}; current published value only; ${a.source.dataset ?? a.source.name ?? ""}`, o.value === null ? "" : `observation:${o.observationId}`]);

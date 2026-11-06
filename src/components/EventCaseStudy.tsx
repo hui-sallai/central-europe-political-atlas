@@ -11,6 +11,7 @@ import { attachOverlappingEvents, buildLineSegments, computeEventWindow, type Hi
 import { NotebookCollect } from "@/components/NotebookCollect";
 import type { Event } from "@/types/Event";
 import type { EventWindowResult } from "@/types/EventWindow";
+import type { ClaimStatus, ImplementationStage } from "@/lib/eventImplementationEvidence";
 import { compareEventMechanisms, eventMechanismCsv, eventMechanismDigest, eventMechanismEvidence, type EventMechanismRecord, type WindowSummary } from "@/lib/eventMechanismResearch";
 
 // End-to-end case-study dossier for a reviewed event. Documentary content comes from eventCaseStudies.ts and the event's
@@ -73,6 +74,18 @@ function AnnualChart({ points, eventYear, label }: { points: Array<{ year: numbe
     </svg>
   );
 }
+
+// Locale-independent digit grouping, so server and client render identical text.
+const groupDigits = (v: number) => String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+const E2_LABEL: Record<string, Bi> = {
+  requested: { en: "requested", zh: "申请" }, allocated: { en: "allocated", zh: "分配" }, budgeted: { en: "budgeted", zh: "预算" }, authorised: { en: "authorised", zh: "授权" }, paid: { en: "paid", zh: "已支付" }, suspended: { en: "suspended", zh: "暂停" }, suspension_lifted: { en: "suspension lifted", zh: "解除暂停" }, reduced: { en: "reduced", zh: "削减" }, announced_investment: { en: "announced investment", zh: "公告投资" },
+  announced_capacity: { en: "announced capacity", zh: "公告产能" }, permitted_capacity: { en: "permitted capacity", zh: "许可产能" }, company_reported_output: { en: "company-reported output", zh: "企业报告的产出" }, reported_progress: { en: "reported progress", zh: "报告的进展" }, count: { en: "count", zh: "数量" },
+  GWh_per_year: { en: "GWh a year", zh: "GWh/年" }, modules: { en: "modules", zh: "个模组" }, percent: { en: "%", zh: "%" }, milestones_and_targets: { en: "milestones and targets", zh: "个里程碑和目标" },
+  anchor_undated: { en: "the linked record is undated", zh: "关联记录无日期" }, no_published_values: { en: "no published values", zh: "无已发布数值" }, published_years_reach_anchor: { en: "published years reach the linked record", zh: "已发布年份覆盖关联记录" }, no_published_year_after_anchor: { en: "no published year after the linked record", zh: "关联记录之后没有已发布年份" },
+  context_only: { en: "context only", zh: "仅作背景" }, not_comparable: { en: "not comparable", zh: "不可比" },
+};
+const E2_STAGE: Record<ImplementationStage, Bi> = { announcement: { en: "Announcement", zh: "公告" }, approval: { en: "Approval", zh: "批准" }, implementation: { en: "Implementation", zh: "实施" }, realized_outcome: { en: "Realised outcome", zh: "已实现结果" } };
+const E2_STATUS: Record<ClaimStatus, Bi> = { verified: { en: "verified", zh: "已核实" }, announced: { en: "announced", zh: "已公告" }, disputed: { en: "disputed", zh: "有争议" }, unavailable: { en: "unavailable", zh: "不可得" } };
 
 export function EventCaseStudy({ event, events, series, loadState, mechanisms = [] }: { event: Event; events: Event[]; series: HighFrequencyPoint[]; loadState: "loading" | "ready" | "error"; mechanisms?: EventMechanismRecord[] }) {
   const en = useLocale() === "en";
@@ -321,6 +334,27 @@ export function EventCaseStudy({ event, events, series, loadState, mechanisms = 
               {([["documented", en ? "Directly documented" : "直接有记录", mechanism.assessment.documented], ["contemporaneous", en ? "Only contemporaneous" : "仅为同期", mechanism.assessment.contemporaneous], ["hypothesis", en ? "Research hypothesis" : "研究假设", mechanism.assessment.hypotheses], ["causality", en ? "Needed to establish causality" : "确立因果所需", mechanism.assessment.causalityRequirements]] as Array<[string, string, Bi[]]>).map(([key, label, items]) => <div key={key} data-e1-assessment-kind={key}><p className="font-semibold">{label}</p><ul className="list-disc pl-5">{items.map((x) => <li key={x.en}>{t(x)}</li>)}</ul></div>)}
             </div>
           </div>
+          <div data-e2-implementation={mechanism.implementation.method_version}>
+            <p className="text-xs text-[var(--muted)]">{en ? "Implementation evidence (E2): announced, approved, implemented, realised" : "实施证据（E2）：公告、批准、实施、实现"}</p>
+            <ul className="mt-1 flex flex-wrap gap-2" data-e2-stages>{mechanism.implementation.stages.map((s) => <li key={s.stage} data-e2-stage={s.stage} data-e2-status={s.status} className={`rounded-full border px-3 py-1 text-xs ${s.status === "verified" ? "border-[var(--foreground)] font-semibold" : "border-[var(--line)] text-[var(--muted)]"}`}>{E2_STAGE[s.stage][en ? "en" : "zh"]}: {E2_STATUS[s.status][en ? "en" : "zh"]}{s.disputed && s.status !== "disputed" ? (en ? ` · ${s.disputed} disputed` : ` · ${s.disputed} 项有争议`) : ""}</li>)}</ul>
+            <p className="mt-1 text-xs text-[var(--muted)]">{en ? "Documentary evidence status, not a performance score. Verified = an official document supports the claim; announced = only the party concerned states it; disputed = contested and no primary record located; unavailable = nothing located." : "这是文件证据状态，不是绩效评分。已核实 = 有官方文件支持；已公告 = 只有当事方陈述；有争议 = 存在争议且未找到一手记录；不可得 = 未找到任何记录。"}</p>
+            <div className="mt-2 overflow-x-auto" tabIndex={0} role="region" aria-label={en ? "Implementation chronology (scrollable)" : "实施时间线（可横向滚动）"}>
+              <table className="research-data-table min-w-[720px] text-left text-xs" data-e2-chronology>
+                <thead><tr><th className="px-2 py-1">{en ? "Date" : "日期"}</th><th className="px-2 py-1">{en ? "Stage · status" : "阶段 · 状态"}</th><th className="px-2 py-1">{en ? "Claim" : "陈述"}</th><th className="px-2 py-1">{en ? "Amounts and units" : "金额与单位"}</th><th className="px-2 py-1">{en ? "Source" : "来源"}</th></tr></thead>
+                <tbody>{mechanism.implementation.milestones.map((m) => <tr key={m.id} data-e2-milestone={m.id} data-e2-milestone-status={m.status} data-e2-scope={m.scope}>
+                  <td className="px-2 py-1 align-top metric-number">{m.event_date ?? (en ? "undated" : "无日期")}{m.publication_date && m.publication_date !== m.event_date ? <span className="block text-[var(--muted)]">{en ? "published" : "发布"} {m.publication_date}</span> : null}</td>
+                  <td className="px-2 py-1 align-top">{E2_STAGE[m.stage][en ? "en" : "zh"]} · <span className={m.status === "verified" ? "font-semibold" : "text-[var(--muted)]"}>{E2_STATUS[m.status][en ? "en" : "zh"]}</span>{m.scope !== "event_specific" ? <span className="block text-[var(--muted)]">{m.scope === "whole_plan" ? (en ? "whole plan" : "整个计划") : (en ? "zone infrastructure" : "园区基础设施")}</span> : null}</td>
+                  <td className="px-2 py-1 align-top">{t(m.claim)}{m.note ? <span className="block text-[var(--muted)]">{t(m.note)}</span> : null}</td>
+                  <td className="px-2 py-1 align-top">{[...m.amounts.map((a) => `${a.currency} ${groupDigits(a.value)} · ${t(E2_LABEL[a.kind])}${a.precision === "rounded_as_published" ? (en ? " (as published)" : "（按公布值）") : ""}`), ...m.quantities.map((q) => `${groupDigits(q.value)} ${t(E2_LABEL[q.unit])} · ${t(E2_LABEL[q.kind])}`)].map((x) => <span key={x} className="block">{x}</span>)}</td>
+                  <td className="px-2 py-1 align-top">{t(m.institution)}<span className="block">{m.url ? <a href={m.url} target="_blank" rel="noreferrer" className="text-[var(--accent)] underline">{m.document_ref} ↗</a> : m.document_ref}</span></td>
+                </tr>)}</tbody>
+              </table>
+            </div>
+            <p className="mt-2 font-semibold">{en ? "Published observations and the implementation record" : "已发布观测值与实施记录"}</p>
+            <ul className="list-disc pl-5" data-e2-links>{mechanism.implementation.links.map((l) => <li key={l.indicatorId} data-e2-link={l.indicatorId} data-e2-use={l.use}>{t(mechanism.indicators.annual.find((a) => a.indicatorId === l.indicatorId)?.name ?? { en: l.indicatorId, zh: l.indicatorId })} ({en ? "latest published year" : "最新已发布年份"} {l.latestPublishedYear ?? "—"}; {t(E2_LABEL[l.timing])}; {t(E2_LABEL[l.use])}): {t(l.reason)}</li>)}</ul>
+            <p className="mt-2 font-semibold">{en ? "Unresolved" : "尚未解决"}</p>
+            <ul className="list-disc pl-5" data-e2-unresolved>{mechanism.implementation.unresolved.map((u) => <li key={u.en}>{t(u)}</li>)}</ul>
+          </div>
           {comparison ? <div>
             <p className="text-xs text-[var(--muted)]">{en ? "E · Comparison across the reviewed cases" : "E · 已审阅案例之间的比较"}</p>
             <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={en ? "Comparison of cases (scrollable)" : "案例比较（可横向滚动）"}>
@@ -336,7 +370,7 @@ export function EventCaseStudy({ event, events, series, loadState, mechanisms = 
             <button type="button" className="underline" data-e1-export-csv onClick={() => download(eventMechanismCsv(mechanisms, windows), "event-mechanism-research.csv", "text/csv;charset=utf-8")}>{en ? "Export the research chains (CSV)" : "导出研究链条（CSV）"}</button>
             {digest ? <span className="break-all text-xs" data-e1-digest>SHA-256: {digest}</span> : null}
           </div>
-          <p className="text-xs text-[var(--muted)]">{en ? "Both cases in one export, each record naming its sources in a shared index. The monthly window enters only for the case shown, from the engine result above. Nothing here estimates an event effect." : "两个案例在同一导出文件中，每条记录都在共享索引中注明来源。月度窗口只计入当前显示的案例，取自上方的引擎结果。这里不估计任何事件效应。"}</p>
+          <p className="text-xs text-[var(--muted)]">{en ? "Both cases in one export, each record naming its sources in a shared index, including the implementation documents with their retrieval date and, for PDF documents, their SHA-256. The monthly window enters only for the case shown, from the engine result above. Nothing here estimates an event effect." : "两个案例在同一导出文件中，每条记录都在共享索引中注明来源，包括实施文件及其读取日期，PDF 文件另附 SHA-256。月度窗口只计入当前显示的案例，取自上方的引擎结果。这里不估计任何事件效应。"}</p>
         </Section> : null}
       </div>
     </article>

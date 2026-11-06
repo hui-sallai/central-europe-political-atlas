@@ -36,7 +36,7 @@ test('A event: both reviewed cases, with date, country, deciding institution and
   assert.match(rec(CZ).event.dateNote.en, /17 October 2023/);
   assert.equal(rec(HU).event.responsible.kind, 'private_company');
   assert.equal(rec(HU).event.responsible.primary_source_kind, 'company_statement');
-  assert.deepEqual(rec(HU).event.stagesDocumented, ['announcement']);
+  assert.deepEqual(rec(HU).event.stagesDocumented, ['announcement', 'legal_adoption'], 'the gazette decree and county permit document approval; implementation is not officially documented');
 });
 
 test('B and D: documented, hypothetical and unsupported links stay apart; later conditions are not documented', () => {
@@ -95,7 +95,7 @@ test('models: the models\' own outputs from 2021, never reconstructed, described
 
 test('E comparison: fixed dimensions, described differences, no identification strategy, no causal or ranking language', () => {
   const { rows, findings } = E.compareEventMechanisms(records);
-  assert.equal(rows.length, 14);
+  assert.equal(rows.length, 16);
   assert.deepEqual(Object.values(rows.find((r) => r.key === 'identification').values), ['none: no effect is estimated', 'none: no effect is estimated']);
   assert.deepEqual(rows.find((r) => r.key === 'conditions').values, { [CZ]: '2 of 4', [HU]: '1 of 4' });
   const text = [...findings.flatMap((f) => [f.en, f.zh]), ...records.flatMap((r) => r.assessment.contemporaneous.map((c) => c.en))].join(' ');

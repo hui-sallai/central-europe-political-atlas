@@ -36,6 +36,7 @@ for (const locale of ["zh-CN", "en"] as const) {
     const study = dossier(page, id);
     await expect(study.locator("[data-case-stage='announcement']")).toHaveAttribute("data-documented", "true");
     await expect(study.locator("[data-case-stage='implementation']")).toHaveAttribute("data-documented", "false");
+    await expect(study.locator("[data-case-stage='legal_adoption']")).toHaveAttribute("data-documented", "true");
     await expect(study.locator("[data-case-chain='unsupported_connection']")).toContainText(locale === "en" ? "announced amount" : "公告金额");
     for (const indicator of ["fdi_inflow", "manufacturing_share_gdp", "automotive_export_share"]) await expect(study.locator(`[data-case-annual='${indicator}']`)).toBeVisible();
     await expect(study.locator("[data-case-annual='fdi_inflow']")).toContainText(locale === "en" ? "event year" : "事件年");
@@ -78,7 +79,7 @@ for (const locale of ["en", "zh-CN"] as const) test(`E1 research chain: both cas
   const e1 = page.locator('[data-case-section="mechanism-research"]');
   await expect(e1).toBeVisible({ timeout: 60000 });
   await expect(e1.locator("[data-e1-condition='not_documented']")).toHaveCount(2);
-  await expect(e1.locator("[data-e1-dimension]")).toHaveCount(14);
+  await expect(e1.locator("[data-e1-dimension]")).toHaveCount(16);
   await expect(e1.locator("[data-e1-assessment-kind='hypothesis']")).toBeVisible();
   await expect(e1.locator("[data-e1-interval]")).toContainText(en ? "24 months after the first" : "前一届之后 24 个月");
   await expect(e1).not.toContainText(/forecast|predict|rank|预测|排名/i);
@@ -93,4 +94,37 @@ for (const locale of ["en", "zh-CN"] as const) test(`E1 research chain: both cas
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   await page.goto(url(locale, "hu-2022-08-12-catl-debrecen", "hungary"), { waitUntil: "networkidle" });
   await expect(page.locator('[data-case-section="mechanism-research"] [data-e1-event]')).toContainText(en ? "company statement" : "企业声明");
+});
+
+for (const locale of ["en", "zh-CN"] as const) test(`E2 implementation evidence: four documentary stages, dated chronology and traced export (${locale})`, async ({ page }) => {
+  test.setTimeout(120000);
+  const en = locale === "en";
+  await page.goto(url(locale, "cz-2023-10-16-repowereu-plan", "czechia"), { waitUntil: "networkidle" });
+  const e2 = page.locator('[data-case-section="mechanism-research"] [data-e2-implementation]');
+  await expect(e2).toBeVisible({ timeout: 60000 });
+  for (const [stage, status] of [["announcement", "verified"], ["approval", "verified"], ["implementation", "verified"], ["realized_outcome", "unavailable"]]) await expect(e2.locator(`[data-e2-stage='${stage}']`)).toHaveAttribute("data-e2-status", status);
+  await expect(e2.locator("[data-e2-milestone]")).toHaveCount(16);
+  await expect(e2.locator("[data-e2-milestone='cz-e2-07-grid-milestone-suspended']")).toContainText("97,629,788");
+  await expect(e2.locator("[data-e2-milestone='cz-e2-09-payment-2025-09']")).toHaveAttribute("data-e2-scope", "whole_plan");
+  const dates = await e2.locator("[data-e2-milestone] td:first-child").allInnerTexts();
+  const dated = dates.map((d) => d.split("\n")[0].trim()).filter((d) => /^\d{4}/.test(d));
+  expect(dated).toEqual([...dated].sort());
+  await expect(e2.locator("[data-e2-link='energy_import_dependency']")).toHaveAttribute("data-e2-use", "context_only");
+  await expect(e2.locator("[data-e2-unresolved] li")).toHaveCount(4);
+  if (en) expect(await noCjkOutsideOriginals(page, "[data-e2-implementation]")).not.toMatch(/[㐀-鿿]/u);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  const e1 = page.locator('[data-case-section="mechanism-research"]');
+  const [download] = await Promise.all([page.waitForEvent("download"), e1.locator("[data-e1-export-csv]").click()]);
+  const csv = await (await import("node:fs")).promises.readFile((await download.path())!, "utf8");
+  expect(csv).toContain('"implementation_milestone","hu-2022-08-12-catl-debrecen"');
+  expect(csv).toContain("document:cz-e2-10-grid-milestone-fulfilled");
+  expect(csv).toContain("atlas-event-mechanism-research-v2");
+  await page.goto(url(locale, "hu-2022-08-12-catl-debrecen", "hungary"), { waitUntil: "networkidle" });
+  const hu = page.locator('[data-case-section="mechanism-research"] [data-e2-implementation]');
+  await expect(hu.locator("[data-e2-stage='approval']")).toHaveAttribute("data-e2-status", "verified");
+  await expect(hu.locator("[data-e2-stage='approval']")).toContainText(en ? "1 disputed" : "1 项有争议");
+  for (const stage of ["announcement", "implementation", "realized_outcome"]) await expect(hu.locator(`[data-e2-stage='${stage}']`)).toHaveAttribute("data-e2-status", "announced");
+  await expect(hu.locator("[data-e2-milestone='hu-e2-05-permit-modified']")).toContainText("40");
+  await expect(hu.locator("[data-e2-link='automotive_export_share']")).toHaveAttribute("data-e2-use", "not_comparable");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
 });

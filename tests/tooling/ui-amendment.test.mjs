@@ -49,7 +49,7 @@ test('wildcard paths, missing sha256, OTHER classification and data_change_allow
 test('the committed amendment lists exact hashes for presentation files only', () => {
   const { problems, approved } = approvedUiFiles(record.amendments);
   assert.deepEqual(problems, []);
-  assert.equal(approved.size, 137); // Adds the political publication-gate status list, ThemeToggle and the theme boot module, then the D4 research case (its library, model context and view) and the E1 event-mechanism library and its server assembly; political stores and gates stay frozen.
+  assert.equal(approved.size, 138); // Adds the political publication-gate status list, ThemeToggle and the theme boot module, then the D4 research case (its library, model context and view), the E1 event-mechanism library and its server assembly, and the E2 implementation-evidence library; political stores and gates stay frozen.
   for (const [p] of approved) assert.match(p, /^src\/(app|components|lib)\//);
 });
 
