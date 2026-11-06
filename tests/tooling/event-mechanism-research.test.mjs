@@ -56,7 +56,7 @@ test('B and D: documented, hypothetical and unsupported links stay apart; later 
 test('C indicators: published national annual values exactly as stored, current vintage only, monthly window only where linked', () => {
   for (const r of records) for (const a of r.indicators.annual) {
     const stored = RD.getCountryObservations(r.event.country, a.indicatorId);
-    for (const o of a.observations) { const s = stored.find((x) => x.id === o.observationId); assert.ok(s); if (o.value !== null) assert.equal(o.value, s.value); }
+    for (const o of a.observations) { const s = stored.find((x) => x.id === o.observationId); assert.ok(s); if (o.value !== null) assert.equal(o.value, s.value); assert.equal(o.sourceUrl,s.source_url); assert.equal(o.updatedAt,s.updated_at); }
     assert.equal(a.vintage, 'current_published_only');
     assert.equal(a.geography, r.event.country, 'national scope; no subnational module');
   }
@@ -64,6 +64,8 @@ test('C indicators: published national annual values exactly as stored, current 
   assert.deepEqual(rec(HU).indicators.annual.map((a) => a.indicatorId), ['fdi_inflow', 'manufacturing_share_gdp', 'automotive_export_share']);
   assert.equal(rec(CZ).indicators.monthly.outcome, 'hicp_energy_annual_rate:yoy_rate');
   assert.equal(rec(HU).indicators.monthly, null);
+  const index=E.eventMechanismSources(records).index;
+  for(const r of records)for(const a of r.indicators.annual)for(const o of a.observations.filter(o=>o.value!==null))assert.equal(index.find(s=>s.id===`observation:${o.observationId}`).url,o.sourceUrl,'each year retains its own registered source query, not the latest year');
   assert.match(rec(HU).indicators.monthlyBlocker.en, /no explained monthly indicator link/);
   for (const r of records) assert.ok(r.indicators.missing.some((m) => /vintages/.test(m.en)));
 });

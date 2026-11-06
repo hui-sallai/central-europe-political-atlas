@@ -27,7 +27,7 @@ export type WindowSummary = { outcome: string; gate: EventWindowResult["gate"]; 
 
 export type MechanismAnnual = {
   indicatorId: string; name: Bi; role: Bi; frequency: "annual"; geography: string;
-  observations: { year: number; value: number | null; status: string; observationId: string; phase: "pre" | "event" | "post" }[];
+  observations: { year: number; value: number | null; status: string; observationId: string; phase: "pre" | "event" | "post"; sourceUrl: string; sourceName: string; sourceDataset: string | null; updatedAt: string }[];
   counts: { pre: number; event: number; post: number }; latestPublishedYear: number | null; yearsAfterEvent: number | null;
   source: { url: string | null; dataset: string | null; name: string | null; updatedAt: string | null }; vintage: "current_published_only";
 };
@@ -43,7 +43,7 @@ export function buildEventMechanismRecord(study: EventCaseStudy, event: Event, a
   const eventYear = Number(event.date.slice(0, 4));
   const annual: MechanismAnnual[] = study.annual.map((item) => {
     const rows = observationsOf(item.indicator_id).slice().sort((a, b) => a.year - b.year);
-    const obs = rows.map((o) => ({ year: o.year, value: published(o) ? o.value : null, status: o.status, observationId: o.id, phase: annualPhase(o.year, event.date) }));
+    const obs = rows.map((o) => ({ year: o.year, value: published(o) ? o.value : null, status: o.status, observationId: o.id, phase: annualPhase(o.year, event.date), sourceUrl: o.source_url, sourceName: o.source_name, sourceDataset: o.source_dataset ?? null, updatedAt: o.updated_at }));
     const held = obs.filter((o) => o.value !== null);
     const latest = held.at(-1) ?? null, source = rows.filter(published).at(-1) ?? null;
     return {
@@ -125,7 +125,7 @@ export function eventMechanismSources(records: EventMechanismRecord[], windows: 
   const refs = records.map((r) => {
     const sources = r.sources.map((s) => add({ id: `source:${s.url}`, kind: "case_source", url: s.url, label: s.label, detail: s.supports.en }));
     const milestones = r.event.milestones.map((m) => add({ id: `source:${m.source_url}`, kind: "milestone_source", url: m.source_url, label: `${m.date} ${m.stage}`, detail: null }));
-    const annual = r.indicators.annual.flatMap((a) => a.observations.filter((o) => o.value !== null).map((o) => add({ id: `observation:${o.observationId}`, kind: "annual_observation", url: a.source.url, label: `${a.indicatorId} ${a.geography} ${o.year}`, detail: a.source.dataset })));
+    const annual = r.indicators.annual.flatMap((a) => a.observations.filter((o) => o.value !== null).map((o) => add({ id: `observation:${o.observationId}`, kind: "annual_observation", url: o.sourceUrl, label: `${a.indicatorId} ${a.geography} ${o.year}`, detail: o.sourceDataset ?? o.sourceName })));
     const w = windows[r.event_id];
     const monthly = w ? w.traceIds.map((id) => add({ id: `monthly:${id}`, kind: "monthly_observation", url: w.sourceUrl, label: `${w.outcome} ${id}`, detail: w.definition })) : [];
     const elections = (r.political.interval?.electionSources ?? []).map((s) => add({ id: `election:${s.id}`, kind: "election_source", url: s.url, label: `${s.electionId} ${s.institution ?? ""}`.trim(), detail: null }));

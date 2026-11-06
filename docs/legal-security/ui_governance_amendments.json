@@ -2488,5 +2488,25 @@
       "release_change_allowed": false,
       "created_at": "2026-11-06"
     }
+    ,
+    {
+      "amendment_id": "d4-e1-acceptance-observation-provenance-2026-11-06",
+      "status": "owner_approved",
+      "approved_by": "Owner final D4/E1 acceptance task: correct substantive export provenance only; retain individual registered annual observation source queries, no data, formula, research gate or version changes; no automatic deployment",
+      "baseline": "b0149249e6ee0570be1e5d02a713917fca1162e3",
+      "files": [
+        {
+          "path": "src/lib/eventMechanismResearch.ts",
+          "sha256": "39c74e552a27ba33496b2a667d4a432ce84c86e81bdeeb9baf5ea6562aaba5d7",
+          "classification": "SOURCE_ATTRIBUTION_UI"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-06"
+    }
   ]
 }
