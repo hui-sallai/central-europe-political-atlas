@@ -2603,6 +2603,25 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-08"
+    },
+    {
+      "amendment_id": "v20-finalization-d4-csv-source-refs-2026-11-08",
+      "status": "owner_approved",
+      "approved_by": "Owner v2.0 Finalization Round 1 brief: repair verified export provenance defects only. Resolve D4 aggregate CSV source_refs through its existing source index and retain derivation text in notes; no changes to observations, results, JSON evidence, estimators, research protocol, release version or publication gates",
+      "baseline": "eb5f759b6d285cae0549ac2a02be3b6cb09440db",
+      "files": [
+        {
+          "path": "src/lib/comparativeResearchCase.ts",
+          "sha256": "a12e32f21a24dc9a1b3235e619de5b309886d7632764b88a42240edd6591c035",
+          "classification": "SOURCE_ATTRIBUTION_UI"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-08"
     }
   ]
 }

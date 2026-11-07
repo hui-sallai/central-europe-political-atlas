@@ -194,7 +194,12 @@ test('traceability: every exported record names source records that resolve in o
   assert.deepEqual(sourceRows.map((r) => r[4]), index.map((x) => x.id), 'the CSV carries the same index as the JSON');
   for (const r of rows.filter((x) => x[0] !== 'source')) {
     const refs = r[15].split('; ').filter(Boolean);
-    for (const id of refs) assert.ok(ids.has(id) || id.startsWith('derived from'), `${r[0]} ${id}`);
+    for (const id of refs) assert.ok(ids.has(id), `${r[0]} ${id}`);
+    if (['country_direction', 'direction_without_country'].includes(r[0])) {
+      assert.ok(r[14].includes('derived from indicator_change and turnout_change rows'));
+      assert.deepEqual(refs, [...new Set(refs)].sort(), 'aggregate references are deterministic and unique');
+      if (r[0] === 'country_direction') assert.ok(refs.filter((id) => id.startsWith('macro:')).every((id) => id.startsWith(`macro:${r[1]}:${r[4]}:`)), 'country summary uses only its country and indicator sources');
+    }
     if (!refs.length) assert.ok(['withheld', 'unavailable', 'missing', 'not_established'].includes(r[12]) || (r[0] === 'indicator_change' && r[8] === '' && r[9] === ''), `${r[0]} ${r[12]} has no source`);
     if (['turnout_change', 'verified_list_movement', 'seat_rules'].includes(r[0])) assert.ok(refs.length && refs.every((id) => index.find((x) => x.id === id).kind === 'election_source'), r[0]);
   }
