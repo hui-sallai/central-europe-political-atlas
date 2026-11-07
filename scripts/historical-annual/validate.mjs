@@ -10,6 +10,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { build, HISTORY_PATH, MANIFEST_PATH, REVIEW_QUEUE } from "./acquire.mjs";
+import { displayOnlyPatterns, displayOnlyViolations } from "../validation/display-only-readers.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
@@ -51,7 +52,8 @@ for (const q of REVIEW_QUEUE) check(!history.records.some((r) => r.indicator ===
 
 // --- Isolation from formal models ---------------------------------------------------------------------------
 // Publishing (export) and UI display are allowed; estimation, scenario and index code is not.
-const allowed = [/^scripts\/export-research-data\.mjs$/, /^scripts\/data-refresh\//, /^scripts\/historical-annual\//, /^scripts\/data-coverage\//, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//];
+const allowed = [/^scripts\/export-research-data\.mjs$/, /^scripts\/data-refresh\//, /^scripts\/historical-annual\//, /^scripts\/data-coverage\//, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//, ...displayOnlyPatterns()];
+for (const problem of displayOnlyViolations(root)) check(false, problem);
 const offenders = [];
 const walk = (dir) => { for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) { const rel = path.join(dir, e.name); if (e.isDirectory()) { if (!["node_modules", "raw", "snapshots"].includes(e.name)) walk(rel); } else if (/\.(m?js|ts|tsx|py)$/.test(e.name) && fs.readFileSync(path.join(root, rel), "utf8").includes("annual_descriptive_history")) offenders.push(rel); } };
 walk("src"); walk("scripts");

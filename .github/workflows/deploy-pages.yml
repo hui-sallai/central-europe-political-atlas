@@ -114,6 +114,14 @@ jobs:
           pnpm historical-extension:validate
           pnpm historical-extension:closure-validate
 
+      - name: Validate descriptive histories and model isolation
+        run: |
+          pnpm data-coverage:validate
+          pnpm historical-annual:validate
+          pnpm historical-monthly:validate
+          pnpm historical-regional:validate
+          pnpm serbia-audit:validate
+
       - name: Export research data
         run: pnpm export:research-data
         env:

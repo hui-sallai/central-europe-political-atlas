@@ -222,6 +222,7 @@ for (const a of assetRegistry) if (a.registry_source_id) check(rights.sources.so
 // CI must run the political source-closure checkpoint (checkpoint mode only; the full closure is expected to fail).
 const ci = read('.github/workflows/deploy-pages.yml');
 check(/run: pnpm research-export:check\s*$/m.test(ci) && ci.indexOf('pnpm research-export:check') < ci.indexOf('pnpm export:research-data'), 'CI must run research-export:check before the export step');
+for (const v of ['data-coverage:validate', 'historical-annual:validate', 'historical-monthly:validate', 'historical-regional:validate', 'serbia-audit:validate']) check(new RegExp(`^\\s+pnpm ${v}\\s*$`, 'm').test(ci) && ci.indexOf(`pnpm ${v}`) < ci.indexOf('pnpm export:research-data'), `CI must run ${v} before the export step`);
 check(/run: pnpm political-source-closure:validate --checkpoint\s*$/m.test(ci) && !/political-source-closure:validate\s*$/m.test(ci), 'CI must run political-source-closure:validate --checkpoint');
 for (const e of json('docs/legal-security/dependency_maintenance_exceptions.json').exceptions) check(/^[0-9a-f]{64}$/.test(e.new_lockfile_sha256) && ['research_data_change_allowed', 'model_output_change_allowed', 'political_data_change_allowed', 'release_version_change_allowed'].every((k) => e[k] === false), `dependency exception ${e.exception_id}: exact hash and all research/model/political/release flags false required`);
 // geoBoundaries per-boundary licences (resolved 2026-10-05): notices beside the files, corrected licence record,
