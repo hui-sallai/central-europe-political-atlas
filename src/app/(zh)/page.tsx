@@ -3,23 +3,13 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { HomeResearchMap, type HomeMapCountry } from "@/components/HomeResearchMap";
 import { getBasicIndicators } from "@/lib/basicIndicators";
-import { platformStatus } from "@/lib/platformStatus";
+import { FeaturedResearchSection, HomeCoverageSection, HomeMethodologySection } from "@/components/HomeResearchDiscovery";
 import { getEventsForCountry, researchCountries, researchEvents } from "@/lib/researchData";
 import { newsLibraryMetadata } from "@/lib/newsLibraryMetadata";
 import { WorkspaceEntrySection } from "@/components/WorkspaceIndex";
+import { PLATFORM_VERSION } from "@/lib/releaseMetadata";
 
 export const metadata: Metadata = pageMetadata({ title: "中欧政治经济研究平台", description: "十国政治经济数据、区域事实地图、透明分析与事件研究入口。", path: "/" });
-
-const primaryEntries = [
-  { href: "/countries", label: "Countries", zh: "国家研究" },
-  { href: "/workspaces/", label: "Workspaces", zh: "研究问题" },
-  { href: "/data", label: "Data", zh: "数据浏览" },
-  { href: "/models", label: "Analysis", zh: "分析工作台" },
-  { href: "/scenarios", label: "Scenarios", zh: "条件情景" },
-  { href: "/news", label: "Events", zh: "事件库" },
-  { href: "/map", label: "Map", zh: "区域地图" },
-  { href: "/methodology", label: "Research", zh: "方法与下载" },
-] as const;
 
 export default function Home() {
   const mapCountries: HomeMapCountry[] = researchCountries.map((country) => {
@@ -43,59 +33,35 @@ export default function Home() {
 
   return (
     <main className="page-shell">
-      <section className="grid gap-10 border-b border-[var(--line)] pb-10 lg:grid-cols-[1.45fr_0.55fr] lg:items-end">
+      <header className="max-w-4xl border-b border-[var(--line)] pb-10">
         <div>
-          <p className="editorial-kicker">Central Europe Political Economy Analysis</p>
+          <p className="editorial-kicker">Central Europe Political Atlas · {PLATFORM_VERSION.split(" ")[0]}</p>
           <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-6xl">
-            从国家事实到区域证据的中欧研究工作台
+            用可追溯证据研究中欧政治经济
           </h1>
           <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--muted)]">
-            面向德国、波兰、匈牙利、罗马尼亚、捷克、斯洛伐克、斯洛文尼亚、塞尔维亚、奥地利与克罗地亚，连接经济观测、政治事件、区域地图、对华项目和透明分析。
+            考察各国经济状况的差异，在历史背景下比较选举，并通过来源文件追踪政策与投资项目的实施。从已有案例或问题导向工作区出发，检查证据、方法与缺口，再导出可复现研究。
           </p>
         </div>
-        <aside className="status-line text-sm leading-7 text-[var(--muted)]">
-          <p className="font-semibold text-[var(--foreground)]">{platformStatus.version}</p>
-          <p>当前处于高频政治经济、事件分析与产品语言系统阶段。</p>
-          <p>贸易网络、月度高频数据与事件窗口分析已激活；预测层和风险地图未启用。</p>
-        </aside>
-      </section>
+        <nav className="mt-5 flex flex-wrap gap-4 text-sm font-semibold" aria-label="开始研究"><a className="text-[var(--accent)] underline" href="#featured-research-title">查看研究案例</a><a className="text-[var(--accent)] underline" href="#question-first-title">选择研究问题</a><Link className="text-[var(--accent)] underline" href="/politics/">政治与选举</Link></nav>
+      </header>
+
+      <FeaturedResearchSection locale="zh-CN" />
+      <WorkspaceEntrySection locale="zh-CN" />
+      <HomeCoverageSection locale="zh-CN" />
 
       <HomeResearchMap countries={mapCountries} />
 
       <section className="editorial-section mt-10" aria-labelledby="latest-signals-title">
-        <div className="flex items-end justify-between gap-4"><div><p className="editorial-kicker">Latest Signals</p><h2 id="latest-signals-title" className="mt-2 text-3xl font-semibold">近期已核验事件</h2><p className="mt-2 text-xs text-[var(--muted)]" data-latest-signals-meta>显示最近 <span className="metric-number">{latestSignals.length}</span> 条 · 共 <span className="metric-number">{verifiedEventCount}</span> 条已核验事件 · 最近事件日期 <time dateTime={newsLibraryMetadata.latestEventDate}>{newsLibraryMetadata.latestEventDate}</time> · 新闻批次截至 <time dateTime={newsLibraryMetadata.latestNewsBatch}>{newsLibraryMetadata.latestNewsBatch}</time> · 历史事件库记录更新 <time dateTime={newsLibraryMetadata.historicalStoreUpdatedAt}>{newsLibraryMetadata.historicalStoreUpdatedAt}</time></p></div><Link href="/news" className="text-sm font-semibold text-[var(--accent)]">打开事件库</Link></div>
+        <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="editorial-kicker">Verified Event Archive</p><h2 id="latest-signals-title" className="mt-2 text-3xl font-semibold">近期已核验事件</h2><p className="mt-2 text-xs text-[var(--muted)]" data-latest-signals-meta>显示最近 <span className="metric-number">{latestSignals.length}</span> 条 · 共 <span className="metric-number">{verifiedEventCount}</span> 条已核验事件 · 最近事件日期 <time dateTime={newsLibraryMetadata.latestEventDate}>{newsLibraryMetadata.latestEventDate}</time> · 新闻批次截至 <time dateTime={newsLibraryMetadata.latestNewsBatch}>{newsLibraryMetadata.latestNewsBatch}</time> · 历史事件库记录更新 <time dateTime={newsLibraryMetadata.historicalStoreUpdatedAt}>{newsLibraryMetadata.historicalStoreUpdatedAt}</time></p></div><Link href="/news" className="text-sm font-semibold text-[var(--accent)]">打开事件库</Link></div>
+        <p className="mt-3 text-sm leading-7 text-[var(--muted)]" data-home-news-check>这是注明日期的事件档案，不是实时新闻流。最近批次来源核验（登记检索日期）：<time dateTime={newsLibraryMetadata.latestBatchSourceCheckedAt}>{newsLibraryMetadata.latestBatchSourceCheckedAt}</time>；不表示此后持续更新。</p>
         <div className="latest-signals-grid mt-5">
           {latestSignals.map((event) => <article key={event.id}><p>{event.date} · {event.country_name}</p><h3><Link href={`/news?country=${event.country_slug}#${event.id}`}>{event.title}</Link></h3><span>{event.event_type} · {event.source_name}</span></article>)}
         </div>
       </section>
 
-      <WorkspaceEntrySection locale="zh-CN" />
-
-      <section className="mt-10">
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <p className="editorial-kicker">Research Workflow</p>
-            <h2 className="mt-3 text-3xl font-semibold">选择研究入口</h2>
-          </div>
-          <p className="max-w-xl text-sm leading-6 text-[var(--muted)]">公开页面优先呈现研究任务；完整 schema、QA 和版本记录保留在下载包与方法论中。</p>
-        </div>
-        <nav className="compact-research-workflow mt-5" aria-label="主要研究入口">
-          {primaryEntries.map((entry, index) => (
-            <Link key={entry.href} href={entry.href}>
-              <span className="metric-number">0{index + 1}</span>
-              <span><strong>{entry.label}</strong><small>{entry.zh}</small></span>
-            </Link>
-          ))}
-        </nav>
-      </section>
-
-      <section className="editorial-section mt-10 grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
-        <div>
-          <p className="editorial-kicker">Research Boundary</p>
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">所有结果必须能回到 observation、来源和方法规则。缺失数据不补零，事件不自动改变分数，复合指标不解释为客观风险真值。</p>
-        </div>
-        <Link href="/methodology" className="rounded-full cta-dark px-5 py-2.5 text-sm font-semibold">阅读方法与限制</Link>
-      </section>
+      <section className="mt-8 flex flex-wrap gap-4 text-sm" aria-label="支撑证据"><Link className="text-[var(--accent)] underline" href="/news/">浏览已核验事件库</Link><Link className="text-[var(--accent)] underline" href="/data/">检查观测、来源与研究导出</Link><Link className="text-[var(--accent)] underline" href="/countries/">全部国家档案</Link></section>
+      <HomeMethodologySection locale="zh-CN" />
     </main>
   );
 }

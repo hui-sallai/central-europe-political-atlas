@@ -2569,6 +2569,40 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-07"
+    },
+    {
+      "amendment_id": "homepage-research-discovery-f1-2026-11-08",
+      "status": "owner_approved",
+      "approved_by": "Owner Stage F1 brief: reorganise existing bilingual homepage research navigation, surface admitted cases and machine-derived coverage, clarify dated event verification and existing publication limits; no dataset, model, release version or publication-gate changes; no automatic deployment",
+      "baseline": "9351f52904d49f78261fe4a451f95bc4441e8973",
+      "files": [
+        {
+          "path": "src/app/(zh)/page.tsx",
+          "sha256": "2c78249d8b6d7bda233a9c64ee43787f45b36c6eea605da425d7bbe97d3a162e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/page.tsx",
+          "sha256": "e4316ac8445e3cdd46db0f29239679326c74aaa009795d11b081b5e8baaf5c6d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/HomeResearchDiscovery.tsx",
+          "sha256": "02222e0de37f987ea8f0f9061272dee0fa90129fe61d3ff43caa73c7a29825a2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/newsLibraryMetadata.ts",
+          "sha256": "05d69ce45a13d401b9bd07d92ca751a7e3a0a4287b37fed512e2b8213302dee0",
+          "classification": "SOURCE_ATTRIBUTION_UI"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-08"
     }
   ]
 }
