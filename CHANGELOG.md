@@ -1,5 +1,13 @@
 # Changelog
 
+### v2.0 Finalization — release candidate and version freeze record — 2026-11-09
+
+- Consolidates the delivered national macroeconomic profiles, nine-country factual regional maps, five-country parliamentary-election research, D1–D4 comparative research, E1–E2.1 implementation evidence, four question-first Workspaces, bilingual research-first homepage, source provenance and reproducible exports. Platform version and research methods remain v2.0 and their existing versions.
+- Reuses the descriptive-isolation and CI restoration already committed in `76db04c`. Pins the approved Data Explorer provenance helper to its reviewed content and two existing Data pages, with negative tests for model/scenario/index/other-route imports, alternate import forms, moves, deletion and repurposing. All five coverage/history validators remain required before export.
+- Corrects the spatial generator to reproduce the already committed ODbL licence note, field order and final newline. No licensing decision, canonical value or spatial display gate changes; repeated exports reproduce tracked research files byte for byte.
+- Release commit, production workflow, package checksum and final disposition are recorded in `docs/v20-finalization-round3-2026-11-09.md` after verification. No release tag is created by this task.
+- Formal VAR dynamic responses, IRFs and structural-identification outputs remain unavailable. Missing observations, unverified identity/source relationships, CATL outcome gaps, the recorded preliminary Czech payment assessment and unresolved source permissions remain explicit. No new countries, models, cases or legal permissions are introduced.
+
 ### Germany National Election Slice 1A / Political Explorer Alpha — 2026-10-02 (platform remains v2.0)
 
 - Adds seven official Bundestag elections (2002–2025), second votes, published and derived shares, election seats and turnout in twelve Germany-only stores with field provenance and JSON/CSV exports.

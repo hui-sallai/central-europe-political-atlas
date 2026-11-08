@@ -45,14 +45,14 @@ const sharedLicenseRecords = [
     dataset_version: "gbOpen ADM1",
     source_url: "https://www.geoboundaries.org/",
     license_url: "https://www.openstreetmap.org/copyright",
-    license_name: "ODbL-1.0",
     usage_terms: "Per-boundary licences (geoBoundaries API metadata, read 2026-10-04): Poland and Serbia ADM1 are derived from OpenStreetMap and licensed under the Open Database License (ODbL) 1.0 \u2014 attribution required; redistributed or adapted boundary databases stay under ODbL.",
     attribution: "Boundary data: geoBoundaries (www.geoboundaries.org); \u00a9 OpenStreetMap contributors, Open Database License (ODbL) 1.0.",
     attribution_ready: true,
     license_checked: true,
     review_date: reviewedAt,
     covered_countries: ["poland", "serbia"],
-    notes: "Poland keeps ADM1 geometry because its display layer is administrative rather than the split NUTS2 statistical geography. Serbia remains blocked by official correspondence and statistical comparability checks.",
+    notes: "Poland keeps ADM1 geometry because its display layer is administrative rather than the split NUTS2 statistical geography. Serbia remains blocked by official correspondence and statistical comparability checks. Licence corrected 2026-10-04: the record id is historical; the operative per-boundary licence is ODbL 1.0 (see /geo/BOUNDARY-LICENSES.txt).",
+    license_name: "ODbL-1.0",
   },
 ];
 
@@ -259,7 +259,7 @@ const displayDecisions = manifest.records.map((record) => {
   };
 });
 
-fs.writeFileSync(path.join(outputDir, "shared-license-records.json"), JSON.stringify({ schema_version: "spatial-license-v0.87", generated_at: reviewedAt, records: sharedLicenseRecords }, null, 2));
+fs.writeFileSync(path.join(outputDir, "shared-license-records.json"), JSON.stringify({ schema_version: "spatial-license-v0.87", generated_at: reviewedAt, records: sharedLicenseRecords }, null, 2) + "\n");
 fs.writeFileSync(path.join(outputDir, "regional-geometry-qa.json"), JSON.stringify({ schema_version: "regional-geometry-qa-v0.87", generated_at: reviewedAt, records: geometryQa }, null, 2));
 fs.writeFileSync(path.join(outputDir, "public-display-decisions.json"), JSON.stringify({ schema_version: "spatial-display-gate-v0.87", generated_at: reviewedAt, records: displayDecisions }, null, 2));
 
