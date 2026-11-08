@@ -2,7 +2,7 @@
 
 ## Release decision
 
-**BLOCKED pending explicit approval of the precise display-reader exception and publication/freeze of this candidate.** Candidate production CI and production verification have not yet run. No release tag has been created.
+**Owner approval recorded; final release CI and production verification pending.** The precise display-reader exception and publication/freeze of the candidate are approved. The release is not yet marked PASS. No release tag has been created.
 
 This is the finalization record for the existing v2.0 scope, not a new research release. Earlier evidence is retained in [Round 1](v20-finalization-round1-2026-11-08.md), [Round 2](v20-finalization-round2-2026-11-08.md) and the [previous final security round](v20-finalization-final-round-2026-11-08.md).
 
@@ -38,9 +38,9 @@ Missing from that implementation, and added here:
 
 The helper's current content already has owner-approved presentation authority in `docs/legal-security/ui_governance_amendments.json`, amendment `annual-pending-source-availability-2026-10-20`, at the exact hash above. It is a read-only build-time projection for Data Explorer, not an estimator or model input loader.
 
-The commit message and successful CI for `76db04c` are evidence of implementation/testing, not independent proof of owner approval of a gate exception. No separate explicit gate-exception decision was located in the supplied records. The current Round 3 brief authorises verification, missing negative tests and fail-closed corrections. Explicit acceptance of the precise exception and final publication is therefore being requested rather than retroactively invented.
+The commit message and successful CI for `76db04c` are evidence of implementation/testing, not independent proof of owner approval of a gate exception. No separate earlier gate-exception decision was located in the supplied records. That historical absence was not retroactively relabelled as approval.
 
-Proposed decision: retain only the hash-pinned helper and its two existing Data Explorer consumers; do not authorise any model, scenario, index, new country, data change or legal permission. Freeze only the commit whose final required CI and production acceptance pass. No tag is proposed.
+**Explicit owner decision, 2026-11-09:** in response to the precise approval question, the owner answered: “批准精确例外，并推送部署冻结 v2.0”. The approved scope is only the hash-pinned helper and its two existing Data Explorer consumers, conditional on final required CI and production acceptance passing. It does not authorise any model, scenario, index, new country, data change or legal permission. No tag is authorised or proposed.
 
 ## 4. Annual, monthly, regional and Serbia guards
 
@@ -91,4 +91,4 @@ Existing source/legal permission limits, controller-establishment uncertainty, n
 
 `src/data/release.json`, `package.json`, method versions, canonical research data and formal publication flags are unchanged. Platform version remains v2.0. No tag has been created.
 
-Final release commit, workflow and checksum remain unassigned until approval and successful candidate CI/production checks. Do not use the baseline identifiers above as proof that these new corrections have been deployed.
+Final release commit, workflow and checksum will be recorded after successful candidate CI/production checks. Owner approval is recorded above; do not use the older baseline identifiers as proof that these new corrections have been deployed.
