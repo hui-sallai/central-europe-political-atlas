@@ -73,7 +73,29 @@ The exception is applied by:
     - It is left open, and its Dependabot alert stays open with it.
   - **`zod` 4.4.3** (high), via `eslint-plugin-react-hooks`.
     - The patched 4.6.6 is within the declared range.
-    - It was not among the Dependabot alerts or in the approved scope, so it needs its own owner-approved transitive exception if wanted.
+    - It was not among the Dependabot alerts or in the approved scope, so it needed its own owner-approved transitive exception.
+    - **Fixed the same day** after owner approval: see §2a.
+
+## 2a. Change: transitive zod 4.4.3 → 4.6.7 (owner-approved)
+
+- `pnpm update zod` resolved the latest in-range release, 4.6.7 (published 2026-10-12). Only the zod entry and the two snapshots that reference it changed. `package.json` is unchanged, and no override was used.
+- Exception `dep-sec-2026-11-zod-4-6-7` has kind `transitive_lockfile` and builds on `dep-sec-2026-11-next-16-4-1`. It anchors the previous lockfile at `8db8285` (`d472dc3e…`), and the new lockfile has sha256 `4de7282b…bf22`.
+- **Boundary matcher fix (owner-approved):** `frozen-boundary.mjs` ended a version only at `'`, `:`, whitespace or `(`. A version inside a pnpm peer suffix, such as `zod-validation-error@4.0.2(zod@4.6.7)`, therefore read as "another version", and the lockfile comparison left it unnormalised. `)` was added to the terminator class in its three places. No check was relaxed:
+  - the lockfile hash must still match exactly;
+  - the previous lockfile must still match its anchor;
+  - the new lockfile may still differ only by the approved bump.
+- New tests confirm that the exact bump passes inside a peer suffix. They also confirm that each of these still fails:
+  - another version;
+  - a longer version that shares the prefix (`4.6.71`);
+  - the old version left in a peer suffix;
+  - a whole lockfile at another version;
+  - a changed peer parent.
+- `pnpm audit` now reports 1 advisory: `minimatch` (moderate, dev-only).
+- Validation:
+  - tooling 381/381;
+  - every dependency gate applies the new exception;
+  - full build and post-build gates passed;
+  - 626/626 browser tests passed.
 
 **Validation on 16.4.1 (local):**
 - type check passed;
@@ -98,7 +120,7 @@ The two boundary-licence files that a local export rewrites were restored, not c
 ## 4. Open items carried past v2.0
 
 1. **Dev-only `minimatch`:** no patched release in range, as described in §2. Revisit when `typescript-eslint` accepts minimatch 11.
-2. **Dev-only `zod`:** fixable in range, but needs a separate owner approval.
+2. **Dev-only `zod`:** fixed (§2a).
 3. **Licence-note generator:** a local export rewrites two boundary-licence files. A separate fix task is running; production is correct.
 4. **Hosting headers:** no CSP or HSTS on GitHub Pages.
 5. **Research limits stated in the earlier rounds:**

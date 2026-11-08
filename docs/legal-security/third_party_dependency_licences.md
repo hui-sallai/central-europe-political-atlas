@@ -133,4 +133,17 @@ example, untrusted input at build time or a compromised CI).
 
 Remaining advisories (both dev-only, lint tooling, not in the site bundle):
 - `minimatch` 10.2.5, GHSA-g3hv-75wg-m249 (moderate), via `eslint-config-next > … > @typescript-eslint/typescript-estree`. Every `typescript-estree` release, including 8.72.1, requires `^10.2.2`, and the fix exists only in 11.0.1. Reaching it needs a `pnpm.overrides` entry, which the dependency boundary forbids, so it stays open.
-- `zod` 4.4.3, GHSA-mrhx-c7xc-m3w5 (high), via `eslint-config-next > eslint-plugin-react-hooks`. A patched 4.6.6 is in range (`^4.0.0`). It was not among the Dependabot alerts or in the approved scope, so it would need its own owner-approved transitive exception.
+- `zod` 4.4.3, GHSA-mrhx-c7xc-m3w5 (high), via `eslint-config-next > eslint-plugin-react-hooks`. A patched 4.6.6 is in range (`^4.0.0`). It was not among the Dependabot alerts or in the approved scope, so it would need its own owner-approved transitive exception. It was fixed the same day; see the next section.
+
+## Dependency maintenance: transitive zod 4.4.3 → 4.6.7 (2026-11-08)
+
+- **Trigger:** `pnpm audit` advisory GHSA-mrhx-c7xc-m3w5 (high): zod can exhaust memory while validating oversized constrained collections. Affected `<4.6.6`, patched `>=4.6.6`.
+- **Exposure:** dev-only lint tooling. zod reaches the tree only through `eslint-config-next > eslint-plugin-react-hooks` 7.1.1 and its `zod-validation-error` 4.0.2 peer. It is not imported by `src/` and is not in the site bundle.
+- **Change:** `pnpm update zod` resolved the latest in-range release, **4.6.7** (published 2026-10-12, integrity matches the registry). The lockfile diff touches only the zod entry and the two snapshots that reference it. `package.json` is unchanged, and no override was used.
+- **Governance:** owner-approved exception `dep-sec-2026-11-zod-4-6-7` (kind `transitive_lockfile`, builds on `dep-sec-2026-11-next-16-4-1`). It anchors the previous lockfile at `8db8285` (sha256 `d472dc3e…b68b`), and the new lockfile has sha256 `4de7282b…bf22`. Every research, model, political and release flag is false.
+
+| Audit (`pnpm audit`) | Total | Critical | High | Moderate | Production tree |
+|---|---|---|---|---|---|
+| after (zod 4.6.7) | 1 | 0 | 0 | 1 | 0 |
+
+The only remaining advisory is the dev-only `minimatch` described above.

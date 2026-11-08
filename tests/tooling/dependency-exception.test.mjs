@@ -94,3 +94,28 @@ test('the Next 16.3.6 exception is unchanged and still validates its own lockfil
   assert.equal(approved.kind, undefined);
   assert.deepEqual(approved.approved_scope.package_changes.map((c) => `${c.package}:${c.from}->${c.to}`), ['next:16.2.6->16.3.6', 'eslint-config-next:16.2.6->16.3.6']);
 });
+
+// pnpm peer suffixes: a transitive package referenced as `(pkg@ver)` (dep-sec-2026-11-zod-4-6-7).
+const peerLock = (z, zve = '4.0.2') => `lockfileVersion: '9.0'\n\npackages:\n\n  zod-validation-error@${zve}:\n    resolution: {integrity: sha512-zve${zve}}\n\n  zod@${z}:\n    resolution: {integrity: sha512-zod${z}}\n\nsnapshots:\n\n  eslint-plugin-react-hooks@7.1.1:\n    dependencies:\n      zod: ${z}\n      zod-validation-error: ${zve}(zod@${z})\n\n  zod-validation-error@${zve}(zod@${z}):\n    dependencies:\n      zod: ${z}\n\n  zod@${z}: {}\n`;
+const peerPrev = peerLock('4.4.3'), peerNext = peerLock('4.6.7');
+const peerChild = { ...childEx, approved_scope: { ...childEx.approved_scope, transitive_changes: [{ package: 'zod', from: '4.4.3', to: '4.6.7' }] }, previous_lockfile_sha256: sha(peerPrev), new_lockfile_sha256: sha(peerNext) };
+const peerParent = { ...approved, new_lockfile_sha256: sha(peerPrev) };
+const ptx = (text, o = {}) => matchDependencyException({ exceptions: [peerParent, { ...peerChild, new_lockfile_sha256: sha(text) }], lockHash: sha(text), pkgBefore: before, pkgAfter: after, lockText: text, readLockAt: (c) => { if (c === 'PREV') return peerPrev; throw new Error('unknown commit'); }, ...o });
+
+test('transitive exception: exact bump referenced inside a pnpm peer suffix passes', () => {
+  assert.deepEqual(ptx(peerNext), { ok: true, exception_id: 'child' });
+});
+test('transitive exception: a wrong version inside a peer suffix still fails', () => {
+  assert.equal(ptx(peerNext.replace('(zod@4.6.7)', '(zod@4.6.8)')).ok, false, 'peer suffix with another version');
+  assert.equal(ptx(peerNext.replace('(zod@4.6.7)', '(zod@4.6.71)')).ok, false, 'longer version sharing the prefix');
+  assert.equal(ptx(peerNext.replace(/zod@4\.6\.7\)/g, 'zod@4.4.3)')).ok, false, 'old version left in a peer suffix');
+  assert.equal(ptx(peerLock('4.6.8')).ok, false, 'whole lockfile at another version');
+  assert.equal(ptx(peerLock('4.6.7', '4.0.3')).ok, false, 'peer parent changed outside the exception');
+});
+test('the zod exception validates the committed lockfile against its anchored predecessor', () => {
+  const zodEx = exceptions.find((e) => e.exception_id === 'dep-sec-2026-11-zod-4-6-7');
+  assert.equal(zodEx.kind, 'transitive_lockfile');
+  assert.equal(zodEx.builds_on, 'dep-sec-2026-11-next-16-4-1');
+  assert.deepEqual(zodEx.approved_scope.transitive_changes, [{ package: 'zod', from: '4.4.3', to: '4.6.7' }]);
+  assert.equal(exceptions.at(-1).exception_id, zodEx.exception_id);
+});

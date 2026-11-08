@@ -28,7 +28,8 @@ export function normaliseTransitive(text,changes,side){
   for(const c of changes){
     const v=side==='from'?c.from:c.to,name=escapeRe(c.package),ver=escapeRe(v);
     out=out.replace(new RegExp(`(^\\s+'?${name}@)${ver}('?:\\s*\\n)\\s+resolution: \\{integrity: [^}]+\\}\\n`,'gm'),'$1<V>$2');
-    out=out.replace(new RegExp(`${name}@${ver}(?=[':\\s(])`,'g'),`${c.package}@<V>`);
+    // ')' terminates a version inside pnpm peer suffixes such as zod-validation-error@4.0.2(zod@4.6.7).
+    out=out.replace(new RegExp(`${name}@${ver}(?=[':\\s()])`,'g'),`${c.package}@<V>`);
     out=out.replace(new RegExp(`(^\\s+'?${name}'?: )${ver}$`,'gm'),'$1<V>');
   }
   return out;
@@ -67,8 +68,8 @@ export function matchDependencyException({exceptions,lockHash,pkgBefore,pkgAfter
     let previous;try{previous=readLockAt(exception.previous_lockfile_commit);}catch{return {ok:false,reason:`${exception.exception_id}: previous lockfile commit not readable`};}
     if(typeof previous!=='string'||sha256(previous)!==exception.previous_lockfile_sha256)return {ok:false,reason:`${exception.exception_id}: previous lockfile at ${exception.previous_lockfile_commit} does not match previous_lockfile_sha256`};
     for(const c of t){
-      if(!new RegExp(`${escapeRe(c.package)}@${escapeRe(c.from)}(?=[':\\s(])`).test(previous))return {ok:false,reason:`${c.package}@${c.from} not present in the previous lockfile`};
-      if(new RegExp(`${escapeRe(c.package)}@(?!${escapeRe(c.to)}(?=[':\\s(]))[0-9]`).test(lockText))return {ok:false,reason:`${c.package}: a version other than ${c.to} is resolved`};
+      if(!new RegExp(`${escapeRe(c.package)}@${escapeRe(c.from)}(?=[':\\s()])`).test(previous))return {ok:false,reason:`${c.package}@${c.from} not present in the previous lockfile`};
+      if(new RegExp(`${escapeRe(c.package)}@(?!${escapeRe(c.to)}(?=[':\\s()]))[0-9]`).test(lockText))return {ok:false,reason:`${c.package}: a version other than ${c.to} is resolved`};
     }
     if(normaliseTransitive(previous,t,'from')!==normaliseTransitive(lockText,t,'to'))return {ok:false,reason:`${exception.exception_id}: lockfile differs from the previous lockfile beyond the approved transitive changes`};
   }
