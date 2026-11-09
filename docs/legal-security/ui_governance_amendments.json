@@ -2736,6 +2736,50 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-10"
+    },
+    {
+      "amendment_id": "v20-historical-recovery-presentation-2026-11-10",
+      "status": "owner_approved",
+      "approved_by": "owner approval 2026-11-10 (\"批准登记这两项治理记录\") for the historical recovery round: Data Explorer and macro chart labels no longer claim a 2000 start; runtime types carry the optional Phase R flag; D1–D4, E1, the political context panel and Workspaces keep their published data basis by excluding Phase R records. No deployment authorised by this record.",
+      "baseline": "c1c58958e8fe741fd80b14df01586e2c9f0ee101",
+      "files": [
+        {
+          "path": "src/components/DataExplorerV11.tsx",
+          "sha256": "b89b8f272091b0b6c0bd57f2cfefd202ea72877e896e1490bfd7c77a5b3611ad",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/MacroDriverWorkbench.tsx",
+          "sha256": "0dc57916765df5b8bfdefedd648247e1a099cd40f11b17355186dd3eb42072fe",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/useMonthlyHistory.ts",
+          "sha256": "194ec2e1b0daffa12f3c56dfa0df301a5eacb629a79d4b1c5c330ade869de364",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/workspaceEvidence.ts",
+          "sha256": "e6893c31e68ccf2b35a91696773864714706c5fd6eeec9e9e5d959166060b83e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/annualComparison.ts",
+          "sha256": "6b8fd4668d1ad751d893b6bb09450d095842454709695db08ab18b947496630d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalEconomicContext.ts",
+          "sha256": "4a935629e41b50078fc200c74c1e68c5666d36efa21c02aa25b0a4b48c7c435c",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-10"
     }
   ]
 }

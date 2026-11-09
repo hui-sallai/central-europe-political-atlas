@@ -215,6 +215,394 @@
           "sha256": "14aae6a27927e7b4264f92dbdadfa1abec6c524701a8e73e435aff318e26ae8b"
         }
       ]
+    },
+    {
+      "run_id": "historical-recovery-20261110",
+      "status": "owner_approved",
+      "approved_on": "2026-11-10",
+      "approved_by": "owner instruction 2026-11-10: comprehensive official historical data recovery brief, then explicit approval to register this exact-hash run (\"批准登记这两项治理记录\"); deployment still requires a separate 推送上线",
+      "unit": "historical-recovery",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "verification": "historical-recovery: store validators (annual, monthly, regional, Serbia), data-coverage re-audit and recovery inventory",
+      "ledger_plan_sha256": "5aff43bf0b64dddb7a6a872f92063dbb30527de3863b7632074aef924cba8a3d",
+      "summary": "7,799 official historical observations (annual 1,995; monthly 5,162; regional 415; Serbia SORS 1999 227) recovered from archived Eurostat/BIS full-history extracts and existing SORS extracts before the earliest admitted period; all earlier records byte-identical; coverage audit re-run (formal input series 176 → 176); recovery inventory of 1,413 contracts added.",
+      "formal_model_input_change_allowed": false,
+      "frozen_snapshot_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "research_gate_change_allowed": false,
+      "release_version_change_allowed": false,
+      "export_script_pin": {
+        "path": "scripts/export-research-data.mjs",
+        "sha256": "b9e4230f243dc32da8e2968acb5846e833cba0d2756c749088bfed5d0090537c",
+        "reason": "publishes the recovery inventory and the optional Phase R runtime flags"
+      },
+      "files": [
+        {
+          "path": "public/research-data/annual_descriptive_history.json",
+          "sha256": "c0bcf459fbcca5b46e34ef9b5354202e99236f2a3c0be32d8ba8089c095f9128"
+        },
+        {
+          "path": "public/research-data/annual_history_manifest.json",
+          "sha256": "4aa46e603ac7fa63b1f17f10b132bc06089ef9acacf54cd6f4d6a8684d20edab"
+        },
+        {
+          "path": "public/research-data/annual_history_runtime.json",
+          "sha256": "cb5ab3fc032c456e4b246422e807e9c02147e08368bf68a1e94ad07d3e678a49"
+        },
+        {
+          "path": "public/research-data/descriptive_data_coverage_audit.json",
+          "sha256": "c3141b6499c2fef237ca2e8558e8bd033cbc18ea6ce13d61b1e73c91c7065d21"
+        },
+        {
+          "path": "public/research-data/historical_recovery_inventory.json",
+          "sha256": "85cba9b6fb5c8f5c313786fead4c3c5595726e5f3a8e3c0851dd640d36e1fe8e"
+        },
+        {
+          "path": "public/research-data/monthly_descriptive_history.json",
+          "sha256": "fff1d3d2528724ab4cac57845ed07e0947c35ee6f82723778b8a4962d6e0f49f"
+        },
+        {
+          "path": "public/research-data/monthly_history_manifest.json",
+          "sha256": "ffde494580519c35a4096c43635d1a89962b864053e3c3f9e95f84f2dc42cb45"
+        },
+        {
+          "path": "public/research-data/monthly_history_runtime.json",
+          "sha256": "9711cffed5c5ec06547d8e5213cb2ea72f69f565939a787eeaee7bc4c44641e2"
+        },
+        {
+          "path": "public/research-data/regional-history/austria.json",
+          "sha256": "dd8903da5c2aec46f20a9dd3d259b0bec9c33780ae0024004d8125fbd7ada5d8"
+        },
+        {
+          "path": "public/research-data/regional-history/czechia.json",
+          "sha256": "55011d67b7b9466c9c6bd691524e7b70aeecedf30f459925ed43e2d609a9b068"
+        },
+        {
+          "path": "public/research-data/regional-history/germany.json",
+          "sha256": "7b375a2f0c1fb061d7102c692ccd6ae8e50be7c5f853cdf681755e612eac5ca7"
+        },
+        {
+          "path": "public/research-data/regional-history/poland.json",
+          "sha256": "b4b719f140d8cf550859ed4118b4aef497db36c9ab88c47234b7bc4eba5d6d00"
+        },
+        {
+          "path": "public/research-data/regional-history/romania.json",
+          "sha256": "ae14ee9acf3bb8a856ef7f3a2f2f42c30c2f98f57fd1c7f68b638a678f24cd45"
+        },
+        {
+          "path": "public/research-data/regional_descriptive_history.json",
+          "sha256": "334de05df95898399e40545c7409abb370e413188f36a6c44bf52820bde01b76"
+        },
+        {
+          "path": "public/research-data/regional_history_manifest.json",
+          "sha256": "6e456cfbfa3768297d8142c9bfadd4884cd637f30c39977186db37047e13449b"
+        },
+        {
+          "path": "public/research-data/serbia/serbia_descriptive_history_annual.json",
+          "sha256": "e3e8c4996a09e2a716b582ab570298437e2da77a19e768f76a06453f7e7f771e"
+        },
+        {
+          "path": "public/research-data/serbia/serbia_descriptive_history_monthly.json",
+          "sha256": "f3bc953b5739ded479648efa542ad36088c5f932d70c4ec559dca1b4238b29f0"
+        },
+        {
+          "path": "public/research-data/serbia/serbia_descriptive_history_regional.json",
+          "sha256": "e2a44e89dd5b7ec4e9cf33fb8fdccce74812a550a9f8e7dfb4a9d5d6bd836d4c"
+        },
+        {
+          "path": "public/research-data/serbia/serbia_ingestion_manifest.json",
+          "sha256": "f0d9670947c061685b1ef18b8d836d33011b56866e4f4c88e9f842810233276f"
+        },
+        {
+          "path": "public/research-data/serbia_sors_runtime.json",
+          "sha256": "e86802d84d7679f1427155de00425ea29d807ad8f216a0449643f71b0570e480"
+        },
+        {
+          "path": "src/data/data-coverage/descriptive_data_coverage_audit.json",
+          "sha256": "c3141b6499c2fef237ca2e8558e8bd033cbc18ea6ce13d61b1e73c91c7065d21"
+        },
+        {
+          "path": "src/data/data-coverage/historical_recovery_inventory.json",
+          "sha256": "85cba9b6fb5c8f5c313786fead4c3c5595726e5f3a8e3c0851dd640d36e1fe8e"
+        },
+        {
+          "path": "src/data/data-refresh/refresh_ledger.jsonl",
+          "sha256": "403e4355331113e186986b9417e7fa2d60a0d49854fab2db11bcd222f256a0bf"
+        },
+        {
+          "path": "src/data/historical/annual_descriptive_history.json",
+          "sha256": "c0bcf459fbcca5b46e34ef9b5354202e99236f2a3c0be32d8ba8089c095f9128"
+        },
+        {
+          "path": "src/data/historical/annual_history_manifest.json",
+          "sha256": "4aa46e603ac7fa63b1f17f10b132bc06089ef9acacf54cd6f4d6a8684d20edab"
+        },
+        {
+          "path": "src/data/historical/monthly_descriptive_history.json",
+          "sha256": "fff1d3d2528724ab4cac57845ed07e0947c35ee6f82723778b8a4962d6e0f49f"
+        },
+        {
+          "path": "src/data/historical/monthly_history_manifest.json",
+          "sha256": "ffde494580519c35a4096c43635d1a89962b864053e3c3f9e95f84f2dc42cb45"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/bop_fdi6_flow.json",
+          "sha256": "a9b0c6aa76bd219cb64856e0d5c968731dfa0ec2a76fb474562ebb8e31511186"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/demo_pjan.json",
+          "sha256": "2ddc0f187e1cf26a5d54bdd61200fad53a504ebf4a2eef9658dfc33675b97ef1"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/ext_tec09.json",
+          "sha256": "faf8dc825b27c6954289d6884bd3f82f7b352d0701f930a57734cba47da3a020"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/gov_10a_main.json",
+          "sha256": "2c22dfe390084c177d9c86df9d2165a7552bd0926fb949fd5dd5fa0bd7ff6661"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/gov_10dd_edpt1.json",
+          "sha256": "b42422594caccb33fcc1173f11e9abdac8654a3cc8cc4c94b8173bb97d558711"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/nama_10_a10.json",
+          "sha256": "21751a64480cfeff30c185905202868fa8caf8898693658c02dca36e265e93f4"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/nama_10_gdp.json",
+          "sha256": "bca4bdb87aa3bdd9a220a9eb777f1b2111d5bcfbb26276b291ce33ed8d4ea3d0"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/nama_10_lp_ulc.json",
+          "sha256": "92ae2b2d72563e7526fe0c604b4aa2bdc5e7ab0be3e4b31b6bb33ecaebeeff29"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/nama_10_pc.json",
+          "sha256": "aec084c2b07e2afe8f1ebd59a4578728bd8a6931daa896475817c5cc44745bd0"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/nrg_ind_id.json",
+          "sha256": "67b18e5611e791e597bf210eae90f2e56f181452f07fc8a389b86151a8928704"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/nrg_pc_204.json",
+          "sha256": "aeee73efe12b48a3dd9d672270436e823ca9dd8364a89382bbef31ee065d830e"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/nrg_pc_205.json",
+          "sha256": "5904fba09479cbe04b00eb55aa93e640bbf88bdc275ce38acd4d468400eda112"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/prc_hicp_aind.json",
+          "sha256": "b68a3f45de9f94f82814cf0b375065bc35205f879ceec404a1661ea290582d7a"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/tipsbp20.json",
+          "sha256": "9950b10ba85105a5fd214247d4c36eb0edd0ce7c55b0a3df7dd70d4a7e32844e"
+        },
+        {
+          "path": "src/data/historical/raw/annual/full/une_rt_a.json",
+          "sha256": "327cb01a036cc59394fb967eee368d5d853f3e08bbbeadb5ca39625231ce81ca"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_CBPOL_M_CZ.csv",
+          "sha256": "24ac6ec8825f2351bd7bce06ad4e44027115860c2a5b3426f5cf957633e83e73"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_CBPOL_M_HR.csv",
+          "sha256": "b45916d33cbfa7105db1091633af486fee81d4c01d7455e180e58f107bf2399d"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_CBPOL_M_HU.csv",
+          "sha256": "76f45f11526a4367533601052a10c3830f985f9a70f9bae23a1a380bba38c46c"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_CBPOL_M_PL.csv",
+          "sha256": "a48df9e2605a2f2294e6362b7f8c6066a9f1d15f21120623bf77b77cacd04a80"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_CBPOL_M_RO.csv",
+          "sha256": "453f96968d6c15d710d5f875d976b3df2d5dbf75fab4abcbb3e4c0a0b176e9c7"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_CBPOL_M_RS.csv",
+          "sha256": "0808e1e21e9b82c73096434b1d8083d48fc55370578b0d3dc26771f05cf55fda"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_CBPOL_M_XM.csv",
+          "sha256": "6a0211720843de6b68b3e52f751773a997854c745869de580f353ca70cc5303f"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_N_B_AT.csv",
+          "sha256": "3086e5fa24a49119fa6b2a01d888ece23fa26dad3dede0d6793759286ddf1d68"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_N_B_CZ.csv",
+          "sha256": "fb178a811112734528312f9ac39b90f5c5b108b5398c8a0993fca4d50db78b20"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_N_B_DE.csv",
+          "sha256": "79626e568f49ef177823b1166ef6475e1ef2ad8a86e7dedce827cf9f77e91c63"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_N_B_HR.csv",
+          "sha256": "ac70e7c0e87af1b37ddf37d862a4da48a8497ef3695f6d5c0fc347c48c60937e"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_N_B_HU.csv",
+          "sha256": "4649af6dfa32437e848dea21f1bd74a45480f485494099fa4185c4845e93425e"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_N_B_PL.csv",
+          "sha256": "1e43e4793f840753b38b680370d9ffec179b061b3996d6d502e805e8d2e6e573"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_N_B_RO.csv",
+          "sha256": "09b5074993a2399b1b7f1da48d77a41849d93c408288bcb9d9fdf86b5dc0e289"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_N_B_RS.csv",
+          "sha256": "e12cfde50800356a4d7645551c00096b43917680c8e282910830c3d964d8611b"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_N_B_SI.csv",
+          "sha256": "d9c79dd8efceb080e5880f19174192737a54e12def5ba3b6cf42ca7e86b4de02"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_N_B_SK.csv",
+          "sha256": "06774959424885b7918e3f2e34d67ad57af724cd5eeb6c4e2a1207fb30bae894"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_R_B_AT.csv",
+          "sha256": "75573b51f9aa91a3b322f9582dc4186759e635c9c5a8b5eeac5401c55f545036"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_R_B_CZ.csv",
+          "sha256": "75c4bf6574240a3e89e0bd83989c246daa3b913e8d2a851ca95acbdb36fa6937"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_R_B_DE.csv",
+          "sha256": "e18d9a48d2f3fd2381f28111408473e26fc9b8fb10017760727b4485c6e39113"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_R_B_HR.csv",
+          "sha256": "d43350f04872e9ac5010231af81684ebed8c3aa5ccbc86b9f11deb67d545fb8a"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_R_B_HU.csv",
+          "sha256": "a527da7880bb9bc4dbf8c2d2083682820abc53e4752e9ecd5af37be2d5b60356"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_R_B_PL.csv",
+          "sha256": "8ec5095f73b1a9d25e1f137a39fab011b83650ea200e8a49a83495a1f2488919"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_R_B_RO.csv",
+          "sha256": "77e58d0da38d43a7ba32239aadf53c44dd3dee4a4c1b40d052a22fd94b16bc8e"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_R_B_RS.csv",
+          "sha256": "54e6a9d9697dfa88d6cc4a9951197d347ae2e071d8ec790110de5b65817b9dec"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_R_B_SI.csv",
+          "sha256": "1273d64bbff10e1837a3b85f7cd9d6658d248533969ed01f6e3c33382c147058"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_EER_M_R_B_SK.csv",
+          "sha256": "5a705c12347c695c73716fc011d373a2a4d2a5757411a62146c250876e56f577"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_XRU_M_CZ_CZK_A.csv",
+          "sha256": "4ccc77a2fdcc7e9d1eeda26f33c740f1e714ac9f80aa80ffb9535775cff87f5d"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_XRU_M_HU_HUF_A.csv",
+          "sha256": "bcc76223733df24fffad69abb61af49256f25bf87c4273d01477d132ae1ec3cb"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_XRU_M_PL_PLN_A.csv",
+          "sha256": "12823239bf7456b0cc575925d26cd378fa0b89293549261c1fd9e4e6aae77b58"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_XRU_M_RO_RON_A.csv",
+          "sha256": "b9a8d4116329b713c5159e6206da651158245f4661cf5ec016860dfbc851acfb"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_XRU_M_RS_RSD_A.csv",
+          "sha256": "01f95cfe42ef2c2404365ba575bcd446a77ef84ea2beb7feba73a9dc105cf83b"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/bis_WS_XRU_M_XM_EUR_A.csv",
+          "sha256": "51905b2c8f03d6c4d3feb93d98ced6ecfb92ced5efd0f567a5e577fe319f0975"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/eurostat_irt_lt_mcby_m_MCBY.json",
+          "sha256": "25ddf49f6a7f36ef6e8b5d5e32f6668b3bad409223ee8350ecd89df686383f1a"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/eurostat_prc_hicp_minr_I15_NRG.json",
+          "sha256": "aef390c20eb83ef2fa9f03b154d473157ea0f89c65cb7cea628167b9a2e6f999"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/eurostat_prc_hicp_minr_I15_TOTAL.json",
+          "sha256": "84f2d5f4ea0863185c4830de3cab29fc63eca4bde9c9426d2dffdf8cdffb3453"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/eurostat_prc_hicp_minr_RCH_A_NRG.json",
+          "sha256": "8f139bfa91cfcd93d85a10a2d7e10e488d4c6a9d4282e9fb17fea060359fc6b7"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+          "sha256": "1e3cdc028e7ff54042cb5a54f353e3934e94a5ee43c2e74c895b7f26d4b8081b"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/eurostat_sts_inpr_m_PRD_B-D_SCA_I21.json",
+          "sha256": "0718ca17189d385f4b83651638b8756da44829ad66ca17907d3816616eb679ba"
+        },
+        {
+          "path": "src/data/historical/raw/monthly/full/eurostat_une_rt_m_SA_TOTAL_T_PC_ACT.json",
+          "sha256": "7c750d8146cb1057e1aedf79aba37d1df5c7d816fb77b4eec209a28dc4cf1626"
+        },
+        {
+          "path": "src/data/historical/raw/regional/full/eurostat_employment.json",
+          "sha256": "a357bc4ef486c4c59d584e24b665829cea002dc0a6d69f26277fd5e86439a9fe"
+        },
+        {
+          "path": "src/data/historical/raw/regional/full/eurostat_population.json",
+          "sha256": "57b8616bb89ec687942d45fabee60be81cf485262ed72d896431bc360c4c1fc3"
+        },
+        {
+          "path": "src/data/historical/raw/regional/full/eurostat_unemployment.json",
+          "sha256": "17af1fcd56015b11f45e81c09e967bd8e4f4e3d71c0c00df6e38d3f9c2c5db10"
+        },
+        {
+          "path": "src/data/historical/regional_descriptive_history.json",
+          "sha256": "334de05df95898399e40545c7409abb370e413188f36a6c44bf52820bde01b76"
+        },
+        {
+          "path": "src/data/historical/regional_history_manifest.json",
+          "sha256": "6e456cfbfa3768297d8142c9bfadd4884cd637f30c39977186db37047e13449b"
+        },
+        {
+          "path": "src/data/serbia/serbia_descriptive_history_annual.json",
+          "sha256": "e3e8c4996a09e2a716b582ab570298437e2da77a19e768f76a06453f7e7f771e"
+        },
+        {
+          "path": "src/data/serbia/serbia_descriptive_history_monthly.json",
+          "sha256": "f3bc953b5739ded479648efa542ad36088c5f932d70c4ec559dca1b4238b29f0"
+        },
+        {
+          "path": "src/data/serbia/serbia_descriptive_history_regional.json",
+          "sha256": "e2a44e89dd5b7ec4e9cf33fb8fdccce74812a550a9f8e7dfb4a9d5d6bd836d4c"
+        },
+        {
+          "path": "src/data/serbia/serbia_ingestion_manifest.json",
+          "sha256": "f0d9670947c061685b1ef18b8d836d33011b56866e4f4c88e9f842810233276f"
+        }
+      ]
     }
   ]
 }

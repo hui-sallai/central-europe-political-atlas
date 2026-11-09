@@ -27,7 +27,9 @@ test('batch exception pins every permitted file, with no other data or release a
  // The event UI may have a later exact-hash presentation approval. News data and batch evidence retain their own pins.
  // The package builder may have a later exact-hash approval in a political admission record, which lists its countries.
  const packageBuilder=JSON.parse(fs.readFileSync('docs/legal-security/political_admission_records.json','utf8')).admissions.map(x=>x.research_package_builder).filter(Boolean).at(-1);
- for(const [p,h] of approved)assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),p==='src/components/NewsExplorer.tsx'?(ui.approved.get(p)??h):p===packageBuilder?.path?packageBuilder.sha256:h,p);
+ // The export script may have a later exact-hash pin in an owner-approved data run (historical recovery, 2026-11-10).
+ const exportPin=JSON.parse(fs.readFileSync('docs/legal-security/data_refresh_amendments.json','utf8')).refreshes.filter(x=>x.status==='owner_approved').map(x=>x.export_script_pin).filter(Boolean).at(-1);
+ for(const [p,h] of approved)assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),p==='src/components/NewsExplorer.tsx'?(ui.approved.get(p)??h):p===packageBuilder?.path?packageBuilder.sha256:p===exportPin?.path?exportPin.sha256:h,p);
  const r=records()[0];
  for(const p of ['src/data/events/events.json','src/data/observations.json','src/data/release.json','src/lib/varEngine.ts','public/research-data/political/germany/elections.json','src/data/events/news_*'])assert.ok(approvedNewsFiles([{...r,files:[...r.files,{path:p,sha256:'a'.repeat(64)}]}]).problems.length,p);
  for(const flag of ['model_change_allowed','research_gate_change_allowed','enters_model'])assert.ok(approvedNewsFiles([{...r,[flag]:true}]).problems.length,flag);

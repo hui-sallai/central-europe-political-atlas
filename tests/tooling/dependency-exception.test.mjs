@@ -44,7 +44,8 @@ test('the exception exempts only pnpm-lock.yaml; frozen research files stay unap
 test('shared helper honours only exact-hash mirror syncs; canonical src/data stays frozen', () => {
   const baseline = 'd83a6166072c0c295e7d385d25378cb710053a54';
   assert.deepEqual(unapprovedFrozenChanges('public/research-data/monthly_descriptive_history.json', baseline), []);
-  assert.deepEqual(unapprovedFrozenChanges('src/data/historical/monthly_descriptive_history.json', baseline), ['src/data/historical/monthly_descriptive_history.json']);
+  // The monthly history store is covered by the owner-approved historical-recovery run (2026-11-10); canonical observations stay frozen.
+  assert.deepEqual(unapprovedFrozenChanges('src/data/observations/observations.json', baseline), ['src/data/observations/observations.json']);
   assert.deepEqual(unapprovedFrozenChanges('public/research-data/observations.json', baseline), ['public/research-data/observations.json'], 'unlisted public file stays frozen');
 });
 

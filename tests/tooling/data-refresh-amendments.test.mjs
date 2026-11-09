@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { approvedDataRefreshFiles, DATA_REFRESH_FILE, DATA_REFRESH_RUNS } from '../../docs/political-data/source-closure/data-refresh-amendments.mjs';
+import { approvedDataRefreshFiles, DATA_REFRESH_FILE, DATA_REFRESH_RUNS, NEW_PATH_SCOPE, newPathAllowed } from '../../docs/political-data/source-closure/data-refresh-amendments.mjs';
 import { checkFrozenFiles } from '../../docs/political-data/source-closure/ui-amendments.mjs';
 import { unapprovedFrozenChanges } from '../../scripts/political-data/germany/frozen-boundary.mjs';
 import { findHashPins } from '../../scripts/data-refresh/lib.mjs';
@@ -24,7 +24,7 @@ test('the approved runs pin exactly their files at their current hashes and matc
     assert.equal(entry.formal_model_impact, 'none');
     assert.equal(entry.plan_sha256, r.ledger_plan_sha256);
   }
-  assert.equal(ledger.at(-1).run_id, 'serbia-20261020');
+  assert.equal(ledger.at(-1).run_id, 'historical-recovery-20261110');
 });
 
 test('a later run supersedes an earlier run for shared files', () => {
@@ -60,4 +60,19 @@ test('the refresh ledger is provenance, not a pin; other references still count'
   assert.deepEqual(findHashPins(root, { 'public/x.json': hash })['public/x.json'], []);
   fs.writeFileSync(path.join(root, 'src/data/models/output.json'), JSON.stringify({ input_sha256: hash }));
   assert.deepEqual(findHashPins(root, { 'public/x.json': hash })['public/x.json'], ['src/data/models/output.json']);
+});
+
+test('historical recovery: new files only within the declared scope, at exact hashes, and only for a run that allows them', () => {
+  const rec = records().find((r) => r.run_id === 'historical-recovery-20261110');
+  const { added } = approvedDataRefreshFiles(records());
+  assert.ok(added.size > 0);
+  for (const [p] of added) assert.ok(NEW_PATH_SCOPE.some((re) => re.test(p)), p);
+  const newFile = [...added.keys()][0], hash = added.get(newFile);
+  const run = (file, h, recs = records()) => checkFrozenFiles({ baselineFiles: {}, currentFiles: [file], hashOf: () => h, amendments: [], dataRefreshes: recs });
+  assert.equal(run(newFile, hash).ok, true);
+  assert.equal(run(newFile, '0'.repeat(64)).ok, false, 'hash drift');
+  for (const outside of ['src/data/observations/new.json', 'src/data/historical/raw/annual/x.json', 'public/research-data/new.json', 'src/data/historical/raw/annual/full/../x.json']) assert.equal(newPathAllowed(rec.run_id, outside), false, outside);
+  assert.equal(newPathAllowed('serbia-20261020', newFile), false, 'runs without allow_new_paths cannot add files');
+  const other = { ...records().find((r) => r.run_id === 'serbia-20261020'), files: [...records().find((r) => r.run_id === 'serbia-20261020').files, { path: newFile, sha256: hash }] };
+  assert.equal(run(newFile, hash, [other]).ok, false, 'a run without allow_new_paths cannot admit a new file');
 });

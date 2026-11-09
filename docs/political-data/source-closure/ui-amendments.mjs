@@ -91,6 +91,8 @@ export function checkFrozenFiles({ baselineFiles, currentFiles, hashOf, amendmen
     if (news.approved.get(name) === actual) { amended.push(name); continue; }
     // Owner-approved descriptive data refresh run: existing baseline files only, exact hashes.
     if (baseHash && refreshes.approved.get(name) === actual) { amended.push(name); continue; }
+    // Owner-approved (2026-11-10) descriptive data run that declares new files: scoped new paths only, exact hashes.
+    if (!baseHash && refreshes.added?.get(name) === actual) { amended.push(name); continue; }
     // Owner-approved political admission: new non-German political files only, exact hashes.
     if (!baseHash && admissions.approved.get(name) === actual) { amended.push(name); continue; }
     if (approved.has(name) && amendablePath(name) && approved.get(name) === actual) { amended.push(name); continue; }
