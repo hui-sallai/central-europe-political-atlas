@@ -60,7 +60,8 @@ for(const prefix of ['', '/en']) {
   await expect(page.getByRole('combobox',{name:en?'Year':'年份',exact:true})).toHaveValue('2023');
  });
  test(`country overview historical point inspection ${prefix||'zh'}`,async({page})=>{
-  await page.goto(`${prefix}/countries/hungary/`,{waitUntil:'networkidle'});
+  for (const country of ["hungary", "poland"]) {
+  await page.goto(`${prefix}/countries/${country}/`,{waitUntil:'networkidle'});
   if(en) await page.getByText('Historical chart and exact observations',{exact:true}).first().click();
   const chart=page.locator('[data-interactive-series]').first();
   const selection=chart.getByRole('combobox',{name:en?'Inspect a value':'查看数值点',exact:true});
@@ -68,6 +69,8 @@ for(const prefix of ['', '/en']) {
   await expect(chart.locator('[aria-live]')).not.toBeEmpty();await chart.locator('[data-chart-table] summary').click();
   await expect(chart.locator('tbody tr')).not.toHaveCount(0);await expect(chart.locator('tbody a').first()).toHaveAttribute('href',/^https:\/\//);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBe(true);
+    if (!en) { const box=await chart.boundingBox(); expect(box).not.toBeNull(); expect(box!.x+box!.width).toBeLessThanOrEqual(page.viewportSize()!.width+2); }
+  }
  });
  test(`neutral five-country political entry and legacy Germany deep link ${prefix||'zh'}`,async({page})=>{
   await page.goto(`${prefix}/politics/`,{waitUntil:'networkidle'});await expect(page.locator('[data-political-country]')).toHaveCount(5);await expect(page.locator('#germany')).not.toHaveAttribute('open','');

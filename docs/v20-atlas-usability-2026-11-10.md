@@ -1,6 +1,6 @@
 # v2.0 atlas usability implementation — 2026-11-10
 
-Status: local implementation and acceptance PASS. Consolidated browser run: 650/650 passed; final focused follow-up: 60/60 passed; tooling: 405/405 passed. Not pushed or deployed. Linux visual-baseline recording/review remains a release prerequisite.
+Status: owner-authorised release preparation, following the 2026-11-10 instruction “推送部署”. Local implementation and acceptance PASS. Consolidated browser run: 650/650 passed; final focused follow-up: 60/60 passed; tooling: 405/405 passed. The feature branch is pushed; main deployment is pending final Linux verification of the country-card correction.
 
 Baseline: actual remote main `1b857462dc4ff10bc91a7dbd1569d65b5b24625e`. Work is on `feature/v20-atlas-usability`. The frozen production artifact and its acceptance branch are preserved. Brand and platform version remain Central Europe Political Atlas v2.0.
 
@@ -39,4 +39,12 @@ Governance/testing: exact-hash UI amendment, focused tooling/browser tests, exis
 
 No missing values are estimated. Coverage summaries describe admitted records, not a claim that an official source remains unpublished today. Full institutional/chamber-system coverage is not inferred from election records. Historical geographic discontinuities remain descriptive. Regional difference rows are UI calculations; existing map exports retain original observations, periods, sources and ordered selected-region identifiers. Chart-only period controls do not replace the workbench filters used by existing CSV exports. Existing source rights, legal restrictions and formal VAR/IRF publication limits remain in force.
 
-Linux screenshot baselines must be deliberately recorded and reviewed using the existing non-deploying CI mode before release; this macOS validation does not certify Linux screenshots or production. No automatic push or deployment is authorised by this implementation brief.
+## Release preparation
+
+Owner approval to push/deploy: 2026-11-10, “推送部署”. The development brief alone did not authorise deployment; this later instruction does.
+
+The existing non-deploying Linux record run #370 (`42679359443`, source `564bdcf`) succeeded: 649 browser tests passed without retry and one existing mobile English country-navigation test passed on the configured retry. Tooling: 402 passed, three existing conditional skips. The intermittent navigation timeout is retained, not counted as a first-attempt pass.
+
+Eighteen Linux screenshots differed: fourteen home/politics views and four country views, all within the changed presentation scope. Image review identified a real clipped Chinese country-card chart: the chart extended to x=553 on a 390-pixel mobile viewport, although the old overall-page-width check passed because its parent hid overflow. A stricter chart-boundary regression reproduced the failure. Minimum-width/grid constraints were corrected; the same four bilingual desktop/mobile country tests now pass, covering Hungary and Poland. Fourteen reviewed Linux home/politics baselines were accepted; the four country baselines are being regenerated from corrected code. No screenshot or timeout threshold was relaxed.
+
+A fresh Linux record/verification and then normal main CI/deployment are required. Version, research observations, estimators and publication gates remain unchanged.

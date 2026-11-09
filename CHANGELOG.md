@@ -1,6 +1,6 @@
 # Changelog
 
-### v2.0 atlas usability improvements — 2026-11-10 (not yet deployed)
+### v2.0 atlas usability improvements — 2026-11-10
 
 - Restore the existing interactive map as the primary homepage entry; retain five-country politics, four Workspaces and featured research cases.
 - Explain actual published coverage and unsupported date requests; show relevant source updates before technical run history.
