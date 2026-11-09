@@ -1,8 +1,8 @@
 # v2.0 official historical data recovery and comparability — 2026-11-10
 
-**Status:** local branch `data/historical-recovery-2026-11`, based on production `c1c5895` (Pages #372).
+**Status:** live. Commits `ca8d53f` (recovery) and `d6e2bdd` (governance), based on production `c1c5895` (Pages #372), were deployed by run `42706330755` after the owner's "推送上线". See §12.
 
-The data work and the validation are complete. Two governance records still need owner approval before the closure checkpoint passes in CI (see §11). Nothing has been pushed.
+The governance records were approved by the owner on 2026-11-10 (see §11).
 
 **Unchanged:**
 - brand and version (Central Europe Political Atlas v2.0);
@@ -252,25 +252,47 @@ No blocked or unregistered host was contacted:
   - Serbia: 104,047, with a new period-floor check;
   - data coverage: 21,852, with the inventory's reproduction, completeness, cause and count checks.
   - Every store rebuilds exactly offline from its hash-checked extracts.
-- **Tooling tests:**
-  - 401 pass, including 8 new recovery tests.
-  - 4 governance tests fail until the run is registered: the exact-hash refresh runs, mirror-sync and batch-exception pins.
-  - 1 hook test reports the uncommitted research files and passes after commit.
-  - The D1, D2, D3, D4 and E1 tests pass with their original expectations.
+- **Tooling tests:** 414 of 414 pass after the governance registration, including:
+  - 8 recovery tests;
+  - the new fail-closed tests for the scoped new-file rule.
+
+  The D1, D2, D3, D4 and E1 tests pass with their original expectations.
 - **D4:** the locally regenerated D4 CSV equals the production EN and ZH CSVs, with evidence sha `9726ff00…`.
 - **Build:** the research export check passes (822 checked, none differing). Typecheck, lint (0 errors) and the build (72 pages) pass. Legal and security, i18n, SEO, UI regression and release validation all pass.
-- **Browser:** the full local suite passed 645 of 650 tests. The 5 failures were Workspaces screenshots, resolved by keeping the Workspaces on their published basis. The workspace suites then passed 36 of 36.
+- **Browser:** the full local suite passes 650 of 650 tests.
+  - The Workspaces screenshots pass after keeping the Workspaces on their published basis.
+  - The refresh-provenance view now lists the third approved run.
 - **Research package:** the members are unchanged. The descriptive histories are served separately and are not in the ZIP.
 
 ## 11. Remaining limitations and items for owner decision
 
-1. **Governance approval needed (blocking for CI):**
-   - Register the exact-hash data run `historical-recovery-20261110` (90 data paths). It needs an entry in `docs/political-data/source-closure/data-refresh-amendments.mjs` with its own verification statement, plus a record in `docs/legal-security/data_refresh_amendments.json`.
-   - Add an exact-hash UI amendment for 6 presentation files: `DataExplorerV11.tsx`, `MacroDriverWorkbench.tsx`, `useMonthlyHistory.ts`, `workspaceEvidence.ts`, `annualComparison.ts`, `politicalEconomicContext.ts`.
-   - The auto-mode safety check stopped the gate change, so it waits for the owner's decision.
+1. **Governance (resolved, owner-approved 2026-11-10):**
+   - **Data run:** exact-hash run `historical-recovery-20261110`.
+     - It covers 91 paths, including the refresh ledger, and has its own verification statement.
+     - Its ledger entry records the formal model impact as none.
+   - **New files:** the gate admits new files only for a run that declares `allow_new_paths`.
+     - They must sit under `src/data/historical/raw/{annual,monthly,regional}/full/` or be the recovery inventory, at exact hashes.
+     - Fail-closed tests cover out-of-scope paths, hash drift and runs that do not declare new paths.
+   - **UI:** exact-hash UI amendment for 6 presentation files.
+   - **Export script:** pinned in the run record.
+   - **Test expectations updated:**
+     - third approved run;
+     - amendment count 147;
+     - a still-frozen canonical example.
 2. **Canonical vintage:** current account, FDI, DE and SI real growth, and DE and CZ GDP per capita stay held. Recent canonical values differ from today's Eurostat vintage, and fixing that means a deliberate canonical (model-input) refresh.
 3. **Recent periods (cause 1):** published periods after the canonical or frozen windows, such as 2025 annual values and recent HF months, need the existing refresh workflow.
 4. **Research views:** D1–D4, E1 and the Workspaces deliberately keep their published basis. Extending them to the recovered history would change published research results and would need its own decision.
 5. **Restricted sources:** Comtrade and the World Bank Pink Sheet were not recovered.
 6. **No quarterly contracts:** the only quarterly series is Serbia's LFS.
 7. **No interpolation:** nothing is interpolated, estimated or concatenated across definitions. Backcasts, breaks and territorial notes stay explicit.
+
+## 12. Production acceptance
+
+- **Deployment:** Pages run `42706330755` (build and deploy) succeeded.
+- **Provenance:** the deployment record names `d6e2bdd`; research package sha256 `65577f8c…2fe6`.
+- **Live data:**
+  - the live annual runtime holds 4,996 records, 1,995 of them flagged `R`;
+  - `/research-data/historical_recovery_inventory.json` is served.
+- **Production acceptance:** 6 of 6 passed.
+- **Alerts:** code scanning 0, secret scanning 0, Dependabot 1 (the dev-only `minimatch`).
+- **Pre-push checks:** privacy grep and secret scan passed.
