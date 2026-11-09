@@ -1,6 +1,6 @@
 # v2.0 atlas usability implementation — 2026-11-10
 
-Status: owner-authorised release preparation, following the 2026-11-10 instruction “推送部署”. Local implementation and acceptance PASS. Consolidated browser run: 650/650 passed; final focused follow-up: 60/60 passed; tooling: 405/405 passed. The feature branch is pushed; main deployment is pending final Linux verification of the country-card correction.
+Status: owner-authorised release preparation, following the 2026-11-10 instruction “推送部署”. Local implementation and acceptance PASS. Consolidated browser run: 650/650 passed; final focused follow-up: 60/60 passed; tooling: 405/405 passed. The feature branch is pushed; Linux verification of the country-card correction passed. Main CI/deployment is authorised and pending.
 
 Baseline: actual remote main `1b857462dc4ff10bc91a7dbd1569d65b5b24625e`. Work is on `feature/v20-atlas-usability`. The frozen production artifact and its acceptance branch are preserved. Brand and platform version remain Central Europe Political Atlas v2.0.
 
@@ -47,4 +47,4 @@ The existing non-deploying Linux record run #370 (`42679359443`, source `564bdcf
 
 Eighteen Linux screenshots differed: fourteen home/politics views and four country views, all within the changed presentation scope. Image review identified a real clipped Chinese country-card chart: the chart extended to x=553 on a 390-pixel mobile viewport, although the old overall-page-width check passed because its parent hid overflow. A stricter chart-boundary regression reproduced the failure. Minimum-width/grid constraints were corrected; the same four bilingual desktop/mobile country tests now pass, covering Hungary and Poland. Fourteen reviewed Linux home/politics baselines were accepted; the four country baselines are being regenerated from corrected code. No screenshot or timeout threshold was relaxed.
 
-A fresh Linux record/verification and then normal main CI/deployment are required. Version, research observations, estimators and publication gates remain unchanged.
+The corrected-source Linux record run #371 (`42683696429`, source `844d863`) succeeded: all 650 browser tests passed without retry or skips. Tooling: 402 passed, three existing conditional skips. The artifact differed from the reviewed branch baselines in exactly four country screenshots; they were reviewed and accepted, including the now-contained mobile chart. No source code changed after this run. Normal main CI/deployment remains required; approval is already recorded above. Version, research observations, estimators and publication gates remain unchanged.
