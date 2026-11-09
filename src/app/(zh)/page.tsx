@@ -36,22 +36,20 @@ export default function Home() {
       <header className="max-w-4xl border-b border-[var(--line)] pb-10">
         <div>
           <p className="editorial-kicker">Central Europe Political Atlas · {PLATFORM_VERSION.split(" ")[0]}</p>
-          <h1 className="mt-4 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-6xl">
-            用可追溯证据研究中欧政治经济
+          <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-6xl">
+            从地图探索中欧政治经济
           </h1>
           <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--muted)]">
-            考察各国经济状况的差异，在历史背景下比较选举，并通过来源文件追踪政策与投资项目的实施。从已有案例或问题导向工作区出发，检查证据、方法与缺口，再导出可复现研究。
+            从地图进入十国档案，比较已发布的经济观测与历届选举，查阅来源和研究方法。
           </p>
         </div>
-        <nav className="mt-5 flex flex-wrap gap-4 text-sm font-semibold" aria-label="开始研究"><a className="text-[var(--accent)] underline" href="#featured-research-title">查看研究案例</a><a className="text-[var(--accent)] underline" href="#question-first-title">选择研究问题</a><Link className="text-[var(--accent)] underline" href="/politics/">政治与选举</Link></nav>
+        <nav className="mt-5 flex flex-wrap gap-4 text-sm font-semibold" aria-label="开始研究"><a className="text-[var(--accent)] underline" href="#home-map-title">探索地图</a><Link className="text-[var(--accent)] underline" href="/data/">经济数据与比较</Link><Link className="text-[var(--accent)] underline" href="/politics/">政治与选举</Link></nav>
       </header>
 
-      <FeaturedResearchSection locale="zh-CN" />
-      <WorkspaceEntrySection locale="zh-CN" />
-      <HomeCoverageSection locale="zh-CN" />
-
-      <HomeResearchMap countries={mapCountries} />
-
+    <HomeResearchMap countries={mapCountries} locale="zh-CN" />
+    <HomeCoverageSection locale="zh-CN" />
+    <WorkspaceEntrySection locale="zh-CN" />
+    <FeaturedResearchSection locale="zh-CN" />
       <section className="editorial-section mt-10" aria-labelledby="latest-signals-title">
         <div className="flex flex-wrap items-end justify-between gap-4"><div><p className="editorial-kicker">Verified Event Archive</p><h2 id="latest-signals-title" className="mt-2 text-3xl font-semibold">近期已核验事件</h2><p className="mt-2 text-xs text-[var(--muted)]" data-latest-signals-meta>显示最近 <span className="metric-number">{latestSignals.length}</span> 条 · 共 <span className="metric-number">{verifiedEventCount}</span> 条已核验事件 · 最近事件日期 <time dateTime={newsLibraryMetadata.latestEventDate}>{newsLibraryMetadata.latestEventDate}</time> · 新闻批次截至 <time dateTime={newsLibraryMetadata.latestNewsBatch}>{newsLibraryMetadata.latestNewsBatch}</time> · 历史事件库记录更新 <time dateTime={newsLibraryMetadata.historicalStoreUpdatedAt}>{newsLibraryMetadata.historicalStoreUpdatedAt}</time></p></div><Link href="/news" className="text-sm font-semibold text-[var(--accent)]">打开事件库</Link></div>
         <p className="mt-3 text-sm leading-7 text-[var(--muted)]" data-home-news-check>这是注明日期的事件档案，不是实时新闻流。最近批次来源核验（登记检索日期）：<time dateTime={newsLibraryMetadata.latestBatchSourceCheckedAt}>{newsLibraryMetadata.latestBatchSourceCheckedAt}</time>；不表示此后持续更新。</p>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { CountryObservationValue } from "./CountryObservationValue";
 import { CountryModelSnapshot } from "./CountryModelSnapshot";
 import { useState } from "react";
-import { Sparkline } from "@/components/ResearchCharts";
+import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
 import type { Country as UiCountry } from "@/lib/data";
 import type { Event, ModelCard, ModelOutput, Observation, Project } from "@/types/researchData";
 import { formatWithUnit } from "@/lib/format";
@@ -90,7 +90,7 @@ export function CountryResearchProfile({
                 <article key={indicatorId} className="bg-[var(--surface)] p-4">
                   <p className="text-xs font-semibold text-[var(--muted)]">{indicatorLabels[indicatorId]}</p>
                   <CountryObservationValue country={country.slug} indicator={indicatorId} series={series} />
-                  <div className="mt-3"><Sparkline label={`${indicatorLabels[indicatorId]}年度趋势`} values={series.map((item) => ({ label: String(item.year), value: item.status === "pending" || item.applicability_status === "not_applicable" ? null : item.value }))} /></div>
+                  <div className="mt-3"><ResearchTimeSeriesChart interactive title={`${country.nameZh} · ${indicatorLabels[indicatorId]}`} xKind="number" xLabel="年份" yLabel={series[0]?.unit ?? ""} height={240} series={[{id:indicatorId,label:indicatorLabels[indicatorId],color:"var(--chart-accent)",points:series.map(item => ({x:item.year,y:item.status === "pending" || item.applicability_status === "not_applicable" ? null : item.value,unit:item.unit,status:item.status,source:item.source_name,sourceUrl:item.source_url}))}]} /></div>
                 </article>
               ))}
             </div>
@@ -122,7 +122,7 @@ export function CountryResearchProfile({
         <div className="mt-7 divide-y divide-[var(--line)] border-y border-[var(--line)]">
           {economyIndicators.map((indicatorId) => {
             const series = observations.filter((item) => item.indicator === indicatorId).sort((a, b) => a.year - b.year);
-            return <article key={indicatorId} className="grid gap-4 py-4 sm:grid-cols-[minmax(150px,0.6fr)_minmax(180px,1fr)_minmax(180px,1fr)] sm:items-center"><p className="text-sm font-semibold">{indicatorLabels[indicatorId]}</p><CountryObservationValue country={country.slug} indicator={indicatorId} series={series} /><div><Sparkline label={`${indicatorLabels[indicatorId]}年度时间序列`} values={series.map((item) => ({ label: String(item.year), value: item.status === "pending" || item.applicability_status === "not_applicable" ? null : item.value }))} /><details className="advanced-disclosure mt-3"><summary>历史记录与状态</summary><div className="mt-3 grid gap-2 text-xs text-[var(--muted)]">{series.map((item) => <p key={item.id}>{item.year}: {item.status === "pending" || item.applicability_status === "not_applicable" ? "—" : formatValue(item.value, item.unit)} · {item.status} · {item.source_name}</p>)}</div></details></div></article>;
+            return <article key={indicatorId} className="grid gap-4 py-4 lg:grid-cols-[minmax(150px,0.6fr)_minmax(180px,0.6fr)_minmax(0,2fr)] sm:items-center"><p className="text-sm font-semibold">{indicatorLabels[indicatorId]}</p><CountryObservationValue country={country.slug} indicator={indicatorId} series={series} /><div><ResearchTimeSeriesChart interactive title={`${country.nameZh} · ${indicatorLabels[indicatorId]}`} xKind="number" xLabel="年份" yLabel={series[0]?.unit ?? ""} height={240} series={[{id:indicatorId,label:indicatorLabels[indicatorId],color:"var(--chart-accent)",points:series.map(item => ({x:item.year,y:item.status === "pending" || item.applicability_status === "not_applicable" ? null : item.value,unit:item.unit,status:item.status,source:item.source_name,sourceUrl:item.source_url}))}]} /><details className="advanced-disclosure mt-3"><summary>历史记录与状态</summary><div className="mt-3 grid gap-2 text-xs text-[var(--muted)]">{series.map((item) => <p key={item.id}>{item.year}: {item.status === "pending" || item.applicability_status === "not_applicable" ? "—" : formatValue(item.value, item.unit)} · {item.status} · {item.source_name}</p>)}</div></details></div></article>;
           })}
         </div>
       ) : null}

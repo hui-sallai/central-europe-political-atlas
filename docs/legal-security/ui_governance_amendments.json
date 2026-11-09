@@ -2622,6 +2622,120 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-08"
+    },
+    {
+      "amendment_id": "v20-map-first-usability-2026-11-10",
+      "status": "owner_approved",
+      "approved_by": "Owner v2.0 usability implementation brief, 2026-11-10: restore map-first navigation, clarify observed coverage and requested dates, shared descriptive chart inspection, admitted regional comparisons and five-country political entry. Existing datasets, frozen artifact, estimators, legal restrictions and publication gates remain unchanged. No deployment authorised by this development brief.",
+      "baseline": "1b857462dc4ff10bc91a7dbd1569d65b5b24625e",
+      "files": [
+        {
+          "path": "src/app/(english)/en/countries/[slug]/page.tsx",
+          "sha256": "23ea9b707d6d22deccb3af2c0ae4bb406e04df30f6f2d176ff8861801543b8ad",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/page.tsx",
+          "sha256": "37e6b7e7d6cc9c323a83aca4d4a1929a0265966588c65634e5c6bf1f1818f406",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/page.tsx",
+          "sha256": "ee29cecff6d941a928807e212f1b3e9316fc532680d7381138e97d0d0004a7a4",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/page.tsx",
+          "sha256": "38ef2190a0fb84dba745c8e0cd9778594823e0f88acdbc6a7e0e012046b372a6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/page.tsx",
+          "sha256": "381c5b244a209befff90568c424893c89e69fe2ec53661c16153260283c71588",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/globals.css",
+          "sha256": "9b00518111ba621303021d484c48d277f01a5ff5cc9752e413f5abb6bbd2d844",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ComparativeSpatialWorkbench.tsx",
+          "sha256": "8f511cb047650bd59a050dd538cd6eaf25991d67289cc7cd2158d1b5540c9738",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryResearchProfile.tsx",
+          "sha256": "ecf6e883c564062af832b985486d66f2a970f7772806c6d478d8c423c7813f7f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/DataAvailabilitySummary.tsx",
+          "sha256": "6c4527120e59dc947939cb1a2123f017c4240a212d947a39f030137c20ec2450",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/DataExplorerV11.tsx",
+          "sha256": "5119ef325255a614cea0f78c35859bd56682457764254c09ee74aec492084932",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/DataRefreshTransparency.tsx",
+          "sha256": "e4e134102c95b8c8e34f61ff2f267e029e132512ed9568740654cd4fee088c8f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/HomeResearchDiscovery.tsx",
+          "sha256": "741bacb489a280aedaeb2aad289ab948c86be8bcda3fed1b7345c1cd9a3cd324",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/HomeResearchMap.tsx",
+          "sha256": "ce2ccfe0784200e805dd7cea2bf2595d003f122a0dcc3248081dd53df3cec69a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/MacroDriverWorkbench.tsx",
+          "sha256": "6b0e1c3d0a9c03dd08092cc4e7f61925d86f8e0bdccc2beeb9b37c4be068d333",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/MonthlyComparisonWorkbench.tsx",
+          "sha256": "6b36f34f2e5e58aeb2e40b7b50b57ef7d476ce0a8c5e88da4ea9e4890f1312d4",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalLanding.tsx",
+          "sha256": "bef1d8b68066dc849b21c4a2e3ae4a40d90013e35a28ca8a821e6c84397b0acb",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/RegionHistoryTrend.tsx",
+          "sha256": "365748a6d76d782a401da11c632a5c04081bd762a953f93deac58b4ba2ac3011",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ResearchTimeSeriesChart.tsx",
+          "sha256": "eda333ecff29b409edfa15b71a886021e2e3c7e0f2dd190c907c22f18478c530",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/observationAvailability.ts",
+          "sha256": "ce147eec8956a675155392386cf9f93e25e76d91f557afab6f9f95278f61ded5",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/regionalComparison.ts",
+          "sha256": "729719c6ed9b93a2cd0f9df31818a84a482fbe5721f6999ca6f8901eb772c9ed",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-10"
     }
   ]
 }

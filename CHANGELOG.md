@@ -1,5 +1,12 @@
 # Changelog
 
+### v2.0 atlas usability improvements — 2026-11-10 (not yet deployed)
+
+- Restore the existing interactive map as the primary homepage entry; retain five-country politics, four Workspaces and featured research cases.
+- Explain actual published coverage and unsupported date requests; show relevant source updates before technical run history.
+- Reuse shared charts for exact historical point inspection and source tables; add admitted same-period regional differences and a neutral five-country political landing.
+- Preserve canonical data, frozen outputs, existing exports, publication restrictions, brand and v2.0. See `docs/v20-atlas-usability-2026-11-10.md` for validation and release prerequisites.
+
 ### v2.0 Finalization — release candidate and version freeze record — 2026-11-09
 
 - Consolidates the delivered national macroeconomic profiles, nine-country factual regional maps, five-country parliamentary-election research, D1–D4 comparative research, E1–E2.1 implementation evidence, four question-first Workspaces, bilingual research-first homepage, source provenance and reproducible exports. Platform version and research methods remain v2.0 and their existing versions.

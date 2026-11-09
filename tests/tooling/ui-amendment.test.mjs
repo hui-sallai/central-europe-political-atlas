@@ -49,7 +49,7 @@ test('wildcard paths, missing sha256, OTHER classification and data_change_allow
 test('the committed amendment lists exact hashes for presentation files only', () => {
   const { problems, approved } = approvedUiFiles(record.amendments);
   assert.deepEqual(problems, []);
-  assert.equal(approved.size, 139); // F1 adds only the shared homepage research-discovery component to the existing presentation scope.
+  assert.equal(approved.size, 146); // Four scoped helpers, two existing presentation components and the scoped mobile-map stylesheet for the owner-requested v2.0 usability improvements.
   assert.equal(approved.has('src/components/HomeResearchDiscovery.tsx'), true);
   for (const [p] of approved) assert.match(p, /^src\/(app|components|lib)\//);
 });

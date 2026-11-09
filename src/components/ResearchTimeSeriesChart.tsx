@@ -1,4 +1,6 @@
 "use client";
+import { englishUnit } from "@/i18n/presentation";
+import { englishText } from "@/i18n/reviewedText";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { localeNumber } from "@/i18n/config";
@@ -65,7 +67,7 @@ export function monthTicks(first: number, last: number, maxLabels = 8): { value:
   return [{ value: first, label: indexToPeriod(first) }, { value: last, label: indexToPeriod(last) }];
 }
 
-export interface ChartPoint { x: number | string; y: number | null; detail?: string }
+export interface ChartPoint { x: number | string; y: number | null; detail?: string; unit?: string; source?: string; sourceUrl?: string; status?: string; breakBefore?: boolean }
 export interface ChartBandPoint { x: number | string; lower: number; upper: number }
 export interface ChartSeries {
   id: string;
@@ -111,8 +113,21 @@ export function ResearchTimeSeriesChart(props: Props) {
 }
 
 function InteractiveResearchTimeSeriesChart(props: Props) {
+  const locale = useLocale(), en = locale === "en";
   const [activePoint, setActivePoint] = useState<string | null>(null);
-  return <RenderedResearchTimeSeriesChart {...props} activePoint={activePoint} setActivePoint={setActivePoint} />;
+  const [from, setFrom] = useState(""), [to, setTo] = useState("");
+  const periods = [...new Set(props.series.flatMap(s => s.points.map(p => p.x)))].sort((a,b) => String(a).localeCompare(String(b), undefined, {numeric:true}));
+  const ordinal = (x: number | string) => props.xKind === "month" ? monthIndex(String(x)) : Number(x);
+  const within = (x: number | string) => (!from || ordinal(x) >= ordinal(from)) && (!to || ordinal(x) <= ordinal(to));
+  const series = props.series.map(s => ({ ...s, markers: true, points: s.points.filter(p => within(p.x)), band: s.band?.filter(p => within(p.x)) }));
+  const selection = series.some(s => s.points.some(p => `${s.id}:${p.x}` === activePoint && p.y !== null)) ? activePoint : null;
+  return <LocalizedContent>{<div data-interactive-series className="min-w-0 max-w-full">
+    {periods.length > 12 ? <fieldset className="mb-3 flex flex-wrap gap-3 text-xs"><legend className="font-semibold">{en ? "Chart period" : "图表时期"}</legend>{[[from,setFrom,en ? "From" : "起始"],[to,setTo,en ? "To" : "结束"]].map(([value,set,label]) => <label key={label as string}>{label as string}<select className="field-control ml-2" value={value as string} onChange={e => (set as (v:string)=>void)(e.target.value)}><option value="">{en ? "All" : "全部"}</option>{periods.map(p => <option key={p} value={p}>{p}</option>)}</select></label>)}</fieldset> : null}
+    <label className="mb-3 block text-xs font-semibold">{en ? "Inspect a value" : "查看数值点"}<select className="field-control mt-2 min-w-0 max-w-full" value={selection ?? ""} onChange={e => setActivePoint(e.target.value)}><option value="">{en ? "Choose a period and series" : "选择时期与序列"}</option>{series.map(s => <optgroup key={s.id} label={s.label}>{s.points.filter(p=>p.y !== null).map(p=><option key={p.x} value={`${s.id}:${p.x}`}>{s.label} · {p.x}</option>)}</optgroup>)}</select></label>
+    <RenderedResearchTimeSeriesChart {...props} series={series} containerRole="group" activePoint={selection} setActivePoint={setActivePoint} />
+    <p className="text-xs text-[var(--muted)]">{en ? "Hover or tap a point. Use Tab, then arrow keys to inspect values. Gaps and recorded breaks are not connected." : "悬停或点按观测点；按 Tab 后使用方向键逐点查看。缺失时期和已记录断点不连线。"}</p>
+    <details className="mt-3 min-w-0 max-w-full text-xs" data-chart-table><summary className="cursor-pointer font-semibold">{en ? "Exact values and sources" : "精确数值与来源"}</summary><div className="data-table-viewport mt-2" tabIndex={0} role="region" aria-label={en ? "Chart values (scrollable)" : "图表数值（可滚动）"}><table data-chart-observations className="research-data-table w-full min-w-[480px] text-left"><caption className="text-left">{props.title}</caption><thead><tr>{(en ? ["Series","Period","Value","Unit","Status / definition","Source"] : ["序列","时期","数值","单位","状态／定义","来源"]).map(h => <th scope="col" className="p-2" key={h}>{h}</th>)}</tr></thead><tbody>{series.flatMap(s => s.points.map((p,i) => <tr key={`${s.id}:${i}`}><th scope="row" className="p-2 font-normal">{s.label}</th><td className="p-2">{p.x}</td><td className="p-2 metric-number">{p.y === null ? "—" : p.y.toLocaleString(locale,{maximumFractionDigits:20})}</td><td className="p-2">{en ? englishUnit(p.unit ?? props.yLabel) : p.unit ?? props.yLabel}</td><td className="p-2">{en ? englishText(p.status ?? p.detail ?? (p.y === null ? "Missing value" : "Status not recorded")) : p.status ?? p.detail ?? (p.y === null ? "缺失值" : "未记录状态")}</td><td className="p-2">{p.sourceUrl ? <a className="underline text-[var(--accent)]" href={p.sourceUrl}><span lang={en && /[㐀-鿿]/u.test(p.source ?? "") ? "zh-CN" : undefined} data-original-language={en && /[㐀-鿿]/u.test(p.source ?? "") ? "zh-CN" : undefined}>{p.source ?? p.sourceUrl}</span></a> : <span lang={en && /[㐀-鿿]/u.test(p.source ?? "") ? "zh-CN" : undefined} data-original-language={en && /[㐀-鿿]/u.test(p.source ?? "") ? "zh-CN" : undefined}>{p.source ?? "—"}</span>}</td></tr>))}</tbody></table></div></details>
+  </div>}</LocalizedContent>;
 }
 
 // Non-interactive research charts remain stateless, including frozen-output SSR validation.
@@ -133,16 +148,20 @@ function RenderedResearchTimeSeriesChart({ title, description, series, xKind, xL
   const signed = (value: number, options: Intl.NumberFormatOptions) => localeNumber(value, locale, options);
   const fmtY = formatY ?? ((value: number) => signed(value, { minimumFractionDigits: decimals, maximumFractionDigits: decimals }));
   // Observed values keep their own precision (tick rounding would show 5.75 as "6").
-  const fmtValue = formatY ?? ((value: number) => signed(value, { maximumFractionDigits: Math.max(3, decimals) }));
+  const fmtValue = interactive ? (value: number) => signed(value, { maximumFractionDigits: 20 }) : formatY ?? ((value: number) => signed(value, { maximumFractionDigits: Math.max(3, decimals) }));
   const xTicks = xKind === "month"
     ? monthTicks(xMin, xMax, 8)
     : (xTickValues ?? niceTicks(xMin, xMax, 6).ticks.filter((v) => v >= xMin && v <= xMax)).map((value) => ({ value, label: formatX ? formatX(value) : String(value) }));
   const showZero = zeroLine === true || (zeroLine === "auto" && yLow < 0 && yHigh > 0);
   const titleId = `chart-${series.map((s) => s.id).join("-")}-${title.length}`.replace(/[^A-Za-z0-9-]/g, "");
   const segments = (points: ChartPoint[]) => {
+    let previous: number | null = null;
     const out: ChartPoint[][] = [];
     let current: ChartPoint[] = [];
     for (const point of points) {
+      const x = toX(point.x);
+      if (interactive && (point.breakBefore || (previous !== null && x - previous > 1))) { if (current.length) out.push(current); current = []; }
+      previous = x;
       if (point.y === null || !Number.isFinite(point.y)) { if (current.length) out.push(current); current = []; } else current.push(point);
     }
     if (current.length) out.push(current);
@@ -181,8 +200,8 @@ function RenderedResearchTimeSeriesChart({ title, description, series, xKind, xL
           {series.filter((s) => s.width !== 0).map((s) => segments(s.points).map((segment, index) => (
             <polyline key={`line-${s.id}-${index}`} fill="none" stroke={s.color} strokeWidth={s.width ?? 2.2} strokeDasharray={s.dash} strokeLinejoin="round" points={segment.map((p) => `${sx(toX(p.x))},${sy(p.y as number)}`).join(" ")} />
           )))}
-          {series.filter((s) => s.markers).map((s) => s.points.filter((p) => p.y !== null).map((p) => (
-            <circle key={`m-${s.id}-${p.x}`} cx={sx(toX(p.x))} cy={sy(p.y as number)} r={interactive ? 5 : 2.6} fill={s.color} tabIndex={interactive ? 0 : undefined} role={interactive ? "button" : undefined} aria-label={`${s.label} · ${p.x}: ${fmtValue(p.y as number)} ${p.detail ?? yLabel}`} onMouseEnter={interactive ? () => setActivePoint(`${s.id}:${p.x}`) : undefined} onFocus={interactive ? () => setActivePoint(`${s.id}:${p.x}`) : undefined} onClick={interactive ? () => setActivePoint(`${s.id}:${p.x}`) : undefined} onKeyDown={interactive ? e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActivePoint(`${s.id}:${p.x}`); } } : undefined}><title>{`${s.label} · ${typeof p.x === "string" ? p.x : formatX ? formatX(p.x) : p.x}：${fmtValue(p.y as number)} ${p.detail ?? ""}`}</title></circle>
+          {series.filter((s) => s.markers || interactive).map((s) => s.points.filter((p) => p.y !== null).map((p) => (
+            <circle key={`m-${s.id}-${p.x}`} cx={sx(toX(p.x))} cy={sy(p.y as number)} r={interactive ? 5 : 2.6} fill={s.color} tabIndex={interactive ? (activePoint === `${s.id}:${p.x}` || (!activePoint && s === series.find(s => s.points.some(p => p.y !== null)) && p === s.points.find(p => p.y !== null)) ? 0 : -1) : undefined} role={interactive ? "button" : undefined} aria-label={`${s.label} · ${p.x}: ${fmtValue(p.y as number)} ${p.unit ?? yLabel} · ${p.status ?? ""} · ${p.detail ?? ""} · ${p.source ?? ""}`} onMouseEnter={interactive ? () => setActivePoint(`${s.id}:${p.x}`) : undefined} onFocus={interactive ? () => setActivePoint(`${s.id}:${p.x}`) : undefined} onClick={interactive ? () => setActivePoint(`${s.id}:${p.x}`) : undefined} onKeyDown={interactive ? e => { if (["ArrowLeft","ArrowRight","ArrowUp","ArrowDown"].includes(e.key)) { e.preventDefault(); const points = [...e.currentTarget.ownerSVGElement!.querySelectorAll<SVGCircleElement>('circle[role="button"]')]; const index = points.indexOf(e.currentTarget); points[(index + (["ArrowLeft","ArrowUp"].includes(e.key) ? -1 : 1) + points.length) % points.length]?.focus(); } if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActivePoint(`${s.id}:${p.x}`); } } : undefined}><title>{`${s.label} · ${typeof p.x === "string" ? p.x : formatX ? formatX(p.x) : p.x}：${fmtValue(p.y as number)} ${p.detail ?? ""}`}</title></circle>
           )))}
           {latest && series[0] ? (
             <g data-latest-marker="true">
@@ -192,7 +211,7 @@ function RenderedResearchTimeSeriesChart({ title, description, series, xKind, xL
           ) : null}
         </svg>
       </div>
-      {interactive ? <div className="mt-2 min-h-10 text-sm" aria-live="polite">{series.flatMap(s => s.points.filter(p => `${s.id}:${p.x}` === activePoint && p.y !== null).map(p => <p key={`${s.id}:${p.x}`}>{s.label} · {String(p.x)}: {fmtValue(p.y as number)} · {p.detail ?? yLabel}</p>))}</div> : null}
+      {interactive ? <div className="mt-2 min-h-10 break-words text-sm" aria-live="polite">{series.flatMap(s => s.points.filter(p => `${s.id}:${p.x}` === activePoint && p.y !== null).map(p => <p key={`${s.id}:${p.x}`}>{s.label} · {String(p.x)}: {fmtValue(p.y as number)} · {p.unit ?? yLabel} · {p.status ?? ""} · {p.detail ?? ""} · {p.source ?? ""}</p>))}</div> : null}
       {legend ? (
         <figcaption className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-[var(--muted)]">
           {series.map((s) => (

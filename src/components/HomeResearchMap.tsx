@@ -98,8 +98,8 @@ export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: Ho
   return (
     <section className="home-map-section" aria-labelledby="home-map-title">
       <div className="home-map-heading">
-        <div><p className="editorial-kicker">Interactive Research Map</p><h2 id="home-map-title" className="mt-2 text-3xl font-semibold">{m.title}</h2></div>
-        <p>{m.intro}</p>
+        <div><p className="editorial-kicker">Interactive Research Map</p><h2 id="home-map-title" className="mt-2 text-3xl font-semibold">{en ? "Explore the atlas" : "探索十国地图"}</h2></div>
+        <p>{en ? "Select a country to explore its data and research." : "选择国家，查看档案、数据与研究入口。"}</p>
       </div>
       <div className="home-map-grid">
         <div className="home-map-canvas">
@@ -111,7 +111,7 @@ export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: Ho
                 const active = item.slug === selectedSlug;
                 const country = countries.find((candidate) => candidate.slug === item.slug);
                 const fill = active ? "var(--accent)" : neutralCountryFill;
-                return <path key={item.key} d={item.d} fill={fill} stroke="var(--map-border)" strokeWidth="1.4" className={`home-country-shape${active ? " is-selected" : ""}`} role="button" tabIndex={0} aria-label={`${m.select}${en ? country?.nameEn ?? item.slug : country?.nameZh ?? item.slug}`} onClick={() => setSelectedSlug(item.slug)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") setSelectedSlug(item.slug); }}><title>{en ? country?.nameEn ?? item.slug : country?.nameZh ?? item.slug}</title></path>;
+                return <path key={item.key} d={item.d} fill={fill} stroke="var(--map-border)" strokeWidth="1.4" className={`home-country-shape${active ? " is-selected" : ""}`} role="button" tabIndex={0} aria-label={`${m.select}${en ? country?.nameEn ?? item.slug : country?.nameZh ?? item.slug}`} onClick={() => setSelectedSlug(item.slug)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setSelectedSlug(item.slug); } }}><title>{en ? country?.nameEn ?? item.slug : country?.nameZh ?? item.slug}</title></path>;
               })}
             </svg>
           ) : null}
@@ -128,10 +128,10 @@ export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: Ho
             {selected.indicators.map((indicator) => <div key={indicator.id}><dt>{indicator.label}</dt><dd>{indicator.value}</dd><dd className="home-country-year">{indicator.year}</dd></div>)}
           </dl>
           <div className="home-latest-event">
-            <p>Latest verified event</p>
+            <p>{en ? "Latest verified event" : "最近已核验事件"}</p>
             {selected.latestEvent ? <Link href={localizedRoute(`/news?country=${selected.slug}#${selected.latestEvent.id}`, locale)}><span>{selected.latestEvent.date}</span>{en ? <div lang={selected.latestEvent.titleLanguage ?? "und"} data-original-language={selected.latestEvent.originalLanguageLabel ? selected.latestEvent.titleLanguage : undefined}>{selected.latestEvent.originalLanguageLabel ? <span lang="en" className="block text-xs text-[var(--muted)]">{selected.latestEvent.originalLanguageLabel}</span> : null}{selected.latestEvent.title}</div> : selected.latestEvent.title}</Link> : <span>{m.noEvent}</span>}
           </div>
-          <div className="home-map-actions"><Link href={localizedRoute(`/countries/${selected.slug}`, locale)}>{m.profile}</Link><Link href={localizedRoute(`/news?country=${selected.slug}`, locale)}>{m.events}</Link><Link href={localizedRoute(`/map?country=${selected.slug}`, locale)}>{m.fullMap}</Link></div>
+          <div className="home-map-actions"><Link href={localizedRoute(`/countries/${selected.slug}`, locale)}>{m.profile}</Link><Link href={localizedRoute(`/data?country=${selected.slug}`, locale)}>{en ? "National economic data" : "国家经济数据"}</Link><Link href={localizedRoute(`/politics/${selected.slug === "germany" ? "?country=germany" : ["czechia","poland","slovakia","hungary"].includes(selected.slug) ? selected.slug : ""}`, locale)}>{en ? "Politics and elections" : "政治制度与选举"}</Link><Link href={localizedRoute(`/models?country=${selected.slug}`, locale)}>{en ? "Research and models" : "研究与模型"}</Link><Link href={localizedRoute(`/map?country=${selected.slug}`, locale)}>{m.fullMap}</Link></div>
         </aside>
       </div>
     </section>

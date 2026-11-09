@@ -25,14 +25,14 @@ export default function EnglishHome() {
   return <main className="page-shell">
     <header className="max-w-4xl border-b border-[var(--line)] pb-8">
       <p className="editorial-kicker">Central Europe Political Atlas · {PLATFORM_VERSION.split(" ")[0]}</p>
-      <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">A research atlas of Central European political economy</h1>
-      <p className="mt-5 text-base leading-8 text-[var(--muted)]">Investigate how economic conditions differ across countries, compare elections in their historical context, and trace policy and investment implementation through source documents. Start with an existing case or configure a question-first workspace, then inspect the evidence and export reproducible research.</p>
-      <nav className="mt-5 flex flex-wrap gap-4 text-sm font-semibold" aria-label="Start your research"><a className="text-[var(--accent)] underline" href="#featured-research-title">Explore research cases</a><a className="text-[var(--accent)] underline" href="#question-first-title">Choose a research question</a><Link className="text-[var(--accent)] underline" href="/en/politics/">Politics and Elections</Link></nav>
+      <h1 className="mt-4 text-4xl sm:text-5xl font-semibold tracking-[-0.04em]">Explore Central Europe</h1>
+      <p className="mt-5 text-base leading-8 text-[var(--muted)]">Explore national and regional data, elections and research across ten countries.</p>
+      <nav className="mt-5 flex flex-wrap gap-4 text-sm font-semibold" aria-label="Start your research"><a className="text-[var(--accent)] underline" href="#home-map-title">Explore the atlas</a><Link className="text-[var(--accent)] underline" href="/en/data/">Economic data and comparisons</Link><Link className="text-[var(--accent)] underline" href="/en/politics/">Politics and Elections</Link></nav>
     </header>
-    <FeaturedResearchSection locale="en" />
-    <WorkspaceEntrySection locale="en" />
-    <HomeCoverageSection locale="en" />
     <HomeResearchMap countries={mapCountries} locale="en" />
+    <HomeCoverageSection locale="en" />
+    <WorkspaceEntrySection locale="en" />
+    <FeaturedResearchSection locale="en" />
     <section className="editorial-section mt-10" aria-labelledby="english-verified-events">
       <h2 id="english-verified-events" className="text-3xl font-semibold">{workspaceMessages.en.latestEvents}</h2>
       <p className="mt-3 text-sm text-[var(--muted)]" data-home-news-check>Dated archive, not a live news feed. Latest batch source check (recorded retrieval): <time dateTime={newsLibraryMetadata.latestBatchSourceCheckedAt}>{newsLibraryMetadata.latestBatchSourceCheckedAt}</time>. Approved English titles are shown where available; otherwise the original text is retained and labelled. Events do not enter model estimates.</p>

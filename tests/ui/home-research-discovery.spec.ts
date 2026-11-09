@@ -14,8 +14,9 @@ for (const prefix of ["", "/en"]) test(`homepage research discovery, coverage an
   await page.goto(`${prefix}/`, { waitUntil: "networkidle" });
   await expect(page.locator("main > header")).not.toContainText("Publication-Gate Consolidation");
   const sections = await page.locator("main > section").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-home-research") !== null ? "cases" : node.getAttribute("aria-labelledby")));
-  expect(sections.indexOf("cases")).toBeLessThan(sections.indexOf("question-first-title"));
-  expect(sections.indexOf("question-first-title")).toBeLessThan(sections.indexOf("home-map-title"));
+  expect(sections.indexOf("home-map-title")).toBe(0);
+  expect(sections.indexOf("question-first-title")).toBeLessThan(sections.indexOf("cases"));
+  expect(sections.indexOf("home-map-title")).toBeLessThan(sections.indexOf("question-first-title"));
   const coverage = page.locator("[data-home-coverage]");
   await expect(coverage.locator('[data-home-coverage-kind="national"] li')).toHaveCount(researchCountries.length);
   const regional = spatialDisplayGateAudit.filter(c => c.boundary_layer_ready && c.regional_data_ready);

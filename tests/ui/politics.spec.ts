@@ -7,7 +7,7 @@ import { parseNotebook } from "../../src/lib/researchNotebook";
 for (const locale of ["zh-CN", "en"] as const) {
   const route=locale==='en'?'/en/politics/':'/politics/';
   test(`Politics filters, corrected vintage, missing seats, sources and notebook: ${locale}`, async ({page}) => {
-    await page.goto(route,{waitUntil:'networkidle'});
+    await page.goto(route+'?country=germany',{waitUntil:'networkidle'});
     const panel=page.locator('[data-politics-explorer]');
     await expect(panel.locator('[data-results-disclosure]')).not.toHaveAttribute('open','');
     await panel.locator('[data-results-disclosure] summary').focus();
@@ -97,7 +97,7 @@ for (const locale of ["zh-CN", "en"] as const) {
 
 for (const locale of ['zh-CN','en'] as const) test(`Party history: official series, gaps, seat caveat and export (${locale})`, async ({page}) => {
   const prefix=locale==='en'?'/en':'';
-  await page.goto(`${prefix}/politics/`,{waitUntil:'networkidle'});
+  await page.goto(`${prefix}/politics/?country=germany`,{waitUntil:'networkidle'});
   const history=page.locator('[data-politics-history]');
   const series=history.locator('select').first();
   await expect(series).toHaveValue('');
@@ -158,7 +158,7 @@ for (const locale of ['zh-CN','en'] as const) test(`Overview context entry prese
 });
 
 for (const locale of ['zh-CN','en'] as const) test(`Jump navigation opens the political-economic context (${locale})`, async ({page}) => {
-  await page.goto(`${locale==='en'?'/en':''}/politics/`,{waitUntil:'networkidle'});
+  await page.goto(`${locale==='en'?'/en':''}/politics/?country=germany`,{waitUntil:'networkidle'});
   const nav=page.locator('[data-politics-jump-nav]');
   await expect(nav.locator('a')).toHaveCount(4);
   await expect(page.locator('[data-context-disclosure]')).not.toHaveAttribute('open','');

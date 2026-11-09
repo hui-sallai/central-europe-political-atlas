@@ -12,7 +12,7 @@ import { PLATFORM_VERSION } from "@/lib/releaseMetadata";
 export function FeaturedResearchSection({ locale }: { locale: Locale }) {
   const en = locale === "en", textKey = en ? "en" : "zh";
   return <section className="editorial-section mt-10" aria-labelledby="featured-research-title" data-home-research>
-    <h2 id="featured-research-title" className="text-3xl font-semibold">{en ? "Start with a research case" : "从一个真实研究案例开始"}</h2>
+    <h2 id="featured-research-title" className="text-3xl font-semibold">{en ? "Featured research cases" : "专题研究案例"}</h2>
     <p className="mt-3 max-w-4xl leading-7 text-[var(--muted)]">{en ? "Follow a question through recorded evidence, methods and downloadable CSV / JSON. These existing analyses preserve missing evidence and do not establish causal effects." : "沿着研究问题查看已收录证据、方法及可下载的 CSV / JSON。这些已有分析保留证据缺口，不据此识别因果效应。"}</p>
     <div className="mt-5 grid gap-4 lg:grid-cols-3">
       <article className="card p-5" data-home-case="d4">
@@ -45,11 +45,11 @@ export function HomeCoverageSection({ locale }: { locale: Locale }) {
   const groups = [
     { id: "national", title: en ? "National macroeconomic profiles" : "国家宏观经济档案", slugs: national.map(c => c.slug), href: (slug: string) => `/countries/${slug}/`, note: en ? "Published observations exist; indicators and reference periods differ by country." : "已有公布观测；各国的指标与参照时期不同。" },
     { id: "regional", title: en ? "Connected regional maps" : "已连接的区域地图", slugs: regional.map(c => c.country_id), href: (slug: string) => `/map/?country=${slug}`, note: en ? "Boundary and factual-data gates apply by layer. Serbia's regional mapping is pending; its national profile remains available." : "边界与事实数据按图层分别准入。塞尔维亚区域地图待接入，国家档案仍可使用。" },
-    { id: "political", title: en ? "Admitted parliamentary election research" : "已准入的全国议会选举研究", slugs: political.map(c => c.slug), href: (slug: string) => slug === "germany" ? "/politics/" : `/politics/${slug}/`, note: en ? "Selected elections only; election coverage does not establish continuous party identity or cross-country comparability." : "只覆盖已准入选举；不意味着连续政党身份或跨国可比性均已成立。" },
+    { id: "political", title: en ? "Parliamentary election research" : "全国议会选举研究", slugs: political.map(c => c.slug), href: (slug: string) => slug === "germany" ? "/politics/" : `/politics/${slug}/`, note: en ? "Selected elections only; election coverage does not establish continuous party identity or cross-country comparability." : "只覆盖已准入选举；不意味着连续政党身份或跨国可比性均已成立。" },
   ];
   return <section className="editorial-section mt-10" aria-labelledby="home-coverage-title" data-home-coverage>
-    <h2 id="home-coverage-title" className="text-3xl font-semibold">{en ? "Where can you research?" : "哪些国家支持哪些研究？"}</h2>
-    <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{en ? "Coverage below follows the published observations and existing admission / map gates. Historical availability is separate from model eligibility." : "以下覆盖由已公布观测及现有准入、地图门禁生成。历史观测可用，不等于具备正式模型资格。"}</p>
+    <h2 id="home-coverage-title" className="text-3xl font-semibold">{en ? "Country and regional exploration" : "国家与区域探索"}</h2>
+    <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{en ? "Browse the published national, regional and election coverage. Historical data availability and eligibility for statistical models are assessed separately." : "查阅已发布的国家、区域和选举资料。历史数据覆盖与统计模型的适用条件分别说明。"}</p>
     <div className="mt-5 grid gap-4 lg:grid-cols-3">{groups.map(group => <article key={group.id} className="card p-5" data-home-coverage-kind={group.id}>
       <h3 className="text-lg font-semibold"><span className="metric-number">{group.slugs.length}</span> · {group.title}</h3>
       <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{group.note}</p>

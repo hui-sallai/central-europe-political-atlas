@@ -676,8 +676,8 @@
 @media (max-width: 520px) {
   .home-map-canvas svg,
   .home-map-message {
-    height: 370px;
-    min-height: 370px;
+    height: 240px;
+    min-height: 240px;
   }
 
   .latest-signals-grid {

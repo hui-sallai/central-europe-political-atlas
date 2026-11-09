@@ -40,7 +40,7 @@ for (const locale of ["zh-CN", "en"] as const) test(`cross-country view: side by
 });
 
 for (const locale of ["zh-CN", "en"] as const) test(`live politics page compares Germany 2025 with the admitted Czechia 2025 election, side by side and caveated (${locale})`, async ({ page }) => {
-  await page.goto(locale === "en" ? "/en/politics/" : "/politics/", { waitUntil: "networkidle" });
+  await page.goto(locale === "en" ? "/en/politics/?country=germany" : "/politics/?country=germany", { waitUntil: "networkidle" });
   const panel = page.locator("[data-politics-explorer]");
   await expect(panel.locator("[data-cross-country-disabled]")).toHaveCount(0);
   await expect(panel.locator("select").first().locator("option")).toHaveCount(1); // Germany stays the primary country
@@ -62,7 +62,7 @@ for (const locale of ["zh-CN", "en"] as const) test(`live politics page compares
 });
 
 for (const locale of ["zh-CN", "en"] as const) test(`publication-gate status names every blocked country and shows no values for it (${locale})`, async ({ page }) => {
-  await page.goto(locale === "en" ? "/en/politics/" : "/politics/", { waitUntil: "networkidle" });
+  await page.goto(locale === "en" ? "/en/politics/?country=germany" : "/politics/?country=germany", { waitUntil: "networkidle" });
   const status = page.locator("[data-politics-explorer] [data-admission-status]");
   await status.locator("summary").click();
   await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(5);
@@ -81,7 +81,7 @@ for (const locale of ["zh-CN", "en"] as const) test(`publication-gate status nam
 });
 
 for (const locale of ["zh-CN", "en"] as const) test(`Germany 2025 rule fields point to the sourced system description, and blocker causes are shown (${locale})`, async ({ page }) => {
-  await page.goto(locale === "en" ? "/en/politics/" : "/politics/", { waitUntil: "networkidle" });
+  await page.goto(locale === "en" ? "/en/politics/?country=germany" : "/politics/?country=germany", { waitUntil: "networkidle" });
   const details = page.locator("[data-national-research]");
   await details.locator("summary").click();
   await expect(details.locator("[data-system-description]")).toContainText(locale === "en" ? "5% rule" : "5%规则");
@@ -98,7 +98,7 @@ for (const locale of ["zh-CN", "en"] as const) test(`Germany 2025 rule fields po
 
 for (const locale of ["zh-CN", "en"] as const) test(`Czech view: real 2017–2025 election comparison, rule differences and Germany comparison (${locale})`, async ({ page }) => {
   const prefix = locale === "en" ? "/en" : "";
-  await page.goto(`${prefix}/politics/`, { waitUntil: "networkidle" });
+  await page.goto(`${prefix}/politics/?country=germany`, { waitUntil: "networkidle" });
   await page.locator('[data-politics-country-view="czechia"]').click();
   await page.waitForURL(`**${prefix}/politics/czechia/`);
   const panel = page.locator("[data-politics-explorer]");
@@ -211,7 +211,7 @@ for (const locale of ["en", "zh-CN"] as const) test(`Hungary: whole chamber attr
   await expect(research).toBeVisible({ timeout: 60000 });
   await expect(research.locator("[data-research-case]")).toHaveAttribute("data-research-case", "el-hu-ogy-2026-04-12");
   await expect(research.locator("[data-research-case]")).toHaveAttribute("data-research-case-status", "not_documented");
-  await page.goto("/en/politics/");
+  await page.goto("/en/politics/?country=germany");
   await expect(page.locator('[data-politics-country-view="hungary"]')).toBeVisible();
 });
 

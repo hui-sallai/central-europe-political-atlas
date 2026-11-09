@@ -8,6 +8,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from "reac
 import type { Country, Indicator, Observation } from "@/types/researchData";
 import { getResearchPackageFilename } from "@/lib/releaseMetadata";
 import { MacroDriverWorkbench } from "@/components/MacroDriverWorkbench";
+import { DataAvailabilitySummary } from "./DataAvailabilitySummary";
 import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
 import { monthlyHistoryFor, useMonthlyHistory } from "@/components/useMonthlyHistory";
 import { sorsSeriesLabels, useSerbiaSors } from "@/components/useSerbiaSors";
@@ -114,15 +115,16 @@ function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { 
   }, [countrySlug, formalSeries, indicator, monthlyHistory.data]);
   const series = useMemo(() => includeHistory ? [...historySeries, ...formalSeries] : formalSeries, [formalSeries, historySeries, includeHistory]);
   const isHistory = (row: HfRuntimeRow) => row[0].startsWith("hist:");
-  const years = useMemo(() => [...new Set(series.map((row) => Number(row[2].slice(0, 4))))].sort((a, b) => a - b), [series]);
+  const years = useMemo(() => [...new Set(series.filter(row => row[4] !== null).map((row) => Number(row[2].slice(0, 4))))].sort((a, b) => a - b), [series]);
   const rows = useMemo(() => series
     .filter((row) => row[4] !== null && (yearFrom === "all" || Number(row[2].slice(0, 4)) >= Number(yearFrom)) && (yearTo === "all" || Number(row[2].slice(0, 4)) <= Number(yearTo)))
     .sort((a, b) => sortDirection === "desc" ? b[2].localeCompare(a[2]) : a[2].localeCompare(b[2])), [series, sortDirection, yearFrom, yearTo]);
   const monthNumber = (period: string) => Number(period.slice(0, 4)) * 12 + Number(period.slice(5, 7)) - 1;
   const monthLabel = (n: number) => `${Math.floor(n / 12)}-${String((n % 12) + 1).padStart(2, "0")}`;
   const coverage = useMemo(() => { const c = coverageOf(series.map((row) => ({ period: monthNumber(row[2]), value: row[4] }))); return { ...c, earliest: c.earliest === null ? null : monthLabel(c.earliest), latest: c.latest === null ? null : monthLabel(c.latest), missing: c.missing.map(monthLabel) }; }, [series]);
-  const chartPoints = useMemo(() => [...rows].filter((row) => !isHistory(row)).sort((a, b) => a[2].localeCompare(b[2])).map((row) => ({ x: row[2], y: row[4] })), [rows]);
-  const historyPoints = useMemo(() => [...rows].filter(isHistory).sort((a, b) => a[2].localeCompare(b[2])).map((row) => ({ x: row[2], y: row[4] })), [rows]);
+  const chartSource = series.filter(row => (yearFrom === "all" || Number(row[2].slice(0,4)) >= Number(yearFrom)) && (yearTo === "all" || Number(row[2].slice(0,4)) <= Number(yearTo)));
+  const chartPoints = [...chartSource].filter((row) => !isHistory(row)).sort((a, b) => a[2].localeCompare(b[2])).map((row) => ({ x: row[2], y: row[4], unit: row[6], source: row[10], status: row[11] }));
+  const historyPoints = [...chartSource].filter(isHistory).sort((a, b) => a[2].localeCompare(b[2])).map((row) => ({ x: row[2], y: row[4], unit: row[6], source: row[10], status: row[11] }));
 
   return (
     <LocalizedContent>{<div className="mt-5" data-snapshot-scope="high-frequency">
@@ -148,16 +150,17 @@ function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { 
 
       <MonthlyComparisonHandoff countries={countries} country={countrySlug} indicator={indicator} fromYear={yearFrom} toYear={yearTo} coverage={monthlyCoverage} ready={urlReady && loadState === "ready"} />
       {historySeries.length ? <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-[var(--line)] py-4 text-sm" data-history-layer="high-frequency"><label className="flex items-center gap-2 font-semibold"><input type="checkbox" checked={includeHistory} onChange={(event) => setIncludeHistory(event.target.checked)} /> 包含历史描述性数据（{historySeries[0][2]} – {historySeries.at(-1)![2]}）</label><span className="text-xs text-[var(--muted)]">历史段仅供描述研究，从定义一致的官方起点开始；正式高频模型基线仍为 2015 年起的冻结序列。</span></div> : monthlyHistory.state === "ready" && formalSeries.length ? <p className="border-b border-[var(--line)] py-3 text-xs text-[var(--muted)]">该国家与指标暂无安全的历史描述性回填（定义断点需方法复核）。</p> : null}
-      {refreshManifest?<><RefreshHistory manifest={refreshManifest}/><ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:r[2],value:r[4],unit:r[6],status:r[11],dataset:isHistory(r)?"monthly_history":"high_frequency",indicator:r[3]}))}/></>:null}
+      <DataAvailabilitySummary points={series.map(r => ({period:monthNumber(r[2]),value:r[4],status:r[11]}))} from={yearFrom === "all" ? undefined : Number(yearFrom)*12} to={yearTo === "all" ? undefined : Number(yearTo)*12+11} frequency="monthly" formatPeriod={monthLabel} unit={series[0]?.[6] ?? ""} onUseAvailable={() => { if(years.length) {setYearFrom(String(years[0]));setYearTo(String(years.at(-1)));} }} />
+      {refreshManifest?<><RefreshHistory manifest={refreshManifest} country={countrySlug} indicators={[indicator]}/><ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:r[2],value:r[4],unit:r[6],status:r[11],dataset:isHistory(r)?"monthly_history":"high_frequency",indicator:r[3]}))}/></>:null}
       {loadState === "ready" && series.length ? (
-        <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]" data-coverage-summary="high-frequency">
-          <ResearchTimeSeriesChart title={`${countryMap.get(countrySlug)?.name_zh ?? countrySlug} · ${hfIndicatorLabels[indicator] ?? indicator}`} series={[{ id: "hf", label: locale === "en" ? "Current published observations (not frozen model inputs)" : "当前发布观测（非冻结模型输入）", color: "var(--chart-accent)", points: chartPoints }, ...(historyPoints.length ? [{ id: "history", label: "历史描述性（2000 起，不进入模型）", color: "var(--chart-muted)", dash: "6 4", points: historyPoints }] : [])]} xKind="month" xLabel="月份" legend={historyPoints.length > 0} yLabel={(() => { const unit = series.find((row) => row[4] !== null)?.[6] ?? ""; return hfUnitLabels[unit] ? `${hfUnitLabels[unit]} · ${unit}` : unit; })()} latestMarker height={260} />
-          <dl className="editorial-panel grid content-start gap-3 p-4 text-sm">
+        <div className="mt-5 grid gap-4" data-coverage-summary="high-frequency">
+          <ResearchTimeSeriesChart interactive title={`${locale === "en" ? countryMap.get(countrySlug)?.name ?? countrySlug : countryMap.get(countrySlug)?.name_zh ?? countrySlug} · ${locale === "en" ? englishText(hfIndicatorLabels[indicator] ?? indicator) : hfIndicatorLabels[indicator] ?? indicator}`} series={[{ id: "hf", label: locale === "en" ? "Current published observations (not frozen model inputs)" : "当前发布观测（非冻结模型输入）", color: "var(--chart-accent)", points: chartPoints }, ...(historyPoints.length ? [{ id: "history", label: "历史描述性（2000 起，不进入模型）", color: "var(--chart-muted)", dash: "6 4", points: historyPoints }] : [])]} xKind="month" xLabel="月份" legend={historyPoints.length > 0} yLabel={(() => { const unit = series.find((row) => row[4] !== null)?.[6] ?? ""; return hfUnitLabels[unit] ? `${hfUnitLabels[unit]} · ${unit}` : unit; })()} latestMarker height={260} />
+          <details className="editorial-panel p-4 text-sm"><summary className="cursor-pointer font-semibold">{locale === "en" ? "Research details: data layers and historical coverage" : "研究详情：数据层与历史覆盖"}</summary><dl className="mt-3 grid content-start gap-3">
             <div><dt className="text-xs text-[var(--muted)]">覆盖范围</dt><dd className="metric-number font-semibold">{coverage.earliest ?? "—"} → {coverage.latest ?? "—"}</dd></div>
             <div><dt className="text-xs text-[var(--muted)]">可用月份</dt><dd className="metric-number font-semibold">{coverage.available}</dd></div>
             <div><dt className="text-xs text-[var(--muted)]">缺失月份</dt><dd className="metric-number font-semibold">{coverage.missing.length ? coverage.missing.join("、") : "无"}</dd></div>
             <p className="text-xs leading-5 text-[var(--muted)]">覆盖范围含历史描述性段{includeHistory && historySeries.length ? `（${historySeries.length} 个月）` : "（未包含）"}；正式高频模型基线自 2015 年起保持冻结；缺失月份不会显示为 0。</p>
-          </dl>
+          </dl></details>
         </div>
       ) : null}
 
@@ -223,7 +226,7 @@ function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { 
 }
 
 // Published annual observations and descriptive history; model membership is governed by frozen registries.
-type AnnualRow = { id: string; country_slug: string; indicator: string; year: number; value: number | null; unit: string; status: string; source_name: string; source_url: string; reliability: string; updated_at: string; layer: "formal" | "history" | "sors"; cross_country_comparable?: boolean; source_code?: string; original_unit?: string | null; original_value?: number; comparable_within_segment?: boolean };
+type AnnualRow = { restriction?: string; id: string; country_slug: string; indicator: string; year: number; value: number | null; unit: string; status: string; source_name: string; source_url: string; reliability: string; updated_at: string; layer: "formal" | "history" | "sors"; cross_country_comparable?: boolean; source_code?: string; original_unit?: string | null; original_value?: number; comparable_within_segment?: boolean };
 type HistoryRuntime = { sources: { dataset: string; url: string }[]; records: [string, string, number, number, string, string, number][] };
 
 const historyOnlyIndicatorLabels: Record<string, string> = {
@@ -242,7 +245,7 @@ export function coverageOf(periods: { period: number; value: number | null }[]) 
   const have = new Set(observed);
   const missing: number[] = [];
   for (let p = observed[0]; p <= observed.at(-1)!; p += 1) if (!have.has(p)) missing.push(p);
-  return { earliest: observed[0], latest: observed.at(-1)!, available: observed.length, missing };
+  return { earliest: observed[0], latest: observed.at(-1)!, available: new Set(observed).size, missing };
 }
 
 export function DataExplorerV11({ countries, indicators, observations,refreshManifest,monthlyCoverage = {} }: { countries: Country[]; indicators: Indicator[]; observations: Observation[];refreshManifest?:RefreshManifest;monthlyCoverage?:MonthlyComparisonCoverage }) {
@@ -324,14 +327,14 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
   const indicatorMap = useMemo(() => new Map(indicators.map((item) => [item.id, item])), [indicators]);
   const indicatorName = useCallback((id: string) => indicatorMap.get(id)?.name_zh ?? historyOnlyIndicatorLabels[id] ?? sorsSeriesLabels[id] ?? id, [indicatorMap]);
   const countryRows = useMemo<AnnualRow[]>(() => {
-    const formal = observations.filter((item) => item.country_slug === countrySlug).map((item): AnnualRow => ({ id: item.id, country_slug: item.country_slug, indicator: item.indicator, year: item.year, value: item.value, unit: item.unit, status: item.status, source_name: item.source_name, source_url: item.source_url, reliability: item.source_reliability, updated_at: item.updated_at, layer: "formal" }));
+    const formal = observations.filter((item) => item.country_slug === countrySlug).map((item): AnnualRow => ({ id: item.id, country_slug: item.country_slug, indicator: item.indicator, year: item.year, value: item.value, unit: item.unit, status: item.status, restriction: item.applicability_status === "not_applicable" || item.comparability_status === "not_applicable" ? "not_applicable" : item.comparability_status === "definition_mismatch" ? "definition_mismatch" : undefined, source_name: item.source_name, source_url: item.source_url, reliability: item.source_reliability, updated_at: item.updated_at, layer: "formal" }));
     const past = includeHistory && history ? history.records.filter((row) => row[0] === countrySlug).map((row): AnnualRow => ({ id: `hist:annual:${row[0]}:${row[1]}:${row[2]}`, country_slug: row[0], indicator: row[1], year: row[2], value: row[3], unit: row[4], status: valueStatusLabels[row[5]] ?? row[5], source_name: history.sources[row[6]].dataset, source_url: history.sources[row[6]].url, reliability: "A", updated_at: "", layer: "history" })) : [];
     // Serbia: SORS annual series as their own layer (Serbia-only, cross-country flag from the audited mapping).
     const official = countrySlug === "serbia" && includeSors && sors.series ? sors.series.filter((item) => item.store === "annual").flatMap((item) => item.points.map((point): AnnualRow => ({ id: `serbia:${item.key}:${point[0]}`, country_slug: "serbia", indicator: item.display_indicator, year: Number(point[0]), value: point[1], unit: item.unit ?? "", status: point[1] === null ? "欧元换算暂缓（汇率断点）" : `${item.status_legend[point[3]] ?? point[3]}${point[4] ? "" : " · 序列断点前"}`, source_name: `SORS ${item.dataset}`, source_url: item.source_url, reliability: "A", updated_at: "", layer: "sors", cross_country_comparable: point[5] === 1, source_code: item.key, original_unit: item.original_unit, original_value: point[2], comparable_within_segment: point[4] === 1 }))) : [];
     return [...formal, ...past, ...official];
   }, [countrySlug, history, includeHistory, includeSors, observations, sors.series]);
   const availableIndicatorIds = useMemo(() => [...new Set(countryRows.map((item) => item.indicator))].sort((a, b) => indicatorName(a).localeCompare(indicatorName(b), "zh-CN")), [countryRows, indicatorName]);
-  const availableYears = useMemo(() => [...new Set(countryRows.map((item) => item.year))].sort((a, b) => a - b), [countryRows]);
+  const availableYears = useMemo(() => [...new Set(countryRows.filter(item => (indicatorId === "all" || item.indicator === indicatorId) && item.value !== null).map((item) => item.year))].sort((a, b) => a - b), [countryRows, indicatorId]);
   const rows = useMemo(() => {
     const query = search.trim().toLowerCase();
     const filtered = countryRows
@@ -347,7 +350,7 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
   const coverage = useMemo(() => {
     const byIndicator = new Map<string, AnnualRow[]>();
     for (const item of countryRows) { if (!byIndicator.has(item.indicator)) byIndicator.set(item.indicator, []); byIndicator.get(item.indicator)!.push(item); }
-    return [...byIndicator.entries()].map(([id, items]) => ({ id, unit: items.find((item) => item.value !== null)?.unit ?? items[0].unit, ...coverageOf(items.map((item) => ({ period: item.year, value: item.value }))), pending: items.filter((item) => item.value === null).map((item) => item.year).sort((a, b) => a - b), historyYears: items.filter((item) => item.layer === "history").length, sorsYears: items.filter((item) => item.layer === "sors" && item.value !== null).length, formalYears: items.filter((item) => item.layer === "formal" && item.value !== null).length }))
+    return [...byIndicator.entries()].map(([id, items]) => ({ id, unit: items.find((item) => item.value !== null)?.unit ?? items[0].unit, ...coverageOf(items.map((item) => ({ period: item.year, value: item.value }))), pending: items.filter((item) => item.value === null && !item.restriction && /pending|待发布|待接入/.test(item.status)).map((item) => item.year).sort((a, b) => a - b), historyYears: items.filter((item) => item.layer === "history").length, sorsYears: items.filter((item) => item.layer === "sors" && item.value !== null).length, formalYears: items.filter((item) => item.layer === "formal" && item.value !== null).length }))
       .sort((a, b) => indicatorName(a.id).localeCompare(indicatorName(b.id), "zh-CN"));
   }, [countryRows, indicatorName]);
   const selectedCoverage = indicatorId === "all" ? null : coverage.find((item) => item.id === indicatorId) ?? null;
@@ -407,10 +410,10 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
         </label>
         <div className="grid grid-cols-2 gap-2">
           <label className="text-xs font-semibold text-[var(--muted)]">起始年份
-            <select className="field-control mt-2" value={yearFrom} onChange={(event) => setYearFrom(event.target.value)}><option value="all">最早</option>{availableYears.map((item) => <option key={item} value={item}>{item}</option>)}</select>
+            <select className="field-control mt-2" value={yearFrom} onChange={(event) => setYearFrom(event.target.value)}><option value="all">最早</option>{yearFrom !== "all" && !availableYears.includes(Number(yearFrom)) ? <option value={yearFrom}>{locale === "en" ? "Requested year" : "请求年份"}: {yearFrom}</option> : null}{availableYears.map((item) => <option key={item} value={item}>{item}</option>)}</select>
           </label>
           <label className="text-xs font-semibold text-[var(--muted)]">结束年份
-            <select className="field-control mt-2" value={yearTo} onChange={(event) => setYearTo(event.target.value)}><option value="all">最新</option>{availableYears.map((item) => <option key={item} value={item}>{item}</option>)}</select>
+            <select className="field-control mt-2" value={yearTo} onChange={(event) => setYearTo(event.target.value)}><option value="all">最新</option>{yearTo !== "all" && !availableYears.includes(Number(yearTo)) ? <option value={yearTo}>{locale === "en" ? "Requested year" : "请求年份"}: {yearTo}</option> : null}{availableYears.map((item) => <option key={item} value={item}>{item}</option>)}</select>
           </label>
         </div>
         <label className="text-xs font-semibold text-[var(--muted)]">搜索
@@ -427,36 +430,37 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
         <span className="text-xs text-[var(--muted)]">{historyState === "loading" ? "正在加载历史数据…" : historyState === "error" ? "历史数据不可用，仅显示正式观测" : "历史描述性数据仅供描述研究，不进入任何模型、指数或情景计算。"}</span>
       </div>
 
-      {indicatorId!=="all"?<>{refreshManifest?<RefreshHistory manifest={refreshManifest}/>:null}{refreshManifest?<ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:String(r.year),value:r.value,unit:r.unit,status:r.status,dataset:r.layer==="sors"?"serbia_sors_annual":r.layer==="history"?"annual_history":"annual_observations",indicator:r.source_code??r.indicator,updated:r.updated_at,original:r.original_value,originalUnit:r.original_unit}))}/>:null}</>:null}
+      {indicatorId !== "all" ? <DataAvailabilitySummary points={countryRows.filter(r => r.indicator === indicatorId).map(r => ({ period:r.year,value:r.value,status:r.restriction ?? r.status }))} from={yearFrom === "all" ? undefined : Number(yearFrom)} to={yearTo === "all" ? undefined : Number(yearTo)} frequency="annual" unit={selectedCoverage?.unit ?? ""} onUseAvailable={() => { const years = availableYears; if(years.length) {setYearFrom(String(years[0]));setYearTo(String(years.at(-1)));setLatestOnly(false);} }} /> : null}
+      {indicatorId!=="all"?<>{refreshManifest?<RefreshHistory manifest={refreshManifest} country={countrySlug} indicators={indicatorId === "all" ? undefined : [indicatorId]}/>:null}{refreshManifest?<ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:String(r.year),value:r.value,unit:r.unit,status:r.status,dataset:r.layer==="sors"?"serbia_sors_annual":r.layer==="history"?"annual_history":"annual_observations",indicator:r.source_code??r.indicator,updated:r.updated_at,original:r.original_value,originalUnit:r.original_unit}))}/>:null}</>:null}
       {selectedCoverage ? (
-        <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]" data-coverage-summary="indicator">
-          <ResearchTimeSeriesChart
+        <div className="mt-5 grid gap-4" data-coverage-summary="indicator">
+          <ResearchTimeSeriesChart interactive
             title={`${countries.find((c) => c.slug === countrySlug)?.name_zh ?? countrySlug} · ${indicatorName(indicatorId)}`}
             description="年度时间序列；虚线为历史描述性数据，实线为正式观测；缺失年份不连线。"
             series={[
-              { id: "history", label: `${layerLabels.history}`, color: "var(--chart-muted)", dash: "6 4", points: chartRows.filter((item) => item.layer === "history").map((item) => ({ x: item.year, y: item.value })) },
-              { id: "sors", label: `${layerLabels.sors}`, color: "var(--chart-sors)", dash: "2 3", markers: true, points: chartRows.filter((item) => item.layer === "sors").map((item) => ({ x: item.year, y: item.value })) },
-              { id: "formal", label: `${layerLabels.formal}`, color: "var(--chart-accent)", markers: true, points: chartRows.filter((item) => item.layer === "formal").map((item) => ({ x: item.year, y: item.value })) },
+              { id: "history", label: `${layerLabels.history}`, color: "var(--chart-muted)", dash: "6 4", points: chartRows.filter((item) => item.layer === "history").map((item) => ({ x: item.year, y: item.value, unit: item.unit, source: item.source_name, sourceUrl: item.source_url, status: item.status, breakBefore: /断点|不可比/.test(item.status) })) },
+              { id: "sors", label: `${layerLabels.sors}`, color: "var(--chart-sors)", dash: "2 3", markers: true, points: chartRows.filter((item) => item.layer === "sors").map((item) => ({ x: item.year, y: item.value, unit: item.unit, source: item.source_name, sourceUrl: item.source_url, status: item.status, breakBefore: /断点|不可比/.test(item.status) })) },
+              { id: "formal", label: `${layerLabels.formal}`, color: "var(--chart-accent)", markers: true, points: chartRows.filter((item) => item.layer === "formal").map((item) => ({ x: item.year, y: item.value, unit: item.unit, source: item.source_name, sourceUrl: item.source_url, status: item.status, breakBefore: /断点|不可比/.test(item.status) })) },
             ].filter((series) => series.points.length)}
             xKind="number" xLabel="年份" yLabel={selectedCoverage.unit} formatX={(value) => String(Math.round(value))} height={280}
           />
-          <dl className="editorial-panel grid content-start gap-3 p-4 text-sm">
+          <details className="editorial-panel p-4 text-sm"><summary className="cursor-pointer font-semibold">{locale === "en" ? "Research details: data layers and historical coverage" : "研究详情：数据层与历史覆盖"}</summary><dl className="mt-3 grid content-start gap-3">
             <div><dt className="text-xs text-[var(--muted)]">覆盖范围</dt><dd className="metric-number font-semibold">{selectedCoverage.earliest ?? "—"} → {selectedCoverage.latest ?? "—"}</dd></div>
             <div><dt className="text-xs text-[var(--muted)]">可用年份</dt><dd className="metric-number font-semibold">{selectedCoverage.available}（正式 {selectedCoverage.formalYears} · 历史 {selectedCoverage.historyYears}{selectedCoverage.sorsYears ? ` · SORS ${selectedCoverage.sorsYears}` : ""}）</dd></div>
-            <div><dt className="text-xs text-[var(--muted)]">缺失年份</dt><dd className="metric-number font-semibold">{selectedCoverage.missing.length ? selectedCoverage.missing.join("、") : "无"}</dd></div>
+            <div><dt className="text-xs text-[var(--muted)]">{locale === "en" ? "Missing years within published coverage" : "覆盖范围内缺失年份"}</dt><dd className="metric-number font-semibold">{selectedCoverage.missing.length ? selectedCoverage.missing.join("、") : "无"}</dd></div>
             {selectedCoverage.pending.length ? <div><dt className="text-xs text-[var(--muted)]">待接入</dt><dd className="metric-number font-semibold">{selectedCoverage.pending.join("、")}</dd></div> : null}
             <p className="text-xs leading-5 text-[var(--muted)]">缺失年份不会显示为 0；历史段从定义一致的最早官方年份开始，不跨定义断点拼接。</p>
-          </dl>
+          </dl></details>
         </div>
       ) : (
         <details className="mt-5 editorial-panel p-4" data-coverage-summary="all">
           <summary className="cursor-pointer text-sm font-semibold">覆盖概览：{coverage.length} 个指标（选择单个指标可查看完整时间序列）</summary>
-          {refreshManifest?<RefreshHistory manifest={refreshManifest}/>:null}
+          {refreshManifest?<RefreshHistory manifest={refreshManifest} country={countrySlug} indicators={indicatorId === "all" ? undefined : [indicatorId]}/>:null}
       {refreshManifest?<ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:String(r.year),value:r.value,unit:r.unit,status:r.status,dataset:r.layer==="sors"?"serbia_sors_annual":r.layer==="history"?"annual_history":"annual_observations",indicator:r.source_code??r.indicator,updated:r.updated_at,original:r.original_value,originalUnit:r.original_unit}))}/>:null}
           <div className="data-table-viewport mt-3" tabIndex={0} role="region" aria-label="指标覆盖概览（可滚动）">
             <table className="research-data-table w-full min-w-[640px] text-left text-sm">
-              <thead><tr>{["指标", "最早 → 最新", "可用年份", "缺失年份", "数据层"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead>
-              <tbody>{coverage.map((item) => <tr key={item.id}><td className="px-3 py-2"><button type="button" className="text-left font-semibold text-[var(--accent)] hover:underline" onClick={() => setIndicatorId(item.id)}>{indicatorName(item.id)}</button></td><td className="metric-number px-3 py-2">{item.earliest ?? "—"} → {item.latest ?? "—"}</td><td className="metric-number px-3 py-2">{item.available}</td><td className="metric-number px-3 py-2">{item.missing.length + item.pending.length}</td><td className="px-3 py-2 text-xs">正式 {item.formalYears} · 历史 {item.historyYears}</td></tr>)}</tbody>
+              <thead><tr>{["指标", "最早 → 最新", "可用年份", locale === "en" ? "Missing or pending years (distinct)" : "缺失或待接入年份（去重）", "数据层"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead>
+              <tbody>{coverage.map((item) => <tr key={item.id}><td className="px-3 py-2"><button type="button" className="text-left font-semibold text-[var(--accent)] hover:underline" onClick={() => setIndicatorId(item.id)}>{indicatorName(item.id)}</button></td><td className="metric-number px-3 py-2">{item.earliest ?? "—"} → {item.latest ?? "—"}</td><td className="metric-number px-3 py-2">{item.available}</td><td className="metric-number px-3 py-2">{new Set([...item.missing, ...item.pending]).size}</td><td className="px-3 py-2 text-xs">正式 {item.formalYears} · 历史 {item.historyYears}</td></tr>)}</tbody>
             </table>
           </div>
         </details>
