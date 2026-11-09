@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 // Phase H monthly descriptive history (monthly_history_runtime.json). Descriptive only: never merged into the
 // frozen 2015+ model inputs, only displayed beside them with an explicit layer label.
-export type MonthlyHistorySource = { source_ref: number; series: string; country_slug: string; unit: string; definition: string; source: string; source_url: string; definition_compatible_floor: string };
+export type MonthlyHistorySource = { source_ref: number; series: string; country_slug: string; unit: string; definition: string; source: string; source_url: string; definition_compatible_floor: string; recovery_phase?: "R" };
 export type MonthlyHistoryRuntime = { series_sources: MonthlyHistorySource[]; records: [string, string, string, number, string, number][] };
 export type MonthlyHistoryPoint = { period: string; value: number; status: string; source: MonthlyHistorySource };
 

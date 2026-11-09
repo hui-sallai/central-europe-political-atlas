@@ -9,7 +9,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { build, NUTS_CODES_PATH, NUTS_VERSIONS, REGIONAL_HISTORY_PATH, REGIONAL_MANIFEST_PATH } from "./acquire.mjs";
+import { build, NUTS_CODES_PATH, NUTS_VERSIONS, REGIONAL_HISTORY_PATH, REGIONAL_MANIFEST_PATH, RECOVERY_VERSION_LABEL, RECOVERY_TERRITORIAL_FLOORS, RECOVERY_TABLE_KEYS } from "./acquire.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
@@ -23,6 +23,10 @@ for (const s of manifest.sources) {
   check(crypto.createHash("sha256").update(fs.readFileSync(path.join(root, s.raw_file))).digest("hex") === s.sha256, `${s.raw_file}: raw extract changed`);
   check(s.retrieved_at && s.http_status === 200, `${s.raw_file}: retrieval provenance recorded`);
 }
+for (const s of manifest.recovery?.sources ?? []) {
+  check(crypto.createHash("sha256").update(fs.readFileSync(path.join(root, s.raw_file))).digest("hex") === s.sha256, `${s.raw_file}: recovery extract changed`);
+  check(s.retrieved_at && s.http_status === 200, `${s.raw_file}: recovery retrieval provenance recorded`);
+}
 check(crypto.createHash("sha256").update(fs.readFileSync(path.join(root, NUTS_CODES_PATH))).digest("hex") === manifest.nuts_code_lists.sha256, "GISCO NUTS code lists changed");
 for (const [v] of NUTS_VERSIONS) check(nuts.versions[v]?.codes?.length > 0 && nuts.versions[v].response_sha256, `NUTS ${v} code list archived`);
 const rebuilt = await build({ offline: true });
@@ -33,15 +37,30 @@ const stored = [...read("src/data/regional/v086-observations.json").records, ...
 const firstStored = new Map();
 for (const r of stored) { const k = `${r.region_id}|${r.region_indicator_id}`; firstStored.set(k, Math.min(firstStored.get(k) ?? Infinity, Number(r.year))); }
 const pairs = new Map(manifest.pairs.map((p) => [`${p.region_id}|${p.indicator}`, p]));
+const recoveryPairs = new Map((manifest.recovery?.pairs ?? []).map((p) => [`${p.region_id}|${p.indicator}`, p]));
+const phaseIYears = new Set(history.records.filter((r) => r.recovery_phase === undefined).map((r) => `${r.region_id}|${r.indicator}|${r.statistical_year}`));
+check(history.records.filter((r) => r.recovery_phase === "R").length === manifest.recovery.summary.recovered_records, "recovered record count matches the manifest");
 const versionOf = (year) => NUTS_VERSIONS.find(([, a, b]) => year >= a && year <= b)[0];
 const ids = new Set();
 const statuses = ["comparable_stable_code", "backcast_boundary_revision", "series_break"];
 for (const r of history.records) {
   check(!ids.has(r.id), `${r.id}: duplicate`); ids.add(r.id);
   check(typeof r.value === "number" && Number.isFinite(r.value), `${r.id}: finite value (missing years absent)`);
-  check(r.statistical_year >= 2000 && r.statistical_year < firstStored.get(`${r.region_id}|${r.indicator}`), `${r.id}: must precede the first stored year`);
-  check(pairs.get(`${r.region_id}|${r.indicator}`)?.status === "ingested", `${r.id}: pair not cleared`);
-  check(r.nuts_vintage && r.nuts_version_in_force === versionOf(r.statistical_year) && Array.isArray(r.geo_codes) && r.geo_codes.length && statuses.includes(r.comparability_status) && Number.isInteger(r.source_year) && history.indicators[r.indicator]?.unit && history.regions[r.region_id]?.country_id, `${r.id}: boundary vintage, geography, comparability and source year recorded`);
+  check(r.statistical_year < firstStored.get(`${r.region_id}|${r.indicator}`), `${r.id}: must precede the first stored year`);
+  if (r.recovery_phase === undefined) {
+    check(r.statistical_year >= 2000, `${r.id}: before the 2000 Phase I floor`);
+    check(pairs.get(`${r.region_id}|${r.indicator}`)?.status === "ingested", `${r.id}: pair not cleared`);
+  } else {
+    // Phase R: pre-2000 official values, never comparable (no official code list), splice-checked pair, territorial floor.
+    const pair = recoveryPairs.get(`${r.region_id}|${r.indicator}`);
+    check(r.recovery_phase === "R" && pair?.status === "recovered", `${r.id}: pair not cleared for recovery`);
+    check(r.statistical_year < 2000 && r.statistical_year < pair.first_admitted_before_recovery, `${r.id}: recovery only before 2000 and before the earliest admitted year`);
+    check(r.nuts_version_in_force === RECOVERY_VERSION_LABEL && r.comparability_status === "backcast_boundary_revision", `${r.id}: pre-2003 years must be marked as boundary backcasts`);
+    check(r.statistical_year >= (RECOVERY_TERRITORIAL_FLOORS[r.geo_codes[0].slice(0, 2)] ?? 0), `${r.id}: before the territorial floor`);
+    check(history.indicators[r.indicator] && Object.keys({ regional_population: 1, regional_unemployment_rate: 1, regional_employment_rate: 1 }).includes(r.indicator), `${r.id}: only tables published before 2000 (${RECOVERY_TABLE_KEYS.join(", ")})`);
+    check(!phaseIYears.has(`${r.region_id}|${r.indicator}|${r.statistical_year}`), `${r.id}: duplicates a Phase I year`);
+  }
+  check(r.nuts_vintage && r.nuts_version_in_force === (r.recovery_phase === "R" ? RECOVERY_VERSION_LABEL : versionOf(r.statistical_year)) && Array.isArray(r.geo_codes) && r.geo_codes.length && statuses.includes(r.comparability_status) && Number.isInteger(r.source_year) && history.indicators[r.indicator]?.unit && history.regions[r.region_id]?.country_id, `${r.id}: boundary vintage, geography, comparability and source year recorded`);
   if (r.comparability_status === "comparable_stable_code") {
     const laterVersions = NUTS_VERSIONS.filter(([, a]) => a >= NUTS_VERSIONS.find(([v]) => v === r.nuts_version_in_force)[1]).map(([v]) => v);
     check(r.geo_codes.every((code) => laterVersions.every((v) => nuts.versions[v].codes.includes(code))), `${r.id}: marked comparable but a source code was not in force in NUTS ${r.nuts_version_in_force}`);

@@ -18,7 +18,9 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const rawDir = path.join(root, "src/data/historical/raw/regional");
-let offline = process.argv.includes("--offline");
+// --recover: rebuild Phase I from its archived extracts and fetch only the Phase R full-history extracts.
+let offline = process.argv.includes("--offline") || process.argv.includes("--recover");
+let recoveryOffline = process.argv.includes("--offline");
 const read = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
 const sha = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex");
 export const REGIONAL_HISTORY_PATH = "src/data/historical/regional_descriptive_history.json";
@@ -30,6 +32,14 @@ const EUROSTAT = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0
 // NUTS version in force for a statistical year (Commission regulations; GISCO has no list before NUTS 2003).
 export const NUTS_VERSIONS = [["2003", 2000, 2007], ["2006", 2008, 2011], ["2010", 2012, 2014], ["2013", 2015, 2017], ["2016", 2018, 2020], ["2021", 2021, 2023], ["2024", 2024, 9999]];
 const versionOf = (year) => NUTS_VERSIONS.find(([, a, b]) => year >= a && year <= b)[0];
+// --- Phase R (2026-11-10): official regional years before 2000 --------------------------------------------------
+// Only tables whose current Eurostat dissemination starts before 2000 (population from 1990, LFS rates from 1999).
+// No official GISCO code list exists before NUTS 2003, so code stability cannot be established for these years:
+// every recovered year is backcast_boundary_revision (shown, never used for a trend line or a difference).
+// Splice check: the first five admitted years must agree within OVERLAP_TOLERANCE. Germany starts in 1991.
+export const RECOVERY_VERSION_LABEL = "pre-2003 (no official GISCO NUTS code list)";
+export const RECOVERY_TERRITORIAL_FLOORS = { DE: 1991 };
+const RECOVERY_SPLICE_YEARS = 5;
 const PREFIXES = ["AT", "DE", "SK", "SI", "CZ", "HU", "PL", "RO", "HR"];
 
 const TABLES = {
@@ -40,6 +50,7 @@ const TABLES = {
   gva_c: { dataset: "nama_10r_3gva", params: { unit: "CP_MEUR", nace_r2: "C" } },
   gva_total: { dataset: "nama_10r_3gva", params: { unit: "CP_MEUR", nace_r2: "TOTAL" } },
 };
+export const RECOVERY_TABLE_KEYS = ["population", "unemployment", "employment"];
 // Indicator → how to compute a region-year value from source tables (sum over the region's codes where additive).
 const INDICATORS = {
   regional_population: { unit: "人", inputs: ["population"], additive: true, compute: ([p]) => p, definition: "Population on 1 January (Eurostat demo_r_pjanaggr3)" },
@@ -74,7 +85,7 @@ function parseJsonStat(bytes) {
 }
 
 export async function build(options = {}) {
-  if (options.offline !== undefined) offline = options.offline;
+  if (options.offline !== undefined) { offline = options.offline; recoveryOffline = options.offline; }
   fs.mkdirSync(rawDir, { recursive: true });
   const regions = regionCodes();
   const allCodes = [...new Set([...regions.values()].flatMap((r) => r.codes))].sort();
@@ -145,6 +156,54 @@ export async function build(options = {}) {
       pairs.push({ region_id: regionId, country_id: region.country, indicator, codes: region.codes, first_stored_year: firstStored, stable_code_from: stableFrom === 9999 ? null : stableFrom, break_years: breakYears, overlap_years: overlap.length, overlap_max_excess: overlap.length ? Number(excess.toFixed(6)) : null, overlap_check: overlap.length ? (overlapOk ? "pass" : "fail_definition_or_vintage_mismatch") : "no_overlap", ingested_years: out.length ? [out[0].statistical_year, out.at(-1).statistical_year] : null, ingested_count: out.length, comparable_years: out.filter((r) => r.comparability_status === "comparable_stable_code").length, status: !overlap.length ? "held_no_overlap_to_verify" : !overlapOk ? "held_for_review" : out.length ? "ingested" : "no_earlier_official_values" });
     }
   }
+  // --- Phase R recovery (records above are unchanged) ----------------------------------------------------------
+  const recoverySources = [], recoveryTables = {}, recoveryPairs = [];
+  for (const key of RECOVERY_TABLE_KEYS) {
+    const spec = TABLES[key];
+    const q = new URLSearchParams({ format: "JSON", lang: "en", untilTimePeriod: "2004" });
+    for (const [k, v] of Object.entries(spec.params)) q.append(k, v);
+    for (const c of allCodes) q.append("geo", c);
+    const url = `${EUROSTAT}/${spec.dataset}?${q}`;
+    const file = path.join(rawDir, "full", `eurostat_${key}.json`);
+    let bytes, retrieved_at = null, http_status = null;
+    if (recoveryOffline) bytes = fs.readFileSync(file);
+    else { fs.mkdirSync(path.dirname(file), { recursive: true }); const got = await httpGet(url); bytes = got.bytes; http_status = got.status; retrieved_at = new Date().toISOString(); fs.writeFileSync(file, bytes); await new Promise((r) => setTimeout(r, 1500)); }
+    const parsed = parseJsonStat(bytes);
+    recoveryTables[key] = parsed;
+    recoverySources.push({ key, dataset: spec.dataset, url, raw_file: path.relative(root, file), sha256: sha(bytes), retrieved_at, http_status, dataset_updated_at: parsed.updated, source_year: parsed.updated ? Number(parsed.updated.slice(0, 4)) : null, scope: "official years up to 2004, Phase R recovery only" });
+  }
+  for (const [regionId, region] of [...regions.entries()].sort()) {
+    for (const [indicator, spec] of Object.entries(INDICATORS)) {
+      if (!spec.inputs.every((k) => RECOVERY_TABLE_KEYS.includes(k))) continue;
+      const current = stored.filter((r) => r.region_id === regionId && r.region_indicator_id === indicator);
+      if (!current.length) continue;
+      if (!spec.additive && region.codes.length > 1) continue;
+      const admittedRecords = records.filter((r) => r.region_id === regionId && r.indicator === indicator);
+      const admitted = new Map([...current.filter((r) => r.value !== null).map((r) => [Number(r.year), r.value]), ...admittedRecords.map((r) => [r.statistical_year, r.value])]);
+      const firstAdmitted = Math.min(...admitted.keys(), ...current.map((r) => Number(r.year)));
+      const valueFor = (year) => {
+        const parts = spec.inputs.map((key) => region.codes.map((code) => recoveryTables[key].cells.get(`${code}|${year}`)));
+        if (parts.some((list) => list.some((cell) => !cell))) return null;
+        const sums = parts.map((list) => list.reduce((n, cell) => n + cell.value, 0));
+        return { value: spec.compute(sums), flag: [...new Set(parts.flat().map((cell) => cell.flag).filter(Boolean))].join("") };
+      };
+      const spliceYears = [...admitted.keys()].sort((a, b) => a - b).slice(0, RECOVERY_SPLICE_YEARS);
+      const splice = spliceYears.map((y) => ({ stored: admitted.get(y), retrieved: valueFor(y)?.value ?? null })).filter((o) => o.retrieved !== null);
+      const excess = splice.reduce((m, o) => Math.max(m, Math.abs(o.stored - o.retrieved) - Math.max(OVERLAP_TOLERANCE.absolute, OVERLAP_TOLERANCE.relative * Math.abs(o.stored))), -Infinity);
+      const spliceOk = splice.length > 0 && excess <= 1e-9;
+      const territorial = RECOVERY_TERRITORIAL_FLOORS[region.codes[0].slice(0, 2)] ?? 0;
+      const out = [];
+      if (spliceOk) for (let y = 1990; y < Math.min(FIRST_YEAR, firstAdmitted); y += 1) {
+        if (y < territorial) continue;
+        const v = valueFor(y);
+        if (!v || !Number.isFinite(v.value)) continue;
+        out.push({ id: `hist:regional:${regionId}:${indicator}:${y}`, region_id: regionId, indicator, statistical_year: y, value: Number(v.value.toPrecision(12)), geo_codes: region.codes, nuts_vintage: "NUTS2024", nuts_version_in_force: RECOVERY_VERSION_LABEL, comparability_status: "backcast_boundary_revision", source_year: Math.max(...spec.inputs.map((key) => recoverySources.find((s) => s.key === key).source_year)), value_status: /p/.test(v.flag) ? "provisional" : /e/.test(v.flag) ? "estimated" : "official", source_flag: v.flag || null, recovery_phase: "R" });
+      }
+      records.push(...out);
+      recoveryPairs.push({ region_id: regionId, country_id: region.country, indicator, codes: region.codes, first_admitted_before_recovery: firstAdmitted, territorial_floor: territorial || null, splice_years: splice.length, splice_max_excess: splice.length ? Number(excess.toFixed(6)) : null, recovered_years: out.length ? [out[0].statistical_year, out.at(-1).statistical_year] : null, recovered_count: out.length, status: !splice.length ? "no_splice_overlap" : !spliceOk ? "held_splice_mismatch" : out.length ? "recovered" : "no_official_values_before_first_admitted" });
+    }
+  }
+  const recovered = records.filter((r) => r.recovery_phase === "R");
   records.sort((a, b) => a.region_id.localeCompare(b.region_id) || a.indicator.localeCompare(b.indicator) || a.statistical_year - b.statistical_year);
   const history = {
     schema_version: "regional-descriptive-history-v2.0", data_type: "regional_descriptive_history", descriptive_only: true,
@@ -155,6 +214,8 @@ export async function build(options = {}) {
     sources: sources.map(({ source_ref, dataset, url, source_year, dataset_updated_at }) => ({ source_ref, dataset, url, source_year, dataset_updated_at })),
     indicators: Object.fromEntries(Object.entries(INDICATORS).map(([id, spec]) => [id, { unit: spec.unit, definition: spec.definition, source_refs: spec.inputs.map((key) => sources.find((s) => s.key === key).source_ref), aggregation: spec.additive ? "sum over the region's codes, then compute" : "single code only" }])),
     regions: Object.fromEntries([...regions.entries()].sort().map(([id, r]) => [id, { country_id: r.country, geo_codes: r.codes, level: r.level }])),
+    recovery_policy: `Phase R (2026-11-10): official years before 2000 from separately archived Eurostat extracts (population from 1990, LFS rates from 1999), Germany from 1991; nuts_version_in_force "${RECOVERY_VERSION_LABEL}" and comparability_status backcast_boundary_revision for every recovered year; records carry recovery_phase "R". Phase I records are unchanged.`,
+    recovery_sources: recoverySources.map(({ key, dataset, url, source_year, dataset_updated_at }) => ({ key, dataset, url, source_year, dataset_updated_at })),
     record_count: records.length, records,
   };
   const count = (status) => records.filter((r) => r.comparability_status === status).length;
@@ -164,6 +225,15 @@ export async function build(options = {}) {
     nuts_versions_in_force: NUTS_VERSIONS.map(([v, a, b]) => ({ version: v, statistical_years: [a, b === 9999 ? null : b] })),
     nuts_code_lists: { file: NUTS_CODES_PATH, sha256: sha(fs.readFileSync(path.join(root, NUTS_CODES_PATH))), versions: Object.fromEntries(Object.entries(nuts.versions).map(([v, x]) => [v, { url: x.url, response_sha256: x.response_sha256, retrieved_at: x.retrieved_at, code_count: x.codes.length }])) },
     overlap_tolerance: OVERLAP_TOLERANCE, sources, pairs,
+    recovery: {
+      phase: "v2.0 Phase R — official historical recovery (2026-11-10)",
+      approval: "Owner instruction 2026-11-10: comprehensive official historical data recovery and comparability; descriptive only.",
+      rule: `pre-2000 official values for the same geo codes; splice check on the first ${RECOVERY_SPLICE_YEARS} admitted years; no official code list before NUTS 2003, so every recovered year is backcast_boundary_revision; Germany from 1991; regional GDP and GVA tables start in 2000`,
+      territorial_floors: RECOVERY_TERRITORIAL_FLOORS,
+      within_window_check: "2000–2024 cells in the current Eurostat vintage were compared with the archived Phase I extracts: no official cell is absent from the archive; remaining gaps (e.g. German population 1 Jan 2013) are officially missing",
+      sources: recoverySources, pairs: recoveryPairs,
+      summary: { recovered_records: recovered.length, by_indicator: Object.fromEntries([...new Set(recovered.map((r) => r.indicator))].sort().map((i) => [i, recovered.filter((r) => r.indicator === i).length])), by_country: Object.fromEntries([...new Set(recovered.map((r) => r.region_id.split("_")[0]))].sort().map((c) => [c, recovered.filter((r) => r.region_id.startsWith(c + "_")).length])), not_recovered: recoveryPairs.filter((p) => p.status !== "recovered").reduce((acc, p) => { acc[p.status] = (acc[p.status] ?? 0) + 1; return acc; }, {}) },
+    },
     summary: {
       ingested_records: records.length,
       by_comparability: { comparable_stable_code: count("comparable_stable_code"), backcast_boundary_revision: count("backcast_boundary_revision"), series_break: count("series_break") },
@@ -183,6 +253,7 @@ export function writeHistory(history, file) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const { history, manifest } = await build();
   if (offline) { const prior = read(REGIONAL_MANIFEST_PATH); manifest.sources = manifest.sources.map((s) => ({ ...s, retrieved_at: prior.sources.find((p) => p.key === s.key)?.retrieved_at ?? null, http_status: prior.sources.find((p) => p.key === s.key)?.http_status ?? null })); }
+  if (recoveryOffline) { const prior = read(REGIONAL_MANIFEST_PATH).recovery?.sources ?? []; manifest.recovery.sources = manifest.recovery.sources.map((s) => ({ ...s, retrieved_at: prior.find((p) => p.key === s.key)?.retrieved_at ?? null, http_status: prior.find((p) => p.key === s.key)?.http_status ?? null })); }
   writeHistory(history, path.join(root, REGIONAL_HISTORY_PATH));
   fs.writeFileSync(path.join(root, REGIONAL_MANIFEST_PATH), JSON.stringify(manifest, null, 2) + "\n");
   console.log(JSON.stringify({ records: history.record_count, ...manifest.summary }, null, 1));

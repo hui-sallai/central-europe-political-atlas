@@ -15451,19 +15451,3988 @@
       "status": "ingested"
     }
   ],
+  "recovery": {
+    "phase": "v2.0 Phase R — official historical recovery (2026-11-10)",
+    "approval": "Owner instruction 2026-11-10: comprehensive official historical data recovery and comparability; descriptive only.",
+    "rule": "pre-2000 official values for the same geo codes; splice check on the first 5 admitted years; no official code list before NUTS 2003, so every recovered year is backcast_boundary_revision; Germany from 1991; regional GDP and GVA tables start in 2000",
+    "territorial_floors": {
+      "DE": 1991
+    },
+    "within_window_check": "2000–2024 cells in the current Eurostat vintage were compared with the archived Phase I extracts: no official cell is absent from the archive; remaining gaps (e.g. German population 1 Jan 2013) are officially missing",
+    "sources": [
+      {
+        "key": "population",
+        "dataset": "demo_r_pjanaggr3",
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_r_pjanaggr3?format=JSON&lang=en&untilTimePeriod=2004&sex=T&age=TOTAL&unit=NR&geo=AT11&geo=AT12&geo=AT13&geo=AT21&geo=AT22&geo=AT31&geo=AT32&geo=AT33&geo=AT34&geo=CZ010&geo=CZ020&geo=CZ031&geo=CZ032&geo=CZ041&geo=CZ042&geo=CZ051&geo=CZ052&geo=CZ053&geo=CZ063&geo=CZ064&geo=CZ071&geo=CZ072&geo=CZ080&geo=DE1&geo=DE2&geo=DE3&geo=DE4&geo=DE5&geo=DE6&geo=DE7&geo=DE8&geo=DE9&geo=DEA&geo=DEB&geo=DEC&geo=DED&geo=DEE&geo=DEF&geo=DEG&geo=HR021&geo=HR022&geo=HR023&geo=HR024&geo=HR025&geo=HR026&geo=HR027&geo=HR028&geo=HR031&geo=HR032&geo=HR033&geo=HR034&geo=HR035&geo=HR036&geo=HR037&geo=HR050&geo=HR061&geo=HR062&geo=HR063&geo=HR064&geo=HR065&geo=HU110&geo=HU120&geo=HU211&geo=HU212&geo=HU213&geo=HU221&geo=HU222&geo=HU223&geo=HU231&geo=HU232&geo=HU233&geo=HU311&geo=HU312&geo=HU313&geo=HU321&geo=HU322&geo=HU323&geo=HU331&geo=HU332&geo=HU333&geo=PL21&geo=PL22&geo=PL41&geo=PL42&geo=PL43&geo=PL51&geo=PL52&geo=PL61&geo=PL62&geo=PL63&geo=PL71&geo=PL72&geo=PL81&geo=PL82&geo=PL84&geo=PL91&geo=PL92&geo=RO111&geo=RO112&geo=RO113&geo=RO114&geo=RO115&geo=RO116&geo=RO121&geo=RO122&geo=RO123&geo=RO124&geo=RO125&geo=RO126&geo=RO211&geo=RO212&geo=RO213&geo=RO214&geo=RO215&geo=RO216&geo=RO221&geo=RO222&geo=RO223&geo=RO224&geo=RO225&geo=RO226&geo=RO311&geo=RO312&geo=RO313&geo=RO314&geo=RO315&geo=RO316&geo=RO317&geo=RO321&geo=RO322&geo=RO411&geo=RO412&geo=RO413&geo=RO414&geo=RO415&geo=RO421&geo=RO422&geo=RO423&geo=RO424&geo=SI03&geo=SI04&geo=SK010&geo=SK021&geo=SK022&geo=SK023&geo=SK031&geo=SK032&geo=SK041&geo=SK042",
+        "raw_file": "src/data/historical/raw/regional/full/eurostat_population.json",
+        "sha256": "57b8616bb89ec687942d45fabee60be81cf485262ed72d896431bc360c4c1fc3",
+        "retrieved_at": "2026-11-09T21:00:31.755Z",
+        "http_status": 200,
+        "dataset_updated_at": "2026-08-28T23:00:00+0200",
+        "source_year": 2026,
+        "scope": "official years up to 2004, Phase R recovery only"
+      },
+      {
+        "key": "unemployment",
+        "dataset": "lfst_r_lfu3rt",
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/lfst_r_lfu3rt?format=JSON&lang=en&untilTimePeriod=2004&sex=T&age=Y15-74&isced11=TOTAL&unit=PC&geo=AT11&geo=AT12&geo=AT13&geo=AT21&geo=AT22&geo=AT31&geo=AT32&geo=AT33&geo=AT34&geo=CZ010&geo=CZ020&geo=CZ031&geo=CZ032&geo=CZ041&geo=CZ042&geo=CZ051&geo=CZ052&geo=CZ053&geo=CZ063&geo=CZ064&geo=CZ071&geo=CZ072&geo=CZ080&geo=DE1&geo=DE2&geo=DE3&geo=DE4&geo=DE5&geo=DE6&geo=DE7&geo=DE8&geo=DE9&geo=DEA&geo=DEB&geo=DEC&geo=DED&geo=DEE&geo=DEF&geo=DEG&geo=HR021&geo=HR022&geo=HR023&geo=HR024&geo=HR025&geo=HR026&geo=HR027&geo=HR028&geo=HR031&geo=HR032&geo=HR033&geo=HR034&geo=HR035&geo=HR036&geo=HR037&geo=HR050&geo=HR061&geo=HR062&geo=HR063&geo=HR064&geo=HR065&geo=HU110&geo=HU120&geo=HU211&geo=HU212&geo=HU213&geo=HU221&geo=HU222&geo=HU223&geo=HU231&geo=HU232&geo=HU233&geo=HU311&geo=HU312&geo=HU313&geo=HU321&geo=HU322&geo=HU323&geo=HU331&geo=HU332&geo=HU333&geo=PL21&geo=PL22&geo=PL41&geo=PL42&geo=PL43&geo=PL51&geo=PL52&geo=PL61&geo=PL62&geo=PL63&geo=PL71&geo=PL72&geo=PL81&geo=PL82&geo=PL84&geo=PL91&geo=PL92&geo=RO111&geo=RO112&geo=RO113&geo=RO114&geo=RO115&geo=RO116&geo=RO121&geo=RO122&geo=RO123&geo=RO124&geo=RO125&geo=RO126&geo=RO211&geo=RO212&geo=RO213&geo=RO214&geo=RO215&geo=RO216&geo=RO221&geo=RO222&geo=RO223&geo=RO224&geo=RO225&geo=RO226&geo=RO311&geo=RO312&geo=RO313&geo=RO314&geo=RO315&geo=RO316&geo=RO317&geo=RO321&geo=RO322&geo=RO411&geo=RO412&geo=RO413&geo=RO414&geo=RO415&geo=RO421&geo=RO422&geo=RO423&geo=RO424&geo=SI03&geo=SI04&geo=SK010&geo=SK021&geo=SK022&geo=SK023&geo=SK031&geo=SK032&geo=SK041&geo=SK042",
+        "raw_file": "src/data/historical/raw/regional/full/eurostat_unemployment.json",
+        "sha256": "17af1fcd56015b11f45e81c09e967bd8e4f4e3d71c0c00df6e38d3f9c2c5db10",
+        "retrieved_at": "2026-11-09T21:00:34.257Z",
+        "http_status": 200,
+        "dataset_updated_at": "2026-10-30T23:00:00+0100",
+        "source_year": 2026,
+        "scope": "official years up to 2004, Phase R recovery only"
+      },
+      {
+        "key": "employment",
+        "dataset": "lfst_r_lfe2emprt",
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/lfst_r_lfe2emprt?format=JSON&lang=en&untilTimePeriod=2004&sex=T&age=Y20-64&unit=PC&geo=AT11&geo=AT12&geo=AT13&geo=AT21&geo=AT22&geo=AT31&geo=AT32&geo=AT33&geo=AT34&geo=CZ010&geo=CZ020&geo=CZ031&geo=CZ032&geo=CZ041&geo=CZ042&geo=CZ051&geo=CZ052&geo=CZ053&geo=CZ063&geo=CZ064&geo=CZ071&geo=CZ072&geo=CZ080&geo=DE1&geo=DE2&geo=DE3&geo=DE4&geo=DE5&geo=DE6&geo=DE7&geo=DE8&geo=DE9&geo=DEA&geo=DEB&geo=DEC&geo=DED&geo=DEE&geo=DEF&geo=DEG&geo=HR021&geo=HR022&geo=HR023&geo=HR024&geo=HR025&geo=HR026&geo=HR027&geo=HR028&geo=HR031&geo=HR032&geo=HR033&geo=HR034&geo=HR035&geo=HR036&geo=HR037&geo=HR050&geo=HR061&geo=HR062&geo=HR063&geo=HR064&geo=HR065&geo=HU110&geo=HU120&geo=HU211&geo=HU212&geo=HU213&geo=HU221&geo=HU222&geo=HU223&geo=HU231&geo=HU232&geo=HU233&geo=HU311&geo=HU312&geo=HU313&geo=HU321&geo=HU322&geo=HU323&geo=HU331&geo=HU332&geo=HU333&geo=PL21&geo=PL22&geo=PL41&geo=PL42&geo=PL43&geo=PL51&geo=PL52&geo=PL61&geo=PL62&geo=PL63&geo=PL71&geo=PL72&geo=PL81&geo=PL82&geo=PL84&geo=PL91&geo=PL92&geo=RO111&geo=RO112&geo=RO113&geo=RO114&geo=RO115&geo=RO116&geo=RO121&geo=RO122&geo=RO123&geo=RO124&geo=RO125&geo=RO126&geo=RO211&geo=RO212&geo=RO213&geo=RO214&geo=RO215&geo=RO216&geo=RO221&geo=RO222&geo=RO223&geo=RO224&geo=RO225&geo=RO226&geo=RO311&geo=RO312&geo=RO313&geo=RO314&geo=RO315&geo=RO316&geo=RO317&geo=RO321&geo=RO322&geo=RO411&geo=RO412&geo=RO413&geo=RO414&geo=RO415&geo=RO421&geo=RO422&geo=RO423&geo=RO424&geo=SI03&geo=SI04&geo=SK010&geo=SK021&geo=SK022&geo=SK023&geo=SK031&geo=SK032&geo=SK041&geo=SK042",
+        "raw_file": "src/data/historical/raw/regional/full/eurostat_employment.json",
+        "sha256": "a357bc4ef486c4c59d584e24b665829cea002dc0a6d69f26277fd5e86439a9fe",
+        "retrieved_at": "2026-11-09T21:00:36.663Z",
+        "http_status": 200,
+        "dataset_updated_at": "2026-10-30T23:00:00+0100",
+        "source_year": 2026,
+        "scope": "official years up to 2004, Phase R recovery only"
+      }
+    ],
+    "pairs": [
+      {
+        "region_id": "austria_burgenland",
+        "country_id": "austria",
+        "indicator": "regional_population",
+        "codes": [
+          "AT11"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -5519.12,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "austria_burgenland",
+        "country_id": "austria",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "AT11"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_burgenland",
+        "country_id": "austria",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "AT11"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.366,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_carinthia",
+        "country_id": "austria",
+        "indicator": "regional_population",
+        "codes": [
+          "AT21"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -11160.52,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "austria_carinthia",
+        "country_id": "austria",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "AT21"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_carinthia",
+        "country_id": "austria",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "AT21"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.302,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_lower_austria",
+        "country_id": "austria",
+        "indicator": "regional_population",
+        "codes": [
+          "AT12"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -30701.66,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "austria_lower_austria",
+        "country_id": "austria",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "AT12"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_lower_austria",
+        "country_id": "austria",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "AT12"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.41,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_salzburg",
+        "country_id": "austria",
+        "indicator": "regional_population",
+        "codes": [
+          "AT32"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -10257.08,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "austria_salzburg",
+        "country_id": "austria",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "AT32"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_salzburg",
+        "country_id": "austria",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "AT32"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.408,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_styria",
+        "country_id": "austria",
+        "indicator": "regional_population",
+        "codes": [
+          "AT22"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -23648.82,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "austria_styria",
+        "country_id": "austria",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "AT22"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_styria",
+        "country_id": "austria",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "AT22"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.346,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_tyrol",
+        "country_id": "austria",
+        "indicator": "regional_population",
+        "codes": [
+          "AT33"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -13349.18,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "austria_tyrol",
+        "country_id": "austria",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "AT33"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_tyrol",
+        "country_id": "austria",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "AT33"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.392,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_upper_austria",
+        "country_id": "austria",
+        "indicator": "regional_population",
+        "codes": [
+          "AT31"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -27400.7,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "austria_upper_austria",
+        "country_id": "austria",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "AT31"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_upper_austria",
+        "country_id": "austria",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "AT31"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.408,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_vienna",
+        "country_id": "austria",
+        "indicator": "regional_population",
+        "codes": [
+          "AT13"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -30970.74,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "austria_vienna",
+        "country_id": "austria",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "AT13"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_vienna",
+        "country_id": "austria",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "AT13"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.286,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_vorarlberg",
+        "country_id": "austria",
+        "indicator": "regional_population",
+        "codes": [
+          "AT34"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -6967.32,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "austria_vorarlberg",
+        "country_id": "austria",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "AT34"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "austria_vorarlberg",
+        "country_id": "austria",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "AT34"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.432,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "croatia_bjelovar_bilogora",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR021"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_brod_posavina",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR024"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_dubrovnik_neretva",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR037"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -2339.08,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "croatia_istria",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR036"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -3944.44,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "croatia_karlovac",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR027"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_koprivnica_krizevci",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR063"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_krapina_zagorje",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR064"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_lika_senj",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR032"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -1103.8,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "croatia_medimurje",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR061"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_osijek_baranja",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR025"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_pozega_slavonia",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR023"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_primorje_gorski_kotar",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR031"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -5928.32,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "croatia_sibenik_knin",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR034"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -2193.88,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "croatia_sisak_moslavina",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR028"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_split_dalmatia",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR035"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -8657.58,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "croatia_varazdin",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR062"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_virovitica_podravina",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR022"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_vukovar_srijem",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR026"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_zadar",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR033"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -3082.22,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "croatia_zagreb_city",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR050"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "croatia_zagreb_county",
+        "country_id": "croatia",
+        "indicator": "regional_population",
+        "codes": [
+          "HR065"
+        ],
+        "first_admitted_before_recovery": 2013,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "czechia_central_bohemian",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ020"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -22227.08,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_hradec_kralove",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ052"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -10947.36,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_karlovy_vary",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ041"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -6063.58,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_liberec",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ051"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -8537.14,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_moravian_silesian",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ080"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -25059.06,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_olomouc",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ071"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -12793.44,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_pardubice",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ053"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -10101.82,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_plzen",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ032"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -10982.86,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_prague",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ010"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -23148.86,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_south_bohemian",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ031"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -12484.46,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_south_moravian",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ064"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -22603.12,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_usti",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ042"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -16364.26,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_vysocina",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ063"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -10193.88,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "czechia_zlin",
+        "country_id": "czechia",
+        "indicator": "regional_population",
+        "codes": [
+          "CZ072"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -11830.32,
+        "recovered_years": [
+          1992,
+          1993
+        ],
+        "recovered_count": 2,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_baden_wurttemberg",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DE1"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -209518.64,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_baden_wurttemberg",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DE1"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_baden_wurttemberg",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DE1"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.462,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_bavaria",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DE2"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -243099.34,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_bavaria",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DE2"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_bavaria",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DE2"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.45,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_berlin",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DE3"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -67643.38,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_berlin",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DE3"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_berlin",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DE3"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.22,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_brandenburg",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DE4"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -51490.42,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_brandenburg",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DE4"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.328,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_brandenburg",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DE4"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.308,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_bremen",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DE5"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -13193.02,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_bremen",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DE5"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_bremen",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DE5"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.24,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_hamburg",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DE6"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -34094.7,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_hamburg",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DE6"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_hamburg",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DE6"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.35,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_hesse",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DE7"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -121039.32,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_hesse",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DE7"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_hesse",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DE7"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.4,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_lower_saxony_de",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DE9"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -157975.2,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_lower_saxony_de",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DE9"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_lower_saxony_de",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DE9"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.34,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_mecklenburg_vorpommern",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DE8"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -34644.52,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_mecklenburg_vorpommern",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DE8"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.328,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_mecklenburg_vorpommern",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DE8"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.226,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_north_rhine_westphalia",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DEA"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -359996,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_north_rhine_westphalia",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DEA"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_north_rhine_westphalia",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DEA"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.316,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_rhineland_palatinate",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DEB"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -80615.46,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_rhineland_palatinate",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DEB"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_rhineland_palatinate",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DEB"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.376,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_saarland",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DEC"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -21227.52,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_saarland",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DEC"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_saarland",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DEC"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.272,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_saxony",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DED"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -86428.74,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_saxony",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DED"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.322,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_saxony",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DED"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.278,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_saxony_anhalt",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DEE"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -50458.82,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_saxony_anhalt",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DEE"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.384,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_saxony_anhalt",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DEE"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.228,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_schleswig_holstein",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DEF"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -55545.5,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_schleswig_holstein",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DEF"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_schleswig_holstein",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DEF"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.382,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_thuringia",
+        "country_id": "germany",
+        "indicator": "regional_population",
+        "codes": [
+          "DEG"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -47463.14,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "germany_thuringia",
+        "country_id": "germany",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "DEG"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "germany_thuringia",
+        "country_id": "germany",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "DEG"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": 1991,
+        "splice_years": 5,
+        "splice_max_excess": -1.312,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "hungary_bacs_kiskun",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU331"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -10831.68,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_baranya",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU231"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -8045.2,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_bekes",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU332"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -7856.9,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_borsod_abauj_zemplen",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU311"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -14762.86,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_budapest",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU110"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -34106.18,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_csongrad_csanad",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU333"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -8515.7,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_fejer",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU211"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -8562.3,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_gyor_moson_sopron",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU221"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -8684.18,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_hajdu_bihar",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU321"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -11005.3,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_heves",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU312"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -6475.38,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_jasz_nagykun_szolnok",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU322"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -8263.48,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_komarom_esztergom",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU212"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -6310.3,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_nograd",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU313"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -4362.56,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_pest",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU120"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -21437.96,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_somogy",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU232"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -6681.3,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_szabolcs_szatmar_bereg",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU323"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -11671.28,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_tolna",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU233"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -4945.74,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_vas",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU222"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -5326.84,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_veszprem",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU213"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -7370.38,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "hungary_zala",
+        "country_id": "hungary",
+        "indicator": "regional_population",
+        "codes": [
+          "HU223"
+        ],
+        "first_admitted_before_recovery": 2001,
+        "territorial_floor": null,
+        "splice_years": 4,
+        "splice_max_excess": -5934.1,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "poland_greater_poland",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL41"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -66794.98,
+        "recovered_years": [
+          1990,
+          1999
+        ],
+        "recovered_count": 10,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_greater_poland",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL41"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_greater_poland",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL41"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.174,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_kuyavian_pomeranian",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL61"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -41356.34,
+        "recovered_years": [
+          1990,
+          1999
+        ],
+        "recovered_count": 10,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_kuyavian_pomeranian",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL61"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.364,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_kuyavian_pomeranian",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL61"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.114,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_lesser_poland",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL21"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -64223.02,
+        "recovered_years": [
+          1990,
+          1999
+        ],
+        "recovered_count": 10,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_lesser_poland",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL21"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_lesser_poland",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL21"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.2,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_lodz",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL71"
+        ],
+        "first_admitted_before_recovery": 2014,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "poland_lodz",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL71"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.324,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_lodz",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL71"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.166,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_lower_silesian",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL51"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -57966.26,
+        "recovered_years": [
+          1990,
+          1999
+        ],
+        "recovered_count": 10,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_lower_silesian",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL51"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.452,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_lower_silesian",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL51"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.014,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_lublin",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL81"
+        ],
+        "first_admitted_before_recovery": 2014,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "poland_lublin",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL81"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_lublin",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL81"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.19,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_lubusz",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL43"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -20159.34,
+        "recovered_years": [
+          1990,
+          1999
+        ],
+        "recovered_count": 10,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_lubusz",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL43"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.024,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_masovian",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL91",
+          "PL92"
+        ],
+        "first_admitted_before_recovery": 2014,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "poland_opole",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL52"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -21113.34,
+        "recovered_years": [
+          1990,
+          1999
+        ],
+        "recovered_count": 10,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_opole",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL52"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_opole",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL52"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.078,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_podlaskie",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL84"
+        ],
+        "first_admitted_before_recovery": 2014,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "poland_podlaskie",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL84"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_podlaskie",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL84"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.222,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_pomeranian",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL63"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -43324.6,
+        "recovered_years": [
+          1990,
+          1999
+        ],
+        "recovered_count": 10,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_pomeranian",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL63"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.342,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_pomeranian",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL63"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.098,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_silesian",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL22"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -94299.64,
+        "recovered_years": [
+          1990,
+          1999
+        ],
+        "recovered_count": 10,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_silesian",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL22"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.37,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_silesian",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL22"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.056,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_subcarpathian",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL82"
+        ],
+        "first_admitted_before_recovery": 2014,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "poland_subcarpathian",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL82"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.3,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_subcarpathian",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL82"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.178,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_swietokrzyskie",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL72"
+        ],
+        "first_admitted_before_recovery": 2014,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "poland_swietokrzyskie",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL72"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.34,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_swietokrzyskie",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL72"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.098,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_warmian_masurian",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL62"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -28495.44,
+        "recovered_years": [
+          1990,
+          1999
+        ],
+        "recovered_count": 10,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_warmian_masurian",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL62"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.446,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_warmian_masurian",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL62"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.018,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_west_pomeranian",
+        "country_id": "poland",
+        "indicator": "regional_population",
+        "codes": [
+          "PL42"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -33921.46,
+        "recovered_years": [
+          1990,
+          1999
+        ],
+        "recovered_count": 10,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_west_pomeranian",
+        "country_id": "poland",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "PL42"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -0.408,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "poland_west_pomeranian",
+        "country_id": "poland",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "PL42"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -1.038,
+        "recovered_years": [
+          1999,
+          1999
+        ],
+        "recovered_count": 1,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_alba",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO121"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -7688.2,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_arad",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO421"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -9231.56,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_arges",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO311"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -12976.6,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_bacau",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO211"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -14477.84,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_bihor",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO111"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -11967.62,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_bistrita_nasaud",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO112"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -6368.86,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_botosani",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO212"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -9196.1,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_braila",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO221"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -7471.2,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_brasov",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO122"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -11910.44,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_bucharest",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO321"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -38606.7,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_buzau",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO222"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -9943.44,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_calarasi",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO312"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -6383.36,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_caras_severin",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO422"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -6675.18,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_cluj",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO113"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -13715.1,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_constanta",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO223"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -14277.42,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_covasna",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO123"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -4485.4,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_dambovita",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO313"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -10773.88,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_dolj",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO411"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -14456.46,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_galati",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO224"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -12439.12,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_giurgiu",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO314"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -5769.94,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_gorj",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO412"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -7735.06,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_harghita",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO124"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -6583.8,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_hunedoara",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO423"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -9763.52,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_ialomita",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO315"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -5872.42,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_iasi",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO213"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -16096.24,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_ilfov",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO322"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -5509.88,
+        "recovered_years": [
+          1997,
+          1999
+        ],
+        "recovered_count": 3,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_maramures",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO114"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -10361.86,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_mehedinti",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO413"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -6147.68,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_mures",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO125"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -11705.22,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_neamt",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO214"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -11428.88,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_olt",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO414"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -9801.34,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_prahova",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO316"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -16620.66,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_salaj",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO116"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -4977.14,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_satu_mare",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO115"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -7453.3,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_sibiu",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO126"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -8474.22,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_suceava",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO215"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -14111.1,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_teleorman",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO317"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -8608.1,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_timis",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO424"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -13190.24,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_tulcea",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO225"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -5078.64,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_valcea",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO415"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -8359.86,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_vaslui",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO216"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -9205.62,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "romania_vrancea",
+        "country_id": "romania",
+        "indicator": "regional_population",
+        "codes": [
+          "RO226"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -7823.56,
+        "recovered_years": [
+          1995,
+          1999
+        ],
+        "recovered_count": 5,
+        "status": "recovered"
+      },
+      {
+        "region_id": "slovakia_banska_bystrica",
+        "country_id": "slovakia",
+        "indicator": "regional_population",
+        "codes": [
+          "SK032"
+        ],
+        "first_admitted_before_recovery": 2002,
+        "territorial_floor": null,
+        "splice_years": 3,
+        "splice_max_excess": -13216.54,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "slovakia_bratislava",
+        "country_id": "slovakia",
+        "indicator": "regional_population",
+        "codes": [
+          "SK010"
+        ],
+        "first_admitted_before_recovery": 2000,
+        "territorial_floor": null,
+        "splice_years": 5,
+        "splice_max_excess": -11882.26,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "slovakia_kosice",
+        "country_id": "slovakia",
+        "indicator": "regional_population",
+        "codes": [
+          "SK042"
+        ],
+        "first_admitted_before_recovery": 2002,
+        "territorial_floor": null,
+        "splice_years": 3,
+        "splice_max_excess": -15333,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "slovakia_nitra",
+        "country_id": "slovakia",
+        "indicator": "regional_population",
+        "codes": [
+          "SK023"
+        ],
+        "first_admitted_before_recovery": 2002,
+        "territorial_floor": null,
+        "splice_years": 3,
+        "splice_max_excess": -14134.54,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "slovakia_presov",
+        "country_id": "slovakia",
+        "indicator": "regional_population",
+        "codes": [
+          "SK041"
+        ],
+        "first_admitted_before_recovery": 2002,
+        "territorial_floor": null,
+        "splice_years": 3,
+        "splice_max_excess": -15826.7,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "slovakia_trencin",
+        "country_id": "slovakia",
+        "indicator": "regional_population",
+        "codes": [
+          "SK022"
+        ],
+        "first_admitted_before_recovery": 2002,
+        "territorial_floor": null,
+        "splice_years": 3,
+        "splice_max_excess": -12027.6,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "slovakia_trnava",
+        "country_id": "slovakia",
+        "indicator": "regional_population",
+        "codes": [
+          "SK021"
+        ],
+        "first_admitted_before_recovery": 2002,
+        "territorial_floor": null,
+        "splice_years": 3,
+        "splice_max_excess": -10998.48,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "slovakia_zilina",
+        "country_id": "slovakia",
+        "indicator": "regional_population",
+        "codes": [
+          "SK031"
+        ],
+        "first_admitted_before_recovery": 2002,
+        "territorial_floor": null,
+        "splice_years": 3,
+        "splice_max_excess": -13829.04,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "slovenia_eastern_slovenia",
+        "country_id": "slovenia",
+        "indicator": "regional_population",
+        "codes": [
+          "SI03"
+        ],
+        "first_admitted_before_recovery": 2003,
+        "territorial_floor": null,
+        "splice_years": 2,
+        "splice_max_excess": -21863.34,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "slovenia_eastern_slovenia",
+        "country_id": "slovenia",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "SI03"
+        ],
+        "first_admitted_before_recovery": 2010,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "slovenia_eastern_slovenia",
+        "country_id": "slovenia",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "SI03"
+        ],
+        "first_admitted_before_recovery": 2010,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "slovenia_western_slovenia",
+        "country_id": "slovenia",
+        "indicator": "regional_population",
+        "codes": [
+          "SI04"
+        ],
+        "first_admitted_before_recovery": 2003,
+        "territorial_floor": null,
+        "splice_years": 2,
+        "splice_max_excess": -18023.3,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_official_values_before_first_admitted"
+      },
+      {
+        "region_id": "slovenia_western_slovenia",
+        "country_id": "slovenia",
+        "indicator": "regional_unemployment_rate",
+        "codes": [
+          "SI04"
+        ],
+        "first_admitted_before_recovery": 2010,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      },
+      {
+        "region_id": "slovenia_western_slovenia",
+        "country_id": "slovenia",
+        "indicator": "regional_employment_rate",
+        "codes": [
+          "SI04"
+        ],
+        "first_admitted_before_recovery": 2010,
+        "territorial_floor": null,
+        "splice_years": 0,
+        "splice_max_excess": null,
+        "recovered_years": null,
+        "recovered_count": 0,
+        "status": "no_splice_overlap"
+      }
+    ],
+    "summary": {
+      "recovered_records": 415,
+      "by_indicator": {
+        "regional_employment_rate": 40,
+        "regional_population": 336,
+        "regional_unemployment_rate": 39
+      },
+      "by_country": {
+        "austria": 18,
+        "czechia": 28,
+        "germany": 32,
+        "poland": 129,
+        "romania": 208
+      },
+      "not_recovered": {
+        "no_official_values_before_first_admitted": 62,
+        "no_splice_overlap": 24
+      }
+    }
+  },
   "summary": {
-    "ingested_records": 13453,
+    "ingested_records": 13868,
     "by_comparability": {
       "comparable_stable_code": 7618,
-      "backcast_boundary_revision": 1584,
+      "backcast_boundary_revision": 1999,
       "series_break": 4251
     },
     "by_indicator": {
-      "regional_population": 2768,
+      "regional_population": 3104,
       "regional_gdp": 3108,
       "regional_gdp_per_capita": 2768,
-      "regional_unemployment_rate": 839,
-      "regional_employment_rate": 862,
+      "regional_unemployment_rate": 878,
+      "regional_employment_rate": 902,
       "regional_manufacturing_share": 3108
     },
     "not_ingested": {

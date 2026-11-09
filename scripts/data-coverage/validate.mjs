@@ -7,6 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { AUDIT_PATH, FORMAL_REGISTRIES, formalSamples, loadSeries, seriesFingerprint, windowFingerprint } from "./audit.mjs";
+import { buildInventory, INVENTORY_PATH, CATEGORIES } from "./recovery-inventory.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 let checks = 0;
@@ -78,4 +79,36 @@ for (const r of audit.records) {
   check(windowFingerprint(base.map((r) => r.period === "2015-03" ? { ...r, value: 2.01 } : r), "2015-01", "2015-03") !== fp, "self-test: replacing a value changes the fingerprint");
 }
 
-console.log(JSON.stringify({ status: "pass", checks, series: audit.records.length, formal_input_series: audit.summary.formal_model_input_series }));
+// --- Phase R historical recovery inventory (2026-11-10) -----------------------------------------------------------
+// The committed inventory reproduces exactly from the committed stores; every audited contract is inventoried;
+// every missing period carries a category and a reason; nothing official is lost in ingestion; recovered counts
+// match the store manifests; comparable periods only use admitted periods.
+const inventory = JSON.parse(fs.readFileSync(path.join(root, INVENTORY_PATH), "utf8"));
+check(JSON.stringify(buildInventory()) === JSON.stringify(inventory), "historical recovery inventory does not reproduce from the committed stores (node scripts/data-coverage/recovery-inventory.mjs)");
+for (const [file, hash] of Object.entries(inventory.inputs)) check(crypto.createHash("sha256").update(fs.readFileSync(path.join(root, file))).digest("hex") === hash, `${file}: inventory input changed`);
+const inventoryKeys = new Set(inventory.series.map((s) => `${s.key.split("|")[0]}|${s.region_id ?? s.country}|${s.indicator}`));
+const inventoryByIndicator = new Map(); for (const s of inventory.series) { const k = `${s.key.split("|")[0]}|${s.indicator}`; inventoryByIndicator.set(k, (inventoryByIndicator.get(k) ?? 0) + 1); }
+for (const r of audit.records) {
+  if (r.dataset === "annual_panel") { check(inventory.frozen_formal_frame.some((f) => f.country === r.country && f.indicator === r.indicator), `${r.series_key}: frozen panel series listed`); continue; }
+  if (!["level", "yoy_rate"].includes(r.transformation)) { check(inventory.summary.transformation_series_not_separately_inventoried.some((t) => t.startsWith(`${r.indicator}:`)), `${r.series_key}: transformation series listed`); continue; }
+  const indicator = r.dataset === "high_frequency" && r.transformation === "yoy_rate" ? "hicp_annual_rate" : r.indicator;
+  const scope = ["annual_observations", "annual_history"].includes(r.dataset) ? "annual" : ["high_frequency", "macro_drivers", "monthly_history"].includes(r.dataset) ? "monthly" : ["regional", "regional_history"].includes(r.dataset) ? "regional" : r.dataset;
+  if (scope === "regional") check((inventoryByIndicator.get(`regional|${indicator}`) ?? 0) > 0, `${r.series_key}: regional contracts inventoried`);
+  else check(inventoryKeys.has(`${scope}|${r.country}|${indicator}`), `${r.series_key}: contract missing from the recovery inventory`);
+}
+const categoryIds = Object.keys(CATEGORIES).map(Number);
+for (const s of inventory.series) {
+  for (const g of s.missing.periods) check(categoryIds.includes(g.category) && g.reason && g.from && g.to && g.from <= g.to, `${s.key}: missing periods carry a category and a reason`);
+  check(Object.values(s.missing.by_category).reduce((a, b) => a + b, 0) === s.missing.count, `${s.key}: missing-period count consistent`);
+  check(!s.missing.by_category[2], `${s.key}: official periods lost in ingestion or processing`);
+}
+check(inventory.summary.lost_in_processing === 0, "no official period lost in ingestion or processing");
+const recoveredInStores = { annual_history: JSON.parse(fs.readFileSync(path.join(root, "src/data/historical/annual_descriptive_history.json"), "utf8")).records.filter((r) => r.recovery_phase === "R").length, monthly_history: JSON.parse(fs.readFileSync(path.join(root, "src/data/historical/monthly_descriptive_history.json"), "utf8")).records.filter((r) => r.recovery_phase === "R").length, regional_history: JSON.parse(fs.readFileSync(path.join(root, "src/data/historical/regional_descriptive_history.json"), "utf8")).records.filter((r) => r.recovery_phase === "R").length };
+for (const [k, n] of Object.entries(recoveredInStores)) check(inventory.summary.recovered_in_phase_r[k] === n, `${k}: recovered count matches the store`);
+for (const [indicator, c] of Object.entries(inventory.comparability.national_annual)) {
+  const lists = c.countries.map((country) => inventory.series.find((s) => s.key === `annual|${country}|${indicator}`));
+  check(lists.every(Boolean), `${indicator}: comparability countries are inventoried contracts`);
+  check(c.all_country_common_periods.count <= Math.min(...lists.map((s) => s.admitted?.periods ?? 0)), `${indicator}: common periods cannot exceed any country's admitted periods`);
+}
+
+console.log(JSON.stringify({ status: "pass", checks, series: audit.records.length, formal_input_series: audit.summary.formal_model_input_series, inventory_contracts: inventory.series.length, recovered: inventory.summary.recovered_in_phase_r.total }));

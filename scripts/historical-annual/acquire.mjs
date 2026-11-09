@@ -18,7 +18,8 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const outDir = path.join(root, "src/data/historical");
 const rawDir = path.join(outDir, "raw/annual");
-let offline = process.argv.includes("--offline");
+// --recover: rebuild Phase G from its archived extracts and fetch only the Phase R full-history extracts.
+let offline = process.argv.includes("--offline") || process.argv.includes("--recover");
 const read = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
 const sha = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex");
 export const HISTORY_PATH = "src/data/historical/annual_descriptive_history.json";
@@ -42,7 +43,7 @@ const TABLES = {
 };
 
 // Safe indicators. `existing` = indicator id in observations.json (overlap check + backfill-only years).
-const SAFE = [
+export const SAFE = [
   { id: "gdp_current_eur", existing: true, table: "nama_10_gdp", select: { unit: "CP_MEUR", na_item: "B1GQ" }, unit: "百万欧元", definition: "GDP at market prices, current prices, million EUR (ESA 2010)" },
   { id: "real_gdp_growth", existing: true, table: "nama_10_gdp", select: { unit: "CLV_PCH_PRE", na_item: "B1GQ" }, unit: "%", definition: "Real GDP, chain-linked volumes, % change on previous year (ESA 2010)" },
   { id: "gdp_per_capita_eur", existing: true, table: "nama_10_pc", select: { unit: "CP_EUR_HAB", na_item: "B1GQ" }, unit: "欧元", definition: "GDP per capita, current prices, EUR (ESA 2010)" },
@@ -60,7 +61,7 @@ const SAFE = [
   { id: "compensation_per_employee_eur", existing: false, table: "nama_10_lp_ulc", select: { unit: "EUR", na_item: "D1_SAL_PER" }, unit: "欧元", definition: "Nominal compensation per employee, EUR (ESA 2010); nominal, not deflated" },
 ];
 // Derived from the same table and year as their components; never ingested independently.
-const DERIVED = [
+export const DERIVED = [
   { id: "trade_balance", existing: true, formula: "exports_goods_services - imports_goods_services", unit: "百万欧元", inputs: ["exports_goods_services", "imports_goods_services"], compute: (e, i) => e - i, definition: "Exports minus imports of goods and services, current prices, million EUR" },
   { id: "trade_openness", existing: false, formula: "(exports_goods_services + imports_goods_services) / gdp_current_eur * 100", unit: "% GDP", inputs: ["exports_goods_services", "imports_goods_services", "gdp_current_eur"], compute: (e, i, g) => ((e + i) / g) * 100, definition: "Exports plus imports of goods and services, % of GDP" },
 ];
@@ -83,6 +84,70 @@ export const REVIEW_QUEUE = [
 ];
 
 const OVERLAP_TOLERANCE = { relative: 0.02, absolute: 0.3 }; // vintage revisions only; larger gaps = definition mismatch
+
+// --- Phase R (2026-11-10): official historical recovery ---------------------------------------------------------
+// The Phase G records above are rebuilt unchanged from their archived 1999+ extracts. Phase R adds, from separately
+// archived full-history extracts of the SAME tables and selections:
+//   (a) years before the earliest admitted year (Phase G history or observations.json) for every series Phase G
+//       ingested, and for Serbia, which Phase G excluded;
+//   (b) the review-queue indicators whose current records come from one Eurostat table and selection, once the same
+//       floor and overlap rules clear them (LFS unemployment, current account, FDI, energy dependency, energy HICP,
+//       electricity prices, automotive export share).
+// Floor = max(first official value, territorial floor, year of the last 'b' flag, year after the last 'd' flag) over
+// the whole official series. Overlap: every year present in both the extract and the admitted records must agree
+// within OVERLAP_TOLERANCE, and at least one such year is required. Phase G series that were held stay held.
+const SPLICE_YEARS = 5;
+// Official values for years before independence refer to the present-day territory as Eurostat publishes it.
+export const TERRITORIAL_NOTES = {
+  CZ: { before: 1993, note: "Before 1993 (Czechoslovakia), Eurostat values refer to the present-day territory of Czechia." },
+  SK: { before: 1993, note: "Before 1993 (Czechoslovakia), Eurostat values refer to the present-day territory of Slovakia." },
+  SI: { before: 1991, note: "Before 1991 (SFR Yugoslavia), Eurostat values refer to the present-day territory of Slovenia." },
+  HR: { before: 1991, note: "Before 1991 (SFR Yugoslavia), Eurostat values refer to the present-day territory of Croatia." },
+};
+export const RECOVERY_GEOS = { ...GEOS, RS: ["SRB", "serbia"] };
+export const TERRITORIAL_FLOORS = {
+  DE: { year: 1991, note: "German unification (3 October 1990): the extract does not establish that earlier values cover the unified territory, so recovery starts in 1991." },
+  RS: { year: 1999, note: "Serbian national totals exclude AP Kosovo and Metohija from 1998 (unflagged coverage change recorded in the Atlas SORS indicator mapping); recovery starts in 1999." },
+};
+const FULL_TABLES = {
+  nama_10_gdp: { params: TABLES.nama_10_gdp.params, metadata: TABLES.nama_10_gdp.metadata },
+  nama_10_pc: { params: TABLES.nama_10_pc.params, metadata: TABLES.nama_10_pc.metadata },
+  nama_10_a10: { params: TABLES.nama_10_a10.params, metadata: TABLES.nama_10_a10.metadata },
+  nama_10_lp_ulc: { params: TABLES.nama_10_lp_ulc.params, metadata: TABLES.nama_10_lp_ulc.metadata },
+  prc_hicp_aind: { params: { unit: ["RCH_A_AVG"], coicop: ["CP00", "CP045"] }, metadata: TABLES.prc_hicp_aind.metadata },
+  demo_pjan: { params: TABLES.demo_pjan.params, metadata: TABLES.demo_pjan.metadata },
+  gov_10dd_edpt1: { params: TABLES.gov_10dd_edpt1.params, metadata: TABLES.gov_10dd_edpt1.metadata },
+  gov_10a_main: { params: TABLES.gov_10a_main.params, metadata: TABLES.gov_10a_main.metadata },
+  une_rt_a: { params: { unit: ["PC_ACT"], sex: ["T"], age: ["Y15-74"] }, metadata: "https://ec.europa.eu/eurostat/cache/metadata/en/une_esms.htm" },
+  tipsbp20: { params: { unit: ["PC_GDP"], partner: ["WRL_REST"] }, metadata: "https://ec.europa.eu/eurostat/cache/metadata/en/tipsbp20_esmsip2.htm" },
+  bop_fdi6_flow: { params: { currency: ["MIO_EUR"], nace_r2: ["FDI"], stk_flow: ["LIAB"], entity: ["TOTAL"], fdi_item: ["DI__D__F"], partner: ["WRL_REST"] }, metadata: "https://ec.europa.eu/eurostat/cache/metadata/en/bop_fdi6_esms.htm" },
+  nrg_ind_id: { params: { unit: ["PC"], siec: ["TOTAL"] }, metadata: "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_ind_esms.htm" },
+  ext_tec09: { params: { unit: ["THS_EUR"], stk_flow: ["EXP"], partner: ["WORLD"], nace_r2: ["C29", "TOTAL"] }, metadata: "https://ec.europa.eu/eurostat/cache/metadata/en/ext_tec_esms.htm" },
+  nrg_pc_204: { params: { currency: ["EUR"], nrg_cons: ["KWH2500-4999"], unit: ["KWH"], tax: ["I_TAX"] }, metadata: "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_pc_204_esmsip2.htm" },
+  nrg_pc_205: { params: { currency: ["EUR"], nrg_cons: ["MWH500-1999"], unit: ["KWH"], tax: ["I_TAX"] }, metadata: "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_pc_205_esmsip2.htm" },
+};
+// Review-queue indicators cleared by the Phase R rules. kind: direct (one cell), semester_mean (S1 and S2 both
+// required, as in the current records), ratio (numerator / denominator × 100 from the same table and year).
+export const RECOVERED_INDICATORS = [
+  { id: "unemployment_rate", table: "une_rt_a", select: { unit: "PC_ACT", sex: "T", age: "Y15-74" }, unit: "%", definition: "LFS unemployment rate, 15–74, % of the labour force (Eurostat une_rt_a; break-corrected back data from 2009)" },
+  { id: "current_account_gdp", table: "tipsbp20", select: { unit: "PC_GDP", partner: "WRL_REST" }, unit: "% GDP", definition: "Current account balance, % of GDP (BPM6, Eurostat MIP scoreboard table tipsbp20)" },
+  { id: "fdi_inflow", table: "bop_fdi6_flow", select: { currency: "MIO_EUR", nace_r2: "FDI", stk_flow: "LIAB", entity: "TOTAL", fdi_item: "DI__D__F", partner: "WRL_REST" }, unit: "百万欧元", definition: "Direct investment liabilities, net incurrence, million EUR (BPM6/BMD4, Eurostat bop_fdi6_flow)" },
+  { id: "energy_import_dependency", table: "nrg_ind_id", select: { unit: "PC", siec: "TOTAL" }, unit: "%", definition: "Energy import dependency, all products, % (Eurostat nrg_ind_id, current energy-balance methodology for the whole series)" },
+  { id: "energy_inflation", table: "prc_hicp_aind", select: { unit: "RCH_A_AVG", coicop: "CP045" }, unit: "%", definition: "HICP CP045 electricity, gas and other fuels, annual average rate of change (Eurostat prc_hicp_aind)" },
+  { id: "household_electricity_price", table: "nrg_pc_204", kind: "semester_mean", select: { currency: "EUR", nrg_cons: "KWH2500-4999", unit: "KWH", tax: "I_TAX" }, unit: "欧元/kWh", definition: "Household electricity price, band DC (2,500–4,999 kWh), all taxes, EUR/kWh; annual value = mean of the two official semesters", formula: "(semester_1 + semester_2) / 2" },
+  { id: "industrial_electricity_price", table: "nrg_pc_205", kind: "semester_mean", select: { currency: "EUR", nrg_cons: "MWH500-1999", unit: "KWH", tax: "I_TAX" }, unit: "欧元/kWh", definition: "Non-household electricity price, band ID (500–1,999 MWh), all taxes, EUR/kWh; annual value = mean of the two official semesters", formula: "(semester_1 + semester_2) / 2" },
+  { id: "automotive_export_share", table: "ext_tec09", kind: "ratio", select: { unit: "THS_EUR", stk_flow: "EXP", partner: "WORLD" }, numerator: { nace_r2: "C29" }, denominator: { nace_r2: "TOTAL" }, unit: "%", definition: "Exports by enterprises in NACE C29 (motor vehicles) / exports of all NACE activities × 100 (Eurostat ext_tec09)", formula: "NACE_C29_exports / total_NACE_exports * 100" },
+];
+const RECOVERED_IDS = new Set(RECOVERED_INDICATORS.map((s) => s.id));
+// Review-queue entries that remain held after Phase R, with the reason (the cleared ones are listed in the manifest).
+export const REVIEW_QUEUE_AFTER_RECOVERY = REVIEW_QUEUE.filter((q) => !RECOVERED_IDS.has(q.id));
+
+function fullQuery(table) {
+  const q = new URLSearchParams({ format: "JSON", lang: "en" });
+  for (const [dim, values] of Object.entries(FULL_TABLES[table].params)) for (const v of values) q.append(dim, v);
+  for (const g of Object.keys(RECOVERY_GEOS)) q.append("geo", g);
+  return `${API}/${table}?${q}`;
+}
 
 function query(table) {
   const q = new URLSearchParams({ format: "JSON", lang: "en", sinceTimePeriod: String(FLOOR_YEAR - 1) });
@@ -111,11 +176,36 @@ async function acquire(table) {
   return { table, json, ordered, cell, entry: { table, url: query(table), http_status: httpStatus, retrieved_at: retrievedAt, dataset_updated_at: json.updated ?? null, raw_file: path.relative(root, file), sha256: sha(bytes), metadata_url: TABLES[table].metadata, time_axis: [ordered.time[0], ordered.time.at(-1)] } };
 }
 
+let recoveryOffline = process.argv.includes("--offline");
+async function acquireFull(table) {
+  const dir = path.join(rawDir, "full");
+  const file = path.join(dir, `${table}.json`);
+  let bytes, retrievedAt = null, httpStatus = null;
+  if (recoveryOffline) bytes = fs.readFileSync(file);
+  else {
+    fs.mkdirSync(dir, { recursive: true });
+    const response = await fetch(fullQuery(table), { signal: AbortSignal.timeout(180000) });
+    bytes = Buffer.from(await response.arrayBuffer());
+    httpStatus = response.status;
+    if (!response.ok) throw new Error(`${table} (full history): HTTP ${response.status}`);
+    fs.writeFileSync(file, bytes);
+    retrievedAt = new Date().toISOString();
+    await new Promise((resolve) => setTimeout(resolve, 1500)); // modest request rate
+  }
+  const json = JSON.parse(bytes.toString("utf8"));
+  if (json.error || !json.id?.includes("geo") || !json.id?.includes("time")) throw new Error(`${table} (full history): invalid JSON-stat`);
+  const ordered = Object.fromEntries(json.id.map((id) => [id, Object.entries(json.dimension[id].category.index).sort((a, b) => a[1] - b[1]).map(([k]) => k)]));
+  const stride = json.size.map((_, i) => json.size.slice(i + 1).reduce((a, b) => a * b, 1));
+  const cell = (coords) => { const pos = json.id.map((id) => ordered[id].indexOf(coords[id] ?? (ordered[id].length === 1 ? ordered[id][0] : undefined))); if (pos.some((p) => p < 0)) return { value: null, flag: null }; const index = pos.reduce((n, p, i) => n + p * stride[i], 0); return { value: json.value?.[index] ?? null, flag: json.status?.[index] ?? null }; };
+  return { table, json, ordered, cell, entry: { table, url: fullQuery(table), http_status: httpStatus, retrieved_at: retrievedAt, dataset_updated_at: json.updated ?? null, raw_file: path.relative(root, file), sha256: sha(bytes), metadata_url: FULL_TABLES[table].metadata, time_axis: [ordered.time[0], ordered.time.at(-1)], scope: "full official history, Phase R recovery only" } };
+}
+
 const flagText = (flag) => String(flag ?? "").trim();
 const statusOf = (flag) => /p/.test(flag) ? "provisional" : /e/.test(flag) ? "estimated" : /u/.test(flag) ? "low_reliability" : "official";
 
 export async function build(options = {}) {
-  if (options.offline !== undefined) offline = options.offline;
+  if (options.offline !== undefined) { offline = options.offline; recoveryOffline = options.offline; }
+  if (options.recoveryOffline !== undefined) recoveryOffline = options.recoveryOffline;
   fs.mkdirSync(rawDir, { recursive: true });
   const tables = {};
   for (const table of Object.keys(TABLES)) tables[table] = await acquire(table);
@@ -174,6 +264,93 @@ export async function build(options = {}) {
       series.push({ indicator: d.id, country: slug, kind: "derived", formula: d.formula, current_first_year: firstStored, ingested_years: out.length ? [out[0].year, out.at(-1).year] : null, ingested_count: out.length, status: ok ? "ingested" : "held_inputs_not_ingested" });
     }
   }
+  // --- Phase R recovery (records above are unchanged) ----------------------------------------------------------
+  const full = {};
+  for (const table of Object.keys(FULL_TABLES)) full[table] = await acquireFull(table);
+  const recoverySeries = [];
+  const combine = (...flags) => [...new Set(flags.map(flagText).join("").split(""))].sort().join("");
+  const annualRows = (spec, code) => {
+    const t = full[spec.table];
+    const base = { ...spec.select, geo: code };
+    if (spec.kind === "semester_mean") {
+      const years = [...new Set(t.ordered.time.map((p) => Number(p.slice(0, 4))))];
+      return years.map((year) => { const s1 = t.cell({ ...base, freq: "S", time: `${year}-S1` }), s2 = t.cell({ ...base, freq: "S", time: `${year}-S2` }); return s1.value !== null && s2.value !== null ? { year, value: Number(((s1.value + s2.value) / 2).toFixed(6)), flag: combine(s1.flag, s2.flag), inputs: [s1.value, s2.value] } : null; }).filter(Boolean);
+    }
+    if (spec.kind === "ratio") {
+      return t.ordered.time.map((time) => { const n = t.cell({ ...base, ...spec.numerator, freq: "A", time }), d = t.cell({ ...base, ...spec.denominator, freq: "A", time }); return n.value !== null && d.value ? { year: Number(time), value: Number(((n.value / d.value) * 100).toFixed(6)), flag: combine(n.flag, d.flag), inputs: [n.value, d.value] } : null; }).filter(Boolean);
+    }
+    return t.ordered.time.map((time) => ({ year: Number(time), ...t.cell({ ...base, freq: "A", time }) })).filter((r) => r.value !== null).map((r) => ({ ...r, flag: flagText(r.flag) }));
+  };
+  const recoverSeries = (spec, code, iso3, slug, phaseG) => {
+    const rows = annualRows(spec, code);
+    const canonical = existingFor(spec.id, slug);
+    const admitted = new Map(canonical.filter((r) => r.value !== null).map((r) => [r.year, r.value]));
+    for (const r of records) if (r.indicator === spec.id && r.country_slug === slug) admitted.set(r.year, r.value);
+    const firstAdmitted = Math.min(...canonical.map((r) => r.year), ...records.filter((r) => r.indicator === spec.id && r.country_slug === slug).map((r) => r.year));
+    const breaks = rows.filter((r) => /[bd]/.test(r.flag));
+    const lastBreak = breaks.length ? Math.max(...breaks.map((r) => (/b/.test(r.flag) ? r.year : r.year + 1))) : null;
+    const territorial = TERRITORIAL_FLOORS[code]?.year ?? null;
+    const floor = rows.length ? Math.max(rows[0].year, territorial ?? rows[0].year, lastBreak ?? rows[0].year) : null;
+    // Splice check: the recovered years join the earliest admitted years, so those years (SPLICE_YEARS of them) must
+    // agree with the full extract. Later admitted years may carry newer revisions; their excess is reported only.
+    const excessOf = (list) => list.reduce((m, o) => Math.max(m, Math.abs(o.stored - o.retrieved) - Math.max(OVERLAP_TOLERANCE.absolute, OVERLAP_TOLERANCE.relative * Math.abs(o.stored))), -Infinity);
+    const allOverlap = rows.filter((r) => admitted.has(r.year)).map((r) => ({ year: r.year, stored: admitted.get(r.year), retrieved: r.value }));
+    const spliceYears = [...admitted.keys()].sort((a, b) => a - b).slice(0, SPLICE_YEARS);
+    const overlap = allOverlap.filter((o) => spliceYears.includes(o.year));
+    const worst = excessOf(overlap), worstAll = excessOf(allOverlap);
+    const overlapOk = overlap.length === 0 || worst <= 1e-9; // 1e-9 absorbs binary rounding at the tolerance boundary
+    const held = phaseG && phaseG.status !== "ingested";
+    const eligible = !held && floor !== null && overlapOk ? rows.filter((r) => r.year >= floor && r.year < firstAdmitted) : [];
+    const t = full[spec.table];
+    for (const r of eligible) records.push({
+      id: `hist:annual:${slug}:${spec.id}:${r.year}`, country: iso3, country_slug: slug, indicator: spec.id, year: r.year, value: r.value, unit: spec.unit,
+      value_status: spec.kind ? "calculated" : statusOf(r.flag), source_flag: r.flag || null, source: "eurostat", source_dataset: `Eurostat ${spec.table}`,
+      source_query_url: t.entry.url, source_reliability: "A", definition: spec.definition, ...(spec.formula ? { calculation_formula: spec.formula } : {}), updated_at: t.entry.dataset_updated_at, comparability_status: "definition_compatible_from_floor",
+      provenance: { raw_file: t.entry.raw_file, selection: spec.kind === "semester_mean" ? { ...spec.select, geo: code, time: [`${r.year}-S1`, `${r.year}-S2`] } : spec.kind === "ratio" ? { ...spec.select, geo: code, time: String(r.year), numerator: spec.numerator, denominator: spec.denominator } : { ...spec.select, geo: code, time: String(r.year) }, ...(r.inputs ? { input_values: r.inputs } : {}) },
+      descriptive_only: true, recovery_phase: "R", ...(TERRITORIAL_NOTES[code] && r.year < TERRITORIAL_NOTES[code].before ? { territorial_note: TERRITORIAL_NOTES[code].note } : {}),
+    });
+    const status = !rows.length ? "no_official_data" : held ? `phase_g_${phaseG.status}` : !overlapOk ? "held_overlap_mismatch" : eligible.length ? "recovered" : floor >= firstAdmitted ? "no_compatible_years_before_first_admitted" : "nothing_to_recover";
+    recoverySeries.push({ indicator: spec.id, country: slug, table: spec.table, kind: spec.kind ?? "direct", official_first: rows[0]?.year ?? null, official_last: rows.at(-1)?.year ?? null, break_flags: breaks.map((r) => `${r.year}:${r.flag}`), territorial_floor: territorial, definition_compatible_floor: floor, first_admitted_before_recovery: Number.isFinite(firstAdmitted) ? firstAdmitted : null, splice_years: overlap.map((o) => o.year), overlap_years: overlap.length, overlap_max_excess: overlap.length ? Number(worst.toFixed(6)) : null, overlap_check: overlap.length ? (overlapOk ? "pass" : "fail_definition_or_vintage_mismatch") : "no_overlap_same_table_and_selection", all_admitted_overlap_years: allOverlap.length, all_admitted_overlap_max_excess: allOverlap.length ? Number(worstAll.toFixed(6)) : null, recovered_years: eligible.length ? [eligible[0].year, eligible.at(-1).year] : null, recovered_count: eligible.length, status });
+  };
+  for (const spec of SAFE) for (const [code, [iso3, slug]] of Object.entries(RECOVERY_GEOS)) recoverSeries(spec, code, iso3, slug, code === "RS" ? null : series.find((s) => s.indicator === spec.id && s.country === slug));
+  for (const spec of RECOVERED_INDICATORS) for (const [code, [iso3, slug]] of Object.entries(RECOVERY_GEOS)) recoverSeries(spec, code, iso3, slug, null);
+  // Derived series. Inputs must be official values from the same full extract and year, each inside its own
+  // definition-compatible floor with a passing (or same-selection) splice check. For a derived indicator that has
+  // current records (trade_balance), only years before the earliest admitted year are added; for a history-only
+  // indicator (trade_openness) every year Phase G does not hold is added, as Phase G did from its own extract.
+  for (const d of DERIVED) {
+    for (const [code, [iso3, slug]] of Object.entries(RECOVERY_GEOS)) {
+      const own = records.filter((r) => r.indicator === d.id && r.country_slug === slug);
+      const ownYears = new Set(own.map((r) => r.year));
+      const canonical = existingFor(d.id, slug);
+      const firstAdmitted = Math.min(...canonical.map((r) => r.year), ...own.map((r) => r.year));
+      const inputSpecs = d.inputs.map((i) => SAFE.find((s) => s.id === i));
+      const inputStatus = inputSpecs.map((spec) => recoverySeries.find((x) => x.indicator === spec.id && x.country === slug));
+      const usable = inputStatus.every((x) => x && x.definition_compatible_floor !== null && ["pass", "no_overlap_same_table_and_selection"].includes(x.overlap_check) && !/^phase_g_held/.test(x.status));
+      const inputRows = inputSpecs.map((spec) => new Map(annualRows(spec, code).map((r) => [r.year, r])));
+      const years = usable ? [...inputRows[0].keys()].sort((a, b) => a - b) : [];
+      const out = [];
+      for (const year of years) {
+        if (ownYears.has(year)) continue;
+        if (d.existing && year >= firstAdmitted) continue;
+        if (canonical.some((r) => r.year === year)) continue;
+        const rows = inputRows.map((m) => m.get(year));
+        if (rows.some((r) => !r) || inputStatus.some((x) => year < x.definition_compatible_floor)) continue; // missing input stays missing; never zero
+        out.push({
+          id: `hist:annual:${slug}:${d.id}:${year}`, country: iso3, country_slug: slug, indicator: d.id, year, value: Number(d.compute(...rows.map((r) => r.value)).toFixed(6)), unit: d.unit,
+          value_status: "calculated", source_flag: null, source: "eurostat", source_dataset: "Eurostat nama_10_gdp", source_query_url: full.nama_10_gdp.entry.url, source_reliability: "A", definition: d.definition,
+          calculation_formula: d.formula, updated_at: full.nama_10_gdp.entry.dataset_updated_at, comparability_status: "definition_compatible_from_floor",
+          provenance: { raw_file: full.nama_10_gdp.entry.raw_file, inputs: d.inputs.map((i) => `eurostat_raw:${SAFE.find((x) => x.id === i).table}:${i}:${code}:${year}`), input_values: rows.map((r) => r.value) }, descriptive_only: true, recovery_phase: "R",
+          ...(TERRITORIAL_NOTES[code] && year < TERRITORIAL_NOTES[code].before ? { territorial_note: TERRITORIAL_NOTES[code].note } : {}),
+        });
+      }
+      records.push(...out);
+      const blocking = inputStatus.filter((x) => !x || x.definition_compatible_floor === null || !["pass", "no_overlap_same_table_and_selection"].includes(x.overlap_check) || /^phase_g_held/.test(x.status)).map((x) => x ? `${x.indicator}: ${x.status}` : "input missing");
+      recoverySeries.push({ indicator: d.id, country: slug, table: "nama_10_gdp", kind: "derived", formula: d.formula, inputs: d.inputs, input_floors: inputStatus.map((x) => x?.definition_compatible_floor ?? null), first_admitted_before_recovery: Number.isFinite(firstAdmitted) ? firstAdmitted : null, recovered_years: out.length ? [out[0].year, out.at(-1).year] : null, recovered_count: out.length, blocking_inputs: blocking, status: out.length ? "recovered" : blocking.length ? "held_inputs_not_cleared" : "no_recovered_inputs" });
+    }
+  }
+  const recovered = records.filter((r) => r.recovery_phase === "R");
+
   records.sort((a, b) => a.indicator.localeCompare(b.indicator) || a.country_slug.localeCompare(b.country_slug) || a.year - b.year);
   const history = {
     schema_version: "annual-descriptive-history-v2.0",
@@ -182,6 +359,7 @@ export async function build(options = {}) {
     model_boundary: "Descriptive research coverage only. Not read by composite indices, scenarios, panel, VAR or LP models; observations.json remains the only national model input.",
     missing_value_policy: "Years without an official value are absent; nothing is interpolated or encoded as zero.",
     backfill_policy: "Only years before the first stored year of observations.json are added; stored observations are never duplicated or replaced.",
+    recovery_policy: "Phase R (2026-11-10) adds official years before the earliest admitted year, from archived full-history extracts of the same Eurostat tables and selections, from the definition-compatible and territorial floor; records carry recovery_phase \"R\". Phase G records are unchanged.",
     record_count: records.length,
     records,
   };
@@ -196,7 +374,24 @@ export async function build(options = {}) {
     overlap_tolerance: OVERLAP_TOLERANCE,
     tables: Object.values(tables).map((t) => t.entry),
     series,
-    review_queue: REVIEW_QUEUE,
+    review_queue: REVIEW_QUEUE_AFTER_RECOVERY,
+    recovery: {
+      phase: "v2.0 Phase R — official historical recovery (2026-11-10)",
+      approval: "Owner instruction 2026-11-10: comprehensive official historical data recovery and comparability; descriptive only, no model input changes.",
+      floor_rule: "floor = max(first official value, territorial floor, year of the last 'b' flag, year after the last 'd' flag) over the whole official series; only years before the earliest admitted year are added",
+      overlap_rule: "splice check: the first five admitted years (Phase G history and observations.json) must agree with the full extract within overlap_tolerance; the excess over all admitted years is reported as all_admitted_overlap_max_excess (later years can carry newer revisions); with no common year the series is accepted only because the current records use the same table and selection",
+      territorial_floors: TERRITORIAL_FLOORS,
+      territorial_notes: TERRITORIAL_NOTES,
+      cleared_from_review_queue: REVIEW_QUEUE.filter((q) => RECOVERED_IDS.has(q.id)).map((q) => ({ ...q, resolution: RECOVERED_INDICATORS.find((s) => s.id === q.id).definition, rule: "same Eurostat table and selection as the current records; official break and definition flags set the floor; overlap with current records verified" })),
+      tables: Object.values(full).map((t) => t.entry),
+      series: recoverySeries,
+      summary: {
+        recovered_records: recovered.length,
+        recovered_by_indicator: Object.fromEntries([...new Set(recovered.map((r) => r.indicator))].sort().map((i) => [i, recovered.filter((r) => r.indicator === i).length])),
+        recovered_by_country: Object.fromEntries([...new Set(recovered.map((r) => r.country_slug))].sort().map((c) => [c, recovered.filter((r) => r.country_slug === c).length])),
+        not_recovered: recoverySeries.filter((s) => s.status !== "recovered").map((s) => `${s.indicator}/${s.country}: ${s.status}`),
+      },
+    },
     summary: {
       ingested_records: records.length,
       ingested_by_indicator: Object.fromEntries([...new Set(records.map((r) => r.indicator))].map((i) => [i, records.filter((r) => r.indicator === i).length])),
@@ -209,6 +404,7 @@ export async function build(options = {}) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const { history, manifest } = await build();
   if (offline) { const prior = read(MANIFEST_PATH); manifest.tables = manifest.tables.map((t) => ({ ...t, retrieved_at: prior.tables.find((p) => p.table === t.table)?.retrieved_at ?? null, http_status: prior.tables.find((p) => p.table === t.table)?.http_status ?? null })); }
+  if (recoveryOffline) { const prior = read(MANIFEST_PATH).recovery?.tables ?? []; manifest.recovery.tables = manifest.recovery.tables.map((t) => ({ ...t, retrieved_at: prior.find((p) => p.table === t.table)?.retrieved_at ?? null, http_status: prior.find((p) => p.table === t.table)?.http_status ?? null })); }
   // One record per line keeps the file reviewable in diffs without pretty-printing every field.
   const { records, ...header } = history;
   const head = JSON.stringify(header, null, 2).replace(/\n}$/, "");

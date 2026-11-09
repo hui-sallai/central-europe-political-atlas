@@ -41,7 +41,7 @@ check(plan.prohibitions.some((p) => /version/.test(p)) && plan.prohibitions.some
 check(plan.summary.safe_for_immediate_descriptive_integration.every((name) => { const m = mapping.national_and_monthly.find((x) => x.atlas_indicator === name); return m && (!m.overlap || m.overlap.result !== "fail"); }), "safe list only contains mappings with non-failing overlap evidence");
 
 // --- Stores (owner-approved 2026-09-30): reproducible, faithful to SORS, no zero-fill, isolated from models ----------
-const { build, STORES, MANIFEST } = await import("./ingest.mjs");
+const { build, STORES, MANIFEST, RECOVERY_FIRST_YEAR } = await import("./ingest.mjs");
 const manifest = JSON.parse(fs.readFileSync(path.join(root, MANIFEST), "utf8"));
 const crypto = await import("node:crypto");
 for (const src of manifest.sources) check(crypto.createHash("sha256").update(fs.readFileSync(path.join(root, src.extract_file))).digest("hex") === src.extract_sha256 && src.retrieved_at, `${src.dataset_id}: archived extract unchanged and retrieval recorded`);
@@ -61,6 +61,9 @@ for (const [k, doc] of Object.entries(stores)) {
     const withheld = /withheld/.test(r.transformation?.method ?? "");
     check(r.cross_country_comparable === (m.cross_country_comparable && !withheld), `${r.id}: cross_country_comparable must follow the audited mapping (false where EUR conversion is withheld)`);
     check(!ids.has(r.id), `${r.id}: duplicate`); ids.add(r.id);
+    // Period floor: 2000 for the approved ingestion; 1999 only as a tagged Phase R recovery (territorial basis from 1998).
+    const year = Number(String(r.period).slice(0, 4));
+    check(year >= 2000 ? r.recovery_phase === undefined : year >= RECOVERY_FIRST_YEAR && r.recovery_phase === "R", `${r.id}: before the 2000 floor without a Phase R recovery tag, or before ${RECOVERY_FIRST_YEAR}`);
     check(typeof r.original_value === "number" && Number.isFinite(r.original_value), `${r.id}: original value present (SORS missing statuses stay absent)`);
     check(!["O", "M", "L"].includes(r.sors_status) && doc.sors_status_legend[String(r.sors_status).split("/")[0]], `${r.id}: SORS status kept and never a missing-value code`);
     check(r.normalized_value !== null || /withheld/.test(r.transformation?.method ?? ""), `${r.id}: normalised value only missing where EUR conversion is explicitly withheld`);

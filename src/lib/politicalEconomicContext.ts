@@ -41,9 +41,13 @@ export function contextTiming(period: string, electionDate: string): "prior" | "
   const reference=electionDate.slice(0,period.length);
   return period<reference?"prior":period>reference?"subsequent":"overlap";
 }
+// Election research (D1–D4), event mechanisms (E1) and the political context panel keep their published data basis:
+// Phase R historical recoveries (2026-11-10; flagged "R" in the runtimes) are shown in the data explorers and
+// comparisons, not added to these frozen research views.
+const publishedBasisAnnual=(history: AnnualHistory|null): AnnualHistory|null=>history&&{...history,records:history.records.filter(r=>r[7]!=="R")};
 export function contextAnnualPoints(observations: Observation[], history: AnnualHistory|null, indicators: Indicator[]): ContextPoint[] {
   const canonical=new Map(observations.map(o=>[`${o.country_slug}:${o.indicator}:${o.year}`,o]));
-  return annualPoints(observations,history).filter(p=>CONTEXT_ANNUAL_IDS.includes(p.indicator)).map(p=>{
+  return annualPoints(observations,publishedBasisAnnual(history)).filter(p=>CONTEXT_ANNUAL_IDS.includes(p.indicator)).map(p=>{
     const o=canonical.get(`${p.country_slug}:${p.indicator}:${p.year}`),i=indicators.find(i=>i.id===p.indicator);
     return {id:o?.id??`history:annual:${p.country_slug}:${p.indicator}:${p.year}`,country:p.country_slug,indicator:p.indicator,frequency:"annual",period:String(p.year),value:p.value,unit:p.unit,status:p.status,source:p.source_name,sourceUrl:p.source_url,definition:o?.source_dataset??(i?`${i.id}: ${p.source_name}`:p.indicator),comparable:p.comparable&&p.differenceComparable!==false,layer:p.layer};
   });
@@ -52,7 +56,7 @@ export function contextMonthlyPoints(history: MonthlyHistoryRuntime|null, curren
   const points=new Map<string,ContextPoint>();
   for(const [country,indicator,period,value,status,ref] of history?.records??[]){
     const s=history?.series_sources[ref];
-    if(!s||s.country_slug!==country||s.series!==indicator||!CONTEXT_MONTHLY_IDS.includes(indicator))continue;
+    if(!s||s.country_slug!==country||s.series!==indicator||!CONTEXT_MONTHLY_IDS.includes(indicator)||s.recovery_phase==="R")continue;
     points.set(`${country}:${indicator}:${period}`,{id:`history:monthly:${country}:${indicator}:${period}`,country,indicator,frequency:"monthly",period,value,unit:s.unit,status,source:s.source,sourceUrl:s.source_url,definition:s.definition,comparable:period>=s.definition_compatible_floor,layer:"descriptive monthly history"});
   }
   for(const [id,country,period,indicator,value,,unit,,,definition,source,status] of current){

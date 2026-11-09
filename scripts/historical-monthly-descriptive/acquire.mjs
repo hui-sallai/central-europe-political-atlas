@@ -17,7 +17,9 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const rawDir = path.join(root, "src/data/historical/raw/monthly");
-let offline = process.argv.includes("--offline");
+// --recover: rebuild Phase H from its archived extracts and fetch only the Phase R full-history extracts.
+let offline = process.argv.includes("--offline") || process.argv.includes("--recover");
+let recoveryOffline = process.argv.includes("--offline");
 const read = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
 const sha = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex");
 export const MONTHLY_HISTORY_PATH = "src/data/historical/monthly_descriptive_history.json";
@@ -33,7 +35,7 @@ const V183_AUDIT = { hicp: "historical_hicp_extension_audit.json", ipi: "histori
 const V183_RAW = { hicp: "src/data/historical-extension-audit/raw/prc_hicp_minr.json", ipi: "src/data/historical-extension-audit/raw/sts_inpr_m.json", unemployment: "src/data/historical-extension-audit/raw/une_rt_m.json", yield: "src/data/historical-extension-audit/raw/irt_lt_mcby_m.json" };
 
 // Target series. `store`/`id`/`transformation` identify the stored 2015+ series used for the overlap check.
-const SERIES = [
+export const SERIES = [
   { key: "hicp_monthly_index", store: "high_frequency", id: "hicp_monthly_index", transformation: "level", unit: "I15", label: "HICP all-items index, 2015=100 (NSA)", v183: "hicp", countries: [...V183, "HR"], eurostat: { dataset: "prc_hicp_minr", params: { unit: "I15", coicop18: "TOTAL" } } },
   { key: "hicp_annual_rate", store: "high_frequency", id: "hicp_annual_rate", transformation: "yoy_rate", unit: "RCH_A", label: "HICP all-items annual rate of change (%)", countries: [...V183, "HR"], eurostat: { dataset: "prc_hicp_minr", params: { unit: "RCH_A", coicop18: "TOTAL" } } },
   { key: "industrial_production_index", store: "high_frequency", id: "industrial_production_index", transformation: "level", unit: "I21", label: "Industrial production B-D, 2021=100 (SCA)", v183: "ipi", countries: V183 },
@@ -52,6 +54,42 @@ export const MONTHLY_REVIEW_QUEUE = [
   { series: "bilateral_fx_local_per_eur", countries: ["romania", "serbia"], reason: "RON redenomination 2005-07; RSD/YUM changes" },
   { series: "all_high_frequency_and_macro_drivers", countries: ["serbia"], reason: "outside the EU statistical system; national definitions need mapping" },
 ];
+
+// --- Phase R (2026-11-10): official historical recovery ---------------------------------------------------------
+// Phase H records are rebuilt unchanged. Phase R adds months before the earliest admitted month, using:
+//   - the archived v1.83 extracts (unchanged) with that audit's definition-compatible floor, without the 2000-01 target;
+//   - separately archived full-history Eurostat and BIS extracts for the other cells, with the official-flag floor;
+//   - documented regime floors from the BIS series metadata (SUPP_INFO_BREAKS / COMPILATION) for policy rates;
+//   - EUR conversions only where the euro reference series exists (from 1999-01).
+// Splice check: the first SPLICE_MONTHS admitted months (Phase H, else the frozen 2015+ series) must agree with the
+// source within OVERLAP_TOLERANCE. Cells blocked by the v1.83 audit (IPI PL/RO, unemployment PL/SK) stay out.
+const SPLICE_MONTHS = 12;
+export const REGIME_FLOORS = {
+  "policy_rate|CZ": { period: "1998-01", note: "BIS/CNB: the 2-week repo rate is the official policy rate from 1998 (inflation targeting); earlier values only approximate the policy stance." },
+  "policy_rate|PL": { period: "1998-02", note: "BIS/NBP: official policy rate (7-day NBP bill yield) from 26 Feb 1998; before that the Lombard rate under money-supply control." },
+  "policy_rate|HR": { period: "2002-09", note: "BIS/HNB: from 2 Sep 2002 the volume-weighted overnight interbank rate, the definition of the stored 2015–2022 national series; earlier rates were defined differently." },
+  "policy_rate|RS": { period: "2006-09", note: "BIS/NBS: central bank policy rate from 1 Sep 2006; before that the discount rate, a different instrument." },
+  "policy_rate|SI": { period: "2007-01", note: "Euro adoption 1 Jan 2007: the stored series is the euro-area policy rate; Bank of Slovenia rates before 2007 are a different instrument." },
+  "policy_rate|SK": { period: "2009-01", note: "Euro adoption 1 Jan 2009: the stored series is the euro-area policy rate; NBS rates before 2009 are a different instrument." },
+};
+// Phase R targets beyond the Phase H country lists (same stored counterpart series and the same source series).
+export const RECOVERY_ADDITIONS = [
+  { key: "industrial_production_index", geo: "HR", eurostat: { dataset: "sts_inpr_m", params: { indic_bt: "PRD", nace_r2: "B-D", s_adj: "SCA", unit: "I21" } } },
+  { key: "unemployment_rate_monthly", geo: "HR", eurostat: { dataset: "une_rt_m", params: { s_adj: "SA", age: "TOTAL", sex: "T", unit: "PC_ACT" } } },
+  ...["CZ", "HU", "PL", "RO", "RS", "HR"].map((geo) => ({ key: "policy_rate", geo, bis: { flow: "WS_CBPOL", key: `M.${geo}` }, unit: "% p.a.", label: "National central bank policy rate (BIS WS_CBPOL, end of period)" })),
+  ...["SI", "SK"].map((geo) => ({ key: "policy_rate", geo, bis: { flow: "WS_CBPOL", key: "M.XM" } })),
+  ...[["RO", "RON"], ["RS", "RSD"]].map(([geo, cur]) => ({ key: "bilateral_fx_local_per_eur", geo, bis: { flow: "WS_XRU", key: `M.${geo}.${cur}.A`, divideBy: "M.XM.EUR.A" }, unit: `${cur} per EUR` })),
+  ...["nominal_effective_exchange_rate", "real_effective_exchange_rate"].map((key) => ({ key, geo: "RS", bis: { flow: "WS_EER", key: `M.${key.startsWith("nominal") ? "N" : "R"}.B.RS` } })),
+  // Energy HICP (ECOICOP-2 NRG), stored 2015+ in the macro-driver file; same Eurostat table as headline HICP.
+  ...["AT", "DE", "SK", "SI", "CZ", "HU", "PL", "RO", "HR", "RS"].flatMap((geo) => [
+    { key: "hicp_energy_index", geo, spec: { key: "hicp_energy_index", store: "macro_drivers", id: "hicp_energy_index", transformation: "level", unit: "I15", label: "HICP energy (ECOICOP-2 NRG) index, 2015=100" }, eurostat: { dataset: "prc_hicp_minr", params: { unit: "I15", coicop18: "NRG" } } },
+    { key: "hicp_energy_annual_rate", geo, spec: { key: "hicp_energy_annual_rate", store: "macro_drivers", id: "hicp_energy_annual_rate", transformation: "yoy_rate", unit: "RCH_A", label: "HICP energy (ECOICOP-2 NRG) annual rate of change (%)" }, eurostat: { dataset: "prc_hicp_minr", params: { unit: "RCH_A", coicop18: "NRG" } } },
+  ]),
+];
+const RECOVERY_SLUG = { ...SLUG, RS: "serbia", XM: "euro_area" };
+// BIS M.XM.EUR.A extends before 1999 with a synthetic (ECU-based) series; the euro exists from 1 Jan 1999, so every
+// series that uses it as a reference (EUR conversions, USD per EUR) starts no earlier than 1999-01.
+export const EURO_REFERENCE = { key: "M.XM.EUR.A", period: "1999-01", note: "The euro was introduced on 1 Jan 1999; BIS values before 1999 for the euro area are a synthetic (ECU-based) series and are not EUR rates." };
 
 const monthIndex = (p) => Number(p.slice(0, 4)) * 12 + Number(p.slice(5, 7)) - 1;
 const nextMonth = (p) => { const n = monthIndex(p) + 1; return `${Math.floor(n / 12)}-${String((n % 12) + 1).padStart(2, "0")}`; };
@@ -85,7 +123,7 @@ function parseBisCsv(bytes) {
 }
 
 export async function build(options = {}) {
-  if (options.offline !== undefined) offline = options.offline;
+  if (options.offline !== undefined) { offline = options.offline; recoveryOffline = options.offline; }
   fs.mkdirSync(rawDir, { recursive: true });
   const hf = read("src/data/high-frequency/high_frequency_observations.json").records;
   const md = read("src/data/macro-drivers/macro_driver_observations.json").records;
@@ -173,13 +211,90 @@ export async function build(options = {}) {
       series.push({ series: spec.key, country: slug, source_raw: rawFile, decision, definition_compatible_floor: floor, first_stored_period: firstStored, overlap_months: overlap.length, overlap_max_excess: overlap.length ? Number(excess.toFixed(6)) : null, overlap_check: overlap.length ? (overlapOk ? "pass" : "fail_definition_or_vintage_mismatch") : "no_overlap", ingested_periods: ingest.length ? [ingest[0].period, ingest.at(-1).period] : null, ingested_count: ingest.length, instrument_notes: notes, status: !floor ? "blocked_by_definition_audit" : !overlapOk ? "held_for_review" : ingest.length ? "ingested" : "nothing_before_first_stored_month" });
     }
   }
+  // --- Phase R recovery (records above are unchanged) ----------------------------------------------------------
+  const fullDir = path.join(rawDir, "full");
+  const recoverySources = [], recoverySeries = [], fullCache = {};
+  const fullArchive = async (name, url) => {
+    if (fullCache[name]) return fullCache[name];
+    const file = path.join(fullDir, name);
+    let bytes, retrieved_at = null, http_status = null;
+    if (recoveryOffline) bytes = fs.readFileSync(file);
+    else { fs.mkdirSync(fullDir, { recursive: true }); const got = await httpGet(url); bytes = got.bytes; http_status = got.status; retrieved_at = new Date().toISOString(); fs.writeFileSync(file, bytes); await new Promise((r) => setTimeout(r, 1500)); }
+    recoverySources.push({ source: name.startsWith("bis_") ? "bis" : "eurostat", dataset: name.replace(/\.(json|csv)$/, ""), url, raw_file: path.relative(root, file), sha256: sha(bytes), retrieved_at, http_status, scope: "full official history, Phase R recovery only" });
+    return (fullCache[name] = { bytes, url, raw_file: path.relative(root, file) });
+  };
+  const fullEurostat = async (dataset, params, geos) => {
+    const q = new URLSearchParams({ format: "JSON", lang: "en" });
+    for (const [k, v] of Object.entries(params)) q.append(k, v);
+    for (const g of geos) q.append("geo", g);
+    const got = await fullArchive(`eurostat_${dataset}_${Object.values(params).join("_")}.json`, `${EUROSTAT}/${dataset}?${q}`);
+    return { ...parseJsonStat(got.bytes), url: got.url, raw_file: got.raw_file };
+  };
+  const fullBis = async (flow, key) => { const got = await fullArchive(`bis_${flow}_${key.replaceAll(".", "_")}.csv`, `${BIS}/${flow}/1.0/${key}?format=csv`); return { rows: parseBisCsv(got.bytes), url: got.url, raw_file: got.raw_file }; };
+  const plan = [];
+  for (const spec of SERIES) for (const geo of spec.countries) plan.push({ spec, geo });
+  for (const add of RECOVERY_ADDITIONS) plan.push({ spec: { ...(SERIES.find((s) => s.key === add.key) ?? add.spec), ...(add.eurostat ? { eurostat: add.eurostat, v183: undefined } : {}), ...(add.bis ? { bis: { flow: add.bis.flow, keyOf: () => add.bis.key, divideBy: add.bis.divideBy } } : {}), ...(add.unit ? { unit: add.unit, unitOf: undefined } : {}), ...(add.label ? { label: add.label } : {}) }, geo: add.geo, addition: true });
+  const nonV183 = (spec) => spec.countries.filter((g) => !(spec.v183 && V183.includes(g)));
+  for (const { spec, geo, addition } of plan) {
+    const slug = spec.country ?? RECOVERY_SLUG[geo];
+    let rows = [], floor = null, rawFile, url, decision, notes = null;
+    if (!addition && spec.v183 && V183.includes(geo)) {
+      const audit = read(`src/data/historical-extension-audit/${V183_AUDIT[spec.v183]}`).records.find((r) => r.country === geo);
+      rows = v183Raw[spec.v183].rows[geo] ?? []; rawFile = v183Raw[spec.v183].raw_file; url = sources.find((s) => s.raw_file === rawFile)?.url;
+      const cleared = audit?.pre2015_extension_status === "cleared" && audit.earliest_definition_compatible;
+      floor = cleared ? audit.earliest_definition_compatible : null;
+      decision = cleared ? "v183_audit_definition_floor" : `v183_audit_${audit?.pre2015_extension_status ?? "missing"}`;
+    } else if (spec.eurostat) {
+      // Additions sharing a series are fetched in one query for all their countries (one archived extract per series).
+      const got = await fullEurostat(spec.eurostat.dataset, spec.eurostat.params, addition ? RECOVERY_ADDITIONS.filter((a) => a.key === spec.key).map((a) => a.geo) : nonV183(spec));
+      rows = got.rows[geo] ?? []; rawFile = got.raw_file; url = got.url;
+      const breaks = rows.filter((r) => /[bd]/.test(r.flag));
+      const lastBreak = breaks.length ? breaks.map((r) => (/b/.test(r.flag) ? r.period : nextMonth(r.period))).sort().at(-1) : null;
+      floor = [lastBreak, rows[0]?.period].filter(Boolean).sort().at(-1) ?? null;
+      decision = "official_flag_floor";
+    } else if (spec.bis) {
+      const got = await fullBis(spec.bis.flow, spec.bis.keyOf(geo));
+      rawFile = got.raw_file; url = got.url; let base = got.rows;
+      if (spec.bis.divideBy) { const denom = await fullBis(spec.bis.flow, spec.bis.divideBy); const d = new Map(denom.rows.map((r) => [r.period, r.value])); rawFile = `${got.raw_file} ÷ ${denom.raw_file}`; url = `${got.url} ÷ ${denom.url}`; base = base.filter((r) => d.get(r.period)).map((r) => ({ ...r, value: r.value / d.get(r.period) })); }
+      if (spec.bis.invert) base = base.filter((r) => r.value).map((r) => ({ ...r, value: 1 / r.value }));
+      rows = base;
+      const first = got.rows.find((r) => r.compilation || r.breaks);
+      notes = [first?.compilation, first?.breaks].filter((t) => t && t.trim()).map((t) => t.trim()).join(" | ") || null;
+      const breaks = rows.filter((r) => /b/.test(r.flag));
+      const usesEuro = spec.bis.keyOf(geo) === EURO_REFERENCE.key || spec.bis.divideBy === EURO_REFERENCE.key;
+      const regime = [REGIME_FLOORS[`${spec.key}|${geo}`]?.period, usesEuro ? EURO_REFERENCE.period : null].filter(Boolean).sort().at(-1) ?? null;
+      floor = [breaks.length ? breaks.map((r) => r.period).sort().at(-1) : null, regime, rows[0]?.period].filter(Boolean).sort().at(-1) ?? null;
+      decision = regime ? "documented_regime_floor" : "official_flag_floor";
+    }
+    const current = stored(spec, slug);
+    const phaseH = records.filter((r) => r.series === spec.key && r.country_slug === slug && r.recovery_phase === undefined);
+    const admitted = [...phaseH.map((r) => ({ period: r.period, value: r.value })), ...current.filter((r) => r.value !== null)].sort((a, b) => a.period.localeCompare(b.period));
+    const firstAdmitted = [...phaseH.map((r) => r.period), ...current.map((r) => r.period)].sort()[0] ?? null;
+    const byPeriod = new Map(rows.map((r) => [r.period, r.value]));
+    const splice = admitted.slice(0, SPLICE_MONTHS).filter((a) => byPeriod.has(a.period)).map((a) => ({ stored: a.value, retrieved: byPeriod.get(a.period) }));
+    const excess = splice.reduce((m, o) => Math.max(m, Math.abs(o.stored - o.retrieved) - Math.max(OVERLAP_TOLERANCE.absolute, OVERLAP_TOLERANCE.relative * Math.abs(o.stored))), -Infinity);
+    const spliceOk = splice.length > 0 && excess <= 1e-9;
+    const priorStatus = series.find((s) => s.series === spec.key && s.country === slug)?.status;
+    const heldBefore = !addition && priorStatus === "held_for_review";
+    const eligible = floor && firstAdmitted && spliceOk && !heldBefore ? rows.filter((r) => r.period >= floor && r.period < firstAdmitted) : [];
+    const unit = spec.unitOf ? spec.unitOf(geo) : spec.unit;
+    const sourceRef = seriesSources.length;
+    if (eligible.length) seriesSources.push({ source_ref: sourceRef, series: spec.key, country_slug: slug, store_counterpart: `${spec.store}:${spec.id}:${spec.transformation}`, unit, definition: spec.label, source: rawFile.includes("bis_") ? "BIS" : "Eurostat", source_url: url, raw_file: rawFile, floor_decision: decision, definition_compatible_floor: floor, comparability_status: "definition_compatible_from_floor", instrument_notes: notes, recovery_phase: "R", ...(REGIME_FLOORS[`${spec.key}|${geo}`] || (spec.bis && (spec.bis.keyOf(geo) === EURO_REFERENCE.key || spec.bis.divideBy === EURO_REFERENCE.key)) ? { regime_note: [REGIME_FLOORS[`${spec.key}|${geo}`]?.note, spec.bis && (spec.bis.keyOf(geo) === EURO_REFERENCE.key || spec.bis.divideBy === EURO_REFERENCE.key) ? EURO_REFERENCE.note : null].filter(Boolean).join(" ") } : {}) });
+    for (const r of eligible) records.push({ id: `hist:monthly:${slug}:${spec.key}:${r.period}`, country_slug: slug, series: spec.key, period: r.period, value: Number(r.value.toPrecision(12)), value_status: /p/.test(r.flag) ? "provisional" : /e/.test(r.flag) ? "estimated" : "official", source_flag: r.flag || null, source_ref: sourceRef, recovery_phase: "R" });
+    const statusR = !rows.length ? "no_official_data" : !floor ? "blocked_by_definition_audit" : heldBefore ? "phase_h_held_for_review" : !firstAdmitted ? "no_admitted_counterpart" : !spliceOk ? (splice.length ? "held_splice_mismatch" : "no_splice_overlap") : eligible.length ? "recovered" : floor >= firstAdmitted ? "no_compatible_months_before_first_admitted" : "nothing_to_recover";
+    recoverySeries.push({ series: spec.key, country: slug, source_raw: rawFile, decision, official_first: rows[0]?.period ?? null, official_last: rows.at(-1)?.period ?? null, definition_compatible_floor: floor, first_admitted_before_recovery: firstAdmitted, splice_months: splice.length, splice_max_excess: splice.length ? Number(excess.toFixed(6)) : null, recovered_periods: eligible.length ? [eligible[0].period, eligible.at(-1).period] : null, recovered_count: eligible.length, instrument_notes: notes, status: statusR });
+  }
+  const recovered = records.filter((r) => r.recovery_phase === "R");
+
   records.sort((a, b) => a.series.localeCompare(b.series) || a.country_slug.localeCompare(b.country_slug) || a.period.localeCompare(b.period));
   sources.sort((a, b) => a.raw_file.localeCompare(b.raw_file));
+  recoverySources.sort((a, b) => a.raw_file.localeCompare(b.raw_file));
   const history = {
     schema_version: "monthly-descriptive-history-v2.0", data_type: "monthly_descriptive_history", descriptive_only: true,
     model_boundary: "Descriptive research coverage only. The frozen 2015+ high-frequency and macro-driver files remain the only model inputs; LP, Panel LP and VAR samples are unchanged and no model was re-run.",
     missing_value_policy: "Months without an official value are absent; nothing is interpolated or encoded as zero.",
     backfill_policy: "Only months before the first stored month of the counterpart series are added; stored observations are never duplicated or replaced.",
+    recovery_policy: "Phase R (2026-11-10) adds official months before the earliest admitted month from the archived v1.83 extracts (that audit's definition floor) and from archived full-history Eurostat/BIS extracts (official-flag or documented regime floor); records and their series_sources carry recovery_phase \"R\". Phase H records are unchanged.",
     descriptive_only_note: "Every record is descriptive only; see series_sources[source_ref] for unit, definition, source URL and raw extract.",
     series_sources: seriesSources, record_count: records.length, records,
   };
@@ -188,6 +303,16 @@ export async function build(options = {}) {
     approval: "Owner approved safe descriptive backfills (2026-09-29) and Phase H.",
     target: `${FLOOR} up to the first stored month (2015-01)`, floor_rule: "v1.83-audited cells use that audit's definition-compatible floor; other cells use the month of the last official break flag ('b') or the month after the last 'd' flag; never before 2000-01",
     overlap_tolerance: OVERLAP_TOLERANCE, sources, series, review_queue: MONTHLY_REVIEW_QUEUE,
+    recovery: {
+      phase: "v2.0 Phase R — official historical recovery (2026-11-10)",
+      approval: "Owner instruction 2026-11-10: comprehensive official historical data recovery and comparability; descriptive only, no model input changes.",
+      floor_rule: "v1.83-audited cells: earliest_definition_compatible of that audit (no 2000-01 target); other cells: last official break flag ('b'), month after the last 'd' flag, or the documented regime floor, never before the first official value; EUR conversions need the euro reference series (from 1999-01)",
+      splice_rule: `the first ${SPLICE_MONTHS} admitted months (Phase H, else the frozen 2015+ series) must agree with the source within overlap_tolerance`,
+      regime_floors: REGIME_FLOORS,
+      euro_reference_floor: EURO_REFERENCE,
+      sources: recoverySources, series: recoverySeries,
+      summary: { recovered_records: recovered.length, recovered_by_series: Object.fromEntries([...new Set(recovered.map((r) => r.series))].sort().map((s) => [s, recovered.filter((r) => r.series === s).length])), recovered_by_country: Object.fromEntries([...new Set(recovered.map((r) => r.country_slug))].sort().map((c) => [c, recovered.filter((r) => r.country_slug === c).length])), not_recovered: recoverySeries.filter((s) => s.status !== "recovered").map((s) => `${s.series}/${s.country}: ${s.status}`) },
+    },
     summary: { ingested_records: records.length, ingested_by_series: Object.fromEntries([...new Set(records.map((r) => r.series))].map((s) => [s, records.filter((r) => r.series === s).length])), not_ingested: series.filter((s) => s.status !== "ingested").map((s) => `${s.series}/${s.country}: ${s.status}${s.overlap_max_excess != null && s.status === "held_for_review" ? ` (excess ${s.overlap_max_excess})` : ""}`) },
   };
   return { history, manifest };
@@ -202,6 +327,7 @@ export function writeHistory(history, file) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const { history, manifest } = await build();
   if (offline) { const prior = read(MONTHLY_MANIFEST_PATH); manifest.sources = manifest.sources.map((s) => ({ ...s, retrieved_at: prior.sources.find((p) => p.raw_file === s.raw_file)?.retrieved_at ?? s.retrieved_at, http_status: prior.sources.find((p) => p.raw_file === s.raw_file)?.http_status ?? s.http_status })); }
+  if (recoveryOffline) { const prior = read(MONTHLY_MANIFEST_PATH).recovery?.sources ?? []; manifest.recovery.sources = manifest.recovery.sources.map((s) => ({ ...s, retrieved_at: prior.find((p) => p.raw_file === s.raw_file)?.retrieved_at ?? s.retrieved_at, http_status: prior.find((p) => p.raw_file === s.raw_file)?.http_status ?? s.http_status })); }
   writeHistory(history, path.join(root, MONTHLY_HISTORY_PATH));
   fs.writeFileSync(path.join(root, MONTHLY_MANIFEST_PATH), JSON.stringify(manifest, null, 2) + "\n");
   console.log(JSON.stringify({ records: history.record_count, ...manifest.summary }, null, 1));

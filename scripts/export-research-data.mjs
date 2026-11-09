@@ -2133,7 +2133,7 @@ fs.copyFileSync(path.join(canonicalDataDir, "historical-extension-audit", "histo
   fs.writeFileSync(path.join(outDir, "monthly_history_runtime.json"), JSON.stringify({
     schema_version: "monthly-history-runtime-v2.0", descriptive_only: true,
     row_layout: ["country_slug", "series", "period", "value", "value_status", "source_ref"],
-    series_sources: monthly.series_sources.map(({ source_ref, series, country_slug, unit, definition, source, source_url, definition_compatible_floor }) => ({ source_ref, series, country_slug, unit, definition, source, source_url, definition_compatible_floor })),
+    series_sources: monthly.series_sources.map(({ source_ref, series, country_slug, unit, definition, source, source_url, definition_compatible_floor, recovery_phase }) => ({ source_ref, series, country_slug, unit, definition, source, source_url, definition_compatible_floor, ...(recovery_phase ? { recovery_phase } : {}) })),
     records: monthly.records.map((r) => [r.country_slug, r.series, r.period, r.value, r.value_status, r.source_ref]),
   }) + "\n");
 }
@@ -2175,8 +2175,9 @@ fs.copyFileSync(path.join(canonicalDataDir, "historical-extension-audit", "histo
   }
   fs.writeFileSync(path.join(outDir, "serbia_sors_runtime.json"), JSON.stringify(runtime) + "\n");
 }
-// v2.0 Phase G/J: descriptive-only annual history (never a model input) and the coverage audit it is gated by.
-for (const [dir, fileName] of [["historical", "annual_descriptive_history.json"], ["historical", "annual_history_manifest.json"], ["historical", "monthly_descriptive_history.json"], ["historical", "monthly_history_manifest.json"], ["historical", "regional_descriptive_history.json"], ["historical", "regional_history_manifest.json"], ["data-coverage", "descriptive_data_coverage_audit.json"]]) fs.copyFileSync(path.join(canonicalDataDir, dir, fileName), path.join(outDir, fileName));
+// v2.0 Phase G/J: descriptive-only annual history (never a model input) and the coverage audit it is gated by;
+// Phase R (2026-11-10): the historical recovery inventory (coverage, gap causes and comparable periods).
+for (const [dir, fileName] of [["historical", "annual_descriptive_history.json"], ["historical", "annual_history_manifest.json"], ["historical", "monthly_descriptive_history.json"], ["historical", "monthly_history_manifest.json"], ["historical", "regional_descriptive_history.json"], ["historical", "regional_history_manifest.json"], ["data-coverage", "descriptive_data_coverage_audit.json"], ["data-coverage", "historical_recovery_inventory.json"]]) fs.copyFileSync(path.join(canonicalDataDir, dir, fileName), path.join(outDir, fileName));
 {
   const history = JSON.parse(fs.readFileSync(path.join(canonicalDataDir, "historical", "annual_descriptive_history.json"), "utf8"));
   const sources = [...new Set(history.records.map((r) => `${r.source_dataset}\u0000${r.source_query_url}`))];
@@ -2184,9 +2185,9 @@ for (const [dir, fileName] of [["historical", "annual_descriptive_history.json"]
   fs.writeFileSync(path.join(outDir, "annual_history_runtime.json"), JSON.stringify({
     schema_version: "annual-history-runtime-v2.0",
     descriptive_only: true,
-    row_layout: ["country_slug", "indicator", "year", "value", "unit", "value_status", "source_index"],
+    row_layout: ["country_slug", "indicator", "year", "value", "unit", "value_status", "source_index", "recovery_phase (optional; \"R\" = Phase R official historical recovery, 2026-11-10)"],
     sources: sources.map((key) => { const [dataset, url] = key.split("\u0000"); return { dataset, url }; }),
-    records: history.records.map((r) => [r.country_slug, r.indicator, r.year, r.value, r.unit, r.value_status, sourceIndex.get(`${r.source_dataset}\u0000${r.source_query_url}`)]),
+    records: history.records.map((r) => [r.country_slug, r.indicator, r.year, r.value, r.unit, r.value_status, sourceIndex.get(`${r.source_dataset}\u0000${r.source_query_url}`), ...(r.recovery_phase ? [r.recovery_phase] : [])]),
   }) + "\n");
 }
 for (const fileName of macroDriverFiles) fs.copyFileSync(path.join(macroDriverDir, fileName), path.join(outDir, fileName));

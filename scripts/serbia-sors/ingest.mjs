@@ -26,6 +26,12 @@ const API = (id) => `https://opendata.stat.gov.rs/data/WcfJsonRestService.Servic
 const UA = "Mozilla/5.0 (compatible; CentralEuropePoliticalAtlas/2.0; +https://hy-central-europe-analysis.org/)";
 const SORS = "Statistical Office of the Republic of Serbia (SORS / RZS)";
 const FIRST_YEAR = 2000;
+// Phase R (2026-11-10): official SORS periods of 1999. National totals exclude AP Kosovo and Metohija from 1998
+// (serbia_indicator_mapping.json), so 1999 is the earliest year on the current territorial basis. A 1999 period is
+// admitted only when no break flag (B), definition flag (D) or detected level shift separates it from the first
+// period of 2000 or later; segment metadata of the existing records is computed from 2000 onwards exactly as before.
+export const RECOVERY_FIRST_YEAR = 1999;
+export const RECOVERY_NOTE = "SORS national totals exclude AP Kosovo and Metohija from 1998; 1999 is the earliest recovered year on that basis.";
 const NEUTRALITY_NOTE = "Regional units follow the territorial classification used by the source institution. Their inclusion or labeling in this dataset does not constitute a political or legal position on territorial status.";
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -176,21 +182,30 @@ export async function build(options = {}) {
     const rows = all.filter((r) => Object.entries(where).every(([k, v]) => String(r[k]) === String(v)))
       .filter((r) => spec.regional ? r.IDTer && r.IDTer !== "RS" : spec.territory === undefined ? (r.IDTer ?? "RS") === "RS" || r.IDTer === "6" : spec.territory === null ? true : r.IDTer === spec.territory)
       .filter((r) => spec.monthly ? /^\d\d$/.test(r.mes) && r.mes !== "00" : spec.quarterly ? /^K\d$/.test(r.mes) : r.mes === "00")
-      .filter((r) => Number(r.god) >= FIRST_YEAR);
+      .filter((r) => Number(r.god) >= RECOVERY_FIRST_YEAR);
     const groups = new Map();
     for (const r of rows) { const t = spec.regional ? r.IDTer : "RS"; if (!groups.has(t)) groups.set(t, []); groups.get(t).push(r); }
     const out = [], missing = [];
     for (const [territory, list] of groups) {
       list.sort((a, b) => periodOf(a).localeCompare(periodOf(b)));
-      const observed = list.filter((r) => r.vrednost !== null && r.vrednost !== undefined);
-      missing.push(...list.filter((r) => r.vrednost === null || r.vrednost === undefined).map((r) => `${territory}:${periodOf(r)}:${r.IDStatusPodatka}`));
+      const observedAll = list.filter((r) => r.vrednost !== null && r.vrednost !== undefined);
+      const observed = observedAll.filter((r) => Number(r.god) >= FIRST_YEAR);
+      missing.push(...list.filter((r) => Number(r.god) >= FIRST_YEAR && (r.vrednost === null || r.vrednost === undefined)).map((r) => `${territory}:${periodOf(r)}:${r.IDStatusPodatka}`));
+      // Phase R: 1999 periods in the same segment as the first period of 2000 or later.
+      const firstKept = observed[0] ? periodOf(observed[0]) : null;
+      const startsAll = new Set(observedAll.filter((r) => r.IDStatusPodatka === "B").map((r) => periodOf(r)));
+      observedAll.forEach((r, i) => { if (r.IDStatusPodatka === "D" && observedAll[i + 1]) startsAll.add(periodOf(observedAll[i + 1])); });
+      if (spec.detectShifts) observedAll.forEach((r, i) => { const prev = observedAll[i - 1]; if (prev && prev.vrednost && Math.abs(r.vrednost / prev.vrednost - 1) > 0.02) startsAll.add(periodOf(r)); });
+      const bridge = firstKept ? [...startsAll].filter((p) => p <= firstKept).sort().at(-1) ?? null : null;
+      const recoveredRows = firstKept ? observedAll.filter((r) => Number(r.god) < FIRST_YEAR && (!bridge || periodOf(r) >= bridge)) : [];
       // Segment starts: official B (break) / D (definition differs → next period) flags and unflagged level shifts (annual).
       const starts = new Set(observed.filter((r) => r.IDStatusPodatka === "B").map((r) => periodOf(r)));
       observed.forEach((r, i) => { if (r.IDStatusPodatka === "D" && observed[i + 1]) starts.add(periodOf(observed[i + 1])); });
       if (spec.detectShifts) observed.forEach((r, i) => { const prev = observed[i - 1]; if (prev && prev.vrednost && Math.abs(r.vrednost / prev.vrednost - 1) > 0.02) starts.add(periodOf(r)); });
       const lastStart = [...starts].sort().at(-1) ?? null;
-      for (const r of observed) {
+      for (const r of [...recoveredRows, ...observed]) {
         const period = periodOf(r);
+        const recovered = Number(r.god) < FIRST_YEAR;
         const withheld = spec.toEur && fxWithheldYears.has(Number(r.god));
         const eur = spec.toEur && !withheld && r.mes === "00" && rsdPerEur[Number(r.god)] ? r.vrednost / rsdPerEur[Number(r.god)] : null;
         const record = {
@@ -199,6 +214,7 @@ export async function build(options = {}) {
           ...(spec.toEur ? { transformation: withheld ? { method: "EUR conversion withheld", reason: `BIS RSD per EUR moves ${fxSteps.filter((x) => Number(x.month.slice(0, 4)) === Number(r.god)).map((x) => `${x.change_pct.toFixed(0)}% in ${x.month}`).join(", ")}; a calendar-year average rate is not meaningful` } : { method: "divide by calendar-year average RSD per EUR (BIS)", rate: Number(rsdPerEur[Number(r.god)].toFixed(6)) } } : {}),
           sors_status: r.IDStatusPodatka, comparability_status: lastStart && period < lastStart ? "before_series_break" : "comparable_within_segment", ...(lastStart ? { segment_start: lastStart } : {}),
           cross_country_comparable: map.cross_country_comparable && !withheld, source_ref: seriesInfo.length,
+          ...(recovered ? { recovery_phase: "R" } : {}),
         };
         if (spec.regional) { if (!levelOf.has(territory)) municipalities.add(territory); territoryNames[territory] = r.nTer; Object.assign(record, { classification_version: CLASSIFICATION, source_year: sourceYear(extracts[spec.dataset]), observation_year: Number(r.god) }); }
         statusLegend[r.IDStatusPodatka] = r.nStatusPodatka;

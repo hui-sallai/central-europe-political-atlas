@@ -3,7 +3,7 @@ import type { Locale } from "@/i18n/config";
 import type { CompareMode } from "./freshnessCore";
 import type { EvidenceDraft } from "./researchNotebook";
 
-export type AnnualHistory = { sources: { dataset: string; url: string }[]; records: [string, string, number, number, string, string, number][] };
+export type AnnualHistory = { sources: { dataset: string; url: string }[]; records: ([string, string, number, number, string, string, number] | [string, string, number, number, string, string, number, "R"])[] };
 export type AnnualPoint = Pick<Observation, "country_slug" | "indicator" | "year" | "value" | "unit" | "status" | "source_name" | "source_url"> & { comparable: boolean; layer: string; differenceComparable?: boolean };
 
 /** Historical backfill is descriptive only. Even pending canonical rows take precedence. */

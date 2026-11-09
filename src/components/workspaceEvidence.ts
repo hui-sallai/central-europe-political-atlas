@@ -1,5 +1,7 @@
 // Build-time presentation summaries only. Canonical observations never enter a client bundle here.
 import { researchCountries, researchIndicators, researchObservations, researchEvents } from "@/lib/researchData";
+// Workspace evidence keeps its published data basis; Phase R recoveries (recovery_phase "R", 2026-11-10) appear in
+// the data explorers, comparisons and charts.
 import annualHistory from "@/data/historical/annual_descriptive_history.json";
 import monthlyHistory from "@/data/historical/monthly_descriptive_history.json";
 import highFrequency from "@/data/high-frequency/high_frequency_observations.json";
@@ -46,7 +48,7 @@ export function buildWorkspaceEvidence(workspace: ResearchWorkspaceDefinition, l
   for (const id of workspace.indicatorIds) {
     const indicator = researchIndicators.find(row => row.id === id)!;
     const formal = researchObservations.filter(row => row.indicator === id && row.value !== null && Number.isFinite(row.value)).map(row => ({ country: row.country_slug, period: String(row.year), source: source(row.source_name, row.source_url, "canonical_annual"), unit: row.unit, comparable: row.country_slug !== "serbia" && row.comparability_status === "comparable" && row.applicability_status === "applicable" && !row.review_required }));
-    const history = annualHistory.records.filter(row => row.indicator === id && row.value !== null && Number.isFinite(row.value)).map(row => ({ country: row.country_slug, period: String(row.year), source: source(row.source_dataset, row.source_query_url, "historical_annual"), unit: row.unit, comparable: false }));
+    const history = annualHistory.records.filter(row => !("recovery_phase" in row) && row.indicator === id && row.value !== null && Number.isFinite(row.value)).map(row => ({ country: row.country_slug, period: String(row.year), source: source(row.source_dataset, row.source_query_url, "historical_annual"), unit: row.unit, comparable: false }));
     for (const [layer, rows] of [["canonical_annual", formal], ["historical_annual", history]] as const) if (rows.length) cards.push({ id: `${id}:${layer}`, title: `${locale === "en" ? indicator.name : indicator.name_zh} · ${locale === "en" ? englishUnit(indicator.unit) : indicator.unit}`, kind: "annual", layer, coverage: summarize(rows), targetId: id });
   }
   for (const id of [...workspace.highFrequencyIds, ...workspace.driverIds]) {
@@ -54,7 +56,7 @@ export function buildWorkspaceEvidence(workspace: ResearchWorkspaceDefinition, l
     const label = isDriver ? driverDictionary.records.find(row => row.driver_id === id) : seriesDictionary.records.find(row => row.indicator === id);
     const name = label && "name_en" in label ? (locale === "en" ? label.name_en : label.name_zh) : label && "label_zh" in label ? (locale === "en" ? englishText(label.label_zh) : label.label_zh) : id;
     const live: EvidenceRow[] = isDriver ? drivers.records.filter(row => row.driver_id === id && row.transformation === "level" && row.value !== null).flatMap(row => row.applicable_country_ids.map((country: string) => ({ country, period: row.period, source: source(row.source_dataset, row.source_url, "macro_drivers"), unit: row.unit, comparable: false }))) : highFrequency.records.filter(row => row.indicator === id && row.value !== null).map(row => ({ country: row.country, period: row.period, source: source(row.source_dataset, row.source_url, "high_frequency"), unit: row.unit, comparable: false }));
-    const history: EvidenceRow[] = monthlyHistory.records.filter(row => row.series === id && row.value !== null).map(row => { const s = monthlyHistory.series_sources.find(s => s.source_ref === row.source_ref)!; return { country: row.country_slug, period: row.period, source: source(s.source, s.source_url, "historical_monthly"), unit: s.unit, comparable: false }; });
+    const history: EvidenceRow[] = monthlyHistory.records.filter(row => !("recovery_phase" in row) && row.series === id && row.value !== null).map(row => { const s = monthlyHistory.series_sources.find(s => s.source_ref === row.source_ref)!; return { country: row.country_slug, period: row.period, source: source(s.source, s.source_url, "historical_monthly"), unit: s.unit, comparable: false }; });
     for (const [layer, rows] of [[isDriver ? "macro_drivers" : "high_frequency", live], ["historical_monthly", history]] as const) if (rows.length) cards.push({ id: `${id}:${layer}`, title: name, kind: isDriver ? "macro_drivers" : "high_frequency", layer, coverage: summarize(rows), targetId: id });
   }
   if (workspace.id === "inflation_monetary_policy") {
@@ -71,7 +73,7 @@ export function buildWorkspaceEvidence(workspace: ResearchWorkspaceDefinition, l
     const title = id === "china_project_locations" ? m.projectLocations : (locale === "en" ? indicator?.name_en : indicator?.name_zh) ?? id;
     cards.push({ id: `${id}:regional`, title, kind: "map", layer: "regional_current", targetId: id, coverage: summarize(rows) });
     const historicalIndicator = regionalHistory.indicators[id as keyof typeof regionalHistory.indicators];
-    const historical = regionalHistory.records.filter(row => row.indicator === id && row.value !== null).flatMap(row => (historicalIndicator?.source_refs ?? []).map(ref => {
+    const historical = regionalHistory.records.filter(row => !("recovery_phase" in row) && row.indicator === id && row.value !== null).flatMap(row => (historicalIndicator?.source_refs ?? []).map(ref => {
       const originalSource = regionalHistory.sources.find(s => s.source_ref === ref)!;
       return { country: researchCountries.find(country => row.region_id.startsWith(`${country.slug}_`))?.slug ?? "", period: String(row.statistical_year), source: source(originalSource.dataset, originalSource.url, "regional_history"), unit: historicalIndicator.unit, comparable: false };
     }));
