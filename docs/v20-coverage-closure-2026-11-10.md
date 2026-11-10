@@ -223,13 +223,17 @@ The ledger entry for `historical-recovery-20261110` records:
 2. The 09:31Z build time is a different, correct definition. It is the CI build time of the research package for `ffea0df`, not a data application time.
 3. "Series with recorded changes: 0" is unrecorded, not zero. The provenance panel counts per-series `new_periods` entries. Earlier runs recorded 40, 39 and 11 such entries; this run recorded store totals only.
 
-**Proposed correction (not applied):** an append-only ledger correction entry that:
-- references the run and its plan sha256;
-- keeps the original entry byte-identical;
-- records the evidenced time bounds;
-- lists per-series added periods derived from the `R` records.
+4. The hand-written entry also lacked `previous_entry_sha256`, so the ledger's hash chain had been broken at entry 4 since that run. No CI check reads the chain; only the data-refresh tool does, and it would have refused every later append.
 
-The provenance panel would then show unrecorded per-series detail as "—" instead of 0. This touches a governed file (the hash-chained ledger and its exact-hash run) and a presentation component, so it awaits owner approval.
+**Correction applied (owner approval 2026-11-10: "批准登记台账更正和清单修复", then "批准方案 1，修改链校验"):** one append-only entry, `ledger-correction-20261110` (plan sha256 `a5d4c760…`). It:
+- references the corrected run, its plan sha256 and the exact sha256 of the original line. The original four entries are byte-identical.
+- records `applied_at` as placeholder, with the corrected window 2026-11-09T21:09:28.241Z to 21:33:12Z.
+- records `planned_at` as placeholder, with the corrected window 21:33:12Z to 21:50:19Z (the plan was formed on head `ca8d53f` and registered in `d6e2bdd`).
+- adds the per-series detail: 606 series and 7,799 added periods, derived from the `R` records and checked against the recorded total.
+- attests the missing chain link (`chain_repair`). The chain verifier accepts an absent link only when a later ledger-correction entry attests both the entry's own sha256 and the expected previous sha256. A wrong link value, or an unattested gap, still fails. The ledger verifies again with 5 entries.
+- records the inventory regeneration (§6).
+
+The provenance panel applies the correction only when its own approval record matches its plan sha256. It shows the corrected window next to the recorded placeholder, publishes the per-series periods as contiguous ranges (about a tenth of the payload of full lists), and shows unrecorded per-series detail as "—" instead of 0. Recovered observations in annual history, monthly history and SORS now show which run added them.
 
 ## 6. Research integrity
 
@@ -253,10 +257,10 @@ The provenance panel would then show unrecorded per-series detail as "—" inste
 - VAR, LP, panel, pressure-model and scenario inputs and outputs are unchanged.
 - Nothing was re-estimated.
 
-**Corrections recorded in the closure.** The published inventory is left unchanged, because it is a frozen data file:
+**Inventory corrections, applied by regenerating the inventory in run `ledger-correction-20261110`.** The current closure finds no remaining stale verdict.
 1. The inventory's national annual unit map was keyed by indicator and country across all layers, so the SORS layer overwrote Serbia's Eurostat unit. `gdp_per_capita_eur` and `manufacturing_share_gdp` were published as "units differ: not comparable" next to valid common periods. Corrected, both are the same table, selection and unit. The periods were already right. No page reads this verdict; it appears only in the downloadable inventory JSON.
 2. The Croatian policy rate for 2022-08 to 2022-12 was classified "not yet published". The BIS series notes say it was discontinued when Croatia joined the euro area on 1 January 2023, so these are missing official cells. They are now "missing within an official series".
-3. The monthly contracts `hicp_energy_index` and `hicp_energy_annual_rate` have no unit label in the inventory. The source units are `I15` and `RCH_A`. This is a metadata gap only.
+3. 24 monthly contracts had no unit label: HICP energy index and rate for 10 countries, plus the v1.83-blocked PL/RO industrial production and PL/SK unemployment. They now take the unit of their official source selection: `I15`, `RCH_A`, `I21` or `PC_ACT`. No period, category or comparability verdict changed except the two items above.
 
 **Rights (`rights`)**
 
@@ -278,8 +282,6 @@ The SORS extract files, which are record subsets of the API responses, have been
 | UN Comtrade before 2015 | 140 contracts | Rights review (as-is download terms), then a separate decision because these series are frozen network-model inputs |
 | Periods after the frozen stores | 189 periods | The regular data-refresh path |
 | Population and national-accounts break floors | about 650 years | Methodological decision only: whether a census-based `b` flag should remain a hard floor. It currently is, by the Phase R rule. |
-| Ledger timestamps and per-series detail | 1 run | Owner approval for the append-only correction (§5) |
-| Inventory unit verdict, Croatian classification, HICP-energy unit labels | 2 + 5 periods + 2 contracts | Owner approval for a data run that regenerates the inventory with the fixed unit map |
 | SORS extract redistribution question | 24 SORS extract files | Owner rights review |
 
 ## 8. Changes made
@@ -288,8 +290,14 @@ The SORS extract files, which are record subsets of the API responses, have been
 - `docs/data-coverage/historical_coverage_closure_2026-11-10.json` and `…_matrix_2026-11-10.csv`: new.
 - `tests/tooling/coverage-closure.test.mjs`: new, 7 tests. They check reproducibility (skipped only if the recorded inputs change), the status mapping, the reconciliation, the audit-completeness claim, integrity, the provenance finding and the corrected comparability.
 - This report.
+- `scripts/data-refresh/ledger-correction-20261110.mjs`: new. It appends the correction once and reverts if the chain does not verify.
+- `scripts/data-refresh/lib.mjs`: the chain verifier accepts the exactly attested missing link. New tests cover acceptance and all failure cases.
+- `scripts/data-coverage/recovery-inventory.mjs`: the three inventory fixes. The inventory and its public copy were regenerated.
+- `src/data/data-refresh/refresh_ledger.jsonl`: one appended line.
+- `src/lib/refreshProvenance.ts`, `src/components/DataRefreshTransparency.tsx`: the correction is applied in the panel (UI amendment `v20-ledger-correction-provenance-2026-11-10`).
+- Governance: run `ledger-correction-20261110` in `data-refresh-amendments.mjs` and `data_refresh_amendments.json`, at exact hashes.
 
-No data store, public export, model file, gate, UI file or `package.json` changed.
+No observation store, model file, release file or `package.json` changed.
 
 ## 9. Validation
 

@@ -20,9 +20,9 @@
   "src/data/historical/monthly_history_manifest.json": "ffde494580519c35a4096c43635d1a89962b864053e3c3f9e95f84f2dc42cb45",
   "src/data/historical/regional_history_manifest.json": "6e456cfbfa3768297d8142c9bfadd4884cd637f30c39977186db37047e13449b",
   "src/data/serbia/serbia_ingestion_manifest.json": "f0d9670947c061685b1ef18b8d836d33011b56866e4f4c88e9f842810233276f",
-  "src/data/data-coverage/historical_recovery_inventory.json": "85cba9b6fb5c8f5c313786fead4c3c5595726e5f3a8e3c0851dd640d36e1fe8e",
+  "src/data/data-coverage/historical_recovery_inventory.json": "56e07110a4d2f85e89397ec7290560460d40173317f209a2963db6ced48d004f",
   "src/data/data-coverage/descriptive_data_coverage_audit.json": "c3141b6499c2fef237ca2e8558e8bd033cbc18ea6ce13d61b1e73c91c7065d21",
-  "src/data/data-refresh/refresh_ledger.jsonl": "403e4355331113e186986b9417e7fa2d60a0d49854fab2db11bcd222f256a0bf",
+  "src/data/data-refresh/refresh_ledger.jsonl": "8399cba684e0e8bbb8b0103dde775270d02f5bc9c86fe6a68c966cfa0332c7e9",
   "docs/legal-security/source_rights_registry.json": "721e2e96adea111bb6a6e4c76f2b38a420d310f0abce503e76b16b707057b7cf",
   "public/research-data/annual_history_runtime.json": "cb5ab3fc032c456e4b246422e807e9c02147e08368bf68a1e94ad07d3e678a49",
   "public/research-data/monthly_history_runtime.json": "9711cffed5c5ec06547d8e5213cb2ea72f69f565939a787eeaee7bc4c44641e2",
@@ -16653,7 +16653,7 @@
     },
     "hicp_energy_annual_rate": {
      "frequency": "monthly",
-     "unit": [],
+     "unit": "RCH_A",
      "countries": [
       "austria",
       "croatia",
@@ -16948,7 +16948,7 @@
     },
     "hicp_energy_index": {
      "frequency": "monthly",
-     "unit": [],
+     "unit": "I15",
      "countries": [
       "austria",
       "croatia",
@@ -19921,77 +19921,10 @@
     }
    }
   },
-  "corrections": [
-   {
-    "indicator": "gdp_per_capita_eur",
-    "published_unit": [
-     "欧元",
-     null
-    ],
-    "published_definition_check": "units differ: not comparable",
-    "corrected_unit": "欧元",
-    "corrected_definition_check": "same table, selection and unit",
-    "cause": "SORS-layer unit overwrote the Eurostat Serbia unit in the inventory's unit map"
-   },
-   {
-    "indicator": "manufacturing_share_gdp",
-    "published_unit": [
-     "%",
-     "% of GDP"
-    ],
-    "published_definition_check": "units differ: not comparable",
-    "corrected_unit": "%",
-    "corrected_definition_check": "same table, selection and unit",
-    "cause": "SORS-layer unit overwrote the Eurostat Serbia unit in the inventory's unit map"
-   }
-  ],
-  "monthly_series_without_unit_label": [
-   "hicp_energy_annual_rate",
-   "hicp_energy_index"
-  ]
+  "corrections": [],
+  "monthly_series_without_unit_label": []
  },
- "classification_corrections": [
-  {
-   "key": "monthly|croatia|policy_rate",
-   "from": "2022-08",
-   "to": "2022-08",
-   "published_status": "not_yet_published",
-   "corrected_status": "missing_within_official_series",
-   "evidence": "source notes: series discontinued when the country joined the euro area (from 1 Jan 2023); empty cells before that date will not be published"
-  },
-  {
-   "key": "monthly|croatia|policy_rate",
-   "from": "2022-09",
-   "to": "2022-09",
-   "published_status": "not_yet_published",
-   "corrected_status": "missing_within_official_series",
-   "evidence": "source notes: series discontinued when the country joined the euro area (from 1 Jan 2023); empty cells before that date will not be published"
-  },
-  {
-   "key": "monthly|croatia|policy_rate",
-   "from": "2022-10",
-   "to": "2022-10",
-   "published_status": "not_yet_published",
-   "corrected_status": "missing_within_official_series",
-   "evidence": "source notes: series discontinued when the country joined the euro area (from 1 Jan 2023); empty cells before that date will not be published"
-  },
-  {
-   "key": "monthly|croatia|policy_rate",
-   "from": "2022-11",
-   "to": "2022-11",
-   "published_status": "not_yet_published",
-   "corrected_status": "missing_within_official_series",
-   "evidence": "source notes: series discontinued when the country joined the euro area (from 1 Jan 2023); empty cells before that date will not be published"
-  },
-  {
-   "key": "monthly|croatia|policy_rate",
-   "from": "2022-12",
-   "to": "2022-12",
-   "published_status": "not_yet_published",
-   "corrected_status": "missing_within_official_series",
-   "evidence": "source notes: series discontinued when the country joined the euro area (from 1 Jan 2023); empty cells before that date will not be published"
-  }
- ],
+ "classification_corrections": [],
  "coverage_before_after": {
   "before_audit_present": true,
   "inventory_contracts": 1413,
@@ -20064,8 +19997,30 @@
    "The 09:31Z build time is a different definition (CI build of the research package for ffea0df) and is correct as recorded.",
    "'Series with recorded changes: 0' is not a zero: this run recorded store-level counts only (7,799 new, 0 revisions) and no per-series new_periods, while the provenance panel counts per-series entries. Earlier runs recorded per-series detail; this one did not, so the value is unrecorded rather than zero."
   ],
+  "correction": {
+   "status": "applied_append_only",
+   "run_id": "ledger-correction-20261110",
+   "plan_sha256": "a5d4c76067aa28d60a6e89ca2ce7e244f700245ff06c24df2e02eba7f1f0a9e8",
+   "original_entry_unchanged": true,
+   "corrected_windows": {
+    "planned_at": {
+     "not_before": "2026-11-09T21:33:12.000Z",
+     "not_after": "2026-11-09T21:50:19.000Z"
+    },
+    "applied_at": {
+     "not_before": "2026-11-09T21:09:28.241Z",
+     "not_after": "2026-11-09T21:33:12.000Z"
+    }
+   },
+   "per_series_detail_series": 606,
+   "chain_repair": {
+    "entry_sha256": "04e02c450653b532274603af17b371ca8baf0e40de710affa9c2a41d913a0494",
+    "missing_field": "previous_entry_sha256",
+    "expected_previous_entry_sha256": "fcbf14cd0fdc48214317db47dabcc7bd690e1129c787bb699a03d1bac3b18a35"
+   }
+  },
   "proposed_correction": {
-   "status": "not_applied_requires_owner_approval",
+   "status": "applied",
    "method": "append-only ledger correction entry referencing the original run and plan sha256 (original entry kept byte-identical), plus per-series added periods derived from the Phase R records; the provenance panel shows unrecorded per-series detail as — instead of 0"
   }
  },

@@ -5,7 +5,7 @@ import ts from 'typescript';
 import {createRequire} from 'node:module';
 const require=createRequire(import.meta.url);
 require.extensions['.ts']=(m,f)=>m._compile(ts.transpileModule(fs.readFileSync(f,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText,f);
-const {approvedRefreshHistory,seriesRefreshChanges,observationRefresh}=require('../../src/lib/refreshProvenance.ts');
+const {approvedRefreshHistory,seriesRefreshChanges,observationRefresh,addedPeriodCount,periodRanges}=require('../../src/lib/refreshProvenance.ts');
 const {getRefreshManifest}=require('../../src/lib/refreshProvenance.server.ts');
 const ledger=fs.readFileSync('src/data/data-refresh/refresh_ledger.jsonl','utf8'),approvals=JSON.parse(fs.readFileSync('docs/legal-security/data_refresh_amendments.json')).refreshes;
 test('approved ledger projection reproduces run totals without exposing approval prose or local paths',()=>{
@@ -30,4 +30,23 @@ test('minimal server projection preserves source-check dates separately and no i
 });
 test('SORS revision units are normalized units, with BIS conversion and restrictions retained',()=>{
  const m=getRefreshManifest(),s=m.series.find(s=>s.dataset==='serbia_sors_annual'&&s.indicator==='exports_goods_services_rsd'),c=m.series.find(s=>s.dataset==='serbia_sors_monthly'&&s.indicator==='cpi_index_2006');assert.equal(s.revisionUnit,'mill. EUR');assert.equal(s.unit,'mill. RSD');assert.ok(s.methods.some(v=>v.includes('BIS')));assert.equal(c.crossCountry,false);assert.deepEqual(c.samples,[]);
+});
+test('approved ledger correction: corrected window beside the recorded placeholder, per-series detail as ranges, unrecorded is —',()=>{
+ const runs=approvedRefreshHistory(ledger,approvals),r=runs.find(r=>r.id==='historical-recovery-20261110');
+ assert.deepEqual(r.appliedCorrection,{recorded:'2026-11-10T12:00:00.000Z',notBefore:'2026-11-09T21:09:28.241Z',notAfter:'2026-11-09T21:33:12.000Z',correction:'ledger-correction-20261110'});
+ assert.equal(r.applied,'2026-11-09T21:09:28.241Z/2026-11-09T21:33:12.000Z');assert.equal(r.seriesCount,606);assert.equal(r.added,7799);
+ assert.equal(r.changes.reduce((n,c)=>n+addedPeriodCount(c),0),7799);
+ assert.equal(observationRefresh(runs,'austria','automotive_export_share','annual_history','2014')[0].kind,'added');
+ assert.deepEqual(observationRefresh(runs,'austria','automotive_export_share','annual_history','2021'),[]);
+ assert.deepEqual(observationRefresh(runs,'austria','automotive_export_share','annual_observations','2014'),[]);
+ assert.equal(observationRefresh(runs,'czechia','bilateral_fx_local_per_eur','monthly_history','1999-01')[0].run,'historical-recovery-20261110');
+ assert.deepEqual(observationRefresh(runs,'czechia','bilateral_fx_local_per_eur','monthly_history','1999'),[],'period format must match');
+ // Without the correction's own approval nothing is corrected and the series count stays unrecorded (—), never 0.
+ const plain=approvedRefreshHistory(ledger,approvals.filter(a=>a.run_id!=='ledger-correction-20261110')).find(r=>r.id==='historical-recovery-20261110');
+ assert.equal(plain.appliedCorrection,undefined);assert.equal(plain.applied,'2026-11-10T12:00:00.000Z');assert.equal(plain.seriesCount,null);
+ const wrongPlan=approvals.map(a=>a.run_id==='ledger-correction-20261110'?{...a,ledger_plan_sha256:'wrong'}:a);
+ assert.equal(approvedRefreshHistory(ledger,wrongPlan).find(r=>r.id==='historical-recovery-20261110').seriesCount,null);
+ assert.equal(runs.find(r=>r.id==='serbia-20261020').seriesCount,11);
+ assert.deepEqual(periodRanges(['2001','2002','2004','1999']),[['1999','1999'],['2001','2002'],['2004','2004']]);
+ assert.equal(JSON.stringify(runs).includes('chain_repair'),false);
 });

@@ -24,7 +24,8 @@ test('the approved runs pin exactly their files at their current hashes and matc
     assert.equal(entry.formal_model_impact, 'none');
     assert.equal(entry.plan_sha256, r.ledger_plan_sha256);
   }
-  assert.equal(ledger.at(-1).run_id, 'historical-recovery-20261110');
+  assert.equal(ledger.at(-1).run_id, 'ledger-correction-20261110');
+  assert.equal(ledger.at(-1).corrects.run_id, 'historical-recovery-20261110');
 });
 
 test('a later run supersedes an earlier run for shared files', () => {

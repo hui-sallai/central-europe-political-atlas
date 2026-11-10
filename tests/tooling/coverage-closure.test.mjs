@@ -58,13 +58,19 @@ test("provenance finding: the recorded applied_at postdates the data commit and 
   assert.ok(p.recorded.applied_at > p.evidence.first_deployment.deploy_job_started_utc);
   assert.ok(p.evidence.source_retrieval_window_utc.last < p.evidence.data_commit.committed_at_utc);
   assert.equal(p.recorded.units_with_per_series_detail, 0);
-  assert.equal(p.proposed_correction.status, "not_applied_requires_owner_approval");
+  assert.equal(p.proposed_correction.status, "applied");
+  assert.equal(p.correction.run_id, "ledger-correction-20261110");
+  assert.equal(p.correction.corrected_windows.applied_at.not_after, p.evidence.data_commit.committed_at_utc);
+  assert.equal(p.correction.per_series_detail_series, 606);
 });
 
-test("comparability: Serbia's SORS layer never decides the Eurostat unit verdict; corrections are recorded", () => {
+test("comparability: Serbia's SORS layer never decides the Eurostat unit verdict; no stale verdict remains", () => {
   const c = saved.comparability;
-  assert.deepEqual(c.corrections.map((x) => x.indicator).sort(), ["gdp_per_capita_eur", "manufacturing_share_gdp"]);
-  for (const x of c.corrections) assert.match(x.cause, /SORS/);
+  // The regenerated inventory (ledger-correction-20261110) already carries the corrected verdicts, labels and class.
+  assert.deepEqual(c.corrections, []);
+  assert.deepEqual(c.monthly_series_without_unit_label, []);
+  assert.deepEqual(saved.classification_corrections, []);
+  for (const i of ["gdp_per_capita_eur", "manufacturing_share_gdp"]) assert.equal(c.comparability.national_annual[i].definition_check, "same table, selection and unit", i);
   for (const [indicator, v] of Object.entries(c.comparability.national_annual)) {
     const units = new Set(v.countries.map((country) => saved.matrix.find((r) => r.key === `annual|${country}|${indicator}`) && country));
     assert.ok(units.size === v.countries.length, indicator);

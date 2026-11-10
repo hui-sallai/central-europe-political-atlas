@@ -186,6 +186,8 @@ export function buildInventory() {
       const off = official?.has(p);
       if (!rec) { category = 8; reason = /brent|gas/.test(seriesKey) ? "World Bank Pink Sheet: raw redistribution not cleared and licence review due; pre-2015 history not recovered" : "no recovery source registered for this contract"; if (/brent|gas/.test(seriesKey)) category = 7; }
       else if (!off && officialList.length && p < officialList[0]) { category = 3; reason = "before the first official value"; }
+      // A discontinued national series (e.g. a policy rate ended at euro adoption) will never publish these months.
+      else if (!off && officialList.length && p > officialList.at(-1) && /discontinued/i.test(rec.instrument_notes ?? "")) { category = 4; reason = "official cell empty before the source series was discontinued (source notes); these months will not be published"; }
       else if (!off && officialList.length && p > officialList.at(-1)) { category = 5; reason = "after the latest official value in the archived extract"; }
       else if (!off) { category = 4; reason = "official cell empty inside the official span"; }
       else if (frozenLast && p > frozenLast) { category = 1; reason = "after the frozen 2015+ store: new months belong to the high-frequency / macro-driver refresh path, not to descriptive history"; }
@@ -202,7 +204,7 @@ export function buildInventory() {
       layers: Object.fromEntries(Object.entries(stores).sort().map(([k, s]) => { const l = [...s].sort(); return [k, { first: l[0], last: l.at(-1), records: l.length }]; })),
       admitted: { first: sorted[0], last: sorted.at(-1), periods: sorted.length },
       official: officialList.length ? { first: officialList[0], last: officialList.at(-1), periods: officialList.length, raw_file: rec.source_raw } : null,
-      unit: srcEntry?.unit ?? null, definition: srcEntry?.definition ?? null, source_dataset: srcEntry?.source ?? null,
+      unit: srcEntry?.unit ?? select?.unit ?? null, definition: srcEntry?.definition ?? null, source_dataset: srcEntry?.source ?? null,
       floors: { definition_compatible: rec?.definition_compatible_floor ?? null, decision: rec?.decision ?? null, instrument_notes: rec?.instrument_notes ?? null },
       recovery_status: rec?.status ?? (/brent|gas/.test(seriesKey) ? "restricted_source_not_recovered (World Bank Pink Sheet: raw redistribution not cleared, licence review due)" : "not_in_recovery_scope"), rights: rightsOf(/brent|gas/.test(seriesKey) ? "src-worldbank" : sourceIdFor(`${srcEntry?.source ?? ""} ${rec?.source_raw ?? ""} ${seriesKey}`)),
       missing: summarise(missing),
@@ -365,7 +367,8 @@ function buildComparability(series, data) {
   const annualAdmitted = new Map();
   for (const r of data.observations) if (r.value !== null) { const k = `${r.indicator}|${r.country_slug}`; (annualAdmitted.get(k) ?? annualAdmitted.set(k, new Set()).get(k)).add(r.year); }
   for (const r of data.annualHistory) { const k = `${r.indicator}|${r.country_slug}`; (annualAdmitted.get(k) ?? annualAdmitted.set(k, new Set()).get(k)).add(r.year); }
-  const unitOf = new Map(series.filter((s) => s.frequency === "annual" && s.scope === "national").map((s) => [`${s.indicator}|${s.country}`, s.unit]));
+  // Eurostat annual contracts only: the separate SORS layer ("serbia_sors_annual|…") must not overwrite Serbia's unit.
+  const unitOf = new Map(series.filter((s) => s.key.startsWith("annual|")).map((s) => [`${s.indicator}|${s.country}`, s.unit]));
   for (const indicator of [...new Set(series.filter((s) => s.key.startsWith("annual|")).map((s) => s.indicator))].sort()) {
     const countries = [...annualAdmitted.keys()].filter((k) => k.startsWith(`${indicator}|`)).map((k) => k.split("|")[1]).filter((c) => !(indicator === "hicp_inflation" && c === "serbia")).sort();
     const units = new Set(countries.map((c) => unitOf.get(`${indicator}|${c}`)));

@@ -237,10 +237,16 @@ export const LEDGER_PATH = "src/data/data-refresh/refresh_ledger.jsonl";
 export function verifyLedger(file) {
   if (!fs.existsSync(file)) return { ok: true, entries: 0, last: null };
   const lines = fs.readFileSync(file, "utf8").split("\n").filter(Boolean);
+  const entries = lines.map((line) => JSON.parse(line));
   let previous = null;
   for (const [i, line] of lines.entries()) {
-    const entry = JSON.parse(line);
-    if (entry.previous_entry_sha256 !== previous) return { ok: false, entries: lines.length, error: `ledger chain broken at entry ${i + 1}` };
+    const entry = entries[i];
+    // Owner-approved 2026-11-10: an entry written WITHOUT its link (field absent, never a wrong value) is accepted only
+    // when a later ledger-correction entry attests it exactly — both the entry's own hash and the expected previous hash
+    // must match. The original line stays unchanged; every other break still fails.
+    const attested = entry.previous_entry_sha256 === undefined && entries.slice(i + 1).some((e) => e.mode === "ledger-correction"
+      && e.chain_repair?.entry_sha256 === sha256(line) && e.chain_repair?.expected_previous_entry_sha256 === previous);
+    if (entry.previous_entry_sha256 !== previous && !attested) return { ok: false, entries: lines.length, error: `ledger chain broken at entry ${i + 1}` };
     previous = sha256(line);
   }
   return { ok: true, entries: lines.length, last: previous };

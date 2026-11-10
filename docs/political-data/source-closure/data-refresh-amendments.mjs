@@ -1,7 +1,8 @@
 // Owner-approved descriptive data refreshes applied through scripts/data-refresh/apply.mjs, one exact record per run.
 // 2026-10-19: Eurostat monthly high-frequency refresh (run monthly-eurostat-20261019); 2026-10-20: Serbia SORS refresh
 // (run serbia-20261020); 2026-11-10: official historical recovery (run historical-recovery-20261110, owner-approved,
-// descriptive stores only, verified by the store validators, coverage re-audit and recovery inventory).
+// descriptive stores only, verified by the store validators, coverage re-audit and recovery inventory); 2026-11-10:
+// ledger correction of that run and regenerated recovery inventory (run ledger-correction-20261110).
 // Later runs supersede shared files (coverage audit, ledger). No general data exemption:
 // only the listed files of each run, at their exact hashes, and only for runs recorded in the refresh ledger.
 export const DATA_REFRESH_FILE = 'docs/legal-security/data_refresh_amendments.json';
@@ -157,6 +158,18 @@ export const DATA_REFRESH_RUNS = {
       'src/data/serbia/serbia_descriptive_history_monthly.json',
       'src/data/serbia/serbia_descriptive_history_regional.json',
       'src/data/serbia/serbia_ingestion_manifest.json',
+    ],
+  },
+  // 2026-11-10 (owner: "批准登记台账更正和清单修复", then "批准方案 1，修改链校验"): append-only ledger correction of
+  // historical-recovery-20261110 (placeholder times, per-series detail, attested missing chain link) and the
+  // regenerated recovery inventory. No observation store changes.
+  'ledger-correction-20261110': {
+    approved_on: '2026-11-10', unit: 'ledger-correction',
+    verification: 'ledger-correction: ledger hash chain verified, original entries byte-identical, per-series detail equals the 7,799 recorded additions, inventory rebuild and data-coverage validators',
+    paths: [
+      'public/research-data/historical_recovery_inventory.json',
+      'src/data/data-coverage/historical_recovery_inventory.json',
+      'src/data/data-refresh/refresh_ledger.jsonl',
     ],
   },
 };

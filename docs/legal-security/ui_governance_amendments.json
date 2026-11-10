@@ -2799,6 +2799,30 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-10"
+    },
+    {
+      "amendment_id": "v20-ledger-correction-provenance-2026-11-10",
+      "status": "owner_approved",
+      "approved_by": "owner approval 2026-11-10 (\"批准登记台账更正和清单修复\"): the refresh-history panel applies an owner-approved append-only ledger correction (corrected time window shown next to the recorded placeholder; per-series added periods as ranges) and shows unrecorded per-series detail as — instead of 0. No deployment authorised by this record.",
+      "baseline": "c1c58958e8fe741fd80b14df01586e2c9f0ee101",
+      "files": [
+        {
+          "path": "src/components/DataRefreshTransparency.tsx",
+          "sha256": "1fde1a834e909d6a4c9132d51f18a04763350c939a72ab770825a9e74a94c02f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/refreshProvenance.ts",
+          "sha256": "e71e500b600ae0088b72eac0f9072c58779492f63b2fd903b9c915af8d5eac4e",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-10"
     }
   ]
 }

@@ -603,6 +603,37 @@
           "sha256": "f0d9670947c061685b1ef18b8d836d33011b56866e4f4c88e9f842810233276f"
         }
       ]
+    },
+    {
+      "run_id": "ledger-correction-20261110",
+      "status": "owner_approved",
+      "approved_on": "2026-11-10",
+      "approved_by": "owner approval 2026-11-10 (\"批准登记台账更正和清单修复\"), then (\"批准方案 1，修改链校验\") for the exact chain attestation; deployment still requires a separate 推送上线",
+      "unit": "ledger-correction",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "verification": "ledger-correction: ledger hash chain verified, original entries byte-identical, per-series detail equals the 7,799 recorded additions, inventory rebuild and data-coverage validators",
+      "ledger_plan_sha256": "a5d4c76067aa28d60a6e89ca2ce7e244f700245ff06c24df2e02eba7f1f0a9e8",
+      "summary": "Append-only correction of historical-recovery-20261110: planned_at/applied_at were placeholders (corrected windows from source retrievals and commits), per-series detail (606 series, 7,799 periods) added, the entry's missing previous_entry_sha256 attested; recovery inventory regenerated (Serbia unit map, discontinued Croatian policy rate months, 24 monthly unit labels). Original ledger entries and all observation stores unchanged.",
+      "formal_model_input_change_allowed": false,
+      "frozen_snapshot_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "research_gate_change_allowed": false,
+      "release_version_change_allowed": false,
+      "files": [
+        {
+          "path": "public/research-data/historical_recovery_inventory.json",
+          "sha256": "56e07110a4d2f85e89397ec7290560460d40173317f209a2963db6ced48d004f"
+        },
+        {
+          "path": "src/data/data-coverage/historical_recovery_inventory.json",
+          "sha256": "56e07110a4d2f85e89397ec7290560460d40173317f209a2963db6ced48d004f"
+        },
+        {
+          "path": "src/data/data-refresh/refresh_ledger.jsonl",
+          "sha256": "8399cba684e0e8bbb8b0103dde775270d02f5bc9c86fe6a68c966cfa0332c7e9"
+        }
+      ]
     }
   ]
 }

@@ -255,13 +255,14 @@ export function shortSeries() {
 export function provenanceFindings() {
   const ledger = fs.readFileSync(path.join(root, "src/data/data-refresh/refresh_ledger.jsonl"), "utf8").trim().split("\n").map((l) => JSON.parse(l));
   const run = ledger.find((e) => e.run_id === "historical-recovery-20261110");
+  const correction = ledger.find((e) => e.mode === "ledger-correction" && e.corrects?.run_id === run.run_id) ?? null;
   const commitTime = (c) => execFileSync("git", ["show", "-s", "--format=%cI", c], { cwd: root, encoding: "utf8" }).trim();
   const utc = (iso) => new Date(iso).toISOString();
   const retrieved = [];
   const walk = (o) => { if (Array.isArray(o)) return o.forEach(walk); if (!o || typeof o !== "object") return; if (typeof o.retrieved_at === "string" && o.retrieved_at.startsWith("2026-11")) retrieved.push(o.retrieved_at); Object.values(o).forEach(walk); };
   for (const p of ["src/data/historical/annual_history_manifest.json", "src/data/historical/monthly_history_manifest.json", "src/data/historical/regional_descriptive_history.json"]) walk(read(p));
   retrieved.sort();
-  const priorRuns = ledger.filter((e) => e.run_id !== run.run_id).map((e) => ({ run_id: e.run_id, planned_at: e.planned_at, applied_at: e.applied_at, series_with_recorded_changes: e.units.reduce((n, u) => n + new Set([...(u.new_periods ?? []).map((s) => s.series), ...(u.revisions ?? []).map((s) => s.series)]).size, 0) }));
+  const priorRuns = ledger.filter((e) => e.run_id !== run.run_id && e.mode !== "ledger-correction").map((e) => ({ run_id: e.run_id, planned_at: e.planned_at, applied_at: e.applied_at, series_with_recorded_changes: e.units.reduce((n, u) => n + new Set([...(u.new_periods ?? []).map((s) => s.series), ...(u.revisions ?? []).map((s) => s.series)]).size, 0) }));
   return {
     run_id: run.run_id,
     recorded: { planned_at: run.planned_at, applied_at: run.applied_at, new_observations: run.units.reduce((n, u) => n + u.stores.reduce((m, s) => m + s.new_observations, 0), 0), units_with_per_series_detail: run.units.filter((u) => u.new_periods || u.revisions).length },
@@ -280,7 +281,8 @@ export function provenanceFindings() {
       "The 09:31Z build time is a different definition (CI build of the research package for ffea0df) and is correct as recorded.",
       "'Series with recorded changes: 0' is not a zero: this run recorded store-level counts only (7,799 new, 0 revisions) and no per-series new_periods, while the provenance panel counts per-series entries. Earlier runs recorded per-series detail; this one did not, so the value is unrecorded rather than zero.",
     ],
-    proposed_correction: { status: "not_applied_requires_owner_approval", method: "append-only ledger correction entry referencing the original run and plan sha256 (original entry kept byte-identical), plus per-series added periods derived from the Phase R records; the provenance panel shows unrecorded per-series detail as — instead of 0" },
+    correction: correction ? { status: "applied_append_only", run_id: correction.run_id, plan_sha256: correction.plan_sha256, original_entry_unchanged: true, corrected_windows: Object.fromEntries(correction.corrections.filter((c) => c.corrected_window).map((c) => [c.field, c.corrected_window])), per_series_detail_series: correction.per_series_detail.new_periods.length, chain_repair: correction.chain_repair } : null,
+    proposed_correction: { status: correction ? "applied" : "not_applied_requires_owner_approval", method: "append-only ledger correction entry referencing the original run and plan sha256 (original entry kept byte-identical), plus per-series added periods derived from the Phase R records; the provenance panel shows unrecorded per-series detail as — instead of 0" },
   };
 }
 

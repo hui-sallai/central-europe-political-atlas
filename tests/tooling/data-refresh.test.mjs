@@ -75,6 +75,29 @@ test("ledger hash chain detects edits", () => {
   assert.equal(verifyLedger(file).ok, false);
 });
 
+test("a missing chain link passes only with an exact later ledger-correction attestation", () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "ledger-"));
+  const file = path.join(dir, "ledger.jsonl");
+  const first = JSON.stringify({ run_id: "a", previous_entry_sha256: null });
+  const missing = JSON.stringify({ run_id: "b" }); // written without its link
+  const attest = (over = {}) => JSON.stringify({ run_id: "c", mode: "ledger-correction", chain_repair: { entry_sha256: sha256(missing), expected_previous_entry_sha256: sha256(first), ...over }, previous_entry_sha256: sha256(missing) });
+  const write = (...lines) => fs.writeFileSync(file, lines.join("\n") + "\n");
+  write(first, missing);
+  assert.equal(verifyLedger(file).ok, false, "unattested missing link");
+  write(first, missing, attest());
+  assert.equal(verifyLedger(file).ok, true);
+  write(first, missing, attest({ entry_sha256: "0".repeat(64) }));
+  assert.equal(verifyLedger(file).ok, false, "attests another entry");
+  write(first, missing, attest({ expected_previous_entry_sha256: "0".repeat(64) }));
+  assert.equal(verifyLedger(file).ok, false, "wrong expected link");
+  write(first, missing, JSON.stringify({ ...JSON.parse(attest()), mode: "other" }));
+  assert.equal(verifyLedger(file).ok, false, "only ledger-correction entries attest");
+  const wrong = JSON.stringify({ run_id: "b", previous_entry_sha256: "f".repeat(64) }); // a wrong value is never repairable
+  write(first, wrong, JSON.stringify({ run_id: "c", mode: "ledger-correction", chain_repair: { entry_sha256: sha256(wrong), expected_previous_entry_sha256: sha256(first) }, previous_entry_sha256: sha256(wrong) }));
+  assert.equal(verifyLedger(file).ok, false, "wrong link");
+  assert.equal(verifyLedger("src/data/data-refresh/refresh_ledger.jsonl").ok, true, "the repository ledger verifies");
+});
+
 test("mode registry: monthly preserves historical stores; release files are never in a write-set", () => {
   assert.ok(!MODES.monthly.some((u) => /history/.test(u)));
   for (const mode of Object.keys(MODES)) for (const u of MODES[mode]) assert.ok(UNITS[u], `${mode} → ${u}`);
