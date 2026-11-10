@@ -77,3 +77,16 @@ test('historical recovery: new files only within the declared scope, at exact ha
   const other = { ...records().find((r) => r.run_id === 'serbia-20261020'), files: [...records().find((r) => r.run_id === 'serbia-20261020').files, { path: newFile, sha256: hash }] };
   assert.equal(run(newFile, hash, [other]).ok, false, 'a run without allow_new_paths cannot admit a new file');
 });
+
+test('ledger correction: a later run supersedes a new file hash in run order, never in file order', () => {
+  const recs = records(), inv = 'src/data/data-coverage/historical_recovery_inventory.json';
+  const recovery = recs.find((r) => r.run_id === 'historical-recovery-20261110'), correction = recs.find((r) => r.run_id === 'ledger-correction-20261110');
+  const hashIn = (r) => r.files.find((f) => f.path === inv).sha256;
+  assert.notEqual(hashIn(recovery), hashIn(correction));
+  assert.equal(approvedDataRefreshFiles(recs).added.get(inv), hashIn(correction));
+  assert.equal(approvedDataRefreshFiles([correction, recovery]).added.get(inv), hashIn(correction), 'reversed file order');
+  assert.equal(approvedDataRefreshFiles([recovery]).added.get(inv), hashIn(recovery));
+  assert.equal(crypto.createHash('sha256').update(fs.readFileSync(inv)).digest('hex'), hashIn(correction));
+  for (const p of DATA_REFRESH_RUNS['ledger-correction-20261110'].paths) assert.ok(p.endsWith('refresh_ledger.jsonl') || newPathAllowed('ledger-correction-20261110', p), p);
+  assert.equal(newPathAllowed('ledger-correction-20261110', 'src/data/observations/new.json'), false);
+});

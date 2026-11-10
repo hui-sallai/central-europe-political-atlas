@@ -165,6 +165,9 @@ export const DATA_REFRESH_RUNS = {
   // regenerated recovery inventory. No observation store changes.
   'ledger-correction-20261110': {
     approved_on: '2026-11-10', unit: 'ledger-correction',
+    // Owner-approved 2026-11-10 ("批准方案 1，调整门禁"): supersedes the recovery inventory that
+    // historical-recovery-20261110 added as a new file; still limited to NEW_PATH_SCOPE.
+    allow_new_paths: true,
     verification: 'ledger-correction: ledger hash chain verified, original entries byte-identical, per-series detail equals the 7,799 recorded additions, inventory rebuild and data-coverage validators',
     paths: [
       'public/research-data/historical_recovery_inventory.json',
@@ -202,6 +205,7 @@ export function approvedDataRefreshFiles(records) {
   }
   // New (non-baseline) files: exact hashes from runs that declare allow_new_paths, scoped by NEW_PATH_SCOPE.
   const added = new Map();
-  for (const r of [...(records ?? [])].filter((x) => x.status === 'owner_approved' && DATA_REFRESH_RUNS[x.run_id])) for (const f of r.files ?? []) if (newPathAllowed(r.run_id, f.path)) added.set(f.path, f.sha256);
+  // Also in run order, so a later run's hash for the same new file supersedes the earlier one.
+  for (const r of [...(records ?? [])].filter((x) => x.status === 'owner_approved' && DATA_REFRESH_RUNS[x.run_id]).sort((x, y) => order.indexOf(x.run_id) - order.indexOf(y.run_id))) for (const f of r.files ?? []) if (newPathAllowed(r.run_id, f.path)) added.set(f.path, f.sha256);
   return { approved, added, problems };
 }

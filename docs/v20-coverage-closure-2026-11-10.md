@@ -296,6 +296,7 @@ The SORS extract files, which are record subsets of the API responses, have been
 - `src/data/data-refresh/refresh_ledger.jsonl`: one appended line.
 - `src/lib/refreshProvenance.ts`, `src/components/DataRefreshTransparency.tsx`: the correction is applied in the panel (UI amendment `v20-ledger-correction-provenance-2026-11-10`).
 - Governance: run `ledger-correction-20261110` in `data-refresh-amendments.mjs` and `data_refresh_amendments.json`, at exact hashes.
+- Gate (owner approval "批准方案 1，调整门禁"): the correction run may supersede the inventory that the recovery run added as a new file. The permission is still limited to the same narrow path scope. New-file hashes are now applied in run order, as hashes of existing files already were, so a later run supersedes an earlier one and file order never decides.
 
 No observation store, model file, release file or `package.json` changed.
 
@@ -303,8 +304,8 @@ No observation store, model file, release file or `package.json` changed.
 
 - `node scripts/data-coverage/coverage-closure.mjs --check`: pass.
 - Closure tests: 7/7.
-- Tooling suite: 421/421 (414 earlier tests plus the 7 new ones).
+- Tooling suite: 424/424, including the closure, chain-attestation, provenance-correction and run-order supersession tests.
 - `data-coverage:validate`, `historical-annual:validate`, `historical-monthly:validate`, `historical-regional:validate`, `serbia-audit:validate`: pass.
-- `political-source-closure:validate --checkpoint`: pass (no frozen file changed).
+- `political-source-closure:validate --checkpoint`: pass. Only the registered exact-hash files differ.
 - Public-secret scan: pass. No local paths or personal identifiers in the new files.
-- No UI file changed, so the UI suite was not rerun.
+- Full build and full UI suite: see the commit message.
