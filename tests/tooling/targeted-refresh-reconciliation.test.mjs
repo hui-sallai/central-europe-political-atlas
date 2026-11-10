@@ -41,3 +41,15 @@ test('Serbia HICP is definitionally incompatible (flag d on every official value
   for (const r of serbia) { assert.equal(r.class, 'definitionally_incompatible'); assert.ok(Object.values(r.official_cells).every((c) => c.flag === 'd')); }
   assert.equal(rec.summary.vintage_held_periods, 328);
 });
+
+test('plan re-audit and apply regenerate the recovery inventory, restore it in the stage and record it in the ledger entry', () => {
+  const plan = fs.readFileSync('scripts/data-refresh/plan.mjs', 'utf8'), apply = fs.readFileSync('scripts/data-refresh/apply.mjs', 'utf8');
+  assert.match(plan, /spawnSync\("node", \["scripts\/data-coverage\/recovery-inventory\.mjs"\], \{ cwd: stage/);
+  assert.match(plan, /if \(savedInventory\) fs\.writeFileSync\(inventoryFile, savedInventory\);/);
+  assert.match(apply, /spawnSync\("node", \["scripts\/data-coverage\/recovery-inventory\.mjs"\], \{ cwd: root/);
+  assert.match(apply, /fs\.copyFileSync\(path\.join\(root, INVENTORY\), path\.join\(root, PUBLIC_INVENTORY\)\)/);
+  assert.match(apply, /inventory_regeneration: inventoryRegeneration/);
+  // Unchanged gates: the stage failure and formal-input checks still refuse to apply.
+  assert.match(apply, /\["fails_even_after_reaudit", "reaudit_changes_formal_input_series"\]\.includes\(plan\.coverage_reaudit\)/);
+  assert.match(apply, /the coverage re-audit needs the owner's --accept-stop/);
+});

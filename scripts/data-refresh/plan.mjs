@@ -282,14 +282,20 @@ let coverageReaudit = "not_needed";
 if (stageValidators.find((v) => v.command === "pnpm data-coverage:validate")?.status === "fail") {
   const auditFile = path.join(stage, "src/data/data-coverage/descriptive_data_coverage_audit.json");
   const saved = fs.readFileSync(auditFile);
+  // The recovery inventory is a derived coverage manifest rebuilt from the stores; the re-audit regenerates it too
+  // (as apply does), and it is restored afterwards like the audit.
+  const inventoryFile = path.join(stage, "src/data/data-coverage/historical_recovery_inventory.json");
+  const savedInventory = fs.existsSync(inventoryFile) ? fs.readFileSync(inventoryFile) : null;
   const audit = spawnSync("node", ["scripts/data-coverage/audit.mjs"], { cwd: stage, encoding: "utf8", timeout: timeoutMs });
-  const recheck = audit.status === 0 ? spawnSync("node", ["scripts/data-coverage/validate.mjs"], { cwd: stage, encoding: "utf8", timeout: timeoutMs }) : null;
+  const inventory = audit.status === 0 && savedInventory ? spawnSync("node", ["scripts/data-coverage/recovery-inventory.mjs"], { cwd: stage, encoding: "utf8", timeout: timeoutMs }) : null;
+  const recheck = audit.status === 0 && (!inventory || inventory.status === 0) ? spawnSync("node", ["scripts/data-coverage/validate.mjs"], { cwd: stage, encoding: "utf8", timeout: timeoutMs }) : null;
   const before = readJson(path.join(root, "src/data/data-coverage/descriptive_data_coverage_audit.json"));
   const after = audit.status === 0 ? JSON.parse(fs.readFileSync(auditFile, "utf8")) : null;
   const formalBefore = before.summary?.formal_model_input_series ?? before.summary?.formal_input_series;
   const formalAfter = after?.summary?.formal_model_input_series ?? after?.summary?.formal_input_series;
   coverageReaudit = recheck?.status === 0 ? (formalBefore === formalAfter ? "required_passes_after_reaudit" : "reaudit_changes_formal_input_series") : "fails_even_after_reaudit";
   fs.writeFileSync(auditFile, saved);
+  if (savedInventory) fs.writeFileSync(inventoryFile, savedInventory);
 }
 
 // ---------------------------------------------------------------------------------------------------------------

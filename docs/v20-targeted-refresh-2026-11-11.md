@@ -64,12 +64,12 @@ Plan `targeted-hf-20261111` (live Eurostat, 2026-11-10T22:26Z): 20 new observati
   - Category 1 then falls from 189 to 182, and the formal-input series count stays at 176.
 - **Flash estimates.** The October HICP values for AT, DE, HR and SK carry flag `e`. The acquisition stores no source flags, so these would enter as unflagged official values (`latest_revised`). Eurostat's full October HICP release later in November replaces the flash. Re-planning after that release admits final values.
 
-Owner decisions needed:
-1. **Pipeline fix:** plan's re-audit trial and apply also regenerate the recovery inventory (a derived manifest), record it in the ledger entry, and register the run at exact hashes. This is a pipeline/gate change.
-2. **When to apply:**
-   - (a) recommended: after Eurostat's full October HICP release, re-plan and apply, admitting final values;
-   - (b) now, with the 4 flash estimates unmarked.
-3. **Serbia HICP:** reclassify the 5 periods from category 1 to 6 in the inventory (an ordering fix in `recovery-inventory.mjs`), through a registered inventory regeneration.
+Decisions (owner delegated them to the project, 2026-11-11):
+1. **Pipeline fix: done.** `plan.mjs` now regenerates the recovery inventory in the stage during the re-audit trial and restores it afterwards. `apply.mjs` regenerates it, copies it to `public/research-data/`, and records `inventory_regeneration` (previous and new hashes) in the ledger entry.
+   - No gate is relaxed. Stage failures, formal-input changes and revisions without `--accept-stop` still refuse to apply.
+   - Re-evaluating the same stage (`--from-stage`, run `targeted-hf-20261111-recheck`) now gives `required_passes_after_reaudit`, the routine state of the October refreshes, in which the owner accepts the official revisions at apply time.
+2. **Apply timing: wait for Eurostat's full October HICP release.** Entering 4 flash estimates as unmarked official values would mislabel them. Then re-plan live, apply with the owner's acceptance of the revisions, and register that run at exact hashes.
+3. **Serbia HICP: reclassify within that run's inventory regeneration.** In `recovery-inventory.mjs` the definition floor is checked before the canonical-window rule, so the 5 periods become category 6. A separate governed run is not needed. Changing the code now without regenerating would break the inventory's byte-for-byte rebuild check.
 
 ## 5. Interfaces
 
@@ -83,9 +83,11 @@ The annual, monthly, national and regional comparisons and the Data Explorer rea
 - `tests/tooling/targeted-refresh-reconciliation.test.mjs`: new, 4 tests. They check exact coverage of the category-1 set, exclusive classes, live evidence from registered hosts, and that the Serbia HICP class and the 328 vintage holds are preserved.
 - This report.
 
+- `scripts/data-refresh/plan.mjs`, `scripts/data-refresh/apply.mjs`: the pipeline fix in §4.
+
 No observation store, inventory, ledger, gate, model file, release file or `package.json` changed.
 
 ## 7. Validation
 
-- Tooling suite 434/434 (incl. 4 new reconciliation tests); `data-coverage:validate`, `legal-security:validate`, closure `--check`, source-closure `--checkpoint`, public-secret scan: pass.
+- Tooling suite 435/435 (incl. 5 new reconciliation and pipeline tests); `data-coverage:validate`, `legal-security:validate`, closure `--check`, source-closure `--checkpoint`, public-secret scan: pass.
 - Stage validators of plan `targeted-hf-20261111`: all pass except `data-coverage:validate` (inventory reproduction, §4); pass after a trial inventory regeneration in the stage.

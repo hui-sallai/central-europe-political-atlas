@@ -130,6 +130,17 @@ if (plan.coverage_reaudit === "required_passes_after_reaudit") {
   reaudit = { file: AUDIT, previous_sha256: previous.sha256, new_sha256: fileSha(path.join(root, AUDIT)), formal_model_input_series: [previous.formal, formal], status: run.status === 0 ? "regenerated" : "failed" };
   if (formal !== previous.formal) console.error(`WARNING: formal_model_input_series changed ${previous.formal} → ${formal}; restore ${AUDIT} and review`);
 }
+// The recovery inventory is derived from the refreshed stores (data-coverage:validate requires it to rebuild exactly),
+// so a re-audited refresh regenerates it and its public copy, and the ledger entry records both hashes.
+const INVENTORY = "src/data/data-coverage/historical_recovery_inventory.json", PUBLIC_INVENTORY = "public/research-data/historical_recovery_inventory.json";
+let inventoryRegeneration = null;
+if (reaudit && fs.existsSync(path.join(root, INVENTORY))) {
+  const previous = fileSha(path.join(root, INVENTORY));
+  const run = spawnSync("node", ["scripts/data-coverage/recovery-inventory.mjs"], { cwd: root, encoding: "utf8" });
+  if (run.status !== 0) console.error(`WARNING: recovery inventory regeneration failed: ${run.stderr.trim().split("\n").at(-1)}`);
+  else fs.copyFileSync(path.join(root, INVENTORY), path.join(root, PUBLIC_INVENTORY));
+  inventoryRegeneration = { file: INVENTORY, public_copy: PUBLIC_INVENTORY, previous_sha256: previous, new_sha256: fileSha(path.join(root, INVENTORY)), status: run.status === 0 ? "regenerated" : "failed" };
+}
 
 const entry = {
   schema_version: "data-refresh-ledger-entry-v1",
@@ -144,6 +155,7 @@ const entry = {
   formal_model_impact: "none",
   stage_validators: plan.stage_validators,
   coverage_reaudit: reaudit,
+  ...(inventoryRegeneration ? { inventory_regeneration: inventoryRegeneration } : {}),
   units: selected.map((u) => ({
     unit: u.unit,
     source_family: u.family,
