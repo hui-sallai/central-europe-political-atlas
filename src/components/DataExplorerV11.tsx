@@ -25,6 +25,9 @@ import type { MonthlyComparisonCoverage } from "@/lib/monthlyComparisonHandoff";
 import { MonthlyComparisonHandoff } from "./MonthlyComparisonHandoff";
 
 const MOBILE_CARD_LIMIT = 120;
+// The desktop annual table renders the first rows of the current sort; the full view is one click away and every
+// download still uses all filtered rows. Keeps the default page light after the historical recovery.
+const DESKTOP_ROW_LIMIT = 150;
 
 function csvCell(value: unknown) {
   const text = value === null || value === undefined ? "" : String(value);
@@ -260,6 +263,7 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
   const [latestOnly, setLatestOnly] = useState(false);
   const [includeHistory, setIncludeHistory] = useState(true);
   const [search, setSearch] = useState("");
+  const [expandedView, setExpandedView] = useState<string | null>(null);
   const [history, setHistory] = useState<HistoryRuntime | null>(null);
   const [includeSors, setIncludeSors] = useState(true);
   const sors = useSerbiaSors(basePath, countrySlug === "serbia");
@@ -355,6 +359,9 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
   }, [countryRows, indicatorName]);
   const selectedCoverage = indicatorId === "all" ? null : coverage.find((item) => item.id === indicatorId) ?? null;
   const chartRows = indicatorId === "all" ? [] : [...rows].sort((a, b) => a.year - b.year);
+  const viewKey = [countrySlug, indicatorId, yearFrom, yearTo, sortDirection, latestOnly, includeHistory, includeSors, search].join("|");
+  const showAllRows = expandedView === viewKey;
+  const tableRows = showAllRows ? rows : rows.slice(0, DESKTOP_ROW_LIMIT);
 
   function downloadCurrentView() {
     downloadCsv(
@@ -486,9 +493,13 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
       <div className="data-table-desktop data-table-viewport mt-5" tabIndex={0} role="region" aria-label="年度观测表（可滚动）">
         <table className="research-data-table w-full min-w-[980px] text-left text-sm">
           <thead><tr>{["指标", "年份", "数值", "单位", "数据层", "来源", "状态", "更新时间", "引用"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
-          <tbody>{rows.map((item) => <tr key={item.id}><td className="px-3 py-3 font-semibold">{indicatorName(item.indicator)}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{item.indicator}</span></td><td className="metric-number px-3 py-3">{item.year}</td><td className="metric-number px-3 py-3 font-semibold">{displayValue(item)}</td><td className="px-3 py-3">{item.unit}</td><td className="px-3 py-3">{layerBadge(item.layer)}{comparabilityNote(item)}</td><td className="px-3 py-3"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{item.source_name}</a><span className="mt-1 block text-[10px] text-[var(--muted)]">{item.reliability} 级</span></td><td className="px-3 py-3">{item.status}</td><td className="metric-number px-3 py-3 text-xs">{item.updated_at || "—"}</td><td className="px-3 py-3"><CopyCitationButton text={citationFor(item)} /><NotebookCollect create={() => collectObservation(item)} /></td></tr>)}</tbody>
+          <tbody>{tableRows.map((item) => <tr key={item.id}><td className="px-3 py-3 font-semibold">{indicatorName(item.indicator)}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{item.indicator}</span></td><td className="metric-number px-3 py-3">{item.year}</td><td className="metric-number px-3 py-3 font-semibold">{displayValue(item)}</td><td className="px-3 py-3">{item.unit}</td><td className="px-3 py-3">{layerBadge(item.layer)}{comparabilityNote(item)}</td><td className="px-3 py-3"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{item.source_name}</a><span className="mt-1 block text-[10px] text-[var(--muted)]">{item.reliability} 级</span></td><td className="px-3 py-3">{item.status}</td><td className="metric-number px-3 py-3 text-xs">{item.updated_at || "—"}</td><td className="px-3 py-3"><CopyCitationButton text={citationFor(item)} /><NotebookCollect create={() => collectObservation(item)} /></td></tr>)}</tbody>
         </table>
       </div>
+      {rows.length > DESKTOP_ROW_LIMIT ? <div className="data-table-desktop mt-3 flex flex-wrap items-center gap-3 text-xs text-[var(--muted)]" data-annual-table-limit={showAllRows ? "all" : DESKTOP_ROW_LIMIT}>
+        {showAllRows ? <span>表格显示全部 {rows.length} 条。</span> : <span>表格显示前 {DESKTOP_ROW_LIMIT} 条；完整 {rows.length} 条可展开或下载 CSV。</span>}
+        <button type="button" className="rounded-full border border-[var(--line)] px-3 py-1 font-semibold text-[var(--accent)]" onClick={() => setExpandedView(showAllRows ? null : viewKey)}>{showAllRows ? <>仅显示前 {DESKTOP_ROW_LIMIT} 条</> : <>显示全部 {rows.length} 条</>}</button>
+      </div> : null}
 
       <div className="data-card-mobile mt-5 grid gap-3">
         {rows.slice(0, MOBILE_CARD_LIMIT).map((item) => <article key={item.id} className="editorial-panel p-4"><div className="flex items-start justify-between gap-3"><div><h3 className="font-semibold">{indicatorName(item.indicator)}</h3><p className="mt-1 text-xs text-[var(--muted)]">{item.year} · {item.unit}</p></div><p className="metric-number font-semibold text-[var(--accent)]">{displayValue(item)}</p></div><div className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--line)] pt-3 text-xs"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">{item.source_name}</a>{layerBadge(item.layer)}<span>{item.status}</span></div><div className="mt-2 flex justify-end"><CopyCitationButton text={citationFor(item)} /><NotebookCollect create={() => collectObservation(item)} /></div></article>)}
