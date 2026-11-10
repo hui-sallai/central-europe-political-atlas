@@ -279,10 +279,10 @@ The SORS extract files, which are record subsets of the API responses, have been
 | Item | Contracts / periods | Needed |
 |---|---|---|
 | Vintage holds (FDI, current account, GDP per capita, real GDP growth, productivity) | 19 series / 328 periods | **Decided 2026-11-11 by the owner: keep the hold; no canonical refresh for now.** The 328 periods stay `unresolved` and the formal store is unchanged. |
-| UN Comtrade before 2015 | 140 contracts | Rights review (as-is download terms), then a separate decision because these series are frozen network-model inputs |
+| UN Comtrade before 2015 | 140 contracts | **Decided 2026-11-11 (owner delegated the choice): not pursued.** New as-is downloads need a rights review, republication is cleared for non-commercial use only, and the series are frozen network-model inputs; coverage stays 2015–2025. Revisit only with a concrete research need. |
 | Periods after the frozen stores | 189 periods | The regular data-refresh path |
 | Population and national-accounts break floors | about 650 years | Methodological decision only: whether a census-based `b` flag should remain a hard floor. It currently is, by the Phase R rule. |
-| SORS extract redistribution question | 24 SORS extract files | Owner rights review |
+| SORS extract redistribution question | 24 SORS extract files | Terms read by hand 2026-11-11 (https://www.stat.gov.rs/en-us/copyright/): files and data may be distributed and shared for commercial and non-commercial use if changes are clearly indicated and SORS is cited. The extracts keep the original values, cite SORS and state the selection (source URL, response hash, response and extract record counts). Updating the registry (`raw_redistribution` → cleared with conditions, with this evidence) needs an inventory regeneration run, which awaits owner approval. |
 
 ## 8. Changes made
 
