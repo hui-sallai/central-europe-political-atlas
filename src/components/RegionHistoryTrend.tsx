@@ -4,14 +4,17 @@ import { useLocale } from "@/i18n/LocaleProvider";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 
 import { useEffect, useMemo, useState } from "react";
+import { HistoricalCoverage,useHistoricalCoverage } from "./HistoricalCoverage";
+import { compactPeriods } from "@/lib/historicalCoverage";
 import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
 
 // Phase I: historical trend for one region, beside the current snapshot. Only years whose NUTS codes were in force
 // (and with no later official break) are drawn as a trend line; back-calculated or pre-break years are shown as
 // separate points and listed with their status. Descriptive only — never used for map classes or comparisons.
 type RegionalRuntime = {
+  sources: {dataset:string;url:string}[];
   status_codes: string[];
-  indicators: Record<string, { unit: string; definition: string }>;
+  indicators: Record<string, { unit: string; definition: string; source_refs:number[] }>;
   regions: Record<string, { geo_codes: string[]; level: string }>;
   records: [string, string, number, number, number, string, number | null, number][];
 };
@@ -22,6 +25,7 @@ const statusLabels: Record<string, string> = { comparable_stable_code: "可比�
 
 export function RegionHistoryTrend({ regionId, regionName, countryId, stored }: { regionId: string; regionName: string; countryId: string; stored: StoredPoint[] }) {
   const en = useLocale() === "en";
+  const {inventory,error:coverageError}=useHistoricalCoverage();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [runtime, setRuntime] = useState<{ country: string; data: RegionalRuntime } | null>(null);
   const [failedCountry, setFailedCountry] = useState<string | null>(null);
@@ -45,7 +49,9 @@ export function RegionHistoryTrend({ regionId, regionName, countryId, stored }: 
   const comparable = history.filter((item) => item.status === "comparable_stable_code");
   const notComparable = history.filter((item) => item.status !== "comparable_stable_code");
   const unit = current[0]?.unit ?? data?.indicators[indicator]?.unit ?? "";
-  const trendStart = comparable.length ? comparable[0].year : current[0]?.year;
+  const comparablePeriods=compactPeriods([...comparable.map(p=>String(p.year)),...current.map(p=>String(p.year))]);
+  const sources=(data?.indicators[indicator]?.source_refs??[]).map(i=>data!.sources[i]).filter(Boolean);
+  const sourceUrl=sources[0]?.url;
   const breakYears = [...new Set(notComparable.map((item) => item.breakYear).filter((year): year is number => year !== null))];
   const boundaryYears = notComparable.filter((item) => item.status === "backcast_boundary_revision").map((item) => item.year);
   const available = indicatorLabels.filter(([id]) => stored.some((item) => item.region_indicator_id === id));
@@ -66,17 +72,19 @@ export function RegionHistoryTrend({ regionId, regionName, countryId, stored }: 
               description="实线为当前正式快照；虚线为边界代码稳定、无后续官方断点的可比历史；灰点为不可连成趋势的回溯或断点前数值。"
               series={[
                 { id: "current", label: en ? "Current snapshot" : "当前快照", color: "var(--chart-accent)", markers: true, points: current.map((item) => ({ x: item.year, y: item.value, source: item.source, sourceUrl:item.sourceUrl, unit, status: en ? "Current published snapshot" : "当前已发布快照" })) },
-                ...(comparable.length ? [{ id: "comparable", label: en ? "Comparable history" : "可比历史", color: "var(--chart-muted)", dash: "6 4", points: comparable.map((item) => ({ x: item.year, y: item.value, source: "Eurostat", unit, status: `${item.status} · NUTS ${item.nuts}` })) }] : []),
-                ...(notComparable.length ? [{ id: "not-comparable", label: en ? "Non-comparable historical points" : "不可比（仅数值，不连线）", color: "var(--chart-faint)", width: 0, markers: true, points: notComparable.map((item) => ({ x: item.year, y: item.value, source: "Eurostat", unit, status: `${item.status} · NUTS ${item.nuts}` })) }] : []),
+                ...(comparable.length ? [{ id: "comparable", label: en ? "Comparable history" : "可比历史", color: "var(--chart-muted)", dash: "6 4", points: comparable.map((item) => ({ x: item.year, y: item.value, source: sources.map(s=>s.dataset).join(" + "), sourceUrl, unit, status: `${item.status} · NUTS ${item.nuts}` })) }] : []),
+                ...(notComparable.length ? [{ id: "not-comparable", label: en ? "Non-comparable historical points" : "不可比（仅数值，不连线）", color: "var(--chart-faint)", width: 0, markers: true, points: notComparable.map((item) => ({ x: item.year, y: item.value, source: sources.map(s=>s.dataset).join(" + "), sourceUrl, unit, status: `${item.status} · NUTS ${item.nuts}` })) }] : []),
               ]}
               xKind="number" xLabel="年份" yLabel={unit} formatX={(value) => String(Math.round(value))} height={240}
             />
           </div>
           <p className="mt-2 text-xs leading-5 text-[var(--muted)]" data-trend-status={comparable.length ? "comparable" : "not-comparable"}>
-            {comparable.length ? `可比趋势区间：${trendStart}–${current.at(-1)?.year ?? comparable.at(-1)!.year}（NUTS 代码自该年起未变，无后续官方断点）。` : "当前快照之前没有可与之连成趋势的历史年份。"}
+            {comparable.length ? `${en?"Available comparable periods":"实际可比时期"}: ${comparablePeriods} (${en?"stable codes; gaps remain gaps":"代码稳定；缺口保持缺失"})` : "当前快照之前没有可与之连成趋势的历史年份。"}
             {breakYears.length ? ` 官方序列断点：${breakYears.sort((a, b) => a - b).join("、")} 年，此前数值不与之后连线。` : ""}
             {boundaryYears.length ? ` ${boundaryYears[0]}–${boundaryYears.at(-1)} 年为边界修订前的 Eurostat 回溯值，仅供参考。` : ""}
           </p>
+          <HistoricalCoverage inventory={inventory} error={coverageError} country={countryId} region={regionId} indicator={indicator} periods={[...history.map(p=>String(p.year)),...current.map(p=>String(p.year))]}/>
+          <p className="mt-2 text-xs">{data?.indicators[indicator]?.definition} · {sources.map(source=><a key={source.url} className="mr-2 underline" href={source.url}>{source.dataset}</a>)}</p>
           <details className="mt-2 text-xs">
             <summary className="cursor-pointer font-semibold">逐年边界与来源（{history.length} 年）</summary>
             <div className="data-table-viewport mt-2" tabIndex={0} role="region" aria-label="区域历史逐年表（可滚动）">

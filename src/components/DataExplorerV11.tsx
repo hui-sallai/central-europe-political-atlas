@@ -8,6 +8,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useState } from "reac
 import type { Country, Indicator, Observation } from "@/types/researchData";
 import { getResearchPackageFilename } from "@/lib/releaseMetadata";
 import { MacroDriverWorkbench } from "@/components/MacroDriverWorkbench";
+import { HistoricalCoverage, useHistoricalCoverage } from "./HistoricalCoverage";
 import { DataAvailabilitySummary } from "./DataAvailabilitySummary";
 import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
 import { monthlyHistoryFor, useMonthlyHistory } from "@/components/useMonthlyHistory";
@@ -63,6 +64,7 @@ function downloadCsv(filename: string, headers: string[], rows: unknown[][]) {
 
 function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { countries: Country[];refreshManifest?:RefreshManifest;monthlyCoverage:MonthlyComparisonCoverage }) {
   const locale = useLocale();
+  const { inventory: coverageInventory, error: coverageError } = useHistoricalCoverage();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [records, setRecords] = useState<HfRuntimeRow[]>([]);
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
@@ -153,6 +155,7 @@ function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { 
 
       <MonthlyComparisonHandoff countries={countries} country={countrySlug} indicator={indicator} fromYear={yearFrom} toYear={yearTo} coverage={monthlyCoverage} ready={urlReady && loadState === "ready"} />
       {historySeries.length ? <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-[var(--line)] py-4 text-sm" data-history-layer="high-frequency"><label className="flex items-center gap-2 font-semibold"><input type="checkbox" checked={includeHistory} onChange={(event) => setIncludeHistory(event.target.checked)} /> 包含历史描述性数据（{historySeries[0][2]} – {historySeries.at(-1)![2]}）</label><span className="text-xs text-[var(--muted)]">历史段仅供描述研究，从定义一致的官方起点开始；正式高频模型基线仍为 2015 年起的冻结序列。</span></div> : monthlyHistory.state === "ready" && formalSeries.length ? <p className="border-b border-[var(--line)] py-3 text-xs text-[var(--muted)]">该国家与指标暂无安全的历史描述性回填（定义断点需方法复核）。</p> : null}
+      <HistoricalCoverage inventory={coverageInventory} error={coverageError} country={countrySlug} indicator={indicator} frequency="monthly" periods={series.filter(r=>r[4]!==null).map(r=>r[2])} />
       <DataAvailabilitySummary points={series.map(r => ({period:monthNumber(r[2]),value:r[4],status:r[11]}))} from={yearFrom === "all" ? undefined : Number(yearFrom)*12} to={yearTo === "all" ? undefined : Number(yearTo)*12+11} frequency="monthly" formatPeriod={monthLabel} unit={series[0]?.[6] ?? ""} onUseAvailable={() => { if(years.length) {setYearFrom(String(years[0]));setYearTo(String(years.at(-1)));} }} />
       {refreshManifest?<><RefreshHistory manifest={refreshManifest} country={countrySlug} indicators={[indicator]}/><ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:r[2],value:r[4],unit:r[6],status:r[11],dataset:isHistory(r)?"monthly_history":"high_frequency",indicator:r[3]}))}/></>:null}
       {loadState === "ready" && series.length ? (
@@ -253,6 +256,7 @@ export function coverageOf(periods: { period: number; value: number | null }[]) 
 
 export function DataExplorerV11({ countries, indicators, observations,refreshManifest,monthlyCoverage = {} }: { countries: Country[]; indicators: Indicator[]; observations: Observation[];refreshManifest?:RefreshManifest;monthlyCoverage?:MonthlyComparisonCoverage }) {
   const locale = useLocale();
+  const { inventory: coverageInventory, error: coverageError } = useHistoricalCoverage();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [dataset, setDataset] = useState<"annual" | "high_frequency" | "macro_drivers">("annual");
   const [countrySlug, setCountrySlug] = useState("poland");
@@ -437,6 +441,8 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
         <span className="text-xs text-[var(--muted)]">{historyState === "loading" ? "正在加载历史数据…" : historyState === "error" ? "历史数据不可用，仅显示正式观测" : "历史描述性数据仅供描述研究，不进入任何模型、指数或情景计算。"}</span>
       </div>
 
+      {includeSors && countrySlug === "serbia" ? <p className="mt-3 text-xs">{locale === "en" ? "The annual coverage panel applies to the registered Eurostat contract. SORS observations retain their separate definitions and comparability notes." : "年度覆盖说明对应登记的 Eurostat 数据契约；SORS 观测保留各自定义与可比性说明。"}</p> : null}
+      {indicatorId !== "all" ? <HistoricalCoverage inventory={coverageInventory} error={coverageError} country={countrySlug} indicator={indicatorId} periods={countryRows.filter(r=>r.indicator===indicatorId&&r.layer!=="sors"&&r.value!==null).map(r=>String(r.year))} /> : null}
       {indicatorId !== "all" ? <DataAvailabilitySummary points={countryRows.filter(r => r.indicator === indicatorId).map(r => ({ period:r.year,value:r.value,status:r.restriction ?? r.status }))} from={yearFrom === "all" ? undefined : Number(yearFrom)} to={yearTo === "all" ? undefined : Number(yearTo)} frequency="annual" unit={selectedCoverage?.unit ?? ""} onUseAvailable={() => { const years = availableYears; if(years.length) {setYearFrom(String(years[0]));setYearTo(String(years.at(-1)));setLatestOnly(false);} }} /> : null}
       {indicatorId!=="all"?<>{refreshManifest?<RefreshHistory manifest={refreshManifest} country={countrySlug} indicators={indicatorId === "all" ? undefined : [indicatorId]}/>:null}{refreshManifest?<ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:String(r.year),value:r.value,unit:r.unit,status:r.status,dataset:r.layer==="sors"?"serbia_sors_annual":r.layer==="history"?"annual_history":"annual_observations",indicator:r.source_code??r.indicator,updated:r.updated_at,original:r.original_value,originalUnit:r.original_unit}))}/>:null}</>:null}
       {selectedCoverage ? (

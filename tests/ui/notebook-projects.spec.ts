@@ -9,6 +9,10 @@ const legacy = () => ({ ...addNotebookEvidence(emptyNotebook("en", "v2.0"), draf
 async function seed(page: Page) { const book = legacy(), raw = serializeNotebook(book); await page.addInitScript(({ key, raw }) => { if (localStorage.getItem(key) === null) localStorage.setItem(key, raw); }, { key: NOTEBOOK_STORAGE_KEY, raw }); return { book, raw }; }
 const registry = async (page: Page) => parseProjectRegistry((await page.evaluate(key => localStorage.getItem(key), NOTEBOOK_PROJECTS_KEY))!);
 const file = (value: unknown) => ({ name: "notebook.json", mimeType: "application/json", buffer: Buffer.from(JSON.stringify(value)) });
+async function decideDialog(page: Page, accept: boolean, action: () => Promise<unknown>) {
+  const handled = page.waitForEvent("dialog").then(dialog => accept ? dialog.accept() : dialog.dismiss());
+  await Promise.all([handled, action()]);
+}
 for (const prefix of ["", "/en"]) {
   const en = !!prefix, choose = en ? "Choose research project" : "选择研究项目", question = en ? "Research question" : "研究问题";
   test(`independent projects, direct JSON, import choices, deletion and brief ${prefix || "zh"}`, async ({ page }, info) => {
@@ -37,10 +41,10 @@ for (const prefix of ["", "/en"]) {
     expect((await registry(page)).projects.find(p => p.id === second)!.notebook.research_question).toBe("Question B");
     expect((await registry(page)).projects.at(-1)!.notebook).toEqual(book);
     await page.getByLabel(en ? "JSON import destination" : "JSON 导入目标", { exact: true }).selectOption("replace");
-    page.once("dialog", d => d.dismiss()); await page.getByLabel(en ? "Import notebook JSON" : "导入研究笔记 JSON", { exact: true }).setInputFiles(file(backup)); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Original question");
-    page.once("dialog", d => d.accept()); await page.getByLabel(en ? "Import notebook JSON" : "导入研究笔记 JSON", { exact: true }).setInputFiles(file(backup)); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Question B");
-    page.once("dialog", d => d.dismiss()); await page.getByRole("button", { name: en ? "Delete active project" : "删除当前项目", exact: true }).click(); expect((await registry(page)).projects.length).toBe(3);
-    page.once("dialog", d => d.accept()); await page.getByRole("button", { name: en ? "Delete active project" : "删除当前项目", exact: true }).click(); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Original question"); expect((await registry(page)).projects.length).toBe(2);
+    await decideDialog(page, false, () => page.getByLabel(en ? "Import notebook JSON" : "导入研究笔记 JSON", { exact: true }).setInputFiles(file(backup))); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Original question");
+    await decideDialog(page, true, () => page.getByLabel(en ? "Import notebook JSON" : "导入研究笔记 JSON", { exact: true }).setInputFiles(file(backup))); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Question B");
+    await decideDialog(page, false, () => page.getByRole("button", { name: en ? "Delete active project" : "删除当前项目", exact: true }).click()); expect((await registry(page)).projects.length).toBe(3);
+    await decideDialog(page, true, () => page.getByRole("button", { name: en ? "Delete active project" : "删除当前项目", exact: true }).click()); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Original question"); expect((await registry(page)).projects.length).toBe(2);
     expect(await page.evaluate(key => localStorage.getItem(key), NOTEBOOK_STORAGE_KEY)).toBe(raw);
     const axe = await new AxeBuilder({ page }).include("[data-notebook-projects]").analyze(); expect(axe.violations.filter(v => v.impact === "serious" || v.impact === "critical")).toEqual([]);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 2)).toBe(true);
@@ -72,7 +76,7 @@ for (const prefix of ["", "/en"]) {
     await page.getByRole("textbox", { name: question, exact: true }).fill("Question A edited"); await expect(page.getByLabel(choose, { exact: true })).toBeEnabled();
     await expect(other.getByRole("textbox", { name: question, exact: true })).toHaveValue("Question B");
     await page.getByLabel(choose, { exact: true }).selectOption(second); await expect(page.getByRole("textbox", { name: question, exact: true })).toHaveValue("Question B");
-    page.once("dialog", d => d.accept()); await page.getByRole("button", { name: en ? "Delete active project" : "删除当前项目", exact: true }).click();
+    await decideDialog(page, true, () => page.getByRole("button", { name: en ? "Delete active project" : "删除当前项目", exact: true }).click());
     await expect(other.getByLabel(choose, { exact: true })).toBeDisabled(); await expect(other.getByRole("textbox", { name: question, exact: true })).toHaveValue("Question B");
     await other.getByRole("button", { name: en ? "Save pending notebook as a new project" : "将待保存笔记另存为新项目", exact: true }).click(); await expect(other.getByLabel(choose, { exact: true })).toBeEnabled();
     const recovered = await registry(other); expect(recovered.projects.length).toBe(2); expect(recovered.projects[0].notebook.research_question).toBe("Question A edited"); expect(recovered.projects[1].notebook.research_question).toBe("Question B"); expect(recovered.projects[1].id).not.toBe(second);

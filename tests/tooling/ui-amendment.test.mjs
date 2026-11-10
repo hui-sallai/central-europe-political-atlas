@@ -49,7 +49,7 @@ test('wildcard paths, missing sha256, OTHER classification and data_change_allow
 test('the committed amendment lists exact hashes for presentation files only', () => {
   const { problems, approved } = approvedUiFiles(record.amendments);
   assert.deepEqual(problems, []);
-  assert.equal(approved.size, 147); // Four scoped helpers, two existing presentation components and the scoped mobile-map stylesheet for the owner-requested v2.0 usability improvements; plus useMonthlyHistory.ts for the 2026-11-10 historical recovery (Phase R flag).
+  assert.equal(approved.size, 149); // Previous 147 paths plus the two presentation-only historical coverage adapters; every path remains exact-hash pinned.
   assert.equal(approved.has('src/components/HomeResearchDiscovery.tsx'), true);
   for (const [p] of approved) assert.match(p, /^src\/(app|components|lib)\//);
 });

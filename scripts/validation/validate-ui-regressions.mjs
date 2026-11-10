@@ -132,7 +132,9 @@ for (const [file, label] of [["src/components/DataExplorerV11.tsx", "高频月�
   const spatial = read("src/components/ComparativeSpatialWorkbench.tsx");
   check(trend.includes("regional-history/${countryId}.json") && /id: "not-comparable"[^}]*width: 0/.test(trend) && /status === "comparable_stable_code"/.test(trend), "Region trend: per-country runtime, only comparable years form the dashed trend, others are points");
   check(trend.includes("data-trend-status") && trend.includes("不可连成趋势") && trend.includes("未合并不同 NUTS 版本"), "Region trend states non-comparability and the no-merge boundary policy in the UI");
-  check(spatial.includes("<RegionHistoryTrend") && !/regional-history|regional_descriptive_history/.test(spatial), "map/choropleth code does not read the regional history (trend component only)");
+  check(spatial.includes("<RegionHistoryTrend") && !/regional_descriptive_history/.test(spatial), "regional presentation reads compact runtimes, never full descriptive stores");
+  check(spatial.includes("const mapObservations = loadedObservations;") && !/const mapObservations[^;]*(historicalPoints|historyByCountry)/.test(spatial), "map/choropleth and map exports remain snapshot-only; history is separate");
+  check(spatial.includes("r.status==='comparable_stable_code'") && spatial.includes("inRanges(r.year,ranges)") && spatial.includes("commonObservationPeriods(regionalRows)"), "historical comparison requires stable codes, approved inventory periods and actual common observations");
   // Serbia (SORS): own labelled layer, Serbia-only loading, comparability note, CPI never shown as HICP.
   const sorsHook = read("src/components/useSerbiaSors.ts");
   const sorsPanel = read("src/components/SerbiaSorsMonthlyPanel.tsx");

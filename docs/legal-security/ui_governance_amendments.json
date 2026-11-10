@@ -2823,6 +2823,60 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-10"
+    },
+    {
+      "amendment_id": "v20-historical-coverage-integration-2026-11-11",
+      "status": "owner_approved",
+      "approved_by": "Owner implementation brief 2026-11-11: integrate the approved historical recovery inventory and closure matrix into existing availability and comparison interfaces; retain all held periods, definition floors, geography and publication gates; no deployment authorised.",
+      "baseline": "a8d10a6112c89eef628334b468db032cef1664a6",
+      "files": [
+        {
+          "path": "src/components/AnnualComparisonWorkbench.tsx",
+          "sha256": "da547b692e90872df5b1004559f993de107f7d81f0ae1b19f75582785fcb0610",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ComparativeSpatialWorkbench.tsx",
+          "sha256": "fa29634b15c42f65e8f6b3b6ffc8042e5998140987c94e2f57d09542acd64c9e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/DataExplorerV11.tsx",
+          "sha256": "f6fddafb76df7110633357757f4b6f52060d720f6f5dc36e54468655f33dd112",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/MonthlyComparisonWorkbench.tsx",
+          "sha256": "40408ac8d769d6212c8e4cb6ae739f1962f37950d46b4cb525c17915c96bd54f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/RegionHistoryTrend.tsx",
+          "sha256": "81003477459d37dc594f130742f0f7ef1640c1315b1dfcfbf6b6d3bd339a9fe5",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/HistoricalCoverage.tsx",
+          "sha256": "cd59dcda1f31393a1d563c68bd918f318af78225409289cbfa61a015cf481400",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/regionalComparison.ts",
+          "sha256": "6a64a7fc993c5171012be5570a5d407e7cb57aaf6ad1c86a79a6e5a9be4a07eb",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/historicalCoverage.ts",
+          "sha256": "dd5284a3987db19fed942add68a773dd84c8e8153f6d835f3769d2e4c0927be6",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-11"
     }
   ]
 }
