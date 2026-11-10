@@ -278,7 +278,7 @@ The SORS extract files, which are record subsets of the API responses, have been
 
 | Item | Contracts / periods | Needed |
 |---|---|---|
-| Vintage holds (FDI, current account, GDP per capita, real GDP growth, productivity) | 19 series / 328 periods | Owner decision on a canonical refresh (formal input) or keeping the hold |
+| Vintage holds (FDI, current account, GDP per capita, real GDP growth, productivity) | 19 series / 328 periods | **Decided 2026-11-11 by the owner: keep the hold; no canonical refresh for now.** The 328 periods stay `unresolved` and the formal store is unchanged. |
 | UN Comtrade before 2015 | 140 contracts | Rights review (as-is download terms), then a separate decision because these series are frozen network-model inputs |
 | Periods after the frozen stores | 189 periods | The regular data-refresh path |
 | Population and national-accounts break floors | about 650 years | Methodological decision only: whether a census-based `b` flag should remain a hard floor. It currently is, by the Phase R rule. |
