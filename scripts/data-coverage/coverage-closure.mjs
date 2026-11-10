@@ -262,7 +262,7 @@ export function provenanceFindings() {
   const walk = (o) => { if (Array.isArray(o)) return o.forEach(walk); if (!o || typeof o !== "object") return; if (typeof o.retrieved_at === "string" && o.retrieved_at.startsWith("2026-11")) retrieved.push(o.retrieved_at); Object.values(o).forEach(walk); };
   for (const p of ["src/data/historical/annual_history_manifest.json", "src/data/historical/monthly_history_manifest.json", "src/data/historical/regional_descriptive_history.json"]) walk(read(p));
   retrieved.sort();
-  const priorRuns = ledger.filter((e) => e.run_id !== run.run_id && e.mode !== "ledger-correction").map((e) => ({ run_id: e.run_id, planned_at: e.planned_at, applied_at: e.applied_at, series_with_recorded_changes: e.units.reduce((n, u) => n + new Set([...(u.new_periods ?? []).map((s) => s.series), ...(u.revisions ?? []).map((s) => s.series)]).size, 0) }));
+  const priorRuns = ledger.filter((e) => e.run_id !== run.run_id && Array.isArray(e.units)).map((e) => ({ run_id: e.run_id, planned_at: e.planned_at, applied_at: e.applied_at, series_with_recorded_changes: e.units.reduce((n, u) => n + new Set([...(u.new_periods ?? []).map((s) => s.series), ...(u.revisions ?? []).map((s) => s.series)]).size, 0) }));
   return {
     run_id: run.run_id,
     recorded: { planned_at: run.planned_at, applied_at: run.applied_at, new_observations: run.units.reduce((n, u) => n + u.stores.reduce((m, s) => m + s.new_observations, 0), 0), units_with_per_series_detail: run.units.filter((u) => u.new_periods || u.revisions).length },

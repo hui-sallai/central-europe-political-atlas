@@ -2,7 +2,8 @@
 // 2026-10-19: Eurostat monthly high-frequency refresh (run monthly-eurostat-20261019); 2026-10-20: Serbia SORS refresh
 // (run serbia-20261020); 2026-11-10: official historical recovery (run historical-recovery-20261110, owner-approved,
 // descriptive stores only, verified by the store validators, coverage re-audit and recovery inventory); 2026-11-10:
-// ledger correction of that run and regenerated recovery inventory (run ledger-correction-20261110).
+// ledger correction of that run and regenerated recovery inventory (run ledger-correction-20261110); SORS rights
+// registry update and inventory regeneration (run rights-update-20261111).
 // Later runs supersede shared files (coverage audit, ledger). No general data exemption:
 // only the listed files of each run, at their exact hashes, and only for runs recorded in the refresh ledger.
 export const DATA_REFRESH_FILE = 'docs/legal-security/data_refresh_amendments.json';
@@ -169,6 +170,18 @@ export const DATA_REFRESH_RUNS = {
     // historical-recovery-20261110 added as a new file; still limited to NEW_PATH_SCOPE.
     allow_new_paths: true,
     verification: 'ledger-correction: ledger hash chain verified, original entries byte-identical, per-series detail equals the 7,799 recorded additions, inventory rebuild and data-coverage validators',
+    paths: [
+      'public/research-data/historical_recovery_inventory.json',
+      'src/data/data-coverage/historical_recovery_inventory.json',
+      'src/data/data-refresh/refresh_ledger.jsonl',
+    ],
+  },
+  'rights-update-20261111': {
+    approved_on: '2026-11-11', unit: 'rights-update',
+    // Owner-approved 2026-11-11 ("批准更新 SORS 权利登记"): src-sors raw_redistribution from the hand-read SORS Terms of
+    // Use; supersedes the recovery inventory (rights fields copied from the registry); still limited to NEW_PATH_SCOPE.
+    allow_new_paths: true,
+    verification: 'rights-update: ledger hash chain verified, inventory differs only in src-sors rights fields, inventory rebuild, legal-security and data-coverage validators',
     paths: [
       'public/research-data/historical_recovery_inventory.json',
       'src/data/data-coverage/historical_recovery_inventory.json',

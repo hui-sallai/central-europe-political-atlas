@@ -268,11 +268,11 @@ The provenance panel applies the correction only when its own approval record ma
 |---|---|---|---|
 | Eurostat | Cleared with conditions | Cleared with conditions | Required |
 | BIS | Cleared with conditions | Cleared with conditions | Required |
-| SORS | Cleared with conditions | Not cleared | Required |
+| SORS | Cleared with conditions | Cleared with conditions (since 2026-11-11) | Required |
 | World Bank | Cleared with conditions | Not cleared | Required |
 | UN Comtrade | Non-commercial | Not cleared | Required |
 
-The SORS extract files, which are record subsets of the API responses, have been in the public repository since the owner-approved SORS ingestion (`2477596`, 2026-09-30). Whether an extract counts as raw redistribution under the registry's "not cleared" is a rights question for the owner. This audit only observes it.
+The SORS extract files, which are record subsets of the API responses, have been in the public repository since the owner-approved SORS ingestion (`2477596`, 2026-09-30). The registry recorded raw redistribution as "not cleared" without terms evidence. On 2026-11-11 the SORS Terms of Use were read by hand and the registry entry was updated (run `rights-update-20261111`, see §7).
 
 ## 7. What still needs source work or a decision
 
@@ -282,7 +282,7 @@ The SORS extract files, which are record subsets of the API responses, have been
 | UN Comtrade before 2015 | 140 contracts | **Decided 2026-11-11 (owner delegated the choice): not pursued.** New as-is downloads need a rights review, republication is cleared for non-commercial use only, and the series are frozen network-model inputs; coverage stays 2015–2025. Revisit only with a concrete research need. |
 | Periods after the frozen stores | 189 periods | The regular data-refresh path |
 | Population and national-accounts break floors | about 650 years | Methodological decision only: whether a census-based `b` flag should remain a hard floor. It currently is, by the Phase R rule. |
-| SORS extract redistribution question | 24 SORS extract files | Terms read by hand 2026-11-11 (https://www.stat.gov.rs/en-us/copyright/): files and data may be distributed and shared for commercial and non-commercial use if changes are clearly indicated and SORS is cited. The extracts keep the original values, cite SORS and state the selection (source URL, response hash, response and extract record counts). Updating the registry (`raw_redistribution` → cleared with conditions, with this evidence) needs an inventory regeneration run, which awaits owner approval. |
+| SORS extract redistribution question | 24 SORS extract files | Terms read by hand 2026-11-11 (https://www.stat.gov.rs/en-us/copyright/): files and data may be distributed and shared for commercial and non-commercial use if changes are clearly indicated and SORS is cited. The extracts keep the original values, cite SORS and state the selection (source URL, response hash, response and extract record counts). **Applied 2026-11-11 (owner approval "批准更新 SORS 权利登记"):** `src-sors` `raw_redistribution` → cleared with conditions, `review_status` verified, `terms_url` the Terms of Use page; recovery inventory regenerated (only the rights fields of the 33 SORS series changed); one ledger entry `rights-update-20261111`; registered exact-hash run. |
 
 ## 8. Changes made
 
@@ -297,6 +297,7 @@ The SORS extract files, which are record subsets of the API responses, have been
 - `src/lib/refreshProvenance.ts`, `src/components/DataRefreshTransparency.tsx`: the correction is applied in the panel (UI amendment `v20-ledger-correction-provenance-2026-11-10`).
 - Governance: run `ledger-correction-20261110` in `data-refresh-amendments.mjs` and `data_refresh_amendments.json`, at exact hashes.
 - Gate (owner approval "批准方案 1，调整门禁"): the correction run may supersede the inventory that the recovery run added as a new file. The permission is still limited to the same narrow path scope. New-file hashes are now applied in run order, as hashes of existing files already were, so a later run supersedes an earlier one and file order never decides.
+- SORS rights (owner approval "批准更新 SORS 权利登记", 2026-11-11): `scripts/data-refresh/rights-update-20261111.mjs` (new; runs once, reverts if the chain does not verify) updated the `src-sors` entry in `docs/legal-security/source_rights_registry.json`, regenerated the inventory and its public copy, and appended one ledger line; run `rights-update-20261111` registered at exact hashes.
 
 No observation store, model file, release file or `package.json` changed.
 

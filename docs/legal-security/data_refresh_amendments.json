@@ -634,6 +634,37 @@
           "sha256": "8399cba684e0e8bbb8b0103dde775270d02f5bc9c86fe6a68c966cfa0332c7e9"
         }
       ]
+    },
+    {
+      "run_id": "rights-update-20261111",
+      "status": "owner_approved",
+      "approved_on": "2026-11-11",
+      "approved_by": "owner approval 2026-11-11 (\"批准更新 SORS 权利登记\"); deployment still requires a separate 推送上线",
+      "unit": "rights-update",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "verification": "rights-update: ledger hash chain verified, inventory differs only in src-sors rights fields, inventory rebuild, legal-security and data-coverage validators",
+      "ledger_plan_sha256": "d77e514ebc5b0f95034e3e708b4779620491f7647fab9e158309be5622b22f5c",
+      "summary": "src-sors raw_redistribution not_cleared → cleared_with_conditions (review_status verified, terms_url https://www.stat.gov.rs/en-us/copyright/ read by hand 2026-11-11: distribution and sharing permitted if changes are clearly indicated and SORS is cited); recovery inventory regenerated, only the rights fields of the 33 SORS series changed. Observation stores unchanged.",
+      "formal_model_input_change_allowed": false,
+      "frozen_snapshot_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "research_gate_change_allowed": false,
+      "release_version_change_allowed": false,
+      "files": [
+        {
+          "path": "public/research-data/historical_recovery_inventory.json",
+          "sha256": "bb43857401845e057f57f986919bbb06ed78498e6fb47bd22fef01a348fef89d"
+        },
+        {
+          "path": "src/data/data-coverage/historical_recovery_inventory.json",
+          "sha256": "bb43857401845e057f57f986919bbb06ed78498e6fb47bd22fef01a348fef89d"
+        },
+        {
+          "path": "src/data/data-refresh/refresh_ledger.jsonl",
+          "sha256": "ac39b31e8c571f1c90d2360a005503e15bb01248cd0866b63d30b7b8ec97a440"
+        }
+      ]
     }
   ]
 }

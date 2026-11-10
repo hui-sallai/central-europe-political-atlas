@@ -20,10 +20,10 @@
   "src/data/historical/monthly_history_manifest.json": "ffde494580519c35a4096c43635d1a89962b864053e3c3f9e95f84f2dc42cb45",
   "src/data/historical/regional_history_manifest.json": "6e456cfbfa3768297d8142c9bfadd4884cd637f30c39977186db37047e13449b",
   "src/data/serbia/serbia_ingestion_manifest.json": "f0d9670947c061685b1ef18b8d836d33011b56866e4f4c88e9f842810233276f",
-  "src/data/data-coverage/historical_recovery_inventory.json": "56e07110a4d2f85e89397ec7290560460d40173317f209a2963db6ced48d004f",
+  "src/data/data-coverage/historical_recovery_inventory.json": "bb43857401845e057f57f986919bbb06ed78498e6fb47bd22fef01a348fef89d",
   "src/data/data-coverage/descriptive_data_coverage_audit.json": "c3141b6499c2fef237ca2e8558e8bd033cbc18ea6ce13d61b1e73c91c7065d21",
-  "src/data/data-refresh/refresh_ledger.jsonl": "8399cba684e0e8bbb8b0103dde775270d02f5bc9c86fe6a68c966cfa0332c7e9",
-  "docs/legal-security/source_rights_registry.json": "721e2e96adea111bb6a6e4c76f2b38a420d310f0abce503e76b16b707057b7cf",
+  "src/data/data-refresh/refresh_ledger.jsonl": "ac39b31e8c571f1c90d2360a005503e15bb01248cd0866b63d30b7b8ec97a440",
+  "docs/legal-security/source_rights_registry.json": "8f9f76de3e5b60cb5f4bd2ae5501b89fb429e3029391665050db49b28240867f",
   "public/research-data/annual_history_runtime.json": "cb5ab3fc032c456e4b246422e807e9c02147e08368bf68a1e94ad07d3e678a49",
   "public/research-data/monthly_history_runtime.json": "9711cffed5c5ec06547d8e5213cb2ea72f69f565939a787eeaee7bc4c44641e2",
   "public/research-data/serbia_sors_runtime.json": "e86802d84d7679f1427155de00425ea29d807ad8f216a0449643f71b0570e480"
@@ -6750,13 +6750,13 @@
    "source_id": "src-sors",
    "institution": "Statistical Office of the Republic of Serbia (SORS/RZS)",
    "licence": "SORS terms of use (free reuse incl. commercial, cite SORS)",
-   "terms_url": "https://www.stat.gov.rs/",
+   "terms_url": "https://www.stat.gov.rs/en-us/copyright/",
    "reuse_right": "cleared_with_conditions",
    "normalized_republication": "cleared_with_conditions",
-   "raw_redistribution": "not_cleared",
+   "raw_redistribution": "cleared_with_conditions",
    "attribution": "Source: Statistical Office of the Republic of Serbia",
-   "reviewed_at": "2026-10-04",
-   "review_status": "documented"
+   "reviewed_at": "2026-11-11",
+   "review_status": "verified"
   },
   {
    "source_id": "src-un-comtrade",

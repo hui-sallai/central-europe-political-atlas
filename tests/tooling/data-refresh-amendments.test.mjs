@@ -24,8 +24,10 @@ test('the approved runs pin exactly their files at their current hashes and matc
     assert.equal(entry.formal_model_impact, 'none');
     assert.equal(entry.plan_sha256, r.ledger_plan_sha256);
   }
-  assert.equal(ledger.at(-1).run_id, 'ledger-correction-20261110');
-  assert.equal(ledger.at(-1).corrects.run_id, 'historical-recovery-20261110');
+  assert.equal(ledger.find((e) => e.run_id === 'ledger-correction-20261110').corrects.run_id, 'historical-recovery-20261110');
+  assert.equal(ledger.at(-1).run_id, 'rights-update-20261111');
+  assert.equal(ledger.at(-1).rights_update.source_id, 'src-sors');
+  assert.deepEqual(ledger.at(-1).rights_update.fields.find((f) => f.field === 'raw_redistribution'), { field: 'raw_redistribution', before: 'not_cleared', after: 'cleared_with_conditions' });
 });
 
 test('a later run supersedes an earlier run for shared files', () => {
@@ -83,10 +85,14 @@ test('ledger correction: a later run supersedes a new file hash in run order, ne
   const recovery = recs.find((r) => r.run_id === 'historical-recovery-20261110'), correction = recs.find((r) => r.run_id === 'ledger-correction-20261110');
   const hashIn = (r) => r.files.find((f) => f.path === inv).sha256;
   assert.notEqual(hashIn(recovery), hashIn(correction));
-  assert.equal(approvedDataRefreshFiles(recs).added.get(inv), hashIn(correction));
+  const rights = recs.find((r) => r.run_id === 'rights-update-20261111');
+  assert.notEqual(hashIn(correction), hashIn(rights));
+  assert.equal(approvedDataRefreshFiles([recovery, correction]).added.get(inv), hashIn(correction));
   assert.equal(approvedDataRefreshFiles([correction, recovery]).added.get(inv), hashIn(correction), 'reversed file order');
   assert.equal(approvedDataRefreshFiles([recovery]).added.get(inv), hashIn(recovery));
-  assert.equal(crypto.createHash('sha256').update(fs.readFileSync(inv)).digest('hex'), hashIn(correction));
-  for (const p of DATA_REFRESH_RUNS['ledger-correction-20261110'].paths) assert.ok(p.endsWith('refresh_ledger.jsonl') || newPathAllowed('ledger-correction-20261110', p), p);
+  assert.equal(approvedDataRefreshFiles(recs).added.get(inv), hashIn(rights));
+  assert.equal(approvedDataRefreshFiles([rights, correction, recovery]).added.get(inv), hashIn(rights), 'reversed file order, three runs');
+  assert.equal(crypto.createHash('sha256').update(fs.readFileSync(inv)).digest('hex'), hashIn(rights));
+  for (const id of ['ledger-correction-20261110', 'rights-update-20261111']) for (const p of DATA_REFRESH_RUNS[id].paths) assert.ok(p.endsWith('refresh_ledger.jsonl') || newPathAllowed(id, p), p);
   assert.equal(newPathAllowed('ledger-correction-20261110', 'src/data/observations/new.json'), false);
 });
