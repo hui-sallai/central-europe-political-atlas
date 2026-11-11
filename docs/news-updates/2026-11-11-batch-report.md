@@ -157,11 +157,23 @@ Governance (owner approval "批准登记新闻批次门禁并修正闭合快照�
 
 ## 13. Deployment
 
-Not yet deployed. This needs the owner's separate "推送上线".
+The owner approved both pushes ("推送上线").
+
+- `34f4f42`: the deploy run 43025156258 failed only on the Linux desktop news screenshot, because that baseline is recorded on the runner, so nothing was deployed.
+- The deploy workflow's record mode (run 43075598339, which never deploys) recorded the Linux baselines on `34f4f42`. Its first runs failed: two unrelated tests were flaky, and later the runner could not resolve the Ubuntu package mirrors. The workflow was not changed.
+- Only the desktop news baseline differed. It was reviewed and committed as `5c1be3d`, together with a re-recorded darwin news baseline. The previous darwin image showed 569, from before the Hungary–Rubio item was removed.
+- `5c1be3d` was deployed by run 43107041486 (build and deploy successful). The live `deployment_provenance.json` reports source commit `5c1be3d` and that run.
 
 ## 14. Final live event count
 
-Expected after deployment: 568 verified events (578 records). Not yet verified in production.
+Verified in production on 2026-11-12:
+
+- `events.json` holds 578 records: 568 verified and 10 structural samples. The latest event date is 2026-11-11.
+- 107 records fall in the window 2026-10-19 to 2026-11-11: HU 12, PL 13, CZ 11, SK 11, RS 11, DE 10, RO 10, SI 10, HR 10, AT 9.
+- The Chinese homepage shows "新闻批次截至 2026-11-11" and the English homepage "News batch through: 2026-11-11". `/news/` and `/en/news/` return 200, and the English page shows the English titles.
+- `news_translations_2026-11-11.json` holds 107 records, and `events.csv` is served.
+- The research package `research-data-v2.0.zip` matches its provenance SHA-256 (`f10ceddf…684f77f`).
+- All 6 production acceptance tests pass. Open alerts: code scanning 0, secret scanning 0, Dependabot 1 (minimatch, as before).
 
 ## 15. Remaining limitations
 
