@@ -1,7 +1,7 @@
 {
  "schema_version": "news-source-verification-v1",
  "window_end": "2026-11-11",
- "record_count": 108,
+ "record_count": 107,
  "records": [
   {
    "news_id": "hu-2026-10-20-karman-andras-ado-koltsegvetes-budzse-novekedes",
@@ -854,21 +854,6 @@
    "verification_status": "verified_exact",
    "source_page_type": "individual_article",
    "source_title": "Magyar after joint Czech-Hungarian government meeting in Prague: \"I'm an easygoing guy\"",
-   "source_content_sha256": null,
-   "source_content_sha256_note": "page text reviewed through a fetch-and-read tool; raw page bytes were not archived, so no content hash is recorded",
-   "retrieved_at": "2026-11-11"
-  },
-  {
-   "news_id": "hu-2026-10-30-hungarian-fm-and-rubio-sign-agreement",
-   "source_url": "https://telex.hu/english/2026/10/30/hungarian-fm-and-rubio-sign-agreement-about-joining-forces-to-fight-far-left-organizations-such-as-antifa",
-   "record_date": "2026-10-30",
-   "source_publication_date": "2026-10-30",
-   "source_updated_date": null,
-   "date_evidence": "Page structured data datePublished 2026-10-30T10:18:35Z",
-   "verification_method": "source_page_retrieval_title_date_and_body_review",
-   "verification_status": "verified_exact",
-   "source_page_type": "individual_article",
-   "source_title": "Hungarian FM and Marco Rubio sign agreement about joining forces to fight far-left organizations such as Antifa",
    "source_content_sha256": null,
    "source_content_sha256_note": "page text reviewed through a fetch-and-read tool; raw page bytes were not archived, so no content hash is recorded",
    "retrieved_at": "2026-11-11"

@@ -26,9 +26,11 @@ test('batch exception pins every permitted file, with no other data or release a
  const ui=approvedUiFiles(JSON.parse(fs.readFileSync('docs/legal-security/ui_governance_amendments.json','utf8')).amendments);assert.deepEqual(ui.problems,[]);
  // The event UI may have a later exact-hash presentation approval. News data and batch evidence retain their own pins.
  // The package builder may have a later exact-hash approval in a political admission record, which lists its countries.
- const packageBuilder=JSON.parse(fs.readFileSync('docs/legal-security/political_admission_records.json','utf8')).admissions.map(x=>x.research_package_builder).filter(Boolean).at(-1);
+ const packageBuilder=JSON.parse(fs.readFileSync('docs/legal-security/political_admission_records.json','utf8')).admissions.filter(x=>x.research_package_builder&&x.approved_on>records().map(r=>r.approved_on).sort().at(-1)).map(x=>x.research_package_builder).at(-1);
  // The export script may have a later exact-hash pin in an owner-approved data run (historical recovery, 2026-11-10).
- const exportPin=JSON.parse(fs.readFileSync('docs/legal-security/data_refresh_amendments.json','utf8')).refreshes.filter(x=>x.status==='owner_approved').map(x=>x.export_script_pin).filter(Boolean).at(-1);
+ // Pins apply in approval-date order: the data-run pin wins only while it is newer than the latest news batch.
+ const latestNewsApproval=records().map(x=>x.approved_on).sort().at(-1);
+ const exportPin=JSON.parse(fs.readFileSync('docs/legal-security/data_refresh_amendments.json','utf8')).refreshes.filter(x=>x.status==='owner_approved'&&x.export_script_pin&&x.approved_on>latestNewsApproval).map(x=>x.export_script_pin).at(-1);
  for(const [p,h] of approved)assert.equal(crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'),p==='src/components/NewsExplorer.tsx'?(ui.approved.get(p)??h):p===packageBuilder?.path?packageBuilder.sha256:p===exportPin?.path?exportPin.sha256:h,p);
  const r=records()[0];
  for(const p of ['src/data/events/events.json','src/data/observations.json','src/data/release.json','src/lib/varEngine.ts','public/research-data/political/germany/elections.json','src/data/events/news_*'])assert.ok(approvedNewsFiles([{...r,files:[...r.files,{path:p,sha256:'a'.repeat(64)}]}]).problems.length,p);
@@ -79,12 +81,12 @@ test('the displayed news batch cutoff reads the latest approved batch audit',()=
 
 const { weeklyNews20261111: batch1111 }=require('../../src/lib/weeklyNews/2026-11-11.ts');
 test('2026-11-11 batch: verified, bilingual, outside models, no duplicates against the library, every country covered',()=>{
- assert.equal(batch1111.length,108);
+ assert.equal(batch1111.length,107);
  const per=Object.fromEntries([...new Set(batch1111.map(x=>x.countrySlug))].map(c=>[c,batch1111.filter(x=>x.countrySlug===c).length]));
  assert.equal(Object.keys(per).length,10);
  const audit=JSON.parse(fs.readFileSync('src/data/events/news_update_2026-11-11_audit.json','utf8'));
  for(const [c,n] of Object.entries(per)){assert.equal(audit.country_counts[c].accepted,n,c);assert.equal(audit.coverage[c].coverage_below_target,n<10,c);}
- assert.equal(audit.accepted_count,108);assert.equal(audit.screened_candidate_count,audit.accepted_count+audit.rejected_count);
+ assert.equal(audit.accepted_count,107);assert.equal(audit.screened_candidate_count,audit.accepted_count+audit.rejected_count);
  const all=require('../../src/lib/newsData.ts').eventLibraryItems;
  assert.equal(new Set(all.map(x=>x.id)).size,all.length);
  for(const i of batch1111){

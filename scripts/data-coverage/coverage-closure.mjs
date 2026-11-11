@@ -172,8 +172,12 @@ export function exportConsistency() {
 export const DESCRIPTIVE_CHANGE_SCOPE = [/^src\/data\/historical\//, /^src\/data\/serbia\//, /^src\/data\/data-coverage\//, /^src\/data\/data-refresh\/refresh_ledger\.jsonl$/,
   /^public\/research-data\/(annual|monthly|regional)_(descriptive_history|history_manifest|history_runtime)\.json$/, /^public\/research-data\/regional-history\//, /^public\/research-data\/serbia\//,
   /^public\/research-data\/serbia_sors_runtime\.json$/, /^public\/research-data\/(historical_recovery_inventory|descriptive_data_coverage_audit)\.json$/];
+// Owner-approved 2026-11-11: the closure is a dated snapshot, so model isolation is evaluated at the commit whose data
+// it describes, not on the live tree; later unrelated descriptive changes (e.g. news batches) do not alter it. Live
+// protection of model files remains the source-closure checkpoint.
+export const CLOSURE_DATA_COMMIT = "a8d10a6112c89eef628334b468db032cef1664a6";
 export function modelIsolation() {
-  const changed = execFileSync("git", ["diff", "--name-only", BASELINE, "--", "src/data", "public/research-data"], { cwd: root, encoding: "utf8" }).trim().split("\n").filter(Boolean);
+  const changed = execFileSync("git", ["diff", "--name-only", BASELINE, CLOSURE_DATA_COMMIT, "--", "src/data", "public/research-data"], { cwd: root, encoding: "utf8" }).trim().split("\n").filter(Boolean);
   const outside = changed.filter((f) => !DESCRIPTIVE_CHANGE_SCOPE.some((re) => re.test(f)));
   const context = fs.readFileSync(path.join(root, "src/lib/politicalEconomicContext.ts"), "utf8"), workspace = fs.readFileSync(path.join(root, "src/components/workspaceEvidence.ts"), "utf8");
   return { baseline_commit: BASELINE, changed_data_files: changed.length, changed_outside_descriptive_scope: outside,

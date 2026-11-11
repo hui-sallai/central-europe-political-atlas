@@ -15,15 +15,15 @@ Before the batch, the public library (`public/research-data/events.json`) held 4
 
 ## 3. New distinct events
 
-**108 accepted.** Each was retrieved individually and its headline, publication date and body checked. A further 94 candidates were screened and rejected, each with a recorded reason.
+**107 accepted.** Each was retrieved individually and its headline, publication date and body checked. A further 95 candidates were screened and rejected, each with a recorded reason.
 
-After the batch the library holds 569 verified events (579 records), and the latest event date is 2026-11-11.
+After the batch the library holds 568 verified events (578 records), and the latest event date is 2026-11-11.
 
 ## 4. New events per country
 
 | Country | Accepted | Target 10 |
 |---|---:|---|
-| Hungary | 13 | met |
+| Hungary | 12 | met |
 | Poland | 13 | met |
 | Czechia | 11 | met |
 | Slovakia | 11 | met |
@@ -36,7 +36,7 @@ After the batch the library holds 569 verified events (579 records), and the lat
 
 ## 5. Countries above 10
 
-Hungary (13), Poland (13), Czechia (11), Slovakia (11) and Serbia (11).
+Poland (13), Hungary (12), Czechia (11), Slovakia (11) and Serbia (11).
 
 ## 6. Category distribution
 
@@ -45,7 +45,7 @@ By topic:
 | Topic | Count |
 |---|---:|
 | Economy | 43 |
-| Regional | 19 |
+| Regional | 18 |
 | Politics | 18 |
 | Energy | 14 |
 | EU | 11 |
@@ -59,7 +59,7 @@ By event type:
 | regional | 21 |
 | macro | 19 |
 | election | 16 |
-| energy | 15 |
+| energy | 14 |
 | EU_funds | 5 |
 | industrial_policy | 5 |
 | FDI | 3 |
@@ -87,7 +87,7 @@ By event type:
 - Germany's Federal Statistical Office (Destatis) and Federal Employment Agency
 - Austrian Parliament's budget office (Budgetdienst)
 
-**Established outlets (86 items):**
+**Established outlets (85 items):**
 - Telex, Notes from Poland and Radio Prague International
 - TASR and Radio Slovakia International
 - ZDFheute, ORF, trend. and news.at
@@ -98,7 +98,7 @@ By event type:
 
 ## 9. Duplicate and excluded candidates
 
-94 candidates were rejected; 19 of them are linked to the canonical record they duplicate or continue. The main reasons:
+95 candidates were rejected; 19 of them are linked to the canonical record they duplicate or continue. The main reasons:
 - allegations or criminal cases concerning individuals (the person-safety rule);
 - continued reporting of an event already recorded;
 - statements, plans or visits without a datable decision;
@@ -140,25 +140,28 @@ Modified files:
 - `scripts/export-research-data.mjs`, `scripts/release/build-research-package.mjs`
 - tests: `news-refresh`, `event-presentation`, `home-event-language`, `home-research-discovery`, `news-bilingual`
 
-Pending owner approval (the gate registration): `docs/political-data/source-closure/news-refresh-amendments.mjs`, `docs/legal-security/news_refresh_amendments.json` and `docs/news-updates/2026-11-11-owner-authorization.json`.
+Governance (owner approval "批准登记新闻批次门禁并修正闭合快照检查", 2026-11-11):
+- `docs/political-data/source-closure/news-refresh-amendments.mjs` and `docs/legal-security/news_refresh_amendments.json`: batch `news-refresh-2026-11-11` registered at exact hashes, including the homepage metadata module.
+- `docs/news-updates/2026-11-11-owner-authorization.json`: the authorization record.
+- `scripts/data-coverage/coverage-closure.mjs`: the 2026-11-10 closure snapshot's model-isolation check is evaluated at its data commit `a8d10a6`.
+- `tests/tooling/news-refresh.test.mjs`: later pins (data run, political admission) now win only when they are newer than the latest news batch.
 
 ## 12. Tests executed
 
-Passing:
-- `news:validate --week 2026-11-11`: 108 accepted, 94 rejected, 10 countries.
-- The research export completed, including the analysis registry and deep-link validation (202 checks).
-- `event-presentation`: 3/3.
-- The new 2026-11-11 batch tooling test.
-
-Failing until the gate is registered: four news-governance tests and the source-closure checkpoint. They check the exact-hash approvals of the re-pinned news files. Build and UI results: see the commit.
+- `news:validate --week 2026-11-11`: 107 accepted, 95 rejected, 10 countries.
+- Research export: pass (analysis registry and deep-link validation, 202 checks).
+- Source-closure `--checkpoint`, `legal-security:validate` (0 failures), coverage closure `--check`, public-secret scan: pass.
+- Tooling suite: 436/436.
+- Production build: pass.
+- UI: 682 passed, 2 skipped (full suite). The darwin desktop news baseline was reviewed and updated; the Linux news baseline is recorded after the push through the deploy workflow's record mode, as for the previous batch.
 
 ## 13. Deployment
 
-Not yet deployed. This needs the gate registration and then the owner's separate "推送上线".
+Not yet deployed. This needs the owner's separate "推送上线".
 
 ## 14. Final live event count
 
-Expected after deployment: 569 verified events (579 records). Not yet verified in production.
+Expected after deployment: 568 verified events (578 records). Not yet verified in production.
 
 ## 15. Remaining limitations
 
@@ -169,5 +172,7 @@ Expected after deployment: 569 verified events (579 records). Not yet verified i
 - No replacement entries were created.
 
 **Unverified official decisions:** the NBP (Poland) and MNB (Hungary) rate decisions in the window could not be retrieved from a primary or established page, so they are not included.
+
+**Removed after verification:** the Hungary–US (Rubio) cooperation documents of 29 October. The item was verified, but its source URL carries a political label that the political-person-safety validator does not allow in Atlas copy. It is recorded as rejected and not replaced.
 
 **Source mix:** most items come from established outlets rather than primary documents. Their figures are attributed to those outlets.

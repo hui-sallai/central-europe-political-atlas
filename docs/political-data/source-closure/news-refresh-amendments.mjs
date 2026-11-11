@@ -1,5 +1,6 @@
 // Owner-approved descriptive news batches, one exact authorization per batch. No general data exemption.
 // 2026-10-12: batch 2026-09-06 → 2026-10-11. 2026-10-19: batch 2026-10-12 → 2026-10-18.
+// 2026-11-11: batch 2026-10-19 → 2026-11-11 (also re-pins the homepage news-batch metadata module).
 // A later batch may re-pin a shared file (the news modules, exports); its hash then supersedes the earlier one.
 export const NEWS_REFRESH_FILE = 'docs/legal-security/news_refresh_amendments.json';
 export const NEWS_BATCHES = {
@@ -33,6 +34,23 @@ export const NEWS_BATCHES = {
       'public/research-data/news_source_verification_2026-10-18.json',
       'public/research-data/news_candidate_screening_2026-10-18.json',
       'public/research-data/news_translations_2026-10-18.json',
+      'scripts/export-research-data.mjs', 'scripts/release/build-research-package.mjs',
+    ],
+  },
+  'news-refresh-2026-11-11': {
+    approved_on: '2026-11-11', window: { start: '2026-10-19', end: '2026-11-11' }, verification: 'news:validate --week 2026-11-11',
+    paths: [
+      'src/lib/newsData.ts', 'src/lib/newsTranslations.ts', 'src/lib/weeklyNews/2026-11-11.ts', 'src/lib/researchData.ts',
+      'src/lib/newsLibraryMetadata.ts',
+      'src/data/events/news_update_2026-11-11_audit.json',
+      'src/data/events/news_source_verification_2026-11-11.json',
+      'src/data/events/news_candidate_screening_2026-11-11.json',
+      'public/research-data/events.json', 'public/research-data/events.csv',
+      'public/research-data/analysis_validation_index.json',
+      'public/research-data/news_update_2026-11-11_audit.json',
+      'public/research-data/news_source_verification_2026-11-11.json',
+      'public/research-data/news_candidate_screening_2026-11-11.json',
+      'public/research-data/news_translations_2026-11-11.json',
       'scripts/export-research-data.mjs', 'scripts/release/build-research-package.mjs',
     ],
   },

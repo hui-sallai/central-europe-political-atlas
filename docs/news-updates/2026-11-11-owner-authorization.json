@@ -1,0 +1,17 @@
+{
+  "schema_version": "news-refresh-owner-authorization-v1",
+  "authorized_on": "2026-11-11",
+  "status": "owner_approved_scope_not_production_acceptance",
+  "window": { "start": "2026-10-19", "end": "2026-11-11" },
+  "authorization": "Owner brief 'Ten-Country Political-Economic News Update, 19 October – 11 November 2026' (2026-11-11), then owner reply '批准登记新闻批次门禁并修正闭合快照检查' approving the exact-hash batch registration for the prepared batch (107 accepted, 95 rejected); deployment still requires a separate 推送上线.",
+  "allowed_scope": ["This batch of source-verified news", "Corresponding candidate screening and source verification", "Chinese summaries in the established two-paragraph format", "English presentation translations of accepted news", "Exact-file governance registration, re-pinning of the shared news modules, the homepage news-batch metadata module and exports, and relevant regression tests"],
+  "canonical_economic_data_change_allowed": false,
+  "political_election_data_change_allowed": false,
+  "model_change_allowed": false,
+  "research_gate_change_allowed": false,
+  "release_version_change_allowed": false,
+  "push_or_deployment_authorized": false,
+  "enters_model": false,
+  "acceptance_conditions": ["Source title, publication date and body verified", "Unresolved or excluded candidates recorded with reasons", "No duplicate source URL or identifier against the existing library", "Only exact approved file hashes accepted by the freeze checkpoint", "Relevant news, language, build and regression checks pass"],
+  "note": "Frozen historical events (events.json) are not rewritten; the batch is appended in memory and in the public exports, as for the 2026-10-11 and 2026-10-18 batches. The 19–23 October items staged on 2026-10-22/23 are re-used."
+}
