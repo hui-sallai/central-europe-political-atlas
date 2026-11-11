@@ -47,3 +47,16 @@ test("2026-10-18 batch: every record visible in both languages with its source",
     }
   }
 });
+
+test("2026-11-11 batch: newest records visible in both languages with their sources", async ({ page }) => {
+  const { weeklyNews20261111 } = await import("../../src/lib/weeklyNews/2026-11-11");
+  for (const locale of ["zh-CN", "en"] as const) {
+    await page.goto(`${locale === "en" ? "/en" : ""}/news/?from=2026-10-19&to=2026-11-11`, { waitUntil: "networkidle" });
+    await expect(page.locator("[data-news-count]")).toHaveText(String(weeklyNews20261111.length));
+    for (const item of [...weeklyNews20261111].sort((x, y) => y.weekOf.localeCompare(x.weekOf)).slice(0, 6)) {
+      const card = page.locator(`article[id="${item.id}"]`);
+      await expect(card.locator("h3")).toHaveText(locale === "en" ? newsTranslations[item.id].title : item.title);
+      await expect(card.locator(`a[href="${item.sourceUrl}"]`)).toHaveCount(1);
+    }
+  }
+});

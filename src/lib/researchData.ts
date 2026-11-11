@@ -5,6 +5,7 @@ import observationsJson from "@/data/observations/observations.json";
 import projectsJson from "@/data/projects/projects.json";
 import { weeklyNews20261011 } from "./weeklyNews/2026-10-11";
 import { weeklyNews20261018 } from "./weeklyNews/2026-10-18";
+import { weeklyNews20261111 } from "./weeklyNews/2026-11-11";
 import { toEventRecord } from "./newsData";
 import type {
   Country,
@@ -27,7 +28,7 @@ const historicalEvents = records<Event>(eventsJson);
 const historicalEventIds = new Set(historicalEvents.map(event => event.id));
 export const researchEvents: Event[] = [
   ...historicalEvents,
-  ...[...weeklyNews20261011, ...weeklyNews20261018].filter(item => !historicalEventIds.has(item.id)).map(item => ({
+  ...[...weeklyNews20261011, ...weeklyNews20261018, ...weeklyNews20261111].filter(item => !historicalEventIds.has(item.id)).map(item => ({
     ...toEventRecord(item),
     id: item.id,
     country: researchCountries.find(country => country.slug === item.countrySlug)?.iso3 ?? item.countrySlug,

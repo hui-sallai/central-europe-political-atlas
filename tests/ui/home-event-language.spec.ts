@@ -7,7 +7,7 @@ test('English home uses approved titles with unchanged event identity; map count
  const latest=researchEvents.filter(e=>e.data_status==='verified').sort((a,b)=>b.date.localeCompare(a.date)).slice(0,6);
  const cards=page.locator('[aria-labelledby="english-verified-events"] article');await expect(cards).toHaveCount(6);
  for(let i=0;i<latest.length;i++){const event=latest[i];await expect(cards.nth(i).locator('h3')).toHaveText(newsTranslations[event.id].title);await expect(cards.nth(i).locator('h3 a')).toHaveAttribute('href',`/en/news/?country=${event.country_slug}#${event.id}`);await expect(cards.nth(i)).toContainText(event.date);}
- await expect(page.locator('[data-latest-signals-meta]')).toContainText('News batch through: 2026-10-18');
+ await expect(page.locator('[data-latest-signals-meta]')).toContainText('News batch through: 2026-11-11');
  await expect(page.locator('[aria-labelledby="english-verified-events"]')).not.toContainText('Chinese; untranslated');
  await page.locator('[aria-labelledby="english-verified-events"]').screenshot({path:info.outputPath('english-recent-events.png')});
  for(const country of researchCountries){const event=getEventsForCountry(country.slug).find(e=>e.data_status==='verified')!;await page.locator('.home-country-selector').getByRole('button',{name:country.iso2,exact:true}).click();const link=page.locator('.home-latest-event a');await expect(link).toContainText(newsTranslations[event.id].title);await expect(link).toHaveAttribute('href',new RegExp(`country=${country.slug}#${event.id}$`));}

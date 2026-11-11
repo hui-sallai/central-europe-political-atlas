@@ -16,7 +16,7 @@ test('latest verified events and every country latest event reuse exact approved
   const presented=eventPresentation(event,'en');assert.equal(presented.title.text,newsTranslations[event.id].title);assert.equal(presented.summary.text,newsTranslations[event.id].summary);assert.equal(presented.title.lang,'en');assert.equal(presented.title.originalLabel,undefined);
   assert.equal(eventPresentation(event,'zh-CN').title.text,event.title);
  }
- assert.equal(JSON.stringify(researchEvents),before);assert.equal(newsLibraryMetadata.latestNewsBatch,'2026-10-18');assert.equal(newsLibraryMetadata.latestEventDate,'2026-10-18');
+ assert.equal(JSON.stringify(researchEvents),before);assert.equal(newsLibraryMetadata.latestNewsBatch,'2026-11-11');assert.equal(newsLibraryMetadata.latestEventDate,'2026-11-11');
 });
 test('mixed archive retains exact original titles and labels actual editorial language, not publisher language',()=>{
  const original=researchEvents.find(e=>e.data_status==='verified'&&!newsTranslations[e.id]);assert.ok(original);

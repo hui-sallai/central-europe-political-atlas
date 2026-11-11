@@ -64,9 +64,9 @@ test('2026-10-18 batch: verified, bilingual, outside models, no duplicates again
 });
 test('a later batch supersedes shared file hashes; an unknown batch or window fails closed',()=>{
  const r=records();
- assert.deepEqual(r.map(x=>x.amendment_id),['news-refresh-2026-10-11','news-refresh-2026-10-18']);
+ assert.deepEqual(r.map(x=>x.amendment_id),['news-refresh-2026-10-11','news-refresh-2026-10-18','news-refresh-2026-11-11']);
  const {approved}=approvedNewsFiles(r);
- assert.equal(approved.get('src/lib/newsData.ts'),r[1].files.find(f=>f.path==='src/lib/newsData.ts').sha256);
+ assert.equal(approved.get('src/lib/newsData.ts'),r[2].files.find(f=>f.path==='src/lib/newsData.ts').sha256);
  assert.ok(approvedNewsFiles([...r,{...r[1],amendment_id:'news-refresh-2026-10-25'}]).problems.length);
  assert.ok(approvedNewsFiles([{...r[1],window:{start:'2026-10-01',end:'2026-10-18'}}]).problems.length);
  assert.ok(approvedNewsFiles([{...r[1],files:[...r[1].files,{path:'src/data/events/events.json',sha256:'a'.repeat(64)}]}]).problems.length);
@@ -75,4 +75,23 @@ test('the displayed news batch cutoff reads the latest approved batch audit',()=
  const src=fs.readFileSync('src/lib/newsLibraryMetadata.ts','utf8');
  const latest=Object.keys(JSON.parse(fs.readFileSync(NEWS_REFRESH_FILE,'utf8')).amendments.reduce((m,a)=>({...m,[a.window.end]:1}),{})).sort().at(-1);
  assert.ok(src.includes(`news_update_${latest}_audit.json`),latest);
+});
+
+const { weeklyNews20261111: batch1111 }=require('../../src/lib/weeklyNews/2026-11-11.ts');
+test('2026-11-11 batch: verified, bilingual, outside models, no duplicates against the library, every country covered',()=>{
+ assert.equal(batch1111.length,108);
+ const per=Object.fromEntries([...new Set(batch1111.map(x=>x.countrySlug))].map(c=>[c,batch1111.filter(x=>x.countrySlug===c).length]));
+ assert.equal(Object.keys(per).length,10);
+ const audit=JSON.parse(fs.readFileSync('src/data/events/news_update_2026-11-11_audit.json','utf8'));
+ for(const [c,n] of Object.entries(per)){assert.equal(audit.country_counts[c].accepted,n,c);assert.equal(audit.coverage[c].coverage_below_target,n<10,c);}
+ assert.equal(audit.accepted_count,108);assert.equal(audit.screened_candidate_count,audit.accepted_count+audit.rejected_count);
+ const all=require('../../src/lib/newsData.ts').eventLibraryItems;
+ assert.equal(new Set(all.map(x=>x.id)).size,all.length);
+ for(const i of batch1111){
+  assert.equal(all.filter(x=>x.sourceUrl===i.sourceUrl).length,1,i.id);
+  assert.ok(i.weekOf>='2026-10-19'&&i.weekOf<='2026-11-11',i.id);
+  assert.equal(i.entersModel,false);assert.equal(i.intensity,null);assert.deepEqual(i.affectedIndicators,[]);assert.deepEqual(i.affectedModels,[]);
+  assert.equal(i.summary.split('\n\n').length,2);assert.equal(translations[i.id].summary.split('\n\n').length,2);
+  assert.doesNotMatch(translations[i.id].title+translations[i.id].summary,/[\u3400-\u9fff]/u);
+ }
 });

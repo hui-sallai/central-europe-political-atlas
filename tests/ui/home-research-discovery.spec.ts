@@ -5,7 +5,7 @@ import { researchCountries } from "../../src/lib/researchData";
 import { spatialDisplayGateAudit } from "../../src/lib/spatialDataV087";
 import { politicalComparisonCountries } from "../../src/lib/politicalData";
 import publication from "../../src/data/macro/var_dynamic_response_publication_boundary.json";
-import verification from "../../src/data/events/news_source_verification_2026-10-18.json";
+import verification from "../../src/data/events/news_source_verification_2026-11-11.json";
 
 for (const prefix of ["", "/en"]) test(`homepage research discovery, coverage and live entry flows: ${prefix || "Chinese"}`, async ({ page }, info) => {
   test.setTimeout(120000);
@@ -32,7 +32,7 @@ for (const prefix of ["", "/en"]) test(`homepage research discovery, coverage an
   await expect(page.locator("[data-home-var-gate]")).toContainText(prefix ? "IRFs remain unavailable" : "IRF 仍不可用");
   const checked = verification.records.map(record => record.retrieved_at).sort().at(-1)!;
   await expect(page.locator("[data-home-news-check] time")).toHaveAttribute("datetime", checked);
-  await expect(page.locator("[data-latest-signals-meta]")).toContainText("2026-10-18");
+  await expect(page.locator("[data-latest-signals-meta]")).toContainText("2026-11-11");
   for (const workspace of researchWorkspaces) await expect(page.locator(`a[href="${prefix}/workspaces/${workspace.id}/"]`)).toHaveCount(1);
 
   // The original map remains keyboard-operable, and profile/map links retain the selected country.

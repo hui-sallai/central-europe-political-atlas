@@ -1,0 +1,162 @@
+{
+ "window": {
+  "start": "2026-10-19",
+  "end": "2026-11-11",
+  "timezone": "source publication date",
+  "partial_week": false,
+  "note": "19–23 October checked on 2026-10-22/23 (staged batch news-candidate-2026-10-23, superseded and re-used here); 19 October–11 November checked on 2026-11-11. Covers 2026-10-19 through 2026-11-11 inclusive."
+ },
+ "method": "Listing pages of the established outlets and official publishers screened for the window; each accepted item retrieved individually and its headline, publication date and body checked; Chinese and English two-paragraph fact-and-boundary summaries written from that page only. The underlying event date is stated in the summary when it differs from the publication date. One event affecting several countries is recorded once, under one country.",
+ "screened_candidate_count": 202,
+ "accepted_count": 108,
+ "rejected_count": 94,
+ "country_counts": {
+  "hungary": {
+   "screened": 21,
+   "accepted": 13,
+   "rejected": 8
+  },
+  "poland": {
+   "screened": 31,
+   "accepted": 13,
+   "rejected": 18
+  },
+  "czechia": {
+   "screened": 25,
+   "accepted": 11,
+   "rejected": 14
+  },
+  "slovakia": {
+   "screened": 19,
+   "accepted": 11,
+   "rejected": 8
+  },
+  "germany": {
+   "screened": 16,
+   "accepted": 10,
+   "rejected": 6
+  },
+  "romania": {
+   "screened": 17,
+   "accepted": 10,
+   "rejected": 7
+  },
+  "slovenia": {
+   "screened": 18,
+   "accepted": 10,
+   "rejected": 8
+  },
+  "serbia": {
+   "screened": 24,
+   "accepted": 11,
+   "rejected": 13
+  },
+  "austria": {
+   "screened": 14,
+   "accepted": 9,
+   "rejected": 5
+  },
+  "croatia": {
+   "screened": 17,
+   "accepted": 10,
+   "rejected": 7
+  }
+ },
+ "rejection_policy": [
+  "Continued reporting of an event already recorded",
+  "Allegations or claims about individuals",
+  "Opinion polls (kept out pending an approved polling policy)",
+  "Subnational matters",
+  "Source page without a publication date",
+  "Explainers or analysis without a datable event",
+  "Listed but not retrieved and checked in this pass",
+  "Statements, plans or visits without a datable decision",
+  "Outside the political-economy scope"
+ ],
+ "editorial_target_per_country": 10,
+ "coverage": {
+  "hungary": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "Telex (English and Gazdaság)"
+   ],
+   "remaining_gap": "13 verified items."
+  },
+  "poland": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "Notes from Poland"
+   ],
+   "remaining_gap": "13 verified items."
+  },
+  "czechia": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "Radio Prague International"
+   ],
+   "remaining_gap": "11 verified items."
+  },
+  "slovakia": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "TASR",
+    "Radio Slovakia International (RTVS/STVR)"
+   ],
+   "remaining_gap": "11 verified items."
+  },
+  "germany": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "ZDFheute",
+    "Destatis",
+    "Bundesagentur für Arbeit",
+    "Bundesregierung (press pages returned no listing)"
+   ],
+   "remaining_gap": "10 verified items."
+  },
+  "romania": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "Radio Romania International"
+   ],
+   "remaining_gap": "10 verified items."
+  },
+  "slovenia": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "GOV.SI",
+    "SURS",
+    "N1 (Slovenian buyer of a Serbian retailer)"
+   ],
+   "remaining_gap": "10 verified items."
+  },
+  "serbia": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "N1"
+   ],
+   "remaining_gap": "11 verified items."
+  },
+  "austria": {
+   "coverage_below_target": true,
+   "sources_searched": [
+    "ORF",
+    "trend.",
+    "news.at",
+    "Parlament Österreich – Budgetdienst",
+    "Bundeskanzleramt (council of ministers; adoption not shown)"
+   ],
+   "remaining_gap": "9 verified items, below the target of 10; ORF listings carry no dates, the council-of-ministers pages do not show adoption, and remaining candidates were statements or continued reporting. No replacement or invented entries."
+  },
+  "croatia": {
+   "coverage_below_target": false,
+   "sources_searched": [
+    "Vlada Republike Hrvatske",
+    "N1"
+   ],
+   "remaining_gap": "10 verified items."
+  }
+ },
+ "publication": "integrated_pending_deployment",
+ "enters_model": false
+}
