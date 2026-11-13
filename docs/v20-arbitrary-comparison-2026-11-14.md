@@ -22,8 +22,10 @@ The real production browser was inspected before edits: 39 routes for each local
 
 Research-boundary self-review checked the diff and retained failure evidence: no source/model/observation writes, no filled missing values, no synthetic comparison or causal/forecast claim, and no opening of the vintage, definition, geographic or model gates. No additional agents were used.
 
-## Release status
+## Predeployment checkpoint
 
-The last observed public release before this deployment is `5c1be3d162f8ac7f5fda71e883e38faa5ed7b036`, workflow `43107041486`. Local acceptance is not a production deployment. Linux baseline recording, artifact review, normal main CI and actual production acceptance are required and will be recorded below once completed. Baselines are recorded only through the existing non-deploying workflow; verification mode and thresholds remain unchanged.
+The last observed public release before this deployment is `5c1be3d162f8ac7f5fda71e883e38faa5ed7b036`, workflow `43107041486`. Local acceptance is not a production deployment. The non-deploying Linux record workflow #384 (`43480643925`, source `858921deea2e715e2517edc2ff9682405ee9a706`) completed successfully: 698 browser checks passed without retry, two pre-existing desktop-only checks skipped on mobile; tooling 443 passed with three existing private-evidence conditional skips. The artifact contains 72 Linux images; 45 changed images were reviewed against their prior baselines and accepted within the implemented presentation scope. No source code changed after this run. Normal main verification and production acceptance follow this checkpoint; the public deployment manifest and Actions run identify the eventual deployed commit. Baselines were recorded only through the existing non-deploying workflow; verification mode and thresholds remain unchanged.
 
 Serbian NSTJ geometry rights/matching, unadmitted electoral sources, unavailable monthly unemployment and formal common-sample restrictions remain separate limitations. Shared external drivers are not independent national samples. The 328 vintage-held periods, pre-2015 Comtrade boundary and population/national-account definition floors remain unchanged.
+
+The existing GitHub development-dependency advisory #24 for minimatch (medium severity) remains open; dependencies are unchanged in this UI deployment. It is separate from the passing secret/privacy scans.
