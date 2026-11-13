@@ -9,6 +9,12 @@
       "status": "ok"
     },
     {
+      "pattern": "^public/data/boundaries/v086/serbia_nstj3_gisco_2024\\.geojson$",
+      "origin": "Eurostat/GISCO NUTS 2024, Serbian statistical units labelled NSTJ3 (owner approval 2026-11-14, \"批准 A 和 B\", A)",
+      "registry_source_id": "src-gisco",
+      "status": "ok"
+    },
+    {
       "pattern": "^public/data/boundaries/v086/(poland|serbia)_adm1_geoboundaries\\.geojson$",
       "origin": "geoBoundaries gbOpen ADM1 (OpenStreetMap, ODbL 1.0)",
       "registry_source_id": "src-geoboundaries",
