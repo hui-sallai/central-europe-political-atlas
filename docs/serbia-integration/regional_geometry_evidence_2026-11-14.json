@@ -1,0 +1,381 @@
+{
+  "schema_version": "serbia-regional-geometry-evidence-v1",
+  "status": "evidence_only_not_admitted",
+  "retrieved_on": "2026-11-14",
+  "geometry_source": {
+    "provider": "European Commission - Eurostat/GISCO",
+    "dataset": "NUTS 2024, 1:1 million, EPSG:4326, level 3",
+    "url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2024_4326_LEVL_3.geojson",
+    "sha256": "2f298a6546e022126b1d7666fc0d5ac549aa0239f3fdb2521051d203dcba1a1c",
+    "feature_count_total": 1345,
+    "terms_page": "https://ec.europa.eu/eurostat/web/gisco/geodata/administrative-units",
+    "terms_summary": "Non-exclusive, non-transferable right to use and process; no commercial use; source acknowledged; notice '© EuroGeographics for the administrative boundaries' visible. No country-specific carve-out stated.",
+    "existing_licence_record": "gisco_nuts_2024_public_research (covered_countries does not include serbia)"
+  },
+  "classification_note": "GISCO distributes these units in its NUTS 2024 files for a candidate country; their codes equal SORS NSTJ codes. The Atlas would label them NSTJ3 areas (oblasti), not EU NUTS regions.",
+  "geographic_scope_note": "Scope follows the sources: SORS publishes NSTJ3 data for 25 areas and GISCO RS geometry contains the same 25 units. No position on territorial status is taken; units without published data and without RS geometry are neither drawn nor imputed.",
+  "counts": {
+    "gisco_rs_level3": 25,
+    "sors_nstj3_codes": 25,
+    "matched": 25,
+    "gisco_without_sors": [],
+    "sors_without_gisco": []
+  },
+  "units": [
+    {
+      "code": "RS110",
+      "name_latn": "City of Belgrade",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Beogradska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS121",
+      "name_latn": "Zapadnobačka oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Zapadnobačka oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS122",
+      "name_latn": "Južnobanatska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Južnobanatska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS123",
+      "name_latn": "Južnobačka oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Južnobačka oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS124",
+      "name_latn": "Severnobanatska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Severnobanatska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS125",
+      "name_latn": "Severnobačka oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Severnobačka oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS126",
+      "name_latn": "Srednjobanatska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Srednjobanatska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS127",
+      "name_latn": "Sremska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Sremska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS211",
+      "name_latn": "Zlatiborska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Zlatiborska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS212",
+      "name_latn": "Kolubarska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Kolubarska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS213",
+      "name_latn": "Mačvanska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Mačvanska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS214",
+      "name_latn": "Moravička oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Moravička oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS215",
+      "name_latn": "Pomoravska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Pomoravska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS216",
+      "name_latn": "Rasinska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Rasinska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS217",
+      "name_latn": "Raška oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Raška oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS218",
+      "name_latn": "Šumadijska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Šumadijska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS221",
+      "name_latn": "Borska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Borska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS222",
+      "name_latn": "Braničevska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Braničevska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS223",
+      "name_latn": "Zaječarska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Zaječarska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS224",
+      "name_latn": "Jablanička oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Jablanička oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS225",
+      "name_latn": "Nišavska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Nišavska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS226",
+      "name_latn": "Pirotska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Pirotska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS227",
+      "name_latn": "Podunavska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Podunavska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS228",
+      "name_latn": "Pčinjska oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Pčinjska oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    },
+    {
+      "code": "RS229",
+      "name_latn": "Toplička oblast",
+      "level": 3,
+      "geometry_type": "MultiPolygon",
+      "sors_name": "Toplička oblast",
+      "sors_records": {
+        "regional_employment_rate_2014_2020": 7,
+        "regional_population_1_january": 15,
+        "regional_population_estimate_sors": 27,
+        "regional_unemployment_rate_2014_2020": 7
+      },
+      "sors_period": "1999..2025"
+    }
+  ],
+  "required_decisions": [
+    "Extend licence record gisco_nuts_2024_public_research to serbia (rights decision; not extended automatically).",
+    "Approve a governance amendment for the hash-frozen regional map modules (src/lib/regions.ts, regionBoundaries.ts, regionObservations.ts, spatialDataV086.ts, boundaryMap.ts, regionSources.ts, platformStatus.ts) and the v0.89 map-observation store.",
+    "Approve Serbia's public display decision (public/data/boundaries/v087/public-display-decisions.json) for named layers; cross-country regional comparison stays off because SORS regional series are cross_country_comparable=false."
+  ]
+}
