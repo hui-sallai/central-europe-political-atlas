@@ -8,7 +8,8 @@
 //   public/data/boundaries/v086/serbia_nstj3_gisco_2024.geojson   25 NSTJ3 areas (geometry unchanged from GISCO)
 //   public/data/boundaries/v086/region-code-map.json              Serbian records replaced (NSTJ / NSTJ3 codes)
 //   public/data/boundaries/v086/spatial-boundary-manifest.json    Serbian record replaced
-//   public/data/regional/v089/map-observations/serbia.json        SORS population on 1 January, NSTJ3, 2021–2024
+//   public/data/regional/v089/serbia-nstj3-sors-observations.json   SORS population on 1 January, NSTJ3, 2021–2024 (source for
+//     src/lib/regionObservations.ts; kept outside map-observations/, which scripts/export-research-data.mjs rewrites)
 // Then run scripts/build-spatial-data-v087.mjs (offline) to regenerate the licence, QA and display records.
 //
 // Usage: node scripts/serbia-sors/build-regional-map.mjs --gisco <NUTS_RG_01M_2024_4326_LEVL_3.geojson>
@@ -97,5 +98,5 @@ for (const f of features) for (const year of YEARS) {
     territory_code: r.territory_code, classification_version: r.classification_version, sors_record_id: r.id, comparison_scope: "within_country_only",
   });
 }
-write("public/data/regional/v089/map-observations/serbia.json", { schema_version: "regional-map-observations-v0.89", generated_at: RETRIEVED, country_id: "serbia", comparison_scope: "within_country_only", attribution: sors.attribution, neutrality_note: sors.neutrality_note, record_count: records.length, records });
+write("public/data/regional/v089/serbia-nstj3-sors-observations.json", { schema_version: "regional-map-observations-v0.89", generated_at: RETRIEVED, country_id: "serbia", comparison_scope: "within_country_only", attribution: sors.attribution, neutrality_note: sors.neutrality_note, record_count: records.length, records });
 console.log(JSON.stringify({ features: features.length, observations: records.length, years: YEARS, gisco_sha256: giscoSha }));

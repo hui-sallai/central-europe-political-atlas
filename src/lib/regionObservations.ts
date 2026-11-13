@@ -2,7 +2,7 @@ import v086RegionalObservations from "../data/regional/v086-observations.json";
 import v089RegionalObservations from "../data/regional/v089-observations.json";
 // Serbia (owner approval 2026-11-14): SORS population on 1 January for the 25 NSTJ3 areas, projected without change
 // from the stored SORS regional records by scripts/serbia-sors/build-regional-map.mjs (map display only).
-import serbiaMapObservations from "../../public/data/regional/v089/map-observations/serbia.json";
+import serbiaMapObservations from "../../public/data/regional/v089/serbia-nstj3-sors-observations.json";
 import { regionMetadataRecords } from "./regions";
 import { regionIndicatorRecords } from "./regionIndicators";
 

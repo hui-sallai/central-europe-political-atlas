@@ -246,7 +246,7 @@ The owner approved A and B ("批准 A 和 B"). Both are implemented and verified
 | QA | 25/25 features, 0 invalid, 0 out of bounds, no missing or duplicate IDs or codes |
 
 **Observations:**
-- `public/data/regional/v089/map-observations/serbia.json` holds 100 records: SORS population on 1 January (dataset 18010403IND01) for 25 NSTJ3 areas × 2021–2024.
+- `public/data/regional/v089/serbia-nstj3-sors-observations.json` (the source read by `src/lib/regionObservations.ts`) holds 100 records: SORS population on 1 January (dataset 18010403IND01) for 25 NSTJ3 areas × 2021–2024.
 - The values are copied from the stored SORS regional records, with the SORS status, classification version and record ID kept.
 - No other SORS series is on the map. The 2014–2020 NSTJ3 labour rates fall outside the map's 2021–2024 frame, and NSTJ2-only series do not match the map level.
 
