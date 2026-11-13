@@ -5,7 +5,7 @@ import { formatNumber } from "../../src/lib/format";
 
 for (const prefix of ["", "/en"]) test(`country composite-model meanings and navigation ${prefix || "zh"}`, async ({ page }) => {
   await page.goto(`${prefix}/countries/serbia/`);
-  if (!prefix) await page.getByRole("tab", { name: "模型结果", exact: true }).click();
+  await page.locator("[data-profile-model-details] > summary").click();
   const outputs = getModelOutputsForCountry("serbia");
   for (const output of outputs) {
     const card = modelCards.find(card => card.model_id === output.model_id)!;
@@ -23,8 +23,8 @@ for (const prefix of ["", "/en"]) test(`country composite-model meanings and nav
   await expect(page.locator('select').filter({ has: page.locator('option[value="serbia"]') }).first()).toHaveValue("serbia");
   expect((await page.locator("main > header .editorial-kicker").innerText()).match(/v2\.0/gi)).toHaveLength(1);
   await page.goto(`${prefix}/countries/poland/`);
-  if (!prefix) await page.getByRole("tab", { name: "模型结果", exact: true }).click();
-  await expect(page.getByRole("link", { name: prefix ? "Research data exports" : "研究数据导出", exact: true }).first()).toHaveAttribute("href", `${prefix}/methodology/#citation`);
+  await page.locator("[data-profile-model-details] > summary").click();
+  await expect(page.getByRole("link", { name: prefix ? "Technical methodology and sources" : "技术方法与数据来源", exact: true }).first()).toHaveAttribute("href", `${prefix}/methodology/#citation`);
   await page.addStyleTag({ content: "*, *::before, *::after { transition: none !important; animation: none !important; }" });
   for (const scheme of ["light", "dark"] as const) {
     await page.emulateMedia({ colorScheme: scheme });

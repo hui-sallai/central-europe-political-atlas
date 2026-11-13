@@ -24,6 +24,7 @@ for (const prefix of ["", "/en"]) {
     await expect(page.getByLabel(choose, { exact: true })).toBeEnabled();
     await page.goto(`${prefix}/data/?country=hungary&indicator=gdp_per_capita_eur&from=2025&to=2025`, { waitUntil: "networkidle" });
     await expect(page.locator("[data-collection-project]").first()).toContainText("Project B");
+  await page.getByText(/^(Original source records and existing research exports|原始来源记录与既有研究导出)$/).click();
     await page.locator('[data-snapshot-scope="annual"]').getByRole("button", { name: en ? "Add to notebook" : "加入研究笔记", exact: true }).filter({ visible: true }).first().click();
     await expect(page.locator("header").getByRole("link", { name: en ? "Notebook · 1" : "研究笔记 · 1", exact: true })).toBeVisible();
     await activeNotebookRaw(page);

@@ -52,12 +52,12 @@ for (const route of implementedRoutes) test(`static locale, SEO and accessibilit
 
 test("language switching preserves updated query and hash", async ({ page }) => {
   await page.goto("/data/?country=poland&indicator=hicp_inflation&from=2020&to=2022&history=0#series", { waitUntil: "networkidle" });
-  await page.getByRole("combobox", { name: "结束年份", exact: true }).selectOption("2021");
+  await page.getByRole("textbox", { name: "结束时期", exact: true }).fill("2021");
   await page.getByRole("link", { name: "English", exact: true }).click();
-  await expect(page).toHaveURL(/\/en\/data\/?\?[^#]*to=2021[^#]*#series$/);
-  await expect(page.getByRole("combobox", { name: "End year", exact: true })).toHaveValue("2021");
+  await expect(page).toHaveURL(/\/en\/data\/?\?[^#]*compare_to=2021[^#]*#series$/);
+  await expect(page.getByRole("textbox", { name: "To period", exact: true })).toHaveValue("2021");
   await page.getByRole("link", { name: "中文", exact: true }).click();
-  await expect(page.getByRole("combobox", { name: "结束年份", exact: true })).toHaveValue("2021");
+  await expect(page.getByRole("textbox", { name: "结束时期", exact: true })).toHaveValue("2021");
 });
 
 for (const route of ["/map/?country=hungary&layer=regional_population&year=2024&classification=quantile#spatial", "/countries/hungary/?compare=poland#research"]) test(`language switch round-trip: ${route}`, async ({ page }) => {
@@ -78,12 +78,14 @@ test("annual bilingual downloads preserve actual data and source CSV", async ({ 
   const bundles: Record<string, string>[] = [];
   for (const locale of ["zh-CN", "en"] as const) {
     await page.goto(`${localizedRoute("/data/", locale)}?country=poland&indicator=hicp_inflation&from=2020&to=2021&history=0`, { waitUntil: "networkidle" });
+    await page.getByText(locale === "en" ? "Original source records and existing research exports" : "原始来源记录与既有研究导出", { exact: true }).click();
+    const annual = page.locator('[data-snapshot-scope="annual"]');
     // Exercise actual controls, not just equivalent initial query strings.
-    await page.getByRole("combobox", { name: locale === "en" ? "Country" : "国家", exact: true }).selectOption("hungary");
-    await page.getByRole("combobox", { name: locale === "en" ? "Indicator" : "指标", exact: true }).selectOption("unemployment_rate");
-    await page.getByRole("combobox", { name: locale === "en" ? "End year" : "结束年份", exact: true }).selectOption("2022");
+    await annual.getByRole("combobox", { name: locale === "en" ? "Country" : "国家", exact: true }).selectOption("hungary");
+    await annual.getByRole("combobox", { name: locale === "en" ? "Indicator" : "指标", exact: true }).selectOption("unemployment_rate");
+    await annual.getByRole("combobox", { name: locale === "en" ? "End year" : "结束年份", exact: true }).selectOption("2022");
     const name = locale === "en" ? "Export research snapshot" : "导出研究快照";
-    const button = page.getByRole("button", { name, exact: true }).first();
+    const button = annual.getByRole("button", { name, exact: true });
     const pending = page.waitForEvent("download");
     await button.click();
     const download = await pending;
@@ -128,7 +130,9 @@ for (const view of [
   const bundles: Record<string, string>[] = [];
   for (const locale of ["zh-CN", "en"] as const) {
     await page.goto(localizedRoute(view.route, locale), { waitUntil: "networkidle" });
-    const scope = page.locator(view.scope === "country-compare" ? "[data-country-compare]" : `[data-snapshot-scope="${view.scope}"]`);
+    if (view.scope === "country-compare") await page.getByRole("link", { name: locale === "en" ? "Economic data and country comparison" : "经济数据与国家比较", exact: true }).click();
+    else await page.getByText(locale === "en" ? "Original source records and existing research exports" : "原始来源记录与既有研究导出", { exact: true }).click();
+    const scope = page.locator(view.scope === "country-compare" ? "[data-national-comparison]" : `[data-snapshot-scope="${view.scope}"]`);
     const pending = page.waitForEvent("download");
     await scope.getByRole("button", { name: locale === "en" ? "Export research snapshot" : "导出研究快照", exact: true }).click();
     const download = await pending;

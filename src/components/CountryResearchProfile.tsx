@@ -1,152 +1,34 @@
 "use client";
+import Link from 'next/link';
+import {useEffect,useState} from 'react';
+import {useLocale} from '@/i18n/LocaleProvider';
+import {LocalizedContent} from '@/i18n/LocalizedContent';
+import {ResearchTimeSeriesChart} from './ResearchTimeSeriesChart';
+import {CountryModelSnapshot} from './CountryModelSnapshot';
+import {CountryObservationValue} from './CountryObservationValue';
+import {eventPresentation} from '@/lib/eventPresentation';
 
-import Link from "next/link";
-import { CountryObservationValue } from "./CountryObservationValue";
-import { CountryModelSnapshot } from "./CountryModelSnapshot";
-import { useState } from "react";
-import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
-import type { Country as UiCountry } from "@/lib/data";
-import type { Event, ModelCard, ModelOutput, Observation, Project } from "@/types/researchData";
-import { formatWithUnit } from "@/lib/format";
-
-type CountryTab = "overview" | "economy" | "politics" | "external" | "models";
-
-const tabs: Array<{ id: CountryTab; label: string }> = [
-  { id: "overview", label: "概览" },
-  { id: "economy", label: "经济数据" },
-  { id: "politics", label: "政治制度" },
-  { id: "external", label: "对外联系" },
-  { id: "models", label: "模型结果" },
-];
-
-const indicatorLabels: Record<string, string> = {
-  gdp_current_eur: "GDP",
-  gdp_per_capita_eur: "人均 GDP",
-  real_gdp_growth: "GDP 实际增长",
-  hicp_inflation: "HICP 通胀",
-  unemployment_rate: "失业率",
-  government_debt_gdp: "政府债务 / GDP",
-  fiscal_balance_gdp: "财政余额 / GDP",
-  exports_goods_services: "出口",
-  imports_goods_services: "进口",
-  current_account_gdp: "经常账户 / GDP",
-  fdi_inflow: "FDI 流入",
-  energy_import_dependency: "能源进口依赖",
-  manufacturing_share_gdp: "制造业占 GDP",
-  automotive_export_share: "汽车出口占比",
-};
-
-const overviewIndicatorIds = ["gdp_current_eur", "gdp_per_capita_eur", "real_gdp_growth", "hicp_inflation", "unemployment_rate", "government_debt_gdp"];
-
-function formatValue(value: number | null, unit: string) {
-  return formatWithUnit(value, unit, { maximumFractionDigits: unit.includes("欧元") ? 0 : 1 });
-}
-
-export function CountryResearchProfile({
-  country,
-  observations,
-  events,
-  projects,
-  modelOutputs,
-  modelCards,
-  regionalMapAvailable,
-}: {
-  country: UiCountry;
-  observations: Observation[];
-  events: Event[];
-  projects: Project[];
-  modelOutputs: ModelOutput[];
-  modelCards: ModelCard[];
-  regionalMapAvailable: boolean;
-}) {
-  const [activeTab, setActiveTab] = useState<CountryTab>("overview");
-  const latestIndicators = overviewIndicatorIds.map((indicatorId) => ({
-    indicatorId,
-    series: observations.filter((item) => item.indicator === indicatorId).sort((a, b) => a.year - b.year),
-  }));
-  const economyIndicators = [...new Set(observations.map((item) => item.indicator))].filter((indicatorId) => indicatorLabels[indicatorId]);
-
-  return (
-    <section className="mt-8">
-      <nav aria-label="国家研究导航" className="mb-6 flex flex-wrap gap-4 text-sm text-[var(--accent)]">
-        <Link href={`/data/?country=${country.slug}&tab=annual`}>经济指标与完整序列</Link>
-        <Link href={`/models/?country=${country.slug}&tab=compare`}>历史比较</Link>
-        <Link href={`/models/?country=${country.slug}`}>研究方法与可用性</Link>
-        <Link href={`/news/?country=${country.slug}`}>相关事件</Link>
-        <Link href="/methodology/">方法与限制</Link>
-        <Link href="/methodology/#citation">研究数据导出</Link>
-      </nav>
-      <div className="research-tabs" role="tablist" aria-label={`${country.nameZh}研究页面`}>
-        {tabs.map((tab) => (
-          <button key={tab.id} type="button" role="tab" aria-selected={activeTab === tab.id} className="research-tab" onClick={() => setActiveTab(tab.id)}>{tab.label}</button>
-        ))}
-      </div>
-
-      {activeTab === "overview" ? (
-        <div className="mt-7 grid min-w-0 gap-8 xl:grid-cols-[minmax(0,1.4fr)_minmax(0,0.6fr)]">
-          <div>
-            <div className="grid min-w-0 grid-cols-1 gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-3">
-              {latestIndicators.map(({ indicatorId, series }) => (
-                <article key={indicatorId} className="min-w-0 bg-[var(--surface)] p-4">
-                  <p className="text-xs font-semibold text-[var(--muted)]">{indicatorLabels[indicatorId]}</p>
-                  <CountryObservationValue country={country.slug} indicator={indicatorId} series={series} />
-                  <div className="mt-3"><ResearchTimeSeriesChart interactive title={`${country.nameZh} · ${indicatorLabels[indicatorId]}`} xKind="number" xLabel="年份" yLabel={series[0]?.unit ?? ""} height={240} series={[{id:indicatorId,label:indicatorLabels[indicatorId],color:"var(--chart-accent)",points:series.map(item => ({x:item.year,y:item.status === "pending" || item.applicability_status === "not_applicable" ? null : item.value,unit:item.unit,status:item.status,source:item.source_name,sourceUrl:item.source_url}))}]} /></div>
-                </article>
-              ))}
-            </div>
-            <section className="editorial-section mt-7">
-              <div className="flex items-end justify-between gap-4"><div><p className="editorial-kicker">Recent Events</p><h2 className="mt-2 text-2xl font-semibold">近期事件</h2></div><Link href={`/news?country=${country.slug}`} className="text-sm font-semibold text-[var(--accent)]">查看全部</Link></div>
-              <div className="mt-4 divide-y divide-[var(--line)]">
-                {events.slice(0, 4).map((event) => <article key={event.id} className="grid gap-2 py-4 sm:grid-cols-[110px_1fr]"><p className="metric-number text-xs text-[var(--muted)]">{event.date}</p><div><h3 className="font-semibold">{event.title}</h3><p className="mt-1 line-clamp-2 text-sm leading-6 text-[var(--muted)]">{event.summary}</p></div></article>)}
-              </div>
-            </section>
-          </div>
-          <aside>
-            <p className="editorial-kicker">Research Snapshot</p>
-            <dl className="mt-4 divide-y divide-[var(--line)] border-y border-[var(--line)] text-sm">
-              {[
-                ["区域地图", regionalMapAvailable ? "可用" : "待接入"],
-                ["模型结果", `${modelOutputs.filter((item) => item.score !== null).length} 可用`],
-                ["近期事件", `${events.length} 条`],
-                ["对华项目", `${projects.length} 项`],
-                ["欧盟成员", country.euMember ? "是" : "否"],
-                ["货币", country.currency],
-              ].map(([label, value]) => <div key={label} className="flex justify-between gap-4 py-3"><dt className="text-[var(--muted)]">{label}</dt><dd className="font-semibold">{value}</dd></div>)}
-            </dl>
-            <div className="mt-6"><p className="editorial-kicker">模型摘要</p><div className="mt-3">{modelOutputs.map((output) => <CountryModelSnapshot key={output.model_id} output={output} card={modelCards.find(card => card.model_id === output.model_id)} />)}</div><Link href={`/models?country=${country.slug}`} className="mt-3 inline-flex text-sm font-semibold text-[var(--accent)]">进入模型分析</Link></div>
-          </aside>
-        </div>
-      ) : null}
-
-      {activeTab === "economy" ? (
-        <div className="mt-7 divide-y divide-[var(--line)] border-y border-[var(--line)]">
-          {economyIndicators.map((indicatorId) => {
-            const series = observations.filter((item) => item.indicator === indicatorId).sort((a, b) => a.year - b.year);
-            return <article key={indicatorId} className="grid min-w-0 gap-4 py-4 lg:grid-cols-[minmax(150px,0.6fr)_minmax(180px,0.6fr)_minmax(0,2fr)] sm:items-center"><p className="text-sm font-semibold">{indicatorLabels[indicatorId]}</p><CountryObservationValue country={country.slug} indicator={indicatorId} series={series} /><div><ResearchTimeSeriesChart interactive title={`${country.nameZh} · ${indicatorLabels[indicatorId]}`} xKind="number" xLabel="年份" yLabel={series[0]?.unit ?? ""} height={240} series={[{id:indicatorId,label:indicatorLabels[indicatorId],color:"var(--chart-accent)",points:series.map(item => ({x:item.year,y:item.status === "pending" || item.applicability_status === "not_applicable" ? null : item.value,unit:item.unit,status:item.status,source:item.source_name,sourceUrl:item.source_url}))}]} /><details className="advanced-disclosure mt-3"><summary>历史记录与状态</summary><div className="mt-3 grid gap-2 text-xs text-[var(--muted)]">{series.map((item) => <p key={item.id}>{item.year}: {item.status === "pending" || item.applicability_status === "not_applicable" ? "—" : formatValue(item.value, item.unit)} · {item.status} · {item.source_name}</p>)}</div></details></div></article>;
-          })}
-        </div>
-      ) : null}
-
-      {activeTab === "politics" ? (
-        <div className="mt-7 grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
-          <section><p className="editorial-kicker">Government</p><dl className="mt-4 divide-y divide-[var(--line)] border-y border-[var(--line)] text-sm">{[["政体", country.polityZh], ["议会", country.parliamentZh], ["政府首脑", country.headOfGovernmentZh], ["国家元首", country.headOfStateZh], ["执政结构", country.governmentZh]].map(([label, value]) => <div key={label} className="py-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 font-semibold">{value}</dd></div>)}</dl><p className="mt-4 text-xs leading-5 text-[var(--warning)]">政治人物和执政结构按现有来源状态展示；待核验内容不进入模型。</p></section>
-          <section><p className="editorial-kicker">Parties</p><div className="mt-4 divide-y divide-[var(--line)] border-y border-[var(--line)]">{country.parties.map((party) => <article key={`${party.shortName}-${party.nameZh}`} className="grid gap-2 py-4 sm:grid-cols-[120px_1fr_auto]"><p className="font-semibold">{party.nameZh}</p><p className="text-sm text-[var(--muted)]">{party.familyZh}</p><p className="text-xs font-semibold text-[var(--muted)]">{party.role === "governing" ? "执政" : party.role === "support" ? "支持" : "在野 / 待核验"}</p></article>)}</div><div className="mt-6"><p className="editorial-kicker">Political Events</p><div className="mt-3 grid gap-3">{events.filter((event) => event.event_type === "election" || event.topic === "政治").slice(0, 5).map((event) => <Link key={event.id} href={`/news?country=${country.slug}#${event.id}`} className="border-l-2 border-[var(--accent)] pl-4"><p className="text-xs text-[var(--muted)]">{event.date}</p><p className="mt-1 text-sm font-semibold">{event.title}</p></Link>)}</div></div></section>
-        </div>
-      ) : null}
-
-      {activeTab === "external" ? (
-        <div className="mt-7 grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
-          <section><p className="editorial-kicker">External Position</p><dl className="mt-4 divide-y divide-[var(--line)] border-y border-[var(--line)] text-sm">{[["欧盟", country.euMember ? "成员" : "非成员"], ["北约", country.natoMember ? "成员" : "非成员"], ["对德与外部依赖", "见 Economy 与 Analysis 中的外部指标"], ["对华经贸", country.chinaTradeNote]].map(([label, value]) => <div key={label} className="py-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 leading-6">{value}</dd></div>)}</dl></section>
-          <section><div className="flex items-end justify-between gap-4"><div><p className="editorial-kicker">China-related Projects</p><h2 className="mt-2 text-2xl font-semibold">项目证据</h2></div><Link href={`/data?country=${country.slug}`} className="text-sm font-semibold text-[var(--accent)]">打开数据浏览</Link></div><div className="mt-4 divide-y divide-[var(--line)] border-y border-[var(--line)]">{projects.length ? projects.map((project) => <article key={project.id} className="py-4"><div className="flex flex-wrap items-start justify-between gap-3"><div><h3 className="font-semibold">{project.name}</h3><p className="mt-1 text-xs text-[var(--muted)]">{project.city} · {project.sector}</p></div><span className="text-xs font-semibold text-[var(--warning)]">{project.verification_status}</span></div><p className="mt-3 text-sm leading-6 text-[var(--muted)]">{project.verification_note}</p><a href={project.source_url} target="_blank" rel="noreferrer" className="mt-2 inline-flex text-xs font-semibold text-[var(--accent)]">{project.source_name} · {project.source_reliability} 级</a></article>) : <p className="py-6 text-sm text-[var(--muted)]">当前没有已登记项目。</p>}</div></section>
-        </div>
-      ) : null}
-
-      {activeTab === "models" ? (
-        <div className="mt-7 grid gap-7 lg:grid-cols-[1fr_0.65fr]">
-          <section><p className="editorial-kicker">综合指标</p><div className="mt-4 divide-y divide-[var(--line)] border-y border-[var(--line)]">{modelOutputs.map((output) => <CountryModelSnapshot key={output.model_id} output={output} card={modelCards.find(card => card.model_id === output.model_id)} />)}</div></section>
-          <aside className="editorial-panel p-5"><p className="editorial-kicker">Analysis Skills</p><h2 className="mt-3 text-2xl font-semibold">统一分析入口</h2><p className="mt-3 text-sm leading-7 text-[var(--muted)]">Panel、Network、逐国简化式 VAR 与通过门禁的单国 Local Projections 已进入统一工作台；各方法的可用性取决于其预注册数据、识别、样本和诊断条件。SVAR、Formal Event Study 与 Bayesian VAR 仍未启用。</p><Link href={`/models?country=${country.slug}&skill=reduced_form_var`} className="mt-5 inline-flex rounded-full cta-dark px-4 py-2 text-sm font-semibold">进入模型分析</Link></aside>
-        </div>
-      ) : null}
-    </section>
-  );
+import {countries as supportedCountries} from '@/lib/data';
+import type {Country as UiCountry} from '@/lib/data';
+import type {Event,ModelCard,ModelOutput,Observation,Project} from '@/types/researchData';
+const indicators:Record<string,[string,string]>={real_gdp_growth:['实际 GDP 增长','Real GDP growth'],hicp_inflation:['HICP / CPI 通胀','HICP / CPI inflation'],unemployment_rate:['失业率','Unemployment'],gdp_per_capita_eur:['人均 GDP','GDP per capita'],government_debt_gdp:['政府债务 / GDP','Government debt / GDP'],population:['人口','Population']};
+export function CountryResearchProfile({country,observations,events,modelOutputs,modelCards,regionalMapAvailable}:{country:UiCountry;observations:Observation[];events:Event[];projects:Project[];modelOutputs:ModelOutput[];modelCards:ModelCard[];regionalMapAvailable:boolean}){
+ const locale=useLocale(),en=locale==='en',prefix=en?'/en':'',t=(zh:string,text:string)=>en?text:zh;
+ const [indicator,setIndicator]=useState('real_gdp_growth');
+ const [comparisonCountries,setComparisonCountries]=useState([country.slug]),[invalidComparison,setInvalidComparison]=useState(false);
+ useEffect(()=>{const restore=()=>{const other=new URLSearchParams(location.search).get('compare');setInvalidComparison(!!other&&!supportedCountries.some(c=>c.slug===other));setComparisonCountries(other&&other!==country.slug&&supportedCountries.some(c=>c.slug===other)?[country.slug,other]:[country.slug]);};restore();window.addEventListener('popstate',restore);return()=>window.removeEventListener('popstate',restore);},[country.slug]);
+ const political=['germany','czechia','poland','slovakia','hungary'].includes(country.slug);
+ const series=observations.filter(r=>r.indicator===indicator).sort((a,b)=>a.year-b.year);
+ const name=en?country.nameEn:country.nameZh;
+ return <section className="mt-7" data-country-profile>
+  <nav className="flex flex-wrap gap-4 text-sm font-semibold" aria-label={t('国家研究导航','Country research navigation')}><Link className="underline" href={`${prefix}/data/?${comparisonCountries.length>1?new URLSearchParams({compare_countries:comparisonCountries.join(',')}).toString():`country=${country.slug}`}`}>{t('经济数据与国家比较','Economic data and country comparison')}</Link><Link className="underline" href={`${prefix}/politics/${political?country.slug+'/':''}`}>{t('政治与选举','Politics and elections')}</Link><Link className="underline" href={`${prefix}/map/?country=${country.slug}`}>{t('区域地图','Regional map')}</Link><Link className="underline" href={`${prefix}/workspaces/`}>{t('研究入口','Research workspaces')}</Link></nav>
+  {invalidComparison?<p role="alert" className="mt-3 text-sm">{t('链接中的比较国家不受支持，请在数据比较界面明确选择。','The linked comparison country is unsupported; explicitly choose countries in Data Explorer.')}</p>:null}
+  <h2 className="mt-7 text-2xl font-semibold">{t('关键经济指标','Key economic indicators')}</h2>
+  <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{Object.entries(indicators).map(([id,label])=><article key={id} className="editorial-panel p-4"><h3 className="font-semibold">{en?label[1]:label[0]}</h3><CountryObservationValue compact country={country.slug} indicator={id} series={observations.filter(r=>r.indicator===id)} locale={locale}/></article>)}</div>
+  <section className="mt-7 editorial-panel p-4"><h2 className="text-xl font-semibold">{t('历史趋势','Historical trends')}</h2><label className="mt-3 block max-w-md">{t('指标','Indicator')}<select className="field-control mt-2" value={indicator} onChange={e=>setIndicator(e.target.value)}>{Object.entries(indicators).map(([id,label])=><option value={id} key={id}>{en?label[1]:label[0]}</option>)}</select></label><ResearchTimeSeriesChart interactive title={`${name} · ${indicators[indicator][en?1:0]}`} xKind="number" xLabel={t('年份','Year')} yLabel={series[0]?.unit??''} series={[{id:indicator,label:name,color:'var(--chart-accent)',points:series.map(r=>({x:r.year,y:r.status==='pending'||r.applicability_status==='not_applicable'?null:r.value,unit:r.unit,source:r.source_name,sourceUrl:r.source_url,status:r.status}))}]}/><Link href={`${prefix}/data/?country=${country.slug}&indicator=${indicator}&history=1`} className="text-sm underline">{t('查看完整已准入历史与比较时期','Inspect full admitted history and comparison periods')}</Link></section>
+  <div className="mt-7 grid gap-5 lg:grid-cols-2"><section className="editorial-panel p-5"><h2 className="text-xl font-semibold">{t('政治与区域研究','Political and regional research')}</h2><LocalizedContent labels={{"议会共和制":"Parliamentary republic","联邦议会共和制":"Federal parliamentary republic","半总统制共和制":"Semi-presidential republic","两院制：众议院与参议院":"Bicameral: Chamber of Deputies and Senate","一院制：国民议会":"Unicameral: National Assembly","两院结构：联邦议院与联邦参议院":"Bicameral: Bundestag and Bundesrat","两院结构：国民议会与国民委员会":"Bicameral: National Assembly and National Council","两院制：国民议会与联邦议会":"Bicameral: National Council and Federal Council","一院制：克罗地亚议会":"Unicameral: Croatian Parliament"}}><p className="mt-3">{country.polityZh} · {country.parliamentZh}</p></LocalizedContent><p className="mt-3 text-sm">{political?t('已准入议会选举研究。','Parliamentary election research is admitted.'):t('议会选举资料尚未准入此平台，不据此推断该国没有选举。','Parliamentary election sources are not admitted here; this does not imply that the country has no elections.')}</p>{political?<Link className="mt-3 block underline" href={`${prefix}/politics/${country.slug}/`}>{t('打开选举研究','Open election research')}</Link>:null}<p className="mt-3 text-sm">{regionalMapAvailable?t('区域事实地图可用；数据层级与年份须分别核查。','Regional facts map available; check each level and period.'):t('区域边界地图未连接；不能据此判断统计观测不存在。','Regional boundaries are not connected; this is not evidence that statistical observations are absent.')}</p><Link className="mt-3 block underline" href={`${prefix}/map/?country=${country.slug}`}>{t('区域数据与可用性','Regional data and availability')}</Link></section>
+  <section className="editorial-panel p-5"><h2 className="text-xl font-semibold">{t('研究工具','Research tools')}</h2><p className="mt-3 text-sm">{modelOutputs.filter(m=>m.score!==null).length} {t('项已发布规则指标结果；不代表所有计量方法可用。','published rule-based outputs; this does not imply eligibility for every econometric method.')}</p><details className="mt-3" data-profile-model-details><summary className="cursor-pointer text-sm font-semibold">{t('已发布指标结果与解释','Published indicator results and interpretation')}</summary>{modelOutputs.map(output=><CountryModelSnapshot key={output.model_id} output={output} card={modelCards.find(c=>c.model_id===output.model_id)} locale={locale}/>)}</details><Link className="mt-3 block underline" href={`${prefix}/models/?country=${country.slug}`}>{t('按研究问题查看模型与限制','Inspect model questions, availability and limitations')}</Link><Link className="mt-3 block underline" href={`${prefix}/scenarios/?country=${country.slug}`}>{t('条件情景分析','Conditional scenarios')}</Link><Link className="mt-3 block underline" href={`${prefix}/methodology/#citation`}>{t('技术方法与数据来源','Technical methodology and sources')}</Link></section></div>
+  {country.slug==='serbia'?<section className="mt-6 editorial-panel p-5" data-serbia-availability><h2 className="text-xl font-semibold">{t('塞尔维亚覆盖说明','Serbia coverage')}</h2><p className="mt-3">{t('SORS 年度、月度、季度及 NSTJ 区域统计已保留。CPI 不等于 HICP，季度 LFS 不能替代月度失业率。','SORS annual, monthly, quarterly and NSTJ regional statistics are retained. CPI is not HICP; quarterly LFS is not monthly unemployment.')}</p><p className="mt-2 text-sm">{t('区域几何许可／匹配、议会选举来源准入与正式共同月度样本仍分别受限；不以统计数据存在来推定地图、选举或模型已开放。','Regional geometry licensing/matching, electoral source admission and formal common monthly samples remain separately restricted. Available statistics do not automatically admit maps, elections or models.')}</p><a className="mt-3 block underline text-sm" href="/research-data/serbia/serbia_descriptive_history_regional.json">{t('已发布 SORS 区域统计与来源（JSON）','Published SORS regional observations and sources (JSON)')}</a></section>:null}
+  <section className="mt-7"><h2 className="text-2xl font-semibold">{t('相关事件','Related events')}</h2><div className="mt-4 grid gap-3 sm:grid-cols-2">{events.filter(e=>e.data_status==='verified').slice(0,4).map(e=>{const text=eventPresentation(e,locale).title;return <article className="editorial-panel p-4" key={e.id}><p className="text-xs text-[var(--muted)]">{e.date}</p><h3 className="mt-2 font-semibold" lang={text.lang}><Link href={`${prefix}/news/?country=${country.slug}#${e.id}`}>{text.text}</Link></h3></article>;})}</div><Link className="mt-4 block text-sm underline" href={`${prefix}/news/?country=${country.slug}`}>{t('浏览完整事件库','Browse the full Event Library')}</Link></section>
+ </section>;
 }

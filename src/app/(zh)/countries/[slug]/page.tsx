@@ -2,13 +2,11 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { CountryResearchProfile } from "@/components/CountryResearchProfile";
-import { CountryComparePanel } from "@/components/CountryComparePanel";
 import { getCountry } from "@/lib/data";
 import { getCountryObservations, getEventsForCountry, getProjectsForCountry, getResearchCountryBySlug, researchCountries } from "@/lib/researchData";
 import { regionalCoverageMatrixV087 } from "@/lib/spatialDataV087";
 import { getModelOutputsForCountry, modelCards } from "@/lib/modelFramework";
 
-const COMPARE_INDICATORS = new Set(["gdp_current_eur", "gdp_per_capita_eur", "real_gdp_growth", "hicp_inflation", "unemployment_rate", "government_debt_gdp"]);
 
 type CountryPageProps = {
   params: Promise<{
@@ -44,7 +42,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
       <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">{countryRecord.name_zh}</h1>
       <p className="mt-3 text-lg text-[var(--muted)]">{countryRecord.name} · {country.capitalZh} · {country.currency}</p>
       <p className="mt-5 max-w-3xl text-sm leading-7 text-[var(--muted)]">{countryRecord.summary_zh}</p>
-      {slug === "germany" ? <p className="mt-4 text-sm"><a href="/politics/" className="text-[var(--accent)] underline">政治制度／联邦议会选举：2002—2025年官方结果</a></p> : null}
+
 
       <CountryResearchProfile
         country={country}
@@ -56,12 +54,6 @@ export default async function CountryPage({ params }: CountryPageProps) {
         regionalMapAvailable={Boolean(regionalCoverage?.public_layer_count)}
       />
 
-      <CountryComparePanel
-        current={slug}
-        countries={researchCountries.map((c) => ({ slug: c.slug, name_zh: c.name_zh }))}
-        mapCountries={regionalCoverageMatrixV087.filter((record) => record.public_layer_count).map((record) => record.country_id)}
-        points={researchCountries.flatMap((c) => getCountryObservations(c.slug).filter((o) => COMPARE_INDICATORS.has(o.indicator)).map((o) => ({ country: c.slug, indicator: o.indicator, year: o.year, value: o.value, unit: o.unit, source_name: o.source_name, source_url: o.source_url, source_reliability: o.source_reliability, updated_at: o.updated_at, status: o.status, cross_country_comparable: o.applicability_status !== "not_applicable" && o.comparability_status !== "not_applicable" && o.comparability_status !== "definition_mismatch" })))}
-      />
     </main>
   );
 }

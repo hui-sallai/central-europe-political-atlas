@@ -10,7 +10,7 @@ require.extensions['.ts']=(m,f)=>m._compile(ts.transpileModule(fs.readFileSync(f
 const h=require('../../src/lib/monthlyComparison.ts'), {monthlyComparisonData}=require('../../src/lib/monthlyComparisonData.server.ts');
 const {emptyNotebook,addNotebookEvidence,validateNotebook}=require('../../src/lib/researchNotebook.ts');
 const payload=monthlyComparisonData(), countries=['hungary','poland','germany','austria','slovakia','serbia'];
-const session=h.restoreMonthlySession(new URLSearchParams(),countries,payload);
+const session=h.restoreMonthlySession(new URLSearchParams('monthly_countries=hungary,poland'),countries,payload);
 test('four exact Eurostat definitions retain actual current canonical observations',()=>{
  assert.equal(Object.keys(h.monthlyIndicators).length,4);assert.equal(payload.rows.length,require('../../src/data/high-frequency/high_frequency_observations.json').records.filter(r=>r.frequency==='monthly'&&r.indicator in h.monthlyIndicators).length);
  assert.equal(payload.rows.filter(r=>h.monthlyEligible(r,payload)).length,payload.rows.length-9);assert.equal(payload.rows.filter(r=>r[4]===null).length,9);

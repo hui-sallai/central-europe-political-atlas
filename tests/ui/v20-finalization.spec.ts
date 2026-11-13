@@ -54,6 +54,7 @@ for (const journey of journeys) test(`v2.0 homepage journey and language / refre
   test.setTimeout(120000);
   const errors: string[] = []; page.on("pageerror", error => errors.push(error.message));
   await page.goto("/en/", { waitUntil: "networkidle" });
+  await page.getByRole("link", { name: "Research", exact: true }).click();
   await page.locator(`[data-home-case="${journey.id}"] h3 a`).click();
   await expect(page).toHaveURL(new RegExp(journey.id === "d4" ? "research_study=d4" : `event=${journey.id}`));
   let digest: string | undefined;
@@ -153,6 +154,7 @@ test("v2.0 bilingual homepage language switch, workspaces and essential navigati
     const en = !!prefix;
     for (const workspace of researchWorkspaces) {
       await page.goto(`${prefix}/`, { waitUntil: "networkidle" });
+      await page.locator(`a[href="${prefix}/workspaces/"]`).first().click();
       await page.locator(`a[href="${prefix}/workspaces/${workspace.id}/"]`).click();
       await expect(page.locator("main h1")).toHaveText(workspace.title[en ? "en" : "zh-CN"]);
     }

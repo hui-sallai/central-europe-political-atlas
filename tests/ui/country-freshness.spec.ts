@@ -17,27 +17,9 @@ for (const prefix of ["", "/en"]) test(`country directory published years, units
   }
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   await page.goto(`${prefix}/countries/romania/`);
-  const fdi = latestAvailable("romania", "fdi_inflow");
-  if (prefix) await expect(page.locator('[data-country-observation="fdi_inflow"]')).toHaveAttribute("data-observation-year", String(fdi!.year));
-  else {
-    await page.getByRole("tab", { name: "经济数据", exact: true }).click();
-    await expect(page.locator('[data-country-observation="fdi_inflow"]')).toHaveAttribute("data-observation-year", String(fdi!.year));
-  }
-  await page.getByRole("link", { name: prefix ? "Historical comparison" : "历史比较", exact: true }).click();
-  await expect(page.getByRole("region", { name: prefix ? "Historical annual comparison" : "年度历史比较", exact: true })).toBeVisible();
-  await expect(page.getByRole("checkbox", { name: prefix ? "Romania" : "罗马尼亚", exact: true })).toBeChecked();
-  await page.goto(`${prefix}/`);
-  const meta = page.locator("[data-latest-signals-meta]");
-  await expect(meta).toContainText(newsLibraryMetadata.latestNewsBatch);
-  await expect(meta).toContainText(newsLibraryMetadata.historicalStoreUpdatedAt);
-  await expect(meta).toContainText(newsLibraryMetadata.latestEventDate);
-  if (prefix) {
-    for (const button of await page.locator(".home-country-selector button").all()) {
-      await button.click();
-      await expect(page.locator(".home-country-metrics")).not.toContainText(/[\u3400-\u9fff]/u);
-    }
-    await page.locator(".home-country-selector").getByRole("button", { name: "RS", exact: true }).click();
-    await expect(page.locator(".home-country-metrics")).toContainText("Pending publication / connection");
-  }
+  const gdp=latestAvailable("romania","real_gdp_growth");await expect(page.locator('[data-country-observation="real_gdp_growth"]')).toHaveAttribute("data-observation-year",String(gdp!.year));
+  await page.getByRole("link",{name:prefix?"Economic data and country comparison":"经济数据与国家比较",exact:true}).click();const comparison=page.locator('[data-national-comparison]');await expect(comparison).toBeVisible();await expect(comparison.getByRole("checkbox",{name:prefix?"Romania":"罗马尼亚",exact:true})).toBeChecked();await expect(comparison.locator('fieldset input:checked')).toHaveCount(1);
+  await page.goto(`${prefix}/news/`);const meta=page.locator('[data-latest-signals-meta]');await expect(meta).toContainText(newsLibraryMetadata.latestNewsBatch);await expect(meta).toContainText(newsLibraryMetadata.historicalStoreUpdatedAt);await expect(meta).toContainText(newsLibraryMetadata.latestEventDate);
+  await page.goto(`${prefix}/`);await expect(page.locator('.home-country-metrics,.home-latest-event,[data-home-case]')).toHaveCount(0);
   expect(getCountryObservations("serbia", "hicp_inflation").every(row => row.value === null)).toBe(true);
 });

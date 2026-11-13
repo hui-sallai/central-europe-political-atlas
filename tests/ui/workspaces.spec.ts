@@ -20,6 +20,8 @@ for (const locale of ["zh-CN", "en"] as const) for (const id of ["", ...workspac
   await expect(page.locator("h1")).toHaveCount(1);
   for (const scheme of ["light", "dark"] as const) {
     await page.emulateMedia({ colorScheme: scheme });
+    await expect(page.locator("html")).toHaveAttribute("data-theme", scheme);
+    await page.evaluate(async () => { await Promise.all(document.getAnimations().map(animation => animation.finished.catch(() => {}))); });
     expect((await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze()).violations).toEqual([]);
     expect(await page.locator("body").evaluate(el => el.scrollWidth <= innerWidth + 2)).toBe(true);
   }
@@ -57,9 +59,9 @@ test("country selection, gate, query round trip and workspace download", async (
 test("workspace deep links select existing Data, Models and Map state", async ({ page }) => {
   await page.goto("/en/workspaces/fiscal_macro_conditions/?countries=poland&from=2021&to=2022", { waitUntil: "networkidle" });
   await page.locator('[data-workspace-evidence="real_gdp_growth:canonical_annual"]').getByRole("link", { name: "Open in Data Explorer · Poland", exact: true }).click();
-  await expect(page.getByRole("combobox", { name: "Country", exact: true })).toHaveValue("poland");
-  await expect(page.getByRole("combobox", { name: "Indicator", exact: true })).toHaveValue("real_gdp_growth");
-  await expect(page.getByRole("combobox", { name: "Start year", exact: true })).toHaveValue("2021");
+  await expect(page.locator("[data-national-comparison]").getByRole("checkbox", { name: "Poland", exact: true })).toBeChecked();
+  await expect(page.locator("[data-national-comparison]").getByRole("combobox", { name: "Indicator", exact: true })).toHaveValue("annual:real_gdp_growth");
+  await expect(page.locator("[data-national-comparison]").getByRole("textbox", { name: "From period", exact: true })).toHaveValue("2021");
   await page.goto("/en/workspaces/trade_external_exposure/?countries=poland&from=2021&to=2024", { waitUntil: "networkidle" });
   await page.locator('[data-workspace-method="network_dependency"]').getByRole("link", { name: "Open in Models", exact: true }).click();
   await expect(page).toHaveURL(/skill=network_dependency/);

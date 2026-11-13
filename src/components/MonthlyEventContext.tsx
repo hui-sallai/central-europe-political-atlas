@@ -16,7 +16,7 @@ export function MonthlyEventContext({ selected, countries, from, to, enabled }: 
     <nav className="mt-3 flex flex-wrap gap-3" aria-label={en ? "Country-specific verified event links" : "按国家查看已核验事件"}>
       {links.map(link => { const country = countries.find(country => country.slug === link.country)!; return <a key={link.country} className="rounded-full border border-[var(--accent)] px-3 py-2 text-sm font-semibold text-[var(--accent)] hover:underline" href={link.href} data-monthly-event-country={link.country}>{en ? country.name : country.name_zh} · {en ? "Verified events" : "已核验事件"}</a>; })}
     </nav>
-    {!links.length ? <p className="mt-2 text-sm" role="status">{en ? "Select a valid monthly comparison period and 2–5 countries to open event context." : "请选择有效的月度比较期间和2–5个国家，再查看事件背景。"}</p> : null}
+    {!links.length ? <p className="mt-2 text-sm" role="status">{en ? "Select a valid monthly comparison period and 2–10 countries to open event context." : "请选择有效的月度比较期间和2–10个国家，再查看事件背景。"}</p> : null}
     <p className="mt-3 text-xs text-[var(--muted)]">{en ? "Archive coverage varies by country and month. An empty archive search is not evidence that no relevant events occurred. Links reopen the currently published archive, not a frozen historical archive. Event records and monthly comparisons remain separate Notebook evidence types." : "档案覆盖因国家和月份而异；检索无结果不代表当时没有相关事件。链接重开当前发布档案，而非冻结的历史档案。事件记录与月度比较仍是独立的Notebook证据类型。"}</p>
   </section>;
 }

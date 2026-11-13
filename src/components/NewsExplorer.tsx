@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import {newsLibraryMetadata} from "@/lib/newsLibraryMetadata";
 import { useEffect, useMemo, useState } from "react";
 import { getResearchIndicator, getResearchProject, researchCountries, researchEvents } from "@/lib/researchData";
 import { eventActors, eventAnalysisLevels } from "@/lib/eventAnalysisLinks";
@@ -178,7 +179,7 @@ export function NewsExplorer() {
   }
 
   return (
-    <LocalizedContent><section className="mt-7 grid gap-8 lg:grid-cols-[230px_1fr]">
+    <LocalizedContent><section className="mt-7 grid gap-8 lg:grid-cols-[230px_1fr]"><div className="lg:col-span-2"><p className="mb-4 text-sm text-[var(--muted)]" data-home-news-check>{locale==='en'?'Dated archive, not a live feed. Latest batch source check: ':'有日期的事件档案，并非实时新闻流。最近批次来源核查：'}<time dateTime={newsLibraryMetadata.latestBatchSourceCheckedAt}>{newsLibraryMetadata.latestBatchSourceCheckedAt}</time></p><p className="mb-4 text-xs text-[var(--muted)]" data-latest-signals-meta>{locale==='en'?'Latest event: ':'最近事件：'}{newsLibraryMetadata.latestEventDate} · {locale==='en'?'News batch through: ':'新闻批次截至：'}{newsLibraryMetadata.latestNewsBatch}<span className="block">{locale==='en'?'Historical store record updated: ':'历史库记录更新：'}{newsLibraryMetadata.historicalStoreUpdatedAt}</span></p></div>
       <aside className="h-fit border-t border-[var(--line)] pt-5 lg:sticky lg:top-20">
         <p className="editorial-kicker">Filters</p>
         <label className="mt-4 block text-xs font-semibold text-[var(--muted)]">关键词

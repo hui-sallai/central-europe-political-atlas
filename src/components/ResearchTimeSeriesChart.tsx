@@ -84,10 +84,12 @@ export interface ChartSeries {
 
 interface Props {
   interactive?: boolean;
+  periodControls?: boolean;
+  detailTable?: boolean;
   title: string;
   description?: string;
   series: ChartSeries[];
-  xKind: "month" | "number";
+  xKind: "month" | "quarter" | "number";
   xLabel?: string;
   yLabel: string;
   /** Draw a y = 0 reference line (auto: when 0 lies inside the data range). */
@@ -117,23 +119,23 @@ function InteractiveResearchTimeSeriesChart(props: Props) {
   const [activePoint, setActivePoint] = useState<string | null>(null);
   const [from, setFrom] = useState(""), [to, setTo] = useState("");
   const periods = [...new Set(props.series.flatMap(s => s.points.map(p => p.x)))].sort((a,b) => String(a).localeCompare(String(b), undefined, {numeric:true}));
-  const ordinal = (x: number | string) => props.xKind === "month" ? monthIndex(String(x)) : Number(x);
+  const ordinal = (x: number | string) => props.xKind === "month" ? monthIndex(String(x)) : props.xKind === "quarter" ? Number(String(x).slice(0,4))*4+Number(String(x).slice(-1))-1 : Number(x);
   const within = (x: number | string) => (!from || ordinal(x) >= ordinal(from)) && (!to || ordinal(x) <= ordinal(to));
   const series = props.series.map(s => ({ ...s, markers: true, points: s.points.filter(p => within(p.x)), band: s.band?.filter(p => within(p.x)) }));
   const selection = series.some(s => s.points.some(p => `${s.id}:${p.x}` === activePoint && p.y !== null)) ? activePoint : null;
   return <LocalizedContent>{<div data-interactive-series className="min-w-0 max-w-full">
-    {periods.length > 12 ? <fieldset className="mb-3 flex flex-wrap gap-3 text-xs"><legend className="font-semibold">{en ? "Chart period" : "图表时期"}</legend>{[[from,setFrom,en ? "From" : "起始"],[to,setTo,en ? "To" : "结束"]].map(([value,set,label]) => <label key={label as string}>{label as string}<select className="field-control ml-2" value={value as string} onChange={e => (set as (v:string)=>void)(e.target.value)}><option value="">{en ? "All" : "全部"}</option>{periods.map(p => <option key={p} value={p}>{p}</option>)}</select></label>)}</fieldset> : null}
+    {props.periodControls!==false && periods.length > 12 ? <fieldset className="mb-3 flex flex-wrap gap-3 text-xs"><legend className="font-semibold">{en ? "Chart period" : "图表时期"}</legend>{[[from,setFrom,en ? "From" : "起始"],[to,setTo,en ? "To" : "结束"]].map(([value,set,label]) => <label key={label as string}>{label as string}<select className="field-control ml-2" value={value as string} onChange={e => (set as (v:string)=>void)(e.target.value)}><option value="">{en ? "All" : "全部"}</option>{periods.map(p => <option key={p} value={p}>{p}</option>)}</select></label>)}</fieldset> : null}
     <label className="mb-3 block text-xs font-semibold">{en ? "Inspect a value" : "查看数值点"}<select className="field-control mt-2 min-w-0 max-w-full" value={selection ?? ""} onChange={e => setActivePoint(e.target.value)}><option value="">{en ? "Choose a period and series" : "选择时期与序列"}</option>{series.map(s => <optgroup key={s.id} label={s.label}>{s.points.filter(p=>p.y !== null).map(p=><option key={p.x} value={`${s.id}:${p.x}`}>{s.label} · {p.x}</option>)}</optgroup>)}</select></label>
     <RenderedResearchTimeSeriesChart {...props} series={series} containerRole="group" activePoint={selection} setActivePoint={setActivePoint} />
     <p className="text-xs text-[var(--muted)]">{en ? "Hover or tap a point. Use Tab, then arrow keys to inspect values. Gaps and recorded breaks are not connected." : "悬停或点按观测点；按 Tab 后使用方向键逐点查看。缺失时期和已记录断点不连线。"}</p>
-    <details className="mt-3 min-w-0 max-w-full text-xs" data-chart-table><summary className="cursor-pointer font-semibold">{en ? "Exact values and sources" : "精确数值与来源"}</summary><div className="data-table-viewport mt-2" tabIndex={0} role="region" aria-label={en ? "Chart values (scrollable)" : "图表数值（可滚动）"}><table data-chart-observations className="research-data-table w-full min-w-[480px] text-left"><caption className="text-left">{props.title}</caption><thead><tr>{(en ? ["Series","Period","Value","Unit","Status / definition","Source"] : ["序列","时期","数值","单位","状态／定义","来源"]).map(h => <th scope="col" className="p-2" key={h}>{h}</th>)}</tr></thead><tbody>{series.flatMap(s => s.points.map((p,i) => <tr key={`${s.id}:${i}`}><th scope="row" className="p-2 font-normal">{s.label}</th><td className="p-2">{p.x}</td><td className="p-2 metric-number">{p.y === null ? "—" : p.y.toLocaleString(locale,{maximumFractionDigits:20})}</td><td className="p-2">{en ? englishUnit(p.unit ?? props.yLabel) : p.unit ?? props.yLabel}</td><td className="p-2">{en ? englishText(p.status ?? p.detail ?? (p.y === null ? "Missing value" : "Status not recorded")) : p.status ?? p.detail ?? (p.y === null ? "缺失值" : "未记录状态")}</td><td className="p-2">{p.sourceUrl ? <a className="underline text-[var(--accent)]" href={p.sourceUrl}><span lang={en && /[㐀-鿿]/u.test(p.source ?? "") ? "zh-CN" : undefined} data-original-language={en && /[㐀-鿿]/u.test(p.source ?? "") ? "zh-CN" : undefined}>{p.source ?? p.sourceUrl}</span></a> : <span lang={en && /[㐀-鿿]/u.test(p.source ?? "") ? "zh-CN" : undefined} data-original-language={en && /[㐀-鿿]/u.test(p.source ?? "") ? "zh-CN" : undefined}>{p.source ?? "—"}</span>}</td></tr>))}</tbody></table></div></details>
+    {props.detailTable!==false?<details className="mt-3 min-w-0 max-w-full text-xs" data-chart-table><summary className="cursor-pointer font-semibold">{en ? "Exact values and sources" : "精确数值与来源"}</summary><div className="data-table-viewport mt-2" tabIndex={0} role="region" aria-label={en ? "Chart values (scrollable)" : "图表数值（可滚动）"}><table data-chart-observations className="research-data-table w-full min-w-[480px] text-left"><caption className="text-left">{props.title}</caption><thead><tr>{(en ? ["Series","Period","Value","Unit","Status / definition","Source"] : ["序列","时期","数值","单位","状态／定义","来源"]).map(h => <th scope="col" className="p-2" key={h}>{h}</th>)}</tr></thead><tbody>{series.flatMap(s => s.points.map((p,i) => <tr key={`${s.id}:${i}`}><th scope="row" className="p-2 font-normal">{s.label}</th><td className="p-2">{p.x}</td><td className="p-2 metric-number">{p.y === null ? "—" : p.y.toLocaleString(locale,{maximumFractionDigits:20})}</td><td className="p-2">{en ? englishUnit(p.unit ?? props.yLabel) : p.unit ?? props.yLabel}</td><td className="p-2">{en ? englishText(p.status ?? p.detail ?? (p.y === null ? "Missing value" : "Status not recorded")) : p.status ?? p.detail ?? (p.y === null ? "缺失值" : "未记录状态")}</td><td className="p-2">{p.sourceUrl ? <a className="underline text-[var(--accent)]" href={p.sourceUrl}><span lang={en && /[㐀-鿿]/u.test(p.source ?? "") ? "zh-CN" : undefined} data-original-language={en && /[㐀-鿿]/u.test(p.source ?? "") ? "zh-CN" : undefined}>{p.source ?? p.sourceUrl}</span></a> : <span lang={en && /[㐀-鿿]/u.test(p.source ?? "") ? "zh-CN" : undefined} data-original-language={en && /[㐀-鿿]/u.test(p.source ?? "") ? "zh-CN" : undefined}>{p.source ?? "—"}</span>}</td></tr>))}</tbody></table></div></details>:null}
   </div>}</LocalizedContent>;
 }
 
 // Non-interactive research charts remain stateless, including frozen-output SSR validation.
 function RenderedResearchTimeSeriesChart({ title, description, series, xKind, xLabel, yLabel, zeroLine = "auto", zeroDash = "5 4", includeZero = false, xTickValues, latestMarker = false, height = 300, legend = true, formatX, formatY, className, containerRole = "img", interactive = false, activePoint = null, setActivePoint = () => {} }: Props & { activePoint?: string | null; setActivePoint?: (value: string) => void }) {
   const locale = useLocale();
-  const toX = (value: number | string) => (typeof value === "string" ? monthIndex(value) : value);
+  const toX = (value: number | string) => xKind === "month" ? monthIndex(String(value)) : xKind === "quarter" ? Number(String(value).slice(0,4))*4+Number(String(value).slice(-1))-1 : Number(value);
   const allX = series.flatMap((s) => s.points.map((p) => toX(p.x)));
   const allY = series.flatMap((s) => [...s.points.flatMap((p) => (p.y === null || !Number.isFinite(p.y) ? [] : [p.y])), ...(s.band ?? []).flatMap((b) => [b.lower, b.upper])]);
   if (!allX.length || !allY.length) return <LocalizedContent>{<p className="text-sm text-[var(--muted)]">没有可绘制的观测值（缺失值不会显示为 0）。</p>}</LocalizedContent>;

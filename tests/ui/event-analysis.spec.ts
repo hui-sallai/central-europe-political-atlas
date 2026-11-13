@@ -34,12 +34,12 @@ for (const locale of ["zh-CN", "en"] as const) {
     await expect(study.locator("[data-level-reason='window']")).toBeVisible();
     await expect(study.locator("[data-open-window]")).toHaveCount(0);
     // A category-derived outcome in the URL is not preselected.
-    await expect(page.locator("select").nth(2)).toHaveValue("");
+    await expect(page.locator("[data-event-workbench-controls] select").nth(2)).toHaveValue("");
   });
 
   test(`recent event: background shown, mechanism and indicators explained as unavailable, no numbers (${locale})`, async ({ page }) => {
     await page.goto(`${locale === "en" ? "/en" : ""}/models/?tab=run&skill=event_window_analysis&country=hungary`, { waitUntil: "networkidle" });
-    const select = page.locator("select").nth(1);
+    const select = page.locator("[data-event-workbench-controls] select").nth(1);
     const recent = await select.locator("option:not([disabled])").evaluateAll((options) => (options as HTMLOptionElement[]).map((option) => option.value).find((value) => /^hu-2026-(09|10)/.test(value)));
     expect(recent).toBeTruthy();
     await select.selectOption(recent!);
@@ -60,7 +60,7 @@ test("representative event buttons select the event and its country", async ({ p
   const study = panel(page, "hu-2023-01-26-eu-funds-conditionality");
   await expect(study.locator("[data-linked-indicator='government_expenditure_gdp']")).toBeVisible();
   await expect(study.locator("[data-open-window]")).toHaveCount(0);
-  await expect(page.locator("select").first()).toHaveValue("hungary");
+  await expect(page.locator("[data-event-workbench-controls] select").first()).toHaveValue("hungary");
 });
 
 for (const locale of ["zh-CN", "en"] as const) {

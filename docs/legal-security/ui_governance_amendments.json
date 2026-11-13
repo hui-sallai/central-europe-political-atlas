@@ -2877,6 +2877,235 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-11"
+    },
+    {
+      "amendment_id": "v20-usability-arbitrary-national-comparison-2026-11-14",
+      "status": "owner_approved",
+      "approved_by": "Owner implementation brief 2026-11-14: full-site usability and arbitrary 2-10-country comparison, central topic discovery, map-only homepage and equal political entries. Presentation only; preserve data, statistical comparability, source rights and all publication gates. No deployment authorised. Includes the exact locale route list file solely to register /politics/germany/; no other i18n file is amendable.",
+      "baseline": "29c24f2cef89c2b57f3d61d21d96fc1e2ba37edd",
+      "files": [
+        {
+          "path": "src/app/(english)/en/countries/[slug]/page.tsx",
+          "sha256": "a1311c4bbd51293f8d4adbbfb3414f719b692ae786ce23bb230011210df90cd2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/data/page.tsx",
+          "sha256": "4e4ebf0a7844056289fe056d7284424e6a054959dc32c5f626342e9105e905f9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/methodology/page.tsx",
+          "sha256": "9db23de99889f1225a63e878c2bb844ca6efa8f2bb85eb65cf2cbd01b5e00d2e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/page.tsx",
+          "sha256": "de96609a259150a21287fbf6149df1a2a60f91e87820367e417e7b50707310bb",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/germany/page.tsx",
+          "sha256": "cf2f1869712f59337eee23732f157133acbbe3bc06901baf610b01a6b9ea011a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/page.tsx",
+          "sha256": "63186b8c266fff36d4a894c71b4e519a6393ea411b3a2e1037ac04cb28fb7841",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/workspaces/page.tsx",
+          "sha256": "c53827986e72fe0203427add88fdb2d916907927ec266021e7a595d73b97d099",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/countries/[slug]/page.tsx",
+          "sha256": "40cb60bb72b09f2cef43682ebe6bfc1fbe0bc35065e6221ae851a193bf929065",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/data/page.tsx",
+          "sha256": "3da66035733aa47a75889facdffca461c4d175a30a40544d97e536f8f8d22694",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/methodology/page.tsx",
+          "sha256": "38c6c109ce8051d3151150677687a402275610a21a25d179b4e1c21ba4bdfd9f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/page.tsx",
+          "sha256": "694101fdde03649d917315a139bf757483bb063a2403750051eae53a1e69b81f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/germany/page.tsx",
+          "sha256": "aa47eda44af8692d04c8b57a9e32e7463316b663b16eec3f67230e626df0361a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/page.tsx",
+          "sha256": "a21b5acd4345bbc4bbd1c09d3e4f7670e6a6e99d978f38e2ab72d828480a2c74",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/workspaces/page.tsx",
+          "sha256": "22a23b5ac6dcaa27cb9a4ba2b332b1f5897487c6ad330b4677b5981279743630",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/AnalysisSkillCard.tsx",
+          "sha256": "d73a89c70ac9c944c4dcbe6855e9e5182b22026de36845de2ff8aa52eb74f8aa",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/AnalysisWorkbench.tsx",
+          "sha256": "da6bf1d9c40a53c31f66373a5f6bd86d6d5b37bdd6f60bc7daf289619064833e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ComparativeSpatialWorkbench.tsx",
+          "sha256": "0d5fd00df2ee63486f6fd0427712c6356a128efcbaa82f2ff2aa8f161b598bd9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryObservationValue.tsx",
+          "sha256": "8b983f8154eaa29c250d9aa6e9f905c58079457f2c68e8508e055b52ae2d2552",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryResearchProfile.tsx",
+          "sha256": "4a155db981a7a99f56920ef9f3b0cd504168c67066c28e5b80d53e61d3b06fdc",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/DataExplorerV11.tsx",
+          "sha256": "2ec1fe28332b9924df9474bc863c1d23be425e4e31671ae6c13ed5733c3e576c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/HomeResearchMap.tsx",
+          "sha256": "b175f758de443e57a61b155e00e0c208656dc826ed6264dbe27556ea67dd9b5e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ModelsPageContent.tsx",
+          "sha256": "42b3435a1c5a7d52f969d0c0a65c39c6917aae978de13b693860a8513820afc5",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/MonthlyEventContext.tsx",
+          "sha256": "03414887287e162e94cec7a5e07c6b046d656aaaeb9fb9399759079e99db226d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/NationalComparisonWorkspace.tsx",
+          "sha256": "d7583a66f663b6a367f298e08b13d2af271b10f5cd52cb6e45169d5e10f9ca8f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ParliamentSeats.tsx",
+          "sha256": "b5d3e54a74c776a1ea6cdb55b95ba01042fec00003ff3b25b66c9b195f8ba278",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "ca3c415523bb4c059e1a901f69e01830695b2a950e6b14bd00b094802d132547",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalLanding.tsx",
+          "sha256": "7034b0992d49a64c07eca4c817083c6618aaa1301dd2f45fbbe7bbfc82b8766a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalLinkedComparison.tsx",
+          "sha256": "000c6f6af9d06fba67a61b3e2f81c77537f88e5f535434696ebc0135327da3b0",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalVerifiedComparison.tsx",
+          "sha256": "1c73973ca7b5c36694b04be4e5c61e58bd703cb9fa30630292d209c24463943b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ResearchTimeSeriesChart.tsx",
+          "sha256": "5faf5f1d86aa5fdf51dd314f9f5518f073f1eda878bd79c63a62fd145ead332b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/WorkspaceIndex.tsx",
+          "sha256": "4957e0713b3c8009d92de5d4e1228d36f13ad8799113796b605e4639c3622ac2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/indicatorTaxonomy.ts",
+          "sha256": "7b96d4d0a9b083e35370f098bb021213565534562f1cb7cf41f1dc9c1bb93f25",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/monthlyEventContext.ts",
+          "sha256": "fc580b764c454c4246ff808c9ecb989d6256bd581ae5d66322e04796e74e75d9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/nationalComparison.ts",
+          "sha256": "46a94e1b62107b15bde272aaf5a09261717c0c5ebb200ab45f865dbb4e0f95d3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/i18n/config.ts",
+          "sha256": "f7cf2e1177bfe0cc1848c93de61db9f8e6573f9ec7450a846d303e885c393050",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/MacroDriverWorkbench.tsx",
+          "sha256": "10d4fc604d51c393b0e255e9e52659a6e46f1b9c39e00c3d592fd899802931ab",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/HomeResearchDiscovery.tsx",
+          "sha256": "9361471f4e4cc198afcf691ac1b067f20ec35aae5b4286942cf327415af44933",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/NewsExplorer.tsx",
+          "sha256": "ad1ba60190e52571c98872de81c1b0465980fb7ce9d58c1147ce86598d83d5ed",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/MonthlyComparisonHandoff.tsx",
+          "sha256": "b74d1d2377a2c57c1862d5202e6c917633550a18476ea3799701b8e7577b9d13",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/monthlyComparison.ts",
+          "sha256": "182b833d642ebf4cdc752c03ddf0695d8cc9f70e2bd8b9f4f270d06080f402fe",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/EventWindowWorkbench.tsx",
+          "sha256": "ef4b57083be8d5e029cba23432882ff56f849378a29d871babd9379c61fc5e11",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/countryModelPresentation.ts",
+          "sha256": "e3ff6d2abad2b2184701a99dae1be4aa96ba695bcc60abda4685e540341eea7a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ResearchSnapshotExport.tsx",
+          "sha256": "58f1a5f86554e8cc187e88a1660c1d1292deea9e82af2b63122fdfb10b0bb0b2",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-14"
     }
   ]
 }

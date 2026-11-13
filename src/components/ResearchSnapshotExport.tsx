@@ -9,7 +9,7 @@ import { englishText } from "@/i18n/reviewedText";
 import { localizedRoute } from "@/i18n/config";
 import { NotebookSnapshotCollect } from "./NotebookSnapshotCollect";
 
-export function ResearchSnapshotExport({ create, disabled = false, chart = false }: { create: () => SnapshotInput; disabled?: boolean; chart?: boolean }) {
+export function ResearchSnapshotExport({ create, disabled = false, chart = false, notebook = true }: { create: () => SnapshotInput; disabled?: boolean; chart?: boolean; notebook?:boolean }) {
   const locale = useLocale();
   const button = useRef<HTMLButtonElement>(null);
   const [status, setStatus] = useState<"idle" | "preparing" | "generating" | "done" | "error">("idle");
@@ -43,5 +43,5 @@ export function ResearchSnapshotExport({ create, disabled = false, chart = false
       setStatus("done");
     } catch { setStatus("error"); }
   }
-  return <span className="inline-flex flex-wrap items-center gap-2"><button ref={button} type="button" onClick={() => void download()} disabled={disabled || busy} aria-busy={busy} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50">{locale === "en" ? "Export research snapshot" : "导出研究快照"}</button><span role="status" className="text-xs text-[var(--muted)]">{labels[status]}</span><NotebookSnapshotCollect create={create} disabled={disabled || busy} /></span>;
+  return <span className="inline-flex flex-wrap items-center gap-2"><button ref={button} type="button" onClick={() => void download()} disabled={disabled || busy} aria-busy={busy} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50">{locale === "en" ? "Export research snapshot" : "导出研究快照"}</button><span role="status" className="text-xs text-[var(--muted)]">{labels[status]}</span>{notebook?<NotebookSnapshotCollect create={create} disabled={disabled || busy} />:null}</span>;
 }

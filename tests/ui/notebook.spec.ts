@@ -13,11 +13,13 @@ function unzip(bytes: Buffer): Record<string,string> { return JSON.parse(execFil
 test("collect six surfaces, notes survive locale switch, seven-file export, clear and import",async({page})=>{
   const writes:string[]=[];page.on("request",r=>{if(!["GET","HEAD"].includes(r.method()))writes.push(r.url());});
   await page.goto("/en/data/?tab=annual&country=hungary&indicator=gdp_per_capita_eur&from=2025&to=2025",{waitUntil:"networkidle"});
+  await page.getByText(/^(Original source records and existing research exports|原始来源记录与既有研究导出)$/).click();
   await page.locator('[data-snapshot-scope="annual"]').getByRole("button",{name:"Add to notebook",exact:true}).filter({visible:true}).first().click();await count(page,1);
   await page.locator('[data-snapshot-scope="annual"]').getByRole("button",{name:"Add current view to notebook",exact:true}).click();await count(page,2);
   await page.getByRole("button",{name:"Added",exact:true}).first().click();await count(page,2);
   await page.goto("/en/countries/hungary/?compare=poland",{waitUntil:"networkidle"});
-  await page.locator("[data-country-compare]").getByRole("button",{name:"Add current view to notebook",exact:true}).click();await count(page,3);
+  await page.getByRole("link",{name:"Economic data and country comparison",exact:true}).click();
+  await page.locator("[data-national-comparison] [data-notebook-add]").click();await count(page,3);
   await page.goto("/en/news/?country=hungary",{waitUntil:"networkidle"});await page.getByRole("button",{name:"Add to notebook",exact:true}).first().click();await count(page,4);
   await page.goto("/en/map/?countries=hungary&layer=regional_gdp_per_capita&year=2024&classification=equal_interval",{waitUntil:"networkidle"});await page.getByRole("button",{name:"Add current view to notebook",exact:true}).click();await count(page,5);
   await page.goto("/en/models/?tab=run&skill=reduced_form_var",{waitUntil:"networkidle"});await page.getByRole("button",{name:"Add to notebook",exact:true}).click();await count(page,6);
@@ -87,6 +89,7 @@ test("capacity warning and rejected collection preserve a full notebook",async({
   const raw=serializeNotebook(state);await page.addInitScript(({key,raw})=>localStorage.setItem(key,raw),{key:NOTEBOOK_STORAGE_KEY,raw});
   await page.goto("/en/notebook/",{waitUntil:"networkidle"});await expect(page.locator("[data-notebook-capacity]")).toContainText("Approaching the notebook limit");
   await page.goto("/en/data/?tab=annual&country=hungary&indicator=gdp_per_capita_eur&from=2025&to=2025",{waitUntil:"networkidle"});
+  await page.getByText(/^(Original source records and existing research exports|原始来源记录与既有研究导出)$/).click();
   await page.locator('[data-snapshot-scope="annual"]').getByRole("button",{name:"Add to notebook",exact:true}).filter({visible:true}).first().click();
   await expect(page.getByText(/Action rejected: invalid content or size limit/).filter({visible:true}).first()).toBeVisible();await count(page,100);
   expect(await page.evaluate(key=>localStorage.getItem(key),NOTEBOOK_STORAGE_KEY)).toBe(raw);

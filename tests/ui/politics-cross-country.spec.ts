@@ -120,7 +120,7 @@ for (const locale of ["zh-CN", "en"] as const) test(`Czech view: real 2017–202
   await expect(panel).not.toContainText("Bundeswahlleiterin, Wiesbaden. Source links");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   await panel.locator('[data-politics-country-view="germany"]').click();
-  await page.waitForURL(`**${prefix}/politics/`);
+  await page.waitForURL(`**${prefix}/politics/germany/`);
   await expect(page.locator("[data-politics-explorer] select").first().locator("option")).toHaveCount(1);
 });
 

@@ -45,7 +45,7 @@ export function HomeCoverageSection({ locale }: { locale: Locale }) {
   const groups = [
     { id: "national", title: en ? "National macroeconomic profiles" : "国家宏观经济档案", slugs: national.map(c => c.slug), href: (slug: string) => `/countries/${slug}/`, note: en ? "Published observations exist; indicators and reference periods differ by country." : "已有公布观测；各国的指标与参照时期不同。" },
     { id: "regional", title: en ? "Connected regional maps" : "已连接的区域地图", slugs: regional.map(c => c.country_id), href: (slug: string) => `/map/?country=${slug}`, note: en ? "Boundary and factual-data gates apply by layer. Serbia's regional mapping is pending; its national profile remains available." : "边界与事实数据按图层分别准入。塞尔维亚区域地图待接入，国家档案仍可使用。" },
-    { id: "political", title: en ? "Parliamentary election research" : "全国议会选举研究", slugs: political.map(c => c.slug), href: (slug: string) => slug === "germany" ? "/politics/" : `/politics/${slug}/`, note: en ? "Selected elections only; election coverage does not establish continuous party identity or cross-country comparability." : "只覆盖已准入选举；不意味着连续政党身份或跨国可比性均已成立。" },
+    { id: "political", title: en ? "Parliamentary election research" : "全国议会选举研究", slugs: political.map(c => c.slug), href: (slug: string) => `/politics/${slug}/`, note: en ? "Selected elections only; election coverage does not establish continuous party identity or cross-country comparability." : "只覆盖已准入选举；不意味着连续政党身份或跨国可比性均已成立。" },
   ];
   return <section className="editorial-section mt-10" aria-labelledby="home-coverage-title" data-home-coverage>
     <h2 id="home-coverage-title" className="text-3xl font-semibold">{en ? "Country and regional exploration" : "国家与区域探索"}</h2>

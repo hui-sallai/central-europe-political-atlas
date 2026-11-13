@@ -115,7 +115,7 @@ export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: Ho
               })}
             </svg>
           ) : null}
-          <div className="home-country-selector" aria-label={m.shortcuts}>
+          <div className="home-country-selector" style={{position:"static",marginTop:"0.75rem"}} aria-label={m.shortcuts}>
             {countries.map((country) => <button key={country.slug} type="button" aria-pressed={country.slug === selectedSlug} onClick={() => setSelectedSlug(country.slug)}>{country.iso2}</button>)}
           </div>
           <p className="mt-2 text-[11px] leading-5 text-[var(--muted)]" data-source-attribution="geoboundaries">{m.boundaryAttribution} <a className="underline" href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/geo/BOUNDARY-LICENSES.txt`}>{m.boundaryLicences}</a></p>
@@ -124,14 +124,7 @@ export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: Ho
           <p className="editorial-kicker">Selected Country</p>
           <h3>{en ? selected.nameEn : selected.nameZh}</h3>
           <p className="home-country-en">{selected.nameEn}</p>
-          <dl className="home-country-metrics">
-            {selected.indicators.map((indicator) => <div key={indicator.id}><dt>{indicator.label}</dt><dd>{indicator.value}</dd><dd className="home-country-year">{indicator.year}</dd></div>)}
-          </dl>
-          <div className="home-latest-event">
-            <p>{en ? "Latest verified event" : "最近已核验事件"}</p>
-            {selected.latestEvent ? <Link href={localizedRoute(`/news?country=${selected.slug}#${selected.latestEvent.id}`, locale)}><span>{selected.latestEvent.date}</span>{en ? <div lang={selected.latestEvent.titleLanguage ?? "und"} data-original-language={selected.latestEvent.originalLanguageLabel ? selected.latestEvent.titleLanguage : undefined}>{selected.latestEvent.originalLanguageLabel ? <span lang="en" className="block text-xs text-[var(--muted)]">{selected.latestEvent.originalLanguageLabel}</span> : null}{selected.latestEvent.title}</div> : selected.latestEvent.title}</Link> : <span>{m.noEvent}</span>}
-          </div>
-          <div className="home-map-actions"><Link href={localizedRoute(`/countries/${selected.slug}`, locale)}>{m.profile}</Link><Link href={localizedRoute(`/data?country=${selected.slug}`, locale)}>{en ? "National economic data" : "国家经济数据"}</Link><Link href={localizedRoute(`/politics/${selected.slug === "germany" ? "?country=germany" : ["czechia","poland","slovakia","hungary"].includes(selected.slug) ? selected.slug : ""}`, locale)}>{en ? "Politics and elections" : "政治制度与选举"}</Link><Link href={localizedRoute(`/models?country=${selected.slug}`, locale)}>{en ? "Research and models" : "研究与模型"}</Link><Link href={localizedRoute(`/map?country=${selected.slug}`, locale)}>{m.fullMap}</Link></div>
+          <div className="home-map-actions"><Link href={localizedRoute(`/countries/${selected.slug}/`, locale)}>{m.profile}</Link><Link href={localizedRoute(`/data/?country=${selected.slug}`, locale)}>{en ? "National economic data" : "国家经济数据"}</Link><Link href={localizedRoute(`/politics/${["germany","czechia","poland","slovakia","hungary"].includes(selected.slug) ? `${selected.slug}/` : ""}`, locale)}>{en ? "Politics and elections" : "政治制度与选举"}</Link><Link href={localizedRoute(`/models/?country=${selected.slug}`, locale)}>{en ? "Research and models" : "研究与模型"}</Link><Link href={localizedRoute(`/map/?country=${selected.slug}`, locale)}>{m.fullMap}</Link></div>
         </aside>
       </div>
     </section>

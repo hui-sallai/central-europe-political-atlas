@@ -8,19 +8,18 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import { EcbIdentificationStatus } from "@/components/EcbIdentificationStatus";
-import { analysisCategoryLabels, runtimeAnalysisSkills, resolveAnalysisRoute, methodStateLabels } from "@/lib/analysisSkills";
+import { runtimeAnalysisSkills, resolveAnalysisRoute } from "@/lib/analysisSkills";
 import { AnalysisSkillCard } from "@/components/AnalysisSkillCard";
+import {countryModelMeaning,countryModelPurpose} from "@/lib/countryModelPresentation";
 import { statusLabels } from "@/lib/uiLabels";
 import type { Country } from "@/types/Country";
 import type { Event } from "@/types/Event";
-import type { AnalysisSkillCategory } from "@/types/AnalysisSkill";
 import type { ModelCard, ModelId, ModelOutput } from "@/types/ModelOutput";
 import { TRADE_SESSION_PARAMS } from "@/lib/tradeNetworkPresentation";
 import {TransparentModelResearchWorkbench} from "@/components/TransparentModelResearchWorkbench";
 import {MODEL_RESEARCH_PARAMS} from "@/lib/transparentModelResearch";
 import { HouseholdPressureWorkbench } from "@/components/HouseholdPressureWorkbench";
 
-const categories = Object.keys(analysisCategoryLabels) as AnalysisSkillCategory[];
 const PanelLocalProjectionWorkbench = dynamic(() => import("@/components/PanelLocalProjectionWorkbench").then(module => module.PanelLocalProjectionWorkbench));
 
 const PanelEconometricsWorkbench = dynamic(() => import("@/components/PanelEconometricsWorkbench").then((module) => module.PanelEconometricsWorkbench), {
@@ -63,8 +62,8 @@ function AnalysisWorkbenchContent({ countries, cards, events, mechanisms = [] }:
   const [selectedSkillId, setSelectedSkillId] = useState(route.skill?.skill_id ?? "composite_indicators");
   const selectedSkill = runtimeAnalysisSkills.find((s) => s.skill_id === selectedSkillId)!;
   const category = selectedSkill.category;
-  const setCategory = (next: AnalysisSkillCategory) => setSelectedSkillId(runtimeAnalysisSkills.find((s) => s.category === next)!.skill_id);
   const [modelId, setModelId] = useState<ModelId>(cards.find(card => card.model_id === searchParams.get("model"))?.model_id ?? cards[0]?.model_id ?? "household_economic_pressure");
+  const selectedCard=cards.find(c=>c.model_id===modelId);
   const skills = runtimeAnalysisSkills.filter((skill) => skill.category === category);
   function selectModel(id:ModelId){
     setModelId(id);const u=new URL(window.location.href);u.searchParams.set("model",id);
@@ -75,13 +74,9 @@ function AnalysisWorkbenchContent({ countries, cards, events, mechanisms = [] }:
   return <LocalizedContent>{(
     <section className="mt-8">
       {route.notices.map((notice) => <p key={notice} role="status" className="my-4 text-sm">{notice}</p>)}
-      <div className="mb-4 flex flex-wrap gap-4 text-sm">{(["active", "registry_only", "blocked"] as const).map((state) => <button key={state} onClick={() => setSelectedSkillId(runtimeAnalysisSkills.find((s) => s.state === state)!.skill_id)}>{methodStateLabels[state]} {runtimeAnalysisSkills.filter((s) => s.state === state).length}</button>)}</div>
-      <div className="research-tabs" role="tablist" aria-label="分析方法类别">
-        {categories.map((item) => <button key={item} type="button" role="tab" className="research-tab" aria-selected={category === item} onClick={() => { setCategory(item); }}>{analysisCategoryLabels[item]}</button>)}
-      </div>
-
-      <div className="mt-4 flex flex-wrap gap-3">{skills.map((skill) => <button key={skill.skill_id} className="research-tab" aria-pressed={skill.skill_id === selectedSkillId} onClick={() => setSelectedSkillId(skill.skill_id)}>{locale === "en" ? analysisNames[skill.skill_id] : skill.name}</button>)}</div>
+      <label className="block max-w-xl font-semibold">{locale==='en'?'Research method':'研究方法'}<select className="field-control mt-2" value={selectedSkillId} onChange={e=>{setSelectedSkillId(e.target.value);const u=new URL(location.href);u.searchParams.set('skill',e.target.value);window.history.replaceState(null,'',u.pathname+u.search+u.hash);}}>{runtimeAnalysisSkills.map(skill=><option key={skill.skill_id} value={skill.skill_id}>{locale==='en'?analysisNames[skill.skill_id]:skill.name}{skill.state==='active'?'':locale==='en'?' · Not available for calculation':' · 当前不提供计算'}</option>)}</select></label>
       <AnalysisSkillCard skill={selectedSkill} />
+      {category==='composite_indicators'?<section className="mt-4 rounded border border-[var(--line)] p-4"><h3 className="font-semibold">{locale==='en'?cards.find(c=>c.model_id===modelId)?.name:cards.find(c=>c.model_id===modelId)?.name_zh}</h3><p className="mt-2 text-sm">{selectedCard?countryModelPurpose(selectedCard,locale):""}</p><p className="mt-2 text-sm">{locale==='en'?'Inputs':'输入'}: {cards.find(c=>c.model_id===modelId)?.inputs.map(i=>i.label).join(' · ')}</p><p className="mt-2 text-sm">{selectedCard?countryModelMeaning(selectedCard,locale):""}</p></section>:null}
       {selectedSkill.state !== "active" ? null : category === "composite_indicators" ? (
         <div className="mt-6"><label>{locale === "en" ? "Analysis model" : "分析模型"}<select className="field-control mt-2" value={modelId} onChange={e=>selectModel(e.target.value as ModelId)}>{cards.map(c=><option key={c.model_id} value={c.model_id}>{locale === "en" ? c.name : c.name_zh}</option>)}</select></label>{modelId === "household_economic_pressure" ? <HouseholdPressureWorkbench countries={countries}/> : <TransparentModelResearchWorkbench key={modelId} model={modelId} countries={countries}/>}</div>
       ) : category === "panel_econometrics" ? (
@@ -99,7 +94,7 @@ function AnalysisWorkbenchContent({ countries, cards, events, mechanisms = [] }:
         />
       ) : category === "macro_time_series" ? (
         <div className="mt-6 grid gap-6">
-          {selectedSkillId === "monetary_policy_identification" ? <EcbIdentificationStatus /> : null}
+          {selectedSkillId === "monetary_policy_identification" ? <details><summary>{locale==='en'?'Identification methods and technical evidence':'识别方法与技术证据'}</summary><EcbIdentificationStatus/></details> : null}
           {selectedSkillId === "local_projections" ? <LocalProjectionWorkbench initialCountry={route.countrySlug} /> : null}
           {selectedSkillId === "macro_driver_explorer" ? <MacroDriverWorkbench countries={countries} initialCountry={route.countrySlug} /> : null}
           {selectedSkillId === "reduced_form_var" ? <VarWorkbench countries={countries} initialCountry={route.countrySlug} /> : null}

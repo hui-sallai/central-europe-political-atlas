@@ -72,8 +72,11 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
     const timer = window.setTimeout(() => {
       const params = new URLSearchParams(window.location.search);
       if (params.get("driver")) setDriverId(params.get("driver")!);
+      else if(params.get("comparison_indicator")?.startsWith("macro:"))setDriverId(params.get("comparison_indicator")!.split(":")[1]);
       if (params.get("area")) setArea(params.get("area")!);
+      else if(params.get("compare_countries"))setArea(params.get("compare_countries")!.split(",")[0]);
       if (params.get("transformation")) setTransformation(params.get("transformation")!);
+      else if(params.get("comparison_indicator")?.split(":")[2])setTransformation(params.get("comparison_indicator")!.split(":")[2]);
       if (params.get("history") === "0") setIncludeHistory(false);
       setUrlReady(true);
     }, 0);
@@ -112,7 +115,7 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
   const selectedArea = areas.some(([key]) => key === area) ? area : (areas[0]?.[0] ?? area);
   const selectedTransformation = transformations.includes(transformation) ? transformation : (transformations[0] ?? transformation);
   useEffect(() => {
-    if (!urlReady || loadState !== "ready") return;
+    if (!urlReady || loadState !== "ready" || (compact&&new URLSearchParams(location.search).has("compare_countries"))) return;
     const url = new URL(window.location.href);
     for (const [key, value] of Object.entries({ ...(compact ? { tab: "macro_drivers" } : {}), driver: driverId, area: selectedArea, transformation: selectedTransformation, history: includeHistory ? "1" : "0" })) url.searchParams.set(key, value);
     window.history.replaceState(null, "", url);
@@ -148,7 +151,7 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
       {loadState === "loading" ? <p className="py-10 text-center text-sm text-[var(--muted)]">正在加载宏观驱动数据…</p> : null}
       {loadState === "error" ? <p className="mt-5 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm">宏观驱动数据暂时无法加载。</p> : null}
       {loadState === "ready" ? <div className="mt-4"><ResearchSnapshotExport disabled={includeHistory && monthlyHistory.state === "loading"} chart create={() => ({
-        title: `${definition?.name_zh ?? driverId} · ${selectedArea}`, view_type: "macro_drivers", page_path: window.location.pathname, shareable_view_url: currentSnapshotUrl(window.location.pathname), countries: [selectedArea], indicators: [driverId],
+        title: `${definition?.name_zh ?? driverId} · ${selectedArea}`, view_type: "macro_drivers", page_path: window.location.pathname, shareable_view_url: currentSnapshotUrl(window.location.pathname,{tab:compact?"macro_drivers":"run",...(compact?{}:{skill:"macro_driver_explorer"}),driver:driverId,area:selectedArea,transformation:selectedTransformation,history:includeHistory?"1":"0"}), countries: [selectedArea], indicators: [driverId],
         filters: { driver: driverId, area: selectedArea, transformation: selectedTransformation, history: includeHistory, sort: "period_desc_formal_then_history" },
         limitations: [definition?.limitations ?? "", "共同序列保留适用范围与共享标记，不构成独立国家观测。"].filter(Boolean),
         rows: [

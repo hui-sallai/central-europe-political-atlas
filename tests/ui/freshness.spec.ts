@@ -108,27 +108,8 @@ for (const locale of ["zh-CN", "en"] as const) for (const colorScheme of ["light
   test(`country compare mode switch (${locale}, ${colorScheme})`, async ({ page }) => {
     await page.emulateMedia({ colorScheme });
     await page.goto(`${locale === "en" ? "/en" : ""}/countries/hungary/?compare=romania`, { waitUntil: "networkidle" });
-    const panel = page.locator("[data-country-compare]");
-    const group = panel.locator("[data-compare-mode]");
-    const common = panel.getByRole("button", { name: locale === "en" ? "Latest common year" : "最新共同年份", exact: true });
-    const available = panel.getByRole("button", { name: locale === "en" ? "Latest available" : "各国最新可得", exact: true });
-    await expect(group).toHaveAttribute("data-compare-mode", "latest_common");
-    await expect(common).toHaveAttribute("aria-pressed", "true");
-    await expect(panel.locator("[data-cell-year]")).toHaveCount(0);
-    await expect(panel.locator("[data-mixed-periods]")).toHaveCount(0);
-    const strictValues = await panel.locator("tbody tr").evaluateAll((rows) => rows.map((row) => row.textContent));
-    await available.click();
-    await expect(group).toHaveAttribute("data-compare-mode", "latest_available");
-    await expect(available).toHaveAttribute("aria-pressed", "true");
-    await expect(panel.locator("[data-compare-mode-note='latest_available']")).toBeVisible();
-    expect(await panel.locator("[data-cell-year]").count()).toBeGreaterThan(0);
-    // The notice appears exactly when a row has different reference periods (none for these six indicators today).
-    const differing = await panel.locator("tr[data-periods-differ='true']").count();
-    await expect(panel.locator("[data-mixed-periods]")).toHaveCount(differing > 0 ? 1 : 0);
-    if (locale === "en") expect(await panel.locator("table").innerText()).not.toMatch(/[㐀-鿿]/u);
-    expect(new URL(page.url()).searchParams.get("compare")).toBe("romania");
-    await common.click();
-    await expect(panel.locator("[data-cell-year]")).toHaveCount(0);
-    expect(await panel.locator("tbody tr").evaluateAll((rows) => rows.map((row) => row.textContent))).toEqual(strictValues);
+    await page.getByRole("link",{name:locale==="en"?"Economic data and country comparison":"经济数据与国家比较",exact:true}).click();const panel=page.locator('[data-national-comparison]');await expect(panel.locator('fieldset input:checked')).toHaveCount(2);await expect(panel.getByRole('checkbox',{name:locale==='en'?'Hungary':'匈牙利',exact:true})).toBeChecked();await expect(panel.getByRole('checkbox',{name:locale==='en'?'Romania':'罗马尼亚',exact:true})).toBeChecked();
+    const mode=panel.getByLabel(locale==='en'?'Comparison frame':'比较口径',{exact:true});await expect(mode).toHaveValue('harmonized');const before=await panel.locator('table').first().innerText();await mode.selectOption('side_by_side');await expect(panel).toContainText(locale==='en'?'not necessarily statistically comparable':'不代表统计可比');await mode.selectOption('harmonized');expect(await panel.locator('table').first().innerText()).toBe(before);
+
   });
 }

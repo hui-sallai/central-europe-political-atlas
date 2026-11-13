@@ -9,6 +9,8 @@ for (const prefix of ["", "/en"]) {
     test.skip(testInfo.project.name === "mobile-390", "desktop table only");
     test.slow();
     await page.goto(`${prefix}/data/?country=poland`, { waitUntil: "networkidle" });
+    await page.locator("details.mt-8 > summary").click();
+    await page.locator('[data-snapshot-scope="annual"]').getByRole("combobox",{name:en?"Indicator":"指标",exact:true}).selectOption("all");
     const table = page.getByRole("region", { name: en ? "Annual observation table (scrollable)" : "年度观测表（可滚动）" }).locator("tbody tr");
     const limit = page.locator("[data-annual-table-limit]");
     await expect(limit).toHaveAttribute("data-annual-table-limit", "150");

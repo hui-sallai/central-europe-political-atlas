@@ -22,10 +22,10 @@ export function monthlyDefinitionMatches(indicator: string, s: MonthlySource): b
 export function monthlyEligible(row: MonthlyRow, payload: MonthlyPayload): boolean { return row[5] === "official" && typeof row[4] === "number" && Number.isFinite(row[4]) && Number.isFinite(monthNumber(row[3])) && monthlyDefinitionMatches(row[2], payload.sources[row[6]]); }
 export function restoreMonthlySession(query: URLSearchParams, countries: string[], payload: MonthlyPayload): MonthlySession {
   const periods = payload.rows.filter(r => monthlyEligible(r, payload)).map(r => r[3]).sort();
-  const requested = query.get("monthly_countries")?.split(","), selected = requested ? [...new Set(requested)].filter(c => countries.includes(c)).slice(0, 5) : countries.slice(0, 2);
+  const requested = query.get("monthly_countries")?.split(","), selected = requested ? [...new Set(requested)].filter(c => countries.includes(c)).slice(0, 10) : [];
   return { countries: selected, indicator: query.get("monthly_indicator") ?? "hicp_annual_rate", from: query.get("monthly_from") ?? periods[0] ?? "", to: query.get("monthly_to") ?? periods.at(-1) ?? "", mode: query.get("monthly_mode") ?? "common", month: query.get("monthly_month") ?? "", issues: requested && (selected.length !== requested.length || selected.length < 2) ? ["countries"] : [] };
 }
-export function monthlyValid(s: MonthlySession): boolean { const distance = monthNumber(s.to) - monthNumber(s.from); return !s.issues.length && s.countries.length >= 2 && s.countries.length <= 5 && s.indicator in monthlyIndicators && Number.isFinite(distance) && distance >= 0 && distance < 1200 && ["common", "explicit", "partial"].includes(s.mode); }
+export function monthlyValid(s: MonthlySession): boolean { const distance = monthNumber(s.to) - monthNumber(s.from); return !s.issues.length && s.countries.length >= 2 && s.countries.length <= 10 && s.indicator in monthlyIndicators && Number.isFinite(distance) && distance >= 0 && distance < 1200 && ["common", "explicit", "partial"].includes(s.mode); }
 export function monthlyRows(s: MonthlySession, payload: MonthlyPayload): MonthlyRow[] { return monthlyValid(s) ? payload.rows.filter(r => s.countries.includes(r[1]) && r[2] === s.indicator && r[3] >= s.from && r[3] <= s.to && monthlyEligible(r, payload)) : []; }
 export function monthlyReference(s: MonthlySession, rows: MonthlyRow[]): string | null {
   if (!monthlyValid(s)) return null;

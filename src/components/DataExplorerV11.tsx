@@ -1,4 +1,7 @@
 "use client";
+import { ObservationProvenance } from "./DataRefreshTransparency";
+import { NationalComparisonWorkspace } from "./NationalComparisonWorkspace";
+import type {MonthlyPayload} from "@/lib/monthlyComparison";
 import { SourceAttributionNote } from "@/components/SourceAttributionNote";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
@@ -20,7 +23,6 @@ import { formatNumber } from "@/lib/format";
 import { ResearchSnapshotExport } from "@/components/ResearchSnapshotExport";
 import { currentSnapshotUrl, sourceInstitution } from "@/lib/researchSnapshot";
 import { NotebookCollect } from "./NotebookCollect";
-import { RefreshHistory,ObservationProvenance } from "./DataRefreshTransparency";
 import type { RefreshManifest } from "@/lib/refreshProvenance";
 import type { MonthlyComparisonCoverage } from "@/lib/monthlyComparisonHandoff";
 import { MonthlyComparisonHandoff } from "./MonthlyComparisonHandoff";
@@ -80,8 +82,8 @@ function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { 
     const restore = () => {
       const params = new URLSearchParams(window.location.search);
       if (params.get("tab") !== "high_frequency") return;
-      setCountrySlug(params.get("country") ?? "hungary");
-      setIndicator(params.get("indicator") ?? "hicp_annual_rate");
+      setCountrySlug(params.get("country") ?? params.get("compare_countries")?.split(",")[0] ?? "hungary");
+      setIndicator(params.get("indicator") ?? params.get("comparison_indicator")?.replace(/^monthly:/, "") ?? "hicp_annual_rate");
       setYearFrom(params.get("from") ?? "all");
       setYearTo(params.get("to") ?? "all");
       setSortDirection(params.get("sort") === "asc" ? "asc" : "desc");
@@ -93,7 +95,7 @@ function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { 
     return () => { window.clearTimeout(timer); window.removeEventListener("popstate", restore); };
   }, [countries]);
   useLayoutEffect(() => {
-    if (!urlReady) return;
+    if (!urlReady || new URLSearchParams(location.search).has("compare_countries")) return;
     const url = new URL(window.location.href);
     if (url.searchParams.get("tab") !== "high_frequency") return;
     const sorsSeries = url.searchParams.get("sors_series");
@@ -157,7 +159,7 @@ function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { 
       {historySeries.length ? <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-[var(--line)] py-4 text-sm" data-history-layer="high-frequency"><label className="flex items-center gap-2 font-semibold"><input type="checkbox" checked={includeHistory} onChange={(event) => setIncludeHistory(event.target.checked)} /> 包含历史描述性数据（{historySeries[0][2]} – {historySeries.at(-1)![2]}）</label><span className="text-xs text-[var(--muted)]">历史段仅供描述研究，从定义一致的官方起点开始；正式高频模型基线仍为 2015 年起的冻结序列。</span></div> : monthlyHistory.state === "ready" && formalSeries.length ? <p className="border-b border-[var(--line)] py-3 text-xs text-[var(--muted)]">该国家与指标暂无安全的历史描述性回填（定义断点需方法复核）。</p> : null}
       <HistoricalCoverage inventory={coverageInventory} error={coverageError} country={countrySlug} indicator={indicator} frequency="monthly" periods={series.filter(r=>r[4]!==null).map(r=>r[2])} />
       <DataAvailabilitySummary points={series.map(r => ({period:monthNumber(r[2]),value:r[4],status:r[11]}))} from={yearFrom === "all" ? undefined : Number(yearFrom)*12} to={yearTo === "all" ? undefined : Number(yearTo)*12+11} frequency="monthly" formatPeriod={monthLabel} unit={series[0]?.[6] ?? ""} onUseAvailable={() => { if(years.length) {setYearFrom(String(years[0]));setYearTo(String(years.at(-1)));} }} />
-      {refreshManifest?<><RefreshHistory manifest={refreshManifest} country={countrySlug} indicators={[indicator]}/><ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:r[2],value:r[4],unit:r[6],status:r[11],dataset:isHistory(r)?"monthly_history":"high_frequency",indicator:r[3]}))}/></>:null}
+      {refreshManifest?<ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:r[2],value:r[4],unit:r[6],status:r[11],dataset:isHistory(r)?"monthly_history":"high_frequency",indicator:r[3]}))}/>:null}
       {loadState === "ready" && series.length ? (
         <div className="mt-5 grid gap-4" data-coverage-summary="high-frequency">
           <ResearchTimeSeriesChart interactive title={`${locale === "en" ? countryMap.get(countrySlug)?.name ?? countrySlug : countryMap.get(countrySlug)?.name_zh ?? countrySlug} · ${locale === "en" ? englishText(hfIndicatorLabels[indicator] ?? indicator) : hfIndicatorLabels[indicator] ?? indicator}`} series={[{ id: "hf", label: locale === "en" ? "Current published observations (not frozen model inputs)" : "当前发布观测（非冻结模型输入）", color: "var(--chart-accent)", points: chartPoints }, ...(historyPoints.length ? [{ id: "history", label: "历史描述性（自最早可比官方时期起，不进入模型）", color: "var(--chart-muted)", dash: "6 4", points: historyPoints }] : [])]} xKind="month" xLabel="月份" legend={historyPoints.length > 0} yLabel={(() => { const unit = series.find((row) => row[4] !== null)?.[6] ?? ""; return hfUnitLabels[unit] ? `${hfUnitLabels[unit]} · ${unit}` : unit; })()} latestMarker height={260} />
@@ -177,7 +179,7 @@ function HighFrequencyDataView({ countries,refreshManifest,monthlyCoverage }: { 
         <div className="flex flex-wrap gap-2">
           <ResearchSnapshotExport disabled={loadState !== "ready" || (includeHistory && monthlyHistory.state === "loading")} chart create={() => ({
             title: `${countryMap.get(countrySlug)?.name_zh ?? countrySlug} · ${hfIndicatorLabels[indicator]}`, view_type: "high_frequency", page_path: "/data/",
-            shareable_view_url: currentSnapshotUrl("/data/"), countries: [countrySlug], indicators: [indicator],
+            shareable_view_url: currentSnapshotUrl("/data/",{tab:"high_frequency",country:countrySlug,indicator,from:yearFrom,to:yearTo,history:includeHistory?"1":"0",sort:sortDirection}), countries: [countrySlug], indicators: [indicator],
             filters: { country: countrySlug, indicator, from: yearFrom, to: yearTo, sort: sortDirection, history: includeHistory, eligible_rows: "non_null_visible_rows" },
             limitations: monthlyHistory.state === "error" ? ["历史数据加载失败；本快照只含当前已显示的正式观测。"] : [],
             rows: rows.map((row) => {
@@ -254,7 +256,7 @@ export function coverageOf(periods: { period: number; value: number | null }[]) 
   return { earliest: observed[0], latest: observed.at(-1)!, available: new Set(observed).size, missing };
 }
 
-export function DataExplorerV11({ countries, indicators, observations,refreshManifest,monthlyCoverage = {} }: { countries: Country[]; indicators: Indicator[]; observations: Observation[];refreshManifest?:RefreshManifest;monthlyCoverage?:MonthlyComparisonCoverage }) {
+function LegacyDataExplorer({ countries, indicators, observations,refreshManifest,monthlyCoverage = {} }: { countries: Country[]; indicators: Indicator[]; observations: Observation[];refreshManifest?:RefreshManifest;monthlyCoverage?:MonthlyComparisonCoverage }) {
   const locale = useLocale();
   const { inventory: coverageInventory, error: coverageError } = useHistoricalCoverage();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -284,8 +286,8 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
       setIncludeHistory(params.get("history") !== "0");
       setIncludeSors(params.get("sors") !== "0");
       setSearch(params.get("q") ?? "");
-      const country = params.get("country");
-      const indicator = params.get("indicator");
+      const country = params.get("country") ?? params.get("compare_countries")?.split(",")[0];
+      const indicator = params.get("indicator") ?? params.get("comparison_indicator")?.replace(/^annual:/, "");
       const selectedYear = params.get("year");
       const from = params.get("from");
       const to = params.get("to");
@@ -305,7 +307,7 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
 
   // Keep the URL in sync with the filters (after the initial read), so a view can be shared or bookmarked.
   useEffect(() => {
-    if (!urlReady || dataset !== "annual") return;
+    if (!urlReady || dataset !== "annual" || new URLSearchParams(location.search).has("compare_countries")) return;
     const currentTab = new URLSearchParams(window.location.search).get("tab");
     if (currentTab && currentTab !== "annual") return;
     const params = new URLSearchParams();
@@ -443,8 +445,9 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
 
       {includeSors && countrySlug === "serbia" ? <p className="mt-3 text-xs">{locale === "en" ? "The annual coverage panel applies to the registered Eurostat contract. SORS observations retain their separate definitions and comparability notes." : "年度覆盖说明对应登记的 Eurostat 数据契约；SORS 观测保留各自定义与可比性说明。"}</p> : null}
       {indicatorId !== "all" ? <HistoricalCoverage inventory={coverageInventory} error={coverageError} country={countrySlug} indicator={indicatorId} periods={countryRows.filter(r=>r.indicator===indicatorId&&r.layer!=="sors"&&r.value!==null).map(r=>String(r.year))} /> : null}
+      {refreshManifest&&indicatorId!=="all"?<ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:String(r.year),value:r.value,unit:r.unit,status:r.status,dataset:r.layer==="sors"?"serbia_sors_annual":r.layer==="history"?"annual_history":"annual_observations",indicator:r.source_code??r.indicator,updated:r.updated_at,original:r.original_value,originalUnit:r.original_unit}))}/>:null}
       {indicatorId !== "all" ? <DataAvailabilitySummary points={countryRows.filter(r => r.indicator === indicatorId).map(r => ({ period:r.year,value:r.value,status:r.restriction ?? r.status }))} from={yearFrom === "all" ? undefined : Number(yearFrom)} to={yearTo === "all" ? undefined : Number(yearTo)} frequency="annual" unit={selectedCoverage?.unit ?? ""} onUseAvailable={() => { const years = availableYears; if(years.length) {setYearFrom(String(years[0]));setYearTo(String(years.at(-1)));setLatestOnly(false);} }} /> : null}
-      {indicatorId!=="all"?<>{refreshManifest?<RefreshHistory manifest={refreshManifest} country={countrySlug} indicators={indicatorId === "all" ? undefined : [indicatorId]}/>:null}{refreshManifest?<ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:String(r.year),value:r.value,unit:r.unit,status:r.status,dataset:r.layer==="sors"?"serbia_sors_annual":r.layer==="history"?"annual_history":"annual_observations",indicator:r.source_code??r.indicator,updated:r.updated_at,original:r.original_value,originalUnit:r.original_unit}))}/>:null}</>:null}
+
       {selectedCoverage ? (
         <div className="mt-5 grid gap-4" data-coverage-summary="indicator">
           <ResearchTimeSeriesChart interactive
@@ -468,8 +471,8 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
       ) : (
         <details className="mt-5 editorial-panel p-4" data-coverage-summary="all">
           <summary className="cursor-pointer text-sm font-semibold">覆盖概览：{coverage.length} 个指标（选择单个指标可查看完整时间序列）</summary>
-          {refreshManifest?<RefreshHistory manifest={refreshManifest} country={countrySlug} indicators={indicatorId === "all" ? undefined : [indicatorId]}/>:null}
-      {refreshManifest?<ObservationProvenance manifest={refreshManifest} country={countrySlug} rows={rows.map(r=>({period:String(r.year),value:r.value,unit:r.unit,status:r.status,dataset:r.layer==="sors"?"serbia_sors_annual":r.layer==="history"?"annual_history":"annual_observations",indicator:r.source_code??r.indicator,updated:r.updated_at,original:r.original_value,originalUnit:r.original_unit}))}/>:null}
+
+
           <div className="data-table-viewport mt-3" tabIndex={0} role="region" aria-label="指标覆盖概览（可滚动）">
             <table className="research-data-table w-full min-w-[640px] text-left text-sm">
               <thead><tr>{["指标", "最早 → 最新", "可用年份", locale === "en" ? "Missing or pending years (distinct)" : "缺失或待接入年份（去重）", "数据层"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead>
@@ -483,7 +486,7 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
         <p className="text-sm text-[var(--muted)]">当前视图 <strong className="text-[var(--foreground)]">{rows.length}</strong> 条观测值</p>
         <div className="flex flex-wrap gap-2">
           <ResearchSnapshotExport chart={indicatorId !== "all"} disabled={(includeHistory && historyState === "loading") || (countrySlug === "serbia" && includeSors && !sors.snapshotReady)} create={() => ({
-            title: `${countries.find((country) => country.slug === countrySlug)?.name_zh ?? countrySlug} · 年度描述性视图`, view_type: "annual", page_path: "/data/", shareable_view_url: currentSnapshotUrl("/data/"),
+            title: `${countries.find((country) => country.slug === countrySlug)?.name_zh ?? countrySlug} · 年度描述性视图`, view_type: "annual", page_path: "/data/", shareable_view_url: currentSnapshotUrl("/data/",{tab:"annual",country:countrySlug,indicator:indicatorId,from:yearFrom,to:yearTo,latest:latestOnly?"1":"0",history:includeHistory?"1":"0",sors:includeSors?"1":"0",q:search,sort:sortDirection}),
             countries: [countrySlug], indicators: [...new Set(rows.map((item) => item.indicator))], filters: { country: countrySlug, indicator: indicatorId, from: yearFrom, to: yearTo, latest: latestOnly, history: includeHistory, sors: includeSors, q: search, sort: sortDirection },
             limitations: ["历史段与正式观测并列保留各自数据层；不同定义或单位不合并。", ...(historyState === "error" ? ["历史数据加载失败，仅导出当前显示的记录。"] : [])],
             rows: rows.map((item) => ({ id: item.id, country: item.country_slug, indicator: item.indicator, period: String(item.year), value: item.value, unit: item.unit, status: item.status, layer: item.layer === "sors" ? "serbia_sors_descriptive" : item.layer === "history" ? "historical_descriptive" : "formal_observation", cross_country_comparable: item.cross_country_comparable,
@@ -520,4 +523,11 @@ export function DataExplorerV11({ countries, indicators, observations,refreshMan
 
     </section>}</LocalizedContent>
   );
+}
+
+export function DataExplorerV11(props: Parameters<typeof LegacyDataExplorer>[0] & {comparisonPayload:MonthlyPayload}) {
+ const en=useLocale()==='en';
+ const [advanced,setAdvanced]=useState(false);
+ const exportProvenance=()=>{if(!props.refreshManifest)return;const u=URL.createObjectURL(new Blob([JSON.stringify(props.refreshManifest,null,2)],{type:"application/json;charset=utf-8"}));const a=document.createElement("a");a.href=u;a.download="atlas-source-provenance.json";a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
+ return <><NationalComparisonWorkspace countries={props.countries} indicators={props.indicators} observations={props.observations} payload={props.comparisonPayload} discovery/><details className="mt-8" onToggle={e=>setAdvanced(e.currentTarget.open)}><summary className="cursor-pointer font-semibold">{en?'Original source records and existing research exports':'原始来源记录与既有研究导出'}</summary>{advanced?<><div className="mt-4 flex flex-wrap gap-4 text-sm"><button type="button" className="research-tab" data-technical-provenance-export disabled={!props.refreshManifest} onClick={exportProvenance}>{en?"Download source provenance and approved refresh records (JSON)":"下载来源证据与已批准更新记录（JSON）"}</button><a className="underline" href="https://github.com/hui-sallai/central-europe-political-atlas/blob/main/src/data/data-refresh/refresh_ledger.jsonl">{en?"Technical refresh ledger":"技术更新台账"}</a></div><LegacyDataExplorer {...props}/></>:null}</details></>;
 }

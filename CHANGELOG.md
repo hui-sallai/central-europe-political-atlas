@@ -1,5 +1,12 @@
 # Changelog
 
+### v2.0 arbitrary comparison and research navigation — 2026-11-14
+
+- Add one shared, user-selected 2–10-country comparison with topic search across existing annual, monthly, quarterly and financial series, actual eligible common periods, exact tables, charts, CSV, Notebook and research snapshots.
+- Simplify the map-first homepage and country profiles; preserve research discovery in Workspaces, introduce an equal Germany research route, and show election seat composition without changing chamber denominators or coalition identities.
+- Separate descriptive regional observations from compatible quantitative differences with an explicitly selected reference. Preserve source metadata, statistical breaks, missing periods and publication restrictions.
+- Preserve v2.0, canonical observations, frozen model inputs and outputs, source restrictions and dependencies. Validation and deployment evidence: `docs/v20-arbitrary-comparison-2026-11-14.md`.
+
 ### v2.0 atlas usability improvements — 2026-11-10
 
 - Restore the existing interactive map as the primary homepage entry; retain five-country politics, four Workspaces and featured research cases.

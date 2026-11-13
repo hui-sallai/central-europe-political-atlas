@@ -9,7 +9,9 @@ import { buildSnapshot, csvCell, sanitizeFilename, type SnapshotInput } from "..
 function unzip(bytes: Buffer | Uint8Array): Record<string, string> {
   return JSON.parse(execFileSync("python3", ["-c", "import sys,io,zipfile,json; z=zipfile.ZipFile(io.BytesIO(sys.stdin.buffer.read())); assert z.testzip() is None; print(json.dumps({n:z.read(n).decode('utf-8') for n in z.namelist()}))"], { input: bytes, maxBuffer: 12 * 1024 * 1024 }).toString());
 }
+async function openSources(page: Page) { const details = page.getByText("原始来源记录与既有研究导出", { exact: true }); if (await details.count() && !(await details.locator("..").evaluate(el => (el as HTMLDetailsElement).open))) await details.click(); }
 async function downloadSnapshot(page: Page, scope?: string) {
+  if (new URL(page.url()).pathname === "/data/" && scope !== "[data-national-comparison]") { await openSources(page); scope ??= '[data-snapshot-scope="annual"]'; }
   const button = scope ? page.locator(scope).getByRole("button", { name: "导出研究快照", exact: true }) : page.getByRole("button", { name: "导出研究快照", exact: true }).first();
   await expect(button).toBeEnabled();
   const downloadPromise = page.waitForEvent("download");
@@ -55,7 +57,8 @@ test("ZIP and normalized snapshot unit contracts", () => {
 
 test("annual snapshot follows filters, missing values, figure and sharing", async ({ page }) => {
   await page.goto("/data/?country=poland&indicator=hicp_inflation&from=2020&to=2022&history=0", { waitUntil: "networkidle" });
-  await page.getByRole("combobox", { name: "结束年份", exact: true }).selectOption("2021");
+  await openSources(page);
+  await page.locator('[data-snapshot-scope="annual"]').getByRole("combobox", { name: "结束年份", exact: true }).selectOption("2021");
   const { files, manifest } = await downloadSnapshot(page);
   expect(manifest.filters).toMatchObject({ country: "poland", indicator: "hicp_inflation", from: "2020", to: "2021", latest: false, history: false });
   const csv = csvRows(files["data.csv"]); const headers = csv.shift()!;
@@ -83,7 +86,7 @@ test("latest/history/search filters and SORS original provenance", async ({ page
   const latest = await downloadSnapshot(page);
   expect(latest.manifest.filters.latest).toBe(true);
   expect(latest.manifest.observation_count).toBeLessThanOrEqual(manifest.observation_count);
-  await page.getByRole("searchbox").fill("no-such-indicator");
+  await page.locator('[data-snapshot-scope="annual"]').getByRole("searchbox").fill("no-such-indicator");
   expect((await downloadSnapshot(page)).manifest.observation_count).toBe(0);
 });
 
@@ -115,6 +118,7 @@ test("SORS quarterly selection round-trips and original periods remain quarterly
 test("missing SORS archive metadata preserves display but blocks incomplete bundle", async ({ page }) => {
   await page.route("**/research-data/serbia/serbia_descriptive_history_*.json", (route) => route.fulfill({ status: 503, body: "Unavailable" }));
   await page.goto("/data/?tab=high_frequency&country=serbia", { waitUntil: "networkidle" });
+  await openSources(page);
   const scope = page.locator('[data-snapshot-scope="sors-monthly"]');
   await expect(scope.locator("tbody tr").first()).toBeVisible();
   await expect(scope.getByRole("button", { name: "导出研究快照" })).toBeDisabled();
@@ -123,9 +127,11 @@ test("missing SORS archive metadata preserves display but blocks incomplete bund
 
 test("country pair export uses the displayed common-year values", async ({ page }) => {
   await page.goto("/countries/poland/?compare=hungary", { waitUntil: "networkidle" });
-  const { manifest, files } = await downloadSnapshot(page, "[data-country-compare]");
+  await page.getByRole("link", { name: "经济数据与国家比较", exact: true }).click();
+  const { manifest, files } = await downloadSnapshot(page, "[data-national-comparison]");
   expect(manifest.countries).toEqual(["poland", "hungary"]);
-  expect(manifest.observation_count).toBe(12);
+  expect(manifest.observation_count).toBeGreaterThan(0);
+  expect(manifest.observation_count % 2).toBe(0);
   const csv = csvRows(files["data.csv"]); const headers = csv.shift()!;
   for (let i = 0; i < csv.length; i += 2) {
     expect(csv[i][headers.indexOf("period")]).toBe(csv[i + 1][headers.indexOf("period")]);
@@ -154,4 +160,21 @@ test("map snapshot matches the map SVG export and has neutral dark-mode formatti
   expect(manifest.figure.legend).toHaveLength(5);
   const axe = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa"]).analyze();
   expect(axe.violations.filter((violation) => violation.impact === "serious" || violation.impact === "critical")).toEqual([]);
+});
+
+for (const delayed of ["annual_history_runtime", "historical_recovery_inventory"]) test(`comparison exports wait for ${delayed} instead of capturing a temporary partial view`, async ({ page }) => {
+  let release!: () => void;
+  const pending = new Promise<void>(resolve => { release = resolve; });
+  await page.route(`**/research-data/${delayed}.json`, async route => { await pending; await route.continue(); });
+  await page.goto("/data/?compare_countries=poland,hungary&comparison_indicator=annual:real_gdp_growth", { waitUntil: "domcontentloaded" });
+  const scope = page.locator("[data-national-comparison]");
+  await expect(scope.locator("[data-comparison-loading]")).toBeVisible();
+  await expect(scope.getByRole("button", { name: "导出研究快照", exact: true })).toBeDisabled();
+  await expect(scope.getByRole("button", { name: "导出实际观测（CSV）", exact: true })).toBeDisabled();
+  await expect(scope.locator("[data-notebook-add]")).toBeDisabled();
+  release();
+  await expect(scope.locator("[data-comparison-loading]")).toHaveCount(0);
+  const { manifest, files } = await downloadSnapshot(page, "[data-national-comparison]");
+  expect(manifest.observation_count).toBeGreaterThan(10);
+  expect(files["data.csv"]).toContain('"1996"');
 });

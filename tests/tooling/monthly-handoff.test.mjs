@@ -22,10 +22,10 @@ test('exact mappings never substitute CPI, quarterly unemployment or growth for 
  for(const id of ['cpi','unemployment_rate_quarterly','industrial_production_growth','constructor',''])assert.equal(h.handoffIndicator(id),null);
  assert.equal(h.handoffIndicator('cpi','hicp_monthly_index'),'hicp_monthly_index');assert.equal(h.handoffIndicator('hicp_monthly_index','hicp_annual_rate'),'hicp_monthly_index');
 });
-test('reporting country is retained and additional 1–4 countries are never invented',()=>{
+test('reporting country is retained and additional 1–9 countries are never invented',()=>{
  assert.equal(h.monthlyHandoff({...options,additional:[]}),null);
- for(const count of [1,2,4]){const handoff=h.monthlyHandoff({...options,additional:countries.slice(1,1+count)});assert.deepEqual(handoff.session.countries,['hungary',...countries.slice(1,1+count)]);}
- for(const patch of [{additional:['hungary']},{additional:['germany','germany']},{additional:['unknown']},{additional:countries.slice(1)},{country:'unknown'}])assert.equal(h.monthlyHandoff({...options,...patch}),null);
+ for(const count of [1,2,4,5]){const handoff=h.monthlyHandoff({...options,additional:countries.slice(1,1+count)});assert.deepEqual(handoff.session.countries,['hungary',...countries.slice(1,1+count)]);}
+ for(const patch of [{additional:['hungary']},{additional:['germany','germany']},{additional:['unknown']},{country:'unknown'}])assert.equal(h.monthlyHandoff({...options,...patch}),null);
 });
 test('year bounds become calendar months and are explicitly clipped to real reporting-country coverage',()=>{
  assert.deepEqual(h.handoffPeriod(coverage,'hungary','hicp_annual_rate','2010','2026'),{requestedFrom:'2010-01',requestedTo:'2026-12',from:'2015-01',to:'2026-09',count:141,clipped:true});

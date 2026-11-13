@@ -48,7 +48,7 @@ function Section({ id, label, title, children }: { id: string; label: string; ti
 
 export default function MethodologyPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-  return <main className="page-shell">
+  return <main className="page-shell"><section className="editorial-panel mb-6 p-5"><h2 className="text-2xl font-semibold">先选择证据与方法</h2><p className="mt-3">国家观测、区域比较、选举与模型输出分别适用准入规则。描述性共变不代表因果关系；正式 VAR 动态响应与 IRF 仍不可发布。</p><nav className="mt-4 flex flex-wrap gap-4"><Link href="/data/">数据与比较</Link><Link href="/models/">模型问题与可用性</Link><a href="#citation">来源与导出</a></nav></section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdHtml(datasetJsonLd({ path: "/methodology/", name: "Central Europe Political Atlas — research data and methodology", description: "Data definitions, analysis methods, inference boundaries, validation and citation rules for the Central Europe Political Atlas research package." })) }} />
     <header className="max-w-4xl border-b border-[var(--line)] pb-8"><p className="editorial-kicker">Research / <KickerVersion version={platformStatus.version} /></p><h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">研究方法与边界</h1><p className="mt-5 text-base leading-8 text-[var(--muted)]">本页说明公开研究流程和不能说明什么。完整字典、QA、版本记录与技术字段保留在研究数据包，不再占据主要页面。</p><nav className="mt-5 flex flex-wrap gap-3">{sections.map(([id, label]) => <a key={id} href={`#${id}`} className="text-sm font-semibold text-[var(--accent)]">{label}</a>)}</nav></header>
 

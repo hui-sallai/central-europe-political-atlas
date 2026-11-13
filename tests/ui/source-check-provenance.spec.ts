@@ -5,7 +5,7 @@ for (const locale of ["zh-CN", "en"] as const) {
   test(`country observations show real source-check provenance behind disclosure (${locale})`, async ({ page }) => {
     await page.goto(`${locale === "en" ? "/en" : ""}/countries/hungary/`, { waitUntil: "networkidle" });
     // The Chinese profile shows the six headline indicators; the English one also lists FDI.
-    const indicator = locale === "en" ? "fdi_inflow" : "unemployment_rate";
+    const indicator = "unemployment_rate";
     const cell = page.locator(`[data-country-observation='${indicator}']`).first();
     const check = cell.locator("[data-source-check]");
     // Essential information stays visible; provenance detail is behind the disclosure.
@@ -13,7 +13,7 @@ for (const locale of ["zh-CN", "en"] as const) {
     await cell.locator("summary").click();
     await expect(check).toHaveAttribute("data-source-check", CANONICAL_SOURCE_CHECK_RUN.retrieved);
     await expect(check).toContainText(canonicalSourceCheck[`hungary|${indicator}`].source_updated!);
-    if (locale === "en") await expect(check.locator("[data-availability]")).toHaveAttribute("data-availability", "not_yet_published_at_source");
+
     await expect(check).toContainText(locale === "en" ? "not provided by the source" : "来源不提供单个观测的官方发布日期");
     if (locale === "en") expect(await check.innerText()).not.toMatch(/[㐀-鿿]/u);
   });

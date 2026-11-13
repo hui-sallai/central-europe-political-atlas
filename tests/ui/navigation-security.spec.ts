@@ -68,22 +68,18 @@ test("country compare: only allowlisted slugs become profile hrefs", () => {
   }
 });
 
-test("country compare page: an injected non-allowlisted select value never becomes a link", async ({ page }) => {
-  await page.goto("/countries/hungary/", { waitUntil: "networkidle" });
-  const select = page.locator("[data-country-compare] select");
-  await expect(select).toBeVisible();
-  const before = await page.locator("[data-country-compare] a[href*='/countries/']").getAttribute("href");
-  await select.evaluate((element) => {
-    const s = element as HTMLSelectElement;
-    for (const value of ["../admin", "javascript:alert(1)", "poland/../x"]) { const option = document.createElement("option"); option.value = value; option.textContent = value; s.appendChild(option); }
-    s.value = "../admin";
-    s.dispatchEvent(new Event("change", { bubbles: true }));
-  });
-  const hrefs = await page.locator("[data-country-compare] a").evaluateAll((links) => links.map((a) => a.getAttribute("href") ?? ""));
-  for (const href of hrefs) { expect(href).not.toContain(".."); expect(href).not.toMatch(/javascript:/i); }
-  expect(await page.locator("[data-country-compare] a[href*='/countries/']").getAttribute("href")).toBe(before);
-  expect(new URL(page.url()).searchParams.get("compare")).not.toBe("../admin");
-  // Positive control: the same native change-event path does update the link for an allowlisted slug.
-  await select.evaluate((element) => { const s = element as HTMLSelectElement; s.value = "slovakia"; s.dispatchEvent(new Event("change", { bubbles: true })); });
-  await expect(page.locator("[data-country-compare] a[href*='/countries/']")).toHaveAttribute("href", /\/countries\/slovakia\/?$/);
+test("profile handoff excludes hostile country identities and allows an explicit valid pair", async ({ page }) => {
+  for (const value of ["../admin", "javascript:alert(1)", "poland/../x"]) {
+    await page.goto(`/countries/hungary/?compare=${encodeURIComponent(value)}`, { waitUntil: "networkidle" });
+    await expect(page.locator("[data-country-profile]").getByRole("alert")).toContainText("不受支持");
+    const link = page.getByRole("link", { name: "经济数据与国家比较", exact: true });
+    await expect(link).toHaveAttribute("href", "/data/?country=hungary");
+    const href = await link.getAttribute("href");
+    expect(href).not.toContain(".."); expect(href).not.toMatch(/javascript:/i);
+  }
+  await page.goto("/countries/hungary/?compare=slovakia", { waitUntil: "networkidle" });
+  const link = page.getByRole("link", { name: "经济数据与国家比较", exact: true });
+  await expect(link).toHaveAttribute("href", "/data/?compare_countries=hungary%2Cslovakia");
+  await link.click();
+  await expect(page.locator("[data-national-comparison] input[type=checkbox]:checked")).toHaveCount(2);
 });

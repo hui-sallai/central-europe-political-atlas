@@ -195,7 +195,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
         <h2 className="mt-2 text-2xl font-semibold">事件窗口分析 Event Window Analysis</h2>
         {locale === "en" ? <p className="mt-3 text-xs text-[var(--muted)]">Event titles remain in their original language (Chinese where applicable); no automatic translation is applied.</p> : null}
         <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">描述已核验事件前后的国内高频结果或宏观驱动变化：事件前均值、事件期数值、事件后均值与变化幅度。事件月单独报告，不计入事件后统计。宏观驱动关联只表示研究相关性；这不是因果事件研究，输出不构成因果效应。</p>
-        <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div data-event-workbench-controls className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <label className="text-xs font-semibold text-[var(--muted)]">国家
             <select className="field-control mt-2" value={country} onChange={(event) => { setCountry(event.target.value); setEventId(""); setResult(null); }}>
               {countries.map((item) => <option key={item.slug} value={item.slug}>{item.name_zh} / {item.name}</option>)}

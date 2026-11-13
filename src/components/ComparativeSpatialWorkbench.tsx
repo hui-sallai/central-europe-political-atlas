@@ -329,6 +329,9 @@ export function ComparativeSpatialWorkbench({
   const [statusFilter, setStatusFilter] = useState("all");
   const [urlReady, setUrlReady] = useState(false);
   const {inventory: coverageInventory, error: coverageError}=useHistoricalCoverage();
+  const [regionalOutput,setRegionalOutput]=useState("side_by_side");
+  const [referenceRegionId,setReferenceRegionId]=useState("");
+  const [regionSearch,setRegionSearch]=useState("");
   const [comparisonYear,setComparisonYear]=useState("");
   const [historyLoadState,setHistoryLoadState]=useState("loading");
   const [historyByCountry,setHistoryByCountry]=useState<Record<string,RegionalHistoryRuntime>>({});
@@ -349,6 +352,8 @@ export function ComparativeSpatialWorkbench({
       setMode(requestedMode);
       if (params.get("layer")) setLayer(params.get("layer")!);
       if (params.get("year")) setYear(params.get("year")!);
+      setRegionalOutput(params.get("region_output")==="quantitative"?"quantitative":"side_by_side");
+      setReferenceRegionId(params.get("region_reference")??"");
       if (params.has("comparison_year")) setComparisonYear(params.get("comparison_year")!);
       if (params.get("classification") === "equal_interval") setClassification("equal_interval");
       const requestedRegions = (params.get("regions") ?? "").split(",").filter(Boolean).slice(0, 5);
@@ -363,33 +368,33 @@ export function ComparativeSpatialWorkbench({
   }, [readyCountries]);
 
   const selectedCountries = countryIds.map((id) => readyCountries.find((country) => country.country_id === id)).filter(Boolean) as Country[];
-  const selectedCountryKey = selectedCountries.map((country) => country.country_id).join(",");
+  const dataCountryKey=[...new Set([...selectedCountries.map(c=>c.country_id),...selectedRegionIds.map(id=>regions.find(r=>r.region_id===id)?.country_id).filter((id):id is string=>!!id)])].sort().join(",");
   useEffect(() => {
-    if (!selectedCountryKey) return;
+    if (!dataCountryKey) return;
     const controller = new AbortController();
     const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-    Promise.all(selectedCountryKey.split(",").map((countryId) =>
+    Promise.all(dataCountryKey.split(",").map((countryId) =>
       fetch(`${basePath}/data/regional/v089/map-observations/${countryId}.json`, { signal: controller.signal })
         .then((response) => {
           if (!response.ok) throw new Error(String(response.status));
           return response.json();
         })
         .then((payload) => payload.records as Observation[]),
-    )).then((groups) => { setLoadedObservations(groups.flat()); setLoadedCountryKey(selectedCountryKey); }).catch((error) => {
+    )).then((groups) => { setLoadedObservations(groups.flat()); setLoadedCountryKey(dataCountryKey); }).catch((error) => {
       if (!(error instanceof DOMException && error.name === "AbortError")) setLoadedObservations([]);
     });
     return () => controller.abort();
-  }, [selectedCountryKey]);
+  }, [dataCountryKey]);
   useEffect(()=>{
     const controller=new AbortController();
-    Promise.all(selectedCountryKey.split(',').filter(Boolean).map(async country=>{
+    Promise.all(dataCountryKey.split(',').filter(Boolean).map(async country=>{
       const response=await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH??''}/research-data/regional-history/${country}.json`,{signal:controller.signal});
       if(!response.ok)return null;
       const data=await response.json() as RegionalHistoryRuntime;
       return data.country_id===country?data:null;
     })).then(rows=>{if(!controller.signal.aborted){setHistoryByCountry(Object.fromEntries(rows.filter((r):r is RegionalHistoryRuntime=>r!==null).map(r=>[r.country_id,r])));setHistoryLoadState(rows.some(r=>r===null)?'error':'ready');}}).catch(()=>{if(!controller.signal.aborted){setHistoryByCountry({});setHistoryLoadState('error');}});
     return()=>controller.abort();
-  },[selectedCountryKey]);
+  },[dataCountryKey]);
   const mapObservations = loadedObservations;
   const comparisonGroup = selectedCountries[0]?.comparison_group;
   const comparableCountryOptions = readyCountries.filter((country) => country.comparison_group === comparisonGroup);
@@ -403,14 +408,15 @@ export function ComparativeSpatialWorkbench({
   const countryYears = currentLayer?.layer_type === "choropleth"
     ? mode === "comparison" ? intersectYears(yearGroups) : yearGroups[0] ?? []
     : [];
-  const selectedFrames = selectedRegionIds.map(id => {
+  const mapSelectedIds=selectedRegionIds.filter(id=>selectedCountries.some(c=>c.country_id===regions.find(r=>r.region_id===id)?.country_id));
+  const selectedFrames = mapSelectedIds.map(id => {
     const region = regions.find(r => r.region_id === id);
     const country = selectedCountries.find(c => c.country_id === region?.country_id);
     const gate = eligibility.find(e => e.country_id === region?.country_id && e.layer_id === effectiveLayer);
     return region && country && gate ? `${gate.definition}|${gate.unit}|${region.admin_level}|${country.classification_system}` : null;
   });
   const commonFrame = selectedFrames.every(f => f !== null && f === selectedFrames[0]);
-  const availableYears = selectedRegionIds.length > 1 ? countryYears.filter(y => commonFrame && selectedRegionIds.every(id => mapObservations.some(o => o.region_id === id && o.region_indicator_id === effectiveLayer && o.year === y && Number.isFinite(o.value)))) : countryYears;
+  const availableYears = mapSelectedIds.length > 1 ? countryYears.filter(y => commonFrame && mapSelectedIds.every(id => mapObservations.some(o => o.region_id === id && o.region_indicator_id === effectiveLayer && o.year === y && Number.isFinite(o.value)))) : countryYears;
   const effectiveYear = currentLayer?.layer_type === "choropleth" ? year : "";
 
   useEffect(() => {
@@ -421,6 +427,7 @@ export function ComparativeSpatialWorkbench({
     if (mode === "comparison") url.searchParams.set("countries", selectedCountries.map((country) => country.country_id).join(","));
     else url.searchParams.delete("countries");
     url.searchParams.set("layer", effectiveLayer);
+    url.searchParams.set("region_output",regionalOutput);if(referenceRegionId)url.searchParams.set("region_reference",referenceRegionId);else url.searchParams.delete("region_reference");
     if (comparisonYear) url.searchParams.set("comparison_year",comparisonYear); else url.searchParams.delete("comparison_year");
     if (effectiveYear) url.searchParams.set("year", effectiveYear); else url.searchParams.delete("year");
     url.searchParams.set("classification", classification);
@@ -429,7 +436,7 @@ export function ComparativeSpatialWorkbench({
     if (sectorFilter !== "all") url.searchParams.set("sector", sectorFilter); else url.searchParams.delete("sector");
     if (statusFilter !== "all") url.searchParams.set("status", statusFilter); else url.searchParams.delete("status");
     window.history.replaceState({}, "", url);
-  }, [classification, comparisonYear, effectiveLayer, effectiveYear, mode, selectedCountries, selectedProjectId, selectedRegionIds, sectorFilter, statusFilter, urlReady]);
+  }, [regionalOutput, referenceRegionId, classification, comparisonYear, effectiveLayer, effectiveYear, mode, selectedCountries, selectedProjectId, selectedRegionIds, sectorFilter, statusFilter, urlReady]);
 
   const filteredProjects = projects.filter((project) =>
     ["high", "medium"].includes(project.confidence) &&
@@ -507,45 +514,40 @@ export function ComparativeSpatialWorkbench({
       : current.length < 4 ? [...current, countryId] : current);
     setSelectedRegionIds([]);
   };
-  const activateComparison = () => {
-    const base = selectedCountries[0] ?? defaultCountry;
-    const peers = readyCountries.filter((country) => country.comparison_group === base?.comparison_group && country.country_id !== base?.country_id);
-    setCountryIds(base && peers[0] ? [base.country_id, peers[0].country_id] : countryIds);
-    setMode("comparison");
-    setSelectedRegionIds([]);
-  };
+  const activateComparison = () => { setMode("comparison"); };
 
   const observationFor = (regionId: string, indicatorId: string) => mapObservations.find((item) => item.region_id === regionId && item.region_indicator_id === indicatorId && item.year === profileYear);
   const activeLayerObservation = activeRegion ? observationFor(activeRegion.region_id, effectiveLayer) : undefined;
   const countryBenchmarkRecords = activeRegion ? mapObservations.filter((item) => item.country_id === activeRegion.country_id && item.region_indicator_id === effectiveLayer && item.year === profileYear) : [];
   const countryBenchmarkMean = countryBenchmarkRecords.length ? countryBenchmarkRecords.reduce((sum, item) => sum + item.value, 0) / countryBenchmarkRecords.length : null;
-  const rankingRows = mapObservations
+  const rankingRows = mapObservations.filter(r=>selectedCountries.some(c=>c.country_id===r.country_id))
     .filter((item) => selectedCountries.some((country) => country.country_id === item.country_id) && item.region_indicator_id === effectiveLayer && item.year === effectiveYear)
     .sort((a, b) => b.value - a.value);
 
   const t = (zh: string, en: string) => locale === "en" ? en : zh;
-  const historicalPoints=Object.values(historyByCountry).filter(d=>selectedCountryKey.split(',').includes(d.country_id)).flatMap(regionalHistoricalPoints);
+  const historicalPoints=Object.values(historyByCountry).filter(d=>dataCountryKey.split(',').includes(d.country_id)).flatMap(regionalHistoricalPoints);
   const regionalRows=selectedRegions.map(region=>{
-    const country=selectedCountries.find(c=>c.country_id===region.country_id);
+    const country=countries.find(c=>c.country_id===region.country_id);
     const gate=eligibility.find(g=>g.country_id===region.country_id&&g.layer_id===effectiveLayer);
-    const permitted=!!country&&!!gate&&currentLayer?.layer_type==='choropleth'&&(selectedCountries.length===1||(!!currentLayer.comparison_allowed&&gate.comparison_eligible));
+    const permitted=!!country&&!!gate&&currentLayer?.layer_type==='choropleth';
     const contract=contractFor(coverageInventory,region.country_id,effectiveLayer,"annual",region.region_id);
     const geography=contract?.nuts?.vintage??"";
     const frame=`${gate?.definition}|${geography}|${region.admin_level}`;
     const ranges=coverageInventory?.comparability.regional[effectiveLayer]?.by_country[region.country_id]?.common_comparable_years.ranges??[];
-    const current=loadedCountryKey===selectedCountryKey?mapObservations.filter(r=>r.region_id===region.region_id&&r.region_indicator_id===effectiveLayer).map(r=>({period:r.year,value:r.value,unit:r.unit,eligible:permitted&&!!geography&&inRanges(r.year,ranges),frame,sources:[{dataset:r.source_name,url:r.source_url}],status:'published_snapshot',classification:geography,level:region.admin_level,definition:gate?.definition??''})):[];
+    const current=loadedCountryKey===dataCountryKey?loadedObservations.filter(r=>r.region_id===region.region_id&&r.region_indicator_id===effectiveLayer).map(r=>({period:r.year,value:r.value,unit:r.unit,eligible:permitted&&!!geography&&inRanges(r.year,ranges),frame,sources:[{dataset:r.source_name,url:r.source_url}],status:'published_snapshot',classification:geography,level:region.admin_level,definition:gate?.definition??''})):[];
     const keys=new Set(current.map(r=>r.period));
     const history=historicalPoints.filter(r=>r.region_id===region.region_id&&r.indicator===effectiveLayer&&!keys.has(r.year)).map(r=>({period:r.year,value:r.value,unit:r.unit,eligible:permitted&&r.status==='comparable_stable_code'&&(r.level===region.admin_level||(region.country_id==='poland'&&region.admin_level==='ADM1'&&r.level==='ADM1 (NUTS2 source codes)'))&&geography===r.classification.replace(/\s/g,'')&&inRanges(r.year,ranges),frame,sources:r.sources,status:r.status,classification:geography,level:region.admin_level,definition:gate?.definition??''}));
     return [...current,...history];
   });
-  const comparisonYears=commonObservationPeriods(regionalRows);
+  const quantitativeYears=commonObservationPeriods(regionalRows);
+  const comparisonYears=regionalOutput==="quantitative"?quantitativeYears:[...new Set(regionalRows.flatMap(rows=>rows.map(r=>r.period)))].sort();
   const chosenComparisonYear=comparisonYear||effectiveYear;
   const comparisonRecord=(region:Region)=>regionalRows[selectedRegions.findIndex(r=>r.region_id===region.region_id)]?.find(r=>r.period===chosenComparisonYear);
   const comparisonPoint = (region: Region): RegionalComparisonPoint | null => {
     const row=comparisonRecord(region);
     return row?{value:row.value,year:row.period,unit:row.unit,definition:row.definition,classification:row.classification,level:row.level,eligible:row.eligible}:null;
   };
-  const referenceRegion = selectedRegions[0];
+  const referenceRegion = selectedRegions.find(r=>r.region_id===referenceRegionId);
   const referencePoint = referenceRegion ? comparisonPoint(referenceRegion) : null;
   return (
     <LocalizedContent labels={Object.fromEntries(regions.map(region => [region.region_name_zh, region.region_name_en]))}>{<section className="spatial-workbench-layout mt-6 border-y border-[var(--line)] py-5">
@@ -558,7 +560,7 @@ export function ComparativeSpatialWorkbench({
       </div>
 
       <div className="spatial-control-rail mt-5 grid gap-3">
-        <ResearchSnapshotExport disabled={!currentLayer || loadedCountryKey !== selectedCountryKey} create={mapSnapshot} />
+        <ResearchSnapshotExport disabled={!currentLayer || loadedCountryKey !== dataCountryKey} create={mapSnapshot} />
         <label className="text-xs font-semibold text-[var(--muted)]">国家
           {mode === "country" ? <select value={selectedCountries[0]?.country_id ?? ""} onChange={(event) => setSingleCountry(event.target.value)} className="mt-2 w-full rounded-xl border border-[var(--line)] bg-white px-3 py-2 text-sm text-[var(--foreground)]">{countries.map((country) => <option key={country.country_id} value={country.country_id} disabled={!country.approved_layers.includes("regional_boundary")}>{country.country_name_zh}{country.approved_layers.includes("regional_boundary") ? "" : " · 待接入"}</option>)}</select> : <span className="mt-2 block rounded-xl border border-[var(--line)] bg-white px-3 py-2 text-sm text-[var(--foreground)]">{selectedCountries.map((country) => country.country_name_zh).join(" / ")}</span>}
         </label>
@@ -597,15 +599,17 @@ export function ComparativeSpatialWorkbench({
       <section className="mt-5 editorial-panel p-4 space-y-3" data-regional-comparison>
         <h3 className="text-lg font-semibold">{t("同年区域指标比较", "Same-period regional comparison")}</h3>
         <p className="text-sm">{locale === "en" ? englishText(currentLayer?.name_zh ?? "") : currentLayer?.name_zh} · {chosenComparisonYear || "—"} · {currentLayer?.unit}. {t("地图快照", "Map snapshot")}: {effectiveYear || "—"}. {t("快照年份", "Snapshot years")}: {availableYears.join(", ") || "—"}</p>
-        <details><summary className="cursor-pointer text-sm font-semibold">{t("选择 2–5 个区域", "Choose 2–5 regions")}</summary><div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{regions.filter(r => selectedCountries.some(c => c.country_id === r.country_id)).map(r => <label className="text-sm" key={r.region_id}><input type="checkbox" checked={selectedRegionIds.includes(r.region_id)} disabled={!selectedRegionIds.includes(r.region_id) && selectedRegionIds.length >= 5} onChange={() => onRegionClick(r.region_id)} /> {locale === "en" ? r.region_name_en : r.region_name_zh} · {r.admin_code}</label>)}</div></details>
-        <label className="block max-w-sm text-sm">{t("共同合格比较年份", "Common eligible comparison year")}<select className="field-control mt-2" value={comparisonYear} onChange={e=>setComparisonYear(e.target.value)}><option value="">{t("当前地图年份", "Current map year")} · {effectiveYear}</option>{comparisonYear&&!comparisonYears.includes(comparisonYear)?<option value={comparisonYear}>{comparisonYear} · {t("无合格观测", "No eligible observation")}</option>:null}{comparisonYears.map(y=><option key={y} value={y}>{y}</option>)}</select></label>
+        <div className="grid gap-3 sm:grid-cols-2"><label>{t("区域输出", "Regional output")}<select aria-label={t("区域输出","Regional output")} className="field-control mt-2" value={regionalOutput} onChange={e=>setRegionalOutput(e.target.value)}><option value="side_by_side">{t("描述性并列观测", "Side-by-side observations")}</option><option value="quantitative">{t("同口径定量比较", "Compatible quantitative comparison")}</option></select></label><label>{t("搜索所有区域", "Search all regions")}<input className="field-control mt-2" type="search" value={regionSearch} onChange={e=>setRegionSearch(e.target.value)}/></label></div>
+        {regionalOutput==='quantitative'?<label className="block text-sm">{t("可选差值参照（由你指定）", "Optional difference reference (your choice)")}<select aria-label={t("可选差值参照（由你指定）","Optional difference reference (your choice)")} className="field-control mt-2" value={referenceRegionId} onChange={e=>setReferenceRegionId(e.target.value)}><option value="">{t("不计算参照差值", "No reference difference")}</option>{selectedRegions.map(r=><option key={r.region_id} value={r.region_id}>{locale==='en'?r.region_name_en:r.region_name_zh}</option>)}</select></label>:<p className="text-xs">{t("可选取不同国家和层级；并列展示不代表统计可比，不计算差值。", "Selection spans countries and levels. Side-by-side observations do not imply comparability; no differences are calculated.")}</p>}
+        <details><summary className="cursor-pointer text-sm font-semibold">{t("选择 2–5 个区域", "Choose 2–5 regions")}</summary><div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">{regions.filter(r => `${r.region_name_en} ${r.region_name_zh} ${r.country_id}`.toLowerCase().includes(regionSearch.toLowerCase())).map(r => <label className="text-sm" key={r.region_id}><input type="checkbox" checked={selectedRegionIds.includes(r.region_id)} disabled={!selectedRegionIds.includes(r.region_id) && selectedRegionIds.length >= 5} onChange={() => onRegionClick(r.region_id)} /> {locale === "en" ? r.region_name_en : r.region_name_zh} · {(locale === "en" ? countries.find(c=>c.country_id===r.country_id)?.country_name_en : countries.find(c=>c.country_id===r.country_id)?.country_name_zh)} · {r.admin_level}</label>)}</div></details>
+        <label className="block max-w-sm text-sm">{regionalOutput==='quantitative'?t("共同合格比较年份", "Common eligible comparison year"):t("已发布观测年份", "Published observation year")}<select aria-label={t("比较年份","Comparison year")} className="field-control mt-2" value={comparisonYear} onChange={e=>setComparisonYear(e.target.value)}><option value="">{t("当前地图年份", "Current map year")} · {effectiveYear}</option>{comparisonYear&&!comparisonYears.includes(comparisonYear)?<option value={comparisonYear}>{comparisonYear} · {t("无合格观测", "No eligible observation")}</option>:null}{comparisonYears.map(y=><option key={y} value={y}>{y}</option>)}</select></label>
         {historyLoadState!=="ready"?<p className="text-xs" role="status">{historyLoadState==="error"?t("区域历史读取不完整；仅列出已加载且合格的观测，不能据此判断来源没有更早历史。", "Regional history could not be fully loaded; only loaded eligible observations are listed. This does not establish that earlier source history is absent."):t("正在读取区域历史覆盖…", "Loading regional historical coverage…")}</p>:null}
-        <p className="text-xs" data-regional-common-periods>{t("实际共同合格年份", "Actual common eligible years")}: {selectedRegions.length>=2?compactPeriods(comparisonYears):"—"}. {t("历史比较选择不改变地图快照或地图导出年份。", "Historical comparison selection does not change the map snapshot or its export year.")}</p>
+        <p className="text-xs" data-regional-common-periods>{t("实际共同合格年份", "Actual common eligible years")}: {selectedRegions.length>=2?compactPeriods(quantitativeYears):"—"}. {t("历史比较选择不改变地图快照或地图导出年份。", "Historical comparison selection does not change the map snapshot or its export year.")}</p>
         {selectedRegions.length < 2 ? <p className="text-sm">{t("选择至少两个区域查看数值与差值。", "Choose at least two regions to inspect values and differences.")}</p> : <>
-          <p className="text-xs">{t("差值参照（首个所选区域）", "Difference reference (first selected region)")}: {locale === "en" ? referenceRegion.region_name_en : referenceRegion.region_name_zh}. {t("差值为该区域减参照区域；仅同年、同单位、同定义及同地理版本时计算。", "Differences are region minus reference, only for matching years, units, definitions and geographic versions.")}</p>
-          <div role="region" tabIndex={0} className="data-table-viewport" aria-label={t("同年区域比较（可滚动）", "Same-period regional comparison (scrollable)")}><table className="research-data-table min-w-[680px] w-full text-left text-sm"><thead><tr>{[t("区域与代码", "Region and code"),t("统计区划／层级", "Geographic version / level"),t("时期", "Period"),t("数值", "Value"),t("差值", "Difference"),t("相对差异（%）", "Relative difference (%)"),t("来源", "Source")].map(h => <th className="p-2" scope="col" key={h}>{h}</th>)}</tr></thead><tbody>{selectedRegions.map(region => {
-            const point = comparisonPoint(region), difference = regionalDifference(referencePoint,point), record = comparisonRecord(region);
-            return <tr key={region.region_id}><th scope="row" className="p-2 font-normal">{locale === "en" ? region.region_name_en : region.region_name_zh} · {region.admin_code}</th><td className="p-2">{point?.classification ?? "—"} · {region.admin_level}<span className="block text-xs text-[var(--muted)]">{t("地图区划", "Map geography")}: {selectedCountries.find(c=>c.country_id===region.country_id)?.classification_system}</span></td><td className="p-2">{point?.year ?? "—"}</td><td className="p-2">{point?.eligible ? `${point.value.toLocaleString(locale,{maximumFractionDigits:20})} ${point.unit}` : t("无已发布数值", "No published value")}</td><td className="p-2">{difference ? `${difference.absolute.toLocaleString(locale,{maximumFractionDigits:6})} ${difference.unit}` : t("缺少同口径可比观测", "No matching comparable observation")}</td><td className="p-2">{difference?.relative == null ? "—" : difference.relative.toLocaleString(locale,{maximumFractionDigits:3})}</td><td className="p-2">{record ? record.sources.map(source=><a key={source.url} className="block underline text-[var(--accent)]" href={source.url}>{source.dataset}</a>) : "—"}</td></tr>;
+          <p className="text-xs">{t("差值参照（由用户选择）", "Difference reference (user selected)")}: {locale === "en" ? referenceRegion?.region_name_en??"—" : referenceRegion?.region_name_zh??"—"}. {t("差值为该区域减参照区域；仅同年、同单位、同定义及同地理版本时计算。", "Differences are region minus reference, only for matching years, units, definitions and geographic versions.")}</p>
+          <div role="region" tabIndex={0} className="data-table-viewport" aria-label={t("同年区域比较（可滚动）", "Same-period regional comparison (scrollable)")}><table className="research-data-table min-w-[680px] w-full text-left text-sm"><thead><tr>{[t("区域", "Region"),t("统计区划／层级", "Geographic version / level"),t("时期", "Period"),t("数值", "Value"),t("差值", "Difference"),t("相对差异（%）", "Relative difference (%)"),t("来源", "Source")].map(h => <th className="p-2" scope="col" key={h}>{h}</th>)}</tr></thead><tbody>{selectedRegions.map(region => {
+            const point = comparisonPoint(region), difference = regionalOutput==='quantitative'?regionalDifference(referencePoint,point):null, record = comparisonRecord(region);
+            return <tr key={region.region_id}><th scope="row" className="p-2 font-normal">{locale === "en" ? region.region_name_en : region.region_name_zh} · </th><td className="p-2">{region.admin_level}<details className="mt-1 text-xs"><summary className="cursor-pointer">{t("区划与代码详情", "Geography and code details")}</summary>{point?.classification ?? "—"} · {region.admin_code}<span className="block text-[var(--muted)]">{t("地图区划", "Map geography")}: {countries.find(c=>c.country_id===region.country_id)?.classification_system}</span></details></td><td className="p-2">{point?.year ?? "—"}</td><td className="p-2">{point ? `${point.value.toLocaleString(locale,{maximumFractionDigits:20})} ${point.unit}` : t("无已发布数值", "No published value")}</td><td className="p-2">{difference ? `${difference.absolute.toLocaleString(locale,{maximumFractionDigits:6})} ${difference.unit}` : t("缺少同口径可比观测", "No matching comparable observation")}</td><td className="p-2">{difference?.relative == null ? "—" : difference.relative.toLocaleString(locale,{maximumFractionDigits:3})}</td><td className="p-2">{record ? record.sources.map(source=><a key={source.url} className="block underline text-[var(--accent)]" href={source.url}>{source.dataset}</a>) : "—"}</td></tr>;
           })}</tbody></table></div>
         </>}
         <details><summary className="cursor-pointer text-sm">{t("各区域历史覆盖与限制", "Regional historical coverage and exclusions")}</summary><p className="mt-2 text-xs">{eligibility.find(g=>g.country_id===selectedRegions[0]?.country_id&&g.layer_id===effectiveLayer)?.definition}</p>{selectedRegions.map((r,i)=><HistoricalCoverage key={r.region_id} inventory={coverageInventory} error={coverageError} country={r.country_id} region={r.region_id} indicator={effectiveLayer} periods={regionalRows[i].map(p=>p.period)}/>)}</details>
@@ -613,10 +617,11 @@ export function ComparativeSpatialWorkbench({
       </section>
       <section className="mt-5 border-y border-[var(--line)] bg-[var(--surface)] p-4">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Region Comparison</p><h3 className="mt-2 text-xl font-semibold">区域对比 · 已选 {selectedRegions.length} / 5</h3></div><button type="button" onClick={() => { setSelectedRegionIds([]); setActiveRegionId(""); }} className="text-sm font-semibold text-[var(--accent)]">清空选择</button></div>
-        <div className="wide-table-scroll mt-4 max-w-full" tabIndex={0} role="region" aria-label="数据表（可横向滚动）"><table className="research-data-table w-full min-w-[1450px] border-separate border-spacing-0 text-left text-xs"><thead><tr className="text-[var(--muted)]">{["区域", "国家", "层级", "人口", "人均 GDP", "失业率", "就业率", "制造业 GVA 比重", "人均 GDP 变化", "已核验项目"].map((header) => <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>)}</tr></thead><tbody>{selectedRegions.length ? selectedRegions.map((region) => { const country = countries.find((item) => item.country_id === region.country_id); const value = (indicatorId: string) => { const item = observationFor(region.region_id, indicatorId); return item ? formatWithUnit(item.value, item.unit) : "—"; }; return <tr key={region.region_id}><td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{region.region_name_zh}</td><td className="border-b border-[var(--line)] px-3 py-3">{country?.country_name_zh}</td><td className="border-b border-[var(--line)] px-3 py-3">{region.admin_level}</td><td className="border-b border-[var(--line)] px-3 py-3">{value("regional_population")}</td><td className="border-b border-[var(--line)] px-3 py-3">{value("regional_gdp_per_capita")}</td><td className="border-b border-[var(--line)] px-3 py-3">{value("regional_unemployment_rate")}</td><td className="border-b border-[var(--line)] px-3 py-3">{value("regional_employment_rate")}</td><td className="border-b border-[var(--line)] px-3 py-3">{value("regional_manufacturing_share")}</td><td className="border-b border-[var(--line)] px-3 py-3">{value("regional_gdp_per_capita_change_pct")}</td><td className="border-b border-[var(--line)] px-3 py-3">{projects.filter((item) => item.region_id === region.region_id && ["high", "medium"].includes(item.confidence)).length}</td></tr>; }) : <tr><td colSpan={10} className="py-6 text-center text-[var(--muted)]">点击地图区域选择 2–5 个比较对象；只显示同年可用值。</td></tr>}</tbody></table></div>
+        <details><summary className="cursor-pointer text-sm">{t("更多快照指标与原始记录", "Additional snapshot indicators and source records")}</summary>
+        <div className="wide-table-scroll mt-4 max-w-full" tabIndex={0} role="region" aria-label="数据表（可横向滚动）"><table className="research-data-table w-full min-w-[1450px] border-separate border-spacing-0 text-left text-xs"><thead><tr className="text-[var(--muted)]">{["区域", "国家", "层级", "人口", "人均 GDP", "失业率", "就业率", "制造业 GVA 比重", "人均 GDP 变化", "已核验项目"].map((header) => <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>)}</tr></thead><tbody>{selectedRegions.length ? selectedRegions.map((region) => { const country = countries.find((item) => item.country_id === region.country_id); const value = (indicatorId: string) => { const item = observationFor(region.region_id, indicatorId); return item ? formatWithUnit(item.value, item.unit) : "—"; }; return <tr key={region.region_id}><td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{region.region_name_zh}</td><td className="border-b border-[var(--line)] px-3 py-3">{country?.country_name_zh}</td><td className="border-b border-[var(--line)] px-3 py-3">{region.admin_level}</td><td className="border-b border-[var(--line)] px-3 py-3">{value("regional_population")}</td><td className="border-b border-[var(--line)] px-3 py-3">{value("regional_gdp_per_capita")}</td><td className="border-b border-[var(--line)] px-3 py-3">{value("regional_unemployment_rate")}</td><td className="border-b border-[var(--line)] px-3 py-3">{value("regional_employment_rate")}</td><td className="border-b border-[var(--line)] px-3 py-3">{value("regional_manufacturing_share")}</td><td className="border-b border-[var(--line)] px-3 py-3">{value("regional_gdp_per_capita_change_pct")}</td><td className="border-b border-[var(--line)] px-3 py-3">{projects.filter((item) => item.region_id === region.region_id && ["high", "medium"].includes(item.confidence)).length}</td></tr>; }) : <tr><td colSpan={10} className="py-6 text-center text-[var(--muted)]">点击地图区域选择 2–5 个比较对象；只显示同年可用值。</td></tr>}</tbody></table></div></details>
       </section>
 
-      {currentLayer?.layer_type === "choropleth" ? <section className="mt-5 border-y border-[var(--line)] bg-[var(--surface)] p-4"><p className="eyebrow">Factual Indicator Ranking</p><h3 className="mt-2 text-xl font-semibold">事实指标排名</h3><p className="mt-2 text-xs leading-5 text-[var(--muted)]">{mode === "comparison" ? "同层级、同定义、同单位、同年份的跨国区域排名。" : "同一国家内部区域排名。"} 不代表风险或政策优劣。</p><div className="wide-table-scroll mt-4 max-w-full" tabIndex={0} role="region" aria-label="数据表（可横向滚动）"><table className="research-data-table w-full min-w-[760px] border-separate border-spacing-0 text-left text-xs"><thead><tr className="text-[var(--muted)]">{["排名", "区域", "国家", "代码", "数值", "年份", "单位"].map((header) => <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>)}</tr></thead><tbody>{rankingRows.map((item, index) => { const region = regions.find((candidate) => candidate.region_id === item.region_id); const country = countries.find((candidate) => candidate.country_id === item.country_id); return <tr key={item.region_observation_id}><td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{index + 1}</td><td className="border-b border-[var(--line)] px-3 py-3">{region?.region_name_zh ?? item.region_id}</td><td className="border-b border-[var(--line)] px-3 py-3">{country?.country_name_zh}</td><td className="border-b border-[var(--line)] px-3 py-3 font-mono">{region?.admin_code}</td><td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{formatNumber(item.value)}</td><td className="border-b border-[var(--line)] px-3 py-3">{item.year}</td><td className="border-b border-[var(--line)] px-3 py-3">{item.unit}</td></tr>; })}</tbody></table></div></section> : null}
+      {currentLayer?.layer_type === "choropleth" ? <details className="mt-5 border-y border-[var(--line)] bg-[var(--surface)] p-4"><summary className="cursor-pointer font-semibold">{t("查看事实指标排名与原始代码", "Inspect factual rankings and source codes")}</summary><p className="eyebrow mt-3">Factual Indicator Ranking</p><h3 className="mt-2 text-xl font-semibold">事实指标排名</h3><p className="mt-2 text-xs leading-5 text-[var(--muted)]">{mode === "comparison" ? "同层级、同定义、同单位、同年份的跨国区域排名。" : "同一国家内部区域排名。"} 不代表风险或政策优劣。</p><div className="wide-table-scroll mt-4 max-w-full" tabIndex={0} role="region" aria-label="数据表（可横向滚动）"><table className="research-data-table w-full min-w-[760px] border-separate border-spacing-0 text-left text-xs"><thead><tr className="text-[var(--muted)]">{["排名", "区域", "国家", "代码", "数值", "年份", "单位"].map((header) => <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>)}</tr></thead><tbody>{rankingRows.map((item, index) => { const region = regions.find((candidate) => candidate.region_id === item.region_id); const country = countries.find((candidate) => candidate.country_id === item.country_id); return <tr key={item.region_observation_id}><td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{index + 1}</td><td className="border-b border-[var(--line)] px-3 py-3">{region?.region_name_zh ?? item.region_id}</td><td className="border-b border-[var(--line)] px-3 py-3">{country?.country_name_zh}</td><td className="border-b border-[var(--line)] px-3 py-3 font-mono">{region?.admin_code}</td><td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{formatNumber(item.value)}</td><td className="border-b border-[var(--line)] px-3 py-3">{item.year}</td><td className="border-b border-[var(--line)] px-3 py-3">{item.unit}</td></tr>; })}</tbody></table></div></details> : null}
 
       <details className="mt-5 border-y border-[var(--line)] bg-[var(--surface-muted)] p-4"><summary className="cursor-pointer font-semibold">来源、覆盖与比较方法</summary><div className="mt-4 grid gap-px border border-[var(--line)] bg-[var(--line)] md:grid-cols-3"><div className="bg-[var(--surface)] p-4 text-xs leading-5"><strong>Source</strong><p className="mt-2 text-[var(--muted)]">{selectedCountries.map((country) => country.source_name).join(" / ")}</p></div><div className="bg-[var(--surface)] p-4 text-xs leading-5"><strong>Coverage</strong><p className="mt-2 text-[var(--muted)]">年份选项只从真实观测生成；缺失区域保持 neutral no-data，不显示 0。</p></div><div className="bg-[var(--surface)] p-4 text-xs leading-5"><strong>Methodology</strong><p className="mt-2 text-[var(--muted)]">跨国比较要求层级、指标定义、单位与年份一致。项目位置只作事实和上下文连接，不作因果解释。</p></div></div></details>
     </section>}</LocalizedContent>

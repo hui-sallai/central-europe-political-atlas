@@ -11,8 +11,7 @@ import { modelCards, modelOutputs } from "@/lib/modelFramework";
 import { eventMechanismRecords } from "@/lib/eventMechanismResearch.server";
 import { platformStatus } from "@/lib/platformStatus";
 import { researchCountries, researchEvents, researchIndicators, researchObservations } from "@/lib/researchData";
-import { AnnualComparisonWorkbench } from "./AnnualComparisonWorkbench";
-import { ResearchComparisonWorkbench } from "./ResearchComparisonWorkbench";
+import { NationalComparisonWorkspace } from "./NationalComparisonWorkspace";
 import { monthlyComparisonData } from "@/lib/monthlyComparisonData.server";
 import { KickerVersion } from "@/components/KickerVersion";
 
@@ -70,12 +69,12 @@ export function ModelsPageContent() {
   const comparisons = modelCards.map((card) => buildModelComparison(card, researchCountries));
   const matrixData = buildMatrixData(comparisons);
 
-  return <LocalizedContent>{(
+  return <LocalizedContent labels={{"选择研究方法，查看其问题、已准入输入、结果与限制。也可直接比较国家经济观测。正式 VAR 动态响应与 IRF 仍禁止发布；受限方法不会因页面改版而开放。":"Choose a research method to inspect its question, admitted inputs, results and limitations, or compare national economic observations. Formal VAR dynamic responses and IRFs remain blocked; this interface does not open restricted methods.","自行选择指标、2–10 个国家与时期。同口径比较只使用共同实际观测；不兼容定义可明确选择描述性并列。模型结果及其独立限制保留在下方研究详情。":"Choose an indicator, 2–10 countries and a period. Harmonized comparisons use actual common observations; explicitly select descriptive side-by-side for incompatible definitions. Existing model results and their separate restrictions remain in research details below."}}>{(
     <main className="page-shell">
       <header className="max-w-4xl border-b border-[var(--line)] pb-8">
         <p className="editorial-kicker">分析工作台 / <KickerVersion version={platformStatus.version} /></p>
         <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">分析工作台</h1>
-        <p className="mt-5 text-base leading-8 text-[var(--muted)]">在同一入口运行透明综合指标、年度面板估计、贸易网络分析、事件窗口分析、逐国简化式 VAR 与已验证的单国 Local Projections，或切换到指标与综合指数比较。各方法只展示通过其预注册数据、识别、样本和推断门禁的组合；SVAR 与 Bayesian VAR 仍未启用。</p>
+        <p className="mt-5 text-base leading-8 text-[var(--muted)]">选择研究方法，查看其问题、已准入输入、结果与限制。也可直接比较国家经济观测。正式 VAR 动态响应与 IRF 仍禁止发布；受限方法不会因页面改版而开放。</p>
         <div className="mt-5 flex flex-wrap gap-3"><Link href="/scenarios" className="rounded-lg cta-dark px-4 py-2 text-sm font-semibold">运行情景分析</Link><Link href="/methodology#models" className="rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-semibold">查看方法说明</Link></div>
       </header>
       <Suspense fallback={<p className="mt-8 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载分析工作台…</p>}>
@@ -86,11 +85,10 @@ export function ModelsPageContent() {
             <header className="max-w-4xl border-b border-[var(--line)] pb-6">
               <p className="editorial-kicker">指标与综合指数比较</p>
               <h2 id="cross-country-comparison-title" className="mt-3 text-3xl font-semibold">指标与综合指数比较</h2>
-              <p className="mt-4 text-base leading-8 text-[var(--muted)]">年度与月度观测分别比较。以下年度矩阵只比较同年份、同定义、同单位的年度指标与综合指数。LP 跨国响应仅可描述性并列，不进入排名；VAR、面板及网络结果不接入此矩阵。不同年份的结果不会进入同一排名；未通过比较门控的国家单独列出并说明原因。</p>
+              <p className="mt-4 text-base leading-8 text-[var(--muted)]">自行选择指标、2–10 个国家与时期。同口径比较只使用共同实际观测；不兼容定义可明确选择描述性并列。模型结果及其独立限制保留在下方研究详情。</p>
             </header>
-            <ResearchComparisonWorkbench countries={researchCountries} payload={monthlyComparisonData()} annual={<><AnnualComparisonWorkbench countries={researchCountries} indicators={researchIndicators.filter(i => i.frequency === "annual")} observations={researchObservations} />
-            <ModelComparisonBoard comparisons={comparisons} />
-            <CountryComparisonMatrix data={matrixData} /></>} />
+            <NationalComparisonWorkspace countries={researchCountries} indicators={researchIndicators} observations={researchObservations} payload={monthlyComparisonData()}/>
+            <details className="mt-6"><summary className="cursor-pointer font-semibold">已发布模型结果的比较与方法限制</summary><ModelComparisonBoard comparisons={comparisons}/><CountryComparisonMatrix data={matrixData}/></details>
           </section>
           }
         />

@@ -49,9 +49,9 @@ test('wildcard paths, missing sha256, OTHER classification and data_change_allow
 test('the committed amendment lists exact hashes for presentation files only', () => {
   const { problems, approved } = approvedUiFiles(record.amendments);
   assert.deepEqual(problems, []);
-  assert.equal(approved.size, 149); // Previous 147 paths plus the two presentation-only historical coverage adapters; every path remains exact-hash pinned.
+  assert.equal(approved.size, 161); // Every approved presentation path remains exact-hash pinned.
   assert.equal(approved.has('src/components/HomeResearchDiscovery.tsx'), true);
-  for (const [p] of approved) assert.match(p, /^src\/(app|components|lib)\//);
+  for (const [p] of approved) assert.ok(p === "src/i18n/config.ts" || /^src\/(app|components|lib)\//.test(p));
 });
 
 // Owner-approved exact build-artifact exclusion (research package zip)
@@ -123,4 +123,11 @@ test('private evidence: present file is re-hashed exactly; absent file is accept
   assert.throws(() => ev({ archivePath: 'public/research-data/x.raw', exists: () => false }), /local-evidence/);
   assert.throws(() => ev({ archivePath: 'local-evidence/../x.raw', exists: () => false }), /local-evidence/);
   assert.throws(() => ev({ sha256: 'abc', exists: () => false }), /malformed/);
+});
+
+test("locale route amendment is exact, hash-checked and does not admit other i18n code",()=>{
+ const listed={...amendment,files:[{path:"src/i18n/config.ts",sha256:H("a"),classification:"DATA_PRESENTATION"}]};
+ assert.deepEqual(approvedUiFiles([listed]).problems,[]);
+ for(const p of ["src/i18n/LocalizedContent.tsx","src/i18n/reviewedText.ts","src/i18n/*.ts"])assert.ok(approvedUiFiles([{...listed,files:[{...listed.files[0],path:p}]}]).problems.length);
+ assert.equal(checkFrozenFiles({baselineFiles:{"src/i18n/config.ts":H("b")},currentFiles:["src/i18n/config.ts"],hashOf:()=>H("c"),amendments:[listed]}).ok,false);
 });

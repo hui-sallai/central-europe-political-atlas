@@ -14,6 +14,6 @@ export function monthlyEventDates(from: string, to: string): EventContextDates |
 
 export function monthlyEventLinks(selected: string[], availableCountries: readonly string[], from: string, to: string, en: boolean): { country: string; href: string }[] {
   const dates = monthlyEventDates(from, to);
-  if (!dates || selected.length < 2 || selected.length > 5 || new Set(selected).size !== selected.length || selected.some(country => !availableCountries.includes(country))) return [];
+  if (!dates || selected.length < 2 || selected.length > 10 || new Set(selected).size !== selected.length || selected.some(country => !availableCountries.includes(country))) return [];
   return selected.map(country => ({ country, href: `${en ? "/en" : ""}/news/?${new URLSearchParams({ country, from: dates.from, to: dates.to })}` }));
 }
