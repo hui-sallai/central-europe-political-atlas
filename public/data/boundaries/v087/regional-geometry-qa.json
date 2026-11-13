@@ -274,8 +274,8 @@
     },
     {
       "country_id": "serbia",
-      "geometry_file": "public/data/boundaries/v086/serbia_adm1_geoboundaries.geojson",
-      "source_name": "geoBoundaries gbOpen ADM1",
+      "geometry_file": "public/data/boundaries/v086/serbia_nstj3_gisco_2024.geojson",
+      "source_name": "Eurostat GISCO NUTS 2024",
       "expected_feature_count": 25,
       "actual_feature_count": 25,
       "region_code_count": 25,
@@ -300,7 +300,7 @@
       "topology_ready": true,
       "topology_method": "local_geometry_integrity_country_bounds_and_major_overlap_review",
       "topology_limitations": "This local QA detects empty/invalid rings, out-of-range coordinates and country-bound violations. Centroid containment candidates are recorded separately because legitimate nested administrative units can look like overlaps. It does not replace cadastral or legal boundary validation.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-11-14"
     }
   ]
 }

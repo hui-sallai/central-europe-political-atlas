@@ -112,8 +112,13 @@ function yearsFor(countryId: string, indicatorId: string) {
     .map((record) => record.year))].sort();
 }
 
+export function withinCountryOnly(countryId: string) {
+  return (displayDecisionFile.records as Array<{ country_id: string; comparison_scope?: string }>).some((record) => record.country_id === countryId && record.comparison_scope === "within_country_only");
+}
+
 function latestCommonYear(indicatorId: string) {
-  const approvedCountries = baseDisplayDecisions.filter((record) => record.boundary_ready).map((record) => record.country_id);
+  // Countries shown within their own geography only (Serbia, owner approval 2026-11-14) do not set cross-country common years.
+  const approvedCountries = baseDisplayDecisions.filter((record) => record.boundary_ready && !withinCountryOnly(record.country_id)).map((record) => record.country_id);
   const yearSets = approvedCountries.map((countryId) => new Set(yearsFor(countryId, indicatorId)));
   const candidateYears = [...new Set(yearSets.flatMap((set) => [...set]))].sort().reverse();
   return candidateYears.find((year) => yearSets.every((set) => set.has(year))) ?? "unavailable";

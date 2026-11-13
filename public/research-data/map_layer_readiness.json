@@ -1321,16 +1321,16 @@
       "layer_id": "regional_boundary",
       "layer_name_zh": "行政边界",
       "layer_type": "boundary",
-      "geometry_ready": false,
-      "data_ready": false,
+      "geometry_ready": true,
+      "data_ready": true,
       "source_ready": true,
-      "quality_passed": false,
+      "quality_passed": true,
       "latest_available_year": "not_applicable",
       "latest_common_year": "not_applicable",
       "unit": "not_applicable",
       "classification_method": "not_applicable",
-      "is_ready_for_display": false,
-      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+      "is_ready_for_display": true,
+      "blocker": ""
     },
     {
       "country_id": "serbia",
@@ -1338,16 +1338,16 @@
       "layer_id": "regional_population",
       "layer_name_zh": "区域人口",
       "layer_type": "choropleth",
-      "geometry_ready": false,
-      "data_ready": false,
+      "geometry_ready": true,
+      "data_ready": true,
       "source_ready": true,
-      "quality_passed": false,
-      "latest_available_year": "unavailable",
+      "quality_passed": true,
+      "latest_available_year": "2024",
       "latest_common_year": "2024",
-      "unit": "not_applicable",
+      "unit": "人",
       "classification_method": "country_specific_quantiles_up_to_5_bins",
-      "is_ready_for_display": false,
-      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+      "is_ready_for_display": true,
+      "blocker": ""
     },
     {
       "country_id": "serbia",
@@ -1355,7 +1355,7 @@
       "layer_id": "regional_gdp",
       "layer_name_zh": "区域 GDP",
       "layer_type": "choropleth",
-      "geometry_ready": false,
+      "geometry_ready": true,
       "data_ready": false,
       "source_ready": true,
       "quality_passed": false,
@@ -1364,7 +1364,7 @@
       "unit": "not_applicable",
       "classification_method": "country_specific_quantiles_up_to_5_bins",
       "is_ready_for_display": false,
-      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+      "blocker": "complete_regional_observations_unavailable"
     },
     {
       "country_id": "serbia",
@@ -1372,7 +1372,7 @@
       "layer_id": "regional_gdp_per_capita",
       "layer_name_zh": "区域人均 GDP",
       "layer_type": "choropleth",
-      "geometry_ready": false,
+      "geometry_ready": true,
       "data_ready": false,
       "source_ready": true,
       "quality_passed": false,
@@ -1381,7 +1381,7 @@
       "unit": "not_applicable",
       "classification_method": "country_specific_quantiles_up_to_5_bins",
       "is_ready_for_display": false,
-      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+      "blocker": "complete_regional_observations_unavailable"
     },
     {
       "country_id": "serbia",
@@ -1389,7 +1389,7 @@
       "layer_id": "regional_unemployment_rate",
       "layer_name_zh": "区域失业率",
       "layer_type": "choropleth",
-      "geometry_ready": false,
+      "geometry_ready": true,
       "data_ready": false,
       "source_ready": true,
       "quality_passed": false,
@@ -1398,7 +1398,7 @@
       "unit": "not_applicable",
       "classification_method": "country_specific_quantiles_up_to_5_bins",
       "is_ready_for_display": false,
-      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+      "blocker": "complete_regional_observations_unavailable"
     },
     {
       "country_id": "serbia",
@@ -1406,7 +1406,7 @@
       "layer_id": "regional_employment_rate",
       "layer_name_zh": "区域就业率",
       "layer_type": "choropleth",
-      "geometry_ready": false,
+      "geometry_ready": true,
       "data_ready": false,
       "source_ready": true,
       "quality_passed": false,
@@ -1415,7 +1415,7 @@
       "unit": "not_applicable",
       "classification_method": "country_specific_quantiles_up_to_5_bins",
       "is_ready_for_display": false,
-      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+      "blocker": "complete_regional_observations_unavailable"
     },
     {
       "country_id": "serbia",
@@ -1423,7 +1423,7 @@
       "layer_id": "regional_manufacturing_share",
       "layer_name_zh": "区域制造业 GVA 比重",
       "layer_type": "choropleth",
-      "geometry_ready": false,
+      "geometry_ready": true,
       "data_ready": false,
       "source_ready": true,
       "quality_passed": false,
@@ -1432,7 +1432,7 @@
       "unit": "not_applicable",
       "classification_method": "country_specific_quantiles_up_to_5_bins",
       "is_ready_for_display": false,
-      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+      "blocker": "complete_regional_observations_unavailable"
     },
     {
       "country_id": "serbia",
@@ -1440,7 +1440,7 @@
       "layer_id": "regional_population_change_pct",
       "layer_name_zh": "区域人口变化（2021–2024）",
       "layer_type": "choropleth",
-      "geometry_ready": false,
+      "geometry_ready": true,
       "data_ready": false,
       "source_ready": true,
       "quality_passed": false,
@@ -1449,7 +1449,7 @@
       "unit": "not_applicable",
       "classification_method": "country_specific_quantiles_up_to_5_bins",
       "is_ready_for_display": false,
-      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+      "blocker": "complete_regional_observations_unavailable"
     },
     {
       "country_id": "serbia",
@@ -1457,7 +1457,7 @@
       "layer_id": "regional_gdp_per_capita_change_pct",
       "layer_name_zh": "区域人均 GDP 变化（2021–2024）",
       "layer_type": "choropleth",
-      "geometry_ready": false,
+      "geometry_ready": true,
       "data_ready": false,
       "source_ready": true,
       "quality_passed": false,
@@ -1466,7 +1466,7 @@
       "unit": "not_applicable",
       "classification_method": "country_specific_quantiles_up_to_5_bins",
       "is_ready_for_display": false,
-      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+      "blocker": "complete_regional_observations_unavailable"
     },
     {
       "country_id": "serbia",
@@ -1474,7 +1474,7 @@
       "layer_id": "regional_unemployment_change_pp",
       "layer_name_zh": "区域失业率变化（2021–2024）",
       "layer_type": "choropleth",
-      "geometry_ready": false,
+      "geometry_ready": true,
       "data_ready": false,
       "source_ready": true,
       "quality_passed": false,
@@ -1483,7 +1483,7 @@
       "unit": "not_applicable",
       "classification_method": "country_specific_quantiles_up_to_5_bins",
       "is_ready_for_display": false,
-      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+      "blocker": "complete_regional_observations_unavailable"
     },
     {
       "country_id": "serbia",
@@ -1491,16 +1491,16 @@
       "layer_id": "china_project_locations",
       "layer_name_zh": "对华项目区域参考",
       "layer_type": "project_reference",
-      "geometry_ready": false,
+      "geometry_ready": true,
       "data_ready": true,
       "source_ready": true,
-      "quality_passed": false,
+      "quality_passed": true,
       "latest_available_year": "not_applicable",
       "latest_common_year": "not_applicable",
       "unit": "not_applicable",
       "classification_method": "not_applicable",
-      "is_ready_for_display": false,
-      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+      "is_ready_for_display": true,
+      "blocker": ""
     },
     {
       "country_id": "austria",

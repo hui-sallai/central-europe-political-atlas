@@ -7,10 +7,10 @@
     "country_count": 10,
     "region_count": 173,
     "geometry_qa_passed_country_count": 10,
-    "public_boundary_country_count": 9,
-    "public_layer_count": 80,
+    "public_boundary_country_count": 10,
+    "public_layer_count": 83,
     "project_reference_count": 23,
-    "factual_observation_count": 2972,
+    "factual_observation_count": 3072,
     "reviewed_at": "2026-08-15"
   },
   "boundary_manifest": [
@@ -241,13 +241,13 @@
     },
     {
       "country_id": "serbia",
-      "classification_system": "national_admin",
-      "admin_level": "ADM1",
-      "source_name": "geoBoundaries gbOpen ADM1",
-      "source_url": "https://www.geoboundaries.org/",
-      "license_url": "https://www.geoboundaries.org/index.html#usage",
-      "attribution": "geoBoundaries",
-      "geometry_file": "public/data/boundaries/v086/serbia_adm1_geoboundaries.geojson",
+      "classification_system": "NSTJ",
+      "admin_level": "NSTJ3",
+      "source_name": "Eurostat GISCO NUTS 2024",
+      "source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2024_4326_LEVL_3.geojson",
+      "license_url": "https://ec.europa.eu/eurostat/web/gisco/geodata/administrative-units",
+      "attribution": "European Commission - Eurostat/GISCO",
+      "geometry_file": "public/data/boundaries/v086/serbia_nstj3_gisco_2024.geojson",
       "coordinate_system": "EPSG:4326",
       "expected_feature_count": 25,
       "actual_feature_count": 25,
@@ -256,13 +256,15 @@
       "duplicate_region_id_count": 0,
       "invalid_geometry_count": 0,
       "source_verified": true,
-      "license_checked": false,
+      "license_checked": true,
       "topology_checked": false,
       "region_id_one_to_one_match": true,
       "public_display_ready": false,
       "is_ready_for_display": false,
       "status": "geometry_mapped_pending_country_gate",
-      "notes": "Accepted national administrative hierarchy; no synthetic NUTS code. Reuse licence and official SORS correspondence remain pending."
+      "geometry_sha256": "2f298a6546e022126b1d7666fc0d5ac549aa0239f3fdb2521051d203dcba1a1c",
+      "retrieved_on": "2026-11-14",
+      "notes": "Serbian statistical units from the GISCO NUTS 2024 file, labelled NSTJ3 areas (oblasti), not EU NUTS regions; codes equal SORS NSTJ codes 25/25. Scope follows the sources (25 areas with SORS data and RS geometry); no position on territorial status. Display gate decided in v0.87."
     }
   ],
   "model_boundary": "Coverage and readiness only. It is not a regional risk score or prediction.",
@@ -553,25 +555,23 @@
     {
       "country_id": "serbia",
       "country_name_zh": "塞尔维亚",
-      "classification_system": "national_admin",
-      "admin_level": "ADM1",
+      "classification_system": "NSTJ",
+      "admin_level": "NSTJ3",
       "region_count": 25,
       "geometry_count": 25,
       "geometry_match_status": "one_to_one_matched",
-      "p0_indicator_count": 0,
+      "p0_indicator_count": 1,
       "p1_indicator_count": 0,
-      "factual_observation_count": 0,
-      "pending_observation_count": 600,
-      "latest_year": "unavailable",
+      "factual_observation_count": 100,
+      "pending_observation_count": 500,
+      "latest_year": "2024",
       "project_mapped_count": 2,
       "project_display_eligible_count": 2,
-      "boundary_ready": false,
-      "regional_data_ready": false,
-      "project_ready": false,
-      "public_layer_count": 0,
+      "boundary_ready": true,
+      "regional_data_ready": true,
+      "project_ready": true,
+      "public_layer_count": 3,
       "priority_gaps": [
-        "行政边界",
-        "区域人口",
         "区域 GDP",
         "区域人均 GDP",
         "区域失业率",
@@ -579,13 +579,14 @@
         "区域制造业 GVA 比重",
         "区域人口变化（2021–2024）",
         "区域人均 GDP 变化（2021–2024）",
-        "区域失业率变化（2021–2024）",
-        "对华项目区域参考"
+        "区域失业率变化（2021–2024）"
       ],
-      "approved_layers": [],
-      "rejected_layers": [
+      "approved_layers": [
         "regional_boundary",
         "regional_population",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
         "regional_gdp",
         "regional_gdp_per_capita",
         "regional_unemployment_rate",
@@ -593,11 +594,10 @@
         "regional_manufacturing_share",
         "regional_population_change_pct",
         "regional_gdp_per_capita_change_pct",
-        "regional_unemployment_change_pp",
-        "china_project_locations"
+        "regional_unemployment_change_pp"
       ],
-      "blocker": "行政边界: official_boundary_correspondence_and_regional_comparability_pending；区域人口: official_boundary_correspondence_and_regional_comparability_pending；区域 GDP: official_boundary_correspondence_and_regional_comparability_pending；区域人均 GDP: official_boundary_correspondence_and_regional_comparability_pending；区域失业率: official_boundary_correspondence_and_regional_comparability_pending；区域就业率: official_boundary_correspondence_and_regional_comparability_pending；区域制造业 GVA 比重: official_boundary_correspondence_and_regional_comparability_pending；区域人口变化（2021–2024）: official_boundary_correspondence_and_regional_comparability_pending；区域人均 GDP 变化（2021–2024）: official_boundary_correspondence_and_regional_comparability_pending；区域失业率变化（2021–2024）: official_boundary_correspondence_and_regional_comparability_pending；对华项目区域参考: official_boundary_correspondence_and_regional_comparability_pending",
-      "latest_common_year": "unavailable"
+      "blocker": "区域 GDP: complete_regional_observations_unavailable；区域人均 GDP: complete_regional_observations_unavailable；区域失业率: complete_regional_observations_unavailable；区域就业率: complete_regional_observations_unavailable；区域制造业 GVA 比重: complete_regional_observations_unavailable；区域人口变化（2021–2024）: complete_regional_observations_unavailable；区域人均 GDP 变化（2021–2024）: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable",
+      "latest_common_year": "2024"
     },
     {
       "country_id": "austria",

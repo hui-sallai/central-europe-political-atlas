@@ -3,8 +3,8 @@ import { PLATFORM_RELEASE_DATE, PLATFORM_STAGE, PLATFORM_VERSION } from "./relea
 export const platformStatus = {
   version: PLATFORM_VERSION,
   stage: PLATFORM_STAGE,
-  regionalData: "9-country factual regional comparison; Serbia regional pending",
-  mapDisplay: "九国事实地图可用；情景影响、风险、预测与真实党派支持率色阶未启用",
+  regionalData: "9-country factual regional comparison; Serbia NSTJ3 regional population within Serbia only",
+  mapDisplay: "十国事实地图可用（塞尔维亚 NSTJ3 区域仅本国内比较）；情景影响、风险、预测与真实党派支持率色阶未启用",
   modelLayer: "4 transparent composite indicators; annual panel; bilateral trade network; monthly high-frequency and macro-driver layers; reduced-form VAR; ECB event proxies audited; LP/SVAR registry-only",
   lastUpdated: PLATFORM_RELEASE_DATE,
 } as const;

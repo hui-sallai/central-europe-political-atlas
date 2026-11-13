@@ -273,16 +273,18 @@
     },
     {
       "country_id": "serbia",
-      "boundary_ready": false,
+      "boundary_ready": true,
       "license_ready": true,
       "topology_ready": true,
       "region_id_ready": true,
       "attribution_ready": true,
-      "license_record_id": "geoboundaries_gbopen_cc_by_4",
-      "approved_layers": [],
-      "rejected_layers": [
+      "license_record_id": "gisco_nuts_2024_public_research",
+      "approved_layers": [
         "regional_boundary",
         "regional_population",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
         "regional_gdp",
         "regional_gdp_per_capita",
         "regional_unemployment_rate",
@@ -290,25 +292,23 @@
         "regional_manufacturing_share",
         "regional_population_change_pct",
         "regional_gdp_per_capita_change_pct",
-        "regional_unemployment_change_pp",
-        "china_project_locations"
+        "regional_unemployment_change_pp"
       ],
       "blockers": [
-        "official_boundary_correspondence_and_regional_comparability_pending",
-        "regional_boundary:official_boundary_correspondence_and_regional_comparability_pending",
-        "regional_population:official_boundary_correspondence_and_regional_comparability_pending",
-        "regional_gdp:official_boundary_correspondence_and_regional_comparability_pending",
-        "regional_gdp_per_capita:official_boundary_correspondence_and_regional_comparability_pending",
-        "regional_unemployment_rate:official_boundary_correspondence_and_regional_comparability_pending",
-        "regional_employment_rate:official_boundary_correspondence_and_regional_comparability_pending",
-        "regional_manufacturing_share:official_boundary_correspondence_and_regional_comparability_pending",
-        "regional_population_change_pct:official_boundary_correspondence_and_regional_comparability_pending",
-        "regional_gdp_per_capita_change_pct:official_boundary_correspondence_and_regional_comparability_pending",
-        "regional_unemployment_change_pp:official_boundary_correspondence_and_regional_comparability_pending",
-        "china_project_locations:official_boundary_correspondence_and_regional_comparability_pending"
+        "regional_gdp:complete_regional_observations_unavailable",
+        "regional_gdp_per_capita:complete_regional_observations_unavailable",
+        "regional_unemployment_rate:complete_regional_observations_unavailable",
+        "regional_employment_rate:complete_regional_observations_unavailable",
+        "regional_manufacturing_share:complete_regional_observations_unavailable",
+        "regional_population_change_pct:complete_regional_observations_unavailable",
+        "regional_gdp_per_capita_change_pct:complete_regional_observations_unavailable",
+        "regional_unemployment_change_pp:complete_regional_observations_unavailable"
       ],
-      "public_display_decision": "not_ready_for_public_display",
-      "reviewed_at": "2026-08-15"
+      "public_display_decision": "approved_for_factual_display",
+      "reviewed_at": "2026-11-14",
+      "comparison_scope": "within_country_only",
+      "owner_decision": "owner approval 2026-11-14 (\"批准 A 和 B\", A)",
+      "classification_label": "NSTJ3 areas (oblasti), not EU NUTS regions"
     }
   ],
   "shared_license_records": [
@@ -331,9 +331,10 @@
         "czechia",
         "slovakia",
         "romania",
-        "croatia"
+        "croatia",
+        "serbia"
       ],
-      "notes": "One dataset-level record is reused by every covered country. Country geometry, region-id and layer gates remain independent."
+      "notes": "One dataset-level record is reused by every covered country. Country geometry, region-id and layer gates remain independent. Serbia added 2026-11-14 by owner approval (\"批准 A 和 B\", A): the same GISCO NUTS 2024 file carries the Serbian statistical units (labelled NSTJ3, not NUTS); terms page re-read 2026-11-14, no country carve-out."
     },
     {
       "license_record_id": "geoboundaries_gbopen_cc_by_4",
@@ -347,10 +348,9 @@
       "license_checked": true,
       "review_date": "2026-08-15",
       "covered_countries": [
-        "poland",
-        "serbia"
+        "poland"
       ],
-      "notes": "Poland keeps ADM1 geometry because its display layer is administrative rather than the split NUTS2 statistical geography. Serbia remains blocked by official correspondence and statistical comparability checks. Licence corrected 2026-10-04: the record id is historical; the operative per-boundary licence is ODbL 1.0 (see /geo/BOUNDARY-LICENSES.txt).",
+      "notes": "Poland keeps ADM1 geometry because its display layer is administrative rather than the split NUTS2 statistical geography. Serbia's regional map uses the GISCO record since 2026-11-14; its OpenStreetMap ADM1 outline remains only in the home-map files under ODbL (see /geo/BOUNDARY-LICENSES.txt). Licence corrected 2026-10-04: the record id is historical; the operative per-boundary licence is ODbL 1.0 (see /geo/BOUNDARY-LICENSES.txt).",
       "license_name": "ODbL-1.0"
     }
   ],
@@ -525,9 +525,9 @@
       "license_checked": true,
       "attribution_ready": true,
       "topology_checked": true,
-      "regional_data_ready": false,
-      "boundary_layer_ready": false,
-      "population_layer_ready": false,
+      "regional_data_ready": true,
+      "boundary_layer_ready": true,
+      "population_layer_ready": true,
       "gdp_layer_ready": false,
       "gdp_per_capita_layer_ready": false,
       "unemployment_layer_ready": false,
@@ -536,9 +536,9 @@
       "population_change_layer_ready": false,
       "gdp_per_capita_change_layer_ready": false,
       "unemployment_change_layer_ready": false,
-      "project_layer_ready": false,
-      "approved_layer_count": 0,
-      "public_display_blocker": "official_boundary_correspondence_and_regional_comparability_pending；regional_boundary:official_boundary_correspondence_and_regional_comparability_pending；regional_population:official_boundary_correspondence_and_regional_comparability_pending；regional_gdp:official_boundary_correspondence_and_regional_comparability_pending；regional_gdp_per_capita:official_boundary_correspondence_and_regional_comparability_pending；regional_unemployment_rate:official_boundary_correspondence_and_regional_comparability_pending；regional_employment_rate:official_boundary_correspondence_and_regional_comparability_pending；regional_manufacturing_share:official_boundary_correspondence_and_regional_comparability_pending；regional_population_change_pct:official_boundary_correspondence_and_regional_comparability_pending；regional_gdp_per_capita_change_pct:official_boundary_correspondence_and_regional_comparability_pending；regional_unemployment_change_pp:official_boundary_correspondence_and_regional_comparability_pending；china_project_locations:official_boundary_correspondence_and_regional_comparability_pending"
+      "project_layer_ready": true,
+      "approved_layer_count": 3,
+      "public_display_blocker": "区域 GDP: complete_regional_observations_unavailable；区域人均 GDP: complete_regional_observations_unavailable；区域失业率: complete_regional_observations_unavailable；区域就业率: complete_regional_observations_unavailable；区域制造业 GVA 比重: complete_regional_observations_unavailable；区域人口变化（2021–2024）: complete_regional_observations_unavailable；区域人均 GDP 变化（2021–2024）: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable"
     },
     {
       "country_id": "austria",

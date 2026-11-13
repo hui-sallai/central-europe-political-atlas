@@ -2,17 +2,11 @@
 
 Central Europe Political Atlas v2.0 (no version change, no rebranding, no redesign). Baseline: `main` = production = `d8a42af` (Pages run 43484667674).
 
-**Outcome:** no Serbian module changed in production in this pass. Every substantive step that remains needs an owner decision: a rights extension, a frozen-file amendment, a gate change, a new network host, or a governed data-refresh run. A decision request was offered and declined, so this pass treats none of those as approved.
+**Outcome:** the owner approved A (the regional map) and B (the SORS refresh) on 2026-11-14 ("批准 A 和 B"). Both are implemented locally and verified (§15), and are not deployed until "推送上线". C (elections and institutions) and D (government finance) remain unapproved; the regional map's §1–§14 inventory below reflects the state before A and B, and §15 records what changed.
 
-The pass delivers four things:
-- a verified module-by-module inventory;
-- production checks in a real browser;
-- reproducible evidence that Serbia's regional map can be built from the official geometry the Atlas already uses for eight countries;
-- the exact list of decisions that would unlock each module.
+**Serbian integration is not complete:** elections, institutions and government finance remain blocked.
 
-**Serbian integration is not complete.**
-
-## 1. Module status (before = after; nothing was admitted)
+## 1. Module status (inventory before approvals A and B; see §15 for the result)
 
 | # | Module | Status | Exact dependency |
 |---|---|---|---|
@@ -74,7 +68,7 @@ The pass delivers four things:
 
 ## 4. Regional geometry and licence findings
 
-Evidence: `docs/serbia-integration/regional_geometry_evidence_2026-11-14.json`, produced by `scripts/serbia-integration/regional-geometry-evidence.mjs`.
+Evidence: `docs/serbia-integration/regional_geometry_evidence_2026-11-14.json`, produced by `scripts/serbia-sors/regional-geometry-evidence.mjs`.
 
 **Geometry:**
 - The Eurostat GISCO NUTS 2024 1:1M EPSG:4326 file (level 3, SHA-256 `2f298a65…dcba1a1c`) contains exactly 25 Serbian units, RS110 to RS229.
@@ -160,7 +154,7 @@ No change; frozen inputs are untouched.
 
 ## 11. Changed files
 
-- `scripts/serbia-integration/regional-geometry-evidence.mjs` (new, read-only evidence generator)
+- `scripts/serbia-sors/regional-geometry-evidence.mjs` (new, read-only evidence generator)
 - `docs/serbia-integration/regional_geometry_evidence_2026-11-14.json` (new)
 - `docs/v20-serbia-integration-2026-11-14.md` (this report)
 
@@ -211,3 +205,93 @@ No `src/`, `public/`, gate, rights or frozen file was changed.
 - why the SORS CPI datasets stop at 2025-12 (a possible rebasing);
 - NSTJ2 employment and unemployment 2021+ on the map;
 - Serbian regional GDP (SORS regional accounts).
+
+## 15. Owner approvals A and B — implementation (2026-11-14)
+
+The owner approved A and B ("批准 A 和 B"). Both are implemented and verified locally; neither is deployed until "推送上线".
+
+### B. SORS refresh (run `serbia-20261114`, commit `51978b5`)
+
+- Applied through the existing pipeline (`plan.mjs --from-stage` → `apply.mjs --accept-stop`) with the owner decision recorded in the ledger.
+- **7 new monthly observations:** average gross and net earnings 2026-08; goods exports, goods imports, industrial production and retail trade volume 2026-09; industrial producer prices 2026-10.
+- **65 official revisions** within tolerance: retail trade 51, exports 8, imports 6.
+- The coverage audit was regenerated (formal input series 176 → 176), and so was the recovery inventory. The SORS monthly store went from 2,553 to 2,560 records.
+- Exact-hash run record `serbia-20261114` (35 files) in `docs/legal-security/data_refresh_amendments.json` and `DATA_REFRESH_RUNS`. `allow_new_paths` is set only because the recovery inventory is newer than the frozen baseline; `NEW_PATH_SCOPE` still applies.
+- **Pipeline fix:**
+  - The first plan reported a "formal model impact" only because the recovery inventory, a derived file that `apply.mjs` rebuilds, records the monthly store's hash.
+  - The inventory is now excluded from hash-pin detection, exactly like the refresh ledger (`DERIVED_REBUILT_FILES` in `scripts/data-refresh/lib.mjs`, with a test). Any other reference still stops a refresh.
+- **2026-11-10 coverage-closure snapshot:** the snapshot is dated and reads live stores, so `--check` reports it as stale after any approved data run. It still reproduces byte-for-byte at its own inputs, verified in a temporary worktree at `4242e54`. The tooling test skips reproduction by design once inputs change. The snapshot was not regenerated.
+
+### A. Serbia regional map
+
+**Geometry:**
+- `public/data/boundaries/v086/serbia_nstj3_gisco_2024.geojson` contains the 25 Serbian units from the GISCO NUTS 2024 level-3 file. The file's SHA-256 is checked against the evidence record, and the coordinates are unchanged.
+- The units are labelled `classification_system: NSTJ`, `statistical_level: NSTJ3`.
+- The existing Atlas region IDs are kept (for example `serbia_bor` = RS221), so the profile and project locations stay linked.
+- Built offline by `scripts/serbia-sors/build-regional-map.mjs`, which writes Serbia's artifacts only. All other countries' records in `region-code-map.json`, `spatial-boundary-manifest.json` and the v0.87 QA and display files are byte-identical.
+
+**Licence:**
+- `gisco_nuts_2024_public_research` now covers Serbia.
+- The geoBoundaries ODbL record now covers Poland only. Serbia's OpenStreetMap ADM1 file stays on disk for the home-map outline, which is still under ODbL 1.0.
+- `BOUNDARY-LICENSES.txt` (both copies) records the change.
+
+**Display gate:** the v0.87 generator (`scripts/build-spatial-data-v087.mjs`, deterministic and offline) records the following for Serbia:
+
+| Field | Value |
+|---|---|
+| `boundary_ready` | true |
+| `approved_layers` | `regional_boundary`, `regional_population` |
+| `comparison_scope` | `within_country_only` |
+| `owner_decision` | recorded |
+| QA | 25/25 features, 0 invalid, 0 out of bounds, no missing or duplicate IDs or codes |
+
+**Observations:**
+- `public/data/regional/v089/map-observations/serbia.json` holds 100 records: SORS population on 1 January (dataset 18010403IND01) for 25 NSTJ3 areas × 2021–2024.
+- The values are copied from the stored SORS regional records, with the SORS status, classification version and record ID kept.
+- No other SORS series is on the map. The 2014–2020 NSTJ3 labour rates fall outside the map's 2021–2024 frame, and NSTJ2-only series do not match the map level.
+
+**Within Serbia only.** Serbia never enters cross-country regional comparison, enforced in three places:
+- `spatialResearchV089.ts` sets `comparison_eligible = false` and gives the blocker "仅本国内比较".
+- Serbia's comparison group is NSTJ3, which no other country shares, so its button is disabled in cross-country mode.
+- `spatialDataV087.ts` excludes within-country-only countries from the cross-country common-year calculation. Without that, Serbia's missing GDP layers would have wiped out every country's GDP common year.
+
+**Isolation:**
+- The scenario page's regional context excludes Serbia, under the SORS rule that no scenario code reads Serbian data.
+- `serbia-audit:validate` passes.
+
+**Presentation:** text updated on the map pages (zh/en), the Serbia profile coverage note, platform status, map-layer coverage, the data dictionary, the boundary and source records, and the scenario note. The remaining profile and map states are data-driven.
+
+**Also visible, by existing rules:**
+- The data-driven project-location layer now shows Serbia's two already-verified project records (Bor and Zrenjanin), as for other countries.
+- The region history panel shows "temporarily unavailable" because there is no regional-history file for Serbia; Croatia has the same message.
+- Serbian regions appear only in descriptive side-by-side comparison. Quantitative comparison needs a coverage-inventory geography contract, which Serbia does not have.
+
+**Exports:** `pnpm build` regenerated 17 regional research exports (json + csv). Non-Serbian rows are identical, except:
+- the map-layer coverage note text (3 rows);
+- the Serbian source note (1 row);
+- the population coverage totals: 10 countries, 173 regions, +100 observations;
+- the regional observation QA totals;
+- the data-dictionary description.
+
+Cross-country eligibility counts and other countries' common years are unchanged.
+
+**Governance:** an exact-hash UI amendment covers the changed `src/` files, and an exact-hash export mirror-sync record covers the regenerated exports. Both cite the owner approval.
+
+**Verification:**
+- typecheck;
+- `pnpm build` (release QA 0 blocking);
+- `ui-language:qa`;
+- `serbia-audit:validate`;
+- legal-security (0 failures);
+- tooling 446/446;
+- new UI spec `tests/ui/serbia-regional-map.spec.ts` (6/6, desktop and mobile): 25 areas render, SORS value RS221 2024 = 99,184, no Chinese text on the English page, Serbia disabled in cross-country mode, and zh/en and the profile agree;
+- full UI suite (see the commit message).
+
+### Status after A and B
+
+| Module | Status |
+|---|---|
+| Regional map and statistics | **Implemented locally, not deployed:** 25 NSTJ3 areas, SORS population 2021–2024, within Serbia only |
+| National indicators | **Implemented locally, not deployed:** SORS monthly store current to 2026-08/09/10 |
+| Elections, institutions, list identities | Blocked (decision C not given) |
+| Government finance, current account | Blocked (decision D not given) |

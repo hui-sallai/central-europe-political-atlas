@@ -49,7 +49,7 @@ test('wildcard paths, missing sha256, OTHER classification and data_change_allow
 test('the committed amendment lists exact hashes for presentation files only', () => {
   const { problems, approved } = approvedUiFiles(record.amendments);
   assert.deepEqual(problems, []);
-  assert.equal(approved.size, 161); // Every approved presentation path remains exact-hash pinned.
+  assert.equal(approved.size, 174); // Every approved presentation path remains exact-hash pinned (+13 Serbia regional map, 2026-11-14).
   assert.equal(approved.has('src/components/HomeResearchDiscovery.tsx'), true);
   for (const [p] of approved) assert.ok(p === "src/i18n/config.ts" || /^src\/(app|components|lib)\//.test(p));
 });
@@ -104,11 +104,11 @@ test('mirror sync can never cover src/data, political stores, engines or permiss
   assert.equal(runSync({ 'public/research-data/x.csv': H('d') }, [{ ...sync, verification: 'none' }]).ok, false);
   assert.equal(runSync({ 'public/research-data/x.csv': H('d') }, [{ ...sync, files: [{ path: 'public/research-data/x.csv' }] }]).ok, false, 'missing sha256');
 });
-test('committed mirror-sync record lists the 11 public mirrors with exact hashes', () => {
+test('committed mirror-sync records list the public mirrors with exact hashes', () => {
   const rec = JSON.parse(fs.readFileSync(path.join(root, 'docs/legal-security/export_mirror_sync_records.json'), 'utf8'));
   const { approved, problems } = approvedMirrorFiles(rec.syncs);
   assert.deepEqual(problems, []);
-  assert.equal(approved.size, 12);
+  assert.equal(approved.size, 42); // 12 earlier + 30 new Serbia regional-map mirrors (spatial_display_gate.json superseded)
 });
 
 // Owner-approved private-evidence rule (2026-10-05)

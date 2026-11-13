@@ -3106,6 +3106,90 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-14"
+    },
+    {
+      "amendment_id": "serbia-regional-map-2026-11-14",
+      "status": "owner_approved",
+      "approved_by": "owner approval 2026-11-14 (\"批准 A 和 B\", A): Serbia regional map — GISCO NUTS 2024 Serbian units labelled NSTJ3, licence record extended to Serbia, display gate for boundary and SORS population, within Serbia only. Deployment still requires a separate 推送上线.",
+      "baseline": "51978b5c91c69528ff2c0a2a267d8980b8c3d006",
+      "files": [
+        {
+          "path": "src/app/(english)/en/map/page.tsx",
+          "sha256": "fa0f705d5a6bfb1c87bb6b421c0f9d693c9e67d068d92e3aa7fd58d410af2663",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/map/page.tsx",
+          "sha256": "0ac80c7509dc454671b0b1e850eeb427aa4666b5c99cd7ff6c8d777cbfb19e62",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryResearchProfile.tsx",
+          "sha256": "fdd4a7a66fd6aba0d6ca9fe072b75801e129a7e7260b659d156e3708e247c2d5",
+          "classification": "SOURCE_ATTRIBUTION_UI"
+        },
+        {
+          "path": "src/lib/countryMetadata.ts",
+          "sha256": "4777efdb9f601cf62408c518a747db7e25d1cd7c30347a5108aaabacb00f8b1c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/mapLayers.ts",
+          "sha256": "83849acaea09aaa5c43f1186ecc29e61d9e6747d3ae666c5852ddb841204b783",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/platformStatus.ts",
+          "sha256": "1671a043a3c8723df3586ff7c322258ba737631ea7c95fe3538ca9d210c42ca5",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/regionBoundaries.ts",
+          "sha256": "62c780c62d21d9c34623f27a3b982b55e7cbd5a42992041897ed895471d93c8a",
+          "classification": "SOURCE_ATTRIBUTION_UI"
+        },
+        {
+          "path": "src/lib/regionObservations.ts",
+          "sha256": "b19f7744e7a2c444d1d0ac6bc824aed2735ff147025954a97b5f732b292bdcec",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/regionSources.ts",
+          "sha256": "5868e47b6895abb01b064f294f877dc8c4f81478dbf1bb0c370139102c37f658",
+          "classification": "SOURCE_ATTRIBUTION_UI"
+        },
+        {
+          "path": "src/lib/regions.ts",
+          "sha256": "cced576c384cf495c8601fa7817417c4888ff5cafd8cdd8417086cecef39951e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/scenarioResearch.ts",
+          "sha256": "03a04c65caf4936a186b98c1b5f3be64ad4577626cced5ef29a825d0066a05af",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/spatialDataV086.ts",
+          "sha256": "f65e3dd7e1a5561794d364c0ef177d7018d1caffd59f9ea69bef505c27e76165",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/spatialDataV087.ts",
+          "sha256": "0457c75662425ab9536b2aa855a1ca02d62a9a37a8a5faea6632f7b0b02357ec",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/spatialResearchV089.ts",
+          "sha256": "a177dcc123abd126b0d3d280ee71aa2022c7d948804647cdd26db579354a5727",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-14"
     }
   ]
 }

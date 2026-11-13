@@ -28,3 +28,8 @@ boundary_source / boundary_license); the file is a collection of separately lice
 
 The regional maps use Eurostat/GISCO NUTS 2024 (© EuroGeographics) for all countries except Poland, whose
 administrative layer uses the geoBoundaries ODbL boundaries above (files in /data/boundaries/v086/).
+Serbia (since 2026-11-14): the regional map uses the Serbian statistical units in the same GISCO NUTS 2024 file
+(serbia_nstj3_gisco_2024.geojson, © EuroGeographics for the administrative boundaries; non-commercial use with
+attribution). They are labelled NSTJ3 areas (oblasti), not EU NUTS regions. The OpenStreetMap-derived Serbian ADM1
+file (serbia_adm1_geoboundaries.geojson, ODbL 1.0) is no longer used by the regional map; Serbia's home-map outline
+still comes from it under ODbL 1.0.

@@ -77,7 +77,7 @@ export type MapLayerRecord = {
 
 const updatedAt = "2026-08-15";
 const v4Adm1Coverage = "V4 四国 ADM1：poland, hungary, czechia, slovakia";
-const multiCountryFactualCoverage = "逐国资格由 map_layer_readiness 决定；v0.89 已批准欧盟九国事实边界，统计图层按指标覆盖独立验收，塞尔维亚待核验";
+const multiCountryFactualCoverage = "逐国资格由 map_layer_readiness 决定；v0.89 已批准欧盟九国事实边界，统计图层按指标覆盖独立验收；塞尔维亚 25 个 NSTJ3 区域（GISCO 边界、SORS 人口）2026-11-14 起开放，仅本国内比较";
 const noDisplayBoundary = "正式展示仍需单独通过 public display readiness gate；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
 const noModelBoundary = "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。";
 const giscoLicenseSource = giscoLicenseVerificationDecision.license_source;

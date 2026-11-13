@@ -21,9 +21,10 @@
         "czechia",
         "slovakia",
         "romania",
-        "croatia"
+        "croatia",
+        "serbia"
       ],
-      "notes": "One dataset-level record is reused by every covered country. Country geometry, region-id and layer gates remain independent."
+      "notes": "One dataset-level record is reused by every covered country. Country geometry, region-id and layer gates remain independent. Serbia added 2026-11-14 by owner approval (\"批准 A 和 B\", A): the same GISCO NUTS 2024 file carries the Serbian statistical units (labelled NSTJ3, not NUTS); terms page re-read 2026-11-14, no country carve-out."
     },
     {
       "license_record_id": "geoboundaries_gbopen_cc_by_4",
@@ -37,10 +38,9 @@
       "license_checked": true,
       "review_date": "2026-08-15",
       "covered_countries": [
-        "poland",
-        "serbia"
+        "poland"
       ],
-      "notes": "Poland keeps ADM1 geometry because its display layer is administrative rather than the split NUTS2 statistical geography. Serbia remains blocked by official correspondence and statistical comparability checks. Licence corrected 2026-10-04: the record id is historical; the operative per-boundary licence is ODbL 1.0 (see /geo/BOUNDARY-LICENSES.txt).",
+      "notes": "Poland keeps ADM1 geometry because its display layer is administrative rather than the split NUTS2 statistical geography. Serbia's regional map uses the GISCO record since 2026-11-14; its OpenStreetMap ADM1 outline remains only in the home-map files under ODbL (see /geo/BOUNDARY-LICENSES.txt). Licence corrected 2026-10-04: the record id is historical; the operative per-boundary licence is ODbL 1.0 (see /geo/BOUNDARY-LICENSES.txt).",
       "license_name": "ODbL-1.0"
     }
   ]

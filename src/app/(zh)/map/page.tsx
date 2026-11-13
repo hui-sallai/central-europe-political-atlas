@@ -13,12 +13,12 @@ import {
   spatialV089Summary,
 } from "@/lib/spatialResearchV089";
 
-export const metadata: Metadata = pageMetadata({ title: "区域事实地图", description: "九国区域事实比较、历史变化、项目位置和来源追溯工作台。", path: "/map/" });
+export const metadata: Metadata = pageMetadata({ title: "区域事实地图", description: "十国区域事实（塞尔维亚仅本国内）比较、历史变化、项目位置和来源追溯工作台。", path: "/map/" });
 
 export default function MapPage() {
   return (
     <main className="page-shell">
-      <header className="max-w-4xl border-b border-[var(--line)] pb-7"><p className="editorial-kicker">Map Workspace / <KickerVersion version={platformStatus.version} /></p><h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">区域事实地图</h1><p className="mt-5 text-base leading-8 text-[var(--muted)]">左侧选择国家、图层与年份，中间查看事实边界，右侧读取当前区域档案。九国可用，塞尔维亚区域比较继续待接入；模型、情景影响、风险与预测图层均未启用。</p><p className="mt-3 text-sm text-[var(--muted)]">当前可用：{spatialV089Summary.public_country_count} / 10 国 · {spatialV089Summary.observation_count} 条区域事实观测</p></header>
+      <header className="max-w-4xl border-b border-[var(--line)] pb-7"><p className="editorial-kicker">Map Workspace / <KickerVersion version={platformStatus.version} /></p><h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">区域事实地图</h1><p className="mt-5 text-base leading-8 text-[var(--muted)]">左侧选择国家、图层与年份，中间查看事实边界，右侧读取当前区域档案。十国区域边界可用；塞尔维亚 25 个 NSTJ3 区域（非欧盟 NUTS）只显示 SORS 人口并仅在本国内比较；模型、情景影响、风险与预测图层均未启用。</p><p className="mt-3 text-sm text-[var(--muted)]">当前可用：{spatialV089Summary.public_country_count} / 10 国 · {spatialV089Summary.observation_count} 条区域事实观测</p></header>
 
       <ComparativeSpatialWorkbench
         countries={spatialResearchCountriesV089}

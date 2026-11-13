@@ -238,35 +238,31 @@ function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBound
 }
 
 function pendingBoundary(region: (typeof regionMetadataRecords)[number]): RegionBoundaryRecord {
+  // Serbia (owner approval 2026-11-14): geometry from the same GISCO NUTS 2024 file; Serbian units labelled NSTJ3.
   const isSerbia = region.country_id === "serbia";
-  const isEuCandidate = !isSerbia;
-  const sourceName = isSerbia
-    ? "Statistical Office of the Republic of Serbia spatial unit register and GIS"
-    : "Eurostat GISCO NUTS 2024";
-  const sourceUrl = isSerbia
-    ? "https://www.stat.gov.rs/sr-Latn/oblasti/registar-prostornih-jedinica-i-gis"
-    : giscoSourceUrl;
+  const sourceName = "Eurostat GISCO NUTS 2024";
+  const sourceUrl = giscoSourceUrl;
 
   return {
     boundary_id: `${region.region_id}_boundary_pending`,
     region_id: region.region_id,
     country_id: region.country_id,
     admin_level: region.admin_level,
-    nuts_version: isSerbia ? "Serbia RPJ/NSTJ current register; geometry version pending" : "NUTS 2024",
+    nuts_version: isSerbia ? "NUTS 2024 file; Serbian units labelled NSTJ3 (not EU NUTS)" : "NUTS 2024",
     boundary_source_name: sourceName,
     boundary_source_url: sourceUrl,
-    boundary_source_type: isSerbia ? "Official national spatial unit register" : "EU official statistical geodata",
-    boundary_license: isSerbia ? "Geometry reuse licence pending review" : giscoLicense,
-    license_source: isSerbia ? "Statistical Office of the Republic of Serbia / source dataset terms pending" : giscoLicenseSource,
-    license_url: isSerbia ? sourceUrl : giscoLicenseUrl,
-    attribution_required: isEuCandidate,
-    attribution_text: isEuCandidate ? giscoAttribution : "待具体几何数据集许可确认",
+    boundary_source_type: "EU official statistical geodata",
+    boundary_license: giscoLicense,
+    license_source: giscoLicenseSource,
+    license_url: giscoLicenseUrl,
+    attribution_required: true,
+    attribution_text: giscoAttribution,
     license_checked: false,
     license_review_status: "pending_dataset_specific_review",
     license_review_date: "2026-08-14",
     license_decision_note: "已登记官方候选来源；尚未选择并核验具体国家文件，不能作出公开展示许可判定。",
-    boundary_format: isEuCandidate ? "GeoJSON" : "Not available",
-    geometry_format: isEuCandidate ? "GeoJSON candidate" : "Not available",
+    boundary_format: "GeoJSON",
+    geometry_format: "GeoJSON candidate",
     file_selected: false,
     file_url: "",
     file_status: "not_downloaded",
@@ -285,7 +281,7 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
     geometry_valid_count: 0,
     invalid_geometry_count: 0,
     duplicate_geometry_count: 0,
-    coordinate_system: isEuCandidate ? "EPSG:4326 candidate" : "待具体文件确认",
+    coordinate_system: "EPSG:4326 candidate",
     file_path_or_url: sourceUrl,
     region_code_match_status: "pending_official_region_code_match",
     validation_manifest_file: "",
@@ -310,7 +306,7 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
     source_status: "官方来源",
     last_checked: "2026-08-14",
     notes: isSerbia
-      ? "v0.85 已登记塞尔维亚官方空间单位登记候选来源；不使用伪造 NUTS code。具体几何文件、许可、尺度对应和拓扑未核验，公开展示保持关闭。"
+      ? "2026-11-14（所有者批准）：边界取自 GISCO NUTS 2024 文件中的塞尔维亚统计单位，标注为 NSTJ3 区域（非欧盟 NUTS），代码与 SORS NSTJ 一致 25/25；仅本国内比较。范围以来源为准，不表示对领土地位的立场。"
       : "v0.85 已登记 GISCO NUTS 2024 候选来源；具体层级、国家文件、官方代码、许可适用和拓扑未逐国核验，公开展示保持关闭。",
   };
 }

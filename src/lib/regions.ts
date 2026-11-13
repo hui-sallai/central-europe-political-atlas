@@ -11,7 +11,7 @@ export type RegionMetadataRecord = {
   region_name_zh: string;
   region_name_en: string;
   region_name_local: string;
-  admin_level: "ADM1" | "ADM2" | "NUTS1" | "NUTS2" | "NUTS3" | "COUNTRY";
+  admin_level: "ADM1" | "ADM2" | "NUTS1" | "NUTS2" | "NUTS3" | "NSTJ3" | "COUNTRY";
   admin_code: string;
   parent_region_id: string;
   capital_or_main_city: string;
@@ -217,7 +217,7 @@ const nonV4LevelPolicy: Record<string, { adminLevel: RegionMetadataRecord["admin
   romania: { adminLevel: "ADM1", classification: "ADM1 county; NUTS3 correspondence candidate" },
   slovenia: { adminLevel: "NUTS2", classification: "NUTS2 cohesion region; statistical region" },
   croatia: { adminLevel: "ADM1", classification: "ADM1 county; NUTS3 correspondence candidate" },
-  serbia: { adminLevel: "ADM1", classification: "Administrative district; NSTJ3 correspondence pending official review" },
+  serbia: { adminLevel: "NSTJ3", classification: "NSTJ3 area (oblast); Serbian statistical unit, not an EU NUTS region" },
 };
 
 function nonV4Region(
@@ -311,7 +311,6 @@ const baseRegionMetadataRecords: RegionMetadataRecord[] = [
 
 const giscoSourceUrl = "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html";
 const giscoLicense = "Non-commercial research display candidate; attribution required; public display remains gated.";
-const serbiaSourceUrl = "https://www.stat.gov.rs/sr-Latn/oblasti/registar-prostornih-jedinica-i-gis";
 const v086CodeByRegion = new Map(v086RegionCodeMap.records.map((record) => [record.region_id, record]));
 
 function spatialClassification(region: RegionMetadataRecord) {
@@ -338,17 +337,18 @@ export const regionMetadataRecords: RegionMetadataRecord[] = baseRegionMetadataR
     local_name: region.region_name_local,
     level: verifiedLevel ?? region.admin_level,
     nuts_adm_classification: verifiedCode ? `${verifiedCode.classification_system} / ${verifiedCode.admin_level}` : spatialClassification(region),
-    geometry_source: verifiedCode ? verifiedCode.source : isSerbia ? "Statistical Office of the Republic of Serbia spatial unit register candidate" : "Eurostat GISCO NUTS 2024 candidate",
-    geometry_version: isSerbia ? "Current RPJ/NSTJ register; file version pending" : "NUTS 2024",
-    geometry_source_url: verifiedCode?.source_url ?? (isSerbia ? serbiaSourceUrl : giscoSourceUrl),
-    geometry_license: isSerbia ? "Public register confirmed; geometry reuse licence pending review" : giscoLicense,
+    geometry_source: verifiedCode ? verifiedCode.source : "Eurostat GISCO NUTS 2024 candidate",
+    // Serbia (owner approval 2026-11-14): GISCO NUTS 2024 file, Serbian statistical units labelled NSTJ3 (not EU NUTS).
+    geometry_version: isSerbia ? "NUTS 2024 / 1:1M file; Serbian units labelled NSTJ3" : "NUTS 2024",
+    geometry_source_url: verifiedCode?.source_url ?? giscoSourceUrl,
+    geometry_license: giscoLicense,
     is_boundary_available: Boolean(verifiedCode) || region.is_boundary_available,
     is_statistical_data_available: Boolean(verifiedCode) || region.is_statistical_data_available,
     source_status: verifiedCode ? "官方来源" : region.source_status,
     data_status: verifiedCode ? "正式数据" : region.data_status,
     topology_status: isHungary && region.authoritative_topology_checked ? "authoritative_topology_recorded" : verifiedCode ? "basic_geometry_qa_recorded_pending_country_gate" : "not_checked",
     spatial_comparability: isSerbia
-      ? "partial_comparability: Serbian administrative districts/NSTJ3 are not labelled as EU NUTS; correspondence must be documented before cross-country regional comparison."
+      ? "within_country_only: NSTJ3 areas (oblasti), not EU NUTS regions; SORS regional series are not certified comparable with Eurostat regional statistics, so Serbia does not enter cross-country regional comparison."
       : "pending_level_and_definition_alignment",
   };
 });

@@ -1,5 +1,8 @@
 import v086RegionalObservations from "../data/regional/v086-observations.json";
 import v089RegionalObservations from "../data/regional/v089-observations.json";
+// Serbia (owner approval 2026-11-14): SORS population on 1 January for the 25 NSTJ3 areas, projected without change
+// from the stored SORS regional records by scripts/serbia-sors/build-regional-map.mjs (map display only).
+import serbiaMapObservations from "../../public/data/regional/v089/map-observations/serbia.json";
 import { regionMetadataRecords } from "./regions";
 import { regionIndicatorRecords } from "./regionIndicators";
 
@@ -53,7 +56,8 @@ const derivedIndicatorIds = new Set([
   "regional_gdp_per_capita_change_pct",
   "regional_unemployment_change_pp",
 ]);
-const factualRecords = [...v086RegionalObservations.records, ...v089Records] as RegionObservationRecord[];
+const serbiaRecords = serbiaMapObservations.records as RegionObservationRecord[];
+const factualRecords = [...v086RegionalObservations.records, ...v089Records, ...serbiaRecords] as RegionObservationRecord[];
 const factualById = new Map(factualRecords.map((record) => [record.region_observation_id, record]));
 
 function pendingObservation(region: (typeof regionMetadataRecords)[number], indicatorId: string, year: string): RegionObservationRecord {
@@ -61,7 +65,7 @@ function pendingObservation(region: (typeof regionMetadataRecords)[number], indi
   if (!indicator) throw new Error(`Missing regional indicator ${indicatorId}`);
   const id = `${region.region_id}_${indicatorId}_${year}`;
   const mismatchReason = region.country_id === "serbia"
-    ? "塞尔维亚同层级官方区域序列与欧盟 NUTS 口径尚未完成可比性验收。"
+    ? "该指标没有已接入地图的 SORS NSTJ3 年度序列；塞尔维亚区域人口只在本国内比较，不与欧盟 NUTS 口径混合。"
     : indicatorId === "regional_unemployment_rate" || indicatorId === "regional_employment_rate"
       ? "Eurostat 区域失业率的可用层级与当前国家展示层级不完全一致；不做向下分摊。"
       : "官方区域制造业增加值与总增加值的统一分子、分母序列尚未完成接入。";

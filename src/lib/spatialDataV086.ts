@@ -163,7 +163,7 @@ export const regionalCoverageMatrixV086: RegionalCoverageV086Record[] = countrie
       p0.size < 3 ? "P0 区域统计" : null,
       p1.size < 3 ? "失业率、就业率与制造业 GVA 比重" : null,
       !projectReady ? "可显示项目定位" : null,
-      country.slug === "serbia" ? "国家行政区与 EU NUTS 可比性" : null,
+      country.slug === "serbia" ? "跨国区域可比性（NSTJ3 仅本国内比较）" : null,
     ].filter((item): item is string => Boolean(item)),
   };
 });

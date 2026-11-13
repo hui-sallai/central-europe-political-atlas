@@ -53,6 +53,8 @@ const regionNameById = new Map(spatialResearchRegionsV089.map((region) => [regio
 const regionLevelById = new Map(spatialResearchRegionsV089.map((region) => [region.region_id, region.admin_level]));
 
 function latestRegionalFacts(countrySlug: string, indicatorId: string) {
+  // Serbian regional facts are map display only (SORS isolation rule): never scenario context.
+  if (countrySlug === "serbia") return [];
   const records = spatialResearchObservationsV089.filter((record) => (
     record.country_id === countrySlug && record.region_indicator_id === indicatorId
   ));
@@ -90,7 +92,7 @@ export const scenarioRegionalContexts: ScenarioRegionalContext[] = researchCount
       map_layer_id: status === "available" ? mapLayerByScenario[definition.scenario_id] : null,
       interpretation_boundary: "区域排序只表示同国、同年事实指标位置，用于 structural context；不是情景分数、衰退概率或区域风险。",
       unavailable_reason: status === "unavailable"
-        ? country.slug === "serbia" ? "Serbia regional comparison pending。国家级情景不因此被阻断。" : "当前展示层级没有通过质量闸门的对应区域事实。"
+        ? country.slug === "serbia" ? "塞尔维亚区域事实只在区域事实地图中按本国内显示（NSTJ3，非 EU NUTS），不进入情景上下文。国家级情景不因此被阻断。" : "当前展示层级没有通过质量闸门的对应区域事实。"
         : null,
     };
   })

@@ -36,8 +36,8 @@ const sharedLicenseRecords = [
     attribution_ready: true,
     license_checked: true,
     review_date: reviewedAt,
-    covered_countries: ["germany", "austria", "slovenia", "hungary", "czechia", "slovakia", "romania", "croatia"],
-    notes: "One dataset-level record is reused by every covered country. Country geometry, region-id and layer gates remain independent.",
+    covered_countries: ["germany", "austria", "slovenia", "hungary", "czechia", "slovakia", "romania", "croatia", "serbia"],
+    notes: "One dataset-level record is reused by every covered country. Country geometry, region-id and layer gates remain independent. Serbia added 2026-11-14 by owner approval (\"批准 A 和 B\", A): the same GISCO NUTS 2024 file carries the Serbian statistical units (labelled NSTJ3, not NUTS); terms page re-read 2026-11-14, no country carve-out.",
   },
   {
     license_record_id: "geoboundaries_gbopen_cc_by_4",
@@ -50,8 +50,8 @@ const sharedLicenseRecords = [
     attribution_ready: true,
     license_checked: true,
     review_date: reviewedAt,
-    covered_countries: ["poland", "serbia"],
-    notes: "Poland keeps ADM1 geometry because its display layer is administrative rather than the split NUTS2 statistical geography. Serbia remains blocked by official correspondence and statistical comparability checks. Licence corrected 2026-10-04: the record id is historical; the operative per-boundary licence is ODbL 1.0 (see /geo/BOUNDARY-LICENSES.txt).",
+    covered_countries: ["poland"],
+    notes: "Poland keeps ADM1 geometry because its display layer is administrative rather than the split NUTS2 statistical geography. Serbia's regional map uses the GISCO record since 2026-11-14; its OpenStreetMap ADM1 outline remains only in the home-map files under ODbL (see /geo/BOUNDARY-LICENSES.txt). Licence corrected 2026-10-04: the record id is historical; the operative per-boundary licence is ODbL 1.0 (see /geo/BOUNDARY-LICENSES.txt).",
     license_name: "ODbL-1.0",
   },
 ];
@@ -211,7 +211,7 @@ function validateRegionalGeometry(record) {
     topology_ready: topologyReady,
     topology_method: "local_geometry_integrity_country_bounds_and_major_overlap_review",
     topology_limitations: "This local QA detects empty/invalid rings, out-of-range coordinates and country-bound violations. Centroid containment candidates are recorded separately because legitimate nested administrative units can look like overlaps. It does not replace cadastral or legal boundary validation.",
-    reviewed_at: reviewedAt,
+    reviewed_at: record.country_id === "serbia" ? "2026-11-14" : reviewedAt,
   };
 }
 
@@ -229,19 +229,20 @@ const factualLayers = [
 const displayDecisions = manifest.records.map((record) => {
   const qa = geometryQa.find((item) => item.country_id === record.country_id);
   const license = sharedLicenseRecords.find((item) => item.covered_countries.includes(record.country_id));
+  // Serbia (owner approval 2026-11-14): SORS NSTJ3 population is shown within Serbia only; SORS regional series are not
+  // certified comparable with Eurostat regional statistics, so the country never enters cross-country regional comparison.
   const isSerbia = record.country_id === "serbia";
-  const boundaryReady = Boolean(qa?.geometry_ready && qa.region_id_ready && qa.topology_ready && license?.license_checked && license.attribution_ready && !isSerbia);
+  const boundaryReady = Boolean(qa?.geometry_ready && qa.region_id_ready && qa.topology_ready && license?.license_checked && license.attribution_ready);
   const blockers = [
     !qa?.geometry_ready ? "geometry_qa_failed" : null,
     !qa?.region_id_ready ? "region_id_match_failed" : null,
     !qa?.topology_ready ? "topology_qa_failed" : null,
     !license?.license_checked ? "license_pending" : null,
     !license?.attribution_ready ? "attribution_pending" : null,
-    isSerbia ? "official_boundary_correspondence_and_regional_comparability_pending" : null,
   ].filter(Boolean);
-  const approvedLayers = boundaryReady
-    ? ["regional_boundary", "regional_population", "regional_gdp", "regional_gdp_per_capita"]
-    : [];
+  const approvedLayers = !boundaryReady ? [] : isSerbia
+    ? ["regional_boundary", "regional_population"]
+    : ["regional_boundary", "regional_population", "regional_gdp", "regional_gdp_per_capita"];
   const rejectedLayers = factualLayers.map(([id]) => id).filter((id) => !approvedLayers.includes(id));
   return {
     country_id: record.country_id,
@@ -255,7 +256,8 @@ const displayDecisions = manifest.records.map((record) => {
     rejected_layers: rejectedLayers,
     blockers,
     public_display_decision: boundaryReady ? "approved_for_factual_display" : "not_ready_for_public_display",
-    reviewed_at: reviewedAt,
+    reviewed_at: isSerbia ? "2026-11-14" : reviewedAt,
+    ...(isSerbia ? { comparison_scope: "within_country_only", owner_decision: "owner approval 2026-11-14 (\"批准 A 和 B\", A)", classification_label: "NSTJ3 areas (oblasti), not EU NUTS regions" } : {}),
   };
 });
 

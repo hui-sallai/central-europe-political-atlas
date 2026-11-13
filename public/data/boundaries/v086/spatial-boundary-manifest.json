@@ -229,13 +229,13 @@
     },
     {
       "country_id": "serbia",
-      "classification_system": "national_admin",
-      "admin_level": "ADM1",
-      "source_name": "geoBoundaries gbOpen ADM1",
-      "source_url": "https://www.geoboundaries.org/",
-      "license_url": "https://www.geoboundaries.org/index.html#usage",
-      "attribution": "geoBoundaries",
-      "geometry_file": "public/data/boundaries/v086/serbia_adm1_geoboundaries.geojson",
+      "classification_system": "NSTJ",
+      "admin_level": "NSTJ3",
+      "source_name": "Eurostat GISCO NUTS 2024",
+      "source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2024_4326_LEVL_3.geojson",
+      "license_url": "https://ec.europa.eu/eurostat/web/gisco/geodata/administrative-units",
+      "attribution": "European Commission - Eurostat/GISCO",
+      "geometry_file": "public/data/boundaries/v086/serbia_nstj3_gisco_2024.geojson",
       "coordinate_system": "EPSG:4326",
       "expected_feature_count": 25,
       "actual_feature_count": 25,
@@ -244,13 +244,15 @@
       "duplicate_region_id_count": 0,
       "invalid_geometry_count": 0,
       "source_verified": true,
-      "license_checked": false,
+      "license_checked": true,
       "topology_checked": false,
       "region_id_one_to_one_match": true,
       "public_display_ready": false,
       "is_ready_for_display": false,
       "status": "geometry_mapped_pending_country_gate",
-      "notes": "Accepted national administrative hierarchy; no synthetic NUTS code. Reuse licence and official SORS correspondence remain pending."
+      "geometry_sha256": "2f298a6546e022126b1d7666fc0d5ac549aa0239f3fdb2521051d203dcba1a1c",
+      "retrieved_on": "2026-11-14",
+      "notes": "Serbian statistical units from the GISCO NUTS 2024 file, labelled NSTJ3 areas (oblasti), not EU NUTS regions; codes equal SORS NSTJ codes 25/25. Scope follows the sources (25 areas with SORS data and RS geometry); no position on territorial status. Display gate decided in v0.87."
     }
   ]
 }

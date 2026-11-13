@@ -327,7 +327,7 @@ export const researchDataLayerFiles = [
   { id: "regions", label: "regions", description: "v0.86 十国 173 个区域主键；记录 NUTS/ADM 分类、官方代码匹配和层级差异。" },
   { id: "region_boundaries", label: "region_boundaries", description: "v0.86 十国边界来源与几何审计；公开展示资格按国家、按图层独立判断。" },
   { id: "region_indicators", label: "region_indicators", description: "v0.89 区域指标字典；固定劳动力、制造业 GVA 比重与历史变化口径。" },
-  { id: "region_observations", label: "region_observations", description: "欧盟九国 2021–2024 区域事实；劳动力只按直接匹配层级接入，缺失位置不下推国家值。" },
+  { id: "region_observations", label: "region_observations", description: "欧盟九国 2021–2024 区域事实，以及塞尔维亚 25 个 NSTJ3 区域人口（SORS，仅本国内比较）；劳动力只按直接匹配层级接入，缺失位置不下推国家值。" },
   { id: "region_quality_checks", label: "region_quality_checks", description: "区域边界、观测值、来源与展示准入 QA；异常只标记 review_required。" },
   { id: "region_sources", label: "region_sources", description: "v0.21 区域来源字典；锁定 GISCO NUTS 2024 Level 3 GeoJSON，并保留许可与署名记录。" },
   { id: "project_locations", label: "project_locations", description: "v0.86 十国项目到 region_id 的证据映射；无核验坐标时不生成点位。" },

@@ -1,6 +1,6 @@
 import continuityFile from "../data/regional/v089-continuity.json";
 import gapAuditFile from "../data/regional/v089-gap-audit.json";
-import { projectLocationReadiness, mapLayerReadinessV087 } from "./spatialDataV087";
+import { projectLocationReadiness, mapLayerReadinessV087, withinCountryOnly } from "./spatialDataV087";
 import { regionIndicatorRecords } from "./regionIndicators";
 import { regionMetadataRecords } from "./regions";
 import { regionObservationRecords } from "./regionObservations";
@@ -78,7 +78,10 @@ export const spatialComparisonEligibilityV089 = mapLayerReadinessV087.map((recor
   const years = [...new Set(spatialResearchObservationsV089
     .filter((observation) => observation.country_id === record.country_id && observation.region_indicator_id === record.layer_id)
     .map((observation) => observation.year))].sort();
-  const comparable = record.is_ready_for_display && record.layer_type === "choropleth" && years.length > 0;
+  // Within-country-only countries (Serbia NSTJ3, SORS definitions) keep their years for single-country display but never
+  // become eligible for cross-country regional comparison.
+  const ownGeographyOnly = withinCountryOnly(record.country_id);
+  const comparable = record.is_ready_for_display && record.layer_type === "choropleth" && years.length > 0 && !ownGeographyOnly;
   return {
     country_id: record.country_id,
     layer_id: record.layer_id,
@@ -88,7 +91,7 @@ export const spatialComparisonEligibilityV089 = mapLayerReadinessV087.map((recor
     available_years: years,
     latest_available_year: years.at(-1) ?? "unavailable",
     comparison_eligible: comparable,
-    blocker: comparable ? "" : record.blocker || "层级、覆盖或质量条件尚未满足。",
+    blocker: comparable ? "" : ownGeographyOnly && record.is_ready_for_display ? "仅本国内比较：塞尔维亚 NSTJ3 区域（非欧盟 NUTS），SORS 区域口径未认证与 Eurostat 区域统计可比。" : record.blocker || "层级、覆盖或质量条件尚未满足。",
   };
 });
 
