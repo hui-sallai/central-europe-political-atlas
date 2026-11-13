@@ -25,9 +25,11 @@ test('the approved runs pin exactly their files at their current hashes and matc
     assert.equal(entry.plan_sha256, r.ledger_plan_sha256);
   }
   assert.equal(ledger.find((e) => e.run_id === 'ledger-correction-20261110').corrects.run_id, 'historical-recovery-20261110');
-  assert.equal(ledger.at(-1).run_id, 'rights-update-20261111');
-  assert.equal(ledger.at(-1).rights_update.source_id, 'src-sors');
-  assert.deepEqual(ledger.at(-1).rights_update.fields.find((f) => f.field === 'raw_redistribution'), { field: 'raw_redistribution', before: 'not_cleared', after: 'cleared_with_conditions' });
+  assert.equal(ledger.at(-1).run_id, 'serbia-20261114');
+  assert.equal(ledger.at(-1).inventory_regeneration.status, 'regenerated');
+  const rightsEntry = ledger.find((e) => e.run_id === 'rights-update-20261111');
+  assert.equal(rightsEntry.rights_update.source_id, 'src-sors');
+  assert.deepEqual(rightsEntry.rights_update.fields.find((f) => f.field === 'raw_redistribution'), { field: 'raw_redistribution', before: 'not_cleared', after: 'cleared_with_conditions' });
 });
 
 test('a later run supersedes an earlier run for shared files', () => {
@@ -65,6 +67,17 @@ test('the refresh ledger is provenance, not a pin; other references still count'
   assert.deepEqual(findHashPins(root, { 'public/x.json': hash })['public/x.json'], ['src/data/models/output.json']);
 });
 
+test('the rebuilt recovery inventory is not a pin; a model output with the same hash still is', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pins-inv-'));
+  fs.mkdirSync(path.join(root, 'src/data/data-coverage'), { recursive: true });
+  fs.mkdirSync(path.join(root, 'src/data/models'), { recursive: true });
+  const hash = 'c'.repeat(64);
+  fs.writeFileSync(path.join(root, 'src/data/data-coverage/historical_recovery_inventory.json'), JSON.stringify({ store_sha256: hash }));
+  assert.deepEqual(findHashPins(root, { 'src/data/serbia/x.json': hash })['src/data/serbia/x.json'], []);
+  fs.writeFileSync(path.join(root, 'src/data/data-coverage/other_manifest.json'), JSON.stringify({ store_sha256: hash }));
+  assert.deepEqual(findHashPins(root, { 'src/data/serbia/x.json': hash })['src/data/serbia/x.json'], ['src/data/data-coverage/other_manifest.json']);
+});
+
 test('historical recovery: new files only within the declared scope, at exact hashes, and only for a run that allows them', () => {
   const rec = records().find((r) => r.run_id === 'historical-recovery-20261110');
   const { added } = approvedDataRefreshFiles(records());
@@ -90,9 +103,12 @@ test('ledger correction: a later run supersedes a new file hash in run order, ne
   assert.equal(approvedDataRefreshFiles([recovery, correction]).added.get(inv), hashIn(correction));
   assert.equal(approvedDataRefreshFiles([correction, recovery]).added.get(inv), hashIn(correction), 'reversed file order');
   assert.equal(approvedDataRefreshFiles([recovery]).added.get(inv), hashIn(recovery));
-  assert.equal(approvedDataRefreshFiles(recs).added.get(inv), hashIn(rights));
+  const serbiaRun = recs.find((r) => r.run_id === 'serbia-20261114');
+  assert.notEqual(hashIn(rights), hashIn(serbiaRun));
+  assert.equal(approvedDataRefreshFiles(recs.filter((r) => r !== serbiaRun)).added.get(inv), hashIn(rights));
+  assert.equal(approvedDataRefreshFiles(recs).added.get(inv), hashIn(serbiaRun));
   assert.equal(approvedDataRefreshFiles([rights, correction, recovery]).added.get(inv), hashIn(rights), 'reversed file order, three runs');
-  assert.equal(crypto.createHash('sha256').update(fs.readFileSync(inv)).digest('hex'), hashIn(rights));
+  assert.equal(crypto.createHash('sha256').update(fs.readFileSync(inv)).digest('hex'), hashIn(serbiaRun));
   for (const id of ['ledger-correction-20261110', 'rights-update-20261111']) for (const p of DATA_REFRESH_RUNS[id].paths) assert.ok(p.endsWith('refresh_ledger.jsonl') || newPathAllowed(id, p), p);
   assert.equal(newPathAllowed('ledger-correction-20261110', 'src/data/observations/new.json'), false);
 });

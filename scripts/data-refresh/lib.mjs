@@ -178,8 +178,11 @@ export const DECLARED_FORMAL_INPUTS = {
 };
 
 // The refresh ledger records the hashes of files it overwrote (provenance), so it is never a pin on those files.
+// The historical recovery inventory is a derived coverage manifest that apply.mjs rebuilds from the refreshed stores
+// (data-coverage:validate requires the exact rebuild), so its store hashes are regenerated, not pinned.
+export const DERIVED_REBUILT_FILES = ["src/data/data-refresh/refresh_ledger.jsonl", "src/data/data-coverage/historical_recovery_inventory.json"];
 export function findHashPins(root, hashes, exclude = new Set()) {
-  exclude = new Set([...exclude, "src/data/data-refresh/refresh_ledger.jsonl"]);
+  exclude = new Set([...exclude, ...DERIVED_REBUILT_FILES]);
   const wanted = new Map(Object.entries(hashes).filter(([, h]) => h).map(([file, h]) => [h, file]));
   const pins = Object.fromEntries(Object.keys(hashes).map((f) => [f, []]));
   const scan = (dir) => {

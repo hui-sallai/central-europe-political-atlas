@@ -3,7 +3,8 @@
 // (run serbia-20261020); 2026-11-10: official historical recovery (run historical-recovery-20261110, owner-approved,
 // descriptive stores only, verified by the store validators, coverage re-audit and recovery inventory); 2026-11-10:
 // ledger correction of that run and regenerated recovery inventory (run ledger-correction-20261110); SORS rights
-// registry update and inventory regeneration (run rights-update-20261111).
+// registry update and inventory regeneration (run rights-update-20261111); 2026-11-14: Serbia SORS refresh
+// (run serbia-20261114).
 // Later runs supersede shared files (coverage audit, ledger). No general data exemption:
 // only the listed files of each run, at their exact hashes, and only for runs recorded in the refresh ledger.
 export const DATA_REFRESH_FILE = 'docs/legal-security/data_refresh_amendments.json';
@@ -186,6 +187,51 @@ export const DATA_REFRESH_RUNS = {
       'public/research-data/historical_recovery_inventory.json',
       'src/data/data-coverage/historical_recovery_inventory.json',
       'src/data/data-refresh/refresh_ledger.jsonl',
+    ],
+  },
+  'serbia-20261114': {
+    approved_on: '2026-11-14', unit: 'serbia-sors',
+    // Owner-approved 2026-11-14 ("批准 A 和 B", B): 7 new SORS monthly observations and 65 official revisions; supersedes
+    // the shared coverage audit, recovery inventory and ledger. The inventory is newer than the frozen baseline, so it
+    // needs allow_new_paths (as in rights-update-20261111); still limited to NEW_PATH_SCOPE.
+    allow_new_paths: true,
+    verification: 'data-refresh:apply store validators, data-coverage re-audit and recovery inventory regeneration',
+    paths: [
+      'public/research-data/descriptive_data_coverage_audit.json',
+      'public/research-data/historical_recovery_inventory.json',
+      'public/research-data/serbia/serbia_descriptive_history_monthly.json',
+      'public/research-data/serbia/serbia_ingestion_manifest.json',
+      'public/research-data/serbia_sors_runtime.json',
+      'src/data/data-coverage/descriptive_data_coverage_audit.json',
+      'src/data/data-coverage/historical_recovery_inventory.json',
+      'src/data/data-refresh/refresh_ledger.jsonl',
+      'src/data/serbia/raw/03010601IND01.extract.json',
+      'src/data/serbia/raw/03010601IND03.extract.json',
+      'src/data/serbia/raw/030201010101IND01.extract.json',
+      'src/data/serbia/raw/060001IND02.extract.json',
+      'src/data/serbia/raw/0902010301IND01.extract.json',
+      'src/data/serbia/raw/09020104IND01.extract.json',
+      'src/data/serbia/raw/100109IND01.extract.json',
+      'src/data/serbia/raw/1701IND01.extract.json',
+      'src/data/serbia/raw/1702IND01.extract.json',
+      'src/data/serbia/raw/1702IND02.extract.json',
+      'src/data/serbia/raw/18010403IND01.extract.json',
+      'src/data/serbia/raw/180304IND02.extract.json',
+      'src/data/serbia/raw/210105IND02.extract.json',
+      'src/data/serbia/raw/2400020102IND02.extract.json',
+      'src/data/serbia/raw/2400020102IND04.extract.json',
+      'src/data/serbia/raw/240003010102IND03.extract.json',
+      'src/data/serbia/raw/240003020102IND02.extract.json',
+      'src/data/serbia/raw/240003020102IND03.extract.json',
+      'src/data/serbia/raw/240003020205IND01.extract.json',
+      'src/data/serbia/raw/240003020304IND01.extract.json',
+      'src/data/serbia/raw/2403040101IND01.extract.json',
+      'src/data/serbia/raw/2403040101IND02.extract.json',
+      'src/data/serbia/raw/2403040401IND01.extract.json',
+      'src/data/serbia/raw/2403040401IND02.extract.json',
+      'src/data/serbia/raw/bis_rsd_per_eur.extract.json',
+      'src/data/serbia/serbia_descriptive_history_monthly.json',
+      'src/data/serbia/serbia_ingestion_manifest.json',
     ],
   },
 };

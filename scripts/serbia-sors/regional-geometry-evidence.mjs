@@ -1,7 +1,7 @@
 // Serbia regional geometry evidence (read-only; writes one evidence JSON, admits nothing).
 // Checks whether the Eurostat GISCO NUTS 2024 level-3 file contains polygons whose codes equal the SORS NSTJ3
 // territory codes already stored in src/data/serbia/serbia_descriptive_history_regional.json.
-// Usage: node scripts/serbia-integration/regional-geometry-evidence.mjs --gisco <NUTS_RG_01M_2024_4326_LEVL_3.geojson>
+// Usage: node scripts/serbia-sors/regional-geometry-evidence.mjs --gisco <NUTS_RG_01M_2024_4326_LEVL_3.geojson>
 //        [--retrieved YYYY-MM-DD]
 // The GISCO file comes from gisco-services.ec.europa.eu (registered host, automation allowed) and is not committed.
 import fs from "node:fs";

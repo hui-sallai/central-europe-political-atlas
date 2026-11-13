@@ -362,8 +362,8 @@
           "lfs_unemployment_quarterly",
           "retail_trade_volume_sa"
         ],
-        "records": 2553,
-        "observations": 2553,
+        "records": 2560,
+        "observations": 2560,
         "nulls": 0,
         "earliest": "1999-01",
         "latest": "2026-Q2",
@@ -64703,14 +64703,14 @@
       "unit": "RSD",
       "descriptive_coverage": {
         "earliest": "1999-01",
-        "latest": "2026-07",
-        "record_count": 331,
-        "observation_count": 331,
+        "latest": "2026-08",
+        "record_count": 332,
+        "observation_count": 332,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "1999-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
@@ -64718,7 +64718,7 @@
         "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040101IND02/3/json"
       },
       "status_counts": {
-        "A": 328,
+        "A": 329,
         "B": 2,
         "D": 1
       },
@@ -64751,9 +64751,9 @@
       "fingerprint": {
         "window": [
           "1999-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "13c3abde7eeec81addeff454c4fa399d7ef03a58a6d5d24e400141e25d7c9181"
+        "sha256": "9233a6bc54c1bad3647f12766a5ba01ca10fc01b0ea027fc63a99acf2bca6053"
       },
       "null_observation_ids": []
     },
@@ -64768,14 +64768,14 @@
       "unit": "RSD",
       "descriptive_coverage": {
         "earliest": "1999-01",
-        "latest": "2026-07",
-        "record_count": 331,
-        "observation_count": 331,
+        "latest": "2026-08",
+        "record_count": 332,
+        "observation_count": 332,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "1999-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
@@ -64783,7 +64783,7 @@
         "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040101IND01/3/json"
       },
       "status_counts": {
-        "A": 328,
+        "A": 329,
         "B": 2,
         "D": 1
       },
@@ -64816,9 +64816,9 @@
       "fingerprint": {
         "window": [
           "1999-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "aec35d73f0692d36ec01d5b58aa7d600cd50c2f8026b43ac0d036a1cffbb22e5"
+        "sha256": "b2f3525de505252ee36495b1a75615bf08fbfed4561b161df99bc9b16dc1399e"
       },
       "null_observation_ids": []
     },
@@ -64959,14 +64959,14 @@
       "unit": "EUR million",
       "descriptive_coverage": {
         "earliest": "2004-01",
-        "latest": "2026-08",
-        "record_count": 272,
-        "observation_count": 272,
+        "latest": "2026-09",
+        "record_count": 273,
+        "observation_count": 273,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2004-01",
-        "last_observed": "2026-08"
+        "last_observed": "2026-09"
       },
       "source": {
         "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
@@ -64975,7 +64975,7 @@
       },
       "status_counts": {
         "A": 252,
-        "P": 8,
+        "P": 9,
         "R": 12
       },
       "definition": {
@@ -65007,9 +65007,9 @@
       "fingerprint": {
         "window": [
           "2004-01",
-          "2026-08"
+          "2026-09"
         ],
-        "sha256": "dbfca0f404368bb00ee1cecc2f6d75a915e20b3014d8c9743a814541f380f003"
+        "sha256": "986b1b6b606aed724de3140b2f29ccb31b854371c71d8a714a161d7d19f30d6a"
       },
       "null_observation_ids": []
     },
@@ -65024,14 +65024,14 @@
       "unit": "EUR million",
       "descriptive_coverage": {
         "earliest": "2004-01",
-        "latest": "2026-08",
-        "record_count": 272,
-        "observation_count": 272,
+        "latest": "2026-09",
+        "record_count": 273,
+        "observation_count": 273,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2004-01",
-        "last_observed": "2026-08"
+        "last_observed": "2026-09"
       },
       "source": {
         "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
@@ -65040,7 +65040,7 @@
       },
       "status_counts": {
         "A": 252,
-        "P": 8,
+        "P": 9,
         "R": 12
       },
       "definition": {
@@ -65072,9 +65072,9 @@
       "fingerprint": {
         "window": [
           "2004-01",
-          "2026-08"
+          "2026-09"
         ],
-        "sha256": "a8e96dc8639d078c45d04aebd02485e278077e5e79c6fa04278048b08c9401e0"
+        "sha256": "b01b579000c2805a2d39b8bc42a3810ea4a720c69456577f982c9655d5ca4d32"
       },
       "null_observation_ids": []
     },
@@ -65089,14 +65089,14 @@
       "unit": "index, same month previous year = 100",
       "descriptive_coverage": {
         "earliest": "2011-01",
-        "latest": "2026-09",
-        "record_count": 189,
-        "observation_count": 189,
+        "latest": "2026-10",
+        "record_count": 190,
+        "observation_count": 190,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2011-01",
-        "last_observed": "2026-09"
+        "last_observed": "2026-10"
       },
       "source": {
         "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
@@ -65104,7 +65104,7 @@
         "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/030201010101IND01/3/json"
       },
       "status_counts": {
-        "A": 189
+        "A": 190
       },
       "definition": {
         "versions": [
@@ -65135,9 +65135,9 @@
       "fingerprint": {
         "window": [
           "2011-01",
-          "2026-09"
+          "2026-10"
         ],
-        "sha256": "f0d28350b9252d76ee547e0830039beccf013a45a3d77e269c899c735d50330d"
+        "sha256": "bbff964d463cf04f556e6f1b761d0ffa16c4fc66290e36ec136441d97cf24905"
       },
       "null_observation_ids": []
     },
@@ -65152,14 +65152,14 @@
       "unit": "index 2021=100 (NSA)",
       "descriptive_coverage": {
         "earliest": "2000-01",
-        "latest": "2026-08",
-        "record_count": 320,
-        "observation_count": 320,
+        "latest": "2026-09",
+        "record_count": 321,
+        "observation_count": 321,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2000-01",
-        "last_observed": "2026-08"
+        "last_observed": "2026-09"
       },
       "source": {
         "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
@@ -65167,7 +65167,7 @@
         "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/060001IND02/3/json"
       },
       "status_counts": {
-        "A": 319,
+        "A": 320,
         "P": 1
       },
       "definition": {
@@ -65199,9 +65199,9 @@
       "fingerprint": {
         "window": [
           "2000-01",
-          "2026-08"
+          "2026-09"
         ],
-        "sha256": "40b5ceac2e6dd954cbe6d346d8c582359c0f8ac0f655e50041003e2cc159ded8"
+        "sha256": "bc9bdcda89a1dc0f96a7a3d5a3470dc5345c5e7378dc2b31f21f36fa34becd2c"
       },
       "null_observation_ids": []
     },
@@ -65280,14 +65280,14 @@
       "unit": "index 2021=100 (constant prices, SA)",
       "descriptive_coverage": {
         "earliest": "2000-01",
-        "latest": "2026-08",
-        "record_count": 320,
-        "observation_count": 320,
+        "latest": "2026-09",
+        "record_count": 321,
+        "observation_count": 321,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2000-01",
-        "last_observed": "2026-08"
+        "last_observed": "2026-09"
       },
       "source": {
         "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
@@ -65296,7 +65296,7 @@
       },
       "status_counts": {
         "A": 318,
-        "P": 2
+        "P": 3
       },
       "definition": {
         "versions": [
@@ -65327,9 +65327,9 @@
       "fingerprint": {
         "window": [
           "2000-01",
-          "2026-08"
+          "2026-09"
         ],
-        "sha256": "d4fda1a48809f9d1596268ccc166ebbf281066dc2e8dc4c49fc0df246cd6c53a"
+        "sha256": "334ac7fe4810ce6e48c1d7fdfa4e671e9dd307c2d89b495365ddcbedd6552794"
       },
       "null_observation_ids": []
     },

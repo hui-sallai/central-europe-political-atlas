@@ -9,7 +9,7 @@ const {approvedRefreshHistory,seriesRefreshChanges,observationRefresh,addedPerio
 const {getRefreshManifest}=require('../../src/lib/refreshProvenance.server.ts');
 const ledger=fs.readFileSync('src/data/data-refresh/refresh_ledger.jsonl','utf8'),approvals=JSON.parse(fs.readFileSync('docs/legal-security/data_refresh_amendments.json')).refreshes;
 test('approved ledger projection reproduces run totals without exposing approval prose or local paths',()=>{
- const runs=approvedRefreshHistory(ledger,approvals);assert.equal(runs.length,3);assert.equal(runs.find(r=>r.id==='historical-recovery-20261110').added,7799);const euro=runs.find(r=>r.id==='monthly-eurostat-20261019'),sors=runs.find(r=>r.id==='serbia-20261020');assert.equal(euro.added,39);assert.equal(euro.revised,252);assert.equal(sors.added,11);assert.equal(sors.revised,27);
+ const runs=approvedRefreshHistory(ledger,approvals);assert.equal(runs.length,4);assert.equal(runs.find(r=>r.id==='historical-recovery-20261110').added,7799);const euro=runs.find(r=>r.id==='monthly-eurostat-20261019'),sors=runs.find(r=>r.id==='serbia-20261020');assert.equal(euro.added,39);assert.equal(euro.revised,252);assert.equal(sors.added,11);assert.equal(sors.revised,27);const sors2=runs.find(r=>r.id==='serbia-20261114');assert.equal(sors2.added,7);assert.equal(sors2.revised,65);
  const text=JSON.stringify(runs);for(const privateField of ['src/data/','approved_by','owner_acceptance','plan_sha256','previous_git_blob','/Users/'])assert.equal(text.includes(privateField),false,privateField);
 });
 test('approval filtering fails closed for absent approval, wrong plan, rejected or wrong unit',()=>{
@@ -25,7 +25,7 @@ test('exact record application dates and revisions never spill over to untouched
  assert.deepEqual(observationRefresh(runs,'austria','hicp_monthly_index','high_frequency','1990-01'),[]);assert.deepEqual(seriesRefreshChanges(runs,'austria','hicp_monthly_index','annual_history'),[]);assert.equal(observationRefresh(runs,'austria','hicp_annual_rate','high_frequency','2026-09')[0].kind,'added');
 });
 test('minimal server projection preserves source-check dates separately and no invented publication date',()=>{
- const m=getRefreshManifest(),s=m.series.find(s=>s.dataset==='serbia_sors_annual'&&s.indicator==='real_gdp_growth'),h=m.series.find(s=>s.dataset==='high_frequency');assert.match(s.checked,/^2026-10-19T/);assert.equal(s.sourceUpdated,null);assert.equal(h.checked,null);assert.equal(h.sourceUpdated,null);
+ const m=getRefreshManifest(),s=m.series.find(s=>s.dataset==='serbia_sors_annual'&&s.indicator==='real_gdp_growth'),h=m.series.find(s=>s.dataset==='high_frequency');assert.match(s.checked,/^2026-11-13T/);assert.equal(s.sourceUpdated,null);assert.equal(h.checked,null);assert.equal(h.sourceUpdated,null);
  assert.equal(JSON.stringify(m).includes('raw_file'),false);assert.equal(JSON.stringify(m).includes('src/data/'),false);assert.equal(m.series.some(s=>s.dataset==='serbia_sors_regional'),false);assert.equal(m.series.some(s=>s.dataset==='annual_panel'),false);
 });
 test('SORS revision units are normalized units, with BIS conversion and restrictions retained',()=>{
