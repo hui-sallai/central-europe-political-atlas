@@ -230,6 +230,12 @@ for (const e of json('docs/legal-security/dependency_maintenance_exceptions.json
 for (const f of ['public/geo/BOUNDARY-LICENSES.txt', 'public/data/boundaries/v086/BOUNDARY-LICENSES.txt']) check(exists(f) && /ODbL/.test(read(f)) && /CC BY-SA 2\.0/.test(read(f)) && /OpenStreetMap contributors/.test(read(f)), `${f}: per-boundary licence notice missing`);
 const gbRecord = json('public/data/boundaries/v087/shared-license-records.json').records.find((r) => r.license_record_id === 'geoboundaries_gbopen_cc_by_4');
 check(gbRecord && /OpenStreetMap contributors/.test(gbRecord.attribution) && /ODbL/.test(gbRecord.attribution) && !/CC BY 4\.0/.test(gbRecord.attribution), 'geoBoundaries licence record must carry the OpenStreetMap ODbL attribution');
+// The 2026-10-04 correction note must survive regeneration: the generator emits it, and both the record and its
+// research-data mirror keep it, so a rebuild cannot silently drop it.
+const GB_LICENCE_NOTE = 'Licence corrected 2026-10-04: the record id is historical; the operative per-boundary licence is ODbL 1.0 (see /geo/BOUNDARY-LICENSES.txt).';
+const gbMirror = json('public/research-data/spatial_display_gate.json').shared_license_records?.find((r) => r.license_record_id === 'geoboundaries_gbopen_cc_by_4');
+for (const [label, record] of [['shared-license-records.json', gbRecord], ['spatial_display_gate.json', gbMirror]]) check(record?.notes?.endsWith(GB_LICENCE_NOTE) && record.license_name === 'ODbL-1.0', `${label}: geoBoundaries record must keep the licence-correction note and license_name ODbL-1.0`);
+check(read('scripts/build-spatial-data-v087.mjs').includes(GB_LICENCE_NOTE), 'scripts/build-spatial-data-v087.mjs must emit the geoBoundaries licence-correction note');
 const homeOutline = json('public/geo/home-countries-simplified.geojson');
 check(/ODbL/.test(homeOutline.license_notice ?? '') && homeOutline.features.every((f) => f.properties?.boundary_license && f.properties?.boundary_source), 'home outline features must carry boundary_source / boundary_license');
 check(/boundaryAttribution/.test(read('src/components/HomeResearchMap.tsx')), 'home map must render the boundary attribution');
