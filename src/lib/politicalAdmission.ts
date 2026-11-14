@@ -30,10 +30,12 @@ export const politicalAdmissions: CountryAdmission[] = [
     reason: t("The interior ministry permits reuse only for non-commercial purposes, and whether this covers the result workbooks is unresolved; its robots.txt disallows AI agents.", "内政部仅允许非商业目的的转载，是否涵盖结果工作簿尚未确认；其 robots.txt 禁止 AI 代理。") },
   { slug: "hungary", causes: [], name: t("Hungary", "匈牙利"), state: "admitted", record: "docs/political-data/hungary_ogy_admission.json",
     reason: t("National Assembly 2022 and 2026, all 199 seats: national list seats from the National Election Commission minutes and single-member district seats from the election office's composition pages, reconciled to 93 + 106 = 199. The rights basis is the owner's reading of the Copyright Act for official result publications; no licence exists, and the office's own terms are on a site whose robots.txt disallows all agents, so they are unread. 2018 remains out.", "2022、2026 年国会选举，全部 199 席：全国名单席位来自国家选举委员会会议记录，单一选区席位来自选举办公室的议会构成页面，并核对为 93 + 106 = 199。权利依据是负责人对《著作权法》中官方结果公布的解读；不存在正式许可，办公室自身条款所在网站的 robots.txt 禁止所有代理，因此尚未阅读。2018 年仍未纳入。") },
+  { slug: "serbia", causes: [], name: t("Serbia", "塞尔维亚"), state: "admitted", record: "docs/political-data/serbia_nsk_admission.json",
+    reason: t("National Assembly 2020 and 2026, all 250 seats: the Republic Electoral Commission's total-results reports, reconciled with the official totals and the seat rule. The rights basis is the owner's reading of the Copyright Act (official materials of state bodies, Art. 6(2)); no licence exists. List titles usually name persons, so full titles are not stored: only titles naming no person, or the parties a title names. 2022 and 2023 are not included.", "国民议会 2020 年和 2026 年，全部 250 席：共和国选举委员会总结果报告，已与官方总数和席位规则核对。复用依据为负责人对《著作权法》的解读（国家机关官方材料，第 6 条第 2 款），不存在许可。名单名称通常包含人名，因此不存储完整名称：只存储不含人名的名称，或名称中列出的政党。2022 年和 2023 年未收录。") },
   { slug: "romania", causes: ["missing_official_evidence", "internal_approval"], name: t("Romania", "罗马尼亚"), state: "staged_not_published", record: "docs/political-data/romania_publication_readiness.json",
     reason: t("A 2016 Chamber of Deputies candidate package exists in staging only; it needs owner authorisation and unresolved source checks before publication.", "2016 年众议院候选数据包仅在暂存区；发布前需要负责人授权并解决来源核查问题。") },
 ];
 
-export const notInAdmissionPipeline = t("Croatia, Slovenia and Serbia have not yet entered the admission pipeline.", "克罗地亚、斯洛文尼亚和塞尔维亚尚未进入准入流程。");
+export const notInAdmissionPipeline = t("Croatia and Slovenia have not yet entered the admission pipeline.", "克罗地亚和斯洛文尼亚尚未进入准入流程。");
 
 export const admittedCountrySlugs = politicalAdmissions.filter((row) => row.state === "admitted").map((row) => row.slug);

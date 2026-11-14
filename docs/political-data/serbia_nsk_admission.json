@@ -1,0 +1,89 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "serbia-nsk-2020-2026",
+ "country": "serbia",
+ "election_ids": [
+  "el-rs-nsk-2020-06-21",
+  "el-rs-nsk-2026-10-25"
+ ],
+ "scope": "National Assembly elections of 21 June 2020 and 25 October 2026, all 250 seats (one nationwide constituency): votes and seats per electoral list, voters on the roll, voters who voted, valid and invalid ballots, from the Republic Electoral Commission total-results reports. The 2022 and 2023 elections, polling-station and municipal results, list kinds, national-minority status, party attribution and candidate names are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-15",
+   "decision": "Owner reply \"start everything\" (Serbia decisions C and D)."
+  },
+  {
+   "date": "2026-11-15",
+   "decision": "Owner reply \"批准登记这五个塞尔维亚站点，仅人工读取\": www.rik.parlament.gov.rs, www.parlament.gov.rs, the legal information system, www.mfin.gov.rs and www.nbs.rs registered for manual reading only."
+  },
+  {
+   "date": "2026-11-15",
+   "decision": "Owner reply \"批准下载，选 a\": one download each of the 2020 RIK report and totals (kept in local-evidence, never committed); 2022/2023/2026 to be sought through the registered legal information system."
+  },
+  {
+   "date": "2026-11-15",
+   "decision": "Owner reply \"选 b，两个都做，先 D\": list labels by rule (b) (no full titles; parties named in the title, or row number only; verbatim only when no person is named); build both C and D."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/serbia/nsk/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "statute_art_6_2_copyright_act",
+   "basis": "Copyright and Related Rights Act Art. 6(2): official materials of state bodies are not copyright works (read 2026-11-15 on the official legal information system). The RIK reports are official materials of a state body. Recorded as a reading of the statute, weaker than a licence; the RIK site footer states CC BY-NC-ND 3.0 Serbia for the web presentation, which the Atlas does not republish."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_from_total_results_reports",
+   "evidence_kind": "statute_art_6_2_copyright_act",
+   "basis": "National figures only (registers, voters, ballots, votes and seats per list), transcribed from one official report per election; no database extraction (database-maker right, Act Art. 1 and 5a); attribution to RIK."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The 2020 report file and the 2026 page text are kept in local-evidence/ and identified by checksum; full list titles are not committed (title_sha256 only), per owner rule (b)."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "Hosts registered for manual reading only; one robots.txt request each (RIK: no robots.txt, error page). 2020: one download each of the named report and totals file (owner-approved). 2026: RIK notice of session 75 read by hand in a browser. The results application and its data endpoints were not requested; the Official Gazette text (subscriber login) was not accessed."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "Each report prints registered voters, voters who voted, ballots, invalid and valid ballots and every list with votes and seats; all are transcribed."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "List votes equal valid ballots; invalid plus valid equal the printed ballot count (2020: ballots used; 2026: voters who voted); 2020 ballots received equal unused ballots plus voters who voted; seats total 250. Turnout is derived (voters who voted / roll) and labelled as such."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_printed_list",
+   "evidence_kind": "owner_decision",
+   "basis": "Each list keeps its printed row and a title checksum; labels follow owner rule (b). No list is linked to a party or across elections; continuous_series_eligible is false for every list."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "statute_quoted_2026_rule_check_2020",
+   "evidence_kind": "statute_quoted",
+   "basis": "Law on the Election of Members of Parliament (14/2022, 47/2026) Arts. 5, 128, 129 and 140 quoted in the evidence record. The printed seats of both elections reproduce under highest quotients over 250 seats with the 3% threshold and the 35% minority quotient increase; for 2020 this is a consistency check only, because the 2020 statute version was not read."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_total_results_reports",
+   "evidence_kind": "official_act",
+   "basis": "Each report is the commission’s final determination of the total results after the repeated voting (2020: adopted 5 July 2020; 2026: adopted 5 November 2026, published in Službeni glasnik RS 107/2026)."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between 2020 and 2026, even where a label repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

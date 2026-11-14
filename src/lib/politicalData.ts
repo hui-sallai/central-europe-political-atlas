@@ -41,6 +41,13 @@ import huContestants from "@/data/political/hungary/electoral_contestants.json";
 import huLegislatures from "@/data/political/hungary/legislatures.json";
 import huSystems from "@/data/political/hungary/electoral_systems.json";
 import huSources from "@/data/political/hungary/political_source_registry.json";
+import rsElections from "@/data/political/serbia/elections.json";
+import rsTurnout from "@/data/political/serbia/election_turnout.json";
+import rsResults from "@/data/political/serbia/election_results.json";
+import rsContestants from "@/data/political/serbia/electoral_contestants.json";
+import rsLegislatures from "@/data/political/serbia/legislatures.json";
+import rsSystems from "@/data/political/serbia/electoral_systems.json";
+import rsSources from "@/data/political/serbia/political_source_registry.json";
 import type { PoliticalCountryView, PoliticalElectionView } from "./politicalExplorer";
 import { electionViewsFromStores, type PoliticalStores } from "./politicalStores";
 import { politicalPublicationProblems } from "./politicalNational";
@@ -118,6 +125,16 @@ export function politicalHungarianElectionViews(): PoliticalElectionView[] {
   return elections;
 }
 
+/** Serbia's admitted National Assembly elections (2020, 2026), whole chamber: docs/political-data/serbia_nsk_admission.json. */
+export function politicalSerbianElectionViews(): PoliticalElectionView[] {
+  const elections = electionViewsFromStores({ elections: rsElections, turnout: rsTurnout, results: rsResults, contestants: rsContestants, legislatures: rsLegislatures, systems: rsSystems, sources: rsSources } as PoliticalStores, {
+    slug: "serbia", name: { en: "Serbia", "zh-CN": "塞尔维亚" }, originalLanguage: "sr",
+    voteLabel: { en: "Electoral-list votes", "zh-CN": "选举名单票" },
+  });
+  for (const view of elections) if (politicalPublicationProblems(view.country!, view.sources, ["serbia"]).length) throw Error("Political source publication gate failed");
+  return elections;
+}
+
 /**
  * Other countries with authorised, published election stores, for cross-country comparison. A country is added here only
  * after explicit owner authorisation, a closed admission gate record and an exact-hash political admission record.
@@ -132,6 +149,9 @@ function czechCountry(): PoliticalCountryView { return { slug: "czechia", name: 
 function slovakCountry(): PoliticalCountryView { return { slug: "slovakia", name: { en: "Slovakia", "zh-CN": "斯洛伐克" }, elections: politicalSlovakElectionViews() }; }
 function hungarianCountry(): PoliticalCountryView { return { slug: "hungary", name: { en: "Hungary", "zh-CN": "匈牙利" }, elections: politicalHungarianElectionViews() }; }
 function polishCountry(): PoliticalCountryView { return { slug: "poland", name: { en: "Poland", "zh-CN": "波兰" }, elections: politicalPolishElectionViews() }; }
+
+/** Comparison countries for the Serbian view (Serbia is not yet offered in the other countries' comparisons). */
+export function politicalSerbianComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), polishCountry(), slovakCountry(), hungarianCountry()]; }
 
 /** Comparison countries for the Czech, Polish, Slovak and Hungarian views of the explorer. */
 export function politicalCzechComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), polishCountry(), slovakCountry(), hungarianCountry()]; }

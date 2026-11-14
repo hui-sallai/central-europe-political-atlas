@@ -35,6 +35,12 @@ const HUNGARIAN_PATHS = [
   'public/research-data/political/hungary/README.md',
   'public/research-data/political/hungary/manifest.json',
 ];
+const SERBIAN_PATHS = [
+  ...STORES.map((s) => `src/data/political/serbia/${s}.json`),
+  ...STORES.flatMap((s) => [`public/research-data/political/serbia/${s}.json`, `public/research-data/political/serbia/${s}.csv`]),
+  'public/research-data/political/serbia/README.md',
+  'public/research-data/political/serbia/manifest.json',
+];
 // Later admissions of a country share its files; each record's gate record stays required, and the last record's hashes apply.
 export const POLITICAL_ADMISSIONS = {
   'czechia-ps-2025': { approved_on: '2026-10-25', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2025_admission.json', paths: CZECH_PATHS },
@@ -44,6 +50,8 @@ export const POLITICAL_ADMISSIONS = {
   'poland-evidence-links': { approved_on: '2026-11-03', country: 'poland', gate_record: 'docs/political-data/poland_evidence_links_admission.json', paths: POLISH_PATHS },
   'slovakia-nrsr-2023': { approved_on: '2026-11-03', country: 'slovakia', gate_record: 'docs/political-data/slovakia_nrsr2023_admission.json', paths: SLOVAK_PATHS },
   'hungary-ogy-2022-2026': { approved_on: '2026-11-05', country: 'hungary', gate_record: 'docs/political-data/hungary_ogy_admission.json', paths: HUNGARIAN_PATHS },
+  // Owner decision C, 2026-11-15 ("start everything"; "选 b，两个都做"): National Assembly 2020 and 2026 from RIK total-results reports.
+  'serbia-nsk-2020-2026': { approved_on: '2026-11-15', country: 'serbia', gate_record: 'docs/political-data/serbia_nsk_admission.json', paths: SERBIAN_PATHS },
   'slovakia-rights-evidence': { approved_on: '2026-11-04', country: 'slovakia', gate_record: 'docs/political-data/slovakia_rights_evidence_admission.json', paths: SLOVAK_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];

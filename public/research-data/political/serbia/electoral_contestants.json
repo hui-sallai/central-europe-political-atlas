@@ -1,0 +1,1484 @@
+[
+  {
+    "contestant_id": "ct-rs-nsk20-01",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 1,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Изборна листа, ред. бр. 1",
+    "display_label_rule": "no label: the printed title contains personal names and names no party; shown as “Изборна листа, ред. бр. N”",
+    "label_basis": "row_only",
+    "title_sha256": "a752ca007d5ce3bb223fc21d7a9117787899fdc109c52f9e339595c433dd6524",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 1",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-02",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 2,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Социјалистичка партија Србије (СПС), Јединствена Србија (ЈС)",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "ba22aea23a8ef584e34ac66d1ae67f4bc266401f009eac97baa45522755b6a99",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 2",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-03",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 3,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Изборна листа, ред. бр. 3",
+    "display_label_rule": "no label: the printed title contains personal names and names no party; shown as “Изборна листа, ред. бр. N”",
+    "label_basis": "row_only",
+    "title_sha256": "e057cb507b45dd1adf0520502af9d83579f33c0d42b736163963a860a2c8e7e9",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 3",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-04",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 4,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Vajdasági Magyar Szövetség – Савез војвођанских Мађара",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "a2e137bf4fa72b181a2dda5dc3bdc390661b3c304fc7cc2931967fb0123a7f16",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 4",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-05",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 5,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Странка правде и помирења (СПП), Демократска партија Македонаца (ДПМ)",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "f84ac2d1452c7f76912cfceda6ecb01e307b6d50d672520097b8e79cc7407804",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 5",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-06",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 6,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "„АЛБАНСКА ДЕМОКРАТСКА АЛТЕРНАТИВА – УЈЕДИЊЕНА ДОЛИНА“ „ALTERNATIVA DEMOKRATIKE SHQIPTARE – LUGINA E BASHKUAR“",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "940d355f858cc9bb146c65fcaee604efa08389a7d98847c26e801bab8d3a01f9",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 6",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-07",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 7,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "СДА Санџака / SDA Sandžaka",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "d21160ea4842bd13724a18389441d5ca34e6c19eadd6f2f7ddc50b1c14b8c994",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 7",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-08",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 8,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Покрет обнове Краљевине Србије, Монархистички фронт",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "8572f9bef5bdaebc501e30ade1d12393edf41a403225db1f127906b1b418aed6",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 8",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-09",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 9,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "СУВЕРЕНИСТИ",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "0a5ed345fa5a65ffaf084e3141481c552c2aff9920ca2d5058562c19368deb30",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 9",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-10",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 10,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "МЕТЛА 2020",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "63106a7c39190950068a997ff634cdc373be8b16c0bf21666fca95b6cbd70203",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 10",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-11",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 11,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Српска радикална странка",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "2166fd2f359dfd1e7004534268ce87ea5dc5a764e53f16e9ca3c649c066d93fa",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 11",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-12",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 12,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Покрет слободних грађана",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "48f202df4763e5aa1b9563cb6456bd4e71b24d2fa27043b5b1ec2ea084623159",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 12",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-13",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 13,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Српска странка Заветници",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "0ce77065bba10a7451cf7c7f3240566db2a491137bb1e9214d8e23114a7f5c8c",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 13",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-14",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 14,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Боља Србија, Здрава Србија",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "b4bf9f75f5a6f249fd97ebe911073cbab7108aa66d0ea620113540a9aadd18f0",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 14",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-15",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 15,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "УЈЕДИЊЕНА ДЕМОКРАТСКА СРБИЈА (Војвођански фронт, Србија 21, Лига социјалдемократа Војводине, Странка модерне Србије, Грађански демократски форум, ДСХВ, Демократски блок, Заједно за Војводину, Унија Румуна Србије, Војвођанска партија, Црногорска партија)",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "7a98894f97b1453fee8b5d034e10a2fd6df677bf58972c838be3471d3aa913c2",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 15",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-16",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 16,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "ПОКРЕТ ЛЕВИЈАТАН – ЖИВИМ ЗА СРБИЈУ",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "e4e6eb474f27836cf92a5c479eedb70d949f9606be65947ff8feb7c0ed65815b",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 16",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-17",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 17,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Група грађана: 1 од 5 милиона",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "d0d26ecf0aec1e3a0b34f8b5b7ec8f0666a3be20f70b79da92a4bfc5c15b88d0",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 17",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-18",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 18,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Либерално демократска партија, ТОЛЕРАНЦИЈА Србије, Бошњачка грађанска странка, Странка Црногораца, Влашка народна странка, Либерално демократски покрет Војводине, Удружење Југословена у Србији, АМАРО – Акциона мрежа асоцијација и ромских организација, Удружење грађана „Румуни Хомоља“, Скаска",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "9f4a73edc74d79cf61e264db57c59c361939d551120caf484d5350d6237f9857",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 18",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-19",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 19,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Народни блок",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "87514dce309a39ccb260e3c6009d913d257a4791c749c6b77d700c5332156777",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 19",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-20",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 20,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "НЕК МАСКЕ ПАДНУ – Зелена странка – Нова странка",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "04805ffa09201632994c59ea4ca648d5becdd21f734c3319d951879f7ba681b3",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 20",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk20-21",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2020-06-21",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 21,
+    "list_number_basis": "report row (ordered by result in the report; not the ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "Руска странка",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "b35ccbfd49a4b80f2010a7faa7210c4972884a13a5d4420aaf6d83c4fe7b6c9b",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, list row 21",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-01",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 1,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "Изборна листа, ред. бр. 1",
+    "display_label_rule": "no label: the printed title contains personal names and names no party; shown as “Изборна листа, ред. бр. N”",
+    "label_basis": "row_only",
+    "title_sha256": "a44310cd1d48719772c480ab79723e3e41da02c1353968456f1b6f195c2bd5ba",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 1",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-02",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 2,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "Социјалистичка партија Србије, „Јединствена Србија”, Социјалдемократска партија Србије, „Зелени Србије”",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "4f9140b1d35abf3ca6cb7b31ea3f88bee8988918fe456c036a47597a9649da45",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 2",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-03",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 3,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "„СТУДЕНТСКА ЛИСТА – СТУДЕНТИ ПОБЕЂУЈУ”",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "38563206bf65e1168fd6756e9bad308a32f2f39c58c4e5dee2b2c0c6e2655923",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 3",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-04",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 4,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "СДП – ЦДП",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "72826777c647278dbab965181e6d8f157219d2726b83f4f8b78ac4110658bb8b",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 4",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-05",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 5,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "Vajdasági Magyar Szövetség – Савез војвођанских Мађара",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "cb6fc5e6280b9b54d2fce64fa74ed1cb2672ae10acf72a46bc78eb2f564d331f",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 5",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-06",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 6,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "СПП – Покрет за уједињење / SPP – Pokret za ujedinjenje",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "420b2f688ac6267791955c6907bbcfeef9cbc1113830b1469170164cf19ed649",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 6",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-07",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 7,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "Руска странка",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "d6f780bbc254418546e4ecff5a23efe3090879787b2fbeb2ef763c87c083ba4c",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 7",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-08",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 8,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "Нови ДСС, Монархисти, Српска коалиција Нада, Национално демократска алтернатива, Нова демократска странка Србије, Покрет за Краљевину Србију",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "ed1c258b0394b6bdd235b0dbee2199a2e6fef4c13bf6857082e7c62a9909dd4a",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 8",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-09",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 9,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "Странка слободе и правде, Србија центар – СРЦЕ, Солидарност – Самоодбрана – Ослобођење",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "997812fa4043b89edb04f8165908e79d498507e2bb339a309fc2555004793cad",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 9",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-10",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 10,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "СДА САНЏАКА – ЧУВАРИ САНЏАКА SDA SANDŽAKA – ČUVARI SANDŽAKA",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "489ad1fd77368f31ed57ea895866880e1b3f9a0216ceb9b042bbb3bb9c6e167c",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 10",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-11",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 11,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "Покрет снага Србије",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "ad998a22f3742a06f9cd8b37306648b4f4b9d9563879884a3a79c858d2b5ac18",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 11",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-12",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 12,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "ЛИБЕРАЛНО ЗЕЛЕНА СТРАНКА – ЗА СЛОБОДНУ И ЧИСТИЈУ СРБИЈУ",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "3bc20a3f704b7ecfa46908171608605c63de01a30f711357d44641d22e005aac",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 12",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-13",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 13,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "Странка будућности и развоја, Грађанска странка Грка Србије",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "6eef2e0af572caec9a0df850bad34a61742206cbe4af1cbd0ec34cd08476efcc",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 13",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-14",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 14,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "СТРАНКА РУСКО-СРПСКОГ ЈЕДИНСТВА – РУСИ И СРБИ БРАЋА ЗАУВЕК",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "bbe602f63be6a0d3c634ac89fdc5adcd79abcb226621c4f255eb30fc0089f6b9",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 14",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-15",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 15,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "Изборна листа, ред. бр. 15",
+    "display_label_rule": "no label: the printed title contains personal names and names no party; shown as “Изборна листа, ред. бр. N”",
+    "label_basis": "row_only",
+    "title_sha256": "ecfb6c2329f789204ac9c16ea5573fa90910f3221e642141997e1ed134b7157c",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 15",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-16",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 16,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "Народна странка, БУНТ – Права Србија",
+    "display_label_rule": "parties named in the printed title only; the title contains personal names and is not stored",
+    "label_basis": "named_parties",
+    "title_sha256": "1bf074111a7baf7109d40177fd8267f4f43cd19b124f7a6e9307d54a7b6fcbeb",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 16",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-17",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 17,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "„АЛБАНСКА КОАЛИЦИЈА” – “KOALICIONI SHQIPTAR”",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "11fac57a52bb072fcf05f1d14e087251bfebd1e5b13f3d686ef3df6955f751bd",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 17",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-rs-nsk26-18",
+    "country": "serbia",
+    "election_id": "el-rs-nsk-2026-10-25",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "изборна листа",
+    "kind_basis": "every contestant is an electoral list (Art. 5); list kind (party, coalition, citizens’ group, national minority) is not printed in the report and is not stored",
+    "list_number": 18,
+    "list_number_basis": "order printed in the RIK notice",
+    "registered_label_native": null,
+    "historical_display_label": "МАЈКА СРБИЈА – ГРУДА",
+    "display_label_rule": "title as printed (it names no person)",
+    "label_basis": "verbatim",
+    "title_sha256": "ba5a334fc34c097007d3baef464a3db9a578f2424bb14b7a47593b6596b61cf2",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, list row 18",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "list_number",
+          "historical_display_label",
+          "title_sha256"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]

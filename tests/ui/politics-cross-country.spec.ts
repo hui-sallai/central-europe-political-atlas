@@ -65,12 +65,13 @@ for (const locale of ["zh-CN", "en"] as const) test(`publication-gate status nam
   await page.goto(locale === "en" ? "/en/politics/?country=germany" : "/politics/?country=germany", { waitUntil: "networkidle" });
   const status = page.locator("[data-politics-explorer] [data-admission-status]");
   await status.locator("summary").click();
-  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(5);
+  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(6);
   await expect(status.locator("[data-admission='germany']")).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='czechia']")).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='poland']")).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='slovakia']")).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='hungary']")).toHaveAttribute("data-admission-state", "admitted");
+  await expect(status.locator("[data-admission='serbia']")).toHaveAttribute("data-admission-state", "admitted");
   for (const country of ["austria"]) await expect(status.locator(`[data-admission='${country}']`)).toHaveAttribute("data-admission-state", "blocked");
   await expect(status.locator("[data-admission='romania']")).toHaveAttribute("data-admission-state", "staged_not_published");
   await expect(status.locator("[data-admission='hungary']")).toContainText("robots.txt");

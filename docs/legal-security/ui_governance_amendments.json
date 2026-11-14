@@ -3252,6 +3252,70 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-15"
+    },
+    {
+      "amendment_id": "serbia-politics-2026-11-15",
+      "status": "owner_approved",
+      "approved_by": "owner approval 2026-11-15 (decision C: \"start everything\"; \"选 b，两个都做\"): Serbian National Assembly 2020 and 2026 page, admission state and route; list labels by rule (b)",
+      "baseline": "ebce476f5fa0510250e88d72175ec0ae4d45bd56",
+      "files": [
+        {
+          "path": "src/app/(english)/en/politics/serbia/page.tsx",
+          "sha256": "3fc230b1a04066efb0bfd6ae464d87cd5322d7f4ebf71cd6318343598b4b2f4c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/serbia/page.tsx",
+          "sha256": "05ee4e786fd961a0fae58af729c011a67637254c19527689d5b3689b8a5c7c42",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "41518a53549ed5fccd56d4e520eff9a019ae71ddeb007791db8564ec8e25d057",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "a39111d966ff287db1875771fffb1b2e763b35569bfbe841428e3de968ab610e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "4bbc135ac587d8e3bdbae67c0c38442df31f9ff2bd852b6d127bcb9febe96346",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/HomeResearchMap.tsx",
+          "sha256": "7e81f21cd8cc0821aa33d9d067a1ac021d3494baec8a179ef836a7d0c50353c6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/i18n/config.ts",
+          "sha256": "1cef04e4185b95f9642b1782f197317ff9286e4fded5b85e070b35645310062a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/page.tsx",
+          "sha256": "fc61125bf8383ecbe3c0fcfd01c8829c31296bfb9f71e0670a744cfa2bdf2142",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/page.tsx",
+          "sha256": "a7580e6090ddf6363c42158708891a446af7ecddba5dd7964dc05fbde8ca2ffe",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalLanding.tsx",
+          "sha256": "e40cde327d6f0bc491f8f813e2946a689ac8ff328042b614dc4e20cceefcf4cd",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-15"
     }
   ]
 }

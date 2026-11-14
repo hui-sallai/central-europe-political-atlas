@@ -1,0 +1,96 @@
+[
+  {
+    "election_id": "el-rs-nsk-2020-06-21",
+    "country": "serbia",
+    "geography": "national",
+    "vote_type": "rs_list_vote",
+    "result_vintage": "final: Republic Electoral Commission total-results report adopted on 2020-07-05 (polling on 2020-06-21, repeated at 234 polling stations on 2020-07-01)",
+    "eligible_voters": 6584376,
+    "voters": 3221908,
+    "valid_votes": 3100608,
+    "invalid_votes": 118155,
+    "ballots_cast": 3218763,
+    "published_turnout": null,
+    "derived_turnout": 48.93262474682491,
+    "ballots_received": 6587881,
+    "ballots_unused": 3365973,
+    "turnout_definition": "Voters who voted (укупан број бирача који су гласали) / voters on the electoral roll (број бирача уписаних у бирачки списак) × 100, computed from the report. The report prints no percentage.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted (укупан број бирача који су гласали) / voters on the electoral roll (број бирача уписаних у бирачки списак) × 100, computed from the report. The report prints no percentage.",
+      "sourceIds": [
+        "src-rs-rik-total-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, items 1-7",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "eligible_voters",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "ballots_cast"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-rs-nsk-2026-10-25",
+    "country": "serbia",
+    "geography": "national",
+    "vote_type": "rs_list_vote",
+    "result_vintage": "final: Republic Electoral Commission total-results report adopted on 2026-11-05 (polling on 2026-10-25, repeated at 53 polling stations on 2026-11-01)",
+    "eligible_voters": 6451292,
+    "voters": 4441636,
+    "valid_votes": 4385065,
+    "invalid_votes": 56571,
+    "ballots_cast": 4441636,
+    "published_turnout": null,
+    "derived_turnout": 68.84878253844346,
+    "voters_turned_out": 4444310,
+    "polling_stations": 8392,
+    "turnout_definition": "Voters who voted (број бирача који су гласали) / voters on the electoral roll (број бирача уписаних у бирачки списак) × 100, computed from the report. The report prints no percentage; voters who turned out are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted (број бирача који су гласали) / voters on the electoral roll (број бирача уписаних у бирачки списак) × 100, computed from the report. The report prints no percentage; voters who turned out are kept separately.",
+      "sourceIds": [
+        "src-rs-rik-total-2026"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, items 1-7",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "eligible_voters",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "ballots_cast"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]

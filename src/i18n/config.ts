@@ -1,6 +1,6 @@
 export const locales = ["zh-CN", "en"] as const;
 export type Locale = typeof locales[number];
-export const bilingualRoutes = ["/", "/countries/", "/data/", "/politics/", "/politics/germany/", "/politics/czechia/", "/politics/poland/", "/politics/slovakia/", "/politics/hungary/", "/map/", "/models/", "/scenarios/", "/methodology/", "/legal/", "/privacy/", "/news/", "/workspaces/", "/notebook/"] as const;
+export const bilingualRoutes = ["/", "/countries/", "/data/", "/politics/", "/politics/germany/", "/politics/czechia/", "/politics/poland/", "/politics/slovakia/", "/politics/hungary/", "/politics/serbia/", "/map/", "/models/", "/scenarios/", "/methodology/", "/legal/", "/privacy/", "/news/", "/workspaces/", "/notebook/"] as const;
 export function unlocalizedPath(path: string): string { return path.replace(/^\/en(?=\/|$)/, "") || "/"; }
 export function localizedRoute(href: string, locale: Locale): string {
   if (!href.startsWith("/") || href.startsWith("//") || /^\/(research-data|geo|og|_next)\//.test(href)) return href;

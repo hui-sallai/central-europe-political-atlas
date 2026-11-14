@@ -1,0 +1,5 @@
+# Serbia — National Assembly elections of 2020 and 2026
+
+Two elections, whole chamber (250 seats, one nationwide constituency): electoral lists with votes and seats; voters on the electoral roll, voters who voted, valid and invalid ballots. Source: total-results reports of the Republic Electoral Commission (Републичка изборна комисија); rules from the Law on the Election of Members of Parliament. Reuse basis: official materials of state bodies are not copyright works (Copyright Act Art. 6(2)), recorded as a reading of the statute.
+
+List labels: Serbian list titles usually contain personal names. Full titles are not stored. A title that names no person is shown as printed; otherwise only the parties named in it; otherwise no label (row number only). `title_sha256` identifies the printed title. List kinds and national-minority status are not stored, and no list is linked to a party or across elections. The 2022 and 2023 elections are not included: their reports could not be read through registered, public routes.

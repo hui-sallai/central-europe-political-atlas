@@ -1074,6 +1074,126 @@
      "sha256": "8bd88dd74908c966c4cdbd487824539b2b02dbac196754e21c868de887e884bf"
     }
    ]
+  },
+  {
+   "admission_id": "serbia-nsk-2020-2026",
+   "status": "owner_approved",
+   "approved_on": "2026-11-15",
+   "approved_by": "owner replies 2026-11-15: \"start everything\" (decision C); \"批准登记这五个塞尔维亚站点，仅人工读取\"; \"批准下载，选 a\"; \"选 b，两个都做，先 D\" (list labels by rule b): National Assembly 2020 and 2026 from RIK total-results reports on Copyright Act Art. 6(2)",
+   "country": "serbia",
+   "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+   "verification": "build-nsk-national check, official-total and seat-allocation reconciliation; official-total reconciliation and closed admission gate record",
+   "gate_record": "docs/political-data/serbia_nsk_admission.json",
+   "gate_record_sha256": "0a794a9880f07cb1f90e3e300d837e5a460fe3bd63f00797fef6de92dbaa077f",
+   "gates_closed": [
+    "reuse_right",
+    "normalized_republication",
+    "acquisition_route",
+    "source_files_complete",
+    "national_definition_complete",
+    "same_election_identity_complete",
+    "electoral_system_metadata_complete",
+    "vintage_decisions_complete"
+   ],
+   "germany_change_allowed": false,
+   "canonical_data_change_allowed": false,
+   "model_change_allowed": false,
+   "research_gate_change_allowed": false,
+   "release_version_change_allowed": false,
+   "files": [
+    {
+     "path": "src/data/political/serbia/elections.json",
+     "sha256": "fde97fafa4a1388be05d425979d3ab6251aef3db3c482dcf9cf9c027090b2684"
+    },
+    {
+     "path": "src/data/political/serbia/election_turnout.json",
+     "sha256": "d4b6fcd7659a004b138d12b4172ecb3f238e87f269dd5860fc6badefd3bb108c"
+    },
+    {
+     "path": "src/data/political/serbia/election_results.json",
+     "sha256": "b719c059b000d84fb99ca5ff3ab07b874a853192b54fbfcba4cbfa8c8088bc8a"
+    },
+    {
+     "path": "src/data/political/serbia/electoral_contestants.json",
+     "sha256": "726a2fbd8e67fd54d87864f965d8aa649b45a792d322da1b73d4b34ac4d4e4c0"
+    },
+    {
+     "path": "src/data/political/serbia/legislatures.json",
+     "sha256": "1c2f2537166fe565c5b3a1fbc79ac9ba9b846864e565e8a29b53c0cb49afbbfb"
+    },
+    {
+     "path": "src/data/political/serbia/electoral_systems.json",
+     "sha256": "3af516fd4ff3bc89377b6f073d46b84f8c295cb06a4c75e13510a9b246dd97de"
+    },
+    {
+     "path": "src/data/political/serbia/political_source_registry.json",
+     "sha256": "174ef6efc13445ad59a1a55225d4025674cbd6f570ac5287c8428009819d04fd"
+    },
+    {
+     "path": "public/research-data/political/serbia/elections.json",
+     "sha256": "fde97fafa4a1388be05d425979d3ab6251aef3db3c482dcf9cf9c027090b2684"
+    },
+    {
+     "path": "public/research-data/political/serbia/elections.csv",
+     "sha256": "9736469fabad3f5aae6ad72f537bcbb2bd44425d442868e01965ca29e701364d"
+    },
+    {
+     "path": "public/research-data/political/serbia/election_turnout.json",
+     "sha256": "d4b6fcd7659a004b138d12b4172ecb3f238e87f269dd5860fc6badefd3bb108c"
+    },
+    {
+     "path": "public/research-data/political/serbia/election_turnout.csv",
+     "sha256": "647c57d4a717150a21cf374210b8ab76db60ca590acc1309efea4199e7c8eaf9"
+    },
+    {
+     "path": "public/research-data/political/serbia/election_results.json",
+     "sha256": "b719c059b000d84fb99ca5ff3ab07b874a853192b54fbfcba4cbfa8c8088bc8a"
+    },
+    {
+     "path": "public/research-data/political/serbia/election_results.csv",
+     "sha256": "a3ec55b097f1820b44c232a9d4e32232ff1143cd7ffdebf46973159ace7da90e"
+    },
+    {
+     "path": "public/research-data/political/serbia/electoral_contestants.json",
+     "sha256": "726a2fbd8e67fd54d87864f965d8aa649b45a792d322da1b73d4b34ac4d4e4c0"
+    },
+    {
+     "path": "public/research-data/political/serbia/electoral_contestants.csv",
+     "sha256": "89b9530b24dd2692ddfed7dc37ef76bbc04562dd5ac05595186ad33eadc6dc80"
+    },
+    {
+     "path": "public/research-data/political/serbia/legislatures.json",
+     "sha256": "1c2f2537166fe565c5b3a1fbc79ac9ba9b846864e565e8a29b53c0cb49afbbfb"
+    },
+    {
+     "path": "public/research-data/political/serbia/legislatures.csv",
+     "sha256": "f5479173a4425a33fda036682c89530804e039fb3f7a3e365b44ea49a1ecf408"
+    },
+    {
+     "path": "public/research-data/political/serbia/electoral_systems.json",
+     "sha256": "3af516fd4ff3bc89377b6f073d46b84f8c295cb06a4c75e13510a9b246dd97de"
+    },
+    {
+     "path": "public/research-data/political/serbia/electoral_systems.csv",
+     "sha256": "db70cafaeed74587b21d7fec62cdf9a90cf264a6478ee5449911bf7211242882"
+    },
+    {
+     "path": "public/research-data/political/serbia/political_source_registry.json",
+     "sha256": "174ef6efc13445ad59a1a55225d4025674cbd6f570ac5287c8428009819d04fd"
+    },
+    {
+     "path": "public/research-data/political/serbia/political_source_registry.csv",
+     "sha256": "80b7b75eda0dd68036ae2d9d98a6bee6bfc0c8b85afe9cf2461aff45882a968d"
+    },
+    {
+     "path": "public/research-data/political/serbia/README.md",
+     "sha256": "108c2827e47db2538884a95c4df48a489632907e0f10c8e1ad41a0ffd6ae90dd"
+    },
+    {
+     "path": "public/research-data/political/serbia/manifest.json",
+     "sha256": "598372e268639ac5d96643093cfb6c2ff34cc42ee41f512f9a2f0588c2762cc3"
+    }
+   ]
   }
  ]
 }

@@ -53,6 +53,15 @@
    ],
    "scope": "National Assembly 2022 and 2026, national list tier only (93 of 199 seats)",
    "record": "docs/political-data/hungary_ogy_admission.json"
+  },
+  {
+   "country": "serbia",
+   "elections": [
+    2020,
+    2026
+   ],
+   "scope": "National Assembly 2020 and 2026, whole chamber (250 seats); list labels by owner rule (b); 2022 and 2023 not included",
+   "record": "docs/political-data/serbia_nsk_admission.json"
   }
  ],
  "owner_decisions": [
@@ -103,6 +112,12 @@
    "country": "hungary",
    "question": "Reuse basis, file readings and 2018",
    "decision": "National figures from the commission minutes on Copyright Act § 1(4); one reading each of the 2026 and 2022 minutes, the 2026 CSV as a local cross-check only, njt.hu registered for statutes; 2018 left out. Constituency seats per list are not covered."
+  },
+  {
+   "date": "2026-11-15",
+   "country": "serbia",
+   "question": "Admit Serbian National Assembly elections (decision C), with which list-label rule?",
+   "decision": "Owner replies \"start everything\", \"批准登记这五个塞尔维亚站点，仅人工读取\", \"批准下载，选 a\" and \"选 b，两个都做，先 D\": admit the National Assembly 2020 and 2026 total results from the RIK reports on Copyright Act Art. 6(2), with list labels by rule (b)."
   }
  ],
  "countries": {

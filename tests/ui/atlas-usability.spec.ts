@@ -64,8 +64,8 @@ for(const prefix of ['', '/en']) {
     if (!en) { const box=await chart.boundingBox(); expect(box).not.toBeNull(); expect(box!.x+box!.width).toBeLessThanOrEqual(page.viewportSize()!.width+2); }
   }
  });
- test(`neutral five-country political entry and legacy Germany deep link ${prefix||'zh'}`,async({page})=>{
-  await page.goto(`${prefix}/politics/`,{waitUntil:'networkidle'});await expect(page.locator('[data-political-country]')).toHaveCount(5);await expect(page.locator('#germany')).toHaveCount(0);
+ test(`neutral six-country political entry and legacy Germany deep link ${prefix||'zh'}`,async({page})=>{
+  await page.goto(`${prefix}/politics/`,{waitUntil:'networkidle'});await expect(page.locator('[data-political-country]')).toHaveCount(6);await expect(page.locator('#germany')).toHaveCount(0);
   await page.locator('[data-political-country="germany"] h2 a').focus();await page.keyboard.press('Enter');
   await expect(page).toHaveURL(new RegExp(`${prefix}/politics/germany/`));await expect(page.locator('[data-politics-explorer]')).toBeVisible();
   await page.goto(`${prefix}/politics/?context=1`,{waitUntil:'networkidle'});await expect(page).toHaveURL(new RegExp(`${prefix}/politics/germany/`));await expect(page.locator('[data-politics-explorer]')).toBeVisible();

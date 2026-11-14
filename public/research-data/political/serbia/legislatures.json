@@ -1,0 +1,80 @@
+[
+  {
+    "legislature_id": "lg-rs-nsk-2020",
+    "country": "serbia",
+    "chamber": "Народна скупштина",
+    "official_term": null,
+    "election_id": "el-rs-nsk-2020-06-21",
+    "total_seats": 250,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final: Republic Electoral Commission total-results report adopted on 2020-07-05 (polling on 2020-06-21, repeated at 234 polling stations on 2020-07-01)",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2020",
+        "source_url": "https://www.rik.parlament.gov.rs/extfile/sr/9395/Izvestaj%20o%20ukupnim%20rezultatima%20izbora%202020c.doc",
+        "source_record_id": "report, seats per list",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "total_seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-rs-nsk-2026",
+    "country": "serbia",
+    "chamber": "Народна скупштина",
+    "official_term": null,
+    "election_id": "el-rs-nsk-2026-10-25",
+    "total_seats": 250,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final: Republic Electoral Commission total-results report adopted on 2026-11-05 (polling on 2026-10-25, repeated at 53 polling stations on 2026-11-01)",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2026",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/822434/75-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, seats per list",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "total_seats"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-rs-law-election-mps-2022",
+        "source_url": "https://pravno-informacioni-sistem.rs/eli/rep/sgrs/skupstina/zakon/2022/14/2/reg",
+        "source_record_id": "Law on the Election of Members of Parliament, Arts. 5, 128, 129, 140 (quoted)",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "fields_covered": [
+          "total_seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]

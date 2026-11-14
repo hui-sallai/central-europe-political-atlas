@@ -124,7 +124,7 @@ export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: Ho
           <p className="editorial-kicker">Selected Country</p>
           <h3>{en ? selected.nameEn : selected.nameZh}</h3>
           <p className="home-country-en">{selected.nameEn}</p>
-          <div className="home-map-actions"><Link href={localizedRoute(`/countries/${selected.slug}/`, locale)}>{m.profile}</Link><Link href={localizedRoute(`/data/?country=${selected.slug}`, locale)}>{en ? "National economic data" : "国家经济数据"}</Link><Link href={localizedRoute(`/politics/${["germany","czechia","poland","slovakia","hungary"].includes(selected.slug) ? `${selected.slug}/` : ""}`, locale)}>{en ? "Politics and elections" : "政治制度与选举"}</Link><Link href={localizedRoute(`/models/?country=${selected.slug}`, locale)}>{en ? "Research and models" : "研究与模型"}</Link><Link href={localizedRoute(`/map/?country=${selected.slug}`, locale)}>{m.fullMap}</Link></div>
+          <div className="home-map-actions"><Link href={localizedRoute(`/countries/${selected.slug}/`, locale)}>{m.profile}</Link><Link href={localizedRoute(`/data/?country=${selected.slug}`, locale)}>{en ? "National economic data" : "国家经济数据"}</Link><Link href={localizedRoute(`/politics/${["germany","czechia","poland","slovakia","hungary","serbia"].includes(selected.slug) ? `${selected.slug}/` : ""}`, locale)}>{en ? "Politics and elections" : "政治制度与选举"}</Link><Link href={localizedRoute(`/models/?country=${selected.slug}`, locale)}>{en ? "Research and models" : "研究与模型"}</Link><Link href={localizedRoute(`/map/?country=${selected.slug}`, locale)}>{m.fullMap}</Link></div>
         </aside>
       </div>
     </section>
