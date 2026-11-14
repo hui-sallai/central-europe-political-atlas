@@ -4,7 +4,7 @@ Central Europe Political Atlas v2.0 (no version change, no rebranding, no redesi
 
 **Outcome:** the owner approved A (the regional map) and B (the SORS refresh) on 2026-11-14 ("批准 A 和 B"). Both are live in production at `ea089d8` and verified there (§13, §15). C (elections and institutions) and D (government finance) remain unapproved; the regional map's §1–§14 inventory below reflects the state before A and B, and §15 records what changed.
 
-**Serbian integration is not complete:** elections, institutions and government finance remain blocked.
+**Serbian integration (2026-11-15):** government finance (D) and the 2020 and 2026 elections (C) are live (§16); institutions and the 2022/2023 elections remain open.
 
 ## 1. Module status (inventory before approvals A and B; see §15 for the result)
 
@@ -297,3 +297,13 @@ Cross-country eligibility counts and other countries' common years are unchanged
 | National indicators | **Live:** SORS monthly store current to 2026-08/09/10 |
 | Elections, institutions, list identities | Blocked (decision C not given) |
 | Government finance, current account | Blocked (decision D not given) |
+
+## 16. Owner decisions C and D — implementation (2026-11-15)
+
+Owner replies: "start everything"; "批准登记这五个塞尔维亚站点，仅人工读取"; "批准下载，选 a"; "选 b，两个都做，先 D"; "推送上线" (per push).
+
+- **Hosts** (`97ed4b3`): www.rik.parlament.gov.rs, www.parlament.gov.rs, (www.)pravno-informacioni-sistem.rs, www.mfin.gov.rs and www.nbs.rs registered for manual reading only; one robots.txt request each.
+- **D, LIVE `ebce476`**: Ministry of Finance public finance bulletin (August 2026, Table 1) through the new offline-only data-refresh unit `serbia-mfin` (run `serbia-mfin-20261115`): 11 national series, 239 observations, 2001–2025; consolidated balance, central-government debt and current account % GDP as printed, revenue and expenditure % GDP calculated; national definitions, not comparable with EU EDP/ESA. Shown on Serbia's profile.
+- **C, LIVE `16c92b1` + baselines `6f9e77c`**: National Assembly 2020 and 2026, all 250 seats, from the RIK total-results reports (admission `serbia-nsk-2020-2026`, eight gates closed). Rights: Copyright Act Art. 6(2), a reading of the statute. Seats reproduce under Arts. 128–140 (2020: consistency check only). List labels by rule (b): full titles never stored, no personal names. 2022 and 2023 not included (Gazette text needs a login; RIK pages not linked). Not yet in the other countries' comparison sets.
+- **Production** (2026-11-15): provenance `6f9e77c`; `/politics/serbia/` and `/en/politics/serbia/` live without personal names; landing shows six countries; acceptance 6/6; alerts code scanning 0, secret scanning 0, Dependabot 1 (minimatch, known).
+- **Still open**: NBS current account beyond the bulletin, 2022/2023 elections, institutional facts from parlament.gov.rs, Serbia in cross-country political comparison.
