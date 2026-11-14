@@ -321,6 +321,66 @@
       "robots_note": "Allows /jogszabaly/*; disallows /search/*",
       "reason": "Target of the owner-approved njt.hu registration of 2026-11-05; statutes only, one reading per act.",
       "status": "allowed_review_due"
+    },
+    {
+      "host": "www.rik.parlament.gov.rs",
+      "purpose": "Republic Electoral Commission of Serbia (RIK): official National Assembly election reports and results decisions",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-15",
+      "robots_note": "robots.txt request returned the site HTML error page (no robots.txt); no restriction stated. Site footer: CC BY-NC-ND 3.0 Serbia.",
+      "reason": "Owner approval 2026-11-15 (\"批准登记这五个塞尔维亚站点，仅人工读取\"): manual reading only; one reading per named official report or results decision; national figures only; no candidate names; no automated collection.",
+      "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "www.parlament.gov.rs",
+      "purpose": "National Assembly of the Republic of Serbia: institutional facts (seats, term, composition by parliamentary group)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-15",
+      "robots_note": "robots.txt: User-agent * disallows only the info board, contact documents and archive .txt files",
+      "reason": "Owner approval 2026-11-15 (\"批准登记这五个塞尔维亚站点，仅人工读取\"): manual reading only; one reading per named page; institutional facts only; no member names.",
+      "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "www.pravno-informacioni-sistem.rs",
+      "purpose": "Official legal information system of the Republic of Serbia: statute texts (Copyright and Related Rights Law, election law)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-15",
+      "robots_note": "robots.txt request answered 302 (redirects to pravno-informacioni-sistem.rs); not followed; manual reading only",
+      "reason": "Owner approval 2026-11-15 (\"批准登记这五个塞尔维亚站点，仅人工读取\"): manual reading only; one reading per named statute, to record the rights route and electoral-system facts.",
+      "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "www.mfin.gov.rs",
+      "purpose": "Ministry of Finance of Serbia: public finance bulletin (general government revenue, expenditure, balance, debt)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-15",
+      "robots_note": "robots.txt: User-agent * with no Disallow lines (all paths allowed)",
+      "reason": "Owner approval 2026-11-15 (\"批准登记这五个塞尔维亚站点，仅人工读取\"): manual reading only; one reading per named bulletin file after robots and terms review; descriptive figures only.",
+      "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "www.nbs.rs",
+      "purpose": "National Bank of Serbia: balance of payments (current account)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-15",
+      "robots_note": "robots.txt request answered 302; redirect not followed (one request); manual reading only",
+      "reason": "Owner approval 2026-11-15 (\"批准登记这五个塞尔维亚站点，仅人工读取\"): manual reading only; one reading per named statistical file after robots and terms review; descriptive figures only.",
+      "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "pravno-informacioni-sistem.rs",
+      "purpose": "Official legal information system of the Republic of Serbia: statute texts (Copyright and Related Rights Law, election law) (the www host redirects here; same site as the approved www host)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": null,
+      "robots_note": "robots.txt not read separately; the www host redirects all paths here",
+      "reason": "Owner approval 2026-11-15 (\"批准登记这五个塞尔维亚站点，仅人工读取\"): manual reading only; one reading per named statute, to record the rights route and electoral-system facts.",
+      "status": "evidence_only_pending_publisher"
     }
   ],
   "reference_hosts": {
@@ -341,8 +401,6 @@
       "hy-central-europe-analysis.org",
       "comtradeplus.un.org",
       "www.stat.gov.rs",
-      "www.nbs.rs",
-      "www.mfin.gov.rs",
       "data.stat.gov.rs",
       "data.gov.rs",
       "csu.gov.cz",
