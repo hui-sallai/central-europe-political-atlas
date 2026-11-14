@@ -155,7 +155,9 @@ for (const id of unitIds) {
   const tolerance = toleranceFor(unit);
   entry.files = changed.filter((c) => ownerOf(c.file) === id).map((c) => ({ ...c, canonical_sha256: fileSha(path.join(root, c.file)), staged_sha256: fileSha(path.join(stage, c.file)), canonical_git_blob: gitBlobId(path.join(root, c.file)) }));
   for (const store of unit.stores) {
-    const canonicalDoc = readJson(path.join(root, store.path));
+    // A store created by this run (first ingestion of an owner-approved source family) is compared with an empty store,
+    // so every series is reported as new_series and held for owner review.
+    const canonicalDoc = fs.existsSync(path.join(root, store.path)) ? readJson(path.join(root, store.path)) : { records: [] };
     const stagedDoc = readJson(path.join(stage, store.path));
     const series = diffStore(store.kind, canonicalDoc, stagedDoc, tolerance);
     const storeSummary = { path: store.path, kind: store.kind, tolerance, series: series.length, new_observations: 0, revisions: 0, revisions_beyond_tolerance: 0, deletions: 0 };

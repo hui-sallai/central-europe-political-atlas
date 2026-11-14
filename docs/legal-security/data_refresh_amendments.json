@@ -824,6 +824,41 @@
           "sha256": "b74e24d6314076d32c51f3dd499373dd81b8f679c7224f5de13665566f086c94"
         }
       ]
+    },
+    {
+      "run_id": "serbia-mfin-20261115",
+      "status": "owner_approved",
+      "approved_on": "2026-11-15",
+      "approved_by": "owner approval 2026-11-15 (\"选 b，两个都做，先 D\"; D = Serbian government finance and current account from the Ministry of Finance; www.mfin.gov.rs registered for manual reading only: \"批准登记这五个塞尔维亚站点，仅人工读取\"); deployment governed by the owner's push instruction",
+      "unit": "serbia-mfin",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "verification": "data-refresh:apply store validators and data-coverage re-audit",
+      "ledger_plan_sha256": "8128aea886625e95feb742a60dfdac61db03f6bbc48a49ff9284a2d5a3c9141b",
+      "summary": "First ingestion of the Serbian Ministry of Finance public finance bulletin (August 2026, Table 1; PDF sha256 d479abc3…e0c0 kept in local-evidence): 11 descriptive national series, 239 observations, 2001–2025 (2026 partial year excluded). Printed ratios official (consolidated balance % GDP, GFS-1986; central-government public debt % GDP; current account % GDP, NBS data); revenue and expenditure % GDP calculated from the same table. National definitions, cross_country_comparable=false; not merged into the canonical EU observations. 46 consistency checks, 0 deviations.",
+      "formal_model_input_change_allowed": false,
+      "frozen_snapshot_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "research_gate_change_allowed": false,
+      "release_version_change_allowed": false,
+      "files": [
+        {
+          "path": "public/research-data/serbia/serbia_public_finance_mfin.json",
+          "sha256": "3f28bab5b3bcc7bef7aecd409ca436a2dbe3e8ff7f2bac33d11ea10c489c23bc"
+        },
+        {
+          "path": "src/data/data-refresh/refresh_ledger.jsonl",
+          "sha256": "e5dd9c0f054f686ec5e2b9c034ebbf9982554cdf9d04804d1979eddca51c84dd"
+        },
+        {
+          "path": "src/data/serbia/raw/mfin_bilten_2026_08_table1.extract.json",
+          "sha256": "f543ab8567df9d0ba1a6d9200f1de24037cf4f9f1d91d6ee52afed3ca1266a81"
+        },
+        {
+          "path": "src/data/serbia/serbia_public_finance_mfin.json",
+          "sha256": "3f28bab5b3bcc7bef7aecd409ca436a2dbe3e8ff7f2bac33d11ea10c489c23bc"
+        }
+      ]
     }
   ]
 }

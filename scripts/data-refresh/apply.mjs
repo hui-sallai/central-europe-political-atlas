@@ -74,7 +74,9 @@ for (const u of selected) {
   const unit = UNITS[u.unit];
   const manifest = unit.manifest && fs.existsSync(path.join(root, unit.manifest)) ? readJson(path.join(root, unit.manifest)) : null;
   for (const store of unit.stores) {
-    const series = diffStore(store.kind, readJson(path.join(root, store.path)), readJson(path.join(stage, store.path)), manifest?.overlap_tolerance ?? DEFAULT_TOLERANCE);
+    // A store first created by this run is compared with an empty store (as in plan.mjs): every series is new_series.
+    const canonicalDoc = fs.existsSync(path.join(root, store.path)) ? readJson(path.join(root, store.path)) : { records: [] };
+    const series = diffStore(store.kind, canonicalDoc, readJson(path.join(stage, store.path)), manifest?.overlap_tolerance ?? DEFAULT_TOLERANCE);
     for (const s of series) {
       const flags = seriesFlags(s);
       const hard = flags.filter((f) => NON_OVERRIDABLE.has(f));

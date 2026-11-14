@@ -4,7 +4,7 @@
 // descriptive stores only, verified by the store validators, coverage re-audit and recovery inventory); 2026-11-10:
 // ledger correction of that run and regenerated recovery inventory (run ledger-correction-20261110); SORS rights
 // registry update and inventory regeneration (run rights-update-20261111); 2026-11-14: Serbia SORS refresh
-// (run serbia-20261114).
+// (run serbia-20261114); 2026-11-15: first ingestion of the Serbian Ministry of Finance bulletin (run serbia-mfin-20261115).
 // Later runs supersede shared files (coverage audit, ledger). No general data exemption:
 // only the listed files of each run, at their exact hashes, and only for runs recorded in the refresh ledger.
 export const DATA_REFRESH_FILE = 'docs/legal-security/data_refresh_amendments.json';
@@ -234,9 +234,23 @@ export const DATA_REFRESH_RUNS = {
       'src/data/serbia/serbia_ingestion_manifest.json',
     ],
   },
+  'serbia-mfin-20261115': {
+    approved_on: '2026-11-15', unit: 'serbia-mfin',
+    // Owner decision D, 2026-11-15 ("选 b，两个都做，先 D"): first ingestion of the Serbian Ministry of Finance public finance
+    // bulletin (manual reading only). Creates three new files, each listed exactly in NEW_PATH_SCOPE.
+    allow_new_paths: true,
+    paths: [
+      'public/research-data/serbia/serbia_public_finance_mfin.json',
+      'src/data/data-refresh/refresh_ledger.jsonl',
+      'src/data/serbia/raw/mfin_bilten_2026_08_table1.extract.json',
+      'src/data/serbia/serbia_public_finance_mfin.json',
+    ],
+  },
 };
-// A run may add new files only if it declares allow_new_paths, and only within these descriptive locations.
-export const NEW_PATH_SCOPE = [/^src\/data\/historical\/raw\/(annual|monthly|regional)\/full\/[^/*?[\]{}]+\.(json|csv)$/, /^src\/data\/data-coverage\/historical_recovery_inventory\.json$/, /^public\/research-data\/historical_recovery_inventory\.json$/];
+// A run may add new files only if it declares allow_new_paths, and only within these descriptive locations., and only within these descriptive locations.
+export const NEW_PATH_SCOPE = [/^src\/data\/historical\/raw\/(annual|monthly|regional)\/full\/[^/*?[\]{}]+\.(json|csv)$/, /^src\/data\/data-coverage\/historical_recovery_inventory\.json$/, /^public\/research-data\/historical_recovery_inventory\.json$/,
+  // serbia-mfin-20261115 (owner decision D, 2026-11-15): exactly the Ministry of Finance store, its raw transcription and its export.
+  /^src\/data\/serbia\/serbia_public_finance_mfin\.json$/, /^src\/data\/serbia\/raw\/mfin_bilten_2026_08_table1\.extract\.json$/, /^public\/research-data\/serbia\/serbia_public_finance_mfin\.json$/];
 export const newPathAllowed = (runId, file) => Boolean(DATA_REFRESH_RUNS[runId]?.allow_new_paths) && NEW_PATH_SCOPE.some((re) => re.test(file));
 const flags = ['formal_model_input_change_allowed', 'frozen_snapshot_change_allowed', 'political_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 export function approvedDataRefreshFiles(records) {

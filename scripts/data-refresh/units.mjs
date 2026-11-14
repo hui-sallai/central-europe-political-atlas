@@ -50,6 +50,20 @@ export const UNITS = {
     validators: ["pnpm serbia-audit:validate", "pnpm data-coverage:validate"],
     note: "Applied as one unit: serbia-audit:validate rebuilds all three stores offline from the raw extracts.",
   },
+  // Owner decision D, 2026-11-15 ("选 b，两个都做，先 D"): Ministry of Finance of Serbia added as a source family.
+  // www.mfin.gov.rs is registered for manual reading only, so this unit never fetches: it transcribes the locally kept,
+  // hash-checked bulletin PDF (MFIN_BULLETIN_PDF) and builds a descriptive national store.
+  "serbia-mfin": {
+    label: "Serbia Ministry of Finance public finance bulletin: consolidated balance, central government debt, current account (national definitions)",
+    family: "Serbian Ministry of Finance",
+    command: ["node", "scripts/serbia-sors/acquire-mfin-bulletin.mjs"],
+    offline: { flag: "--offline" },
+    stores: [{ path: "src/data/serbia/serbia_public_finance_mfin.json", kind: "mfin" }],
+    writeSet: ["src/data/serbia/serbia_public_finance_mfin.json", "src/data/serbia/raw/mfin_bilten_2026_08_table1.extract.json", "public/research-data/serbia/serbia_public_finance_mfin.json"],
+    modelLinked: [],
+    validators: ["pnpm serbia-audit:validate", "pnpm data-coverage:validate"],
+    note: "Manual-reading source: offline only. National definitions, cross_country_comparable=false; never merged into the canonical EU observations.",
+  },
   "annual-history": {
     label: "Eurostat annual descriptive history (2000 → first stored year) + source-ahead check of observations.json",
     family: "Eurostat",
@@ -97,6 +111,7 @@ export const MODES = {
   annual: ["annual-history"],
   regional: ["regional-history"],
   serbia: ["serbia-sors"],
+  "serbia-mfin": ["serbia-mfin"],
   "all-descriptive": ["eurostat-high-frequency", "macro-drivers", "serbia-sors", "annual-history", "monthly-history", "regional-history"],
 };
 

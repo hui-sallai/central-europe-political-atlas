@@ -25,8 +25,11 @@ test('the approved runs pin exactly their files at their current hashes and matc
     assert.equal(entry.plan_sha256, r.ledger_plan_sha256);
   }
   assert.equal(ledger.find((e) => e.run_id === 'ledger-correction-20261110').corrects.run_id, 'historical-recovery-20261110');
-  assert.equal(ledger.at(-1).run_id, 'serbia-20261114');
-  assert.equal(ledger.at(-1).inventory_regeneration.status, 'regenerated');
+  assert.equal(ledger.find((e) => e.run_id === 'serbia-20261114').inventory_regeneration.status, 'regenerated');
+  // 2026-11-15: first Ministry of Finance ingestion (owner decision D) is the latest run; it creates exactly its three files.
+  assert.equal(ledger.at(-1).run_id, 'serbia-mfin-20261115');
+  assert.deepEqual(ledger.at(-1).units.map((u) => u.unit), ['serbia-mfin']);
+  assert.deepEqual(DATA_REFRESH_RUNS['serbia-mfin-20261115'].paths.filter((p) => newPathAllowed('serbia-mfin-20261115', p)), ['public/research-data/serbia/serbia_public_finance_mfin.json', 'src/data/serbia/raw/mfin_bilten_2026_08_table1.extract.json', 'src/data/serbia/serbia_public_finance_mfin.json']);
   const rightsEntry = ledger.find((e) => e.run_id === 'rights-update-20261111');
   assert.equal(rightsEntry.rights_update.source_id, 'src-sors');
   assert.deepEqual(rightsEntry.rights_update.fields.find((f) => f.field === 'raw_redistribution'), { field: 'raw_redistribution', before: 'not_cleared', after: 'cleared_with_conditions' });

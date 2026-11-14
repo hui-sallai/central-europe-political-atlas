@@ -9,7 +9,7 @@ const {approvedRefreshHistory,seriesRefreshChanges,observationRefresh,addedPerio
 const {getRefreshManifest}=require('../../src/lib/refreshProvenance.server.ts');
 const ledger=fs.readFileSync('src/data/data-refresh/refresh_ledger.jsonl','utf8'),approvals=JSON.parse(fs.readFileSync('docs/legal-security/data_refresh_amendments.json')).refreshes;
 test('approved ledger projection reproduces run totals without exposing approval prose or local paths',()=>{
- const runs=approvedRefreshHistory(ledger,approvals);assert.equal(runs.length,4);assert.equal(runs.find(r=>r.id==='historical-recovery-20261110').added,7799);const euro=runs.find(r=>r.id==='monthly-eurostat-20261019'),sors=runs.find(r=>r.id==='serbia-20261020');assert.equal(euro.added,39);assert.equal(euro.revised,252);assert.equal(sors.added,11);assert.equal(sors.revised,27);const sors2=runs.find(r=>r.id==='serbia-20261114');assert.equal(sors2.added,7);assert.equal(sors2.revised,65);
+ const runs=approvedRefreshHistory(ledger,approvals);assert.equal(runs.length,5);assert.equal(runs.find(r=>r.id==='historical-recovery-20261110').added,7799);const euro=runs.find(r=>r.id==='monthly-eurostat-20261019'),sors=runs.find(r=>r.id==='serbia-20261020');assert.equal(euro.added,39);assert.equal(euro.revised,252);assert.equal(sors.added,11);assert.equal(sors.revised,27);const sors2=runs.find(r=>r.id==='serbia-20261114');assert.equal(sors2.added,7);assert.equal(sors2.revised,65);
  const text=JSON.stringify(runs);for(const privateField of ['src/data/','approved_by','owner_acceptance','plan_sha256','previous_git_blob','/Users/'])assert.equal(text.includes(privateField),false,privateField);
 });
 test('approval filtering fails closed for absent approval, wrong plan, rejected or wrong unit',()=>{

@@ -82,6 +82,11 @@ export const ADAPTERS = {
     period: String(r.statistical_year), value: r.value, unit: doc.indicators?.[r.indicator]?.unit ?? null, definition: doc.indicators?.[r.indicator]?.definition ?? "",
     territory: `${(r.geo_codes ?? []).join("+")}@${r.nuts_vintage}`, comparability: r.comparability_status, cross_country: null, source_year: r.source_year,
   })),
+  mfin: (doc) => doc.records.map((r) => ({
+    key: r.id, series: `serbia:mfin:${r.series}`, country: "serbia", indicator: r.series, dataset: doc.source?.table ?? null, source: "Serbian Ministry of Finance",
+    period: r.period, value: r.value, unit: r.unit, definition: JSON.stringify([r.value_status, doc.comparability ?? null]), territory: r.territory_code,
+    comparability: r.value_status, cross_country: r.cross_country_comparable,
+  })),
   serbia: (doc) => doc.records.map((r) => {
     const s = sourceRef(doc, r);
     return {
