@@ -143,7 +143,9 @@ export const reviewedText: Record<string, string> = {
   "宏观驱动观测表（可滚动）": "Macro-driver observation table (scrollable)", "值": "Value", "角色": "Role", "识别状态": "Identification status", "时间 / 制度状态": "Time / regime status", "共同序列，不构成独立国家冲击": "Common series, not an independent country shock", "变换预热": "Transformation warm-up", "源序列缺口": "Source-series gap", "制度切换排除": "Regime change excluded", "定义切换排除": "Definition change excluded", "连续 / 可用": "Continuous / available", "不进入模型": "Excluded from models", "定义一致起点": "Definition-consistent start", "移动端显示最近 120 条；完整": "Mobile shows the most recent 120 rows; all", "条请下载数据。": "rows are available for download.",
   "波兰": "Poland", "匈牙利": "Hungary", "捷克": "Czechia", "斯洛伐克": "Slovakia", "德国": "Germany", "奥地利": "Austria", "罗马尼亚": "Romania", "斯洛文尼亚": "Slovenia", "克罗地亚": "Croatia", "塞尔维亚": "Serbia", "欧元": "EUR",
 };
-const keys = Object.keys(reviewedText).filter(key => key.length > 1).sort((a, b) => b.length - a.length);
+// Only Chinese keys are matched inside longer text. Latin-only keys (e.g. "GDP" → "GDP, current prices")
+// apply to an exact label only, so composed English text such as "Real GDP growth" is never rewritten.
+const keys = Object.keys(reviewedText).filter(key => key.length > 1 && /\p{Script=Han}/u.test(key)).sort((a, b) => b.length - a.length);
 const pattern = new RegExp(keys.map(key => key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|"), "g");
 export function englishText(text: string): string {
   const trimmed = text.trim();
