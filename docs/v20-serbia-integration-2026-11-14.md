@@ -2,7 +2,7 @@
 
 Central Europe Political Atlas v2.0 (no version change, no rebranding, no redesign). Baseline: `main` = production = `d8a42af` (Pages run 43484667674).
 
-**Outcome:** the owner approved A (the regional map) and B (the SORS refresh) on 2026-11-14 ("批准 A 和 B"). Both are implemented locally and verified (§15), and are not deployed until "推送上线". C (elections and institutions) and D (government finance) remain unapproved; the regional map's §1–§14 inventory below reflects the state before A and B, and §15 records what changed.
+**Outcome:** the owner approved A (the regional map) and B (the SORS refresh) on 2026-11-14 ("批准 A 和 B"). Both are live in production at `ea089d8` and verified there (§13, §15). C (elections and institutions) and D (government finance) remain unapproved; the regional map's §1–§14 inventory below reflects the state before A and B, and §15 records what changed.
 
 **Serbian integration is not complete:** elections, institutions and government finance remain blocked.
 
@@ -169,15 +169,17 @@ No `src/`, `public/`, gate, rights or frozen file was changed.
 
 ## 13. Git and deployment
 
-- Branch `serbia/integration-2026-11-14`, local commit (see `git log`). Not pushed.
-- The commit contains documentation and a read-only script only, so pushing it would not change any page.
-- Production remains `d8a42af`.
+- Pushed to `main` on 2026-11-14 on the owner's instruction to push automatically: `4242e54`, `51978b5`, `69a6f3b`, `8315a97`, then the fix `02e1353` and the reviewed Linux baselines `ea089d8`.
+- First deploy (run 43524040633) failed `research-export:check`: the export rewrites `public/data/regional/v089/map-observations/serbia.json`, which `src/lib/regionObservations.ts` also read, so the committed regional exports were not reproducible from HEAD. `02e1353` moved the SORS NSTJ3 source records to `public/data/regional/v089/serbia-nstj3-sors-observations.json` (same 100 values); the export is now a fixed point.
+- Second deploy (run 43524874799) failed only on the expected Linux screenshots (desktop/mobile map, English map light/dark, mobile zh-CN workspace index). Record run 43528188883 produced exactly those 8 images; reviewed and committed in `ea089d8`.
+- Final deploy run 43530903208 succeeded. Production provenance `source_commit` = `ea089d85a45fb55e763bf17aa9c5e75fb0de209e`.
+- Live checks: Serbian geometry 25 features, map observations 100, English map and profile text present, SORS runtime reaches 2026-08/2026-09, production acceptance 6/6. Open alerts: Dependabot 1 (minimatch, known), secret scanning 0, code scanning 1 — alert #16 (`js/xss-through-dom`, `src/components/CountryResearchProfile.tsx:28`), introduced by `858921d` (comparison upgrade) before these pushes, not by the Serbia work.
 
 ## 14. Remaining blockers and required approvals
 
 **Implemented and production verified:** homepage selection, profile, Data Explorer, 2–10-country comparison, events, exports (pre-existing; re-verified today).
 
-**Implemented locally, not deployed:** the regional geometry evidence and this report.
+**Live:** the regional geometry evidence and this report.
 
 **Evidence available, awaiting approval:**
 - **A. Regional map:**
@@ -208,7 +210,7 @@ No `src/`, `public/`, gate, rights or frozen file was changed.
 
 ## 15. Owner approvals A and B — implementation (2026-11-14)
 
-The owner approved A and B ("批准 A 和 B"). Both are implemented and verified locally; neither is deployed until "推送上线".
+The owner approved A and B ("批准 A 和 B"). Both are live at `ea089d8` (§13).
 
 ### B. SORS refresh (run `serbia-20261114`, commit `51978b5`)
 
@@ -291,7 +293,7 @@ Cross-country eligibility counts and other countries' common years are unchanged
 
 | Module | Status |
 |---|---|
-| Regional map and statistics | **Implemented locally, not deployed:** 25 NSTJ3 areas, SORS population 2021–2024, within Serbia only |
-| National indicators | **Implemented locally, not deployed:** SORS monthly store current to 2026-08/09/10 |
+| Regional map and statistics | **Live:** 25 NSTJ3 areas, SORS population 2021–2024, within Serbia only |
+| National indicators | **Live:** SORS monthly store current to 2026-08/09/10 |
 | Elections, institutions, list identities | Blocked (decision C not given) |
 | Government finance, current account | Blocked (decision D not given) |
