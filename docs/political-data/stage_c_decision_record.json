@@ -58,14 +58,16 @@
    "country": "serbia",
    "elections": [
     2020,
+    2022,
     2023,
     2026
    ],
-   "scope": "National Assembly 2020, 2023 and 2026, whole chamber (250 seats); list labels by owner rule (b); 2023 from the National Assembly page (seat-winning lists only, no valid-ballot total or turnout); 2022 not included",
+   "scope": "National Assembly 2020, 2022, 2023 and 2026, whole chamber (250 seats); list labels by owner rule (b); all from Republic Electoral Commission total-results reports (2022 and 2023 as reproduced in its session notices); the National Assembly page first used for 2023 kept as a historical reference",
    "record": "docs/political-data/serbia_nsk_admission.json",
    "records": [
     "docs/political-data/serbia_nsk_admission.json",
-    "docs/political-data/serbia_nsk2023_admission.json"
+    "docs/political-data/serbia_nsk2023_admission.json",
+    "docs/political-data/serbia_nsk2022_2023_admission.json"
    ]
   }
  ],
@@ -129,6 +131,12 @@
    "country": "serbia",
    "question": "Admit the 2023 National Assembly election from the National Assembly page, which prints only the seat-winning lists and reproduces the commission's result?",
    "decision": "Owner reply \"do it\": admit 2023 from the page “Народна скупштина у бројкама” on Copyright Act Art. 6(2), seat-winning lists only, labels by rule (b); no vote shares over valid ballots and no turnout."
+  },
+  {
+   "date": "2026-11-15",
+   "country": "serbia",
+   "question": "Admit the 2022 National Assembly election and upgrade 2023 to the full results, from the RIK notices of sessions 79 and 51?",
+   "decision": "Owner brief: admit 2022 and replace the 2023 seat-winners-only figures with the full RIK report (all 18 lists, registered voters, voters who voted, valid and invalid ballots); keep the National Assembly page as a historical evidence reference; manual reading only; labels by rule (b) unchanged."
   }
  ],
  "countries": {

@@ -31,10 +31,57 @@
         "retrieved_at": "2026-11-15",
         "raw_snapshot": {
           "path": "docs/political-data/raw/serbia/nsk/evidence.json",
-          "sha256": "29248bba9c813020198f92f2007f4e504dbf25d970efbd298378aac861511386"
+          "sha256": "b6b605959a281300ebe45c7a67dbbda3414a545c71a4268ccffbc1a25c940b8f"
         },
         "parser_version": "serbia-nsk-national-v1",
-        "parser_sha256": "10adcfc68f46fa6c5ab7063cebceb973d5f21bdba0b906b971e27031ed6febd5",
+        "parser_sha256": "b81df7b25455519a3e72b205ab4186a4d30503a89496150c73de9c989ae37e78",
+        "fields_covered": [
+          "eligible_voters",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "ballots_cast"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-rs-nsk-2022-04-03",
+    "country": "serbia",
+    "geography": "national",
+    "vote_type": "rs_list_vote",
+    "result_vintage": "final: Republic Electoral Commission total-results report adopted on 2022-07-05 (polling on 2022-04-03, repeated at 54 polling stations on 2022-04-16, and one polling station on 2022-04-28, 2022-05-27, 2022-06-23 and 2022-06-30)",
+    "eligible_voters": 6502307,
+    "voters": 3806050,
+    "valid_votes": 3693328,
+    "invalid_votes": 112722,
+    "ballots_cast": 3806050,
+    "published_turnout": null,
+    "derived_turnout": 58.53384037388576,
+    "voters_turned_out": 3810559,
+    "polling_stations": 8267,
+    "turnout_definition": "Voters who voted (број бирача који су гласали) / voters on the electoral roll (број бирача уписаних у бирачки списак) × 100, computed from the report. The report prints no percentage; voters who turned out are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted (број бирача који су гласали) / voters on the electoral roll (број бирача уписаних у бирачки списак) × 100, computed from the report. The report prints no percentage; voters who turned out are kept separately.",
+      "sourceIds": [
+        "src-rs-rik-total-2022"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-rs-rik-total-2022",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/sr/324925/79-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, items 1-7",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "b6b605959a281300ebe45c7a67dbbda3414a545c71a4268ccffbc1a25c940b8f"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "b81df7b25455519a3e72b205ab4186a4d30503a89496150c73de9c989ae37e78",
         "fields_covered": [
           "eligible_voters",
           "voters",
@@ -51,37 +98,43 @@
     "country": "serbia",
     "geography": "national",
     "vote_type": "rs_list_vote",
-    "result_vintage": "final, as reproduced by the National Assembly (page \"Народна скупштина у бројкама\", XIV convocation; polling on 2023-12-17, repeated at 35 polling stations on 2023-12-30 and 8 polling stations on 2024-01-02); seat-winning lists only; the Republic Electoral Commission report was not reachable",
-    "eligible_voters": null,
+    "result_vintage": "final: Republic Electoral Commission total-results report adopted on 2024-01-12 (polling on 2023-12-17, repeated at 35 polling stations on 2023-12-30 and 8 polling stations on 2024-01-02)",
+    "eligible_voters": 6500666,
     "voters": 3815007,
-    "valid_votes": null,
-    "invalid_votes": null,
-    "ballots_cast": null,
+    "valid_votes": 3710978,
+    "invalid_votes": 104029,
+    "ballots_cast": 3815007,
     "published_turnout": null,
-    "derived_turnout": null,
-    "turnout_definition": "Not computable: the National Assembly page prints the number of voters who voted but not the number of voters on the electoral roll.",
+    "derived_turnout": 58.68640228555043,
+    "voters_turned_out": 3820746,
+    "polling_stations": 8273,
+    "turnout_definition": "Voters who voted (број бирача који су гласали) / voters on the electoral roll (број бирача уписаних у бирачки списак) × 100, computed from the report. The report prints no percentage; voters who turned out are kept separately.",
     "turnout_basis": {
       "numerator": "voters",
-      "denominator": "unknown",
-      "definition": "Not computable: the National Assembly page prints the number of voters who voted but not the number of voters on the electoral roll.",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted (број бирача који су гласали) / voters on the electoral roll (број бирача уписаних у бирачки списак) × 100, computed from the report. The report prints no percentage; voters who turned out are kept separately.",
       "sourceIds": [
-        "src-rs-parlament-brojke-2023"
+        "src-rs-rik-total-2023"
       ]
     },
     "provenance": [
       {
-        "source_id": "src-rs-parlament-brojke-2023",
-        "source_url": "https://www.parlament.gov.rs/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0-.1734.html",
-        "source_record_id": "page, total voters who voted",
+        "source_id": "src-rs-rik-total-2023",
+        "source_url": "https://www.rik.parlament.gov.rs/vest/sr/564488/51-sednica-republicke-izborne-komisije.php",
+        "source_record_id": "report, items 1-7",
         "retrieved_at": "2026-11-15",
         "raw_snapshot": {
           "path": "docs/political-data/raw/serbia/nsk/evidence.json",
-          "sha256": "29248bba9c813020198f92f2007f4e504dbf25d970efbd298378aac861511386"
+          "sha256": "b6b605959a281300ebe45c7a67dbbda3414a545c71a4268ccffbc1a25c940b8f"
         },
         "parser_version": "serbia-nsk-national-v1",
-        "parser_sha256": "10adcfc68f46fa6c5ab7063cebceb973d5f21bdba0b906b971e27031ed6febd5",
+        "parser_sha256": "b81df7b25455519a3e72b205ab4186a4d30503a89496150c73de9c989ae37e78",
         "fields_covered": [
-          "voters"
+          "eligible_voters",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "ballots_cast"
         ],
         "published_or_derived": "published"
       }
@@ -119,10 +172,10 @@
         "retrieved_at": "2026-11-15",
         "raw_snapshot": {
           "path": "docs/political-data/raw/serbia/nsk/evidence.json",
-          "sha256": "29248bba9c813020198f92f2007f4e504dbf25d970efbd298378aac861511386"
+          "sha256": "b6b605959a281300ebe45c7a67dbbda3414a545c71a4268ccffbc1a25c940b8f"
         },
         "parser_version": "serbia-nsk-national-v1",
-        "parser_sha256": "10adcfc68f46fa6c5ab7063cebceb973d5f21bdba0b906b971e27031ed6febd5",
+        "parser_sha256": "b81df7b25455519a3e72b205ab4186a4d30503a89496150c73de9c989ae37e78",
         "fields_covered": [
           "eligible_voters",
           "voters",

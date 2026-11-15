@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-// Serbian National Assembly 2020 and 2026 (owner decision C, 2026-11-15). List labels follow owner rule (b): full
+// Serbian National Assembly 2020 and 2026 (owner decision C, 2026-11-15); 2022 and full 2023 from the RIK reports (owner brief 2026-11-15). List labels follow owner rule (b): full
 // titles, which usually name persons, are never shown; no candidate or list-leader names appear anywhere on the page.
 const PERSONAL_NAMES = /Vučić|Вучић|Dačić|Дачић|Šapić|Шапић|Zukorlić|Зукорлић|Pásztor|Пастор|Šešelj|Шешељ|Karić|Карић|Tepić|Тепић|Ponoš|Понош|Ljajić|Љајић|Nikolić|Николић|Đurić|Ђурић|Gajić|Гајић|Ugljanin|Угљанин/;
 
@@ -16,7 +16,7 @@ test("Serbian elections page shows 2026 whole-chamber results without personal n
   await expect(main).toContainText("Изборна листа, ред. бр. 1: 103");
   await expect(main).toContainText("Социјалистичка партија Србије");
   expect(await main.innerText()).not.toMatch(PERSONAL_NAMES);
-  await expect(main.locator('a[href="/research-data/political/serbia/election_results.csv"]')).toHaveText("Results CSV (2020, 2023, 2026)");
+  await expect(main.locator('a[href="/research-data/political/serbia/election_results.csv"]')).toHaveText("Results CSV (2020, 2022, 2023, 2026)");
 });
 
 test("Serbian 2020 election reconciles to 250 seats and keeps names out (zh)", async ({ page }) => {
@@ -33,7 +33,7 @@ test("politics landing lists Serbia as admitted and no longer outside the pipeli
   await page.goto("/en/politics/", { waitUntil: "networkidle" });
   const main = page.locator("main");
   await expect(main).toContainText("Choose from six countries with admitted parliamentary election records.");
-  await expect(main.locator("[data-political-country=serbia]")).toContainText("2020, 2023, 2026");
+  await expect(main.locator("[data-political-country=serbia]")).toContainText("2020, 2022, 2023, 2026");
   await expect(main.locator("[data-political-country=serbia]")).toContainText("250");
   await expect(main).not.toContainText("including Serbia");
 });
@@ -53,17 +53,43 @@ test("other countries' pages offer Serbia in the country comparison, side by sid
   await expect(page.locator("[data-politics-cross-country] select").first().locator("option[value=serbia]")).toHaveText("塞尔维亚");
 });
 
-for (const locale of ["en", "zh-CN"] as const) test(`Serbian 2023: seat-winning lists only, stated as such, no shares over valid ballots and no names (${locale})`, async ({ page }) => {
+const LATIN_NAMES = /Vučić|Dačić|Pásztor|Pastor|Šešelj|Tepić|Jovanović|Mihailović|Đurđević|Stamenkovski|Zukorlić|Usame|Zelenović|Ćuta|Radulović|Stamatović|Stojković|Obradović|Parandilović|Ugljanin|Tadić|Pejić|Šajn|Pavlović|Gavrin|Aleksić|Nestorović|Jeremić|Kovačević|Kamberi|Vuletić|Milošević|Žigmanov|Nikolić|Тепић|Алексић|Несторовић|Јовановић|Камбери|Ћута|Жигманов/;
+
+for (const locale of ["en", "zh-CN"] as const) test(`Serbian 2023: full RIK report, all 18 lists, shares over valid ballots, deep link survives reload and back navigation (${locale})`, async ({ page }) => {
   const en = locale === "en";
-  await page.goto(`${en ? "/en" : ""}/politics/serbia/?election=el-rs-nsk-2023-12-17`, { waitUntil: "networkidle" });
+  const link = `${en ? "/en" : ""}/politics/serbia/?election=el-rs-nsk-2023-12-17`;
+  await page.goto(link, { waitUntil: "networkidle" });
   const main = page.locator("main");
-  const coverage = main.locator("[data-result-coverage=seat_winning_lists_only]");
-  await expect(coverage).toContainText(en ? "The source prints only the 10 lists that won seats" : "来源只列出获得席位的 10 份名单");
-  await expect(main.locator("[data-politics-summary]")).not.toContainText(en ? "lists stood for election" : "份名单参选");
-  await expect(main).toContainText("Изборна листа, ред. бр. 1: 129");
-  await expect(main).toContainText("МИ – Глас из народа");
-  await expect(main).toContainText("3,815,007");
+  const check2023 = async () => {
+    await expect(main).toContainText("3,710,978");
+    await expect(main).toContainText("6,500,666");
+    await expect(main.locator("[data-politics-summary]")).toContainText(en ? "18 lists stood for election and 10 of them won seats" : "18");
+    await expect(main.locator("[data-result-coverage]")).toHaveCount(0);
+    await expect(main).toContainText("Изборна листа, ред. бр. 1: 129");
+    await expect(main).toContainText("MI-GLAS IZ NARODA: 13");
+  };
+  await check2023();
   expect(await main.innerText()).not.toMatch(PERSONAL_NAMES);
-  expect(await main.innerText()).not.toMatch(/Тепић|Алексић|Несторовић|Jovanović|Јовановић|Камбери|Kamberi|Ћута|Ćuta|Жигманов|Žigmanov/);
+  expect(await main.innerText()).not.toMatch(LATIN_NAMES);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  await page.reload({ waitUntil: "networkidle" });
+  await check2023();
+  await page.goto(`${en ? "/en" : ""}/politics/`, { waitUntil: "networkidle" });
+  await page.goBack({ waitUntil: "networkidle" });
+  expect(new URL(page.url()).searchParams.get("election")).toBe("el-rs-nsk-2023-12-17");
+  await check2023();
+});
+
+for (const locale of ["en", "zh-CN"] as const) test(`Serbian 2022: 19 lists and 250 seats from the RIK report, no names (${locale})`, async ({ page }) => {
+  const en = locale === "en";
+  await page.goto(`${en ? "/en" : ""}/politics/serbia/?election=el-rs-nsk-2022-04-03`, { waitUntil: "networkidle" });
+  const main = page.locator("main");
+  await expect(main).toContainText("3,693,328");
+  await expect(main).toContainText("6,502,307");
+  if (en) await expect(main.locator("[data-politics-summary]")).toContainText("19 lists stood for election and 12 of them won seats");
+  await expect(main).toContainText("Изборна листа, ред. бр. 1: 120");
+  await expect(main).toContainText("Srpska stranka Zavetnici: 10");
+  expect(await main.innerText()).not.toMatch(PERSONAL_NAMES);
+  expect(await main.innerText()).not.toMatch(LATIN_NAMES);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
 });

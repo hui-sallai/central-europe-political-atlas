@@ -54,6 +54,8 @@ export const POLITICAL_ADMISSIONS = {
   'serbia-nsk-2020-2026': { approved_on: '2026-11-15', country: 'serbia', gate_record: 'docs/political-data/serbia_nsk_admission.json', paths: SERBIAN_PATHS },
   // Owner reply "do it", 2026-11-15: National Assembly 2023 from the Assembly page reproducing the result (seat-winning lists only).
   'serbia-nsk-2023': { approved_on: '2026-11-15', country: 'serbia', gate_record: 'docs/political-data/serbia_nsk2023_admission.json', paths: SERBIAN_PATHS },
+  // Owner brief, 2026-11-15: 2022 admitted and 2023 upgraded to the full RIK reports (sessions 79 and 51); the Assembly page stays a reference.
+  'serbia-nsk-2022-2023-rik': { approved_on: '2026-11-15', country: 'serbia', gate_record: 'docs/political-data/serbia_nsk2022_2023_admission.json', paths: SERBIAN_PATHS },
   'slovakia-rights-evidence': { approved_on: '2026-11-04', country: 'slovakia', gate_record: 'docs/political-data/slovakia_rights_evidence_admission.json', paths: SLOVAK_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];

@@ -125,7 +125,7 @@ export function politicalHungarianElectionViews(): PoliticalElectionView[] {
   return elections;
 }
 
-/** Serbia's admitted National Assembly elections (2020, 2023, 2026), whole chamber: docs/political-data/serbia_nsk_admission.json and serbia_nsk2023_admission.json. */
+/** Serbia's admitted National Assembly elections (2020, 2022, 2023, 2026), whole chamber: docs/political-data/serbia_nsk_admission.json, serbia_nsk2023_admission.json and serbia_nsk2022_2023_admission.json. */
 export function politicalSerbianElectionViews(): PoliticalElectionView[] {
   const elections = electionViewsFromStores({ elections: rsElections, turnout: rsTurnout, results: rsResults, contestants: rsContestants, legislatures: rsLegislatures, systems: rsSystems, sources: rsSources } as PoliticalStores, {
     slug: "serbia", name: { en: "Serbia", "zh-CN": "塞尔维亚" }, originalLanguage: "sr",

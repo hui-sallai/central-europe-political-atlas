@@ -1,0 +1,85 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "serbia-nsk-2022-2023-rik",
+ "country": "serbia",
+ "election_ids": [
+  "el-rs-nsk-2022-04-03",
+  "el-rs-nsk-2023-12-17"
+ ],
+ "scope": "National Assembly elections of 3 April 2022 (repeated at 54 polling stations on 16 April 2022 and at one polling station on 28 April, 27 May, 23 and 30 June 2022) and 17 December 2023 (repeated at 35 polling stations on 30 December 2023 and 8 on 2 January 2024), all 250 seats (one nationwide constituency): every electoral list with votes and seats, polling stations, voters on the roll, voters who turned out, voters who voted, valid and invalid ballots, from the Republic Electoral Commission notices of sessions 79 (5 July 2022) and 51 (12 January 2024) reproducing its adopted total-results reports. Replaces the 2023 figures admitted from the National Assembly page (admission serbia-nsk-2023), which is kept as a historical evidence reference. Polling-station and municipal results, list kinds, national-minority status, party attribution and candidate names are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-15",
+   "decision": "Owner brief \"Complete Serbian 2022 Parliamentary Election Admission and Upgrade the 2023 Election to Full Official Results\", naming the two RIK pages (sessions 79 and 51) as the sources, under the existing manual-read-only host restriction and the existing personal-name rule."
+  },
+  {
+   "date": "2026-11-15",
+   "decision": "Owner reply \"批准登记这五个塞尔维亚站点，仅人工读取\": www.rik.parlament.gov.rs registered for manual reading only (unchanged)."
+  },
+  {
+   "date": "2026-11-15",
+   "decision": "Owner rule (b) for list labels, decided for 2020 and 2026, applied unchanged."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/serbia/nsk/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "statute_art_6_2_copyright_act",
+   "basis": "Same basis as the 2020 and 2026 RIK reports (admission serbia-nsk-2020-2026): Copyright and Related Rights Act Art. 6(2), official materials of state bodies are not copyright works. The notices reproduce RIK's adopted total-results reports. Recorded as a reading of the statute, weaker than a licence; both pages show the site footer CC BY-NC-ND 3.0 Serbia for the web presentation, which the Atlas does not republish (non-commercial, attributed, figures only, no page text or design)."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_from_total_results_reports",
+   "evidence_kind": "statute_art_6_2_copyright_act",
+   "basis": "National figures only (polling stations, registers, voters, ballots, votes and seats per list), transcribed from one official notice per election; no database extraction (database-maker right, Act Art. 1 and 5a); attribution to RIK."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The two page texts are kept in local-evidence/ (not committed) and identified by the SHA-256 of each page's normalised table text; full list titles are not committed (title_sha256 only, computed in the browser from the page's own text), per owner rule (b)."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "www.rik.parlament.gov.rs is registered for manual reading only (no robots.txt, checked for the 2026 admission). The two pages named in the owner brief were each read once by hand in a browser on 2026-11-15; no script, no other page of the site, no results application or data endpoint, and no Official Gazette text was used."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "Each notice prints polling stations, voters on the roll, voters who turned out, voters who voted, invalid and valid ballots and every list with votes and seats (2022: 19 lists; 2023: 18 lists); all are transcribed."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "List votes equal valid ballots (2022: 3,693,328; 2023: 3,710,978); invalid plus valid ballots equal voters who voted (2022: 3,806,050; 2023: 3,815,007); voters who voted do not exceed voters who turned out; seats total 250. Vote shares are derived over valid ballots and turnout as voters who voted / roll, both labelled as derived. For 2023, every list of the earlier National Assembly page matches one report list in votes and seats, covering all ten seat-winning lists, and its printed percentages equal votes ÷ voters who voted truncated to two decimals: they are not vote shares and are not published as such."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_printed_list",
+   "evidence_kind": "owner_decision",
+   "basis": "Each list keeps its printed row and a title checksum; labels follow owner rule (b), in the Latin script of the notices. No list is linked to a party or across elections; continuous_series_eligible is false for every list. 2023 contestant ids now follow the RIK report rows."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "statute_quoted_2026_rule_check_2022_2023",
+   "evidence_kind": "statute_quoted",
+   "basis": "Law on the Election of Members of Parliament Arts. 5, 128, 129 and 140 quoted in the evidence record (version read on 2026-11-15). The printed seats of both elections reproduce exactly under highest quotients over 250 seats with the 3% threshold (of voters who voted) and the 35% quotient increase for the five below-threshold lists holding seats in each election. A consistency check only, because the text in force in 2022 and 2023 (14/2022, before the 2026 amendment) was not read separately; national-minority status is decided by RIK and not stored."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_total_results_reports",
+   "evidence_kind": "official_act",
+   "basis": "Each notice states that RIK adopted the total-results report after the repeated voting (2022: session 79, 5 July 2022; 2023: session 51, 12 January 2024)."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between 2020, 2022, 2023 and 2026, even where a label repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

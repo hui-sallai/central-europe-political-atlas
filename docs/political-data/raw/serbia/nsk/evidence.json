@@ -194,121 +194,454 @@
         }
       ]
     },
+    "2022": {
+      "election_id": "el-rs-nsk-2022-04-03",
+      "polling_day": "2022-04-03",
+      "repeat_poll_date": "2022-04-16",
+      "repeat_poll_scope": "54 polling stations on 2022-04-16, and one polling station on 2022-04-28, 2022-05-27, 2022-06-23 and 2022-06-30",
+      "adopted_on": "2022-07-05",
+      "act": "Izveštaj o ukupnim rezultatima izbora za narodne poslanike Narodne skupštine (RIK session 79, 5 July 2022)",
+      "source_url": "https://www.rik.parlament.gov.rs/vest/sr/324925/79-sednica-republicke-izborne-komisije.php",
+      "page_url": "https://www.rik.parlament.gov.rs/vest/sr/324925/79-sednica-republicke-izborne-komisije.php",
+      "publisher_file_sha256": null,
+      "page_table_text_sha256": "11551871159e6beb3cc998a187884d963fd842656bb5f58dfa9d10d3c4111150",
+      "page_text_note": "RIK notice reproducing the adopted report, read by hand in a browser (owner brief 2026-11-15 naming this exact page); figures and title hashes taken from the page's own table text; the page text was kept locally, not committed. The page is in the Latin-script version of the site, so labels are stored in Latin script as printed. Site footer: CC BY-NC-ND 3.0 Serbia (see rights.site_licence_note).",
+      "retrieved_at": "2026-11-15",
+      "list_order": "order printed in the RIK notice",
+      "totals": {
+        "polling_stations": 8267,
+        "registered_voters": 6502307,
+        "turned_out": 3810559,
+        "voted": 3806050,
+        "invalid": 112722,
+        "valid": 3693328
+      },
+      "lists": [
+        {
+          "row": 1,
+          "title_sha256": "772b73bf8432451c23a92635385bc306e2431dbda93891808823eb83c00b43fa",
+          "label_basis": "row_only",
+          "display_label": null,
+          "votes": 1635101,
+          "seats": 120
+        },
+        {
+          "row": 2,
+          "title_sha256": "1dbac07966ff24031ff2ac6700abc286e1aee4b2106b7511b98aab709acb8fb1",
+          "label_basis": "row_only",
+          "display_label": null,
+          "votes": 435274,
+          "seats": 31
+        },
+        {
+          "row": 3,
+          "title_sha256": "8552a3a7025fa866861597412595a9911579a0e82431c38cc638caed8701d69a",
+          "label_basis": "named_parties",
+          "display_label": "Vajdasági Magyar Szövetség – Savez vojvođanskih Mađara",
+          "votes": 60313,
+          "seats": 5
+        },
+        {
+          "row": 4,
+          "title_sha256": "47735263b81725a96c480d81e57444f573df98ad59b931fb0c216cdb86c2b846",
+          "label_basis": "named_parties",
+          "display_label": "SRPSKA RADIKALNA STRANKA",
+          "votes": 82066,
+          "seats": 0
+        },
+        {
+          "row": 5,
+          "title_sha256": "c84f1e2c4aff18a04c577953eb209e63fe08b5bb1055d5960a4fc4f93a8473e0",
+          "label_basis": "named_parties",
+          "display_label": "Stranka slobode i pravde, Narodna stranka, Demokratska stranka, DZVM – VMDK, Stranka Makedonaca Srbije, Pokret slobodnih građana, Pokret za preokret, Pokret Slobodna Srbija, Vlaška stranka",
+          "votes": 520469,
+          "seats": 38
+        },
+        {
+          "row": 6,
+          "title_sha256": "a66c3623f40d45d5a520e159cd0f2defe847a5326f9b1631a4820405c563b058",
+          "label_basis": "named_parties",
+          "display_label": "Srpska koalicija NADA, Nacionalno demokratska alternativa, Demokratska stranka Srbije (DSS), Za Kraljevinu Srbiju (MONARHISTI)",
+          "votes": 204444,
+          "seats": 15
+        },
+        {
+          "row": 7,
+          "title_sha256": "56cb769efa5c7b269c67ab2c74bee4dd70a5c12a97c4154bec4a3c67de79c09b",
+          "label_basis": "named_parties",
+          "display_label": "Srpska stranka Zavetnici",
+          "votes": 141227,
+          "seats": 10
+        },
+        {
+          "row": 8,
+          "title_sha256": "75c9686d7270a9653bba701003884dbb638fad2691c044bf9524e2b5607f91da",
+          "label_basis": "named_parties",
+          "display_label": "Stranka pravde i pomirenja (SPP)",
+          "votes": 35850,
+          "seats": 3
+        },
+        {
+          "row": 9,
+          "title_sha256": "30a380d0b073ab2cc2e5e862e5abd3a9f6a256bb9f67edb65c41e0f294fc473a",
+          "label_basis": "named_parties",
+          "display_label": "Ekološki ustanak, Ne davimo Beograd",
+          "votes": 178733,
+          "seats": 13
+        },
+        {
+          "row": 10,
+          "title_sha256": "947a994785459dc52d5098609d7ccd8369ec51a689e26e2c15d660e82d573ed6",
+          "label_basis": "named_parties",
+          "display_label": "DJB, ZS, ŽZS",
+          "votes": 86362,
+          "seats": 0
+        },
+        {
+          "row": 11,
+          "title_sha256": "538769a43c89c1e95b290fc3e80be57b62cfe5fed8ddcb07c333859215a360f0",
+          "label_basis": "named_parties",
+          "display_label": "Srpski pokret DVERI, POKS",
+          "votes": 144762,
+          "seats": 10
+        },
+        {
+          "row": 12,
+          "title_sha256": "84f6f05c2f96decafec12bf58bb776608dc4b180cf453c702ebb38d026783da4",
+          "label_basis": "verbatim",
+          "display_label": "ZAJEDNO ZA VOJVODINU – VOJVOĐANI (DEMOKRATSKI SAVEZ HRVATA U VOJVODINI, ZAJEDNO ZA VOJVODINU)",
+          "votes": 24024,
+          "seats": 2
+        },
+        {
+          "row": 13,
+          "title_sha256": "dbdb30e51a1b8ff1939ff1fbe39a05e8bad198f007c7bb4319977e95036c20f1",
+          "label_basis": "named_parties",
+          "display_label": "SDA Sandžaka",
+          "votes": 20553,
+          "seats": 2
+        },
+        {
+          "row": 14,
+          "title_sha256": "04f6930feebcd33c94aa97a5fe48d0250bb0ed06d1471e33df586416972031b2",
+          "label_basis": "named_parties",
+          "display_label": "SOCIJALDEMOKRATSKA STRANKA, NOVA STRANKA, „UJEDINjENI POKRET ZELENIH SRBIJE“, BOŠNjAČKA GRAĐANSKA STRANKA, STRANKA CRNOGORACA",
+          "votes": 63560,
+          "seats": 0
+        },
+        {
+          "row": 15,
+          "title_sha256": "f064e4fb834c0d905c85cc31500db7cb7e858ccbbeedb9cf06311d431860e552",
+          "label_basis": "verbatim",
+          "display_label": "„ALTERNATIVA ZA PROMENE – ALBANSKA DEMOKRATSKA ALTERNATIVA“ / „ALTERNATIVA PËR NDRYSHIM – ALTERNATIVA DEMOKRATIKE SHQIPTARE“",
+          "votes": 3267,
+          "seats": 0
+        },
+        {
+          "row": 16,
+          "title_sha256": "637a9a038b4b3e7ee5588ac9d748b127d2a000aa31f4bb8e586b7e02309ad201",
+          "label_basis": "verbatim",
+          "display_label": "„KOALICIJA ALBANACA DOLINE“ / „KOALICIONI I SHQIPTARËVE TË LUGINËS“",
+          "votes": 10165,
+          "seats": 1
+        },
+        {
+          "row": 17,
+          "title_sha256": "7ae86573de9bc52d3986205771c6a77c856eb0e94c8ddd0a6ea09c0caed74845",
+          "label_basis": "row_only",
+          "display_label": null,
+          "votes": 31196,
+          "seats": 0
+        },
+        {
+          "row": 18,
+          "title_sha256": "b877c5180b1b9f052c80776eeaf338b03d9e586e49dc8a0a83e69352a83aa35b",
+          "label_basis": "named_parties",
+          "display_label": "„Romska partija“",
+          "votes": 6393,
+          "seats": 0
+        },
+        {
+          "row": 19,
+          "title_sha256": "90e862c39cfeae280330ac31e9a026749bc67d00b7f3a3a6aa6980280b58010e",
+          "label_basis": "named_parties",
+          "display_label": "SRPSKO RUSKI POKRET, SRPSKO RUSKA PARTIJA VUKOVI, POKRET GRKA SRBIZA",
+          "votes": 9569,
+          "seats": 0
+        }
+      ],
+      "label_notes": {
+        "5": "Only the political parties named in the parenthesis are kept; the coalition name, the person named and a trade union named there are omitted.",
+        "6": "The parties named are kept; the coalition slogan and the persons named are omitted.",
+        "8": "The party named is kept; the leading phrase refers to a person and is omitted with the person named.",
+        "9": "Only the two organisations that are named as such are kept; the coalition words, a personal nickname and the person named are omitted.",
+        "10": "The title names parties only by abbreviation, each next to a person; the abbreviations are kept, the coalition name and persons omitted.",
+        "11": "The parties named are kept; the coalition name and the persons named are omitted.",
+        "14": "The title prints one party twice in two spellings; it is kept once. Slogans and other names that are not parties are omitted with the person named.",
+        "19": "Only the parties named in the parenthesis are kept; the alliance name and the persons named are omitted."
+      }
+    },
     "2023": {
       "election_id": "el-rs-nsk-2023-12-17",
       "polling_day": "2023-12-17",
       "repeat_poll_date": "2023-12-30",
       "repeat_poll_scope": "35 polling stations on 2023-12-30 and 8 polling stations on 2024-01-02",
-      "adopted_on": null,
-      "act": "Народна скупштина у бројкама: Број добијених мандата – XIV сазив Народне скупштине (National Assembly web page reproducing the result; not the Republic Electoral Commission report)",
-      "source_url": "https://www.parlament.gov.rs/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0-.1734.html",
-      "page_url": "https://www.parlament.gov.rs/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0-.1734.html",
-      "publisher": "Народна скупштина Републике Србије",
+      "adopted_on": "2024-01-12",
+      "act": "Ukupni izveštaj o rezultatima izbora za narodne poslanike Narodne skupštine (RIK session 51, 12 January 2024)",
+      "source_url": "https://www.rik.parlament.gov.rs/vest/sr/564488/51-sednica-republicke-izborne-komisije.php",
+      "page_url": "https://www.rik.parlament.gov.rs/vest/sr/564488/51-sednica-republicke-izborne-komisije.php",
       "publisher_file_sha256": null,
-      "page_table_text_sha256": "ed04cf194b425cb298c966b9cbb5c789d365a2745184220882c79d58da9751e2",
-      "page_text_note": "National Assembly page read by hand in a browser (owner approval 2026-11-15: \"do it\"); title hashes and figures taken from the page's own table text; the table text was kept locally, not committed. Site footer: \"© 2011 Народна скупштина Републике Србије\", no licence terms stated.",
+      "page_table_text_sha256": "33169ad0dd52a8817e978569bbf46a68d62c9d06f0f759bfa373bbdff78f5427",
+      "page_text_note": "RIK notice reproducing the adopted report, read by hand in a browser (owner brief 2026-11-15 naming this exact page); figures and title hashes taken from the page's own table text; the page text was kept locally, not committed. The page is in the Latin-script version of the site, so labels are stored in Latin script as printed. Site footer: CC BY-NC-ND 3.0 Serbia (see rights.site_licence_note).",
       "retrieved_at": "2026-11-15",
-      "list_order": "order printed on the page (by result)",
-      "result_coverage": "seat_winning_lists_only",
-      "coverage_note": "The page lists only the ten lists that won seats, with votes, the percentage of voters who voted and seats. Lists without seats, voters on the electoral roll, and valid and invalid ballots are not printed, so no vote share over valid ballots and no turnout can be computed.",
+      "list_order": "order printed in the RIK notice",
       "totals": {
-        "voted": 3815007
+        "polling_stations": 8273,
+        "registered_voters": 6500666,
+        "turned_out": 3820746,
+        "voted": 3815007,
+        "invalid": 104029,
+        "valid": 3710978
       },
       "lists": [
         {
           "row": 1,
-          "title_sha256": "19f5db72d79466dcbcb5465a76e10c607fce900df0fe9d14d3299e72c9ecf947",
+          "title_sha256": "12a0bfef5e8fd376ae15f1b1ddc8f0a1517343eeaa7f6610ca923203845fee37",
           "label_basis": "row_only",
           "display_label": null,
           "votes": 1783701,
-          "printed_percent_of_voters_who_voted": "46,75",
           "seats": 129
         },
         {
           "row": 2,
-          "title_sha256": "8ef3625acbf413b0f295098c563e48b1d9b020026fb3823a30cdf6457fe98c01",
+          "title_sha256": "f730cddbb05162197f4fd8ade96490f176ace01266d79dd41a4f940b8baba400",
           "label_basis": "named_parties",
-          "display_label": "Странка слободе и правде, Народни покрет Србије, Зелено-леви фронт, Не давимо Београд, Еколошки устанак, Демократска странка, Покрет слободних грађана, Србија центар, Заједно, Покрет за преокрет, Ново лице Србије",
+          "display_label": "STRANKA SLOBODE I PRAVDE, NARODNI POKRET SRBIJE, ZELENO-LEVI FRONT, NE DAVIMO BEOGRAD, EKOLOŠKI USTANAK, DEMOKRATSKA STRANKA, POKRET SLOBODNIH GRAĐANA, SRBIJA CENTAR, ZAJEDNO, POKRET ZA PREOKRET, NOVO LICE SRBIJE",
           "votes": 902450,
-          "printed_percent_of_voters_who_voted": "23,65",
           "seats": 65
         },
         {
           "row": 3,
-          "title_sha256": "22513bfc214cc579c6330cc208410a8128cc65a197d14a722aaf9decb819fe88",
+          "title_sha256": "1dbac07966ff24031ff2ac6700abc286e1aee4b2106b7511b98aab709acb8fb1",
           "label_basis": "row_only",
           "display_label": null,
           "votes": 249916,
-          "printed_percent_of_voters_who_voted": "6,55",
           "seats": 18
         },
         {
           "row": 4,
-          "title_sha256": "d7315264d0d2f3434eac6508ca570718ae2a08a7b36b880e8c4437d9d3dc9652",
+          "title_sha256": "70b0e48961a43c736a1c8277c06005fed31847a69c2c83f4aeb5be523f984f0a",
           "label_basis": "named_parties",
-          "display_label": "Српска коалиција НАДА, Национално демократска алтернатива, Нова демократска странка Србије (Нови ДСС), Покрет обнове Краљевине Србије (ПОКС)",
+          "display_label": "Srpska koalicija NADA, Nacionalno demokratska alternativa, Nova Demokratska stranka Srbije (Novi DSS), Pokret obnove Kraljevine Srbije (POKS)",
           "votes": 191431,
-          "printed_percent_of_voters_who_voted": "5,01",
           "seats": 13
         },
         {
           "row": 5,
-          "title_sha256": "6b37fe619431378971637e33fb80c5d764700e26c9a4291eb176c5896d9a935b",
+          "title_sha256": "623ec2f07f5237f91b6654be5b822627f5e0d2fae48ad31fe112d41dd60620f4",
           "label_basis": "named_parties",
-          "display_label": "МИ – Глас из народа",
+          "display_label": "MI-GLAS IZ NARODA",
           "votes": 178830,
-          "printed_percent_of_voters_who_voted": "4,68",
           "seats": 13
         },
         {
           "row": 6,
-          "title_sha256": "a8490fc637ee1cbc368a9ac25197f18446d623d29fef8b8279fa1826c89c36bd",
+          "title_sha256": "6d00d1181448c75c59f23d0b9a444256d1f9799bf11f834779ef0f8993571a30",
           "label_basis": "named_parties",
-          "display_label": "Vajdasági Magyar Szövetség – Савез војвођанских Мађара",
-          "votes": 64747,
-          "printed_percent_of_voters_who_voted": "1,69",
-          "seats": 6
+          "display_label": "Srpska stranka Zavetnici, Srpski pokret Dveri",
+          "votes": 105165,
+          "seats": 0
         },
         {
           "row": 7,
-          "title_sha256": "8195c2dcd612bca56916f29dd2db8e491043e1ef3839865d7cc0310574a62576",
+          "title_sha256": "0b2ebba997af2af22e047abc7c95c32ef14a0ed9f4b4b017c6855a1ff1fbf7bc",
           "label_basis": "named_parties",
-          "display_label": "Странка правде и помирења, Демократски савез Хрвата у Војводини",
-          "votes": 29066,
-          "printed_percent_of_voters_who_voted": "0,76",
-          "seats": 2
+          "display_label": "VAJDASÁGI MAGYAR SZÖVETSÉG – SAVEZ VOJVOĐANSKIH MAĐARA",
+          "votes": 64747,
+          "seats": 6
         },
         {
           "row": 8,
-          "title_sha256": "d21160ea4842bd13724a18389441d5ca34e6c19eadd6f2f7ddc50b1c14b8c994",
+          "title_sha256": "47735263b81725a96c480d81e57444f573df98ad59b931fb0c216cdb86c2b846",
           "label_basis": "named_parties",
-          "display_label": "СДА Санџака / SDA Sandžaka",
-          "votes": 21827,
-          "printed_percent_of_voters_who_voted": "0,57",
-          "seats": 2
+          "display_label": "SRPSKA RADIKALNA STRANKA",
+          "votes": 55782,
+          "seats": 0
         },
         {
           "row": 9,
-          "title_sha256": "b133e98346f95c0ab3ef7f53ec8082221caaa6f78dc60aef0f39ffb7f99b8cb5",
-          "label_basis": "row_only",
-          "display_label": null,
-          "votes": 13501,
-          "printed_percent_of_voters_who_voted": "0,35",
-          "seats": 1
+          "title_sha256": "15adbea48b446304e8a340b35909b75465c44ea5b0c77eae430d45a448cc52ae",
+          "label_basis": "named_parties",
+          "display_label": "Dosta je bilo – DJB, Socijaldemokratska stranka – SDS",
+          "votes": 45079,
+          "seats": 0
         },
         {
           "row": 10,
-          "title_sha256": "b35ccbfd49a4b80f2010a7faa7210c4972884a13a5d4420aaf6d83c4fe7b6c9b",
+          "title_sha256": "6ec400aaf45c0c60ea865398d2e8fe832d3f901f2dc0ff7da11d1437a8c56023",
           "label_basis": "named_parties",
-          "display_label": "Руска странка",
-          "votes": 11369,
-          "printed_percent_of_voters_who_voted": "0,29",
+          "display_label": "NARODNA STRANKA",
+          "votes": 33388,
+          "seats": 0
+        },
+        {
+          "row": 11,
+          "title_sha256": "5c8504b0c60407adc83fd966c5a3d34bdca5dbab8c04b03169cee9c069ed97e6",
+          "label_basis": "named_parties",
+          "display_label": "STRANKA PRAVDE I POMIRENJA, DEMOKRATSKI SAVEZ HRVATA U VOJVODINI",
+          "votes": 29066,
+          "seats": 2
+        },
+        {
+          "row": 12,
+          "title_sha256": "05b26ab51ecda479377fae55d81c6de18643937a34251133bd329970a4ec8a89",
+          "label_basis": "named_parties",
+          "display_label": "SDA Sandžaka",
+          "votes": 21827,
+          "seats": 2
+        },
+        {
+          "row": 13,
+          "title_sha256": "b9c5070b78675e0403bf5b0fc30e7c1d90c7d45b85bfdb63d4792ef50925dd4b",
+          "label_basis": "row_only",
+          "display_label": null,
+          "votes": 13501,
           "seats": 1
+        },
+        {
+          "row": 14,
+          "title_sha256": "05b97b62995d2b343c51aaaf9531b21122d240d13b76802dd89f1fdc601201f5",
+          "label_basis": "named_parties",
+          "display_label": "RUSKA STRANKA",
+          "votes": 11369,
+          "seats": 1
+        },
+        {
+          "row": 15,
+          "title_sha256": "c2bf02eb2e041656a07b1d2be32785bbc0a0551b7d89bd61ba644fa7bb9620f9",
+          "label_basis": "row_only",
+          "display_label": null,
+          "votes": 9243,
+          "seats": 0
+        },
+        {
+          "row": 16,
+          "title_sha256": "14b48614a473caac21cf08b275058614dc33c9d7d449c1904eb552067ecd7a4b",
+          "label_basis": "verbatim",
+          "display_label": "ZAJEDNO ZA BUDUĆNOST I RAZVOJ – KOALICIJA ZA MIR I TOLERANCIJU",
+          "votes": 6786,
+          "seats": 0
+        },
+        {
+          "row": 17,
+          "title_sha256": "88af061ef29240e644d8f9381db3018a6c639606ce85c8320f97fe52541b16e0",
+          "label_basis": "named_parties",
+          "display_label": "SRBIJA NA ZAPADU, DA SE STRUKA PITA",
+          "votes": 5462,
+          "seats": 0
+        },
+        {
+          "row": 18,
+          "title_sha256": "5d97116dabc338c2da335496df1fafc1e3e20b1d3982781f9a88628b90a203ae",
+          "label_basis": "verbatim",
+          "display_label": "ALBANSKA DEMOKRATSKA ALTERNATIVA – UJEDINjENA DOLINA ALTERNATIVA DEMOKRATIKE SHQIPTARE-LUGINA E BASHKUAR",
+          "votes": 3235,
+          "seats": 0
         }
       ],
       "label_notes": {
-        "2": "Only the political parties named in the parenthesis are kept; a trade union named there and a personal nickname attached to one party name are omitted.",
-        "5": "The movement named in the title is kept; the person named is omitted."
+        "2": "Only the political parties named in the parenthesis are kept; the coalition name, the persons named, a trade union and a personal nickname attached to one party name are omitted.",
+        "4": "The parties named are kept; the coalition slogan and the persons named are omitted.",
+        "5": "The movement named in the title is kept; the person named is omitted.",
+        "6": "The two parties named are kept; the coalition words and the persons named are omitted.",
+        "7": "The organisation name is kept in both languages; the slogans and the person they refer to are omitted.",
+        "9": "Only the two parties named are kept; an association name, a slogan and the persons named are omitted.",
+        "10": "The party named is kept; the slogan and the persons named are omitted.",
+        "11": "The two parties named are kept (the title prints itself twice); the coalition name, another name and the persons named are omitted.",
+        "17": "The two organisation names are kept; the persons named are omitted."
+      },
+      "historical_reference": {
+        "act": "Народна скупштина у бројкама: Број добијених мандата – XIV сазив Народне скупштине (National Assembly web page reproducing the result; not the Republic Electoral Commission report)",
+        "source_url": "https://www.parlament.gov.rs/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0-.1734.html",
+        "publisher": "Народна скупштина Републике Србије",
+        "page_table_text_sha256": "ed04cf194b425cb298c966b9cbb5c789d365a2745184220882c79d58da9751e2",
+        "page_text_note": "National Assembly page read by hand in a browser (owner approval 2026-11-15: \"do it\"); title hashes and figures taken from the page's own table text; the table text was kept locally, not committed. Site footer: \"© 2011 Народна скупштина Републике Србије\", no licence terms stated.",
+        "retrieved_at": "2026-11-15",
+        "result_coverage": "seat_winning_lists_only",
+        "coverage_note": "The page lists only the ten lists that won seats, with votes, the percentage of voters who voted and seats. Lists without seats, voters on the electoral roll, and valid and invalid ballots are not printed, so no vote share over valid ballots and no turnout can be computed.",
+        "lists": [
+          {
+            "row": 1,
+            "title_sha256": "19f5db72d79466dcbcb5465a76e10c607fce900df0fe9d14d3299e72c9ecf947",
+            "votes": 1783701,
+            "printed_percent_of_voters_who_voted": "46,75",
+            "seats": 129
+          },
+          {
+            "row": 2,
+            "title_sha256": "8ef3625acbf413b0f295098c563e48b1d9b020026fb3823a30cdf6457fe98c01",
+            "votes": 902450,
+            "printed_percent_of_voters_who_voted": "23,65",
+            "seats": 65
+          },
+          {
+            "row": 3,
+            "title_sha256": "22513bfc214cc579c6330cc208410a8128cc65a197d14a722aaf9decb819fe88",
+            "votes": 249916,
+            "printed_percent_of_voters_who_voted": "6,55",
+            "seats": 18
+          },
+          {
+            "row": 4,
+            "title_sha256": "d7315264d0d2f3434eac6508ca570718ae2a08a7b36b880e8c4437d9d3dc9652",
+            "votes": 191431,
+            "printed_percent_of_voters_who_voted": "5,01",
+            "seats": 13
+          },
+          {
+            "row": 5,
+            "title_sha256": "6b37fe619431378971637e33fb80c5d764700e26c9a4291eb176c5896d9a935b",
+            "votes": 178830,
+            "printed_percent_of_voters_who_voted": "4,68",
+            "seats": 13
+          },
+          {
+            "row": 6,
+            "title_sha256": "a8490fc637ee1cbc368a9ac25197f18446d623d29fef8b8279fa1826c89c36bd",
+            "votes": 64747,
+            "printed_percent_of_voters_who_voted": "1,69",
+            "seats": 6
+          },
+          {
+            "row": 7,
+            "title_sha256": "8195c2dcd612bca56916f29dd2db8e491043e1ef3839865d7cc0310574a62576",
+            "votes": 29066,
+            "printed_percent_of_voters_who_voted": "0,76",
+            "seats": 2
+          },
+          {
+            "row": 8,
+            "title_sha256": "d21160ea4842bd13724a18389441d5ca34e6c19eadd6f2f7ddc50b1c14b8c994",
+            "votes": 21827,
+            "printed_percent_of_voters_who_voted": "0,57",
+            "seats": 2
+          },
+          {
+            "row": 9,
+            "title_sha256": "b133e98346f95c0ab3ef7f53ec8082221caaa6f78dc60aef0f39ffb7f99b8cb5",
+            "votes": 13501,
+            "printed_percent_of_voters_who_voted": "0,35",
+            "seats": 1
+          },
+          {
+            "row": 10,
+            "title_sha256": "b35ccbfd49a4b80f2010a7faa7210c4972884a13a5d4420aaf6d83c4fe7b6c9b",
+            "votes": 11369,
+            "printed_percent_of_voters_who_voted": "0,29",
+            "seats": 1
+          }
+        ],
+        "role": "Earlier evidence (admission serbia-nsk-2023, live 2026-11-15): the National Assembly page reproducing the result, seat-winning lists only. Superseded as the source of the published figures by the RIK report; kept as a historical evidence reference and cross-checked against it. Its percentages are of voters who voted, not vote shares over valid ballots; its row numbers and title hashes are of that page (Cyrillic script) and differ from the RIK notice."
       }
     },
     "2026": {
@@ -507,7 +840,8 @@
       "Art. 129": "Мандати се расподељују тако што се укупан број гласова који је добила изборна листа која учествује у расподели мандата подели сваким бројем од један до 250. …",
       "Art. 140": "Изборна листа националне мањине учествује у расподели мандата и онда када добије мање од 3% гласова од броја бирача који су гласали. Када се расподељују мандати применом система највећег количника, количници изборних листа националних мањина које су освојиле мање од 3% гласова увећавају се за 35%."
     },
-    "note_2020": "The 2020 report cites the Law on the Election of Members of Parliament as amended up to 12/20 and 68/20; that historical version was not read. The 2020 seats are reconciled to 250 and reproduce under the same 3% / highest-quotient / 35% minority rule (consistency check only; the statute text for 2020 is not quoted)."
+    "note_2020": "The 2020 report cites the Law on the Election of Members of Parliament as amended up to 12/20 and 68/20; that historical version was not read. The 2020 seats are reconciled to 250 and reproduce under the same 3% / highest-quotient / 35% minority rule (consistency check only; the statute text for 2020 is not quoted).",
+    "note_2022_2023": "The 2022 and 2023 elections were held under the Law on the Election of Members of Parliament (14/2022) before the 2026 amendment (47/2026); that earlier text was not read separately. The seats of both elections reproduce under the quoted 3% / highest-quotient / 35% minority rule (consistency check only)."
   },
   "minority_status_note": "Which lists had national-minority status is decided by RIK and is not printed in the reports read; it is not stored. The seat recomputation is a consistency check that treats the below-threshold lists holding seats as national-minority lists."
 }

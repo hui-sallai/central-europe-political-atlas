@@ -3394,6 +3394,45 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-15"
+    },
+    {
+      "amendment_id": "serbia-politics-2022-2023-rik-2026-11-15",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-15 \"Complete Serbian 2022 Parliamentary Election Admission and Upgrade the 2023 Election to Full Official Results\": page texts, the admission reason, the CSV label and the cross-country link name 2020, 2022, 2023 and 2026; no redesign",
+      "baseline": "314dc64f84bc9239ece1da2e6b2da9a225a12500",
+      "files": [
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "55a996738c49ff71f9290e62f4980f4576fcc12e06382df18d701556c1403811",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "96f608c9ecb7e82cbb9913589617f920c6c5ffff363a9673949f5697e02d15ca",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "a0e372af576761ddebbc773d052571bf17b9072cd9dea60f9ae029792536dfc3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/serbia/page.tsx",
+          "sha256": "a3dd285a7bb513663d2829f921e257063fff63f6ff63d747f5c12a77d36a9c29",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/serbia/page.tsx",
+          "sha256": "fa30a05e02bcefe3c026446d8f6c34782f1a11e201e91eb6cd0899f4da8e3371",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-15"
     }
   ]
 }
