@@ -248,17 +248,22 @@ Event-window models and the political-economic context panel still read only the
 - **Local rebuild:** `research-data-v2.0.zip` built with 486 entries.
   - The ZIP does not carry the descriptive layers (unchanged policy). The reference layer is published as JSON.
   - The local hash `ca8ab830…ed8d` differs from production only because the build embeds source-commit metadata.
-- **After deployment:** the new production package hash is recorded in §M.
+- **After deployment:** the production package was downloaded again and hashed locally: `d42f37e54021b289a17678931ec1c0dc94ad60e55f352fc648393a73a6d68e53`, equal to the value in `deployment_provenance.json` and the release-validation checksum.
 
 ## M. Commits
 
-- `d9332a7`: data, scripts, governance and tests.
-- This report: the following docs commit.
-- **Deployment:** pending the owner's push approval ("推送上线").
+- `d9332a74d4aa14fa4057bad9e38453b69e7eb621`: data, scripts, governance and tests.
+- `72794e72a8e0a3a2e2bfa5622bbd2513b7f81f48`: this report. **LIVE** (owner approval "推送上线"; pushed `8544b82..72794e7` to `main`).
 
 ## N. GitHub Actions
 
-Pending deployment.
+Run `43741977904` ("Deploy GitHub Pages"): build success, deploy success.
+
+Live checks:
+- `deployment_provenance.json` shows source commit `72794e7` and run `43741977904`.
+- `/research-data/annual_single_vintage_reference.json` hashes to `296f2a11…68b3`, byte-identical to the committed store.
+- Production acceptance tests pass (6/6).
+- Open alerts: 1 Dependabot (minimatch, inherited), 0 code scanning, 0 secret scanning.
 
 ## O. Outstanding inherited issues
 
