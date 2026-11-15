@@ -309,6 +309,18 @@ export function buildContract(matrix) {
   };
 }
 
+const MAIN_STORES = new Set(["annual", "monthly", "serbia_sors_annual", "serbia_sors_monthly", "serbia_mfin"]);
+function rollup(rows, keyOf) {
+  const out = {};
+  for (const r of rows) {
+    const k = keyOf(r), o = (out[k] ??= { contracts: 0, expected: 0, recorded: 0, gaps: blank(), complete_against_official_span: 0 });
+    o.contracts++; o.expected += r.expected_observations ?? 0; o.recorded += r.recorded_observations ?? 0;
+    for (const c of Object.keys(CATEGORY)) o.gaps[c] += r.gaps[c] ?? 0;
+    if (r.primary_category === "complete_against_official_span") o.complete_against_official_span++;
+  }
+  for (const o of Object.values(out)) { o.coverage_percentage = pct(o.recorded, o.expected); o.admissible_coverage_percentage = pct(o.recorded, o.expected - o.gaps.C - o.gaps.D - o.gaps.G); }
+  return Object.fromEntries(Object.entries(out).sort(([a], [b]) => a.localeCompare(b)));
+}
 export function buildAll() {
   const matrix = buildMatrix();
   const reference = read("src/data/historical/annual_single_vintage_reference.json");
@@ -324,6 +336,10 @@ export function buildAll() {
       held_A_periods: matrix.flatMap((r) => r.gap_spans).filter((g) => g.category === "A" && /vintage splice/.test(g.reason)).reduce((n, g) => n + g.periods, 0),
       held_A_periods_published_in_reference: matrix.flatMap((r) => r.gap_spans).filter((g) => g.category === "A" && /vintage splice/.test(g.reason)).reduce((n, g) => n + (g.published_in_single_vintage_reference ?? 0), 0),
       other_A_periods_published_in_reference: matrix.flatMap((r) => r.gap_spans).filter((g) => g.category === "A" && !/vintage splice/.test(g.reason)).reduce((n, g) => n + (g.published_in_single_vintage_reference ?? 0), 0) },
+    // Country- and indicator-level summaries of the descriptive and canonical national series (layers kept apart:
+    // the reference layer, Comtrade and the panel frame are summarised separately).
+    by_country: rollup(national.filter((r) => MAIN_STORES.has(r.store)), (r) => r.country_id),
+    by_indicator: rollup(national.filter((r) => MAIN_STORES.has(r.store)), (r) => `${r.store}|${r.frequency}|${r.indicator_id}`),
     contracts_with_unclassified_gaps: matrix.filter((r) => r.unclassified_missing_observations).map((r) => r.key),
     full_historical_coverage: false,
     full_historical_coverage_reason: "Category A periods remain in the spliced series (vintage holds, now published separately in the single-vintage reference layer; frozen canonical years; refresh-path months), UN Comtrade pre-2015 availability is not established (B/E), and earlier Serbian national years are not checked (B).",

@@ -1,0 +1,99 @@
+{
+ "schema_version": "data-issue-register-v1",
+ "updated_on": "2026-11-16",
+ "persistent": true,
+ "rule": "One entry per open data, source or integration issue. Entries are closed only with evidence (commit, run, file); never deleted. Gap-level detail lives in historical_gap_backlog.json; this register holds the issues and decisions behind those gaps.",
+ "issues": [
+  {
+   "id": "DATA-2026-11-16-01",
+   "title": "Annual-history refresh would remove 403 published observations",
+   "status": "open_owner_decision",
+   "severity": "high",
+   "evidence": ".tmp-data-refresh/annual-refresh-20261116 (plan, not applied; summary in docs/v20-single-vintage-audit-2026-11-16.md §G)",
+   "detail": "A live re-download of the Eurostat annual tables (releases 2026-11-11/13) revises 234 history observations (27 beyond the registered tolerance) and removes 403 observations in 16 series whose splice check against the frozen canonical years now fails (manufacturing share AT/HR/HU/PL/RO/SK, real GDP growth AT/HR/RO/SK, imports, trade balance and trade openness AT/HR); 8 series have revisions beyond tolerance (compensation per employee HR/RO, labour productivity HR/HU/RO/SK, trade balance and openness SK). Applying it would shrink published coverage.",
+   "options": ["keep the archived 2026-11-09 vintage in the annual history (current state)", "deliberate canonical refresh in a release with model-impact review, after which the splice check passes again", "owner rule change: a later vintage never de-admits already published history (admission frozen per vintage)"],
+   "decision_owner": "owner"
+  },
+  {
+   "id": "DATA-2026-11-16-02",
+   "title": "Single-vintage reference carries the 2026-11-09 retrieval metadata",
+   "status": "documented_no_value_change",
+   "severity": "info",
+   "evidence": "a stage rebuild from the 2026-11-15 retrieval (releases 2026-11-11 / 2026-10-28) changes 0 of 882 values; only retrieved_at/dataset_updated_at would change",
+   "detail": "The published values equal the latest Eurostat release. Rebuilding only to refresh metadata is not worth a data run; the layer is rebuilt with the next applied annual refresh (the annual mode includes the single-vintage-reference unit).",
+   "decision_owner": null
+  },
+  {
+   "id": "DATA-2026-11-16-03",
+   "title": "single-vintage-reference unit failed in live data-refresh mode",
+   "status": "fixed_in_working_tree",
+   "severity": "medium",
+   "evidence": "scripts/historical-annual/build-single-vintage-reference.mjs (the builder no longer requires --offline; it never fetches); found by the live annual plan annual-refresh-20261116",
+   "detail": "The unit appends --offline only in offline runs, and the builder refused to run without it, so every live annual plan stopped on 'acquisition failed'.",
+   "decision_owner": null
+  },
+  {
+   "id": "DATA-2026-11-16-04",
+   "title": "Vintage-held canonical years (301 periods) stay held in the spliced series",
+   "status": "open_by_owner_decision_2026-11-11",
+   "severity": "medium",
+   "evidence": "docs/data-coverage/historical_gap_backlog.json (category A, 'vintage splice'); published separately in src/data/historical/annual_single_vintage_reference.json",
+   "detail": "Resolved for research use by the unspliced reference layer; the main series converge only through a canonical refresh.",
+   "decision_owner": "owner"
+  },
+  {
+   "id": "DATA-2026-11-16-05",
+   "title": "High-frequency months after the frozen 2015+ store (146 periods)",
+   "status": "scheduled",
+   "severity": "medium",
+   "evidence": "Eurostat prc_hicp_minr updated 2026-11-04 with flag 'e' for 2026-10 (AT, DE, HR, SK); task eurostat-oct-hicp-replan 2026-11-19; macro-driver unit blocked (owner decision 2026-09-30)",
+   "detail": "HICP/industrial production/unemployment/yields via the HF re-plan after the full October HICP release; BIS rates and FX need a deliberate macro-driver release.",
+   "decision_owner": "owner (apply)"
+  },
+  {
+   "id": "DATA-2026-11-16-06",
+   "title": "Canonical 2025 years for energy HICP and electricity prices (30 periods)",
+   "status": "open_needs_release",
+   "severity": "low",
+   "evidence": "historical_gap_backlog.json category A 'after the last canonical year'",
+   "detail": "observations.json is a frozen formal-model input; a deliberate canonical refresh is required.",
+   "decision_owner": "owner"
+  },
+  {
+   "id": "DATA-2026-11-16-07",
+   "title": "Unchecked source families (category B)",
+   "status": "open_needs_host_registration",
+   "severity": "low",
+   "evidence": "docs/data-coverage/source_verification_2026-11-16.json unchecked_source_families",
+   "detail": "National statistical offices (no host registered), IMF (no host), OECD (licence review due), UN Comtrade before 2015 (not pursued 2026-11-11), Serbian national years before the Ministry of Finance bulletin. Any use must stay a separate national-definition series.",
+   "decision_owner": "owner"
+  },
+  {
+   "id": "DATA-2026-11-16-08",
+   "title": "Reference-layer field 'vintage' is a retrieval timestamp, not a statistical release vintage",
+   "status": "documented",
+   "severity": "low",
+   "evidence": "docs/v20-single-vintage-audit-2026-11-16.md §D; Codex specification §P",
+   "detail": "The layer is concept 2 (latest revised values available at one retrieval per table), not concept 3 (point-in-time real-time vintages). Labels must say 'retrieved', and the layer must never be used as evidence of what was known at past publication dates. A vintage_definition header field is proposed for the next rebuild.",
+   "decision_owner": null
+  },
+  {
+   "id": "UI-INHERITED-01",
+   "title": "Inherited frontend backlog (Codex-owned, not verified here)",
+   "status": "open_codex",
+   "severity": "medium",
+   "evidence": "owner brief 2026-11-16 §12",
+   "detail": "Indicator search and category classification; arbitrary 2–10 country comparisons; vote-share versus seat-share presentation; map-first homepage quality; simplified research UI and natural language; Serbia election deep-link verification; production browser regression checks; Data Explorer integration of the single-vintage reference layer.",
+   "decision_owner": "Codex (verification) / owner"
+  },
+  {
+   "id": "INHERITED-02",
+   "title": "Dependabot alert (minimatch via typescript-estree)",
+   "status": "waiting_upstream",
+   "severity": "low",
+   "evidence": "gh api dependabot alerts: 1 open (2026-11-16)",
+   "detail": "Owner decision: wait for the upstream release; no override or dismissal.",
+   "decision_owner": "owner"
+  }
+ ]
+}

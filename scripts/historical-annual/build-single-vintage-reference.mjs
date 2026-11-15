@@ -6,7 +6,7 @@
 // and the hold stays in force. Each record states the admitted value of the same year (if any) and the difference, so
 // vintage revisions are visible instead of hidden. Not a model input.
 // Floors follow Phase R exactly: max(first official year, territorial floor, last 'b' flag year, year after last 'd').
-// Usage: node scripts/historical-annual/build-single-vintage-reference.mjs --offline   (write store + public copy)
+// Usage: node scripts/historical-annual/build-single-vintage-reference.mjs [--offline]  (write store + public copy; always offline)
 //        node scripts/historical-annual/build-single-vintage-reference.mjs --check     (fail if outputs would change)
 import crypto from "node:crypto";
 import fs from "node:fs";
@@ -112,7 +112,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     const stale = [STORE_PATH, PUBLIC_PATH].filter((p) => !fs.existsSync(path.join(root, p)) || fs.readFileSync(path.join(root, p), "utf8") !== text);
     if (stale.length) { console.error(`single-vintage reference is stale or not reproducible: ${stale.join(", ")}`); process.exit(1); }
   } else {
-    if (!process.argv.includes("--offline")) { console.error("single-vintage reference has no network acquisition; run with --offline"); process.exit(1); }
+    // Never fetches: it always reads the archived extracts (also when a live data-refresh run calls it without --offline,
+    // after annual-history has archived a newer retrieval in the same stage).
     for (const p of [STORE_PATH, PUBLIC_PATH]) fs.writeFileSync(path.join(root, p), text);
   }
   const doc = JSON.parse(text);
