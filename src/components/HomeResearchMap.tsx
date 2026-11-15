@@ -19,6 +19,8 @@ export type HomeMapCountry = {
   nameZh: string;
   nameEn: string;
   iso2: string;
+  capital?: string;
+  currency?: string;
   indicators: Array<{ id: string; label: string; value: string; year: string }>;
   latestEvent: { id: string; date: string; title: string; titleLanguage?: string; originalLanguageLabel?: string } | null;
 };
@@ -141,9 +143,10 @@ export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: Ho
           <p className="mt-2 text-[11px] leading-5 text-[var(--muted)]" data-source-attribution="geoboundaries">{m.boundaryAttribution} <a className="underline" href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/geo/BOUNDARY-LICENSES.txt`}>{m.boundaryLicences}</a></p>
         </div>
         <aside className="home-country-panel">
-          <p className="editorial-kicker">Selected Country</p>
+          <p className="editorial-kicker">{en?"Selected country":"所选国家"}</p>
           <h3 aria-live="polite">{en ? selected.nameEn : selected.nameZh}</h3>
           {!en && <p className="home-country-en">{selected.nameEn}</p>}
+          {selected.capital && <p>{en?selected.capital.split(" / ").at(-1):selected.capital.split(" / ")[0]} · {selected.currency}</p>}
           <div className="home-map-actions"><Link href={localizedRoute(`/countries/${selected.slug}/`, locale)}>{m.profile}</Link><Link href={localizedRoute(`/data/?country=${selected.slug}`, locale)}>{en ? "National economic data" : "国家经济数据"}</Link><Link href={localizedRoute(`/politics/${admittedCountrySlugs.includes(selected.slug) ? `${selected.slug}/` : ""}`, locale)}>{en ? "Politics and elections" : "政治制度与选举"}</Link><Link href={localizedRoute(`/models/?country=${selected.slug}`, locale)}>{en ? "Research and models" : "研究与模型"}</Link><Link href={localizedRoute(`/map/?country=${selected.slug}`, locale)}>{m.fullMap}</Link></div>
         </aside>
       </div>

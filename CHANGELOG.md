@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 country research hubs — 2026-11-16
+
+- Connect ten bilingual profiles to selected economic comparisons, admitted election dates, regional workspaces, documentary cases and evidence exports. Preserve each observation’s reference year and source.
+
 ### v2.0 map and historical research navigation — 2026-11-16
 
 - Label the ten-country map, link admitted national elections from country profiles, and show recorded seats as shares of the full chamber.

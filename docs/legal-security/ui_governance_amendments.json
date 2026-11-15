@@ -3550,6 +3550,60 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-16"
+    },
+    {
+      "amendment_id": "country-research-hubs-2026-11-16",
+      "status": "owner_approved",
+      "approved_by": "Owner requested country research hubs, bilingual cross-module navigation, and deployment of the completed changes. Hashes identify the presentation files in that scope.",
+      "baseline": "fc0b82a1efd4c2f10af29e538bdd6294351a91d1",
+      "files": [
+        {
+          "path": "src/app/(english)/en/countries/[slug]/page.tsx",
+          "sha256": "e08171ba202de187dfeb7d0bf5a7dbba9858fc82c70c3ea36b7b7c0bdcce4031",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/page.tsx",
+          "sha256": "88e0ea87889de2624c7d3fac912bd6b25d422cf8bfad66a0126b60f68e4d3f23",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/countries/[slug]/page.tsx",
+          "sha256": "796d3aa830a9bc728de6eefce7d9d8f360c6ce64afce532f4625759e2c8bfcf6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/page.tsx",
+          "sha256": "e5113a3608bce285e09c61459484aa8468929fd8ea0a2b35568fc7817ef4d579",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ComparativeSpatialWorkbench.tsx",
+          "sha256": "30640ef4470060a924199553ebcd9ff3d8bd674f12cb47d85a27c3189eb4182f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryResearchProfile.tsx",
+          "sha256": "2371c0a885c42d1ff66b2d36df7985a02e6fb62a8c9372f05cd696789d9510b0",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/HomeResearchMap.tsx",
+          "sha256": "6f73f8d7ad53749c5658ce74ea72ae5870077d640844b8d7be7dbecdaa7378eb",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryElectionHistory.tsx",
+          "sha256": "7f05076945a8160ea5fc54f8feb15bea30c63050d711f0725a931840450e956a",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-16"
     }
   ]
 }
