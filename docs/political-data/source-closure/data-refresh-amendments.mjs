@@ -4,7 +4,8 @@
 // descriptive stores only, verified by the store validators, coverage re-audit and recovery inventory); 2026-11-10:
 // ledger correction of that run and regenerated recovery inventory (run ledger-correction-20261110); SORS rights
 // registry update and inventory regeneration (run rights-update-20261111); 2026-11-14: Serbia SORS refresh
-// (run serbia-20261114); 2026-11-15: first ingestion of the Serbian Ministry of Finance bulletin (run serbia-mfin-20261115).
+// (run serbia-20261114); 2026-11-15: first ingestion of the Serbian Ministry of Finance bulletin (run serbia-mfin-20261115);
+// 2026-11-16: single-vintage Eurostat reference layer for the vintage-held indicators (run single-vintage-reference-20261116).
 // Later runs supersede shared files (coverage audit, ledger). No general data exemption:
 // only the listed files of each run, at their exact hashes, and only for runs recorded in the refresh ledger.
 export const DATA_REFRESH_FILE = 'docs/legal-security/data_refresh_amendments.json';
@@ -246,11 +247,27 @@ export const DATA_REFRESH_RUNS = {
       'src/data/serbia/serbia_public_finance_mfin.json',
     ],
   },
+  'single-vintage-reference-20261116': {
+    approved_on: '2026-11-16', unit: 'single-vintage-reference',
+    // Owner decision 2026-11-16 (historical coverage iteration, "Single-vintage layer"): current account, real GDP growth,
+    // GDP per capita EUR and FDI inflows for all countries as an unspliced single-vintage reference layer, built offline from
+    // the archived Phase R Eurostat extracts. Creates two new files, each listed exactly in NEW_PATH_SCOPE; the vintage hold
+    // of 2026-11-11 on the spliced series stays in force.
+    allow_new_paths: true,
+    verification: 'single-vintage-reference: data-refresh:apply store validators, offline rebuild check (--check) against the hash-checked archived extracts',
+    paths: [
+      'public/research-data/annual_single_vintage_reference.json',
+      'src/data/data-refresh/refresh_ledger.jsonl',
+      'src/data/historical/annual_single_vintage_reference.json',
+    ],
+  },
 };
 // A run may add new files only if it declares allow_new_paths, and only within these descriptive locations., and only within these descriptive locations.
 export const NEW_PATH_SCOPE = [/^src\/data\/historical\/raw\/(annual|monthly|regional)\/full\/[^/*?[\]{}]+\.(json|csv)$/, /^src\/data\/data-coverage\/historical_recovery_inventory\.json$/, /^public\/research-data\/historical_recovery_inventory\.json$/,
   // serbia-mfin-20261115 (owner decision D, 2026-11-15): exactly the Ministry of Finance store, its raw transcription and its export.
-  /^src\/data\/serbia\/serbia_public_finance_mfin\.json$/, /^src\/data\/serbia\/raw\/mfin_bilten_2026_08_table1\.extract\.json$/, /^public\/research-data\/serbia\/serbia_public_finance_mfin\.json$/];
+  /^src\/data\/serbia\/serbia_public_finance_mfin\.json$/, /^src\/data\/serbia\/raw\/mfin_bilten_2026_08_table1\.extract\.json$/, /^public\/research-data\/serbia\/serbia_public_finance_mfin\.json$/,
+  // single-vintage-reference-20261116 (owner decision 2026-11-16): exactly the reference store and its public copy.
+  /^src\/data\/historical\/annual_single_vintage_reference\.json$/, /^public\/research-data\/annual_single_vintage_reference\.json$/];
 export const newPathAllowed = (runId, file) => Boolean(DATA_REFRESH_RUNS[runId]?.allow_new_paths) && NEW_PATH_SCOPE.some((re) => re.test(file));
 const flags = ['formal_model_input_change_allowed', 'frozen_snapshot_change_allowed', 'political_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 export function approvedDataRefreshFiles(records) {

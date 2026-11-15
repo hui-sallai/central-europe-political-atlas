@@ -180,8 +180,9 @@ if (reaudit) console.log(`Coverage audit regenerated (formal input series ${reau
 // Validators on the real tree (they passed in the stage; this confirms the applied state).
 let failed = 0;
 for (const command of STAGE_VALIDATORS) {
-  const [, ...rest] = command.split(" ");
-  const result = spawnSync("pnpm", ["-s", ...rest], { cwd: root, encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+  // Same runner as plan.mjs: pnpm scripts run as `pnpm -s <script>`, other commands (e.g. `node … --check`) as given.
+  const [bin, ...rest] = command.split(" ");
+  const result = spawnSync(bin === "pnpm" ? "pnpm" : bin, bin === "pnpm" ? ["-s", ...rest] : rest, { cwd: root, encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
   if (result.status !== 0) failed += 1;
   console.log(`${result.status === 0 ? "pass" : "FAIL"}  ${command}`);
 }

@@ -26,9 +26,15 @@ test('the approved runs pin exactly their files at their current hashes and matc
   }
   assert.equal(ledger.find((e) => e.run_id === 'ledger-correction-20261110').corrects.run_id, 'historical-recovery-20261110');
   assert.equal(ledger.find((e) => e.run_id === 'serbia-20261114').inventory_regeneration.status, 'regenerated');
-  // 2026-11-15: first Ministry of Finance ingestion (owner decision D) is the latest run; it creates exactly its three files.
-  assert.equal(ledger.at(-1).run_id, 'serbia-mfin-20261115');
-  assert.deepEqual(ledger.at(-1).units.map((u) => u.unit), ['serbia-mfin']);
+  // 2026-11-15: first Ministry of Finance ingestion (owner decision D); it creates exactly its three files.
+  assert.deepEqual(ledger.find((e) => e.run_id === 'serbia-mfin-20261115').units.map((u) => u.unit), ['serbia-mfin']);
+  // 2026-11-16: the single-vintage reference layer (owner decision "Single-vintage layer") is the latest run; it creates
+  // exactly its store and public copy, records 882 new observations and changes no existing store.
+  assert.equal(ledger.at(-1).run_id, 'single-vintage-reference-20261116');
+  assert.deepEqual(ledger.at(-1).units.map((u) => u.unit), ['single-vintage-reference']);
+  assert.deepEqual(ledger.at(-1).units[0].files.map((f) => [f.file, f.change]), [['src/data/historical/annual_single_vintage_reference.json', 'added'], ['public/research-data/annual_single_vintage_reference.json', 'added']]);
+  assert.equal(ledger.at(-1).units[0].new_periods.reduce((n, s) => n + s.periods.length, 0), 882);
+  assert.deepEqual(DATA_REFRESH_RUNS['single-vintage-reference-20261116'].paths.filter((p) => newPathAllowed('single-vintage-reference-20261116', p)), ['public/research-data/annual_single_vintage_reference.json', 'src/data/historical/annual_single_vintage_reference.json']);
   assert.deepEqual(DATA_REFRESH_RUNS['serbia-mfin-20261115'].paths.filter((p) => newPathAllowed('serbia-mfin-20261115', p)), ['public/research-data/serbia/serbia_public_finance_mfin.json', 'src/data/serbia/raw/mfin_bilten_2026_08_table1.extract.json', 'src/data/serbia/serbia_public_finance_mfin.json']);
   const rightsEntry = ledger.find((e) => e.run_id === 'rights-update-20261111');
   assert.equal(rightsEntry.rights_update.source_id, 'src-sors');

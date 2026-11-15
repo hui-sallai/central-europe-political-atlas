@@ -1,0 +1,4691 @@
+{
+ "schema_version": "indicator-comparability-contract-v1",
+ "generated_on": "2026-11-16",
+ "rules": [
+  "Missing periods are absent; null is never zero, and no value is interpolated.",
+  "A comparison uses only periods admitted for every compared country under the same definition, unit, frequency and territorial scope (all_country_common_periods / pairwise in the recovery inventory).",
+  "A series is never extended across an official break ('b') or definition ('d') flag; break_flags list the official flags and definition_compatible_floor the first admitted period.",
+  "Different sources (Eurostat vs SORS vs Serbian MinFin) are separate layers, never merged into one series.",
+  "Descriptive layers (annual_history, monthly_history, serbia_*) are not model inputs; observations.json, the frozen high-frequency snapshot and the macro-driver store remain the only model inputs."
+ ],
+ "indicators": [
+  {
+   "indicator_id": "automotive_export_share",
+   "frequency": "annual",
+   "unit": "%",
+   "definition": [
+    "Exports by enterprises in NACE C29 (motor vehicles) / exports of all NACE activities × 100 (Eurostat ext_tec09)"
+   ],
+   "source": [
+    "Eurostat ext_tec09"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 3,
+    "ranges": [
+     "2020–2021",
+     "2023"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2014–2024",
+     "recorded": 11,
+     "break_flags": [],
+     "definition_compatible_floor": 2014,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2020–2023",
+     "recorded": 3,
+     "break_flags": [],
+     "definition_compatible_floor": 2020,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "C"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2012–2024",
+     "recorded": 13,
+     "break_flags": [],
+     "definition_compatible_floor": 2012,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "2013–2024",
+     "recorded": 12,
+     "break_flags": [],
+     "definition_compatible_floor": 2013,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2020–2024",
+     "recorded": 5,
+     "break_flags": [],
+     "definition_compatible_floor": 2020,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "2014–2024",
+     "recorded": 11,
+     "break_flags": [],
+     "definition_compatible_floor": 2014,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "2014–2024",
+     "recorded": 11,
+     "break_flags": [],
+     "definition_compatible_floor": 2014,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2012–2024",
+     "recorded": 13,
+     "break_flags": [],
+     "definition_compatible_floor": 2012,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2014–2024",
+     "recorded": 8,
+     "break_flags": [],
+     "definition_compatible_floor": 2014,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "C"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2014–2024",
+     "recorded": 11,
+     "break_flags": [],
+     "definition_compatible_floor": 2014,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "compensation_per_employee_eur",
+   "frequency": "annual",
+   "unit": "欧元",
+   "definition": [
+    "Nominal compensation per employee, EUR (ESA 2010); nominal, not deflated"
+   ],
+   "source": [
+    "Eurostat nama_10_lp_ulc"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 7,
+    "ranges": [
+     "2019–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2012–2025",
+     "recorded": 14,
+     "break_flags": [
+      "2012:b"
+     ],
+     "definition_compatible_floor": 2012,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1991–2025",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1991,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "2019–2025",
+     "recorded": 7,
+     "break_flags": [
+      "2003:b",
+      "2010:b",
+      "2019:b"
+     ],
+     "definition_compatible_floor": 2019,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "romania",
+     "available": "2007–2025",
+     "recorded": 19,
+     "break_flags": [
+      "1995:d",
+      "1996:d",
+      "1997:d",
+      "1998:d",
+      "1999:d",
+      "2000:d",
+      "2001:d",
+      "2002:d",
+      "2003:d",
+      "2004:b",
+      "2005:d",
+      "2006:d"
+     ],
+     "definition_compatible_floor": 2007,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1999–2025",
+     "recorded": 27,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "current_account_gdp",
+   "frequency": "annual",
+   "unit": "% GDP",
+   "definition": [
+    "Current account balance, % of GDP (BPM6, Eurostat MIP scoreboard table tipsbp20)"
+   ],
+   "source": [
+    "Eurostat tipsbp20"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "concept": "Current account balance, % of GDP (BPM6; Eurostat MIP scoreboard tipsbp20, partner rest of the world)",
+   "price_basis": "current prices ratio",
+   "seasonal_adjustment": "not applicable",
+   "reference_period": "calendar year",
+   "restriction": "Serbian BPM6 figures compiled by the NBS (MinFin bulletin) are kept separate from the Eurostat table",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 5,
+    "ranges": [
+     "2021–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [],
+     "definition_compatible_floor": 2000,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "poland",
+     "available": "2004–2025",
+     "recorded": 22,
+     "break_flags": [],
+     "definition_compatible_floor": 2004,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "serbia",
+     "available": null,
+     "recorded": 0,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "harmonised series unavailable; the national-definition series is shown separately and never compared as ESA/EDP",
+     "primary_category": "C"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [],
+     "definition_compatible_floor": 2004,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    }
+   ]
+  },
+  {
+   "indicator_id": "energy_import_dependency",
+   "frequency": "annual",
+   "unit": "%",
+   "definition": [
+    "Energy import dependency, all products, % (Eurostat nrg_ind_id, current energy-balance methodology for the whole series)"
+   ],
+   "source": [
+    "Eurostat nrg_ind_id"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 26,
+    "ranges": [
+     "1999–2024"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1990–2024",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1990,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1990–2024",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1990,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1990–2024",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1990,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1991–2024",
+     "recorded": 34,
+     "break_flags": [],
+     "definition_compatible_floor": 1991,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1990–2024",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1990,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1990–2024",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1990,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1990–2024",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1990,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1999–2024",
+     "recorded": 26,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1990–2024",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1990,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1990–2024",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1990,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "energy_inflation",
+   "frequency": "annual",
+   "unit": "%",
+   "definition": [
+    "HICP CP045 electricity, gas and other fuels, annual average rate of change (Eurostat prc_hicp_aind)"
+   ],
+   "source": [
+    "Eurostat prc_hicp_aind"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "concept": "HICP CP045 electricity, gas and other fuels, annual average rate of change (%)",
+   "price_basis": "consumer prices",
+   "seasonal_adjustment": "not applicable",
+   "reference_period": "calendar-year average",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 2,
+    "ranges": [
+     "2023–2024"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1996–2024",
+     "recorded": 29,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1999–2024",
+     "recorded": 26,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2001–2024",
+     "recorded": 24,
+     "break_flags": [],
+     "definition_compatible_floor": 2001,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "germany",
+     "available": "1996–2024",
+     "recorded": 29,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2002–2024",
+     "recorded": 23,
+     "break_flags": [],
+     "definition_compatible_floor": 2002,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "poland",
+     "available": "2000–2024",
+     "recorded": 25,
+     "break_flags": [
+      "1997:d",
+      "1998:d",
+      "1999:d"
+     ],
+     "definition_compatible_floor": 2000,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "romania",
+     "available": "2002–2024",
+     "recorded": 23,
+     "break_flags": [],
+     "definition_compatible_floor": 2002,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2023–2024",
+     "recorded": 2,
+     "break_flags": [
+      "2007:d",
+      "2008:d",
+      "2009:d",
+      "2010:d",
+      "2011:d",
+      "2012:d",
+      "2013:d",
+      "2014:d",
+      "2015:d",
+      "2016:d",
+      "2017:d",
+      "2018:d",
+      "2019:d",
+      "2020:d",
+      "2021:d",
+      "2022:d",
+      "2023:d",
+      "2024:d",
+      "2025:d"
+     ],
+     "definition_compatible_floor": 2026,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1997–2024",
+     "recorded": 28,
+     "break_flags": [],
+     "definition_compatible_floor": 1997,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2001–2024",
+     "recorded": 24,
+     "break_flags": [],
+     "definition_compatible_floor": 2001,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    }
+   ]
+  },
+  {
+   "indicator_id": "exports_goods_services",
+   "frequency": "annual",
+   "unit": "百万欧元",
+   "definition": [
+    "Exports of goods and services, current prices, million EUR (ESA 2010)"
+   ],
+   "source": [
+    "Eurostat nama_10_gdp"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 27,
+    "ranges": [
+     "1999–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1991–2025",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1991,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1999–2025",
+     "recorded": 27,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "fdi_inflow",
+   "frequency": "annual",
+   "unit": "百万欧元",
+   "definition": [
+    "Direct investment liabilities, net incurrence, million EUR (BPM6/BMD4, Eurostat bop_fdi6_flow)"
+   ],
+   "source": [
+    "Eurostat bop_fdi6_flow"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 1,
+    "ranges": [
+     "2022"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2022–2024",
+     "recorded": 3,
+     "break_flags": [],
+     "definition_compatible_floor": 2013,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2021–2024",
+     "recorded": 4,
+     "break_flags": [],
+     "definition_compatible_floor": 2013,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2021–2024",
+     "recorded": 3,
+     "break_flags": [],
+     "definition_compatible_floor": 2013,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "germany",
+     "available": "2021–2024",
+     "recorded": 4,
+     "break_flags": [],
+     "definition_compatible_floor": 2013,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2021–2024",
+     "recorded": 4,
+     "break_flags": [],
+     "definition_compatible_floor": 2013,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "poland",
+     "available": "2021–2024",
+     "recorded": 4,
+     "break_flags": [],
+     "definition_compatible_floor": 2013,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "romania",
+     "available": "2015–2023",
+     "recorded": 8,
+     "break_flags": [],
+     "definition_compatible_floor": 2015,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "C"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2013–2024",
+     "recorded": 12,
+     "break_flags": [],
+     "definition_compatible_floor": 2013,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2021–2024",
+     "recorded": 4,
+     "break_flags": [],
+     "definition_compatible_floor": 2013,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2013–2024",
+     "recorded": 12,
+     "break_flags": [],
+     "definition_compatible_floor": 2013,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    }
+   ]
+  },
+  {
+   "indicator_id": "fiscal_balance_gdp",
+   "frequency": "annual",
+   "unit": "% GDP",
+   "definition": [
+    "General government net lending (+) / borrowing (−), % of GDP (EDP)"
+   ],
+   "source": [
+    "Eurostat gov_10dd_edpt1"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "concept": "General government (S13) net lending (+)/net borrowing (−), EDP notification, % of GDP (ESA 2010)",
+   "price_basis": "current prices ratio",
+   "seasonal_adjustment": "not applicable",
+   "reference_period": "calendar year",
+   "restriction": "general government only; central-government or GFS-1986 consolidated balances (Serbia MinFin) are a separate series",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 31,
+    "ranges": [
+     "1995–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": null,
+     "recorded": 0,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "harmonised series unavailable; the national-definition series is shown separately and never compared as ESA/EDP",
+     "primary_category": "C"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "gdp_current_eur",
+   "frequency": "annual",
+   "unit": "百万欧元",
+   "definition": [
+    "GDP at market prices, current prices, million EUR (ESA 2010)"
+   ],
+   "source": [
+    "Eurostat nama_10_gdp / Statistics Austria STATcube",
+    "Eurostat nama_10_gdp / Croatian Bureau of Statistics Database",
+    "Eurostat nama_10_gdp / Czech Statistical Office Public Database",
+    "Eurostat nama_10_gdp / Destatis GENESIS-Online",
+    "Eurostat nama_10_gdp / HCSO STADAT",
+    "Eurostat nama_10_gdp / Statistics Poland Data Portal",
+    "Eurostat nama_10_gdp / INSSE TEMPO Online",
+    "Eurostat nama_10_gdp / Statistical Office of Serbia Data",
+    "Eurostat nama_10_gdp / DATAcube Slovakia",
+    "Eurostat nama_10_gdp / SURS SiStat"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "concept": "GDP at market prices, current prices, million EUR (ESA 2010)",
+   "price_basis": "current prices; cross-country levels move with exchange rates",
+   "seasonal_adjustment": "not applicable (annual)",
+   "reference_period": "calendar year",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 27,
+    "ranges": [
+     "1999–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1991–2025",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1991,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1999–2025",
+     "recorded": 27,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "gdp_per_capita_eur",
+   "frequency": "annual",
+   "unit": "欧元",
+   "definition": [
+    "GDP per capita, current prices, EUR (ESA 2010)"
+   ],
+   "source": [
+    "Eurostat nama_10_pc / Statistics Austria STATcube",
+    "Eurostat nama_10_pc / Croatian Bureau of Statistics Database",
+    "Eurostat nama_10_pc / Czech Statistical Office Public Database",
+    "Eurostat nama_10_pc / Destatis GENESIS-Online",
+    "Eurostat nama_10_pc / HCSO STADAT",
+    "Eurostat nama_10_pc / Statistics Poland Data Portal",
+    "Eurostat nama_10_pc / INSSE TEMPO Online",
+    "Eurostat nama_10_pc / Statistical Office of Serbia Data",
+    "Eurostat nama_10_pc / DATAcube Slovakia",
+    "Eurostat nama_10_pc / SURS SiStat"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "concept": "GDP per capita, current prices, EUR per inhabitant",
+   "price_basis": "current prices",
+   "seasonal_adjustment": "not applicable",
+   "reference_period": "calendar year; population denominator revised after censuses (break flags)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 5,
+    "ranges": [
+     "2021–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2012–2025",
+     "recorded": 14,
+     "break_flags": [
+      "2001:b",
+      "2012:b"
+     ],
+     "definition_compatible_floor": 2012,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "germany",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [],
+     "definition_compatible_floor": 1991,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2012–2025",
+     "recorded": 14,
+     "break_flags": [
+      "2012:b"
+     ],
+     "definition_compatible_floor": 2012,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "poland",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [
+      "2010:b",
+      "2020:b",
+      "2022:b"
+     ],
+     "definition_compatible_floor": 2022,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "romania",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1999–2025",
+     "recorded": 27,
+     "break_flags": [
+      "1999:b"
+     ],
+     "definition_compatible_floor": 1999,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [
+      "2001:b",
+      "2011:b",
+      "2021:b"
+     ],
+     "definition_compatible_floor": 2021,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2008–2025",
+     "recorded": 18,
+     "break_flags": [
+      "2008:b"
+     ],
+     "definition_compatible_floor": 2008,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    }
+   ]
+  },
+  {
+   "indicator_id": "gdp_per_capita_pps",
+   "frequency": "annual",
+   "unit": "PPS（EU27_2020）",
+   "definition": [
+    "GDP per capita, current prices, purchasing power standards (EU27 from 2020) (ESA 2010)"
+   ],
+   "source": [
+    "Eurostat nama_10_pc"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "concept": "GDP per capita in purchasing power standards (EU27_2020)",
+   "price_basis": "PPS (spatial price adjustment)",
+   "seasonal_adjustment": "not applicable",
+   "reference_period": "calendar year",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 4,
+    "ranges": [
+     "2022–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2012–2025",
+     "recorded": 14,
+     "break_flags": [
+      "2001:b",
+      "2012:b"
+     ],
+     "definition_compatible_floor": 2012,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2012–2025",
+     "recorded": 14,
+     "break_flags": [
+      "2012:b"
+     ],
+     "definition_compatible_floor": 2012,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "poland",
+     "available": "2022–2025",
+     "recorded": 4,
+     "break_flags": [
+      "2010:b",
+      "2020:b",
+      "2022:b"
+     ],
+     "definition_compatible_floor": 2022,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "romania",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2000–2025",
+     "recorded": 26,
+     "break_flags": [],
+     "definition_compatible_floor": 2000,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [
+      "2001:b",
+      "2011:b",
+      "2021:b"
+     ],
+     "definition_compatible_floor": 2021,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2008–2025",
+     "recorded": 18,
+     "break_flags": [
+      "2008:b"
+     ],
+     "definition_compatible_floor": 2008,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    }
+   ]
+  },
+  {
+   "indicator_id": "germany_export_dependence",
+   "frequency": "annual",
+   "unit": "% exports",
+   "definition": [],
+   "source": [
+    "UN Comtrade"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 2,
+    "ranges": [
+     "2023–2024"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2023–2024",
+     "recorded": 2,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2023–2024",
+     "recorded": 2,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2023–2024",
+     "recorded": 2,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": null,
+     "recorded": 0,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "not_applicable"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2023–2024",
+     "recorded": 2,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "2023–2024",
+     "recorded": 2,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "2023–2024",
+     "recorded": 2,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2023–2024",
+     "recorded": 2,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2023–2024",
+     "recorded": 2,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2023–2024",
+     "recorded": 2,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "government_debt_gdp",
+   "frequency": "annual",
+   "unit": "% GDP",
+   "definition": [
+    "General government gross debt, % of GDP (EDP)"
+   ],
+   "source": [
+    "Eurostat gov_10dd_edpt1"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "concept": "General government (S13) gross debt, consolidated, nominal value (Maastricht definition), % of GDP",
+   "price_basis": "nominal value ratio",
+   "seasonal_adjustment": "not applicable",
+   "reference_period": "end of year",
+   "restriction": "Maastricht gross debt only; Serbian central-level public debt under national law is a separate series",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 31,
+    "ranges": [
+     "1995–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": null,
+     "recorded": 0,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "harmonised series unavailable; the national-definition series is shown separately and never compared as ESA/EDP",
+     "primary_category": "C"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "government_expenditure_gdp",
+   "frequency": "annual",
+   "unit": "% GDP",
+   "definition": [
+    "General government total expenditure, % of GDP (ESA 2010)"
+   ],
+   "source": [
+    "Eurostat gov_10a_main"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "concept": "General government total expenditure (TE), % of GDP (ESA 2010)",
+   "price_basis": "current prices ratio",
+   "seasonal_adjustment": "not applicable",
+   "reference_period": "calendar year",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 31,
+    "ranges": [
+     "1995–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": null,
+     "recorded": 0,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "harmonised series unavailable; the national-definition series is shown separately and never compared as ESA/EDP",
+     "primary_category": "C"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "government_revenue_gdp",
+   "frequency": "annual",
+   "unit": "% GDP",
+   "definition": [
+    "General government total revenue, % of GDP (ESA 2010)"
+   ],
+   "source": [
+    "Eurostat gov_10a_main"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "concept": "General government total revenue (TR), % of GDP (ESA 2010)",
+   "price_basis": "current prices ratio",
+   "seasonal_adjustment": "not applicable",
+   "reference_period": "calendar year",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 31,
+    "ranges": [
+     "1995–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": null,
+     "recorded": 0,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "harmonised series unavailable; the national-definition series is shown separately and never compared as ESA/EDP",
+     "primary_category": "C"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "hicp_inflation",
+   "frequency": "annual",
+   "unit": "%",
+   "definition": [
+    "HICP all-items, annual average rate of change (ECOICOP-1 legacy table, same as current records)"
+   ],
+   "source": [
+    "Eurostat prc_hicp_aind / Statistics Austria STATcube",
+    "Eurostat prc_hicp_aind / Croatian Bureau of Statistics Database",
+    "Eurostat prc_hicp_aind / Czech Statistical Office Public Database",
+    "Eurostat prc_hicp_aind / Destatis GENESIS-Online",
+    "Eurostat prc_hicp_aind / HCSO STADAT",
+    "Eurostat prc_hicp_aind / Statistics Poland Data Portal",
+    "Eurostat prc_hicp_aind / INSSE TEMPO Online",
+    "Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import",
+    "Eurostat prc_hicp_aind / DATAcube Slovakia",
+    "Eurostat prc_hicp_aind / SURS SiStat"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "concept": "HICP all items, annual average rate of change (%)",
+   "price_basis": "consumer prices, HICP methodology",
+   "seasonal_adjustment": "not applicable (annual average)",
+   "reference_period": "calendar-year average",
+   "restriction": "HICP only; national CPI (e.g. the SORS CPI) is never merged with or compared as HICP",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 24,
+    "ranges": [
+     "2002–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1999–2025",
+     "recorded": 27,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1997–2025",
+     "recorded": 29,
+     "break_flags": [
+      "1996:d"
+     ],
+     "definition_compatible_floor": 1997,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "germany",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2002–2025",
+     "recorded": 24,
+     "break_flags": [
+      "1996:d",
+      "1997:d",
+      "1998:d",
+      "1999:d",
+      "2000:d",
+      "2001:d"
+     ],
+     "definition_compatible_floor": 2002,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "poland",
+     "available": "2000–2025",
+     "recorded": 26,
+     "break_flags": [
+      "1997:d",
+      "1998:d",
+      "1999:d"
+     ],
+     "definition_compatible_floor": 2000,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "romania",
+     "available": "1997–2025",
+     "recorded": 29,
+     "break_flags": [
+      "1996:d"
+     ],
+     "definition_compatible_floor": 1997,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "serbia",
+     "available": null,
+     "recorded": 0,
+     "break_flags": [
+      "2007:d",
+      "2008:d",
+      "2009:d",
+      "2010:d",
+      "2011:d",
+      "2012:d",
+      "2013:d",
+      "2014:d",
+      "2015:d",
+      "2016:d",
+      "2017:d",
+      "2018:d",
+      "2019:d",
+      "2020:d",
+      "2021:d",
+      "2022:d",
+      "2023:d",
+      "2024:d",
+      "2025:d"
+     ],
+     "definition_compatible_floor": 2026,
+     "methodological_break": true,
+     "comparability_status": "not comparable: Eurostat flags every Serbian HICP year 'd'; the SORS CPI layer is a national CPI and is never compared as HICP",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1997–2025",
+     "recorded": 29,
+     "break_flags": [
+      "1996:d"
+     ],
+     "definition_compatible_floor": 1997,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "household_electricity_price",
+   "frequency": "annual",
+   "unit": "欧元/kWh",
+   "definition": [
+    "Household electricity price, band DC (2,500–4,999 kWh), all taxes, EUR/kWh; annual value = mean of the two official semesters"
+   ],
+   "source": [
+    "Eurostat nrg_pc_204"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 2,
+    "ranges": [
+     "2023–2024"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2008–2024",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2008,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2007–2024",
+     "recorded": 18,
+     "break_flags": [],
+     "definition_compatible_floor": 2007,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2007–2024",
+     "recorded": 18,
+     "break_flags": [],
+     "definition_compatible_floor": 2007,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "germany",
+     "available": "2007–2024",
+     "recorded": 18,
+     "break_flags": [],
+     "definition_compatible_floor": 2007,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2008–2024",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2008,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "poland",
+     "available": "2008–2024",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2008,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "romania",
+     "available": "2023–2024",
+     "recorded": 2,
+     "break_flags": [
+      "2022:d"
+     ],
+     "definition_compatible_floor": 2023,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2013–2024",
+     "recorded": 12,
+     "break_flags": [],
+     "definition_compatible_floor": 2013,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2008–2024",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2008,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2008–2024",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2008,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    }
+   ]
+  },
+  {
+   "indicator_id": "imports_goods_services",
+   "frequency": "annual",
+   "unit": "百万欧元",
+   "definition": [
+    "Imports of goods and services, current prices, million EUR (ESA 2010)"
+   ],
+   "source": [
+    "Eurostat nama_10_gdp"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 26,
+    "ranges": [
+     "2000–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2000–2025",
+     "recorded": 26,
+     "break_flags": [
+      "2022:b"
+     ],
+     "definition_compatible_floor": 2022,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1991–2025",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1991,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1999–2025",
+     "recorded": 27,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "industrial_electricity_price",
+   "frequency": "annual",
+   "unit": "欧元/kWh",
+   "definition": [
+    "Non-household electricity price, band ID (500–1,999 MWh), all taxes, EUR/kWh; annual value = mean of the two official semesters"
+   ],
+   "source": [
+    "Eurostat nrg_pc_205"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 2,
+    "ranges": [
+     "2023–2024"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2008–2024",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2008,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2007–2024",
+     "recorded": 18,
+     "break_flags": [],
+     "definition_compatible_floor": 2007,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2008–2024",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2008,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "germany",
+     "available": "2007–2024",
+     "recorded": 18,
+     "break_flags": [],
+     "definition_compatible_floor": 2007,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2008–2024",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2008,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "poland",
+     "available": "2008–2024",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2008,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "romania",
+     "available": "2023–2024",
+     "recorded": 2,
+     "break_flags": [
+      "2022:d"
+     ],
+     "definition_compatible_floor": 2023,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2013–2024",
+     "recorded": 12,
+     "break_flags": [],
+     "definition_compatible_floor": 2013,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2008–2024",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2008,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2008–2024",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2008,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    }
+   ]
+  },
+  {
+   "indicator_id": "labour_productivity_growth",
+   "frequency": "annual",
+   "unit": "%",
+   "definition": [
+    "Real labour productivity per person, % change on previous year (ESA 2010)"
+   ],
+   "source": [
+    "Eurostat nama_10_lp_ulc"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 7,
+    "ranges": [
+     "2019–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2012–2025",
+     "recorded": 14,
+     "break_flags": [
+      "2012:b"
+     ],
+     "definition_compatible_floor": 2012,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1992–2025",
+     "recorded": 34,
+     "break_flags": [],
+     "definition_compatible_floor": 1992,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "2019–2025",
+     "recorded": 7,
+     "break_flags": [
+      "2003:b",
+      "2010:b",
+      "2019:b"
+     ],
+     "definition_compatible_floor": 2019,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "romania",
+     "available": "2004–2025",
+     "recorded": 22,
+     "break_flags": [
+      "2004:b"
+     ],
+     "definition_compatible_floor": 2004,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1999–2025",
+     "recorded": 27,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "manufacturing_share_gdp",
+   "frequency": "annual",
+   "unit": "%",
+   "definition": [
+    "Manufacturing (NACE C) gross value added, % of GDP (ESA 2010)"
+   ],
+   "source": [
+    "Eurostat nama_10_a10"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 27,
+    "ranges": [
+     "1999–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1991–2025",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1991,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1999–2025",
+     "recorded": 27,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "population",
+   "frequency": "annual",
+   "unit": "人",
+   "definition": [
+    "Population on 1 January, total"
+   ],
+   "source": [
+    "Eurostat demo_pjan / Statistics Austria STATcube",
+    "Eurostat demo_pjan / Croatian Bureau of Statistics Database",
+    "Eurostat demo_pjan / Czech Statistical Office Public Database",
+    "Eurostat demo_pjan / Destatis GENESIS-Online",
+    "Eurostat demo_pjan / HCSO STADAT",
+    "Eurostat demo_pjan / Statistics Poland Data Portal",
+    "Eurostat demo_pjan / INSSE TEMPO Online",
+    "Eurostat demo_pjan / Statistical Office of Serbia Data",
+    "Eurostat demo_pjan / DATAcube Slovakia",
+    "Eurostat demo_pjan / SURS SiStat"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 5,
+    "ranges": [
+     "2021–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1960–2025",
+     "recorded": 66,
+     "break_flags": [],
+     "definition_compatible_floor": 1960,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2001–2025",
+     "recorded": 25,
+     "break_flags": [
+      "2001:b"
+     ],
+     "definition_compatible_floor": 2001,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [
+      "2021:b"
+     ],
+     "definition_compatible_floor": 2021,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "germany",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [
+      "2011:b",
+      "2023:b"
+     ],
+     "definition_compatible_floor": 2023,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2012–2025",
+     "recorded": 14,
+     "break_flags": [
+      "2012:b"
+     ],
+     "definition_compatible_floor": 2012,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "poland",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [
+      "2000:b",
+      "2010:b",
+      "2021:bep"
+     ],
+     "definition_compatible_floor": 2021,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "romania",
+     "available": "1960–2025",
+     "recorded": 66,
+     "break_flags": [],
+     "definition_compatible_floor": 1960,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [
+      "2011:b",
+      "2023:b"
+     ],
+     "definition_compatible_floor": 2023,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1960–2025",
+     "recorded": 66,
+     "break_flags": [],
+     "definition_compatible_floor": 1960,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2008–2025",
+     "recorded": 18,
+     "break_flags": [
+      "2008:b"
+     ],
+     "definition_compatible_floor": 2008,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    }
+   ]
+  },
+  {
+   "indicator_id": "real_gdp_growth",
+   "frequency": "annual",
+   "unit": "%",
+   "definition": [
+    "Real GDP, chain-linked volumes, % change on previous year (ESA 2010)"
+   ],
+   "source": [
+    "Eurostat nama_10_gdp / Statistics Austria STATcube",
+    "Eurostat nama_10_gdp / Croatian Bureau of Statistics Database",
+    "Eurostat nama_10_gdp / Czech Statistical Office Public Database",
+    "Eurostat nama_10_gdp / Destatis GENESIS-Online",
+    "Eurostat nama_10_gdp / HCSO STADAT",
+    "Eurostat nama_10_gdp / Statistics Poland Data Portal",
+    "Eurostat nama_10_gdp / INSSE TEMPO Online",
+    "Eurostat nama_10_gdp / Statistical Office of Serbia Data",
+    "Eurostat nama_10_gdp / DATAcube Slovakia",
+    "Eurostat nama_10_gdp / SURS SiStat"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "concept": "GDP at market prices, chain-linked volumes, % change on previous year (ESA 2010)",
+   "price_basis": "chain-linked volume (previous-year prices); never nominal growth",
+   "seasonal_adjustment": "not applicable (annual)",
+   "reference_period": "calendar year",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 5,
+    "ranges": [
+     "2021–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [],
+     "definition_compatible_floor": 1992,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1999–2025",
+     "recorded": 27,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1996–2025",
+     "recorded": 30,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2021–2025",
+     "recorded": 5,
+     "break_flags": [],
+     "definition_compatible_floor": 1996,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    }
+   ]
+  },
+  {
+   "indicator_id": "trade_balance",
+   "frequency": "annual",
+   "unit": "百万欧元",
+   "definition": [
+    "Exports minus imports of goods and services, current prices, million EUR"
+   ],
+   "source": [
+    "Eurostat nama_10_gdp"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 26,
+    "ranges": [
+     "2000–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2000–2025",
+     "recorded": 26,
+     "break_flags": [],
+     "definition_compatible_floor": 2022,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1991–2025",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1991,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1999–2025",
+     "recorded": 27,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "trade_openness",
+   "frequency": "annual",
+   "unit": "% GDP",
+   "definition": [
+    "Exports plus imports of goods and services, % of GDP"
+   ],
+   "source": [
+    "Eurostat nama_10_gdp"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 26,
+    "ranges": [
+     "2000–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2000–2025",
+     "recorded": 26,
+     "break_flags": [],
+     "definition_compatible_floor": 2022,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1991–2025",
+     "recorded": 35,
+     "break_flags": [],
+     "definition_compatible_floor": 1991,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1999–2025",
+     "recorded": 27,
+     "break_flags": [],
+     "definition_compatible_floor": 1999,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1995–2025",
+     "recorded": 31,
+     "break_flags": [],
+     "definition_compatible_floor": 1995,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "unemployment_rate",
+   "frequency": "annual",
+   "unit": "%",
+   "definition": [
+    "LFS unemployment rate, 15–74, % of the labour force (Eurostat une_rt_a; break-corrected back data from 2009)"
+   ],
+   "source": [
+    "Eurostat une_rt_a / Statistics Austria STATcube",
+    "Eurostat une_rt_a / Croatian Bureau of Statistics Database",
+    "Eurostat une_rt_a / Czech Statistical Office Public Database",
+    "Eurostat une_rt_a / Destatis GENESIS-Online",
+    "Eurostat une_rt_a / HCSO STADAT",
+    "Eurostat une_rt_a / Statistics Poland Data Portal",
+    "Eurostat une_rt_a / INSSE TEMPO Online",
+    "Eurostat une_rt_a / Statistical Office of Serbia Data",
+    "Eurostat une_rt_a / DATAcube Slovakia",
+    "Eurostat une_rt_a / SURS SiStat"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "concept": "LFS (ILO) unemployment rate, 15–74, % of the labour force (Eurostat une_rt_a; break-corrected back data from 2009)",
+   "price_basis": "not applicable",
+   "seasonal_adjustment": "annual average of monthly estimates",
+   "reference_period": "calendar year",
+   "restriction": "harmonised LFS rate only; registered unemployment is never used or merged",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 6,
+    "ranges": [
+     "2020–2025"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2009–2025",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2009,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2009–2025",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2009,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2011–2025",
+     "recorded": 15,
+     "break_flags": [
+      "2011:b"
+     ],
+     "definition_compatible_floor": 2011,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "germany",
+     "available": "2020–2025",
+     "recorded": 6,
+     "break_flags": [
+      "2010:b",
+      "2011:b",
+      "2020:b"
+     ],
+     "definition_compatible_floor": 2020,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2018–2025",
+     "recorded": 8,
+     "break_flags": [
+      "2018:b"
+     ],
+     "definition_compatible_floor": 2018,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "poland",
+     "available": "2019–2025",
+     "recorded": 7,
+     "break_flags": [
+      "2010:b",
+      "2019:b"
+     ],
+     "definition_compatible_floor": 2019,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "romania",
+     "available": "2009–2025",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2009,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2010–2025",
+     "recorded": 16,
+     "break_flags": [],
+     "definition_compatible_floor": 2010,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2011–2025",
+     "recorded": 15,
+     "break_flags": [
+      "2011:b"
+     ],
+     "definition_compatible_floor": 2011,
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2009–2025",
+     "recorded": 17,
+     "break_flags": [],
+     "definition_compatible_floor": 2009,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "bilateral_fx_local_per_eur",
+   "frequency": "monthly",
+   "unit": [
+    "CZK per EUR",
+    "HUF per EUR",
+    "PLN per EUR",
+    "RON per EUR",
+    "RSD per EUR"
+   ],
+   "definition": [
+    "Local currency per EUR = (local per USD) / (EUR per USD), BIS monthly averages"
+   ],
+   "source": [
+    "BIS"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "different currencies: levels are not comparable across countries",
+   "all_country_common_periods": null,
+   "countries": [
+    {
+     "country_id": "czechia",
+     "available": "1999-01–2026-07",
+     "recorded": 331,
+     "break_flags": [],
+     "definition_compatible_floor": "1999-01",
+     "methodological_break": true,
+     "comparability_status": "different currencies: levels are not comparable across countries",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1999-01–2026-07",
+     "recorded": 331,
+     "break_flags": [],
+     "definition_compatible_floor": "1999-01",
+     "methodological_break": true,
+     "comparability_status": "different currencies: levels are not comparable across countries",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "poland",
+     "available": "1999-01–2026-07",
+     "recorded": 331,
+     "break_flags": [],
+     "definition_compatible_floor": "1999-01",
+     "methodological_break": true,
+     "comparability_status": "different currencies: levels are not comparable across countries",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "romania",
+     "available": "1999-01–2026-07",
+     "recorded": 331,
+     "break_flags": [],
+     "definition_compatible_floor": "1999-01",
+     "methodological_break": true,
+     "comparability_status": "different currencies: levels are not comparable across countries",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1999-01–2026-07",
+     "recorded": 331,
+     "break_flags": [],
+     "definition_compatible_floor": "1999-01",
+     "methodological_break": true,
+     "comparability_status": "different currencies: levels are not comparable across countries",
+     "primary_category": "G"
+    }
+   ]
+  },
+  {
+   "indicator_id": "hicp_annual_rate",
+   "frequency": "monthly",
+   "unit": "RCH_A",
+   "definition": [
+    "HICP all-items annual rate of change (%)"
+   ],
+   "source": [
+    "Eurostat"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 141,
+    "ranges": [
+     "2015-01–2026-09"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1997-01–2026-09",
+     "recorded": 357,
+     "break_flags": [],
+     "definition_compatible_floor": "1997-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1998-12–2026-09",
+     "recorded": 334,
+     "break_flags": [],
+     "definition_compatible_floor": "1998-12",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1997-01–2026-09",
+     "recorded": 357,
+     "break_flags": [],
+     "definition_compatible_floor": "1997-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1997-01–2026-09",
+     "recorded": 357,
+     "break_flags": [],
+     "definition_compatible_floor": "1997-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1997-01–2026-09",
+     "recorded": 357,
+     "break_flags": [],
+     "definition_compatible_floor": "1997-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1997-01–2026-09",
+     "recorded": 357,
+     "break_flags": [],
+     "definition_compatible_floor": "1997-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1997-01–2026-09",
+     "recorded": 357,
+     "break_flags": [],
+     "definition_compatible_floor": "1997-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2015-01–2026-09",
+     "recorded": 141,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1997-12–2026-09",
+     "recorded": 346,
+     "break_flags": [],
+     "definition_compatible_floor": "1997-12",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1997-01–2026-09",
+     "recorded": 357,
+     "break_flags": [],
+     "definition_compatible_floor": "1997-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    }
+   ]
+  },
+  {
+   "indicator_id": "hicp_energy_annual_rate",
+   "frequency": "monthly",
+   "unit": "RCH_A",
+   "definition": [],
+   "source": [],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 139,
+    "ranges": [
+     "2015-01–2026-07"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2018-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2018-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2018-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "germany",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2018-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2018-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "poland",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2018-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "romania",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2018-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2018-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2018-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2018-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    }
+   ]
+  },
+  {
+   "indicator_id": "hicp_energy_index",
+   "frequency": "monthly",
+   "unit": "I15",
+   "definition": [],
+   "source": [],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 139,
+    "ranges": [
+     "2015-01–2026-07"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2017-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2017-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2017-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "germany",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2017-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2017-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "poland",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2017-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "romania",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2017-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2017-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2017-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2015-01–2026-07",
+     "recorded": 139,
+     "break_flags": [],
+     "definition_compatible_floor": "2017-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    }
+   ]
+  },
+  {
+   "indicator_id": "hicp_monthly_index",
+   "frequency": "monthly",
+   "unit": "I15",
+   "definition": [
+    "HICP all-items index, 2015=100 (NSA)"
+   ],
+   "source": [
+    "Eurostat"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 141,
+    "ranges": [
+     "2015-01–2026-09"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1996-01–2026-09",
+     "recorded": 369,
+     "break_flags": [],
+     "definition_compatible_floor": "1996-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1997-12–2026-09",
+     "recorded": 346,
+     "break_flags": [],
+     "definition_compatible_floor": "1997-12",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1996-01–2026-09",
+     "recorded": 369,
+     "break_flags": [],
+     "definition_compatible_floor": "1996-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1996-01–2026-09",
+     "recorded": 369,
+     "break_flags": [],
+     "definition_compatible_floor": "1996-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1996-01–2026-09",
+     "recorded": 369,
+     "break_flags": [],
+     "definition_compatible_floor": "1996-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "1996-01–2026-09",
+     "recorded": 369,
+     "break_flags": [],
+     "definition_compatible_floor": "1996-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "romania",
+     "available": "1996-01–2026-09",
+     "recorded": 369,
+     "break_flags": [],
+     "definition_compatible_floor": "1996-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2015-01–2026-09",
+     "recorded": 141,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1996-12–2026-09",
+     "recorded": 358,
+     "break_flags": [],
+     "definition_compatible_floor": "1996-12",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1996-01–2026-09",
+     "recorded": 369,
+     "break_flags": [],
+     "definition_compatible_floor": "1996-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    }
+   ]
+  },
+  {
+   "indicator_id": "industrial_production_index",
+   "frequency": "monthly",
+   "unit": "I21",
+   "definition": [
+    "Industrial production B-D, 2021=100 (SCA)"
+   ],
+   "source": [
+    "Eurostat"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 140,
+    "ranges": [
+     "2015-01–2026-08"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2000-01–2026-08",
+     "recorded": 320,
+     "break_flags": [],
+     "definition_compatible_floor": "2000-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1998-01–2026-08",
+     "recorded": 344,
+     "break_flags": [],
+     "definition_compatible_floor": "1998-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2000-01–2026-08",
+     "recorded": 320,
+     "break_flags": [],
+     "definition_compatible_floor": "2000-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "1991-01–2026-08",
+     "recorded": 428,
+     "break_flags": [],
+     "definition_compatible_floor": "1991-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2000-01–2026-08",
+     "recorded": 320,
+     "break_flags": [],
+     "definition_compatible_floor": "2000-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "poland",
+     "available": "2015-01–2026-08",
+     "recorded": 140,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "romania",
+     "available": "2015-01–2026-08",
+     "recorded": 140,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2015-01–2026-08",
+     "recorded": 140,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2008-01–2026-08",
+     "recorded": 224,
+     "break_flags": [],
+     "definition_compatible_floor": "2008-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2000-01–2026-08",
+     "recorded": 320,
+     "break_flags": [],
+     "definition_compatible_floor": "2000-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    }
+   ]
+  },
+  {
+   "indicator_id": "long_term_government_yield",
+   "frequency": "monthly",
+   "unit": "% p.a.",
+   "definition": [
+    "Maastricht criterion bond yield, monthly average"
+   ],
+   "source": [
+    "Eurostat"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 247,
+    "ranges": [
+     "2006-01–2026-07"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1985-01–2026-07",
+     "recorded": 499,
+     "break_flags": [],
+     "definition_compatible_floor": "1985-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2005-12–2026-07",
+     "recorded": 248,
+     "break_flags": [],
+     "definition_compatible_floor": "2005-12",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "czechia",
+     "available": "2000-04–2026-07",
+     "recorded": 316,
+     "break_flags": [],
+     "definition_compatible_floor": "2000-04",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "germany",
+     "available": "1980-01–2026-07",
+     "recorded": 559,
+     "break_flags": [],
+     "definition_compatible_floor": "1980-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2001-01–2026-07",
+     "recorded": 307,
+     "break_flags": [],
+     "definition_compatible_floor": "2001-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "poland",
+     "available": "2001-01–2026-07",
+     "recorded": 307,
+     "break_flags": [],
+     "definition_compatible_floor": "2001-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "romania",
+     "available": "2006-01–2026-07",
+     "recorded": 247,
+     "break_flags": [],
+     "definition_compatible_floor": "2006-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2001-01–2026-07",
+     "recorded": 307,
+     "break_flags": [],
+     "definition_compatible_floor": "2001-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2003-11–2026-07",
+     "recorded": 273,
+     "break_flags": [],
+     "definition_compatible_floor": "2003-11",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    }
+   ]
+  },
+  {
+   "indicator_id": "nominal_effective_exchange_rate",
+   "frequency": "monthly",
+   "unit": "index",
+   "definition": [
+    "BIS broad-basket nominal EER, monthly average"
+   ],
+   "source": [
+    "BIS"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 391,
+    "ranges": [
+     "1994-01–2026-07"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "germany",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "poland",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "romania",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    }
+   ]
+  },
+  {
+   "indicator_id": "policy_rate",
+   "frequency": "monthly",
+   "unit": "% p.a.",
+   "definition": [
+    "ECB policy rate (BIS WS_CBPOL, end of period)",
+    "National central bank policy rate (BIS WS_CBPOL, end of period)"
+   ],
+   "source": [
+    "BIS"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "official policy rates; instruments differ by central bank (see floors.instrument_notes)",
+   "all_country_common_periods": {
+    "count": 159,
+    "ranges": [
+     "2009-01–2017-06",
+     "2017-09–2018-02",
+     "2018-04",
+     "2018-07",
+     "2019-04–2019-05",
+     "2020-04",
+     "2022-03–2022-04",
+     "2022-07",
+     "2023-01–2026-07"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1999-01–2026-07",
+     "recorded": 331,
+     "break_flags": [],
+     "definition_compatible_floor": "1999-01",
+     "methodological_break": false,
+     "comparability_status": "official policy rates; instruments differ by central bank (see floors.instrument_notes)",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2002-09–2026-07",
+     "recorded": 235,
+     "break_flags": [],
+     "definition_compatible_floor": "2002-09",
+     "methodological_break": true,
+     "comparability_status": "official policy rates; instruments differ by central bank (see floors.instrument_notes)",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1998-01–2026-07",
+     "recorded": 343,
+     "break_flags": [],
+     "definition_compatible_floor": "1998-01",
+     "methodological_break": true,
+     "comparability_status": "official policy rates; instruments differ by central bank (see floors.instrument_notes)",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "germany",
+     "available": "1999-01–2026-07",
+     "recorded": 331,
+     "break_flags": [],
+     "definition_compatible_floor": "1999-01",
+     "methodological_break": false,
+     "comparability_status": "official policy rates; instruments differ by central bank (see floors.instrument_notes)",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1987-01–2026-07",
+     "recorded": 475,
+     "break_flags": [],
+     "definition_compatible_floor": "1987-01",
+     "methodological_break": false,
+     "comparability_status": "official policy rates; instruments differ by central bank (see floors.instrument_notes)",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "poland",
+     "available": "1998-02–2026-07",
+     "recorded": 342,
+     "break_flags": [],
+     "definition_compatible_floor": "1998-02",
+     "methodological_break": true,
+     "comparability_status": "official policy rates; instruments differ by central bank (see floors.instrument_notes)",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "romania",
+     "available": "2003-01–2026-07",
+     "recorded": 283,
+     "break_flags": [],
+     "definition_compatible_floor": "2003-01",
+     "methodological_break": false,
+     "comparability_status": "official policy rates; instruments differ by central bank (see floors.instrument_notes)",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "serbia",
+     "available": "2006-09–2026-07",
+     "recorded": 239,
+     "break_flags": [],
+     "definition_compatible_floor": "2006-09",
+     "methodological_break": true,
+     "comparability_status": "official policy rates; instruments differ by central bank (see floors.instrument_notes)",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2009-01–2026-07",
+     "recorded": 211,
+     "break_flags": [],
+     "definition_compatible_floor": "2009-01",
+     "methodological_break": true,
+     "comparability_status": "official policy rates; instruments differ by central bank (see floors.instrument_notes)",
+     "primary_category": "G"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2007-01–2026-07",
+     "recorded": 235,
+     "break_flags": [],
+     "definition_compatible_floor": "2007-01",
+     "methodological_break": true,
+     "comparability_status": "official policy rates; instruments differ by central bank (see floors.instrument_notes)",
+     "primary_category": "G"
+    }
+   ]
+  },
+  {
+   "indicator_id": "real_effective_exchange_rate",
+   "frequency": "monthly",
+   "unit": "index",
+   "definition": [
+    "BIS broad-basket real EER, monthly average"
+   ],
+   "source": [
+    "BIS"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 391,
+    "ranges": [
+     "1994-01–2026-07"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "croatia",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "germany",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "hungary",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "poland",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "romania",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "serbia",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "1994-01–2026-07",
+     "recorded": 391,
+     "break_flags": [],
+     "definition_compatible_floor": "1994-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "A"
+    }
+   ]
+  },
+  {
+   "indicator_id": "unemployment_rate_monthly",
+   "frequency": "monthly",
+   "unit": "PC_ACT",
+   "definition": [
+    "Unemployment rate, % of active population (SA)"
+   ],
+   "source": [
+    "Eurostat"
+   ],
+   "territorial_scope": "national totals; Germany from 1991 (unification); Serbia from 1999 (national totals exclude AP Kosovo and Metohija)",
+   "definition_check": "same table, selection and unit",
+   "all_country_common_periods": {
+    "count": 140,
+    "ranges": [
+     "2015-01–2026-08"
+    ]
+   },
+   "countries": [
+    {
+     "country_id": "austria",
+     "available": "2004-01–2026-08",
+     "recorded": 272,
+     "break_flags": [],
+     "definition_compatible_floor": "2004-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "croatia",
+     "available": "2006-10–2026-08",
+     "recorded": 239,
+     "break_flags": [],
+     "definition_compatible_floor": "2006-10",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "czechia",
+     "available": "1993-01–2026-08",
+     "recorded": 404,
+     "break_flags": [],
+     "definition_compatible_floor": "1993-01",
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "complete_against_official_span"
+    },
+    {
+     "country_id": "germany",
+     "available": "2009-01–2026-08",
+     "recorded": 212,
+     "break_flags": [],
+     "definition_compatible_floor": "2009-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "hungary",
+     "available": "2011-01–2026-08",
+     "recorded": 188,
+     "break_flags": [],
+     "definition_compatible_floor": "2011-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "poland",
+     "available": "2015-01–2026-08",
+     "recorded": 140,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "romania",
+     "available": "2009-01–2026-08",
+     "recorded": 212,
+     "break_flags": [],
+     "definition_compatible_floor": "2009-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovakia",
+     "available": "2015-01–2026-08",
+     "recorded": 140,
+     "break_flags": [],
+     "definition_compatible_floor": null,
+     "methodological_break": false,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    },
+    {
+     "country_id": "slovenia",
+     "available": "2009-01–2026-08",
+     "recorded": 212,
+     "break_flags": [],
+     "definition_compatible_floor": "2009-01",
+     "methodological_break": true,
+     "comparability_status": "same table, selection and unit",
+     "primary_category": "D"
+    }
+   ]
+  }
+ ],
+ "frontend_contract": {
+  "availability": "historical_recovery_inventory.json (public/research-data/data-coverage/) → series[].admitted (first/last/periods) and series[].missing.periods[] (from, to, category 1–8, reason). Map categories to A–G with categorise() in scripts/data-coverage/historical-coverage-matrix.mjs.",
+  "breaks": "series[].floors.break_flags and floors.definition_compatible; show a break marker and never draw or compute a change across it.",
+  "revision_status": "record value_status / source_flag (p = provisional, e = estimated, b = break, d = definition differs) as published; flags are shown, never dropped.",
+  "comparability": "comparability.national_annual / national_monthly[indicator].definition_check and all_country_common_periods; when definition_check says levels are not comparable (bilateral FX), disable cross-country comparison."
+ }
+}

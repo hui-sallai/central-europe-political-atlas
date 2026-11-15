@@ -87,6 +87,10 @@ export const ADAPTERS = {
     period: r.period, value: r.value, unit: r.unit, definition: JSON.stringify([r.value_status, doc.comparability ?? null]), territory: r.territory_code,
     comparability: r.value_status, cross_country: r.cross_country_comparable,
   })),
+  single_vintage: (doc) => doc.records.map((r) => ({
+    key: r.id, series: `vintage:${r.country_slug}:${r.indicator}`, country: r.country_slug, indicator: r.indicator, dataset: r.source_dataset, source: r.source,
+    period: String(r.year), value: r.value, unit: r.unit, definition: r.definition, territory: r.country_slug, comparability: r.comparability_status, cross_country: null,
+  })),
   serbia: (doc) => doc.records.map((r) => {
     const s = sourceRef(doc, r);
     return {

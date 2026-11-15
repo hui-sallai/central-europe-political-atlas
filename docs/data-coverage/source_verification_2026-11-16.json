@@ -1,0 +1,3131 @@
+{
+ "schema_version": "source-verification-v1",
+ "date": "2026-11-16",
+ "probe": "docs/data-coverage/source_probe_2026-11-16.json",
+ "tables": [
+  {
+   "indicator_id": "real_gdp_growth",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "nama_10_gdp",
+   "selection": "na_item=B1GQ, unit=CLV_PCH_PRE",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?format=JSON&lang=en&unit=CP_MEUR&unit=CLV_PCH_PRE&na_item=B1GQ&na_item=P6&na_item=P7&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+   "definition": "Real GDP, chain-linked volumes, % change on previous year (ESA 2010)",
+   "unit": "% change on previous year (chain-linked volumes)",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1992–2025",
+     "admitted": "2021–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1996–2025",
+     "admitted": "2021–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "1996–2025",
+     "admitted": "1999–2025",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:49.058Z",
+    "dataset_updated_at": "2026-11-05T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/nama_10_gdp.json",
+    "sha256": "bca4bdb87aa3bdd9a220a9eb777f1b2111d5bcfbb26276b291ce33ed8d4ea3d0"
+   },
+   "release_and_revision_status": {
+    "status": "updated_since_archive",
+    "archived_dataset_updated": "2026-11-05T23:00:00+0100",
+    "live_dataset_updated": "2026-11-11T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:08.502Z",
+    "note": "The table has been updated after the archived retrieval; the next refresh run re-downloads and diffs it (revisions are never applied silently)."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "gdp_current_eur",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "nama_10_gdp",
+   "selection": "na_item=B1GQ, unit=CP_MEUR",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?format=JSON&lang=en&unit=CP_MEUR&unit=CLV_PCH_PRE&na_item=B1GQ&na_item=P6&na_item=P7&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+   "definition": "GDP at market prices, current prices, million EUR (ESA 2010)",
+   "unit": "million EUR, current prices",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1991–2025",
+     "admitted": "1991–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "1995–2025",
+     "admitted": "1999–2025",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:49.058Z",
+    "dataset_updated_at": "2026-11-05T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/nama_10_gdp.json",
+    "sha256": "bca4bdb87aa3bdd9a220a9eb777f1b2111d5bcfbb26276b291ce33ed8d4ea3d0"
+   },
+   "release_and_revision_status": {
+    "status": "updated_since_archive",
+    "archived_dataset_updated": "2026-11-05T23:00:00+0100",
+    "live_dataset_updated": "2026-11-11T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:08.502Z",
+    "note": "The table has been updated after the archived retrieval; the next refresh run re-downloads and diffs it (revisions are never applied silently)."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "exports_goods_services",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "nama_10_gdp",
+   "selection": "na_item=P6, unit=CP_MEUR",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?format=JSON&lang=en&unit=CP_MEUR&unit=CLV_PCH_PRE&na_item=B1GQ&na_item=P6&na_item=P7&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+   "definition": "Exports of goods and services, current prices, million EUR (ESA 2010)",
+   "unit": "million EUR, current prices",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1991–2025",
+     "admitted": "1991–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "1995–2025",
+     "admitted": "1999–2025",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:49.058Z",
+    "dataset_updated_at": "2026-11-05T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/nama_10_gdp.json",
+    "sha256": "bca4bdb87aa3bdd9a220a9eb777f1b2111d5bcfbb26276b291ce33ed8d4ea3d0"
+   },
+   "release_and_revision_status": {
+    "status": "updated_since_archive",
+    "archived_dataset_updated": "2026-11-05T23:00:00+0100",
+    "live_dataset_updated": "2026-11-11T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:08.502Z",
+    "note": "The table has been updated after the archived retrieval; the next refresh run re-downloads and diffs it (revisions are never applied silently)."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "imports_goods_services",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "nama_10_gdp",
+   "selection": "na_item=P7, unit=CP_MEUR",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?format=JSON&lang=en&unit=CP_MEUR&unit=CLV_PCH_PRE&na_item=B1GQ&na_item=P6&na_item=P7&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+   "definition": "Imports of goods and services, current prices, million EUR (ESA 2010)",
+   "unit": "million EUR, current prices",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995–2025",
+     "admitted": "2000–2025",
+     "break_flags": [
+      "2022:b"
+     ]
+    },
+    "germany": {
+     "official": "1991–2025",
+     "admitted": "1991–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "1995–2025",
+     "admitted": "1999–2025",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:49.058Z",
+    "dataset_updated_at": "2026-11-05T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/nama_10_gdp.json",
+    "sha256": "bca4bdb87aa3bdd9a220a9eb777f1b2111d5bcfbb26276b291ce33ed8d4ea3d0"
+   },
+   "release_and_revision_status": {
+    "status": "updated_since_archive",
+    "archived_dataset_updated": "2026-11-05T23:00:00+0100",
+    "live_dataset_updated": "2026-11-11T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:08.502Z",
+    "note": "The table has been updated after the archived retrieval; the next refresh run re-downloads and diffs it (revisions are never applied silently)."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "gdp_per_capita_eur",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "nama_10_pc",
+   "selection": "na_item=B1GQ, unit=CP_EUR_HAB",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_pc?format=JSON&lang=en&unit=CP_EUR_HAB&unit=CP_PPS_EU27_2020_HAB&na_item=B1GQ&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+   "definition": "GDP per capita, current prices, EUR (ESA 2010)",
+   "unit": "EUR per inhabitant",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1991–2025",
+     "admitted": "2021–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1995–2025",
+     "admitted": "2021–2025",
+     "break_flags": [
+      "2001:b",
+      "2011:b",
+      "2021:b"
+     ]
+    },
+    "slovenia": {
+     "official": "1995–2025",
+     "admitted": "2008–2025",
+     "break_flags": [
+      "2008:b"
+     ]
+    },
+    "czechia": {
+     "official": "1995–2025",
+     "admitted": "2021–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1995–2025",
+     "admitted": "2012–2025",
+     "break_flags": [
+      "2012:b"
+     ]
+    },
+    "poland": {
+     "official": "1995–2025",
+     "admitted": "2021–2025",
+     "break_flags": [
+      "2010:b",
+      "2020:b",
+      "2022:b"
+     ]
+    },
+    "romania": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1995–2025",
+     "admitted": "2012–2025",
+     "break_flags": [
+      "2001:b",
+      "2012:b"
+     ]
+    },
+    "serbia": {
+     "official": "1995–2025",
+     "admitted": "1999–2025",
+     "break_flags": [
+      "1999:b"
+     ]
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:50.645Z",
+    "dataset_updated_at": "2026-11-05T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/nama_10_pc.json",
+    "sha256": "aec084c2b07e2afe8f1ebd59a4578728bd8a6931daa896475817c5cc44745bd0"
+   },
+   "release_and_revision_status": {
+    "status": "updated_since_archive",
+    "archived_dataset_updated": "2026-11-05T23:00:00+0100",
+    "live_dataset_updated": "2026-11-11T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:11.686Z",
+    "note": "The table has been updated after the archived retrieval; the next refresh run re-downloads and diffs it (revisions are never applied silently)."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "gdp_per_capita_pps",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "nama_10_pc",
+   "selection": "na_item=B1GQ, unit=CP_PPS_EU27_2020_HAB",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_pc?format=JSON&lang=en&unit=CP_EUR_HAB&unit=CP_PPS_EU27_2020_HAB&na_item=B1GQ&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+   "definition": "GDP per capita, current prices, purchasing power standards (EU27 from 2020) (ESA 2010)",
+   "unit": "PPS (EU27_2020) per inhabitant",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1995–2025",
+     "admitted": "2021–2025",
+     "break_flags": [
+      "2001:b",
+      "2011:b",
+      "2021:b"
+     ]
+    },
+    "slovenia": {
+     "official": "1995–2025",
+     "admitted": "2008–2025",
+     "break_flags": [
+      "2008:b"
+     ]
+    },
+    "czechia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1995–2025",
+     "admitted": "2012–2025",
+     "break_flags": [
+      "2012:b"
+     ]
+    },
+    "poland": {
+     "official": "1995–2025",
+     "admitted": "2022–2025",
+     "break_flags": [
+      "2010:b",
+      "2020:b",
+      "2022:b"
+     ]
+    },
+    "romania": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1995–2025",
+     "admitted": "2012–2025",
+     "break_flags": [
+      "2001:b",
+      "2012:b"
+     ]
+    },
+    "serbia": {
+     "official": "2000–2025",
+     "admitted": "2000–2025",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:50.645Z",
+    "dataset_updated_at": "2026-11-05T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/nama_10_pc.json",
+    "sha256": "aec084c2b07e2afe8f1ebd59a4578728bd8a6931daa896475817c5cc44745bd0"
+   },
+   "release_and_revision_status": {
+    "status": "updated_since_archive",
+    "archived_dataset_updated": "2026-11-05T23:00:00+0100",
+    "live_dataset_updated": "2026-11-11T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:11.686Z",
+    "note": "The table has been updated after the archived retrieval; the next refresh run re-downloads and diffs it (revisions are never applied silently)."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "manufacturing_share_gdp",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "nama_10_a10",
+   "selection": "na_item=B1G, nace_r2=C, unit=PC_GDP",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?format=JSON&lang=en&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+   "definition": "Manufacturing (NACE C) gross value added, % of GDP (ESA 2010)",
+   "unit": "% of GDP",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1991–2025",
+     "admitted": "1991–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "1995–2025",
+     "admitted": "1999–2025",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:52.234Z",
+    "dataset_updated_at": "2026-11-05T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/nama_10_a10.json",
+    "sha256": "21751a64480cfeff30c185905202868fa8caf8898693658c02dca36e265e93f4"
+   },
+   "release_and_revision_status": {
+    "status": "updated_since_archive",
+    "archived_dataset_updated": "2026-11-05T23:00:00+0100",
+    "live_dataset_updated": "2026-11-11T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:06.905Z",
+    "note": "The table has been updated after the archived retrieval; the next refresh run re-downloads and diffs it (revisions are never applied silently)."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "labour_productivity_growth",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "nama_10_lp_ulc",
+   "selection": "na_item=RLPR_PER, unit=PCH_PRE",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_lp_ulc?format=JSON&lang=en&unit=PCH_PRE&unit=EUR&na_item=RLPR_PER&na_item=D1_SAL_PER&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+   "definition": "Real labour productivity per person, % change on previous year (ESA 2010)",
+   "unit": "% change on previous year",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1992–2025",
+     "admitted": "1992–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1996–2025",
+     "admitted": "2019–2025",
+     "break_flags": [
+      "2003:b",
+      "2010:b",
+      "2019:b"
+     ]
+    },
+    "romania": {
+     "official": "1996–2025",
+     "admitted": "2004–2025",
+     "break_flags": [
+      "2004:b"
+     ]
+    },
+    "croatia": {
+     "official": "1996–2025",
+     "admitted": "2012–2025",
+     "break_flags": [
+      "2012:b"
+     ]
+    },
+    "serbia": {
+     "official": "1996–2025",
+     "admitted": "1999–2025",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:53.811Z",
+    "dataset_updated_at": "2026-11-05T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/nama_10_lp_ulc.json",
+    "sha256": "92ae2b2d72563e7526fe0c604b4aa2bdc5e7ab0be3e4b31b6bb33ecaebeeff29"
+   },
+   "release_and_revision_status": {
+    "status": "updated_since_archive",
+    "archived_dataset_updated": "2026-11-05T23:00:00+0100",
+    "live_dataset_updated": "2026-11-11T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:10.113Z",
+    "note": "The table has been updated after the archived retrieval; the next refresh run re-downloads and diffs it (revisions are never applied silently)."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "compensation_per_employee_eur",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "nama_10_lp_ulc",
+   "selection": "na_item=D1_SAL_PER, unit=EUR",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_lp_ulc?format=JSON&lang=en&unit=PCH_PRE&unit=EUR&na_item=RLPR_PER&na_item=D1_SAL_PER&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+   "definition": "Nominal compensation per employee, EUR (ESA 2010); nominal, not deflated",
+   "unit": "EUR (nominal)",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1991–2025",
+     "admitted": "1991–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1995–2025",
+     "admitted": "2019–2025",
+     "break_flags": [
+      "2003:b",
+      "2010:b",
+      "2019:b"
+     ]
+    },
+    "romania": {
+     "official": "1995–2025",
+     "admitted": "2007–2025",
+     "break_flags": [
+      "1995:d",
+      "1996:d",
+      "1997:d",
+      "1998:d",
+      "1999:d",
+      "2000:d",
+      "2001:d",
+      "2002:d",
+      "2003:d",
+      "2004:b",
+      "2005:d",
+      "2006:d"
+     ]
+    },
+    "croatia": {
+     "official": "1995–2025",
+     "admitted": "2012–2025",
+     "break_flags": [
+      "2012:b"
+     ]
+    },
+    "serbia": {
+     "official": "1995–2025",
+     "admitted": "1999–2025",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:53.811Z",
+    "dataset_updated_at": "2026-11-05T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/nama_10_lp_ulc.json",
+    "sha256": "92ae2b2d72563e7526fe0c604b4aa2bdc5e7ab0be3e4b31b6bb33ecaebeeff29"
+   },
+   "release_and_revision_status": {
+    "status": "updated_since_archive",
+    "archived_dataset_updated": "2026-11-05T23:00:00+0100",
+    "live_dataset_updated": "2026-11-11T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:10.113Z",
+    "note": "The table has been updated after the archived retrieval; the next refresh run re-downloads and diffs it (revisions are never applied silently)."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "hicp_inflation",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "prc_hicp_aind",
+   "selection": "coicop=CP00, unit=RCH_A_AVG",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?format=JSON&lang=en&unit=RCH_A_AVG&coicop=CP00&coicop=CP045&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+   "definition": "HICP all-items, annual average rate of change (ECOICOP-1 legacy table, same as current records)",
+   "unit": "% (annual average rate of change)",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1996–2025",
+     "admitted": "1997–2025",
+     "break_flags": [
+      "1996:d"
+     ]
+    },
+    "slovenia": {
+     "official": "1996–2025",
+     "admitted": "1996–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1996–2025",
+     "admitted": "1997–2025",
+     "break_flags": [
+      "1996:d"
+     ]
+    },
+    "hungary": {
+     "official": "1996–2025",
+     "admitted": "2002–2025",
+     "break_flags": [
+      "1996:d",
+      "1997:d",
+      "1998:d",
+      "1999:d",
+      "2000:d",
+      "2001:d"
+     ]
+    },
+    "poland": {
+     "official": "1997–2025",
+     "admitted": "2000–2025",
+     "break_flags": [
+      "1997:d",
+      "1998:d",
+      "1999:d"
+     ]
+    },
+    "romania": {
+     "official": "1996–2025",
+     "admitted": "1997–2025",
+     "break_flags": [
+      "1996:d"
+     ]
+    },
+    "croatia": {
+     "official": "1999–2025",
+     "admitted": "1999–2025",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "2007–2025",
+     "admitted": null,
+     "break_flags": [
+      "2007:d",
+      "2008:d",
+      "2009:d",
+      "2010:d",
+      "2011:d",
+      "2012:d",
+      "2013:d",
+      "2014:d",
+      "2015:d",
+      "2016:d",
+      "2017:d",
+      "2018:d",
+      "2019:d",
+      "2020:d",
+      "2021:d",
+      "2022:d",
+      "2023:d",
+      "2024:d",
+      "2025:d"
+     ]
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:55.380Z",
+    "dataset_updated_at": "2026-02-06T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/prc_hicp_aind.json",
+    "sha256": "b68a3f45de9f94f82814cf0b375065bc35205f879ceec404a1661ea290582d7a"
+   },
+   "release_and_revision_status": {
+    "status": "unchanged_since_archive",
+    "archived_dataset_updated": "2026-02-06T23:00:00+0100",
+    "live_dataset_updated": "2026-02-06T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:18.116Z",
+    "note": null
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "energy_inflation",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "prc_hicp_aind",
+   "selection": "coicop=CP045, unit=RCH_A_AVG",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?format=JSON&lang=en&unit=RCH_A_AVG&coicop=CP00&coicop=CP045&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+   "definition": "HICP CP045 electricity, gas and other fuels, annual average rate of change (Eurostat prc_hicp_aind)",
+   "unit": "% (annual average rate of change)",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1996–2025",
+     "admitted": "1996–2024",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1996–2025",
+     "admitted": "1996–2024",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1997–2025",
+     "admitted": "1997–2024",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "2001–2025",
+     "admitted": "2001–2024",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "2001–2025",
+     "admitted": "2001–2024",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "2002–2025",
+     "admitted": "2002–2024",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1997–2025",
+     "admitted": "2000–2024",
+     "break_flags": [
+      "1997:d",
+      "1998:d",
+      "1999:d"
+     ]
+    },
+    "romania": {
+     "official": "2002–2025",
+     "admitted": "2002–2024",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1999–2025",
+     "admitted": "1999–2024",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "2007–2025",
+     "admitted": "2023–2024",
+     "break_flags": [
+      "2007:d",
+      "2008:d",
+      "2009:d",
+      "2010:d",
+      "2011:d",
+      "2012:d",
+      "2013:d",
+      "2014:d",
+      "2015:d",
+      "2016:d",
+      "2017:d",
+      "2018:d",
+      "2019:d",
+      "2020:d",
+      "2021:d",
+      "2022:d",
+      "2023:d",
+      "2024:d",
+      "2025:d"
+     ]
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:55.380Z",
+    "dataset_updated_at": "2026-02-06T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/prc_hicp_aind.json",
+    "sha256": "b68a3f45de9f94f82814cf0b375065bc35205f879ceec404a1661ea290582d7a"
+   },
+   "release_and_revision_status": {
+    "status": "unchanged_since_archive",
+    "archived_dataset_updated": "2026-02-06T23:00:00+0100",
+    "live_dataset_updated": "2026-02-06T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:18.116Z",
+    "note": null
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "population",
+   "frequency": "annual (1 January)",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "demo_pjan",
+   "selection": "sex=T, age=TOTAL, unit=NR",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?format=JSON&lang=en&unit=NR&sex=T&age=TOTAL&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/demo_pop_esms.htm",
+   "definition": "Population on 1 January, total",
+   "unit": "persons",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1960–2025",
+     "admitted": "1960–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1960–2025",
+     "admitted": "2021–2025",
+     "break_flags": [
+      "2011:b",
+      "2023:b"
+     ]
+    },
+    "slovakia": {
+     "official": "1960–2025",
+     "admitted": "1960–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1960–2025",
+     "admitted": "2008–2025",
+     "break_flags": [
+      "2008:b"
+     ]
+    },
+    "czechia": {
+     "official": "1960–2025",
+     "admitted": "2021–2025",
+     "break_flags": [
+      "2021:b"
+     ]
+    },
+    "hungary": {
+     "official": "1960–2025",
+     "admitted": "2012–2025",
+     "break_flags": [
+      "2012:b"
+     ]
+    },
+    "poland": {
+     "official": "1960–2025",
+     "admitted": "2021–2025",
+     "break_flags": [
+      "2000:b",
+      "2010:b",
+      "2021:bep"
+     ]
+    },
+    "romania": {
+     "official": "1960–2025",
+     "admitted": "1960–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1960–2025",
+     "admitted": "2001–2025",
+     "break_flags": [
+      "2001:b"
+     ]
+    },
+    "serbia": {
+     "official": "1999–2025",
+     "admitted": "2021–2025",
+     "break_flags": [
+      "2011:b",
+      "2023:b"
+     ]
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:56.987Z",
+    "dataset_updated_at": "2026-09-25T23:00:00+0200",
+    "raw_file": "src/data/historical/raw/annual/full/demo_pjan.json",
+    "sha256": "2ddc0f187e1cf26a5d54bdd61200fad53a504ebf4a2eef9658dfc33675b97ef1"
+   },
+   "release_and_revision_status": {
+    "status": "updated_since_archive",
+    "archived_dataset_updated": "2026-09-25T23:00:00+0200",
+    "live_dataset_updated": "2026-11-13T23:00:00+0100",
+    "probed_at": "2026-11-15T16:43:58.768Z",
+    "note": "The table has been updated after the archived retrieval; the next refresh run re-downloads and diffs it (revisions are never applied silently)."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "fiscal_balance_gdp",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "gov_10dd_edpt1",
+   "selection": "sector=S13, na_item=B9, unit=PC_GDP",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?format=JSON&lang=en&unit=PC_GDP&sector=S13&na_item=B9&na_item=GD&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/gov_10dd_edpt1_esms.htm",
+   "definition": "General government net lending (+) / borrowing (−), % of GDP (EDP)",
+   "unit": "% of GDP",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": null,
+     "admitted": null,
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:58.567Z",
+    "dataset_updated_at": "2026-10-21T11:00:00+0200",
+    "raw_file": "src/data/historical/raw/annual/full/gov_10dd_edpt1.json",
+    "sha256": "b42422594caccb33fcc1173f11e9abdac8654a3cc8cc4c94b8173bb97d558711"
+   },
+   "release_and_revision_status": {
+    "status": "unchanged_since_archive",
+    "archived_dataset_updated": "2026-10-21T11:00:00+0200",
+    "live_dataset_updated": "2026-10-21T11:00:00+0200",
+    "probed_at": "2026-11-15T16:44:03.737Z",
+    "note": null
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "government_debt_gdp",
+   "frequency": "annual (end of year)",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "gov_10dd_edpt1",
+   "selection": "sector=S13, na_item=GD, unit=PC_GDP",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?format=JSON&lang=en&unit=PC_GDP&sector=S13&na_item=B9&na_item=GD&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/gov_10dd_edpt1_esms.htm",
+   "definition": "General government gross debt, % of GDP (EDP)",
+   "unit": "% of GDP",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": null,
+     "admitted": null,
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:50:58.567Z",
+    "dataset_updated_at": "2026-10-21T11:00:00+0200",
+    "raw_file": "src/data/historical/raw/annual/full/gov_10dd_edpt1.json",
+    "sha256": "b42422594caccb33fcc1173f11e9abdac8654a3cc8cc4c94b8173bb97d558711"
+   },
+   "release_and_revision_status": {
+    "status": "unchanged_since_archive",
+    "archived_dataset_updated": "2026-10-21T11:00:00+0200",
+    "live_dataset_updated": "2026-10-21T11:00:00+0200",
+    "probed_at": "2026-11-15T16:44:03.737Z",
+    "note": null
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "government_revenue_gdp",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "gov_10a_main",
+   "selection": "sector=S13, na_item=TR, unit=PC_GDP",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?format=JSON&lang=en&unit=PC_GDP&sector=S13&na_item=TR&na_item=TE&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/gov_10a_main_esms.htm",
+   "definition": "General government total revenue, % of GDP (ESA 2010)",
+   "unit": "% of GDP",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": null,
+     "admitted": null,
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:51:00.137Z",
+    "dataset_updated_at": "2026-10-21T11:00:00+0200",
+    "raw_file": "src/data/historical/raw/annual/full/gov_10a_main.json",
+    "sha256": "2c22dfe390084c177d9c86df9d2165a7552bd0926fb949fd5dd5fa0bd7ff6661"
+   },
+   "release_and_revision_status": {
+    "status": "unchanged_since_archive",
+    "archived_dataset_updated": "2026-10-21T11:00:00+0200",
+    "live_dataset_updated": "2026-10-21T11:00:00+0200",
+    "probed_at": "2026-11-15T16:44:02.106Z",
+    "note": null
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "government_expenditure_gdp",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "gov_10a_main",
+   "selection": "sector=S13, na_item=TE, unit=PC_GDP",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?format=JSON&lang=en&unit=PC_GDP&sector=S13&na_item=TR&na_item=TE&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/gov_10a_main_esms.htm",
+   "definition": "General government total expenditure, % of GDP (ESA 2010)",
+   "unit": "% of GDP",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": null,
+     "admitted": null,
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:51:00.137Z",
+    "dataset_updated_at": "2026-10-21T11:00:00+0200",
+    "raw_file": "src/data/historical/raw/annual/full/gov_10a_main.json",
+    "sha256": "2c22dfe390084c177d9c86df9d2165a7552bd0926fb949fd5dd5fa0bd7ff6661"
+   },
+   "release_and_revision_status": {
+    "status": "unchanged_since_archive",
+    "archived_dataset_updated": "2026-10-21T11:00:00+0200",
+    "live_dataset_updated": "2026-10-21T11:00:00+0200",
+    "probed_at": "2026-11-15T16:44:02.106Z",
+    "note": null
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "unemployment_rate",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "une_rt_a",
+   "selection": "age=Y15-74, sex=T, unit=PC_ACT",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/une_rt_a?format=JSON&lang=en&unit=PC_ACT&sex=T&age=Y15-74&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/une_esms.htm",
+   "definition": "LFS unemployment rate, 15–74, % of the labour force (Eurostat une_rt_a; break-corrected back data from 2009)",
+   "unit": "% of labour force",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "2009–2025",
+     "admitted": "2009–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "2009–2025",
+     "admitted": "2020–2025",
+     "break_flags": [
+      "2010:b",
+      "2011:b",
+      "2020:b"
+     ]
+    },
+    "slovakia": {
+     "official": "2009–2025",
+     "admitted": "2011–2025",
+     "break_flags": [
+      "2011:b"
+     ]
+    },
+    "slovenia": {
+     "official": "2009–2025",
+     "admitted": "2009–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "2009–2025",
+     "admitted": "2011–2025",
+     "break_flags": [
+      "2011:b"
+     ]
+    },
+    "hungary": {
+     "official": "2009–2025",
+     "admitted": "2018–2025",
+     "break_flags": [
+      "2018:b"
+     ]
+    },
+    "poland": {
+     "official": "2009–2025",
+     "admitted": "2019–2025",
+     "break_flags": [
+      "2010:b",
+      "2019:b"
+     ]
+    },
+    "romania": {
+     "official": "2009–2025",
+     "admitted": "2009–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "2009–2025",
+     "admitted": "2009–2025",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "2010–2025",
+     "admitted": "2010–2025",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:51:01.741Z",
+    "dataset_updated_at": "2026-11-06T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/une_rt_a.json",
+    "sha256": "327cb01a036cc59394fb967eee368d5d853f3e08bbbeadb5ca39625231ce81ca"
+   },
+   "release_and_revision_status": {
+    "status": "unchanged_since_archive",
+    "archived_dataset_updated": "2026-11-06T23:00:00+0100",
+    "live_dataset_updated": "2026-11-06T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:24.858Z",
+    "note": null
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "current_account_gdp",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "tipsbp20",
+   "selection": "partner=WRL_REST, unit=PC_GDP (BPM6)",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?format=JSON&lang=en&unit=PC_GDP&partner=WRL_REST&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/tipsbp20_esmsip2.htm",
+   "definition": "Current account balance, % of GDP (BPM6, Eurostat MIP scoreboard table tipsbp20)",
+   "unit": "% of GDP",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995–2025",
+     "admitted": "2021–2025",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "2004–2025",
+     "admitted": "2021–2025",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1995–2025",
+     "admitted": "2021–2025",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1995–2025",
+     "admitted": "1995–2025",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1995–2025",
+     "admitted": "2021–2025",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "2004–2025",
+     "admitted": "2004–2025",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1999–2025",
+     "admitted": "2021–2025",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "2000–2025",
+     "admitted": "2021–2025",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": null,
+     "admitted": null,
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:51:03.340Z",
+    "dataset_updated_at": "2026-10-28T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/tipsbp20.json",
+    "sha256": "9950b10ba85105a5fd214247d4c36eb0edd0ce7c55b0a3df7dd70d4a7e32844e"
+   },
+   "release_and_revision_status": {
+    "status": "unchanged_since_archive",
+    "archived_dataset_updated": "2026-10-28T23:00:00+0100",
+    "live_dataset_updated": "2026-10-28T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:23.210Z",
+    "note": null
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "fdi_inflow",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "bop_fdi6_flow",
+   "selection": "stk_flow=LIAB, fdi_item=DI__D__F, partner=WRL_REST, currency=MIO_EUR",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?format=JSON&lang=en&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/bop_fdi6_esms.htm",
+   "definition": "Direct investment liabilities, net incurrence, million EUR (BPM6/BMD4, Eurostat bop_fdi6_flow)",
+   "unit": "million EUR",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "2013–2024",
+     "admitted": "2022–2024",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "2013–2025",
+     "admitted": "2021–2024",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "2013–2025",
+     "admitted": "2021–2024",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "2013–2025",
+     "admitted": "2013–2024",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "2013–2025",
+     "admitted": "2021–2024",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "2013–2025",
+     "admitted": "2021–2024",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "2013–2025",
+     "admitted": "2021–2024",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "2015–2025",
+     "admitted": "2015–2023",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "2013–2025",
+     "admitted": "2021–2024",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "2013–2024",
+     "admitted": "2013–2024",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:51:04.925Z",
+    "dataset_updated_at": "2026-11-05T11:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/bop_fdi6_flow.json",
+    "sha256": "a9b0c6aa76bd219cb64856e0d5c968731dfa0ec2a76fb474562ebb8e31511186"
+   },
+   "release_and_revision_status": {
+    "status": "updated_since_archive",
+    "archived_dataset_updated": "2026-11-05T11:00:00+0100",
+    "live_dataset_updated": "2026-11-11T11:00:00+0100",
+    "probed_at": "2026-11-15T16:43:56.435Z",
+    "note": "The table has been updated after the archived retrieval; the next refresh run re-downloads and diffs it (revisions are never applied silently)."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "energy_import_dependency",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "nrg_ind_id",
+   "selection": "siec=TOTAL, unit=PC",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?format=JSON&lang=en&unit=PC&siec=TOTAL&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_ind_esms.htm",
+   "definition": "Energy import dependency, all products, % (Eurostat nrg_ind_id, current energy-balance methodology for the whole series)",
+   "unit": "%",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1990–2024",
+     "admitted": "1990–2024",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1990–2024",
+     "admitted": "1991–2024",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1990–2024",
+     "admitted": "1990–2024",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1990–2024",
+     "admitted": "1990–2024",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1990–2024",
+     "admitted": "1990–2024",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1990–2024",
+     "admitted": "1990–2024",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1990–2024",
+     "admitted": "1990–2024",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1990–2024",
+     "admitted": "1990–2024",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1990–2024",
+     "admitted": "1990–2024",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "1990–2024",
+     "admitted": "1999–2024",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:51:06.499Z",
+    "dataset_updated_at": "2026-07-16T23:00:00+0200",
+    "raw_file": "src/data/historical/raw/annual/full/nrg_ind_id.json",
+    "sha256": "67b18e5611e791e597bf210eae90f2e56f181452f07fc8a389b86151a8928704"
+   },
+   "release_and_revision_status": {
+    "status": "unchanged_since_archive",
+    "archived_dataset_updated": "2026-07-16T23:00:00+0200",
+    "live_dataset_updated": "2026-07-16T23:00:00+0200",
+    "probed_at": "2026-11-15T16:44:13.273Z",
+    "note": null
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "household_electricity_price",
+   "frequency": "semi-annual → annual mean",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "nrg_pc_204",
+   "selection": "nrg_cons=KWH2500-4999, tax=I_TAX, currency=EUR",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_204?format=JSON&lang=en&currency=EUR&nrg_cons=KWH2500-4999&unit=KWH&tax=I_TAX&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_pc_204_esmsip2.htm",
+   "definition": "Household electricity price, band DC (2,500–4,999 kWh), all taxes, EUR/kWh; annual value = mean of the two official semesters",
+   "unit": "EUR/kWh",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "2008–2025",
+     "admitted": "2008–2024",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "2007–2025",
+     "admitted": "2007–2024",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "2008–2025",
+     "admitted": "2008–2024",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "2008–2025",
+     "admitted": "2008–2024",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "2007–2025",
+     "admitted": "2007–2024",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "2008–2025",
+     "admitted": "2008–2024",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "2008–2025",
+     "admitted": "2008–2024",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "2008–2025",
+     "admitted": "2023–2024",
+     "break_flags": [
+      "2022:d"
+     ]
+    },
+    "croatia": {
+     "official": "2007–2025",
+     "admitted": "2007–2024",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "2013–2025",
+     "admitted": "2013–2024",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:51:09.683Z",
+    "dataset_updated_at": "2026-10-19T23:00:00+0200",
+    "raw_file": "src/data/historical/raw/annual/full/nrg_pc_204.json",
+    "sha256": "aeee73efe12b48a3dd9d672270436e823ca9dd8364a89382bbef31ee065d830e"
+   },
+   "release_and_revision_status": {
+    "status": "unchanged_since_archive",
+    "archived_dataset_updated": "2026-10-19T23:00:00+0200",
+    "live_dataset_updated": "2026-10-19T23:00:00+0200",
+    "probed_at": "2026-11-15T16:44:14.863Z",
+    "note": null
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "industrial_electricity_price",
+   "frequency": "semi-annual → annual mean",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "nrg_pc_205",
+   "selection": "nrg_cons=MWH500-1999, tax=I_TAX, currency=EUR",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?format=JSON&lang=en&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_pc_205_esmsip2.htm",
+   "definition": "Non-household electricity price, band ID (500–1,999 MWh), all taxes, EUR/kWh; annual value = mean of the two official semesters",
+   "unit": "EUR/kWh",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "2008–2025",
+     "admitted": "2008–2024",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "2007–2025",
+     "admitted": "2007–2024",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "2008–2025",
+     "admitted": "2008–2024",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "2008–2025",
+     "admitted": "2008–2024",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "2008–2025",
+     "admitted": "2008–2024",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "2008–2025",
+     "admitted": "2008–2024",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "2008–2025",
+     "admitted": "2008–2024",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "2008–2025",
+     "admitted": "2023–2024",
+     "break_flags": [
+      "2022:d"
+     ]
+    },
+    "croatia": {
+     "official": "2007–2025",
+     "admitted": "2007–2024",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "2013–2025",
+     "admitted": "2013–2024",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:51:11.268Z",
+    "dataset_updated_at": "2026-10-19T11:00:00+0200",
+    "raw_file": "src/data/historical/raw/annual/full/nrg_pc_205.json",
+    "sha256": "5904fba09479cbe04b00eb55aa93e640bbf88bdc275ce38acd4d468400eda112"
+   },
+   "release_and_revision_status": {
+    "status": "unchanged_since_archive",
+    "archived_dataset_updated": "2026-10-19T11:00:00+0200",
+    "live_dataset_updated": "2026-10-19T11:00:00+0200",
+    "probed_at": "2026-11-15T16:44:16.496Z",
+    "note": null
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "automotive_export_share",
+   "frequency": "annual",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "ext_tec09",
+   "selection": "stk_flow=EXP, partner=WORLD, nace_r2=C29 / TOTAL, unit=THS_EUR",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?format=JSON&lang=en&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/ext_tec_esms.htm",
+   "definition": "Exports by enterprises in NACE C29 (motor vehicles) / exports of all NACE activities × 100 (Eurostat ext_tec09)",
+   "unit": "% (calculated ratio)",
+   "territorial_coverage": "national totals (geo AT, DE, SK, SI, CZ, HU, PL, RO, HR, RS where published)",
+   "historical_coverage": {
+    "austria": {
+     "official": "2014–2024",
+     "admitted": "2014–2024",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "2013–2024",
+     "admitted": "2013–2024",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "2014–2024",
+     "admitted": "2014–2024",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "2014–2024",
+     "admitted": "2014–2024",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "2012–2024",
+     "admitted": "2012–2024",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "2020–2024",
+     "admitted": "2020–2024",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "2014–2024",
+     "admitted": "2014–2024",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "2014–2024",
+     "admitted": "2014–2024",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "2020–2023",
+     "admitted": "2020–2023",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "2012–2024",
+     "admitted": "2012–2024",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T20:51:08.096Z",
+    "dataset_updated_at": "2026-11-03T23:00:00+0100",
+    "raw_file": "src/data/historical/raw/annual/full/ext_tec09.json",
+    "sha256": "faf8dc825b27c6954289d6884bd3f82f7b352d0701f930a57734cba47da3a020"
+   },
+   "release_and_revision_status": {
+    "status": "unchanged_since_archive",
+    "archived_dataset_updated": "2026-11-03T23:00:00+0100",
+    "live_dataset_updated": "2026-11-03T23:00:00+0100",
+    "probed_at": "2026-11-15T16:44:00.378Z",
+    "note": null
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection as the Atlas indicator for every country (definition_check: same table, selection and unit)"
+  },
+  {
+   "indicator_id": "hicp_monthly_index",
+   "frequency": "monthly",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "prc_hicp_minr",
+   "selection": "coicop18=TOTAL, unit=I15 (NSA)",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&lang=en&unit=I15&coicop18=NRG&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": null,
+   "definition": "HICP all-items index, 2015=100 (NSA)",
+   "unit": "index 2015=100",
+   "territorial_coverage": "national totals",
+   "historical_coverage": {
+    "austria": {
+     "official": "1996-01–2026-08",
+     "admitted": "1996-01–2026-09",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1997-12–2026-09",
+     "admitted": "1997-12–2026-09",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1996-01–2026-08",
+     "admitted": "1996-01–2026-09",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1996-01–2026-08",
+     "admitted": "1996-01–2026-09",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1996-01–2026-08",
+     "admitted": "1996-01–2026-09",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1996-01–2026-08",
+     "admitted": "1996-01–2026-09",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1996-01–2026-08",
+     "admitted": "1996-01–2026-09",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": null,
+     "admitted": "2015-01–2026-09",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1996-12–2026-08",
+     "admitted": "1996-12–2026-09",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1996-01–2026-08",
+     "admitted": "1996-01–2026-09",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T21:09:26.154Z",
+    "raw_file": "src/data/historical/raw/monthly/full/eurostat_prc_hicp_minr_I15_NRG.json",
+    "sha256": "aef390c20eb83ef2fa9f03b154d473157ea0f89c65cb7cea628167b9a2e6f999"
+   },
+   "release_and_revision_status": {
+    "status": "live_update_recorded_archive_update_not_recorded",
+    "live_dataset_updated": "2026-11-04T11:00:00+0100",
+    "live_latest_period_for_AT": "2026-10",
+    "probed_at": "2026-11-15T16:44:19.882Z",
+    "note": "The archived monthly extract did not record the dataset's update time, so a revision since archiving cannot be ruled out; the high-frequency refresh path diffs it."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection for every country; definition floors from official flags and the v1.83 monthly definition audit"
+  },
+  {
+   "indicator_id": "hicp_annual_rate",
+   "frequency": "monthly",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "prc_hicp_minr",
+   "selection": "coicop18=TOTAL, unit=RCH_A",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&lang=en&unit=I15&coicop18=NRG&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": null,
+   "definition": "HICP all-items annual rate of change (%)",
+   "unit": "% (annual rate)",
+   "territorial_coverage": "national totals",
+   "historical_coverage": {
+    "austria": {
+     "official": "1997-01–2026-10",
+     "admitted": "1997-01–2026-09",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1998-12–2026-10",
+     "admitted": "1998-12–2026-09",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1997-01–2026-09",
+     "admitted": "1997-01–2026-09",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1997-01–2026-10",
+     "admitted": "1997-01–2026-09",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1997-01–2026-09",
+     "admitted": "1997-01–2026-09",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1997-01–2026-09",
+     "admitted": "1997-01–2026-09",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1997-01–2026-09",
+     "admitted": "1997-01–2026-09",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": null,
+     "admitted": "2015-01–2026-09",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1997-12–2026-10",
+     "admitted": "1997-12–2026-09",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1997-01–2026-10",
+     "admitted": "1997-01–2026-09",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T21:09:26.154Z",
+    "raw_file": "src/data/historical/raw/monthly/full/eurostat_prc_hicp_minr_I15_NRG.json",
+    "sha256": "aef390c20eb83ef2fa9f03b154d473157ea0f89c65cb7cea628167b9a2e6f999"
+   },
+   "release_and_revision_status": {
+    "status": "live_update_recorded_archive_update_not_recorded",
+    "live_dataset_updated": "2026-11-04T11:00:00+0100",
+    "live_latest_period_for_AT": "2026-10",
+    "probed_at": "2026-11-15T16:44:19.882Z",
+    "note": "The archived monthly extract did not record the dataset's update time, so a revision since archiving cannot be ruled out; the high-frequency refresh path diffs it."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection for every country; definition floors from official flags and the v1.83 monthly definition audit"
+  },
+  {
+   "indicator_id": "hicp_energy_index",
+   "frequency": "monthly",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "prc_hicp_minr",
+   "selection": "coicop18=NRG, unit=I15",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&lang=en&unit=I15&coicop18=NRG&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": null,
+   "definition": null,
+   "unit": "index 2015=100",
+   "territorial_coverage": "national totals",
+   "historical_coverage": {
+    "austria": {
+     "official": "1996-01–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1998-01–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1999-12–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1996-01–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "2000-12–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1996-01–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "2000-12–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "2005-12–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1996-01–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1999-12–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T21:09:26.154Z",
+    "raw_file": "src/data/historical/raw/monthly/full/eurostat_prc_hicp_minr_I15_NRG.json",
+    "sha256": "aef390c20eb83ef2fa9f03b154d473157ea0f89c65cb7cea628167b9a2e6f999"
+   },
+   "release_and_revision_status": {
+    "status": "live_update_recorded_archive_update_not_recorded",
+    "live_dataset_updated": "2026-11-04T11:00:00+0100",
+    "live_latest_period_for_AT": "2026-10",
+    "probed_at": "2026-11-15T16:44:19.882Z",
+    "note": "The archived monthly extract did not record the dataset's update time, so a revision since archiving cannot be ruled out; the high-frequency refresh path diffs it."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection for every country; definition floors from official flags and the v1.83 monthly definition audit"
+  },
+  {
+   "indicator_id": "hicp_energy_annual_rate",
+   "frequency": "monthly",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "prc_hicp_minr",
+   "selection": "coicop18=NRG, unit=RCH_A",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&lang=en&unit=I15&coicop18=NRG&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR&geo=RS",
+   "metadata_url": null,
+   "definition": null,
+   "unit": "% (annual rate)",
+   "territorial_coverage": "national totals",
+   "historical_coverage": {
+    "austria": {
+     "official": "1997-01–2026-10",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1999-01–2026-10",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "2000-12–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1997-01–2026-10",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "2001-12–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1997-01–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "2001-12–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "2006-12–2026-09",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1997-01–2026-10",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "2000-12–2026-10",
+     "admitted": "2015-01–2026-07",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T21:09:26.154Z",
+    "raw_file": "src/data/historical/raw/monthly/full/eurostat_prc_hicp_minr_I15_NRG.json",
+    "sha256": "aef390c20eb83ef2fa9f03b154d473157ea0f89c65cb7cea628167b9a2e6f999"
+   },
+   "release_and_revision_status": {
+    "status": "live_update_recorded_archive_update_not_recorded",
+    "live_dataset_updated": "2026-11-04T11:00:00+0100",
+    "live_latest_period_for_AT": "2026-10",
+    "probed_at": "2026-11-15T16:44:19.882Z",
+    "note": "The archived monthly extract did not record the dataset's update time, so a revision since archiving cannot be ruled out; the high-frequency refresh path diffs it."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection for every country; definition floors from official flags and the v1.83 monthly definition audit"
+  },
+  {
+   "indicator_id": "industrial_production_index",
+   "frequency": "monthly",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "sts_inpr_m",
+   "selection": "indic_bt=PRD, nace_r2=B-D, s_adj=SCA, unit=I21",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sts_inpr_m?format=JSON&lang=en&indic_bt=PRD&nace_r2=B-D&s_adj=SCA&unit=I21&geo=HR",
+   "metadata_url": null,
+   "definition": "Industrial production B-D, 2021=100 (SCA)",
+   "unit": "index 2021=100 (seasonally and calendar adjusted)",
+   "territorial_coverage": "national totals",
+   "historical_coverage": {
+    "austria": {
+     "official": "1996-01–2026-07",
+     "admitted": "2000-01–2026-08",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1998-01–2026-09",
+     "admitted": "1998-01–2026-08",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "2000-01–2026-07",
+     "admitted": "2000-01–2026-08",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1991-01–2026-07",
+     "admitted": "1991-01–2026-08",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "2000-01–2026-07",
+     "admitted": "2000-01–2026-08",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "2000-01–2026-07",
+     "admitted": "2015-01–2026-08",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "2000-01–2026-07",
+     "admitted": "2015-01–2026-08",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": null,
+     "admitted": "2015-01–2026-08",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "2000-01–2026-07",
+     "admitted": "2008-01–2026-08",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1998-01–2026-07",
+     "admitted": "2000-01–2026-08",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T21:08:56.236Z",
+    "raw_file": "src/data/historical/raw/monthly/full/eurostat_sts_inpr_m_PRD_B-D_SCA_I21.json",
+    "sha256": "0718ca17189d385f4b83651638b8756da44829ad66ca17907d3816616eb679ba"
+   },
+   "release_and_revision_status": {
+    "status": "live_update_recorded_archive_update_not_recorded",
+    "live_dataset_updated": "2026-11-13T11:00:00+0100",
+    "live_latest_period_for_AT": "2026-09",
+    "probed_at": "2026-11-15T16:44:21.558Z",
+    "note": "The archived monthly extract did not record the dataset's update time, so a revision since archiving cannot be ruled out; the high-frequency refresh path diffs it."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection for every country; definition floors from official flags and the v1.83 monthly definition audit"
+  },
+  {
+   "indicator_id": "unemployment_rate_monthly",
+   "frequency": "monthly",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "une_rt_m",
+   "selection": "s_adj=SA, age=TOTAL, sex=T, unit=PC_ACT",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/une_rt_m?format=JSON&lang=en&s_adj=SA&age=TOTAL&sex=T&unit=PC_ACT&geo=HR",
+   "metadata_url": null,
+   "definition": "Unemployment rate, % of active population (SA)",
+   "unit": "% of labour force (seasonally adjusted)",
+   "territorial_coverage": "national totals",
+   "historical_coverage": {
+    "austria": {
+     "official": "1995-01–2026-07",
+     "admitted": "2004-01–2026-08",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "2000-01–2026-09",
+     "admitted": "2006-10–2026-08",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1993-01–2026-07",
+     "admitted": "1993-01–2026-08",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1991-01–2026-07",
+     "admitted": "2009-01–2026-08",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1996-01–2026-07",
+     "admitted": "2011-01–2026-08",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1997-01–2026-07",
+     "admitted": "2015-01–2026-08",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1997-01–2026-07",
+     "admitted": "2009-01–2026-08",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1998-01–2026-07",
+     "admitted": "2015-01–2026-08",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1996-01–2026-07",
+     "admitted": "2009-01–2026-08",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T21:08:57.831Z",
+    "raw_file": "src/data/historical/raw/monthly/full/eurostat_une_rt_m_SA_TOTAL_T_PC_ACT.json",
+    "sha256": "7c750d8146cb1057e1aedf79aba37d1df5c7d816fb77b4eec209a28dc4cf1626"
+   },
+   "release_and_revision_status": {
+    "status": "live_update_recorded_archive_update_not_recorded",
+    "live_dataset_updated": "2026-11-05T23:00:00+0100",
+    "live_latest_period_for_AT": "2026-10",
+    "probed_at": "2026-11-15T16:44:26.502Z",
+    "note": "The archived monthly extract did not record the dataset's update time, so a revision since archiving cannot be ruled out; the high-frequency refresh path diffs it."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection for every country; definition floors from official flags and the v1.83 monthly definition audit"
+  },
+  {
+   "indicator_id": "long_term_government_yield",
+   "frequency": "monthly",
+   "publisher": "Eurostat (European Commission)",
+   "dataset_id": "irt_lt_mcby_m",
+   "selection": "int_rt=MCBY",
+   "access_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/irt_lt_mcby_m?format=JSON&lang=en&int_rt=MCBY&geo=HR",
+   "metadata_url": null,
+   "definition": "Maastricht criterion bond yield, monthly average",
+   "unit": "% p.a. (EMU convergence criterion yield)",
+   "territorial_coverage": "national totals",
+   "historical_coverage": {
+    "austria": {
+     "official": "1985-01–2026-08",
+     "admitted": "1985-01–2026-07",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "2005-12–2026-09",
+     "admitted": "2005-12–2026-07",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "2000-04–2026-08",
+     "admitted": "2000-04–2026-07",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1980-01–2026-08",
+     "admitted": "1980-01–2026-07",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "2001-01–2026-08",
+     "admitted": "2001-01–2026-07",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "2001-01–2026-08",
+     "admitted": "2001-01–2026-07",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "2005-04–2026-08",
+     "admitted": "2006-01–2026-07",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "2001-01–2026-08",
+     "admitted": "2001-01–2026-07",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "2002-03–2026-08",
+     "admitted": "2003-11–2026-07",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "retrieved_at": "2026-11-09T21:07:50.169Z",
+    "raw_file": "src/data/historical/raw/monthly/full/eurostat_irt_lt_mcby_m_MCBY.json",
+    "sha256": "25ddf49f6a7f36ef6e8b5d5e32f6668b3bad409223ee8350ecd89df686383f1a"
+   },
+   "release_and_revision_status": {
+    "status": "live_update_recorded_archive_update_not_recorded",
+    "live_dataset_updated": "2026-11-12T11:00:00+0100",
+    "live_latest_period_for_AT": "2026-10",
+    "probed_at": "2026-11-15T16:44:05.326Z",
+    "note": "The archived monthly extract did not record the dataset's update time, so a revision since archiving cannot be ruled out; the high-frequency refresh path diffs it."
+   },
+   "reuse": {
+    "licence": "Commission reuse policy (Decision 2011/833/EU); editorial content CC BY 4.0",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice"
+   },
+   "required_citation": "Source: Eurostat",
+   "compatibility": "same table and selection for every country; definition floors from official flags and the v1.83 monthly definition audit"
+  },
+  {
+   "indicator_id": "policy_rate",
+   "frequency": "monthly",
+   "publisher": "Bank for International Settlements",
+   "dataset_id": "WS_CBPOL",
+   "selection": null,
+   "access_endpoint": "https://stats.bis.org/api/v2/data/dataflow/BIS/",
+   "metadata_url": null,
+   "definition": "ECB policy rate (BIS WS_CBPOL, end of period)",
+   "unit": "% p.a., end of period",
+   "territorial_coverage": "national (euro-area members: euro-area rate from 1999)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1999-01–2026-10",
+     "admitted": "1999-01–2026-07",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1993-01–2022-07",
+     "admitted": "2002-09–2026-07",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1995-12–2026-10",
+     "admitted": "1998-01–2026-07",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1999-01–2026-10",
+     "admitted": "1999-01–2026-07",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1987-01–2026-09",
+     "admitted": "1987-01–2026-07",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1993-01–2026-10",
+     "admitted": "1998-02–2026-07",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "2003-01–2026-10",
+     "admitted": "2003-01–2026-07",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "1997-01–2026-10",
+     "admitted": "2006-09–2026-07",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1999-01–2026-10",
+     "admitted": "2009-01–2026-07",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1999-01–2026-10",
+     "admitted": "2007-01–2026-07",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "files": 7,
+    "retrieved_at": [
+     "2026-11-09T21:07:55.115Z",
+     "2026-11-09T21:09:16.713Z"
+    ]
+   },
+   "release_and_revision_status": {
+    "status": "not_probed",
+    "note": "stats.bis.org is allowed_review_due; no new request made in this audit"
+   },
+   "reuse": {
+    "licence": "Terms of permitted use of BIS statistics",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://www.bis.org/terms_statistics.htm"
+   },
+   "required_citation": "Source: BIS",
+   "compatibility": "instrument differs by central bank; regime floors documented"
+  },
+  {
+   "indicator_id": "nominal_effective_exchange_rate",
+   "frequency": "monthly",
+   "publisher": "Bank for International Settlements",
+   "dataset_id": "WS_EER (N, broad)",
+   "selection": null,
+   "access_endpoint": "https://stats.bis.org/api/v2/data/dataflow/BIS/",
+   "metadata_url": null,
+   "definition": "BIS broad-basket nominal EER, monthly average",
+   "unit": "index",
+   "territorial_coverage": "national (euro-area members: euro-area rate from 1999)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "files": 20,
+    "retrieved_at": [
+     "2026-11-09T21:08:05.696Z",
+     "2026-11-09T21:09:23.922Z"
+    ]
+   },
+   "release_and_revision_status": {
+    "status": "not_probed",
+    "note": "stats.bis.org is allowed_review_due; no new request made in this audit"
+   },
+   "reuse": {
+    "licence": "Terms of permitted use of BIS statistics",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://www.bis.org/terms_statistics.htm"
+   },
+   "required_citation": "Source: BIS",
+   "compatibility": "broad basket"
+  },
+  {
+   "indicator_id": "real_effective_exchange_rate",
+   "frequency": "monthly",
+   "publisher": "Bank for International Settlements",
+   "dataset_id": "WS_EER (R, broad)",
+   "selection": null,
+   "access_endpoint": "https://stats.bis.org/api/v2/data/dataflow/BIS/",
+   "metadata_url": null,
+   "definition": "BIS broad-basket real EER, monthly average",
+   "unit": "index (CPI-based)",
+   "territorial_coverage": "national (euro-area members: euro-area rate from 1999)",
+   "historical_coverage": {
+    "austria": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "croatia": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "czechia": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "germany": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "slovakia": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    },
+    "slovenia": {
+     "official": "1994-01–2026-09",
+     "admitted": "1994-01–2026-07",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "files": 20,
+    "retrieved_at": [
+     "2026-11-09T21:08:05.696Z",
+     "2026-11-09T21:09:23.922Z"
+    ]
+   },
+   "release_and_revision_status": {
+    "status": "not_probed",
+    "note": "stats.bis.org is allowed_review_due; no new request made in this audit"
+   },
+   "reuse": {
+    "licence": "Terms of permitted use of BIS statistics",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://www.bis.org/terms_statistics.htm"
+   },
+   "required_citation": "Source: BIS",
+   "compatibility": "broad basket"
+  },
+  {
+   "indicator_id": "bilateral_fx_local_per_eur",
+   "frequency": "monthly",
+   "publisher": "Bank for International Settlements",
+   "dataset_id": "WS_XRU",
+   "selection": null,
+   "access_endpoint": "https://stats.bis.org/api/v2/data/dataflow/BIS/",
+   "metadata_url": null,
+   "definition": "Local currency per EUR = (local per USD) / (EUR per USD), BIS monthly averages",
+   "unit": "local currency per EUR (calculated from USD rates)",
+   "territorial_coverage": "national (euro-area members: euro-area rate from 1999)",
+   "historical_coverage": {
+    "czechia": {
+     "official": "1993-01–2026-10",
+     "admitted": "1999-01–2026-07",
+     "break_flags": []
+    },
+    "hungary": {
+     "official": "1974-06–2026-10",
+     "admitted": "1999-01–2026-07",
+     "break_flags": []
+    },
+    "poland": {
+     "official": "1974-06–2026-10",
+     "admitted": "1999-01–2026-07",
+     "break_flags": []
+    },
+    "romania": {
+     "official": "1974-06–2026-10",
+     "admitted": "1999-01–2026-07",
+     "break_flags": []
+    },
+    "serbia": {
+     "official": "1994-02–2026-10",
+     "admitted": "1999-01–2026-07",
+     "break_flags": []
+    }
+   },
+   "archive": {
+    "files": 6,
+    "retrieved_at": [
+     "2026-11-09T21:07:57.001Z",
+     "2026-11-09T21:09:20.427Z"
+    ]
+   },
+   "release_and_revision_status": {
+    "status": "not_probed",
+    "note": "stats.bis.org is allowed_review_due; no new request made in this audit"
+   },
+   "reuse": {
+    "licence": "Terms of permitted use of BIS statistics",
+    "normalized_republication": "cleared_with_conditions",
+    "raw_redistribution": "cleared_with_conditions",
+    "terms_url": "https://www.bis.org/terms_statistics.htm"
+   },
+   "required_citation": "Source: BIS",
+   "compatibility": "levels never compared across currencies"
+  }
+ ],
+ "serbia_sources": [
+  {
+   "family": "SORS (opendata.stat.gov.rs)",
+   "status": "verified_extracts",
+   "note": "national definitions; CPI is not HICP; national totals exclude AP Kosovo and Metohija from 1999; EUR-converted GDP, exports and imports approved as cross-country comparable (2026-09-30)",
+   "rights": "cleared_with_conditions"
+  },
+  {
+   "family": "Serbian Ministry of Finance bulletin (www.mfin.gov.rs, manual)",
+   "status": "verified_hash_checked_pdf",
+   "note": "GFS-1986 consolidated balance, central-level public debt (national law), NBS BPM6 current account; cross_country_comparable=false",
+   "rights": "official material of a state body (Copyright Act Art. 6(2)); attribution kept"
+  },
+  {
+   "family": "Eurostat for Serbia",
+   "status": "partial",
+   "note": "nama_10_gdp, nama_10_pc, demo_pjan, une_rt_a, bop_fdi6_flow, nrg tables carry RS; gov_10dd_edpt1, gov_10a_main and tipsbp20 hold no Serbian data; prc_hicp_aind flags every Serbian year 'd'"
+  }
+ ],
+ "unchecked_source_families": [
+  {
+   "family": "National statistical offices (Statistik Austria, Destatis, ČSÚ, ŠÚ SR, SURS, KSH, GUS, INS, DZS)",
+   "hosts": [],
+   "note": "No host registered for automated or manual data access. Their national-accounts, HICP, LFS and EDP figures are the same submissions Eurostat publishes; national back-series before the Eurostat start years were not checked.",
+   "host_status": []
+  },
+  {
+   "family": "National central banks (BoP, policy rates)",
+   "hosts": [
+    "www.nbs.rs"
+   ],
+   "note": "Only the National Bank of Serbia is registered (manual reading only). EU central-bank BoP and rate series reach the Atlas through Eurostat and BIS; earlier national series were not checked.",
+   "host_status": [
+    {
+     "host": "www.nbs.rs",
+     "status": "evidence_only_pending_publisher"
+    }
+   ]
+  },
+  {
+   "family": "National finance ministries",
+   "hosts": [
+    "www.mfin.gov.rs"
+   ],
+   "note": "Only the Serbian Ministry of Finance bulletin is registered and used (manual reading; national definitions).",
+   "host_status": [
+    {
+     "host": "www.mfin.gov.rs",
+     "status": "evidence_only_pending_publisher"
+    }
+   ]
+  },
+  {
+   "family": "OECD",
+   "hosts": [
+    "sdmx.oecd.org"
+   ],
+   "note": "Host registered (allowed_licence_review_due) but not used for these indicators; OECD reuse terms not reviewed; raw redistribution not cleared.",
+   "host_status": [
+    {
+     "host": "sdmx.oecd.org",
+     "status": "allowed_licence_review_due"
+    }
+   ]
+  },
+  {
+   "family": "IMF",
+   "hosts": [],
+   "note": "No host registered; not checked. Adding a source family is a separate, owner-approved change.",
+   "host_status": []
+  },
+  {
+   "family": "World Bank WDI",
+   "hosts": [
+    "api.worldbank.org"
+   ],
+   "note": "Used only for the frozen formal panel frame (2015–2025); never mixed into the Eurostat descriptive series.",
+   "host_status": [
+    {
+     "host": "api.worldbank.org",
+     "status": "allowed_licence_review_due"
+    }
+   ]
+  }
+ ],
+ "source_selection_decisions": [
+  {
+   "decision": "Eurostat is the primary source for every EU-country national indicator; national publications are not substituted for it.",
+   "basis": "repository source hierarchy; the Eurostat tables are the harmonised transmission of the same national submissions"
+  },
+  {
+   "decision": "A different vintage of the same table is never spliced into the canonical years.",
+   "basis": "owner decision 2026-11-11 (keep the hold); the 2026-11-16 single-vintage reference layer publishes the current vintage separately"
+  },
+  {
+   "decision": "Serbian government finance and current account are taken from the Ministry of Finance bulletin as national-definition series, not as ESA/EDP.",
+   "basis": "Eurostat publishes no EDP or MIP data for Serbia (owner decision D, 2026-11-15)"
+  },
+  {
+   "decision": "Serbian CPI is never published or compared as HICP.",
+   "basis": "Eurostat 'd' flag on every Serbian HICP year; SORS CPI is a national CPI"
+  },
+  {
+   "decision": "Registered unemployment, central-government balances and nominal GDP growth are not used for the LFS unemployment, general-government and real-growth indicators.",
+   "basis": "definitions differ (comparability contract)"
+  }
+ ],
+ "summary": {
+  "tables_checked": 34,
+  "updated_since_archive": [
+   "real_gdp_growth:nama_10_gdp",
+   "gdp_current_eur:nama_10_gdp",
+   "exports_goods_services:nama_10_gdp",
+   "imports_goods_services:nama_10_gdp",
+   "gdp_per_capita_eur:nama_10_pc",
+   "gdp_per_capita_pps:nama_10_pc",
+   "manufacturing_share_gdp:nama_10_a10",
+   "labour_productivity_growth:nama_10_lp_ulc",
+   "compensation_per_employee_eur:nama_10_lp_ulc",
+   "population:demo_pjan",
+   "fdi_inflow:bop_fdi6_flow"
+  ],
+  "unchanged": 12,
+  "archive_update_not_recorded": 7,
+  "not_probed": 4,
+  "probe_failed": []
+ }
+}

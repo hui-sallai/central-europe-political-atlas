@@ -1,0 +1,178 @@
+{
+ "schema_version": "source-probe-v1",
+ "purpose": "dataset last-update metadata only (one request per table); no observation is taken from it",
+ "host": "ec.europa.eu (registered: automation_allowed)",
+ "probes": [
+  {
+   "table": "bop_fdi6_flow",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?format=JSON&lang=en&lastTimePeriod=1&geo=AT&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:43:56.435Z",
+   "dataset_updated": "2026-11-11T11:00:00+0100",
+   "label": "EU direct investment flows, by country and economic activity (BPM6)",
+   "latest_period_for_AT": "2025"
+  },
+  {
+   "table": "demo_pjan",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:43:58.768Z",
+   "dataset_updated": "2026-11-13T23:00:00+0100",
+   "label": "Population on 1 January by age and sex",
+   "latest_period_for_AT": "2025"
+  },
+  {
+   "table": "ext_tec09",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:00.378Z",
+   "dataset_updated": "2026-11-03T23:00:00+0100",
+   "label": "Trade by NACE Rev. 2 activity sector",
+   "latest_period_for_AT": "2024"
+  },
+  {
+   "table": "gov_10a_main",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:02.106Z",
+   "dataset_updated": "2026-10-21T11:00:00+0200",
+   "label": "Government revenue, expenditure and main aggregates",
+   "latest_period_for_AT": "2025"
+  },
+  {
+   "table": "gov_10dd_edpt1",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:03.737Z",
+   "dataset_updated": "2026-10-21T11:00:00+0200",
+   "label": "Government deficit/surplus, debt and associated data",
+   "latest_period_for_AT": "2025"
+  },
+  {
+   "table": "irt_lt_mcby_m",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/irt_lt_mcby_m?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:05.326Z",
+   "dataset_updated": "2026-11-12T11:00:00+0100",
+   "label": "EMU convergence criterion series - monthly data",
+   "latest_period_for_AT": "2026-10"
+  },
+  {
+   "table": "nama_10_a10",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:06.905Z",
+   "dataset_updated": "2026-11-11T23:00:00+0100",
+   "label": "Gross value added and income by main industry (NACE Rev.2 ) - annual data",
+   "latest_period_for_AT": "2025"
+  },
+  {
+   "table": "nama_10_gdp",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:08.502Z",
+   "dataset_updated": "2026-11-11T23:00:00+0100",
+   "label": "Gross domestic product (GDP) and main components (output, expenditure and income) - annual data",
+   "latest_period_for_AT": "2025"
+  },
+  {
+   "table": "nama_10_lp_ulc",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_lp_ulc?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:10.113Z",
+   "dataset_updated": "2026-11-11T23:00:00+0100",
+   "label": "Labour productivity and unit labour costs - annual data",
+   "latest_period_for_AT": "2025"
+  },
+  {
+   "table": "nama_10_pc",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_pc?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:11.686Z",
+   "dataset_updated": "2026-11-11T23:00:00+0100",
+   "label": "Gross domestic product (GDP) and main components per capita - annual data",
+   "latest_period_for_AT": "2025"
+  },
+  {
+   "table": "nrg_ind_id",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:13.273Z",
+   "dataset_updated": "2026-07-16T23:00:00+0200",
+   "label": "Energy imports dependency",
+   "latest_period_for_AT": "2024"
+  },
+  {
+   "table": "nrg_pc_204",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_204?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:14.863Z",
+   "dataset_updated": "2026-10-19T23:00:00+0200",
+   "label": "Electricity prices for household consumers - bi-annual data",
+   "latest_period_for_AT": "2026-S1"
+  },
+  {
+   "table": "nrg_pc_205",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:16.496Z",
+   "dataset_updated": "2026-10-19T11:00:00+0200",
+   "label": "Electricity prices for non-household consumers - bi-annual data",
+   "latest_period_for_AT": "2026-S1"
+  },
+  {
+   "table": "prc_hicp_aind",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:18.116Z",
+   "dataset_updated": "2026-02-06T23:00:00+0100",
+   "label": "HICP - annual data (average index and rate of change) (1996-2025)",
+   "latest_period_for_AT": "2025"
+  },
+  {
+   "table": "prc_hicp_minr",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:19.882Z",
+   "dataset_updated": "2026-11-04T11:00:00+0100",
+   "label": "Harmonised index of consumer prices (HICP) - ECOICOP ver.2 - indices and rates of change, monthly data",
+   "latest_period_for_AT": "2026-10"
+  },
+  {
+   "table": "sts_inpr_m",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sts_inpr_m?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:21.558Z",
+   "dataset_updated": "2026-11-13T11:00:00+0100",
+   "label": "Production in industry - monthly data",
+   "latest_period_for_AT": "2026-09"
+  },
+  {
+   "table": "tipsbp20",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:23.210Z",
+   "dataset_updated": "2026-10-28T23:00:00+0100",
+   "label": "Current account balance - annual data",
+   "latest_period_for_AT": "2025"
+  },
+  {
+   "table": "une_rt_a",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/une_rt_a?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:24.858Z",
+   "dataset_updated": "2026-11-06T23:00:00+0100",
+   "label": "Unemployment by sex and age - annual data",
+   "latest_period_for_AT": "2025"
+  },
+  {
+   "table": "une_rt_m",
+   "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/une_rt_m?format=JSON&lang=en&lastTimePeriod=1&geo=AT",
+   "http_status": 200,
+   "retrieved_at": "2026-11-15T16:44:26.502Z",
+   "dataset_updated": "2026-11-05T23:00:00+0100",
+   "label": "Unemployment by sex and age - monthly data",
+   "latest_period_for_AT": "2026-10"
+  }
+ ]
+}

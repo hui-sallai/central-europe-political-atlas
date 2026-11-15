@@ -859,6 +859,37 @@
           "sha256": "3f28bab5b3bcc7bef7aecd409ca436a2dbe3e8ff7f2bac33d11ea10c489c23bc"
         }
       ]
+    },
+    {
+      "run_id": "single-vintage-reference-20261116",
+      "status": "owner_approved",
+      "approved_on": "2026-11-16",
+      "approved_by": "owner answer 2026-11-16 to the backfill question of the historical coverage iteration: \"Single-vintage layer (Recommended)\" (new descriptive layer with current account, real GDP growth, GDP per capita EUR and FDI inflows for all countries from the archived, hash-verified Eurostat extracts; never spliced into canonical years or used by models; the hold stays in force); deployment governed by the owner's push instruction",
+      "unit": "single-vintage-reference",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "verification": "single-vintage-reference: data-refresh:apply store validators, offline rebuild check (--check) against the hash-checked archived extracts",
+      "ledger_plan_sha256": "3151cdea738c0e2c57d0480d7429847358f7efe40503b00be582960c4538a9b9",
+      "summary": "Single-vintage reference layer (descriptive, unspliced): 39 country × indicator series, 882 annual observations from one archived retrieval per table (tipsbp20, nama_10_gdp, nama_10_pc, bop_fdi6_flow; retrieved 2026-11-09, sha256-checked against the annual manifest), Phase R floors (last 'b' flag, year after last 'd', territorial floors DE 1991 and RS 1999). Years also admitted in observations.json or the annual history carry both values with the difference recorded; nothing in those stores changed. Not a model input.",
+      "formal_model_input_change_allowed": false,
+      "frozen_snapshot_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "research_gate_change_allowed": false,
+      "release_version_change_allowed": false,
+      "files": [
+        {
+          "path": "public/research-data/annual_single_vintage_reference.json",
+          "sha256": "296f2a1189e586601f31a93944c8c0d96f51ca562311a68e9ad8ce8b019568b3"
+        },
+        {
+          "path": "src/data/data-refresh/refresh_ledger.jsonl",
+          "sha256": "00fc3b9dfc8fa711cab0ea6ea776a2b315463a564d0d9f0870548f9efb932354"
+        },
+        {
+          "path": "src/data/historical/annual_single_vintage_reference.json",
+          "sha256": "296f2a1189e586601f31a93944c8c0d96f51ca562311a68e9ad8ce8b019568b3"
+        }
+      ]
     }
   ]
 }

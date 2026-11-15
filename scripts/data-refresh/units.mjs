@@ -64,6 +64,20 @@ export const UNITS = {
     validators: ["pnpm serbia-audit:validate", "pnpm data-coverage:validate"],
     note: "Manual-reading source: offline only. National definitions, cross_country_comparable=false; never merged into the canonical EU observations.",
   },
+  // Owner decision 2026-11-16 ("Single-vintage layer"): the vintage-held indicators as an unspliced reference layer for all
+  // countries, built offline from the archived Phase R full-history extracts (hash-checked); never merged into
+  // observations.json or the annual history. Runs after annual-history so a new archived vintage flows through together.
+  "single-vintage-reference": {
+    label: "Eurostat single-vintage reference layer: current account, real GDP growth, GDP per capita EUR, FDI inflows (all countries, unspliced)",
+    family: "Eurostat",
+    command: ["node", "scripts/historical-annual/build-single-vintage-reference.mjs"],
+    offline: { flag: "--offline" },
+    stores: [{ path: "src/data/historical/annual_single_vintage_reference.json", kind: "single_vintage" }],
+    writeSet: ["src/data/historical/annual_single_vintage_reference.json", "public/research-data/annual_single_vintage_reference.json"],
+    modelLinked: [],
+    validators: ["node scripts/historical-annual/build-single-vintage-reference.mjs --check", "pnpm historical-annual:validate"],
+    note: "Offline only (archived extracts). Descriptive reference; the 2026-11-11 vintage hold on the spliced series stays in force.",
+  },
   "annual-history": {
     label: "Eurostat annual descriptive history (2000 → first stored year) + source-ahead check of observations.json",
     family: "Eurostat",
@@ -108,11 +122,12 @@ export const UNITS = {
 // all-descriptive, as a revision audit).
 export const MODES = {
   monthly: ["eurostat-high-frequency", "macro-drivers", "serbia-sors"],
-  annual: ["annual-history"],
+  annual: ["annual-history", "single-vintage-reference"],
   regional: ["regional-history"],
   serbia: ["serbia-sors"],
   "serbia-mfin": ["serbia-mfin"],
-  "all-descriptive": ["eurostat-high-frequency", "macro-drivers", "serbia-sors", "annual-history", "monthly-history", "regional-history"],
+  "single-vintage-reference": ["single-vintage-reference"],
+  "all-descriptive": ["eurostat-high-frequency", "macro-drivers", "serbia-sors", "annual-history", "single-vintage-reference", "monthly-history", "regional-history"],
 };
 
 // Never touched by a data refresh (release metadata stays under the current platform version).
