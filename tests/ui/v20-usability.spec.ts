@@ -22,7 +22,12 @@ for(const prefix of ['', '/en']){
   await w.getByLabel(en?'Visualization':'比较展示',{exact:true}).selectOption('bar');await expect(w.getByRole('figure')).toBeVisible();
   if(evidence)await page.screenshot({path:path.join(evidence,`after-comparison-${en?'en':'zh'}-${info.project.name}.png`),fullPage:true});
   const download=page.waitForEvent('download');await w.getByRole('button',{name:en?'Export actual observations (CSV)':'导出实际观测（CSV）'}).click();const d=await download;const csv=fs.readFileSync((await d.path())!,'utf8');expect(csv).toContain('source_url');expect(csv).toContain('austria');expect(csv).toContain('croatia');expect(csv).not.toContain('"hungary"');
-  const raw=JSON.parse(fs.readFileSync('src/data/observations/observations.json','utf8'));const observations=Array.isArray(raw)?raw:raw.records;const original=observations.find((r:{country_slug:string;indicator:string;value:number|null})=>r.country_slug==='austria'&&r.indicator==='real_gdp_growth'&&r.value!==null);expect(csv).toContain(`"austria","${original.year}","${original.value}"`);
+  const raw=JSON.parse(fs.readFileSync('src/data/observations/observations.json','utf8'));const observations=Array.isArray(raw)?raw:raw.records;const displayedYear=await w.locator('table').first().locator('tbody tr td').first().innerText();
+  expect(csv.trim().split('\r\n')).toHaveLength(3);
+  for(const country of ['austria','croatia']){
+   const original=observations.find((r:{country_slug:string;indicator:string;year:number|string})=>r.country_slug===country&&r.indicator==='real_gdp_growth'&&String(r.year)===displayedYear.trim());
+   expect(csv).toContain(`"${country}","${original.year}","${original.value}"`);
+  }
   await w.locator('[data-notebook-add]').click();await expect.poll(async()=>JSON.parse((await activeNotebookRaw(page))??'{}').items?.length).toBe(1);
   await w.getByLabel(en?'Visualization':'比较展示',{exact:true}).selectOption('table');await expect(w.locator('[data-comparison-records]')).toBeVisible();expect(await w.locator('[data-comparison-records]').locator('tbody tr').count()).toBeLessThanOrEqual(25);
   const detailSearch=w.getByLabel(en?'Search country, period, value or source':'搜索国家、时期、数值或来源');await detailSearch.fill('2020');await expect(w.locator('[data-comparison-records]').locator('tbody')).toContainText('2020');await detailSearch.clear();
