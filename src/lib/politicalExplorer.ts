@@ -42,6 +42,7 @@ export type PoliticalElectionView = {
   publishedTurnout: number | null;
   eligibleVoters: number | null;
   voters: number | null;
+  votersTurnedOut?: number;
   system: { family: string; allocationMethod: string; baseSeats: number | null; voteType: string };
   notes: { en: string; "zh-CN": string };
   sources: PoliticalSource[];

@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Serbia election navigation — 2026-11-16
+
+- Restore selected elections with browser history, label turnout computed from official counts, and export results for an individual election in CSV or JSON.
+
 ### v2.0 arbitrary comparison and research navigation — 2026-11-14
 
 - Add one shared, user-selected 2–10-country comparison with topic search across existing annual, monthly, quarterly and financial series, actual eligible common periods, exact tables, charts, CSV, Notebook and research snapshots.

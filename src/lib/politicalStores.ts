@@ -9,7 +9,7 @@ type Provenance = { source_id: string; fields_covered?: string[] };
 export type PoliticalStores = {
   members?:ElectionMembership[];
   elections: Array<{ election_id: string; year: number; date: string; date_end?: string | null; chamber: string; legislature_id: string; electoral_system_id: string; result_vintage: string; provenance?:Provenance[] }>;
-  turnout: Array<{ election_id: string; vote_type?: string; eligible_voters: number | null; voters: number | null; valid_second_votes?: number | null; invalid_second_votes?: number | null; valid_votes?: number | null; invalid_votes?: number | null; ballots_cast?: number | null; published_turnout: number | null; turnout_definition?: string | null; turnout_basis?: TurnoutBasis; provenance?: Provenance[] }>;
+  turnout: Array<{ election_id: string; vote_type?: string; eligible_voters: number | null; voters: number | null; valid_second_votes?: number | null; invalid_second_votes?: number | null; valid_votes?: number | null; invalid_votes?: number | null; ballots_cast?: number | null; voters_turned_out?: number; published_turnout: number | null; turnout_definition?: string | null; turnout_basis?: TurnoutBasis; provenance?: Provenance[] }>;
   results: Array<{ election_id: string; contestant_ref: string; vote_type?: string; second_votes?: number | null; votes?: number | null; published_vote_share: number | null; seats: number | null; constituency_seats?: number | null; whole_chamber_seats?: number | null; provenance: Provenance[] }>;
   contestants: Array<{ contestant_id: string; historical_display_label: string; contestant_kind?: string; lead_party_id?: string | null }>;
   legislatures: Array<{ legislature_id: string; total_seats: number | null; seat_attribution?: "complete" | "none"; national_list_seats?: number | null; constituency_seats?: number | null; provenance?:Provenance[] }>;
@@ -71,6 +71,7 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
       resultVintage: election.result_vintage, validSecondVotes: primary.validVotes,
       totalSeats: legislature.total_seats, publishedTurnout: counts.published_turnout,
       eligibleVoters: counts.eligible_voters, voters: counts.voters,
+      ...(counts.voters_turned_out !== undefined ? { votersTurnedOut: counts.voters_turned_out } : {}),
       system: { family: system.system_family, allocationMethod: system.allocation_method, baseSeats: system.base_seats, voteType: system.vote_type },
       notes: system.notes,
       sources: stores.sources.filter((s) => sourceIds.has(s.source_id)).map((s) => ({ id: s.source_id, title: s.dataset, url: s.url, sha256: s.raw_sha256, retrievedAt: s.retrieved_at, licenceUrl: s.licence_url, institution:s.institution })),

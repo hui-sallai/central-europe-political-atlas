@@ -3433,6 +3433,35 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-15"
+    },
+    {
+      "amendment_id": "serbia-election-history-and-turnout-2026-11-16",
+      "status": "owner_approved",
+      "approved_by": "Owner explicitly approved the three exact hashes in docs/v20-serbia-election-navigation-2026-11-16.md and authorised commit, push, deployment and live verification.",
+      "baseline": "dfc624968151a5145a23f95a9292a6db9fdc3eec",
+      "files": [
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "fbc856802785b7785840b0e5b2e8727d0816a69fc72d729d673d87cdbdb34948",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalExplorer.ts",
+          "sha256": "133db1fdfdd1ef0ca4eeb18135fe68ee99016b6c37f3178330b48f2fca8b2aa5",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalStores.ts",
+          "sha256": "518ef3d7881ec2743d954bdf049529ad2f9e5d8ba0b2ed632775a9f2b0bfc4ef",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-16"
     }
   ]
 }

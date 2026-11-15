@@ -93,3 +93,73 @@ for (const locale of ["en", "zh-CN"] as const) test(`Serbian 2022: 19 lists and 
   expect(await main.innerText()).not.toMatch(LATIN_NAMES);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
 });
+
+for (const prefix of ["", "/en"]) test(`Serbia election selection, history, turnout and downloads stay aligned (${prefix || "zh"})`, async ({ browser, page }) => {
+  const en = prefix === "/en";
+  await page.goto(prefix + "/politics/");
+  await expect(page.locator("[data-political-country=serbia]")).toContainText("2020, 2022, 2023, 2026");
+  const base = "/research-data/political/serbia/";
+  const records = await (await page.request.get(base + "election_results.json")).json();
+  const turnout = await (await page.request.get(base + "election_turnout.json")).json();
+  const id = (year: number) => turnout.find((row: { election_id: string }) => row.election_id.includes("-" + year + "-")).election_id;
+  await page.goto(prefix + "/politics/serbia/?election=" + id(2023));
+  const electionControl = `select:has(option[value="${id(2023)}"])`;
+  const selection = page.locator(electionControl).first();
+  const check = async (year: number) => {
+    const rows = records.filter((row: { election_id: string }) => row.election_id === id(year));
+    await expect(selection).toHaveValue(id(year));
+    expect(new URL(page.url()).searchParams.get("election")).toBe(id(year));
+    await expect(page.locator("[data-politics-summary] h3").first()).toContainText(String(year));
+    await expect(page.locator("[data-vote-seat-table] tbody tr")).toHaveCount(rows.length);
+    await expect(page.locator("[data-results-disclosure] tbody tr")).toHaveCount(rows.length);
+    await expect(page.locator("[data-parliament-seats] circle")).toHaveCount(250);
+    const leadingList = [...rows].sort((a, b) => b.votes - a.votes)[0];
+    await expect(page.locator("[data-chart-list]").first()).toHaveAttribute("data-chart-list", leadingList.contestant_ref);
+    await expect(page.locator("[data-results-disclosure] tbody a").first()).toHaveAttribute("href", rows[0].provenance[0].source_url);
+    const row = page.locator("table").first().getByRole("row").filter({ hasText: String(year) });
+    const counts = turnout.find((r: { election_id: string }) => r.election_id === id(year));
+    await expect(row).toContainText(counts.derived_turnout.toFixed(2) + "%");
+    await expect(row).toContainText(en ? "Computed from official counts" : "按官方人数计算");
+    expect(rows.reduce((sum: number, r: { seats: number }) => sum + r.seats, 0)).toBe(250);
+  };
+  await check(2023);
+  await page.reload();
+  await check(2023);
+  await selection.selectOption(id(2022));
+  await check(2022);
+  await selection.selectOption(id(2026));
+  await check(2026);
+  await page.goBack();
+  await check(2022);
+  await page.goForward();
+  await check(2026);
+  await selection.selectOption(id(2023));
+  await page.locator('a[hreflang]').filter({ hasText: en ? "中文" : "English" }).first().click();
+  await expect(page.locator(electionControl).first()).toHaveValue(id(2023));
+  const fresh = await browser.newPage();
+  try {
+    await fresh.goto(page.url());
+    await expect(fresh.locator(electionControl).first()).toHaveValue(id(2023));
+    await fresh.locator("details").filter({ has: fresh.locator('a[href$="/serbia/manifest.json"]') }).locator("summary").first().click();
+    for (const year of [2020, 2022, 2023, 2026]) {
+      await fresh.locator(electionControl).first().selectOption(id(year));
+      for (const format of ["JSON", "CSV"]) {
+        const pending = fresh.waitForEvent("download");
+        await fresh.getByRole("button", { name: format, exact: true }).click();
+        const file = await pending;
+        expect(file.suggestedFilename()).toBe(id(year) + "." + format.toLowerCase());
+        const stream = await file.createReadStream();
+        const chunks = [];
+        for await (const chunk of stream!) chunks.push(chunk);
+        const body = Buffer.concat(chunks).toString("utf8");
+        const expected = records.filter((r: { election_id: string }) => r.election_id === id(year));
+        if (format === "JSON") expect(JSON.parse(body)).toEqual(expected);
+        else {
+          expect(body.trim().split("\r\n")).toHaveLength(expected.length + 1);
+          for (const record of expected) expect(body).toContain(record.result_id);
+          expect(body).not.toContain(id(year === 2022 ? 2023 : 2022));
+        }
+      }
+    }
+  } finally { await fresh.close(); }
+});
