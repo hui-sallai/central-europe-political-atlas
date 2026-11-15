@@ -1,0 +1,36 @@
+import {test,expect} from '@playwright/test';
+for(const prefix of ['', '/en']) test('Atlas research navigation '+(prefix||'zh'),async({page})=>{
+ const en=!!prefix;
+ await page.goto(prefix+'/');
+ const map=page.locator('.home-map-canvas');
+ await expect(map.locator('svg text')).toHaveCount(10);
+ await map.getByRole('button',{name:'RS',exact:true}).click();
+ await page.locator('.home-map-actions a').first().click();
+ await page.getByRole('link',{name:en?'Open election research':'打开选举研究',exact:true}).click();
+ await expect(page.locator('[data-parliament-seats]')).toContainText(en?'of chamber':'占全议院');
+ await page.goto(prefix+'/data/?country=poland');
+ const panel=page.locator('[data-national-comparison]');
+ await panel.getByRole('searchbox').first().fill('foreign direct investment');
+ await expect(panel.getByLabel(en?'Indicator':'指标',{exact:true}).locator('option[value="annual:fdi_inflow"]')).toHaveCount(1);
+ await panel.getByRole('button',{name:en?'Select all countries':'选择全部国家'}).click();
+ await expect(panel.locator('fieldset :checked')).toHaveCount(10);
+ await panel.getByRole('button',{name:en?'Last 5 calendar years':'最近 5 个日历年'}).click();
+ const latest=Number(await panel.getByLabel(en?'To period':'结束时期',{exact:true}).inputValue());
+ expect(Number(await panel.getByLabel(en?'From period':'起始时期',{exact:true}).inputValue())).toBe(latest-4);
+ await panel.getByRole('button',{name:en?'All available periods':'全部可用时期'}).click();
+ await expect(panel.getByLabel(en?'From period':'起始时期',{exact:true})).toHaveValue('');
+ await panel.getByRole('button',{name:en?'Clear country selection':'清除国家选择'}).click();
+ await expect(panel.locator('fieldset :checked')).toHaveCount(0);
+ await page.goto(prefix+'/map/?country=serbia');
+ const context=page.getByRole('navigation',{name:en?'National context':'全国背景'});
+ await expect(context.locator('a').last()).toHaveAttribute('href',/compare_countries=serbia/);
+});
+test('implementation chronology preserves the evidence row and national indicator',async({page})=>{
+ await page.goto('/en/models/?tab=run&skill=event_window_analysis&country=hungary&event=hu-2022-08-12-catl-debrecen&section=case');
+ const selector=page.getByLabel('Jump to a documented milestone');
+ const row=page.locator('[data-e2-milestone]').last();
+ const id=await row.getAttribute('id');
+ await selector.selectOption(id!);
+ await expect(row).toBeFocused();
+ await expect(page.locator('[data-e2-link] a').first()).toHaveAttribute('href',/country=hungary&comparison_indicator=annual/);
+});

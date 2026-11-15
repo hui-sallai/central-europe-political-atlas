@@ -3501,6 +3501,55 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-16"
+    },
+    {
+      "amendment_id": "atlas-product-workflows-2026-11-16",
+      "status": "owner_approved",
+      "approved_by": "Owner requested the map, comparison, election and regional presentation improvements and explicitly authorised automatic deployment upon completion. Hashes record the implemented scope.",
+      "baseline": "be713b6d13750149e9b736b9277fee30113cfa12",
+      "files": [
+        {
+          "path": "src/components/ComparativeSpatialWorkbench.tsx",
+          "classification": "DATA_PRESENTATION",
+          "sha256": "644dbf1f5971531bc1c08970e77009891b70f7ab770a555c47c6775492f818c6"
+        },
+        {
+          "path": "src/components/CountryResearchProfile.tsx",
+          "classification": "DATA_PRESENTATION",
+          "sha256": "e85d899459179a6ccfc24b247e8b5a56b7e76dfb5eda4743ef3bfc2604d073af"
+        },
+        {
+          "path": "src/components/EventCaseStudy.tsx",
+          "classification": "DATA_PRESENTATION",
+          "sha256": "17f3afcfedce19c7cb8f8ffec2bc8b996bbef4583fa3cca67cdf4f0eaeb7c9c1"
+        },
+        {
+          "path": "src/components/HomeResearchMap.tsx",
+          "classification": "DATA_PRESENTATION",
+          "sha256": "87558b2531122236f7d7042d026424590d46940a798cdb85c649ce1b3b7e6246"
+        },
+        {
+          "path": "src/components/NationalComparisonWorkspace.tsx",
+          "classification": "DATA_PRESENTATION",
+          "sha256": "4bcafe6adf2a1a5c52ebf55a012e3d0cd04c21f29671a068afde56a23ab01828"
+        },
+        {
+          "path": "src/components/ParliamentSeats.tsx",
+          "classification": "DATA_PRESENTATION",
+          "sha256": "cec1101b14d5a12d800717d53e7e07e090567a0335011541be09205d4248a527"
+        },
+        {
+          "path": "src/lib/indicatorTaxonomy.ts",
+          "classification": "DATA_PRESENTATION",
+          "sha256": "ff58b44f6969cdb65b13a87a68fa4299d29738c0eecceadc7fd216997d1dc411"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-16"
     }
   ]
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { admittedCountrySlugs } from "@/lib/politicalAdmission";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { localizedRoute, type Locale } from "@/i18n/config";
@@ -59,6 +60,18 @@ function pathFor(feature: MapFeature, project: (position: Position) => Position)
   }).join(" ")} Z`).join(" ")).join(" ");
 }
 
+// Place each label within the extent of the largest mainland polygon.
+function labelPosition(feature: MapFeature, project: (point: Position) => Position): Position {
+  const rings = polygons(feature).map(polygon => polygon[0].map(project));
+  const extents = rings.map(ring => {
+    const xs = ring.map(([x]) => x), ys = ring.map(([,y]) => y);
+    return {left: Math.min(...xs), right: Math.max(...xs), top: Math.min(...ys), bottom: Math.max(...ys)};
+  });
+  const area = (box: typeof extents[number]) => (box.right-box.left)*(box.bottom-box.top);
+  const main = extents.reduce((a,b) => area(a)>area(b) ? a : b);
+  return [(main.left+main.right)/2, (main.top+main.bottom)/2];
+}
+
 export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: HomeMapCountry[]; locale?: Locale }) {
   const en = locale === "en";
   const m = homeMapMessages[locale];
@@ -88,11 +101,15 @@ export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: Ho
   const paths = useMemo(() => {
     if (!features.length) return [];
     const project = projector(features);
-    return features.map((feature, index) => ({
-      key: `${feature.properties.countrySlug}-${index}`,
-      slug: feature.properties.countrySlug,
-      d: pathFor(feature, project),
-    }));
+    const slugs = [...new Set(features.map(f=>f.properties.countrySlug))];
+    return slugs.map(slug=>{
+      const regions = features.filter(f=>f.properties.countrySlug===slug);
+      const centers = regions.map(f=>labelPosition(f,project));
+      const mean = centers.reduce(([x,y],[cx,cy])=>[x+cx/centers.length,y+cy/centers.length] as Position,[0,0] as Position);
+      const distance = ([x,y]:Position)=>Math.hypot(x-mean[0],y-mean[1]);
+      const label = centers.reduce((a,b)=>distance(a)<distance(b)?a:b);
+      return {key:slug,slug,label,d:regions.map(f=>pathFor(f,project)).join(" ")};
+    });
   }, [features]);
 
   return (
@@ -111,20 +128,23 @@ export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: Ho
                 const active = item.slug === selectedSlug;
                 const country = countries.find((candidate) => candidate.slug === item.slug);
                 const fill = active ? "var(--accent)" : neutralCountryFill;
-                return <path key={item.key} d={item.d} fill={fill} stroke="var(--map-border)" strokeWidth="1.4" className={`home-country-shape${active ? " is-selected" : ""}`} role="button" tabIndex={0} aria-label={`${m.select}${en ? country?.nameEn ?? item.slug : country?.nameZh ?? item.slug}`} onClick={() => setSelectedSlug(item.slug)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setSelectedSlug(item.slug); } }}><title>{en ? country?.nameEn ?? item.slug : country?.nameZh ?? item.slug}</title></path>;
+                return <path key={item.key} d={item.d} fill={fill} stroke="var(--map-border)" strokeWidth="1.4" className={`home-country-shape${active ? " is-selected" : ""}`} role="button" aria-pressed={active} tabIndex={0} aria-label={`${m.select}${en ? country?.nameEn ?? item.slug : country?.nameZh ?? item.slug}`} onClick={() => setSelectedSlug(item.slug)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setSelectedSlug(item.slug); } }}><title>{en ? country?.nameEn ?? item.slug : country?.nameZh ?? item.slug}</title></path>;
               })}
+              <g aria-hidden="true" pointerEvents="none" textAnchor="middle" dominantBaseline="middle" fontSize="16" fontWeight="700">
+                {paths.map(item => <text key={item.key} x={item.label[0]} y={item.label[1]} fill="var(--ink)" stroke="var(--surface)" strokeWidth="3" paintOrder="stroke">{countries.find(c=>c.slug===item.slug)?.iso2}</text>)}
+              </g>
             </svg>
           ) : null}
           <div className="home-country-selector" style={{position:"static",marginTop:"0.75rem"}} aria-label={m.shortcuts}>
-            {countries.map((country) => <button key={country.slug} type="button" aria-pressed={country.slug === selectedSlug} onClick={() => setSelectedSlug(country.slug)}>{country.iso2}</button>)}
+            {countries.map((country) => <button key={country.slug} title={en ? country.nameEn : country.nameZh} type="button" aria-pressed={country.slug === selectedSlug} onClick={() => setSelectedSlug(country.slug)}>{country.iso2}</button>)}
           </div>
           <p className="mt-2 text-[11px] leading-5 text-[var(--muted)]" data-source-attribution="geoboundaries">{m.boundaryAttribution} <a className="underline" href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/geo/BOUNDARY-LICENSES.txt`}>{m.boundaryLicences}</a></p>
         </div>
         <aside className="home-country-panel">
           <p className="editorial-kicker">Selected Country</p>
-          <h3>{en ? selected.nameEn : selected.nameZh}</h3>
-          <p className="home-country-en">{selected.nameEn}</p>
-          <div className="home-map-actions"><Link href={localizedRoute(`/countries/${selected.slug}/`, locale)}>{m.profile}</Link><Link href={localizedRoute(`/data/?country=${selected.slug}`, locale)}>{en ? "National economic data" : "国家经济数据"}</Link><Link href={localizedRoute(`/politics/${["germany","czechia","poland","slovakia","hungary","serbia"].includes(selected.slug) ? `${selected.slug}/` : ""}`, locale)}>{en ? "Politics and elections" : "政治制度与选举"}</Link><Link href={localizedRoute(`/models/?country=${selected.slug}`, locale)}>{en ? "Research and models" : "研究与模型"}</Link><Link href={localizedRoute(`/map/?country=${selected.slug}`, locale)}>{m.fullMap}</Link></div>
+          <h3 aria-live="polite">{en ? selected.nameEn : selected.nameZh}</h3>
+          {!en && <p className="home-country-en">{selected.nameEn}</p>}
+          <div className="home-map-actions"><Link href={localizedRoute(`/countries/${selected.slug}/`, locale)}>{m.profile}</Link><Link href={localizedRoute(`/data/?country=${selected.slug}`, locale)}>{en ? "National economic data" : "国家经济数据"}</Link><Link href={localizedRoute(`/politics/${admittedCountrySlugs.includes(selected.slug) ? `${selected.slug}/` : ""}`, locale)}>{en ? "Politics and elections" : "政治制度与选举"}</Link><Link href={localizedRoute(`/models/?country=${selected.slug}`, locale)}>{en ? "Research and models" : "研究与模型"}</Link><Link href={localizedRoute(`/map/?country=${selected.slug}`, locale)}>{m.fullMap}</Link></div>
         </aside>
       </div>
     </section>

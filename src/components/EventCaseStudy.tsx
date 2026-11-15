@@ -340,10 +340,16 @@ export function EventCaseStudy({ event, events, series, loadState, mechanisms = 
             <p className="text-xs text-[var(--muted)]">{en ? "Implementation evidence (E2): announced, approved, implemented, realised" : "实施证据（E2）：公告、批准、实施、实现"}</p>
             <ul className="mt-1 flex flex-wrap gap-2" data-e2-stages>{mechanism.implementation.stages.map((s) => <li key={s.stage} data-e2-stage={s.stage} data-e2-status={s.status} className={`rounded-full border px-3 py-1 text-xs ${s.status === "verified" ? "border-[var(--foreground)] font-semibold" : "border-[var(--line)] text-[var(--muted)]"}`}>{E2_STAGE[s.stage][en ? "en" : "zh"]}: {E2_STATUS[s.status][en ? "en" : "zh"]}{s.disputed && s.status !== "disputed" ? (en ? ` · ${s.disputed} disputed` : ` · ${s.disputed} 项有争议`) : ""}</li>)}</ul>
             <p className="mt-1 text-xs text-[var(--muted)]">{en ? "Documentary evidence status, not a performance score. Verified = an official document supports the claim; announced = only the party concerned states it; disputed = contested and no primary record located; unavailable = nothing located." : "这是文件证据状态，不是绩效评分。已核实 = 有官方文件支持；已公告 = 只有当事方陈述；有争议 = 存在争议且未找到一手记录；不可得 = 未找到任何记录。"}</p>
+            <label className="mt-3 block text-sm">{en ? "Jump to a documented milestone" : "跳至时间线记录"}
+              <select className="field-control mt-1" value="" onChange={e=>document.getElementById(e.target.value)?.focus()}>
+                <option value="">{en ? "Choose a record" : "选择记录"}</option>
+                {mechanism.implementation.milestones.map(m=><option key={m.id} value={`milestone-${m.id}`}>{m.event_date??(en?"Undated":"无日期")} · {t(m.claim)}</option>)}
+              </select>
+            </label>
             <div className="mt-2 overflow-x-auto" tabIndex={0} role="region" aria-label={en ? "Implementation chronology (scrollable)" : "实施时间线（可横向滚动）"}>
               <table className="research-data-table min-w-[720px] text-left text-xs" data-e2-chronology>
                 <thead><tr><th className="px-2 py-1">{en ? "Date" : "日期"}</th><th className="px-2 py-1">{en ? "Stage · status" : "阶段 · 状态"}</th><th className="px-2 py-1">{en ? "Claim" : "陈述"}</th><th className="px-2 py-1">{en ? "Amounts and units" : "金额与单位"}</th><th className="px-2 py-1">{en ? "Source" : "来源"}</th></tr></thead>
-                <tbody>{mechanism.implementation.milestones.map((m) => <tr key={m.id} data-e2-milestone={m.id} data-e2-milestone-status={m.status} data-e2-scope={m.scope}>
+                <tbody>{mechanism.implementation.milestones.map((m) => <tr key={m.id} id={`milestone-${m.id}`} tabIndex={-1} data-e2-milestone={m.id} data-e2-milestone-status={m.status} data-e2-scope={m.scope}>
                   <td className="px-2 py-1 align-top metric-number">{m.event_date ?? (en ? "undated" : "无日期")}{m.publication_date && m.publication_date !== m.event_date ? <span className="block text-[var(--muted)]">{en ? "published" : "发布"} {m.publication_date}</span> : null}</td>
                   <td className="px-2 py-1 align-top">{E2_STAGE[m.stage][en ? "en" : "zh"]} · <span className={m.status === "verified" ? "font-semibold" : "text-[var(--muted)]"}>{E2_STATUS[m.status][en ? "en" : "zh"]}</span>{m.scope !== "event_specific" ? <span className="block text-[var(--muted)]">{m.scope === "whole_plan" ? (en ? "whole plan" : "整个计划") : (en ? "zone infrastructure" : "园区基础设施")}</span> : null}</td>
                   <td className="px-2 py-1 align-top">{t(m.claim)}{m.note ? <span className="block text-[var(--muted)]">{t(m.note)}</span> : null}</td>
@@ -353,7 +359,7 @@ export function EventCaseStudy({ event, events, series, loadState, mechanisms = 
               </table>
             </div>
             <p className="mt-2 font-semibold">{en ? "Published observations and the implementation record" : "已发布观测值与实施记录"}</p>
-            <ul className="list-disc pl-5" data-e2-links>{mechanism.implementation.links.map((l) => <li key={l.indicatorId} data-e2-link={l.indicatorId} data-e2-use={l.use}>{t(mechanism.indicators.annual.find((a) => a.indicatorId === l.indicatorId)?.name ?? { en: l.indicatorId, zh: l.indicatorId })} ({en ? "latest published year" : "最新已发布年份"} {l.latestPublishedYear ?? "—"}; {t(E2_LABEL[l.timing])}; {t(E2_LABEL[l.use])}): {t(l.reason)}</li>)}</ul>
+            <ul className="list-disc pl-5" data-e2-links>{mechanism.implementation.links.map((l) => <li key={l.indicatorId} data-e2-link={l.indicatorId} data-e2-use={l.use}>{t(mechanism.indicators.annual.find((a) => a.indicatorId === l.indicatorId)?.name ?? { en: l.indicatorId, zh: l.indicatorId })} ({en ? "latest published year" : "最新已发布年份"} {l.latestPublishedYear ?? "—"}; {t(E2_LABEL[l.timing])}; {t(E2_LABEL[l.use])}): {t(l.reason)} <a className="underline" href={`${en?"/en":""}/data/?${new URLSearchParams({country:event.country_slug,comparison_indicator:"annual:"+l.indicatorId})}`}>{en?"Explore the annual series":"查看年度序列"}</a></li>)}</ul>
             <p className="mt-2 font-semibold">{en ? "Unresolved" : "尚未解决"}</p>
             <ul className="list-disc pl-5" data-e2-unresolved>{mechanism.implementation.unresolved.map((u) => <li key={u.en}>{t(u)}</li>)}</ul>
           </div>

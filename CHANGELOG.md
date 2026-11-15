@@ -1,5 +1,10 @@
 # Changelog
 
+### v2.0 map and historical research navigation — 2026-11-16
+
+- Label the ten-country map, link admitted national elections from country profiles, and show recorded seats as shares of the full chamber.
+- Add bilingual indicator search terms, bulk country selection and historical period shortcuts. Export observations from the active comparison frame and link regional selections to national profiles and comparisons.
+
 ### v2.0 annual Data Explorer — 2026-11-16
 
 - Add independently sourced annual reference charts, tables and CSV, per-country period coverage and explicit frequency selection. Preserve original observation identifiers in annual exports.
