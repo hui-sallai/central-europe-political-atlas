@@ -3462,6 +3462,45 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-16"
+    },
+    {
+      "amendment_id": "annual-explorer-integration-2026-11-16",
+      "status": "owner_approved",
+      "approved_by": "Owner explicitly approved the five exact hashes in docs/v20-annual-explorer-integration-2026-11-16.md and authorised commit, push, deployment and live verification.",
+      "baseline": "1a843bdc4aa7562b00e75bd32188c2aa51a363ac",
+      "files": [
+        {
+          "path": "src/components/AnnualReferenceDetails.tsx",
+          "sha256": "e63afa95622459a94f3136400e7144e010e133b44f2de83f5a26284ca9785b59",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/NationalComparisonWorkspace.tsx",
+          "sha256": "604292b7c57bb2b03a7dbae095f7125ae27d8e2f4a74cc5fc4058d93ace66661",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/annualComparison.ts",
+          "sha256": "314cc54d2d1477c1d61a4327e635bcc7899d4e2615864a88b96993bbb17d1084",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/indicatorTaxonomy.ts",
+          "sha256": "0e9d24a24700c76c84182fd6d2ce15bc7dae6e9e5516e365869e545e4d1a9c62",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/nationalComparison.ts",
+          "sha256": "43bfd548f9c0336545209adcb60b4e5ed34e15e6323e8f4f771f04eb33ea676e",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-16"
     }
   ]
 }

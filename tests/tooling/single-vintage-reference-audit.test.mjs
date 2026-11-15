@@ -107,13 +107,13 @@ test("9 export and manifest alignment: public copy, registered run, ledger; outs
   assert.ok(!JSON.stringify(read("public/research-data/research_data_layers.json")).includes("single_vintage"));
 });
 
-test("10 formal model gates preserved: model inputs unchanged and nothing outside the data layer reads the reference", () => {
+test("10 formal model gates preserved: model inputs unchanged and only the separate descriptive display reads the reference", () => {
   // Model inputs and frozen research outputs are byte-identical to the pre-iteration production baseline 8544b82.
   const MODEL_INPUTS = ["src/data/observations/observations.json", "src/data/high-frequency/snapshots", "src/data/macro-drivers", "src/data/panel", "src/data/network", "src/data/local-projections", "src/data/panel-local-projections", "src/data/macro", "src/data/models", "src/data/identified-shocks"];
   const changed = execFileSync("git", ["diff", "--name-only", "8544b82902c388cc2474d71b3766ffa1d7b7ccbd", "--", ...MODEL_INPUTS], { cwd: root, encoding: "utf8" }).trim();
   assert.equal(changed, "", `model inputs changed since the baseline: ${changed}`);
   let users = [];
-  try { users = execFileSync("git", ["grep", "-l", "annual_single_vintage_reference", "--", "src/app", "src/components", "src/lib", "scripts/acquisition", "scripts/validation"], { cwd: root, encoding: "utf8" }).trim().split("\n").filter(Boolean); } catch (e) { if (e.status !== 1) throw e; }
-  assert.deepEqual(users, []);
+  try { users = execFileSync("git", ["grep", "--untracked", "-l", "annual_single_vintage_reference", "--", "src/app", "src/components", "src/lib", "scripts/acquisition", "scripts/validation"], { cwd: root, encoding: "utf8" }).trim().split("\n").filter(Boolean); } catch (e) { if (e.status !== 1) throw e; }
+  assert.deepEqual(users, ["src/components/AnnualReferenceDetails.tsx"]);
   assert.match(doc.model_boundary, /Not read by composite indices, scenarios, panel, VAR, LP/);
 });

@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 annual Data Explorer — 2026-11-16
+
+- Add independently sourced annual reference charts, tables and CSV, per-country period coverage and explicit frequency selection. Preserve original observation identifiers in annual exports.
+
 ### v2.0 Serbia election navigation — 2026-11-16
 
 - Restore selected elections with browser history, label turnout computed from official counts, and export results for an individual election in CSV or JSON.

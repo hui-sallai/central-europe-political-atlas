@@ -10,6 +10,10 @@ export const indicatorTopics = [
 ] as const;
 export type TopicId=typeof indicatorTopics[number]['id'];
 export function indicatorTopic(id:string):TopicId {
+ if (/bond_yield|government_yield/.test(id)) return 'money';
+ if (/fdi|external_debt/.test(id)) return 'trade';
+ if (/retail_trade_volume|productivity/.test(id)) return 'output';
+ if (/producer_prices/.test(id)) return 'prices';
  if(/energy|electric|gas|industrial_production|manufactur|automotive|battery|oil|brent/.test(id))return 'energy';
  if(/inflation|hicp|cpi|price|ppi/.test(id))return 'prices';
  if(/employ|population|earnings|wage|labour|labor/.test(id))return 'people';

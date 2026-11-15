@@ -4,7 +4,7 @@ import type { CompareMode } from "./freshnessCore";
 import type { EvidenceDraft } from "./researchNotebook";
 
 export type AnnualHistory = { sources: { dataset: string; url: string }[]; records: ([string, string, number, number, string, string, number] | [string, string, number, number, string, string, number, "R"])[] };
-export type AnnualPoint = Pick<Observation, "country_slug" | "indicator" | "year" | "value" | "unit" | "status" | "source_name" | "source_url"> & { comparable: boolean; layer: string; differenceComparable?: boolean };
+export type AnnualPoint = Pick<Observation, "country_slug" | "indicator" | "year" | "value" | "unit" | "status" | "source_name" | "source_url"> & { id?: string; updated_at?: string; source_dataset?: string; comparable: boolean; layer: string; differenceComparable?: boolean };
 
 /** Historical backfill is descriptive only. Even pending canonical rows take precedence. */
 export function annualPoints(observations: Observation[], history: AnnualHistory | null): AnnualPoint[] {
@@ -14,7 +14,7 @@ export function annualPoints(observations: Observation[], history: AnnualHistory
     const source = history?.sources[ref];
     const key = `${country_slug}:${indicator}:${year}`;
     if (keys.has(key) || !source || !Number.isFinite(value)) continue;
-    points.push({ country_slug, indicator, year, value, unit, status: status as Observation["status"], source_name: source.dataset, source_url: source.url, comparable: true, differenceComparable: true, layer: "descriptive annual history" });
+    points.push({ id: `hist:annual:${country_slug}:${indicator}:${year}`, country_slug, indicator, year, value, unit, status: status as Observation["status"], source_name: source.dataset, source_url: source.url, comparable: true, differenceComparable: true, layer: "descriptive annual history" });
     keys.add(key);
   }
   return points;

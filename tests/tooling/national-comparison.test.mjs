@@ -65,3 +65,20 @@ test('existing macro transformations retain published values and do not derive h
  assert.equal(h.resolveNationalMetricKey('macro:policy_rate:unsupported',metrics),'macro:policy_rate:unsupported');
  assert.deepEqual(h.selectedNationalCountries(new URLSearchParams('area=scope:ecb'),countries),{countries:[],invalid:false});
 });
+
+test('annual source identifiers survive into view exports; alternative reference cannot fill pending observations',()=>{
+ const expected=new Map([...researchObservations,...JSON.parse(fs.readFileSync('src/data/historical/annual_descriptive_history.json','utf8')).records].map(r=>[r.id,r]));
+ let count=0;
+ for(const m of metrics.filter(x=>x.source==='annual')) for(const p of h.nationalPoints(m,data)){
+  const r=expected.get(p.id);assert.ok(r,p.id);assert.equal(p.value,r.value);assert.equal(p.unit,r.unit);assert.equal(p.url,r.source_query_url??r.source_url);count++;
+ }
+ assert.equal(count,expected.size);
+ const pending=h.nationalPoints(metric('annual:fdi_inflow'),data).find(p=>p.country==='poland'&&p.period==='2025');
+ assert.equal(pending.status,'pending');assert.equal(pending.value,null);
+});
+test('instrument yields, productivity and consumer prices have explicit research topics',()=>{
+ assert.equal(metric('macro:long_term_government_yield').topic,'money');
+ assert.equal(metric('annual:labour_productivity_growth').topic,'output');
+ assert.equal(metric('sors:industrial_producer_prices_yoy').topic,'prices');
+ assert.equal(metric('annual:real_gdp_growth').key===metric('annual:gdp_current_eur').key,false);
+});

@@ -84,7 +84,7 @@ test("source verification reproduces offline from the archived probe and lists u
   assert.deepEqual(v.summary.probe_failed, []);
 });
 
-test("single-vintage reference: reproducible, unspliced, floored, flagged, and not read by any model or view", () => {
+test("single-vintage reference: reproducible, unspliced, floored, flagged, and restricted to its descriptive view", () => {
   const text = buildReference();
   assert.equal(text, fs.readFileSync(path.join(root, STORE_PATH), "utf8"));
   assert.equal(sha(STORE_PATH), sha(PUBLIC_PATH));
@@ -114,6 +114,6 @@ test("single-vintage reference: reproducible, unspliced, floored, flagged, and n
   const inv = read("src/data/data-coverage/historical_recovery_inventory.json");
   for (const p of ["src/data/observations/observations.json", "src/data/historical/annual_descriptive_history.json"]) assert.equal(sha(p), inv.inputs[p], p);
   let users = [];
-  try { users = execFileSync("git", ["grep", "-l", "annual_single_vintage_reference", "--", "src/app", "src/components", "src/lib"], { cwd: root, encoding: "utf8" }).trim().split("\n").filter(Boolean); } catch (e) { if (e.status !== 1) throw e; } // git grep exits 1 when nothing matches
-  assert.deepEqual(users, [], "no page, view or model reads the reference layer yet (Codex integration)");
+  try { users = execFileSync("git", ["grep", "--untracked", "-l", "annual_single_vintage_reference", "--", "src/app", "src/components", "src/lib"], { cwd: root, encoding: "utf8" }).trim().split("\n").filter(Boolean); } catch (e) { if (e.status !== 1) throw e; } // git grep exits 1 when nothing matches
+  assert.deepEqual(users, ["src/components/AnnualReferenceDetails.tsx"], "only the isolated descriptive display reads the reference");
 });
