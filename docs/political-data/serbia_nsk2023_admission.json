@@ -1,0 +1,84 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "serbia-nsk-2023",
+ "country": "serbia",
+ "election_ids": [
+  "el-rs-nsk-2023-12-17"
+ ],
+ "scope": "National Assembly election of 17 December 2023 (repeated at 35 polling stations on 30 December 2023 and 8 on 2 January 2024), all 250 seats (one nationwide constituency): votes and seats of the ten lists that won seats and the number of voters who voted, from the National Assembly page reproducing the result (Народна скупштина у бројкама, XIV convocation). Lists without seats, valid and invalid ballots, voters on the roll and turnout are not printed there and are not covered; the 2022 election, polling-station and municipal results, list kinds, national-minority status, party attribution and candidate names are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-15",
+   "decision": "Owner reply \"start everything\" (Serbia decisions C and D)."
+  },
+  {
+   "date": "2026-11-15",
+   "decision": "Owner reply \"批准登记这五个塞尔维亚站点，仅人工读取\": www.rik.parlament.gov.rs, www.parlament.gov.rs, the legal information system, www.mfin.gov.rs and www.nbs.rs registered for manual reading only."
+  },
+  {
+   "date": "2026-11-15",
+   "decision": "Owner reply \"do it\" to the proposal to prepare a 2023 admission from the National Assembly page \"Народна скупштина у бројкама\", which prints seat-winning lists only and is a reproduction by the Assembly rather than the commission's report. List labels follow the rule (b) already decided for 2020 and 2026."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/serbia/nsk/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "statute_art_6_2_copyright_act",
+   "basis": "Copyright and Related Rights Act Art. 6(2): official materials of state bodies are not copyright works (read 2026-11-15 on the official legal information system). The page is official material of the National Assembly reproducing an official election result. Recorded as a reading of the statute, weaker than a licence; the site footer states only \"© 2011 Народна скупштина Републике Србије\" with no licence terms, and the Atlas does not republish the page or its design."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_from_assembly_page",
+   "evidence_kind": "statute_art_6_2_copyright_act",
+   "basis": "National figures only (votes and seats of the seat-winning lists, voters who voted), transcribed from one page; no database extraction (database-maker right, Act Art. 1 and 5a); attribution to the National Assembly, with the note that it reproduces the commission's result."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The page's table text is kept in local-evidence/ and identified by the SHA-256 of its normalised text; full list titles are not committed (title_sha256 only, computed from the page's own text), per owner rule (b)."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "www.parlament.gov.rs is registered for manual reading only (robots.txt disallows only the info board, contact documents and archive .txt files). One page read by hand in a browser on 2026-11-15; no script, no other page of the site used for figures. The commission's 2023 report was not reachable through registered public routes; the Official Gazette text (subscriber login) was not accessed."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_stated_scope_seat_winners_only",
+   "evidence_kind": "evidence_record",
+   "basis": "The page prints the ten lists that won seats (votes, percentage of voters who voted, seats) and the number of voters who voted; all are transcribed. It does not print lists without seats, valid or invalid ballots or voters on the roll: these are recorded as not printed (result_coverage seat_winning_lists_only), never filled or estimated."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled_within_printed_scope",
+   "evidence_kind": "build_check",
+   "basis": "Seats total 250; every printed list holds seats; each printed percentage equals votes ÷ voters who voted truncated to two decimals; list votes do not exceed voters who voted. No vote share over valid ballots and no turnout are given, because the denominators are not printed."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_printed_list",
+   "evidence_kind": "owner_decision",
+   "basis": "Each list keeps its printed row and a title checksum; labels follow owner rule (b). No list is linked to a party or across elections; continuous_series_eligible is false for every list."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "statute_quoted_2026_rule_check_2023",
+   "evidence_kind": "statute_quoted",
+   "basis": "Law on the Election of Members of Parliament Arts. 5, 128, 129 and 140 quoted in the evidence record (version read on 2026-11-15). The printed seats reproduce exactly under highest quotients over 250 seats with the 3% threshold (of voters who voted) and the 35% minority quotient increase for the five lists below 3%. Exact although lists without seats are not printed: a list at or above 3% always wins seats, and a list that wins no seats never changes another list's seats. A consistency check only, because the statute version in force in December 2023 was not read."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_result_as_reproduced_by_assembly",
+   "evidence_kind": "official_act",
+   "basis": "The page states the result after the repeated voting of 30 December 2023 and 2 January 2024 and the resulting seats of the XIV convocation; it is the Assembly's reproduction of the final result, not the commission's act, and is labelled as such in result_vintage."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between 2023 and the other Serbian elections, even where a label repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

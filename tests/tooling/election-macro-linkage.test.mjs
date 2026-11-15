@@ -26,7 +26,7 @@ const row = (electionId, indicator) => rows.find((r) => r.electionId === electio
 
 test('every admitted election is matched to every indicator, with missing values kept explicit', () => {
   assert.equal(elections.length, 15);
-  assert.equal(allAdmitted.length, 19);
+  assert.equal(allAdmitted.length, 20); // Serbia 2020, 2023, 2026
   assert.equal(rows.length, 15 * ELECTION_MACRO_INDICATORS.length);
   assert.deepEqual([...new Set(rows.map((r) => r.country))].sort(), ['czechia', 'germany', 'poland', 'slovakia']);
   assert.deepEqual(Object.fromEntries(electionMacroCoverage(rows).map((c) => [c.indicator, [c.lastCompleteYear, c.retrospective, c.elections]])), { hicp_inflation: [15, 15, 15], real_gdp_growth: [9, 10, 15], unemployment_rate: [4, 6, 15], fiscal_balance_gdp: [15, 15, 15], government_debt_gdp: [15, 15, 15] });
@@ -116,8 +116,8 @@ test('Hungary joins the same linkage: 2022 and 2026 rows, a turnout change on on
 
 test('Serbia in the comparison sets (2026-11-15): every row is an explicit gap, never a value or zero', () => {
   const serbia = allAdmitted.filter((e) => e.country === 'serbia');
-  assert.deepEqual(serbia.map((e) => e.electionId).sort(), ['el-rs-nsk-2020-06-21', 'el-rs-nsk-2026-10-25']);
+  assert.deepEqual(serbia.map((e) => e.electionId).sort(), ['el-rs-nsk-2020-06-21', 'el-rs-nsk-2023-12-17', 'el-rs-nsk-2026-10-25']);
   const rs = electionMacroRows(serbia, points);
-  assert.equal(rs.length, 2 * ELECTION_MACRO_INDICATORS.length);
+  assert.equal(rs.length, 3 * ELECTION_MACRO_INDICATORS.length);
   for (const r of rs) for (const view of [r.lastCompleteYear, r.retrospective]) { assert.equal(view.value, null, r.electionId); assert.notEqual(view.status, 'published', r.electionId); }
 });

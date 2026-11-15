@@ -47,6 +47,8 @@ export type PoliticalElectionView = {
   sources: PoliticalSource[];
   results: PoliticalResult[];
   national?: NationalContext;
+  /** Set when the source prints only the lists that won seats (Serbia 2023); lists without seats are then unknown. */
+  resultCoverage?: "seat_winning_lists_only";
 };
 
 export function descriptiveShare(numerator: number | null, denominator: number | null): number | null {

@@ -299,7 +299,7 @@ test('existing research results are preserved: D1 and D2 coverage and the electi
   assert.equal(rows.length, 75);
   assert.deepEqual(Object.fromEntries(electionMacroCoverage(rows).map((c) => [c.indicator, [c.lastCompleteYear, c.retrospective, c.publishedBeforeElection]])), { hicp_inflation: [15, 15, 4], real_gdp_growth: [9, 10, 4], unemployment_rate: [4, 6, 3], fiscal_balance_gdp: [15, 15, 4], government_debt_gdp: [15, 15, 4] });
   assert.deepEqual([...new Set(allAdmitted.map((e) => e.country))].sort(), ['czechia', 'germany', 'hungary', 'poland', 'serbia', 'slovakia']);
-  assert.deepEqual(['czechia', 'germany', 'hungary', 'poland', 'serbia', 'slovakia'].map((c) => allAdmitted.filter((e) => e.country === c).length), [3, 7, 2, 4, 2, 1]);
+  assert.deepEqual(['czechia', 'germany', 'hungary', 'poland', 'serbia', 'slovakia'].map((c) => allAdmitted.filter((e) => e.country === c).length), [3, 7, 2, 4, 3, 1]);
 });
 
 test('the workflow is reachable from the existing context panel on all four country pages', () => {

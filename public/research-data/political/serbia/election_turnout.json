@@ -31,16 +31,57 @@
         "retrieved_at": "2026-11-15",
         "raw_snapshot": {
           "path": "docs/political-data/raw/serbia/nsk/evidence.json",
-          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+          "sha256": "29248bba9c813020198f92f2007f4e504dbf25d970efbd298378aac861511386"
         },
         "parser_version": "serbia-nsk-national-v1",
-        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "parser_sha256": "10adcfc68f46fa6c5ab7063cebceb973d5f21bdba0b906b971e27031ed6febd5",
         "fields_covered": [
           "eligible_voters",
           "voters",
           "valid_votes",
           "invalid_votes",
           "ballots_cast"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-rs-nsk-2023-12-17",
+    "country": "serbia",
+    "geography": "national",
+    "vote_type": "rs_list_vote",
+    "result_vintage": "final, as reproduced by the National Assembly (page \"Народна скупштина у бројкама\", XIV convocation; polling on 2023-12-17, repeated at 35 polling stations on 2023-12-30 and 8 polling stations on 2024-01-02); seat-winning lists only; the Republic Electoral Commission report was not reachable",
+    "eligible_voters": null,
+    "voters": 3815007,
+    "valid_votes": null,
+    "invalid_votes": null,
+    "ballots_cast": null,
+    "published_turnout": null,
+    "derived_turnout": null,
+    "turnout_definition": "Not computable: the National Assembly page prints the number of voters who voted but not the number of voters on the electoral roll.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "unknown",
+      "definition": "Not computable: the National Assembly page prints the number of voters who voted but not the number of voters on the electoral roll.",
+      "sourceIds": [
+        "src-rs-parlament-brojke-2023"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-rs-parlament-brojke-2023",
+        "source_url": "https://www.parlament.gov.rs/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0-.1734.html",
+        "source_record_id": "page, total voters who voted",
+        "retrieved_at": "2026-11-15",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/serbia/nsk/evidence.json",
+          "sha256": "29248bba9c813020198f92f2007f4e504dbf25d970efbd298378aac861511386"
+        },
+        "parser_version": "serbia-nsk-national-v1",
+        "parser_sha256": "10adcfc68f46fa6c5ab7063cebceb973d5f21bdba0b906b971e27031ed6febd5",
+        "fields_covered": [
+          "voters"
         ],
         "published_or_derived": "published"
       }
@@ -78,10 +119,10 @@
         "retrieved_at": "2026-11-15",
         "raw_snapshot": {
           "path": "docs/political-data/raw/serbia/nsk/evidence.json",
-          "sha256": "ab25d51333c172507acdc704655d1ec7546b0042029d207654dd521dd3b9c918"
+          "sha256": "29248bba9c813020198f92f2007f4e504dbf25d970efbd298378aac861511386"
         },
         "parser_version": "serbia-nsk-national-v1",
-        "parser_sha256": "1321b8de6ada5904a4c619a17e3ba65e212591ea241a66afaeeffafbcb3937a2",
+        "parser_sha256": "10adcfc68f46fa6c5ab7063cebceb973d5f21bdba0b906b971e27031ed6febd5",
         "fields_covered": [
           "eligible_voters",
           "voters",

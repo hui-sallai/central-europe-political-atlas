@@ -16,7 +16,7 @@ test("Serbian elections page shows 2026 whole-chamber results without personal n
   await expect(main).toContainText("Изборна листа, ред. бр. 1: 103");
   await expect(main).toContainText("Социјалистичка партија Србије");
   expect(await main.innerText()).not.toMatch(PERSONAL_NAMES);
-  await expect(main.locator('a[href="/research-data/political/serbia/election_results.csv"]')).toHaveText("Results CSV (2020, 2026)");
+  await expect(main.locator('a[href="/research-data/political/serbia/election_results.csv"]')).toHaveText("Results CSV (2020, 2023, 2026)");
 });
 
 test("Serbian 2020 election reconciles to 250 seats and keeps names out (zh)", async ({ page }) => {
@@ -33,7 +33,7 @@ test("politics landing lists Serbia as admitted and no longer outside the pipeli
   await page.goto("/en/politics/", { waitUntil: "networkidle" });
   const main = page.locator("main");
   await expect(main).toContainText("Choose from six countries with admitted parliamentary election records.");
-  await expect(main.locator("[data-political-country=serbia]")).toContainText("2020, 2026");
+  await expect(main.locator("[data-political-country=serbia]")).toContainText("2020, 2023, 2026");
   await expect(main.locator("[data-political-country=serbia]")).toContainText("250");
   await expect(main).not.toContainText("including Serbia");
 });
@@ -51,4 +51,19 @@ test("other countries' pages offer Serbia in the country comparison, side by sid
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   await page.goto("/politics/germany/", { waitUntil: "networkidle" });
   await expect(page.locator("[data-politics-cross-country] select").first().locator("option[value=serbia]")).toHaveText("塞尔维亚");
+});
+
+for (const locale of ["en", "zh-CN"] as const) test(`Serbian 2023: seat-winning lists only, stated as such, no shares over valid ballots and no names (${locale})`, async ({ page }) => {
+  const en = locale === "en";
+  await page.goto(`${en ? "/en" : ""}/politics/serbia/?election=el-rs-nsk-2023-12-17`, { waitUntil: "networkidle" });
+  const main = page.locator("main");
+  const coverage = main.locator("[data-result-coverage=seat_winning_lists_only]");
+  await expect(coverage).toContainText(en ? "The source prints only the 10 lists that won seats" : "来源只列出获得席位的 10 份名单");
+  await expect(main.locator("[data-politics-summary]")).not.toContainText(en ? "lists stood for election" : "份名单参选");
+  await expect(main).toContainText("Изборна листа, ред. бр. 1: 129");
+  await expect(main).toContainText("МИ – Глас из народа");
+  await expect(main).toContainText("3,815,007");
+  expect(await main.innerText()).not.toMatch(PERSONAL_NAMES);
+  expect(await main.innerText()).not.toMatch(/Тепић|Алексић|Несторовић|Jovanović|Јовановић|Камбери|Kamberi|Ћута|Ćuta|Жигманов|Žigmanov/);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
 });

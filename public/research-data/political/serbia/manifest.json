@@ -3,12 +3,14 @@
   "country": "serbia",
   "elections": [
     "el-rs-nsk-2020-06-21",
+    "el-rs-nsk-2023-12-17",
     "el-rs-nsk-2026-10-25"
   ],
   "coverage": "whole_chamber_250_of_250_seats_attributed",
   "label_rule": "owner rule (b) 2026-11-15: verbatim only when the title names no person; otherwise parties named in the title; otherwise row number only",
   "not_included": [
-    "2022 and 2023 elections (reports not reachable through registered public routes)",
+    "2022 election (report not reachable through registered public routes)",
+    "2023: lists without seats, valid and invalid ballots, voters on the electoral roll (not printed on the source page)",
     "list kinds and national-minority status",
     "party attribution and cross-election links",
     "candidate names"

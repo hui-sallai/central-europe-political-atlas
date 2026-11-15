@@ -194,6 +194,123 @@
         }
       ]
     },
+    "2023": {
+      "election_id": "el-rs-nsk-2023-12-17",
+      "polling_day": "2023-12-17",
+      "repeat_poll_date": "2023-12-30",
+      "repeat_poll_scope": "35 polling stations on 2023-12-30 and 8 polling stations on 2024-01-02",
+      "adopted_on": null,
+      "act": "Народна скупштина у бројкама: Број добијених мандата – XIV сазив Народне скупштине (National Assembly web page reproducing the result; not the Republic Electoral Commission report)",
+      "source_url": "https://www.parlament.gov.rs/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0-.1734.html",
+      "page_url": "https://www.parlament.gov.rs/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0/%D0%BD%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0-%D1%81%D0%BA%D1%83%D0%BF%D1%88%D1%82%D0%B8%D0%BD%D0%B0-%D1%83-%D0%B1%D1%80%D0%BE%D1%98%D0%BA%D0%B0%D0%BC%D0%B0-.1734.html",
+      "publisher": "Народна скупштина Републике Србије",
+      "publisher_file_sha256": null,
+      "page_table_text_sha256": "ed04cf194b425cb298c966b9cbb5c789d365a2745184220882c79d58da9751e2",
+      "page_text_note": "National Assembly page read by hand in a browser (owner approval 2026-11-15: \"do it\"); title hashes and figures taken from the page's own table text; the table text was kept locally, not committed. Site footer: \"© 2011 Народна скупштина Републике Србије\", no licence terms stated.",
+      "retrieved_at": "2026-11-15",
+      "list_order": "order printed on the page (by result)",
+      "result_coverage": "seat_winning_lists_only",
+      "coverage_note": "The page lists only the ten lists that won seats, with votes, the percentage of voters who voted and seats. Lists without seats, voters on the electoral roll, and valid and invalid ballots are not printed, so no vote share over valid ballots and no turnout can be computed.",
+      "totals": {
+        "voted": 3815007
+      },
+      "lists": [
+        {
+          "row": 1,
+          "title_sha256": "19f5db72d79466dcbcb5465a76e10c607fce900df0fe9d14d3299e72c9ecf947",
+          "label_basis": "row_only",
+          "display_label": null,
+          "votes": 1783701,
+          "printed_percent_of_voters_who_voted": "46,75",
+          "seats": 129
+        },
+        {
+          "row": 2,
+          "title_sha256": "8ef3625acbf413b0f295098c563e48b1d9b020026fb3823a30cdf6457fe98c01",
+          "label_basis": "named_parties",
+          "display_label": "Странка слободе и правде, Народни покрет Србије, Зелено-леви фронт, Не давимо Београд, Еколошки устанак, Демократска странка, Покрет слободних грађана, Србија центар, Заједно, Покрет за преокрет, Ново лице Србије",
+          "votes": 902450,
+          "printed_percent_of_voters_who_voted": "23,65",
+          "seats": 65
+        },
+        {
+          "row": 3,
+          "title_sha256": "22513bfc214cc579c6330cc208410a8128cc65a197d14a722aaf9decb819fe88",
+          "label_basis": "row_only",
+          "display_label": null,
+          "votes": 249916,
+          "printed_percent_of_voters_who_voted": "6,55",
+          "seats": 18
+        },
+        {
+          "row": 4,
+          "title_sha256": "d7315264d0d2f3434eac6508ca570718ae2a08a7b36b880e8c4437d9d3dc9652",
+          "label_basis": "named_parties",
+          "display_label": "Српска коалиција НАДА, Национално демократска алтернатива, Нова демократска странка Србије (Нови ДСС), Покрет обнове Краљевине Србије (ПОКС)",
+          "votes": 191431,
+          "printed_percent_of_voters_who_voted": "5,01",
+          "seats": 13
+        },
+        {
+          "row": 5,
+          "title_sha256": "6b37fe619431378971637e33fb80c5d764700e26c9a4291eb176c5896d9a935b",
+          "label_basis": "named_parties",
+          "display_label": "МИ – Глас из народа",
+          "votes": 178830,
+          "printed_percent_of_voters_who_voted": "4,68",
+          "seats": 13
+        },
+        {
+          "row": 6,
+          "title_sha256": "a8490fc637ee1cbc368a9ac25197f18446d623d29fef8b8279fa1826c89c36bd",
+          "label_basis": "named_parties",
+          "display_label": "Vajdasági Magyar Szövetség – Савез војвођанских Мађара",
+          "votes": 64747,
+          "printed_percent_of_voters_who_voted": "1,69",
+          "seats": 6
+        },
+        {
+          "row": 7,
+          "title_sha256": "8195c2dcd612bca56916f29dd2db8e491043e1ef3839865d7cc0310574a62576",
+          "label_basis": "named_parties",
+          "display_label": "Странка правде и помирења, Демократски савез Хрвата у Војводини",
+          "votes": 29066,
+          "printed_percent_of_voters_who_voted": "0,76",
+          "seats": 2
+        },
+        {
+          "row": 8,
+          "title_sha256": "d21160ea4842bd13724a18389441d5ca34e6c19eadd6f2f7ddc50b1c14b8c994",
+          "label_basis": "named_parties",
+          "display_label": "СДА Санџака / SDA Sandžaka",
+          "votes": 21827,
+          "printed_percent_of_voters_who_voted": "0,57",
+          "seats": 2
+        },
+        {
+          "row": 9,
+          "title_sha256": "b133e98346f95c0ab3ef7f53ec8082221caaa6f78dc60aef0f39ffb7f99b8cb5",
+          "label_basis": "row_only",
+          "display_label": null,
+          "votes": 13501,
+          "printed_percent_of_voters_who_voted": "0,35",
+          "seats": 1
+        },
+        {
+          "row": 10,
+          "title_sha256": "b35ccbfd49a4b80f2010a7faa7210c4972884a13a5d4420aaf6d83c4fe7b6c9b",
+          "label_basis": "named_parties",
+          "display_label": "Руска странка",
+          "votes": 11369,
+          "printed_percent_of_voters_who_voted": "0,29",
+          "seats": 1
+        }
+      ],
+      "label_notes": {
+        "2": "Only the political parties named in the parenthesis are kept; a trade union named there and a personal nickname attached to one party name are omitted.",
+        "5": "The movement named in the title is kept; the person named is omitted."
+      }
+    },
     "2026": {
       "election_id": "el-rs-nsk-2026-10-25",
       "polling_day": "2026-10-25",

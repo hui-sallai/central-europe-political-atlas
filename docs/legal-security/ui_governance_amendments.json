@@ -3345,6 +3345,55 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-15"
+    },
+    {
+      "amendment_id": "serbia-politics-2023-2026-11-15",
+      "status": "owner_approved",
+      "approved_by": "owner reply 2026-11-15 \"do it\": Serbian National Assembly 2023 from the National Assembly page (seat-winning lists only); the summary states the partial coverage instead of a list count; page texts name 2023",
+      "baseline": "1871f62f11f3cdb406bdb3156747d2e467f020fd",
+      "files": [
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "4fcd9f9d294e82365edf219d4e552cec0b674acbd777509df080df3479754b06",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "5080516db65a601e56e67c88376ab1ffc654ce0757eb37b28e19c52d7606ca0a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalStores.ts",
+          "sha256": "161fe8a0561e127e65c2bd04e7713f33cbeb9ee14ea393c254c1da7bce56f839",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalExplorer.ts",
+          "sha256": "c946b1dc650ef68e3134f077e8d7f30872799c1486a17cb418bb7183b5224654",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "f5af6f24bf572ea6d5f72b8ff8bba52ee16d00c2e5eda1e1b98d8baaf02801d5",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/serbia/page.tsx",
+          "sha256": "4104b78bf1afc1529752d69c408df7ffc93029fcdc9fd8f7c30e3f356f8cd51d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/serbia/page.tsx",
+          "sha256": "9197711184b2b5924d4881ea23e366bcd7ce0a71a6b24dc016ce5fd27b1945d1",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-15"
     }
   ]
 }

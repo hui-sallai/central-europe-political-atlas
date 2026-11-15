@@ -77,6 +77,7 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
       results: primary.results,
       country: country.slug, countryName: country.name, chamber: election.chamber, voteLabel: country.voteLabel, originalLanguage: country.originalLanguage,
       turnoutDefinition: counts.turnout_definition ?? null,
+      ...((election as { result_coverage?: string }).result_coverage === "seat_winning_lists_only" ? { resultCoverage: "seat_winning_lists_only" as const } : {}),
       national:{chamber:election.chamber,dateEnd:election.date_end??null,vintage:election.result_vintage,activeVote:primary.definition,ballots,
         turnout:counts.turnout_basis??{numerator:country.slug==="germany"?"voters":"unknown",denominator:country.slug==="germany"?"registered_electorate":"unknown",definition:counts.turnout_definition??null,sourceIds:(counts.provenance??[]).map(p=>p.source_id)},
         chamberAttribution:complete?"complete":"none",seatTiers:complete?{nationalList:legislature.national_list_seats!,constituency:legislature.constituency_seats!}:null,
