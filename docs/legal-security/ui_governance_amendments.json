@@ -3316,6 +3316,35 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-15"
+    },
+    {
+      "amendment_id": "serbia-comparison-2026-11-15",
+      "status": "owner_approved",
+      "approved_by": "owner approval 2026-11-15 (\"after finishing it you push it automatically\", following the open-item list naming Serbia in the cross-country election comparisons): Serbia offered in the other countries' comparison sets; landing keeps one Serbia entry",
+      "baseline": "9bcd95b2cf00db2ed32591085ca820bbeaa8ea56",
+      "files": [
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "0cc425fb768728c35b9711d13634d873ee80e576d239c6aa42ed4979d2b39536",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/page.tsx",
+          "sha256": "c4901132cc43c4896e32337993a7e03ff7dd69d29f738ae501358bb3d6f7c989",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/page.tsx",
+          "sha256": "86b2175bc15dffb2d87f9f20a8ffc218ecc0e43bbc444092b406b2886539b1aa",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-15"
     }
   ]
 }

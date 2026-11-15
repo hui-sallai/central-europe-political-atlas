@@ -168,7 +168,7 @@ test("Slovakia: 2023 list results, stated kinds only, and comparison with three 
   await expect(explorer).toContainText("SMER - sociálna demokracia");
   await expect(explorer).toContainText("Coalition list");
   await expect(page.locator("[data-country-comparison]")).toBeVisible();
-  for (const slug of ["germany", "czechia", "poland"]) await expect(page.locator(`[data-politics-country-view="${slug}"]`)).toBeVisible();
+  for (const slug of ["germany", "czechia", "poland", "serbia"]) await expect(page.locator(`[data-politics-country-view="${slug}"]`)).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   await page.goto("/en/politics/poland/");
   await expect(page.locator('[data-continuity-entity="Prawo i Sprawiedliwość"] [data-identity-evidence]')).toContainText("not a register extract");
@@ -205,7 +205,7 @@ for (const locale of ["en", "zh-CN"] as const) test(`Hungary: whole chamber attr
   await page.goto(`${en ? "/en" : ""}/politics/hungary/?election=el-hu-ogy-2022-04-03&vote_type=hu_nationality_list_vote`, { waitUntil: "networkidle" });
   await expect(page.locator("[data-politics-explorer]")).toContainText("MAGYARORSZÁGI NÉMETEK ORSZÁGOS ÖNKORMÁNYZATA");
   await expect(page.locator("[data-politics-explorer]")).not.toContainText("MI HAZÁNK MOZGALOM");
-  for (const slug of ["germany", "czechia", "poland", "slovakia"]) await expect(page.locator(`[data-politics-country-view="${slug}"]`)).toBeVisible();
+  for (const slug of ["germany", "czechia", "poland", "slovakia", "serbia"]) await expect(page.locator(`[data-politics-country-view="${slug}"]`)).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   await page.goto(`${en ? "/en" : ""}/politics/hungary/?context=1&research_q=D`, { waitUntil: "networkidle" });
   const research = page.locator("[data-comparative-research]");
@@ -229,7 +229,7 @@ for (const [route, country] of [["/en/politics/slovakia/", "slovakia"], ["/en/po
   await page.locator("[data-context-disclosure] > summary").click();
   const table = page.locator("[data-election-macro]");
   await expect(table).toBeVisible();
-  await expect(table.locator("[data-macro-election]")).toHaveCount(17);
+  await expect(table.locator("[data-macro-election]")).toHaveCount(19); // +2 Serbia (2020, 2026), comparison sets from 2026-11-15
   await expect(table.locator('[data-macro-election="el-sk-nrsr-2023-09-30"]')).toHaveAttribute("data-macro-status", "published");
   await expect(table.locator('[data-macro-election="el-sk-nrsr-2023-09-30"]')).toContainText("2022");
   await table.locator("select").first().selectOption("real_gdp_growth");
@@ -260,8 +260,8 @@ for (const locale of ["en", "zh-CN"] as const) test(`comparative research workfl
   const panel = page.locator("[data-comparative-research]");
   await expect(panel).toBeVisible({ timeout: 30000 });
   await expect(panel.locator("[data-research-boundary]")).toContainText(en ? "An association is not a cause" : "关联不等于因果");
-  // A: all fifteen elections, one row each, gaps stated.
-  await expect(panel.locator("[data-research-a-table] [data-research-row]")).toHaveCount(17);
+  // A: all nineteen elections (Serbia 2020 and 2026 included from 2026-11-15), one row each, gaps stated.
+  await expect(panel.locator("[data-research-a-table] [data-research-row]")).toHaveCount(19);
   await expect(panel.locator('[data-research-row="el-de-bt-2013-09-22"] [data-research-cell="missing"]').first()).toBeVisible();
   await expect(panel.locator("[data-research-findings='A']")).toContainText(en ? "from 0.1 (Poland 2015) to 13.2 (Poland 2023)" : "从 0.1（波兰 2015）到 13.2（波兰 2023）");
   // B: unselecting a middle election removes its pairs and never joins its neighbours.
@@ -300,7 +300,7 @@ for (const locale of ["en", "zh-CN"] as const) test(`comparative research workfl
   const pkg = JSON.parse(await (await import("node:fs/promises")).readFile(await json.path(), "utf8"));
   expect(pkg.evidence_sha256).toMatch(/^[0-9a-f]{64}$/);
   expect(pkg.evidence.descriptive_only).toBe(true);
-  expect(pkg.evidence.selection.countries).toEqual(["czechia", "hungary", "poland", "slovakia"]);
+  expect(pkg.evidence.selection.countries).toEqual(["czechia", "hungary", "poland", "serbia", "slovakia"]);
   await expect(again.locator("[data-research-digest]")).toContainText(pkg.evidence_sha256);
   const [csv] = await Promise.all([page.waitForEvent("download"), again.locator("[data-research-export-csv]").click()]);
   expect(csv.suggestedFilename()).toBe("election-comparative-research.csv");

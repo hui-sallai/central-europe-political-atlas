@@ -141,7 +141,7 @@ export function politicalSerbianElectionViews(): PoliticalElectionView[] {
  * Candidate packages in staging are never imported.
  */
 export function politicalComparisonCountries(): PoliticalCountryView[] {
-  return [czechCountry(), polishCountry(), slovakCountry(), hungarianCountry()];
+  return [czechCountry(), polishCountry(), slovakCountry(), hungarianCountry(), serbianCountry()];
 }
 
 const germanCountry = (): PoliticalCountryView => ({ slug: "germany", name: { en: "Germany", "zh-CN": "德国" }, elections: politicalElectionViews() });
@@ -149,12 +149,13 @@ function czechCountry(): PoliticalCountryView { return { slug: "czechia", name: 
 function slovakCountry(): PoliticalCountryView { return { slug: "slovakia", name: { en: "Slovakia", "zh-CN": "斯洛伐克" }, elections: politicalSlovakElectionViews() }; }
 function hungarianCountry(): PoliticalCountryView { return { slug: "hungary", name: { en: "Hungary", "zh-CN": "匈牙利" }, elections: politicalHungarianElectionViews() }; }
 function polishCountry(): PoliticalCountryView { return { slug: "poland", name: { en: "Poland", "zh-CN": "波兰" }, elections: politicalPolishElectionViews() }; }
+function serbianCountry(): PoliticalCountryView { return { slug: "serbia", name: { en: "Serbia", "zh-CN": "塞尔维亚" }, elections: politicalSerbianElectionViews() }; }
 
-/** Comparison countries for the Serbian view (Serbia is not yet offered in the other countries' comparisons). */
+/** Comparison countries for the Serbian view. */
 export function politicalSerbianComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), polishCountry(), slovakCountry(), hungarianCountry()]; }
 
-/** Comparison countries for the Czech, Polish, Slovak and Hungarian views of the explorer. */
-export function politicalCzechComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), polishCountry(), slovakCountry(), hungarianCountry()]; }
-export function politicalPolishComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), slovakCountry(), hungarianCountry()]; }
-export function politicalSlovakComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), polishCountry(), hungarianCountry()]; }
-export function politicalHungarianComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), polishCountry(), slovakCountry()]; }
+/** Comparison countries for the Czech, Polish, Slovak and Hungarian views of the explorer (Serbia added 2026-11-15). */
+export function politicalCzechComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), polishCountry(), slovakCountry(), hungarianCountry(), serbianCountry()]; }
+export function politicalPolishComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), slovakCountry(), hungarianCountry(), serbianCountry()]; }
+export function politicalSlovakComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), polishCountry(), hungarianCountry(), serbianCountry()]; }
+export function politicalHungarianComparisonCountries(): PoliticalCountryView[] { return [germanCountry(), czechCountry(), polishCountry(), slovakCountry(), serbianCountry()]; }

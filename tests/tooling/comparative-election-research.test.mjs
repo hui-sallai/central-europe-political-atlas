@@ -21,7 +21,7 @@ const inputs = context.politicalContextData('germany');
 const points = [...contextAnnualPoints(inputs.observations, read('public/research-data/annual_history_runtime.json'), inputs.indicators), ...contextMonthlyPoints(read('public/research-data/monthly_history_runtime.json'), read('public/research-data/high_frequency_runtime.json').records, inputs.monthlyMetadata)];
 const allAdmitted = [...data.politicalElectionViews(), ...data.politicalComparisonCountries().flatMap((c) => c.elections)];
 // The original four countries keep their exact results; Hungary is checked separately.
-const elections = allAdmitted.filter((e) => e.country !== 'hungary');
+const elections = allAdmitted.filter((e) => e.country !== 'hungary' && e.country !== 'serbia'); // Serbia (2026-11-15) is checked separately: no macro context is held for it.
 const links = inputs.identityLinks;
 const run = (selection = {}) => R.runComparativeResearch(selection, elections, points, links);
 const SK = 'el-sk-nrsr-2023-09-30', PL23 = 'el-pl-sejm-2023-10-15', PL19 = 'el-pl-sejm-2019-10-13', CZ25 = 'el-cz-ps-2025-10-03', CZ21 = 'el-cz-ps-2021-10-08', CZ17 = 'el-cz-ps-2017-10-20', DE25 = 'el-de-bt-2025-02-23', DE21 = 'el-de-bt-2021-09-26', DE17 = 'el-de-bt-2017-09-24';
@@ -298,8 +298,8 @@ test('existing research results are preserved: D1 and D2 coverage and the electi
   const rows = electionMacroRows(elections, points);
   assert.equal(rows.length, 75);
   assert.deepEqual(Object.fromEntries(electionMacroCoverage(rows).map((c) => [c.indicator, [c.lastCompleteYear, c.retrospective, c.publishedBeforeElection]])), { hicp_inflation: [15, 15, 4], real_gdp_growth: [9, 10, 4], unemployment_rate: [4, 6, 3], fiscal_balance_gdp: [15, 15, 4], government_debt_gdp: [15, 15, 4] });
-  assert.deepEqual([...new Set(allAdmitted.map((e) => e.country))].sort(), ['czechia', 'germany', 'hungary', 'poland', 'slovakia']);
-  assert.deepEqual(['czechia', 'germany', 'hungary', 'poland', 'slovakia'].map((c) => allAdmitted.filter((e) => e.country === c).length), [3, 7, 2, 4, 1]);
+  assert.deepEqual([...new Set(allAdmitted.map((e) => e.country))].sort(), ['czechia', 'germany', 'hungary', 'poland', 'serbia', 'slovakia']);
+  assert.deepEqual(['czechia', 'germany', 'hungary', 'poland', 'serbia', 'slovakia'].map((c) => allAdmitted.filter((e) => e.country === c).length), [3, 7, 2, 4, 2, 1]);
 });
 
 test('the workflow is reachable from the existing context panel on all four country pages', () => {

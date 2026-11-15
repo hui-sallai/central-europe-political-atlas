@@ -37,3 +37,18 @@ test("politics landing lists Serbia as admitted and no longer outside the pipeli
   await expect(main.locator("[data-political-country=serbia]")).toContainText("250");
   await expect(main).not.toContainText("including Serbia");
 });
+
+test("other countries' pages offer Serbia in the country comparison, side by side and without personal names", async ({ page }) => {
+  await page.goto("/en/politics/poland/", { waitUntil: "networkidle" });
+  const section = page.locator("[data-politics-cross-country]");
+  const country = section.getByLabel("Compare with country");
+  await expect(country.locator("option[value=serbia]")).toHaveText("Serbia");
+  await country.selectOption("serbia");
+  const serbia = section.locator("[data-country-comparison] [data-country-lists='serbia']");
+  await expect(serbia).toBeVisible();
+  await expect(serbia).toContainText("Изборна листа, ред. бр. 1");
+  expect(await section.innerText()).not.toMatch(PERSONAL_NAMES);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  await page.goto("/politics/germany/", { waitUntil: "networkidle" });
+  await expect(page.locator("[data-politics-cross-country] select").first().locator("option[value=serbia]")).toHaveText("塞尔维亚");
+});

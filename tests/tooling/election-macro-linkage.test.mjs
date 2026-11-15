@@ -20,13 +20,13 @@ const inputs = context.politicalContextData('germany');
 const points = contextAnnualPoints(inputs.observations, annual, inputs.indicators);
 const allAdmitted = [...data.politicalElectionViews(), ...data.politicalComparisonCountries().flatMap((c) => c.elections)];
 // The original four countries keep their exact results; Hungary is checked separately.
-const elections = allAdmitted.filter((e) => e.country !== 'hungary');
+const elections = allAdmitted.filter((e) => e.country !== 'hungary' && e.country !== 'serbia'); // Serbia (2026-11-15) is checked separately: no macro context is held for it.
 const rows = electionMacroRows(elections, points);
 const row = (electionId, indicator) => rows.find((r) => r.electionId === electionId && r.indicator === indicator);
 
 test('every admitted election is matched to every indicator, with missing values kept explicit', () => {
   assert.equal(elections.length, 15);
-  assert.equal(allAdmitted.length, 17);
+  assert.equal(allAdmitted.length, 19);
   assert.equal(rows.length, 15 * ELECTION_MACRO_INDICATORS.length);
   assert.deepEqual([...new Set(rows.map((r) => r.country))].sort(), ['czechia', 'germany', 'poland', 'slovakia']);
   assert.deepEqual(Object.fromEntries(electionMacroCoverage(rows).map((c) => [c.indicator, [c.lastCompleteYear, c.retrospective, c.elections]])), { hicp_inflation: [15, 15, 15], real_gdp_growth: [9, 10, 15], unemployment_rate: [4, 6, 15], fiscal_balance_gdp: [15, 15, 15], government_debt_gdp: [15, 15, 15] });
@@ -112,4 +112,12 @@ test('Hungary joins the same linkage: 2022 and 2026 rows, a turnout change on on
   assert.equal(hu.find((r) => r.electionId === 'el-hu-ogy-2022-04-03').turnout.changeSincePrevious, null);
   const election2026 = hu.filter((r) => r.electionId === 'el-hu-ogy-2026-04-12');
   assert.ok(election2026.every((r) => r.retrospective.status !== 'published'), 'the calendar year of a 2026 election is not complete, so it stays a gap');
+});
+
+test('Serbia in the comparison sets (2026-11-15): every row is an explicit gap, never a value or zero', () => {
+  const serbia = allAdmitted.filter((e) => e.country === 'serbia');
+  assert.deepEqual(serbia.map((e) => e.electionId).sort(), ['el-rs-nsk-2020-06-21', 'el-rs-nsk-2026-10-25']);
+  const rs = electionMacroRows(serbia, points);
+  assert.equal(rs.length, 2 * ELECTION_MACRO_INDICATORS.length);
+  for (const r of rs) for (const view of [r.lastCompleteYear, r.retrospective]) { assert.equal(view.value, null, r.electionId); assert.notEqual(view.status, 'published', r.electionId); }
 });

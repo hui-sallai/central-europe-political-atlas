@@ -210,7 +210,7 @@ test('admission: exact hashes, closed gates, Germany inadmissible', () => {
 });
 
 test('other countries are unchanged; research functions run for Hungary without new claims', () => {
-  assert.deepEqual(data.politicalHungarianComparisonCountries().map((c) => c.slug), ['germany', 'czechia', 'poland', 'slovakia']);
+  assert.deepEqual(data.politicalHungarianComparisonCountries().map((c) => c.slug), ['germany', 'czechia', 'poland', 'slovakia', 'serbia']);
   assert.deepEqual([data.politicalElectionViews().length, data.politicalCzechElectionViews().length, data.politicalPolishElectionViews().length, data.politicalSlovakElectionViews().length], [7, 3, 4, 1]);
   const R = require('../../src/lib/comparativeElectionResearch.ts');
   const { compareCountries } = explorer;
