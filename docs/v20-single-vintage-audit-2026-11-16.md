@@ -204,11 +204,21 @@ By policy the reference is not in the ZIP, and no manifest field changed meaning
 
 ## M. Commits
 
-`e3f4089…` (audit, tooling fix, tests, registers) and this report commit. Deployment needs the owner's "推送上线".
+- `e3f4089` (audit, tooling fix, tests, registers)
+- `4f8e876d7f56112df6432489c3de0dcb47124ecc` (this report)
+
+**LIVE** (owner approval "推送上线"; pushed `72794e7..4f8e876` to `main`, including `88e6d6d`).
 
 ## N. Deployment evidence
 
-Pending approval. Current production: `72794e7`, run `43741977904`.
+Run `43746589400` ("Deploy GitHub Pages"): build success, deploy success.
+
+Live checks:
+- `deployment_provenance.json` shows source commit `4f8e876` and run `43746589400`.
+- Live research package downloaded and hashed: `39fe15afc449d9ba4b56cb18c1a13f5be1aa3a06e24981998a61db6ae7c893ed`, equal to the provenance value. Only build metadata changed, since no public data changed.
+- Live `annual_single_vintage_reference.json` is unchanged: `296f2a11…68b3`.
+- Production acceptance tests pass (6/6).
+- Open alerts: 1 Dependabot (minimatch, inherited), 0 code scanning, 0 secret scanning.
 
 ## O. Remaining unresolved gaps
 
