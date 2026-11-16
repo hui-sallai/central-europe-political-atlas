@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Slovenia electoral rules — 2026-11-17
+
+- Record Slovenia’s National Assembly electoral system from the National Assembly Elections Act (eight 11-seat constituencies divided into districts, constituency quota, national D’Hondt allocation among lists with 4%, two national-community deputies by plurality), read in the current PISRS consolidated text.
+
 ### v2.0 Romania and Croatia electoral rules — 2026-11-16
 
 - Record Croatia’s parliamentary electoral system from the official gazette (ten 14-seat constituencies, D’Hondt, 5% constituency threshold, preferential vote, 3 diaspora and 8 national-minority seats) with the 2023 Constituencies Act and its entry into force. Record Romania’s Law 208/2015 (43 constituencies, 312 deputies and 136 senators, 5% threshold, two-stage allocation, minority-organisation seats) from the Chamber of Deputies’ text and act record, marked partly verified because the consolidated text was not read.

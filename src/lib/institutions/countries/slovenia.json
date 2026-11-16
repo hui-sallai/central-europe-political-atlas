@@ -25,7 +25,7 @@
       "official_name": "Državni zbor Republike Slovenije",
       "name": { "en": "National Assembly", "zh": "国民议会（Državni zbor）" },
       "role": "lower",
-      "members": { "value": 90, "basis": { "en": "fixed by the Constitution, including one deputy each of the Italian and Hungarian national communities", "zh": "宪法规定，含意大利族和匈牙利族民族共同体各一名议员" }, "articles": "Art. 80", "source_ids": ["si-constitution-current"] },
+      "members": { "value": 90, "basis": { "en": "fixed by the Constitution; 88 deputies elected in eight constituencies of 11 plus one deputy each of the Italian and Hungarian national communities (ZVDZ Art. 20)", "zh": "宪法规定；八个选区每区 11 名共 88 名议员，另有意大利族和匈牙利族民族共同体各一名议员（ZVDZ 第 20 条）" }, "articles": "Art. 80", "source_ids": ["si-constitution-current", "si-zvdz-npb12"] },
       "term_years": 4,
       "selection": { "code": "direct_proportional", "label": { "en": "Universal, equal, direct and secret voting; proportional representation with a 4% threshold, voters having a decisive influence on which candidates take the seats", "zh": "普遍、平等、直接、秘密投票；比例代表制，门槛 4%，选民对议席分配给哪些候选人有决定性影响" }, "articles": "Art. 80" },
       "powers": { "en": "Holds legislative power, elects the Prime Minister (Art. 111) and can call a legislative referendum when 40,000 voters demand it (Art. 90).", "zh": "行使立法权，选举总理（第 111 条），并在 40,000 名选民要求时就法律举行公投（第 90 条）。" },
@@ -81,20 +81,20 @@
     "second_chamber_role": { "value": "interest_council_suspensive", "label": { "en": "National Council: suspensive veto, legislative initiative, opinions, inquiries", "zh": "国民委员会：搁置性否决、立法提案、意见、调查" }, "articles": "Arts. 91, 97", "source_ids": ["si-constitution-current"], "status": "verified", "comparability": "qualified" },
     "constitutional_review": { "value": "constitutional_court", "label": { "en": "Constitutional Court (Ustavno sodišče)", "zh": "宪法法院（Ustavno sodišče）" }, "articles": "Art. 160", "source_ids": ["si-constitution-current"], "status": "verified" },
     "legislative_term": { "value": 4, "label": { "en": "National Assembly 4 years; National Council 5 years", "zh": "国民议会四年；国民委员会五年" }, "articles": "Arts. 81, 98", "source_ids": ["si-constitution-current"], "status": "verified", "comparability": "qualified" },
-    "electoral_system": { "value": "list_pr_threshold", "label": { "en": "Proportional representation with a 4% threshold and two reserved national-community seats", "zh": "比例代表制，门槛 4%，另设两个民族共同体保留议席" }, "articles": "Art. 80", "source_ids": ["si-constitution-current"], "status": "verified", "comparability": "qualified" }
+    "electoral_system": { "value": "list_pr_threshold", "label": { "en": "List PR in eight 11-seat constituencies, national D’Hondt allocation, 4% threshold; two national-community seats", "zh": "八个 11 席选区的名单比例代表制，全国 D’Hondt 分配，门槛 4%；两个民族共同体议席" }, "articles": "Constitution Art. 80; ZVDZ Arts. 20–21, 89.a–93, 96", "source_ids": ["si-zvdz-npb12", "si-constitution-current"], "status": "verified", "comparability": "qualified", "detail": { "en": "88 + 2 = 90 deputies. Voters choose a candidate in their district, and a list’s seats go to its candidates with the highest district vote shares. Read in the PISRS unofficial consolidated text no. 12 (to ZVDZ-E, Uradni list RS 12/24) on 17 November 2026; PISRS notes that this text is informational, not the official one.", "zh": "88 + 2 = 90 名议员。选民在所属选举区投票选择候选人，名单所得议席分配给选举区得票比例最高的候选人。依据 2026 年 11 月 17 日阅读的 PISRS 第 12 号非官方合并文本（至 ZVDZ-E，《官方公报》12/24）；PISRS 注明该文本仅供参考，并非官方文本。" } }
   },
   "electoral_systems": [
     {
       "rule_id": "si-es-dz-constitutional",
       "chamber_id": "si-drzavni-zbor",
-      "status": "partially_verified",
-      "summary": { "en": "Proportional representation with a 4% threshold (constitutional rule)", "zh": "比例代表制，门槛 4%（宪法规则）" },
-      "constituencies": null,
-      "allocation": { "en": "Not read: the National Assembly Elections Act was not consulted in this iteration", "zh": "未阅读：本轮未查阅《国民议会选举法》" },
-      "thresholds": [ { "applies_to": { "en": "entry to the National Assembly (except national-community deputies)", "zh": "进入国民议会（民族共同体议员除外）" }, "percent": 4, "articles": "Art. 80" } ],
-      "minority": { "en": "One deputy each of the Italian and Hungarian national communities is always elected (Art. 80)", "zh": "意大利族和匈牙利族民族共同体各固定选出一名议员（第 80 条）" },
-      "legal_basis": "Constitution Art. 80 as supplemented by UZ80 (Uradni list RS 66/00)",
-      "source_ids": ["si-constitution-current"],
+      "status": "verified",
+      "summary": { "en": "List proportional representation in eight 11-seat constituencies with national D’Hondt allocation among lists reaching 4%, plus two national-community deputies", "zh": "八个 11 席选区的名单比例代表制，在得票达 4% 的名单之间按全国 D’Hondt 法分配，另设两名民族共同体议员" },
+      "constituencies": { "en": "88 deputies in eight constituencies of 11 each; every constituency is divided into 11 districts, and in each district voters choose one candidate from each list (ZVDZ Arts. 20, 49). Constituencies and districts are set by a separate law (Art. 21). The Italian and Hungarian national communities each elect one deputy in a special constituency (Art. 20).", "zh": "88 名议员分属八个选区，每区 11 名；每个选区再划分为 11 个选举区，选民在各选举区就每份名单的一名候选人投票（ZVDZ 第 20、49 条）。选区和选举区由另一部法律确定（第 21 条）。意大利族和匈牙利族民族共同体各在一个特别选区选出一名议员（第 20 条）。" },
+      "allocation": { "en": "In each constituency a list wins as many seats as its votes contain the quota: votes for all lists divided by 11 + 1, rounded up (Art. 90). Seats not filled there are allocated nationally so that each list’s total matches its D’Hondt share of all 88 seats (divisors 1 to 88), counting only lists with at least 4% nationally (Art. 92), and are assigned to the constituencies where the list’s remainders are largest (Art. 93). A list’s seats go to its candidates in order of their vote share in their district (Art. 91). National-community deputies are elected by plurality (Art. 96).", "zh": "在每个选区，名单得票包含配额几次即获几席：配额为全部名单得票除以 11 + 1，向上取整（第 90 条）。未在选区分配的议席在全国分配，使各名单总席数等于其在全部 88 席中的 D’Hondt 份额（除数 1 至 88），仅计入全国得票至少 4% 的名单（第 92 条），并分配给该名单剩余票最多的选区（第 93 条）。名单所得议席按候选人在其选举区的得票比例依次分配（第 91 条）。民族共同体议员以相对多数选出（第 96 条）。" },
+      "thresholds": [ { "applies_to": { "en": "lists, share of votes cast for all lists nationally (except national-community deputies)", "zh": "名单在全国所有名单得票中所占比例（民族共同体议员除外）" }, "percent": 4, "articles": "ZVDZ Arts. 89.a, 92(3); Constitution Art. 80" } ],
+      "minority": { "en": "The Italian and Hungarian national communities each elect one deputy by plurality in a special constituency (Constitution Art. 80; ZVDZ Arts. 20, 96)", "zh": "意大利族和匈牙利族民族共同体各在一个特别选区以相对多数选出一名议员（宪法第 80 条；ZVDZ 第 20、96 条）" },
+      "legal_basis": "Zakon o volitvah v državni zbor (ZVDZ), Uradni list RS 109/06 – UPB, 54/07 – odl. US, 23/17, 29/21 and 12/24 (PISRS unofficial consolidated text no. 12); Constitution Art. 80",
+      "source_ids": ["si-zvdz-npb12", "si-constitution-current"],
       "store_rule_record": null
     }
   ],
@@ -142,10 +142,10 @@
   ],
   "case_study_sections": [],
   "pending": [
-    { "field": "electoral_law_detail", "reason": { "en": "Constituencies, districts and seat-allocation formula under the National Assembly Elections Act were not read.", "zh": "《国民议会选举法》下的选区、选举区和席位分配公式未阅读。" } },
     { "field": "entry_into_force_dates", "reason": { "en": "Entry-into-force dates of the constitution and amendments were not read; publication dates are recorded.", "zh": "宪法及修正的生效日期未阅读；记录的是公布日期。" } }
   ],
   "sources": [
-    { "source_id": "si-constitution-current", "publisher": "Pravno-informacijski sistem Republike Slovenije (PISRS)", "title": "Ustava Republike Slovenije (URS) — neuradno prečiščeno besedilo št. 12", "url": "https://pisrs.si/pregledPredpisa?id=USTA1", "kind": "constitution", "language": "sl", "version": "unofficial consolidated text no. 12 (to UZ74a, 98/25)", "retrieved_on": "2026-11-16", "retrieval_sha256": null, "access": "browser_reading" }
+    { "source_id": "si-constitution-current", "publisher": "Pravno-informacijski sistem Republike Slovenije (PISRS)", "title": "Ustava Republike Slovenije (URS) — neuradno prečiščeno besedilo št. 12", "url": "https://pisrs.si/pregledPredpisa?id=USTA1", "kind": "constitution", "language": "sl", "version": "unofficial consolidated text no. 12 (to UZ74a, 98/25)", "retrieved_on": "2026-11-16", "retrieval_sha256": null, "access": "browser_reading" },
+    { "source_id": "si-zvdz-npb12", "publisher": "Pravno-informacijski sistem Republike Slovenije (PISRS)", "title": "Zakon o volitvah v državni zbor (ZVDZ) — neuradno prečiščeno besedilo št. 12", "url": "https://pisrs.si/pregledPredpisa?id=ZAKO185", "kind": "statute", "language": "sl", "version": "unofficial consolidated text no. 12 (to ZVDZ-E, Uradni list RS 12/24)", "retrieved_on": "2026-11-17", "retrieval_sha256": null, "access": "browser_reading" }
   ]
 }

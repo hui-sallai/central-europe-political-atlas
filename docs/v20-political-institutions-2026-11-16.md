@@ -224,7 +224,7 @@ Implementation commit `be8268a362ce5194d768a6bd1d29d81c56e59a17` (branch `data/h
 See handoff section L. The main ones:
 - **Romania:** the consolidated text of Law 208/2015 (the electoral system is partly verified from the 2015 text and the act record); the Chamber of Deputies' sitting total; dates of the 2003 revision.
 - **Croatia:** exact dates of the 1990, 2000 and 2001 constitutional acts; the NN 5/2014 change.
-- **Slovenia:** electoral act detail.
+- **Slovenia:** entry-into-force dates of the constitution and its amendments.
 - **Austria:** current Bundesrat total.
 - **All countries:** constitutional history before the current constitutions, and per-article version dates.
 
@@ -286,3 +286,24 @@ The act record lists no later amendment to these articles or to Annex 1, except 
 - Tooling: 478 pass, 1 skip (the existing one).
 - Checkpoint, legal-security, i18n, type check and site build: pass.
 - UI suite: 748 pass, 2 skipped; no screenshot baselines changed.
+
+## Follow-up (2026-11-17): Slovenia electoral act
+
+The owner asked to close the Slovenia electoral-act gap. `electoral_system` is now fully sourced.
+
+**Source:** the National Assembly Elections Act (ZVDZ) on pisrs.si, PISRS unofficial consolidated text no. 12. It runs to ZVDZ-E (Uradni list RS 12/24) and was read once in the browser, because plain requests receive HTTP 407. PISRS describes the text as informational, which the field's detail says.
+
+**Recorded rules:**
+- 88 deputies in eight constituencies of 11, each divided into 11 districts with one candidate per list per district (Arts. 20, 49). Constituencies and districts are set by a separate law (Art. 21).
+- A constituency quota of votes ÷ (11 + 1), rounded up (Art. 90).
+- National D'Hondt over all 88 seats among lists with at least 4% (Arts. 89.a, 92), with seats assigned back by largest remainders (Art. 93).
+- Candidates elected in order of their district vote share (Art. 91).
+- Two national-community deputies elected by plurality (Art. 96).
+
+**Governance**
+- pisrs.si's recorded purpose is extended to the ZVDZ.
+- A new exact-hash amendment, `slovenia-electoral-act-2026-11-17`, covers `slovenia.json`.
+- The coverage matrix is regenerated; only its registry input hash changed.
+- `election_links.json` is unchanged.
+
+**Still pending for Slovenia:** entry-into-force dates of the constitution and its amendments.

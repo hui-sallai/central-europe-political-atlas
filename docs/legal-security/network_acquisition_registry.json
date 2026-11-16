@@ -424,12 +424,12 @@
     },
     {
       "host": "pisrs.si",
-      "purpose": "Slovenian legal information system (PISRS): Constitution of the Republic of Slovenia, consolidated text",
+      "purpose": "Slovenian legal information system (PISRS): Constitution of the Republic of Slovenia and National Assembly Elections Act (ZVDZ), consolidated texts",
       "automation_allowed": false,
       "manual_allowed": true,
       "robots_checked_at": "2026-11-16",
       "robots_note": "Allow /; Disallow /iskanje (search). A curl request received HTTP 407; the page was read once in a browser.",
-      "reason": "Owner approval 2026-11-16 (ten-country institutions brief; answer \"Register all\"): manual reading only, one reading per named legal text or page, institutional facts only; raw files stay in scratch storage and are never committed.",
+      "reason": "Owner approval 2026-11-16 (ten-country institutions brief; answer \"Register all\"): manual reading only, one reading per named legal text or page, institutional facts only; raw files stay in scratch storage and are never committed. ZVDZ added 2026-11-17 on the owner's request to close the Slovenia electoral-act gap; read once in a browser (curl receives HTTP 407).",
       "status": "allowed_review_due"
     },
     {

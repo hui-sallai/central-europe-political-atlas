@@ -210,7 +210,7 @@ Keep full constitutional text off the page. Link to the sources instead.
 - The NN 5/2014 change was not read.
 
 **Slovenia**
-- The National Assembly Elections Act (districts, formula).
+- The National Assembly Elections Act was read in the PISRS unofficial consolidated text no. 12 (to ZVDZ-E, 12/24); the separate law defining constituencies and districts was not read.
 - Entry-into-force dates.
 
 **Austria**
