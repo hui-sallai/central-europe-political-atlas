@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Observation } from "@/types/Observation";
-import { countryObservationSummary } from "@/lib/countryObservationPresentation";
+import { countryObservationSummary,countryStatisticalNote } from "@/lib/countryObservationPresentation";
 import { sourceInstitution } from "@/lib/researchSnapshot";
 import { englishUnit } from "@/i18n/presentation";
 import { formatWithUnit } from "@/lib/format";
@@ -21,6 +21,7 @@ const AVAILABILITY: Record<string, { zh: string; en: string }> = {
 export function CountryObservationValue({ series, country, indicator, locale = "zh-CN", compact = false }: { series: Observation[]; country: string; indicator: string; locale?: "zh-CN" | "en"; compact?:boolean }) {
   const en = locale === "en", prefix = en ? "/en" : "";
   const { published, record, value, unavailable } = countryObservationSummary(series);
+  const note = countryStatisticalNote(record?.notes??"",en);
   const check = getCanonicalSourceCheck(country, indicator);
   const evidence = check?.availability ? AVAILABILITY[check.availability] : undefined;
   const years = (list: number[]) => list.join(en ? ", " : "、");
@@ -42,7 +43,7 @@ export function CountryObservationValue({ series, country, indicator, locale = "
         {check.definition_flag ? <p data-definition-flag>{en ? "The source marks this series with a definition or break flag." : "来源对该序列标注了口径差异或序列断点。"}</p> : null}
       </div> : <p>{en ? "Source check: not available for this series." : "来源检查：该序列暂无。"}</p>}
       {record?.comparability_status && record.comparability_status !== "comparable" ? <p>{en ? "Comparability restriction" : "可比性限制"}: {record.comparability_status}</p> : null}
-      {record?.notes ? <div lang="zh-CN" data-original-language="zh-CN"><p>{record.notes}</p></div> : null}
+      {note.original ? <div><p>Original statistical note (approved English unavailable)</p><span lang="zh-CN" data-original-language="zh-CN">{note.text}</span></div> : <p>{note.text}</p>}
     </div></details>
     <Link className="mt-2 inline-flex text-xs text-[var(--accent)] underline" href={`${prefix}/data/?country=${country}&indicator=${indicator}&tab=annual`}>{en ? "Full annual series" : "完整年度序列"}</Link>
   </div>;

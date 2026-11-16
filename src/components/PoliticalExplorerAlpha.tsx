@@ -160,6 +160,7 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
     </div>
     {!election ? <div role="status"><p>{voteType?(en?"The requested vote type is unavailable for this election; no other vote type has been silently substituted.":"该届选举没有所请求的选票类型；未默默替换为另一种选票。"):en ? "No approved election data available." : "暂无通过准入的数据。"}</p>{voteType?<button type="button" className="underline" onClick={()=>{setVoteType("");const u=new URL(window.location.href);u.searchParams.delete("vote_type");window.history.replaceState(null,"",u);}}>{en?"Return to the registered primary vote":"返回登记的主要选票"}</button>:null}</div> : <>
       <div aria-live="polite" id="politics-system" className="card p-5">
+        <a className="text-sm underline" href={`${en?"/en":""}/politics/?institution_countries=${countrySlug}#institutions`}>{en?'Compare this country’s institutions':'比较该国的政治制度'}</a>
         <h3 className="font-semibold">{en ? "Electoral system and result vintage" : "选制与结果版本"}</h3>
         <p>{en ? "Result vintage" : "结果版本"}: {countrySlug==="germany" && election.year === 2021 ? (en ? "Corrected final after the 2024 Berlin repeat" : "2024年柏林部分重选后的更正最终结果") : election.resultVintage==="final"?(en ? "Final" : "最终结果"):election.resultVintage}</p>
         <p>{turnoutShown?.computed ? (en ? "Turnout, computed from official counts" : "投票率，根据官方人数计算") : (en ? "Published turnout" : "官方公布投票率")}: {localeNumber(turnoutShown?.value ?? null, locale)}{turnoutShown?.value === null ? "" : "%"}</p>

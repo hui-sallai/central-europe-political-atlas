@@ -3604,6 +3604,55 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-16"
+    },
+    {
+      "amendment_id": "comparative-political-institutions-2026-11-16",
+      "status": "owner_approved",
+      "approved_by": "Owner requested source-backed political-institutions presentation, bilingual statistical notes, comparison and deployment in the iteration brief. The hashes identify that presentation scope.",
+      "baseline": "c7d4b4915441fca7e38e042ad3af4eb3a6aaf22f",
+      "files": [
+        {
+          "path": "src/components/CountryObservationValue.tsx",
+          "sha256": "7bf993251184d42fe7ac76071e42ac54eb8125fd05434820c2aaaf93e582642d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryResearchProfile.tsx",
+          "sha256": "40e2bfa878188930b376216bfd618286da98900a54c9a49b94dd3b9f61fe499a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "4721d5b20d614c66d59b90afb03a0102723481e6ea9f76435d363894f4d49a5f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalLanding.tsx",
+          "sha256": "3649604387e563c4322c0cba4340230931680651fe1c001e236b598f26e7b8a8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/countryObservationPresentation.ts",
+          "sha256": "e533d4a5c59e8d93ca609153b57f870df751218a99d6169b3cf285f066b98820",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/InstitutionComparison.tsx",
+          "sha256": "5bf983677540bb99607bc075820e5678d8cd3e1a944c7e6daac05679bdb01ad3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutionProfiles.ts",
+          "sha256": "a76c7badb6502eb48f8435a4684d1173f1062262131a2b31648f3cc2a4df9a63",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-16"
     }
   ]
 }

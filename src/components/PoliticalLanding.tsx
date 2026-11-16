@@ -1,4 +1,5 @@
 "use client";
+import {InstitutionComparison} from "./InstitutionComparison";
 import Link from "next/link";
 import { useEffect, type ReactNode } from "react";
 import { useLocale } from "@/i18n/LocaleProvider";
@@ -24,5 +25,6 @@ export function PoliticalLanding({ countries }: { countries: PoliticalCountryVie
       })}</div>
     </section>
     <p className="mt-5 text-sm text-[var(--muted)]">{en?'Countries outside these six have no admitted parliamentary election workflow here. This is a source-admission limit, not a claim that institutions or elections are absent.':'其他国家的议会选举流程尚未准入；这是来源准入限制，不代表不存在政治制度或选举。'}</p>
+    <InstitutionComparison political={countries}/>
   </>;
 }

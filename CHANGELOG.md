@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 comparative political institutions — 2026-11-16
+
+- Add a bilingual two-to-four-country comparison of institutional structures, source-scoped formation procedures and election-specific records. Carry selected countries into economic comparisons and translate registered statistical notes in country profiles.
+
 ### v2.0 country research hubs — 2026-11-16
 
 - Connect ten bilingual profiles to selected economic comparisons, admitted election dates, regional workspaces, documentary cases and evidence exports. Preserve each observation’s reference year and source.

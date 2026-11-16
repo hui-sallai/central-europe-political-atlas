@@ -1,0 +1,34 @@
+import {test,expect} from '@playwright/test';
+test('compare institutions in two languages and preserve a four-country handoff',async({page})=>{
+ await page.goto('/en/countries/poland/#institutions');
+ await expect(page.locator('[data-institution-profile=poland]')).toContainText('Sejm and Senate');
+ await page.getByRole('link',{name:'Compare political institutions',exact:true}).click();
+ const comparison=page.locator('#institutions');
+ await expect(comparison.getByRole('checkbox',{name:'Poland',exact:true})).toBeChecked();
+ await comparison.getByRole('checkbox',{name:'Hungary',exact:true}).check();
+ await expect(comparison.locator('[data-institution-profile]')).toHaveCount(2);
+ await comparison.getByRole('checkbox',{name:'Germany',exact:true}).check();
+ await comparison.getByRole('checkbox',{name:'Serbia',exact:true}).check();
+ await expect(comparison.getByRole('checkbox',{name:'Austria',exact:true})).toBeDisabled();
+ await page.reload();
+ await expect(comparison.locator('[data-institution-profile]')).toHaveCount(4);
+ await page.getByRole('link',{name:'中文',exact:true}).click();
+ await expect(comparison.locator('[data-institution-profile=serbia]')).toContainText('国民议会');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2)).toBe(true);
+ await comparison.getByRole('link',{name:'比较通胀',exact:true}).click();
+ await expect(page.locator('[data-national-comparison] input:checked')).toHaveCount(4);
+ await expect(page.locator('[data-national-comparison]').getByLabel('指标',{exact:true})).toHaveValue('annual:hicp_inflation');
+});
+test('historical election scope, missing rules and translated statistical descriptions',async({page})=>{
+ await page.goto('/en/politics/?institution_countries=austria,serbia#institutions');
+ await expect(page.locator('[data-institution-profile=austria]')).toContainText('await article-level verification');
+ const serbia=page.locator('[data-institution-profile=serbia]');
+ await serbia.getByText(/Electoral rules and seats/).click();
+ await serbia.getByRole('link',{name:'Results, ballot definitions and election sources'}).click();
+ await expect(page).toHaveURL(/politics\/serbia\/\?election=/);
+ await page.goto('/en/countries/hungary/');
+ const note=page.locator('[data-country-observation=real_gdp_growth]');
+ await note.locator('summary').click();
+ await expect(note).toContainText('Year-on-year change in chain-linked volume.');
+ await expect(note).not.toContainText('链式体量');
+});
