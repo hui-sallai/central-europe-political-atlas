@@ -3839,6 +3839,45 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "institutional-explorer-and-timeline-2026-11-17",
+      "status": "owner_approved",
+      "approved_by": "Owner development and deployment brief of 2026-11-17 for the institutional explorer, timelines, historical election links and bilingual presentation.",
+      "baseline": "ef4402b09807c3a69946b279de5bb8da9c721b81",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-17",
+      "files": [
+        {
+          "path": "src/components/InstitutionComparison.tsx",
+          "sha256": "92257a34e370e4872152bb01b7b91aeae746456db43f10f7869e9ec312262fa1",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/InstitutionalHistory.tsx",
+          "sha256": "959f9e130e556a7a68ca1e74e2e13a1d5234568133ab1a3fd3ffcf700519a85e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "9866995c5909c1effa8ccad6eb4f6f86b719b4a0b438716595a622cacda22022",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalLanding.tsx",
+          "sha256": "0b6549504fbe08e694c715f8254b24b25ab279ebc3c2096159b9ed7921122dfc",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/countryObservationPresentation.ts",
+          "sha256": "5b35bb7ab16ca8b132707700b46bd3fc77314c85f151283f5b4d15aec9039a7f",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

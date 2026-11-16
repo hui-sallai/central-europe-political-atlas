@@ -230,3 +230,15 @@ Keep full constitutional text off the page. Link to the sources instead.
 
 **All countries**
 - Per-article version dates, except where listed in E.
+
+
+## Frontend delivery and next evidence tasks (17 November)
+
+The comparison now consumes all 16 fields. The country timeline separates effective dates from other dated evidence, and admitted elections open their own registry period. Keep the per-country gaps in section L as the research queue.
+
+| Country | Dimension and period | Evidence already held | Evidence needed and intended use |
+|---|---|---|---|
+| slovenia | Referendum reform, 2013 | Act and conflicting PISRS date | Obtain the proclamation date from the official gazette before placing this change on an effective-period boundary. |
+| romania | Chamber elections, 2015 onward | Promulgation text and parliamentary act history | Verify the consolidated electoral articles and their effective dates before upgrading the partly verified comparison field. |
+| poland, hungary | Constitutional transitions before 1997 and 2012 respectively | First modern constitutional periods | Retrieve predecessor texts and commencement clauses before extending the timeline backwards. |
+| serbia, germany | Historical seat allocation before 2022 and 2023 respectively | Election-specific results and rule records | Obtain contemporaneous statutory versions before linking additional historical changes to election days. |

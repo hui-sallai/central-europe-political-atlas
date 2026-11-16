@@ -36,3 +36,26 @@ test('historical election scope, missing rules and translated statistical descri
  await expect(note).toContainText('Year-on-year change in chain-linked volume.');
  await expect(note).not.toContainText('链式体量');
 });
+
+test('dimension, replacement, history navigation and dated election law',async({page})=>{
+ await page.goto('/en/politics/?institution_countries=germany,austria#institutions');
+ const comparison=page.locator('#institutions');
+ await comparison.getByLabel('Comparison dimension').selectOption('legislature');
+ await expect(comparison.locator('[data-comparison-field=second_chamber_role]')).toContainText('Bundesrat');
+ await comparison.getByLabel('Replace country').last().selectOption('hungary');
+ await expect(page).toHaveURL(/institution_countries=germany%2Chungary/);
+ await page.goBack();
+ await expect(comparison.getByRole('checkbox',{name:'Austria',exact:true})).toBeChecked();
+ await page.goForward();
+ await expect(comparison.getByRole('checkbox',{name:'Hungary',exact:true})).toBeChecked();
+ await page.goto('/en/countries/hungary/#hu-2026-amendment-16');
+ await expect(page.locator('#hu-2026-amendment-16')).toHaveAttribute('open','');
+ const history=page.locator('#history-hungary');
+ await expect(history).toContainText('2026-06-20');
+ await history.getByRole('link',{name:/seats/}).last().click();
+ const period=page.locator('details').filter({has:page.locator('summary',{hasText:'Institutional period on election day'})}).last();
+ await period.locator('summary').click();
+ await expect(period).toContainText('2012-01-01');
+ await period.getByRole('link').first().click();
+ await expect(page.locator('#hu-2012-fundamental-law')).toHaveAttribute('open','');
+});

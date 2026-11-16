@@ -11,7 +11,8 @@ export function PoliticalLanding({ countries }: { countries: PoliticalCountryVie
   const locale = useLocale(), en = locale === "en";
   useEffect(()=>{const p=new URLSearchParams(location.search);if(p.get('country')==='germany'||['election','measure','compare','comparison_mode','series','series_measure','context','research_q','research_study'].some(k=>p.has(k))){const u=new URL(location.href);u.pathname=localizedRoute('/politics/germany/',locale);u.searchParams.delete('country');location.replace(u.href);}},[locale]);
   return <>
-    <section aria-label={en ? "Choose a political research country" : "选择政治研究国家"} data-political-landing>
+    <InstitutionComparison political={countries}/>
+    <section className="mt-6" aria-label={en ? "Choose a political research country" : "选择政治研究国家"} data-political-landing>
       <p className="mb-4 text-sm text-[var(--muted)]">{en ? "Choose from six countries with admitted parliamentary election records. The summaries describe the recorded election chamber, not a complete institutional dataset." : "选择已有议会选举资料的六个国家。下列摘要说明选举记录所涵盖的议院，不代表完整的政治制度数据库。"}</p>
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{countries.map(c => {
         const latest = c.elections.at(-1);
@@ -25,6 +26,5 @@ export function PoliticalLanding({ countries }: { countries: PoliticalCountryVie
       })}</div>
     </section>
     <p className="mt-5 text-sm text-[var(--muted)]">{en?'Countries outside these six have no admitted parliamentary election workflow here. This is a source-admission limit, not a claim that institutions or elections are absent.':'其他国家的议会选举流程尚未准入；这是来源准入限制，不代表不存在政治制度或选举。'}</p>
-    <InstitutionComparison political={countries}/>
   </>;
 }

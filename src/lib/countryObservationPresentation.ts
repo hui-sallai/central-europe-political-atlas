@@ -22,6 +22,6 @@ export function countryStatisticalNote(note:string,english:boolean){
  if(!english)return {text:note,original:false};
  const [description,...sources]=note.split("数据来源：");
  const translated=statisticalNotes[description.trim()];
- if(!translated)return {text:note,original:true};
- return {text:translated+(sources.length?" Source: "+sources.join("数据来源：").trim():""),original:false};
+ if(!translated)return {text:/[\u3400-\u9fff]/u.test(description) ? "An English statistical description is unavailable for this observation." : description.trim(),original:false};
+ return {text:translated+(sources.length&&!/[\u3400-\u9fff]/u.test(sources.join(""))?" Source: "+sources.join("数据来源：").trim():""),original:false};
 }
