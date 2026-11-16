@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 connected research journeys — 2026-11-17
+
+- Carry the selected regional map into a regional workspace, follow reviewed event indicators into historical observations, and collect a sourced institutional comparison in the existing Notebook. Regional coverage and event language now follow the same records across research entry points.
+
 ### v2.0 political institutions explorer — 2026-11-17
 
 - Compare registered institutional fields by dimension, inspect historical legal changes and follow election-day rules back to their documented institutional period in either language.

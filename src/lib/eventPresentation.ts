@@ -13,3 +13,8 @@ export function eventPresentation(event: EventText, locale: Locale) {
   const approved = Object.hasOwn(newsTranslations, event.id) ? newsTranslations[event.id] : undefined;
   return { title: field(event.title, approved?.title, locale, "title"), summary: field(event.summary, approved?.summary, locale, "summary") };
 }
+
+const topicLabels: Record<string,string> = {"政治":"Politics","经济":"Economy","欧盟":"European Union"};
+export function eventTopicLabel(topic:string, approved:Record<string,string>, locale:Locale) {
+  return locale==="en" ? topicLabels[topic] ?? approved[topic] ?? topic : topic;
+}

@@ -242,3 +242,10 @@ The comparison now consumes all 16 fields. The country timeline separates effect
 | romania | Chamber elections, 2015 onward | Promulgation text and parliamentary act history | Verify the consolidated electoral articles and their effective dates before upgrading the partly verified comparison field. |
 | poland, hungary | Constitutional transitions before 1997 and 2012 respectively | First modern constitutional periods | Retrieve predecessor texts and commencement clauses before extending the timeline backwards. |
 | serbia, germany | Historical seat allocation before 2022 and 2023 respectively | Election-specific results and rule records | Obtain contemporaneous statutory versions before linking additional historical changes to election days. |
+
+
+## Event and regional handoff for connected workflows
+
+- Hungary, CATL announcement of 12 August 2022: the existing event review identifies national FDI as a proposed contextual series. A project-level disbursement record with period, currency and original issuer would be needed for a realized-investment observation; the annual Data Explorer link carries no such claim.
+- Serbia, NSTJ3 area statistics: regional population is admitted for within-country use. Additional regional indicators need a SORS table with area identifiers, geography vintage, units and dated observations before the workspace can link those layers. Cross-country comparisons require separate compatibility evidence.
+- Events without an indicator review retain country navigation. For any additional event, supply the event ID, official source, exact indicator and frequency, observation geography, period and documented or proposed basis before enabling a specific statistical handoff.

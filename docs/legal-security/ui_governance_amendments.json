@@ -3878,6 +3878,55 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "connected-research-workflows-2026-11-17",
+      "status": "owner_approved",
+      "approved_by": "Owner brief of 2026-11-17 requesting connected research navigation, regional coverage and language corrections, Notebook integration and deployment.",
+      "baseline": "99d268fa2efea1b96ab3694cf0ee2531bc67d6ab",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-17",
+      "files": [
+        {
+          "path": "src/components/ComparativeSpatialWorkbench.tsx",
+          "sha256": "bb053f1762c71202de064b2e0f69656902ea56dc008abd408a0512cb9f5f0927",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/HomeResearchDiscovery.tsx",
+          "sha256": "d2db9cd4bcb41b335e528cd3c72d994ee09f60a3b5ca434ff57ace82c9f464ab",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/InstitutionComparison.tsx",
+          "sha256": "0bb88683a8de56720c2626ebfebea64aa7556f3f7bcf6052e083cf3baf95c85b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/NewsExplorer.tsx",
+          "sha256": "010ed64300b90110cde00c46c16f1e3daf2d98b4e0cf47896b461839015efb79",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ResearchWorkspace.tsx",
+          "sha256": "db3ed35e9c410928efe3f145de67440dfe88ab2bd829f03d312fd1198a83ed56",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/workspaceEvidence.ts",
+          "sha256": "03f64b4586820e81437689dfe4eca10d9aef63560a9439443d835d274bcfc179",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/eventPresentation.ts",
+          "sha256": "5325d992eaf4384217c1c505967178568d86f11a3ea5f6f2100190e4fe44c042",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

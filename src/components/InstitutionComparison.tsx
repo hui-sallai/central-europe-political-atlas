@@ -1,4 +1,6 @@
 "use client";
+import {NotebookCollect} from "./NotebookCollect";
+import {PLATFORM_BASE_URL} from "@/lib/releaseMetadata";
 import Link from "next/link";
 import {useEffect,useState} from "react";
 import {useLocale} from "@/i18n/LocaleProvider";
@@ -92,6 +94,11 @@ export function InstitutionComparison({political}:{political:PoliticalCountryVie
      <InstitutionalProfile country={country} election={latest}/>
      {admittedCountrySlugs.includes(id)?<Link className="underline" href={prefix+'/politics/'+id+'/'}>{en?'Election history':'选举历史'}</Link>:<p>{en?'Parliamentary results await admission.':'议会选举结果尚待准入。'}</p>}</article>;
    })}</div>
+   <NotebookCollect create={()=>{
+    const rows=compareInstitutions(ids,en)!.filter(row=>!group||row.group===group);
+    const sources=new Map(rows.flatMap(row=>row.cells.flatMap(cell=>cell.sources.map(source=>[source.url,source] as const))));
+    return {type:"country_comparison",title:(en?"Political institutions":"政治制度")+" · "+ids.join(" / "),url:new URL(location.pathname+location.search+location.hash,PLATFORM_BASE_URL).href,countries:ids,canonical_ids:rows.map(row=>row.field),periods:[],layer:"institutional_comparison",warnings:[en?"Live comparison of institutional records. Historical applicability depends on the legal version.":"此链接显示当前制度记录，历史适用性取决于当时的法律版本。"],sources:Array.from(sources.values(),s=>({institution:s.publisher,dataset:s.title,url:s.url,layer:"institutional_source"})),metadata:{filters:{dimension:group||"all"}}};
+   }}/>
    <nav className="flex flex-wrap gap-4">{[['real_gdp_growth',en?'Compare real GDP growth':'比较实际 GDP 增长'],['hicp_inflation',en?'Compare inflation':'比较通胀']].map(([metric,label])=><Link key={metric} className="underline" href={prefix+'/data/?'+new URLSearchParams({compare_countries:ids.join(','),comparison_indicator:'annual:'+metric})}>{label}</Link>)}</nav></>}
  </section>;
 }
