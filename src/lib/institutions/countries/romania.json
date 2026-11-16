@@ -26,7 +26,7 @@
       "official_name": "Camera Deputaților",
       "name": { "en": "Chamber of Deputies", "zh": "众议院（Camera Deputaților）" },
       "role": "lower",
-      "members": { "value": null, "basis": { "en": "312 constituency seats under Annex 1 of Law 208/2015 (one per 73,000 inhabitants), plus one seat for each national-minority organisation that qualifies under Art. 56; the total therefore varies by election", "zh": "依第 208/2015 号法律附件 1 设 312 个选区议席（每 73,000 名居民一名），另为符合第 56 条的每个少数民族组织各设一席；因此总数随选举而变" }, "articles": "Constitution Art. 62(2)–(3); Law 208/2015 Arts. 5, 56, Annex 1", "source_ids": ["ro-constitution-en-t3", "ro-law-208-text", "ro-law-208-record"] },
+      "members": { "value": null, "basis": { "en": "312 constituency seats under Annex 1 of Law 208/2015 (one per 73,000 inhabitants), plus one seat for each national-minority organisation that qualifies under Art. 56; the total therefore varies by election. On 17 November 2026 the Chamber’s list for the 2024 term showed 330 sitting deputies, 17 of them in national-minority seats, with 6 more listed as having left before the end of the term", "zh": "依第 208/2015 号法律附件 1 设 312 个选区议席（每 73,000 名居民一名），另为符合第 56 条的每个少数民族组织各设一席；因此总数随选举而变。2026 年 11 月 17 日，众议院 2024 届名单显示在任众议员 330 名，其中 17 名占少数民族议席，另有 6 名列为任期届满前离任" }, "articles": "Constitution Art. 62(2)–(3); Law 208/2015 Arts. 5, 56, Annex 1", "source_ids": ["ro-constitution-en-t3", "ro-law-208-text", "ro-law-208-record", "ro-cdep-members-2024"] },
       "term_years": 4,
       "selection": { "code": "direct_by_electoral_law", "label": { "en": "Universal, equal, direct, secret and free suffrage under the electoral law", "zh": "依选举法普遍、平等、直接、秘密、自由选举" }, "articles": "Art. 62(1)" },
       "powers": { "en": "First-notified chamber for treaty ratification and the organic laws listed in Art. 75(1); for other bills it is the decision-making chamber.", "zh": "对条约批准及第 75 条第 1 款所列组织法为首先受理院；对其他法案为决定院。" },
@@ -120,13 +120,13 @@
       "title": { "en": "Revision of the Constitution (Law no. 429/2003)", "zh": "宪法修订（第 429/2003 号法律）" },
       "adopted": null,
       "promulgated": "2003-09-22",
-      "effective": null,
-      "effective_note": { "en": "Law published 22 September 2003; Constitutional Court Decision no. 356/2003 published 30 September 2003. The ratifying referendum and the entry-into-force date were not read.", "zh": "法律于 2003 年 9 月 22 日公布；宪法法院第 356/2003 号决定于 2003 年 9 月 30 日公布。批准性全民公决及生效日期未阅读。" },
+      "effective": "2003-10-29",
       "previous": null,
       "new": { "en": "Presidential term set at five years (Art. 83(1)); legislative procedure reorganised around first-notified and decision-making chambers (Arts. 73¹, 75, former Arts. 75–76 repealed).", "zh": "总统任期定为五年（第 83 条第 1 款）；立法程序改为首先受理院与决定院模式（第 73¹ 条、第 75 条，原第 75–76 条废止）。" },
       "legal_basis": "Law no. 429/2003 on the revision of the Constitution of Romania",
-      "source_ids": ["ro-revision-2003"],
-      "status": "partially_verified"
+      "source_ids": ["ro-revision-2003", "ro-constitution-front"],
+      "status": "partially_verified",
+      "note": { "en": "Law 429/2003 was published on 22 September 2003, approved by the national referendum of 18–19 October 2003, and entered into force on 29 October 2003, when the Constitutional Court’s Decision no. 3 of 22 October 2003 confirming the result was published in Monitorul Oficial.", "zh": "第 429/2003 号法律于 2003 年 9 月 22 日公布，经 2003 年 10 月 18–19 日全民公决批准，并于 2003 年 10 月 29 日生效，即宪法法院确认公决结果的 2003 年 10 月 22 日第 3 号决定刊登于《官方公报》之日。" }
     },
     {
       "change_id": "ro-2015-electoral-law",
@@ -144,10 +144,7 @@
     }
   ],
   "case_study_sections": [],
-  "pending": [
-    { "field": "chamber_membership", "reason": { "en": "The Chamber of Deputies’ total depends on the minority-organisation seats won at each election, and current sitting numbers were not verified from an official page.", "zh": "众议院总人数取决于每次选举中少数民族组织所获议席，现任人数未经官方页面核实。" } },
-    { "field": "revision_2003_dates", "reason": { "en": "Referendum and entry-into-force dates of the 2003 revision were not read.", "zh": "2003 年修订的全民公决和生效日期未阅读。" } }
-  ],
+  "pending": [],
   "sources": [
     { "source_id": "ro-constitution-en-t1", "publisher": "Camera Deputaților", "title": "Constitution of Romania — Title I (English)", "url": "https://www.cdep.ro/ords/pls/dic/site2015.page?id=371&idl=2&par1=1", "kind": "translation", "language": "en", "version": "2003 revised text", "retrieved_on": "2026-11-16", "retrieval_sha256": "d61c9f739d76e1d2dfa23c969544fbba69bf500f955c8c06c1caff6ffe2ad5de", "access": "manual_download" },
     { "source_id": "ro-constitution-en-t3", "publisher": "Camera Deputaților", "title": "Constitution of Romania — Title III, Public Authorities (English)", "url": "https://www.cdep.ro/ords/pls/dic/site2015.page?id=371&idl=2&par1=3", "kind": "translation", "language": "en", "version": "2003 revised text", "retrieved_on": "2026-11-16", "retrieval_sha256": "9b3d631351b1278051f790145f32954f7e6ebead1f92f9d7a642432f5d5a422c", "access": "manual_download" },
@@ -155,6 +152,8 @@
     { "source_id": "ro-constitution-ro-t3", "publisher": "Camera Deputaților", "title": "Constituția României — Titlul III (română)", "url": "https://www.cdep.ro/ords/pls/dic/site2015.page?id=339&idl=1&par1=3", "kind": "constitution", "language": "ro", "version": "2003 revised text", "retrieved_on": "2026-11-16", "retrieval_sha256": "1fb83701dc22d68650ee7d4cbcffabda1672ecdb0d61b6e1aaee5c9f3bea4289", "access": "manual_download" },
     { "source_id": "ro-revision-2003", "publisher": "Camera Deputaților", "title": "Law No. 429/2003 on the revision of the Constitution of Romania (English)", "url": "https://www.cdep.ro/pdfs/reviz_constitutie_en.pdf", "kind": "constitutional_amendment", "language": "en", "version": "as published", "retrieved_on": "2026-11-16", "retrieval_sha256": "d00c17d99377e0f7aa466230bf4ae4a9558a8fd5f73cd655466c2c5fa068530d", "access": "manual_download" },
     { "source_id": "ro-law-208-record", "publisher": "Camera Deputaților", "title": "LEGE nr.208 din 20 iulie 2015 privind alegerea Senatului şi a Camerei Deputaţilor, precum si pentru organizarea şi funcţionarea Autorităţii Electorale Permanente (fişa actului)", "url": "https://www.cdep.ro/ords/pls/legis/legis_pck.htp_act?ida=131595", "kind": "parliament_page", "language": "ro", "version": "act record with amending acts, read 16 November 2026", "retrieved_on": "2026-11-16", "retrieval_sha256": "7ef70b6197f2b340e16f0823fde9184639beeabd971961e9daef5a72157ab88a", "access": "manual_download" },
-    { "source_id": "ro-law-208-text", "publisher": "Camera Deputaților", "title": "Lege privind alegerea Senatului şi a Camerei Deputaţilor, precum şi pentru organizarea şi funcţionarea Autorităţii Electorale Permanente (forma trimisă la promulgare, PL-x 445/2015)", "url": "https://www.cdep.ro/ords/pls/proiecte/docs?2015/pr445_15.pdf", "kind": "statute", "language": "ro", "version": "text adopted by Parliament and sent for promulgation, 2015", "retrieved_on": "2026-11-16", "retrieval_sha256": "ae5018443e1bbc1307388dbd04f2f8276e76be8051264d11ef6535b6a5026bf6", "access": "manual_download" }
+    { "source_id": "ro-law-208-text", "publisher": "Camera Deputaților", "title": "Lege privind alegerea Senatului şi a Camerei Deputaţilor, precum şi pentru organizarea şi funcţionarea Autorităţii Electorale Permanente (forma trimisă la promulgare, PL-x 445/2015)", "url": "https://www.cdep.ro/ords/pls/proiecte/docs?2015/pr445_15.pdf", "kind": "statute", "language": "ro", "version": "text adopted by Parliament and sent for promulgation, 2015", "retrieved_on": "2026-11-16", "retrieval_sha256": "ae5018443e1bbc1307388dbd04f2f8276e76be8051264d11ef6535b6a5026bf6", "access": "manual_download" },
+    { "source_id": "ro-constitution-front", "publisher": "Camera Deputaților", "title": "Constituția României — pagina de prezentare (revizuirea din 2003)", "url": "https://www.cdep.ro/ords/pls/dic/site2015.page?id=339&idl=1", "kind": "parliament_page", "language": "ro", "version": "read 17 November 2026", "retrieved_on": "2026-11-17", "retrieval_sha256": "7c1abdc681622d8ebbd780e631ba96a1841dfed5a4ee186685a108ce6947ffbf", "access": "manual_download" },
+    { "source_id": "ro-cdep-members-2024", "publisher": "Camera Deputaților", "title": "Structura Parlamentului României 2024-prezent — lista deputaților (counts only)", "url": "https://www.cdep.ro/ords/pls/parlam/structura.de?par=A", "kind": "parliament_page", "language": "ro", "version": "list read 17 November 2026; only counts recorded", "retrieved_on": "2026-11-17", "retrieval_sha256": "99b8319cf606af6b112d843eee3a0ea9f4233e18536f8ee2146a9ebe84b0cdb2", "access": "manual_download" }
   ]
 }

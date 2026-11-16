@@ -13,11 +13,12 @@
     "id": "si-constitution-1991",
     "official_name": "Ustava Republike Slovenije (URS)",
     "name": { "en": "Constitution of the Republic of Slovenia", "zh": "斯洛文尼亚共和国宪法" },
-    "adopted": null,
-    "in_force": null,
+    "adopted": "1991-12-23",
+    "in_force": "1991-12-23",
     "publication": "Uradni list RS, št. 33/91-I z dne 28. 12. 1991",
     "current_text": { "as_of": "2025-12-02", "note": { "en": "Unofficial consolidated text no. 12 in PISRS, including amendments up to UZ74a (Uradni list RS 98/25 of 2 December 2025).", "zh": "PISRS 第 12 号非官方合并文本，含截至 UZ74a（2025 年 12 月 2 日《官方公报》98/25）的修正。" } },
-    "source_ids": ["si-constitution-current"]
+    "source_ids": ["si-constitution-current"],
+    "in_force_note": { "en": "Adopted on 23 December 1991 and in force on proclamation the same day (Art. 172; PISRS record); published in Uradni list RS 33/91-I on 28 December 1991.", "zh": "1991 年 12 月 23 日通过，并于同日公布生效（第 172 条；PISRS 记录）；1991 年 12 月 28 日刊于《官方公报》33/91-I。" }
   },
   "chambers": [
     {
@@ -103,49 +104,53 @@
       "change_id": "si-1991-constitution",
       "dimension": "constitutional_framework",
       "title": { "en": "Constitution of the Republic of Slovenia published", "zh": "斯洛文尼亚共和国宪法公布" },
-      "adopted": null,
-      "promulgated": "1991-12-28",
-      "effective": null,
+      "adopted": "1991-12-23",
+      "promulgated": "1991-12-23",
+      "effective": "1991-12-23",
       "previous": null,
       "new": { "en": "National Assembly, National Council, directly elected President, Government elected by the Assembly.", "zh": "国民议会、国民委员会、直选总统、由议会选举的政府。" },
       "legal_basis": "Uradni list RS, št. 33/91-I",
       "source_ids": ["si-constitution-current"],
-      "status": "partially_verified"
+      "status": "partially_verified",
+      "note": { "en": "Published in Uradni list RS 33/91-I on 28 December 1991.", "zh": "1991 年 12 月 28 日刊于《官方公报》33/91-I。" }
     },
     {
       "change_id": "si-2000-art80",
       "dimension": "electoral_system",
       "title": { "en": "Constitutional Act supplementing Article 80 (electoral system)", "zh": "补充第 80 条的宪法性法律（选举制度）" },
-      "adopted": null,
-      "promulgated": "2000-07-26",
-      "effective": null,
+      "adopted": "2000-07-25",
+      "promulgated": "2000-07-25",
+      "effective": "2000-07-25",
       "previous": null,
       "new": { "en": "Proportional representation with a 4% threshold and decisive voter influence on candidate selection written into Art. 80.", "zh": "将比例代表制、4% 门槛和选民对候选人当选的决定性影响写入第 80 条。" },
       "legal_basis": "Ustavni zakon o dopolnitvi 80. člena ustave – UZ80 (Uradni list RS, št. 66/00 z dne 26. 7. 2000)",
-      "source_ids": ["si-constitution-current"],
+      "source_ids": ["si-constitution-current", "si-uz80"],
       "status": "partially_verified",
-      "note": { "en": "Attribution of the current Art. 80 wording to UZ80 follows the amendment's title; its text was not read separately.", "zh": "现行第 80 条措辞归于 UZ80 系依该修正的标题；其文本未单独阅读。" }
+      "note": { "en": "In force on proclamation in the National Assembly on 25 July 2000; published 26 July 2000. Its transitional part applied the 4% threshold, the Droop quota in constituencies and national pooling to the 2000 election under the 1992 Elections Act.", "zh": "2000 年 7 月 25 日在国民议会公布即生效；2000 年 7 月 26 日刊登。其过渡部分规定，2000 年选举依 1992 年选举法进行，但适用 4% 门槛、选区 Droop 商数及全国汇总分配。" }
     },
     {
       "change_id": "si-2013-referendum",
       "dimension": "legislative_process",
       "title": { "en": "Referendum reform (Arts. 90, 97, 99)", "zh": "公投制度改革（第 90、97、99 条）" },
-      "adopted": null,
-      "promulgated": "2013-05-31",
+      "adopted": "2013-05-24",
+      "promulgated": null,
       "effective": null,
       "previous": null,
       "new": { "en": "Legislative referendums require 40,000 voters, with listed exclusions (Art. 90); the National Council's right to demand a referendum is deleted (Art. 97).", "zh": "立法公投须 40,000 名选民提出并设排除事项（第 90 条）；国民委员会要求公投的权力被删除（第 97 条）。" },
       "legal_basis": "Ustavni zakon o spremembah 90., 97. in 99. člena – UZ90,97,99 (Uradni list RS, št. 47/13 z dne 31. 5. 2013)",
-      "source_ids": ["si-constitution-current"],
-      "status": "partially_verified"
+      "source_ids": ["si-constitution-current", "si-uz90-97-99"],
+      "status": "partially_verified",
+      "effective_note": { "en": "Adopted 24 May 2013 and published 31 May 2013. The act says it takes effect on proclamation in the National Assembly, while PISRS lists validity from 31 May 2013; because the two differ, no effective date is set.", "zh": "2013 年 5 月 24 日通过，2013 年 5 月 31 日刊登。该法规定于国民议会公布时生效，而 PISRS 记载自 2013 年 5 月 31 日起有效；两者不一致，故未设生效日期。" }
     }
   ],
   "case_study_sections": [],
   "pending": [
-    { "field": "entry_into_force_dates", "reason": { "en": "Entry-into-force dates of the constitution and amendments were not read; publication dates are recorded.", "zh": "宪法及修正的生效日期未阅读；记录的是公布日期。" } }
+    { "field": "constituency_law", "reason": { "en": "The law defining the eight constituencies and their districts (Zakon o določitvi volilnih enot za volitve poslancev v državni zbor) was not read; the Elections Act’s PISRS page does not link to it.", "zh": "规定八个选区及其选举区的法律（《国民议会议员选举选区确定法》）未阅读；选举法的 PISRS 页面未链接该法。" } }
   ],
   "sources": [
     { "source_id": "si-constitution-current", "publisher": "Pravno-informacijski sistem Republike Slovenije (PISRS)", "title": "Ustava Republike Slovenije (URS) — neuradno prečiščeno besedilo št. 12", "url": "https://pisrs.si/pregledPredpisa?id=USTA1", "kind": "constitution", "language": "sl", "version": "unofficial consolidated text no. 12 (to UZ74a, 98/25)", "retrieved_on": "2026-11-16", "retrieval_sha256": null, "access": "browser_reading" },
-    { "source_id": "si-zvdz-npb12", "publisher": "Pravno-informacijski sistem Republike Slovenije (PISRS)", "title": "Zakon o volitvah v državni zbor (ZVDZ) — neuradno prečiščeno besedilo št. 12", "url": "https://pisrs.si/pregledPredpisa?id=ZAKO185", "kind": "statute", "language": "sl", "version": "unofficial consolidated text no. 12 (to ZVDZ-E, Uradni list RS 12/24)", "retrieved_on": "2026-11-17", "retrieval_sha256": null, "access": "browser_reading" }
+    { "source_id": "si-zvdz-npb12", "publisher": "Pravno-informacijski sistem Republike Slovenije (PISRS)", "title": "Zakon o volitvah v državni zbor (ZVDZ) — neuradno prečiščeno besedilo št. 12", "url": "https://pisrs.si/pregledPredpisa?id=ZAKO185", "kind": "statute", "language": "sl", "version": "unofficial consolidated text no. 12 (to ZVDZ-E, Uradni list RS 12/24)", "retrieved_on": "2026-11-17", "retrieval_sha256": null, "access": "browser_reading" },
+    { "source_id": "si-uz80", "publisher": "Pravno-informacijski sistem Republike Slovenije (PISRS)", "title": "Ustavni zakon o dopolnitvi 80. člena ustave Republike Slovenije (UZ80), Uradni list RS, št. 66/00", "url": "https://pisrs.si/pregledPredpisa?sop=2000-01-3052", "kind": "constitutional_amendment", "language": "sl", "version": "record USTZ19", "retrieved_on": "2026-11-17", "retrieval_sha256": null, "access": "browser_reading" },
+    { "source_id": "si-uz90-97-99", "publisher": "Pravno-informacijski sistem Republike Slovenije (PISRS)", "title": "Ustavni zakon o spremembah 90., 97. in 99. člena Ustave Republike Slovenije (UZ90,97,99), Uradni list RS, št. 47/13", "url": "https://pisrs.si/pregledPredpisa?sop=2013-01-1779", "kind": "constitutional_amendment", "language": "sl", "version": "record USTZ44", "retrieved_on": "2026-11-17", "retrieval_sha256": null, "access": "browser_reading" }
   ]
 }

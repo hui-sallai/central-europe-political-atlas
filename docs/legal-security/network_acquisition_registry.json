@@ -324,7 +324,7 @@
     },
     {
       "host": "www.rik.parlament.gov.rs",
-      "purpose": "Republic Electoral Commission of Serbia (RIK): official National Assembly election reports and results decisions",
+      "purpose": "Republic Electoral Commission of Serbia (RIK): official National Assembly election reports and results decisions; 2022 referendum page (date only)",
       "automation_allowed": false,
       "manual_allowed": true,
       "robots_checked_at": "2026-11-15",
@@ -393,8 +393,18 @@
       "status": "allowed_review_due"
     },
     {
+      "host": "www.bundesrat.de",
+      "purpose": "German Bundesrat: official page on the distribution of votes among the Länder (counts only)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-17",
+      "robots_note": "Disallow /SiteGlobals/ (except listed modules), /DE/Service/, /EN/Service/; Allow /SharedDocs/; crawl-delay 30. Read: the vote-distribution page and its graphic (/SharedDocs/), 31 seconds apart.",
+      "reason": "Owner approval 2026-11-17 (answer \"Register bundesrat.de\"): manual reading only, one reading of the vote-distribution page, institutional counts only; raw files stay in scratch storage and are never committed.",
+      "status": "allowed_review_due"
+    },
+    {
       "host": "www.ris.bka.gv.at",
-      "purpose": "Federal Chancellery legal information system (RIS): single-article documents of the B-VG and the National Council Electoral Act 1992",
+      "purpose": "Federal Chancellery legal information system (RIS): single-article documents of the B-VG and the National Council Electoral Act 1992; Bundesgesetzblatt notice BGBl. II 197/2023 (/Dokumente/BgblAuth/)",
       "automation_allowed": false,
       "manual_allowed": true,
       "robots_checked_at": "2026-11-16",
@@ -404,7 +414,7 @@
     },
     {
       "host": "www.cdep.ro",
-      "purpose": "Romanian Chamber of Deputies: Constitution of Romania (Romanian and English titles), Law 429/2003 revision text, and Law 208/2015 (act record and the text sent for promulgation)",
+      "purpose": "Romanian Chamber of Deputies: Constitution of Romania (Romanian and English titles), Law 429/2003 revision text, and Law 208/2015 (act record and the text sent for promulgation); constitution front page and the 2024-term member list (counts only)",
       "automation_allowed": false,
       "manual_allowed": true,
       "robots_checked_at": "2026-11-16",
@@ -424,7 +434,7 @@
     },
     {
       "host": "pisrs.si",
-      "purpose": "Slovenian legal information system (PISRS): Constitution of the Republic of Slovenia and National Assembly Elections Act (ZVDZ), consolidated texts",
+      "purpose": "Slovenian legal information system (PISRS): Constitution of the Republic of Slovenia and National Assembly Elections Act (ZVDZ), consolidated texts; constitutional acts UZ80 and UZ90,97,99 (dates)",
       "automation_allowed": false,
       "manual_allowed": true,
       "robots_checked_at": "2026-11-16",
@@ -444,7 +454,7 @@
     },
     {
       "host": "narodne-novine.nn.hr",
-      "purpose": "Croatian official gazette: consolidated Constitution (NN 85/2010)",
+      "purpose": "Croatian official gazette: consolidated Constitution (NN 85/2010); Election Act, Constituencies Act, constitutional acts of 1990, 2000 and 2001, and Constitutional Court decisions",
       "automation_allowed": false,
       "manual_allowed": true,
       "robots_checked_at": "2026-11-16",

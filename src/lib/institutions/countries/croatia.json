@@ -13,12 +13,12 @@
     "id": "hr-constitution-1990",
     "official_name": "Ustav Republike Hrvatske",
     "name": { "en": "Constitution of the Republic of Croatia", "zh": "克罗地亚共和国宪法" },
-    "adopted": null,
-    "in_force": null,
-    "in_force_note": { "en": "Enacted in December 1990 (Narodne novine 56/90); consolidated text NN 85/2010 of 9 July 2010.", "zh": "1990 年 12 月制定（《人民报》56/90）；合并文本为 2010 年 7 月 9 日 NN 85/2010。" },
+    "adopted": "1990-12-21",
+    "in_force": "1990-12-22",
+    "in_force_note": { "en": "Adopted by the Sabor on 21 December 1990 and proclaimed and brought into force on 22 December 1990 (NN 56/90); consolidated text NN 85/2010 of 9 July 2010.", "zh": "萨博尔于 1990 年 12 月 21 日通过，1990 年 12 月 22 日公布并生效（NN 56/90）；合并文本为 2010 年 7 月 9 日 NN 85/2010。" },
     "publication": "Narodne novine 56/90",
-    "current_text": { "as_of": "2010-07-09", "note": { "en": "Consolidated text NN 85/2010; the later change published in NN 5/2014 was not read.", "zh": "合并文本 NN 85/2010；其后刊于 NN 5/2014 的修改未阅读。" } },
-    "source_ids": ["hr-constitution-consolidated", "hr-sabor-about"]
+    "current_text": { "as_of": "2010-07-09", "note": { "en": "Consolidated text NN 85/2010. The later change in NN 5/2014 records the referendum of 1 December 2013 that added Art. 62(2) (marriage as a union of a woman and a man); it does not affect the institutions recorded here.", "zh": "合并文本 NN 85/2010。其后 NN 5/2014 记录了 2013 年 12 月 1 日全民公决新增的第 62 条第 2 款（婚姻为一男一女的结合）；不涉及本记录所述机构。" } },
+    "source_ids": ["hr-constitution-consolidated", "hr-sabor-about", "hr-proclamation-1990", "hr-usrh-2014"]
   },
   "chambers": [
     {
@@ -93,43 +93,42 @@
       "change_id": "hr-1990-constitution",
       "dimension": "constitutional_framework",
       "title": { "en": "Constitution of December 1990", "zh": "1990 年 12 月宪法" },
-      "adopted": null,
-      "promulgated": null,
-      "effective": null,
-      "effective_note": { "en": "Enacted in December 1990 (NN 56/90); the exact date was not read.", "zh": "1990 年 12 月制定（NN 56/90）；确切日期未阅读。" },
+      "adopted": "1990-12-21",
+      "promulgated": "1990-12-22",
+      "effective": "1990-12-22",
       "previous": null,
       "new": { "en": "Parliament composed of the Chamber of Deputies and the Chamber of Counties.", "zh": "议会由众议院和郡院组成。" },
       "legal_basis": "Narodne novine 56/90",
-      "source_ids": ["hr-sabor-about", "hr-constitution-consolidated"],
+      "source_ids": ["hr-sabor-about", "hr-constitution-consolidated", "hr-proclamation-1990"],
       "status": "partially_verified"
     },
     {
       "change_id": "hr-2000-parliamentary-system",
       "dimension": "government_system",
       "title": { "en": "2000 amendments: parliamentary system", "zh": "2000 年修宪：改行议会制" },
-      "adopted": null,
-      "promulgated": null,
-      "effective": null,
-      "effective_note": { "en": "Amendments of 2000 (NN 113/2000 in the consolidated list); exact dates not read.", "zh": "2000 年修正（合并文本列表中的 NN 113/2000）；确切日期未阅读。" },
+      "adopted": "2000-11-09",
+      "promulgated": "2000-11-09",
+      "effective": "2000-11-09",
       "previous": { "en": "Semi-presidential system.", "zh": "半总统制。" },
       "new": { "en": "Parliamentary system of government.", "zh": "议会制政府。" },
       "legal_basis": "Promjena Ustava (NN 113/2000)",
-      "source_ids": ["hr-sabor-about", "hr-constitution-consolidated"],
-      "status": "partially_verified"
+      "source_ids": ["hr-sabor-about", "hr-constitution-consolidated", "hr-change-2000"],
+      "status": "partially_verified",
+      "note": { "en": "Adopted and proclaimed by the Chamber of Deputies on 9 November 2000 and in force on proclamation (Art. 76 of the change); published in NN 113/2000 on 16 November 2000.", "zh": "众议院于 2000 年 11 月 9 日通过并公布，自公布之日起生效（该修正第 76 条）；2000 年 11 月 16 日刊于 NN 113/2000。" }
     },
     {
       "change_id": "hr-2001-unicameral",
       "dimension": "legislature_structure",
       "title": { "en": "March 2001 amendments abolish the Chamber of Counties", "zh": "2001 年 3 月修宪废除郡院" },
-      "adopted": null,
-      "effective_note": { "en": "Amendments enacted in March 2001 (Parliament's history page); exact dates not read.", "zh": "修正于 2001 年 3 月通过（议会历史页面）；确切日期未阅读。" },
-      "promulgated": null,
-      "effective": null,
+      "adopted": "2001-03-28",
+      "promulgated": "2001-03-28",
+      "effective": "2001-03-28",
       "previous": { "en": "Bicameral: Chamber of Deputies and Chamber of Counties.", "zh": "两院制：众议院与郡院。" },
       "new": { "en": "Unicameral Croatian Parliament.", "zh": "一院制克罗地亚议会。" },
       "legal_basis": "Promjena Ustava (NN 28/2001)",
-      "source_ids": ["hr-sabor-about", "hr-constitution-consolidated"],
-      "status": "partially_verified"
+      "source_ids": ["hr-sabor-about", "hr-constitution-consolidated", "hr-change-2001"],
+      "status": "verified",
+      "note": { "en": "Adopted and proclaimed on 28 March 2001 and in force on proclamation (new Art. 146.c); the Chamber of Counties ceased work on entry into force (new Art. 146.a). Published in NN 28/2001 on 2 April 2001.", "zh": "于 2001 年 3 月 28 日通过并公布，自公布之日起生效（新第 146.c 条）；郡院于生效时停止工作（新第 146.a 条）。2001 年 4 月 2 日刊于 NN 28/2001。" }
     },
     {
       "change_id": "hr-2015-preferential-vote",
@@ -161,9 +160,7 @@
     }
   ],
   "case_study_sections": [],
-  "pending": [
-    { "field": "amendment_dates", "reason": { "en": "Exact dates of the 1990, 2000 and 2001 constitutional acts and the NN 5/2014 change were not read.", "zh": "1990、2000、2001 年宪法文件及 NN 5/2014 修改的确切日期未阅读。" } }
-  ],
+  "pending": [],
   "sources": [
     { "source_id": "hr-constitution-consolidated", "publisher": "Narodne novine d.d.", "title": "Ustav Republike Hrvatske (pročišćeni tekst), NN 85/2010", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2010_07_85_2422.html", "kind": "constitution", "language": "hr", "version": "consolidated text of 9 July 2010", "retrieved_on": "2026-11-16", "retrieval_sha256": "f08584865d7a054d23f203b42b478cf10711a6f8cc5e6cda8b6de82d4a0511cd", "access": "manual_download" },
     { "source_id": "hr-sabor-about", "publisher": "Hrvatski sabor", "title": "About the Parliament", "url": "https://www.sabor.hr/en/about-parliament", "kind": "parliament_page", "language": "en", "version": "page retrieved 2026-11-16", "retrieved_on": "2026-11-16", "retrieval_sha256": "f7ba86aff25fabdd58770ab223e8cca7b23bc2f60710ac3f052d661fb2574d4f", "access": "manual_download" },
@@ -173,6 +170,10 @@
     { "source_id": "hr-usrh-2015", "publisher": "Narodne novine d.d.", "title": "Odluka i Rješenje Ustavnog suda Republike Hrvatske broj: U-I-1397/2015 od 24. rujna 2015., NN 104/2015", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2015_09_104_2036.html", "kind": "official_gazette_record", "language": "hr", "version": "published 30 September 2015", "retrieved_on": "2026-11-16", "retrieval_sha256": "5cfa6753c6f2d55687d7e70564224e2a9a75e02ed4e73f8bb73d9e837847007f", "access": "manual_download" },
     { "source_id": "hr-election-act-2019", "publisher": "Narodne novine d.d.", "title": "Zakon o izmjeni Zakona o izborima zastupnika u Hrvatski sabor, NN 98/2019", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2019_10_98_1926.html", "kind": "statute", "language": "hr", "version": "published 16 October 2019", "retrieved_on": "2026-11-16", "retrieval_sha256": "6ab70df950673bff7cd4d7272f1fefae84602bf0e54e5eda48d903ca47e7c42d", "access": "manual_download" },
     { "source_id": "hr-constituencies-act-2023", "publisher": "Narodne novine d.d.", "title": "Zakon o izbornim jedinicama za izbor zastupnika u Hrvatski sabor, NN 114/2023", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2023_10_114_1608.html", "kind": "statute", "language": "hr", "version": "published 4 October 2023", "retrieved_on": "2026-11-16", "retrieval_sha256": "4997237acc347361f137141e04202f40931f8e3eb6f5207918546783aa45fac7", "access": "manual_download" },
-    { "source_id": "hr-usrh-2024", "publisher": "Narodne novine d.d.", "title": "Odluka i Rješenje Ustavnog suda Republike Hrvatske broj: U-I-4116/2023 i dr. od 6. veljače 2024., NN 20/2024", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_20_333.html", "kind": "official_gazette_record", "language": "hr", "version": "published 21 February 2024", "retrieved_on": "2026-11-16", "retrieval_sha256": "e9e95e0d8e7e5c894d805cac905212078c1e9a3936828d0c6f46137aa5810340", "access": "manual_download" }
+    { "source_id": "hr-usrh-2024", "publisher": "Narodne novine d.d.", "title": "Odluka i Rješenje Ustavnog suda Republike Hrvatske broj: U-I-4116/2023 i dr. od 6. veljače 2024., NN 20/2024", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_20_333.html", "kind": "official_gazette_record", "language": "hr", "version": "published 21 February 2024", "retrieved_on": "2026-11-16", "retrieval_sha256": "e9e95e0d8e7e5c894d805cac905212078c1e9a3936828d0c6f46137aa5810340", "access": "manual_download" },
+    { "source_id": "hr-proclamation-1990", "publisher": "Narodne novine d.d.", "title": "Odluka o proglašenju Ustava Republike Hrvatske, NN 56/1990", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/1990_12_56_1091.html", "kind": "official_gazette_record", "language": "hr", "version": "published 22 December 1990", "retrieved_on": "2026-11-17", "retrieval_sha256": "91d3f5e496188aebaea31ab630d88cbbdd79a79ff3bec98d57671d9dd70491cb", "access": "manual_download" },
+    { "source_id": "hr-change-2000", "publisher": "Narodne novine d.d.", "title": "Odluka o proglašenju promjene Ustava Republike Hrvatske, NN 113/2000", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2000_11_113_2224.html", "kind": "constitutional_amendment", "language": "hr", "version": "published 16 November 2000", "retrieved_on": "2026-11-17", "retrieval_sha256": "f2f4b20b21dbb6d7e01961e27617cad0b3106af74d5d4325e8975f321a87d82c", "access": "manual_download" },
+    { "source_id": "hr-change-2001", "publisher": "Narodne novine d.d.", "title": "Promjena Ustava Republike Hrvatske, NN 28/2001", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2001_04_28_487.html", "kind": "constitutional_amendment", "language": "hr", "version": "published 2 April 2001", "retrieved_on": "2026-11-17", "retrieval_sha256": "3ea888bc33f1c51a7fedf9dc06265527bc60ac61a447dbc6f1cd59d7d0f17d32", "access": "manual_download" },
+    { "source_id": "hr-usrh-2014", "publisher": "Narodne novine d.d.", "title": "Odluka Ustavnog suda broj SuP-O-1/2014 od 14. siječnja 2014. (referendum 1. prosinca 2013.), NN 5/2014", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2014_01_5_93.html", "kind": "official_gazette_record", "language": "hr", "version": "published 15 January 2014", "retrieved_on": "2026-11-17", "retrieval_sha256": "0639b5e806a662cd4a49471d545a411b2ba7df54237db280fe264bfcd8deb7d0", "access": "manual_download" }
   ]
 }

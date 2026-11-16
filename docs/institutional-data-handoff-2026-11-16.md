@@ -201,20 +201,17 @@ Keep full constitutional text off the page. Link to the sources instead.
 
 **Romania**
 - Law 208/2015 was read from the 2015 text sent for promulgation and the Chamber of Deputies' act record; the consolidated text was not read. roaep.ro is CAPTCHA-protected and legislatie.just.ro unreachable; both are blocked.
-- The Chamber of Deputies' sitting total (312 constituency seats plus a variable number of minority seats).
-- Dates of the 2003 revision's referendum and its entry into force.
+- The number of Chamber seats filled at the 2024 election (the record shows 330 deputies sitting on 17 November 2026, 17 in minority seats).
 
 **Croatia**
 - Election Act read and current through the Constitutional Court's list of 6 February 2024; amendments after that date were not checked.
-- Exact dates of the 1990, 2000 and 2001 constitutional acts.
-- The NN 5/2014 change was not read.
+- The 1997 constitutional amendment (NN 135/97) is not in the change register.
 
 **Slovenia**
-- The National Assembly Elections Act was read in the PISRS unofficial consolidated text no. 12 (to ZVDZ-E, 12/24); the separate law defining constituencies and districts was not read.
-- Entry-into-force dates.
+- The law defining the constituencies and districts (Zakon o določitvi volilnih enot) was not read; the Elections Act's PISRS page does not link to it.
+- The 2013 amendment's effective date: the act says on proclamation, PISRS says 31 May 2013; left unset.
 
 **Austria**
-- The current Bundesrat total.
 - Pre-2008 article versions.
 
 **Poland**
@@ -226,10 +223,9 @@ Keep full constitutional text off the page. Link to the sources instead.
 
 **Serbia**
 - Electoral law before 2022.
-- The date of the 2022 referendum.
+- The National Assembly's adoption date of the 2021 Act amending the Constitution.
 
 **Germany**
-- The current Bundesrat vote distribution.
 - Electoral-law history before 2023 is taken from the election rule records, not re-read.
 
 **All countries**

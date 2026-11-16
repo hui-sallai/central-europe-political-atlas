@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 institutional dates and chamber sizes — 2026-11-17
+
+- Record Austria’s 60-member Bundesrat (BGBl. II 197/2023) and Germany’s 69 Bundesrat votes by Land; date Croatia’s 1990, 2000 and 2001 constitutional acts and Slovenia’s constitution and 2000 amendment from the official gazettes; add Serbia’s 2022 referendum date and Romania’s 2003 revision dates and current Chamber of Deputies count.
+
 ### v2.0 Slovenia electoral rules — 2026-11-17
 
 - Record Slovenia’s National Assembly electoral system from the National Assembly Elections Act (eight 11-seat constituencies divided into districts, constituency quota, national D’Hondt allocation among lists with 4%, two national-community deputies by plurality), read in the current PISRS consolidated text.

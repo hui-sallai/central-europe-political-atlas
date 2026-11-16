@@ -114,9 +114,9 @@
       "previous": null,
       "new": { "en": "Amended Arts. 4, 99 and 105 and the judiciary chapter; the provisions on the Assembly's composition, the President and Government formation cited here are unchanged.", "zh": "修改第 4、99、105 条及司法章节；本记录所引关于议会组成、总统和组阁的条款未变。" },
       "legal_basis": "Akt o promeni Ustava (Sl. glasnik RS 115/2021); Odluka o proglašenju (Sl. glasnik RS 16/2022 of 9 February 2022)",
-      "source_ids": ["rs-constitution-consolidated"],
+      "source_ids": ["rs-constitution-consolidated", "rs-rik-referendum-2022"],
       "status": "partially_verified",
-      "note": { "en": "Effective date taken as the proclamation date in the consolidated text; the referendum that preceded it was not read.", "zh": "生效日期按合并文本所载公布日期记录；此前的全民公决未阅读。" }
+      "note": { "en": "Confirmed by the republic referendum of 16 January 2022 (repeat voting at some polling stations on 23 January and 2 February 2022, per the Republic Electoral Commission); proclaimed by the National Assembly and published in Sl. glasnik RS 16 of 9 February 2022.", "zh": "经 2022 年 1 月 16 日共和国全民公决确认（据共和国选举委员会，部分投票站于 2022 年 1 月 23 日和 2 月 2 日重新投票）；由国民议会公布，刊于 2022 年 2 月 9 日第 16 期《塞尔维亚共和国官方公报》。" }
     }
   ],
   "case_study_sections": [
@@ -133,6 +133,7 @@
   ],
   "sources": [
     { "source_id": "rs-constitution-consolidated", "publisher": "Службени гласник / Pravno-informacioni sistem Republike Srbije", "title": "Устав Републике Србије (98/2006, 115/2021, 16/2022) — пречишћен текст", "url": "https://www.pravno-informacioni-sistem.rs/SlGlasnikPortal/eli/rep/sgrs/ustav/ustav/2006/98/1/reg", "kind": "constitution", "language": "sr", "version": "consolidated text with Amendments I–XXIX", "retrieved_on": "2026-11-16", "retrieval_sha256": null, "access": "browser_reading" },
-    { "source_id": "rs-constitution-en", "publisher": "Narodna skupština Republike Srbije", "title": "Constitution of the Republic of Serbia — English text", "url": "https://www.parlament.gov.rs/upload/documents/Constitution_%20of_Serbia_pdf.pdf", "kind": "translation", "language": "en", "version": "2006 text (does not show the 2021–22 amendments)", "retrieved_on": "2026-11-16", "retrieval_sha256": "cfdb16d390ad801388ddf01790062c681048d8892bf17cdd52f32fc87e031414", "access": "manual_download" }
+    { "source_id": "rs-constitution-en", "publisher": "Narodna skupština Republike Srbije", "title": "Constitution of the Republic of Serbia — English text", "url": "https://www.parlament.gov.rs/upload/documents/Constitution_%20of_Serbia_pdf.pdf", "kind": "translation", "language": "en", "version": "2006 text (does not show the 2021–22 amendments)", "retrieved_on": "2026-11-16", "retrieval_sha256": "cfdb16d390ad801388ddf01790062c681048d8892bf17cdd52f32fc87e031414", "access": "manual_download" },
+    { "source_id": "rs-rik-referendum-2022", "publisher": "Republička izborna komisija", "title": "Републички референдум ради потврђивања Акта о промени Устава Републике Србије, 16. јануар 2022. године", "url": "https://www.rik.parlament.gov.rs/tekst/11511/", "kind": "parliament_page", "language": "sr", "version": "referendum page (index of acts and reports)", "retrieved_on": "2026-11-17", "retrieval_sha256": null, "access": "browser_reading" }
   ]
 }

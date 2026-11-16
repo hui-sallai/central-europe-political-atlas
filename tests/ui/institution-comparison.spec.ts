@@ -23,9 +23,9 @@ test('compare institutions in two languages and preserve a four-country handoff'
 test('historical election scope, missing rules and translated statistical descriptions',async({page})=>{
  await page.goto('/en/politics/?institution_countries=austria,serbia,croatia#institutions');
  await expect(page.locator('[data-institution-profile=austria]')).toContainText('Federal President · Federal Chancellor');
- const croatia=page.locator('[data-institution-profile=croatia]');
- await croatia.getByText('Institutional sources and scope').click();
- await expect(croatia).toContainText('Not yet verified in this record');
+ const austria=page.locator('[data-institution-profile=austria]');
+ await austria.getByText('Institutional sources and scope').click();
+ await expect(austria).toContainText('Not yet verified in this record');
  const serbia=page.locator('[data-institution-profile=serbia]');
  await serbia.getByText(/Electoral rules and seats/).click();
  await serbia.getByRole('link',{name:'Results, ballot definitions and election sources'}).click();

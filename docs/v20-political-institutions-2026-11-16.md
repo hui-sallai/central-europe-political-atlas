@@ -222,11 +222,10 @@ Implementation commit `be8268a362ce5194d768a6bd1d29d81c56e59a17` (branch `data/h
 ## 15. Remaining data gaps
 
 See handoff section L. The main ones:
-- **Romania:** the consolidated text of Law 208/2015 (the electoral system is partly verified from the 2015 text and the act record); the Chamber of Deputies' sitting total; dates of the 2003 revision.
-- **Croatia:** exact dates of the 1990, 2000 and 2001 constitutional acts; the NN 5/2014 change.
-- **Slovenia:** entry-into-force dates of the constitution and its amendments.
-- **Austria:** current Bundesrat total.
-- **All countries:** constitutional history before the current constitutions, and per-article version dates.
+- **Romania:** the consolidated text of Law 208/2015 (the electoral system is partly verified from the 2015 text and the act record).
+- **Slovenia:** the law defining constituencies and districts; the 2013 amendment's effective date (sources disagree).
+- **Poland, Hungary, Serbia, Germany:** constitutional and electoral-law history before the current texts.
+- **All countries:** per-article version dates.
 
 ## 16. Codex integration instructions
 
@@ -307,3 +306,37 @@ The owner asked to close the Slovenia electoral-act gap. `electoral_system` is n
 - `election_links.json` is unchanged.
 
 **Still pending for Slovenia:** entry-into-force dates of the constitution and its amendments.
+
+## Follow-up (2026-11-17): six short gaps
+
+The owner asked to close steps 1–6 of the remaining list.
+
+**Austria.** The Bundesrat has 60 members. Source: the Federal President's determination after the 2021 census, BGBl. II 197/2023, issued 26 June 2023, read on RIS. Distribution: Lower Austria 12, Vienna 10, Upper Austria 10, Styria 9, Tyrol 5, Carinthia 4, Salzburg 4, Vorarlberg 3, Burgenland 3.
+
+**Germany.** The Bundesrat has 69 votes, as of 16 November 2026, with majorities of 35 (absolute) and 46 (two-thirds).
+- Source: on the owner's approval, www.bundesrat.de was registered for manual reading (robots checked; crawl-delay 30 respected). Its vote-distribution page and graphic were read.
+- Per-Land votes: 6 each for Baden-Württemberg, Bavaria, Lower Saxony and North Rhine-Westphalia; 5 for Hesse; 4 each for Berlin, Brandenburg, Rhineland-Palatinate, Saxony, Saxony-Anhalt, Schleswig-Holstein and Thuringia; 3 each for Bremen, Hamburg, Mecklenburg-Western Pomerania and Saarland.
+- Only vote counts were recorded; party composition was not.
+
+**Croatia.** Dates read in Narodne novine:
+- **1990 Constitution:** adopted 21 December; proclaimed and in force 22 December 1990.
+- **2000 change:** adopted and proclaimed 9 November 2000, in force on proclamation; published 16 November.
+- **2001 change:** adopted and proclaimed 28 March 2001, in force on proclamation; it ended the Chamber of Counties. Published 2 April. Now verified.
+- **NN 5/2014:** records the 2013 referendum adding Art. 62(2) on marriage; not institutional.
+
+**Slovenia.** Dates read on PISRS:
+- **Constitution:** adopted and in force on proclamation, 23 December 1991; published 28 December.
+- **UZ80:** adopted, proclaimed and in force 25 July 2000; published 26 July.
+- **UZ90,97,99:** adopted 24 May 2013 and published 31 May. The act says it took effect on proclamation, while PISRS lists 31 May, so the effective date is left unset with a note.
+- The constituency-boundary law was not reachable from the Elections Act's PISRS page and is listed as pending.
+
+**Serbia.** The Republic Electoral Commission's page on rik.parlament.gov.rs gives the referendum date as 16 January 2022, with repeat voting at some polling stations on 23 January and 2 February 2022. The change's note now records it.
+
+**Romania.**
+- **2003 revision:** approved by the referendum of 18–19 October 2003 and in force on 29 October 2003, the date the Constitutional Court's confirming decision was published (cdep.ro constitution page).
+- **Chamber of Deputies:** on 17 November 2026 the Chamber's 2024-term list shows 330 sitting deputies, 17 in national-minority seats, with 6 more who left early. Only counts were taken; no names were stored.
+
+**Other**
+- Codex's comparison test moved its "Not yet verified" check from Croatia, which now has no pending items, to Austria.
+- A new exact-hash amendment, `six-gaps-2026-11-17`, covers the six records and `election_links.json`.
+- The coverage matrix was regenerated; only its registry input hash changed.

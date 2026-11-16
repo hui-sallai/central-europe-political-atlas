@@ -36,7 +36,7 @@
       "official_name": "Bundesrat",
       "name": { "en": "Federal Council", "zh": "联邦议会（Bundesrat）" },
       "role": "upper",
-      "members": { "value": null, "basis": { "en": "the most populous Land sends 12 members, the others in proportion to their citizens, each at least 3; numbers fixed by the Federal President after each census", "zh": "人口最多的州派 12 名，其他州按公民人数比例派出，每州至少 3 名；各州人数由联邦总统在每次人口普查后确定" }, "articles": "B-VG Art. 34", "source_ids": ["at-bvg-art34"] },
+      "members": { "value": 60, "basis": { "en": "60 members since the Federal President’s determination after the census of 31 October 2021 (BGBl. II 197/2023, issued 26 June 2023): Lower Austria 12, Vienna 10, Upper Austria 10, Styria 9, Tyrol 5, Carinthia 4, Salzburg 4, Vorarlberg 3, Burgenland 3. Under B-VG Art. 34 the most populous Land sends 12 and every Land at least 3.", "zh": "根据联邦总统在 2021 年 10 月 31 日人口普查后的决定（BGBl. II 197/2023，2023 年 6 月 26 日发布），现有 60 名成员：下奥地利州 12 名、维也纳 10 名、上奥地利州 10 名、施蒂利亚州 9 名、蒂罗尔州 5 名、克恩顿州 4 名、萨尔茨堡州 4 名、福拉尔贝格州 3 名、布尔根兰州 3 名。依 B-VG 第 34 条，人口最多的州派 12 名，每州至少 3 名。" }, "articles": "B-VG Art. 34; BGBl. II Nr. 197/2023", "source_ids": ["at-bvg-art34", "at-bgbl-2023-ii-197"] },
       "term_years": null,
       "selection": { "code": "elected_by_land_parliaments", "label": { "en": "Elected by each Land parliament for its own legislative period, by proportional representation; the second-strongest party receives at least one seat", "zh": "由各州议会按比例代表原则选举，任期与该州议会立法期一致；第二大党至少获得一席" }, "articles": "B-VG Art. 35(1)" },
       "powers": { "en": "May raise a reasoned objection to a National Council law within eight weeks; the National Council overrides it by repeating its decision with at least half of its members present (Art. 42).", "zh": "可在八周内对国民议会通过的法律提出附理由的异议；国民议会在至少半数议员出席时重申原决议即可推翻（第 42 条）。" },
@@ -116,7 +116,6 @@
   ],
   "case_study_sections": [],
   "pending": [
-    { "field": "bundesrat_total", "reason": { "en": "The current number of Federal Council members fixed after the last census was not read.", "zh": "最近一次人口普查后确定的联邦议会现任人数未读取。" } },
     { "field": "historical_changes", "reason": { "en": "Earlier versions of B-VG articles (for example the four-year term before 2008) were not read.", "zh": "B-VG 各条款的早期版本（如 2008 年前的四年任期）未阅读。" } }
   ],
   "sources": [
@@ -134,6 +133,7 @@
     { "source_id": "at-bvg-art140", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 140", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40152548/NOR40152548.html", "kind": "constitution", "language": "de", "version": "valid from 1 January 2015", "retrieved_on": "2026-11-16", "retrieval_sha256": "7201bca67f21f1739edc98cb78ea556dba6971b9ec75afb5c416341c4fd08d7d", "access": "manual_download" },
     { "source_id": "at-nrwo-s1", "publisher": "Bundeskanzleramt (RIS)", "title": "Nationalrats-Wahlordnung 1992 § 1", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40166613/NOR40166613.html", "kind": "statute", "language": "de", "version": "valid from 1 January 2015", "retrieved_on": "2026-11-16", "retrieval_sha256": "9728d01528be077b861c9e79855b741f35cc93c1ae338c6c05d9e93f394acf8d", "access": "manual_download" },
     { "source_id": "at-nrwo-s100", "publisher": "Bundeskanzleramt (RIS)", "title": "Nationalrats-Wahlordnung 1992 § 100", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40177088/NOR40177088.html", "kind": "statute", "language": "de", "version": "valid from 1 January 2016", "retrieved_on": "2026-11-16", "retrieval_sha256": "c827b6c16a8cd887ac8d866f8bcc1d919cb8df17d47eea66621226dfd362234b", "access": "manual_download" },
-    { "source_id": "at-nrwo-s107", "publisher": "Bundeskanzleramt (RIS)", "title": "Nationalrats-Wahlordnung 1992 § 107", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40250868/NOR40250868.html", "kind": "statute", "language": "de", "version": "valid from 1 January 2024", "retrieved_on": "2026-11-16", "retrieval_sha256": "8e162bec856fe4adf0dcc8ca78bab5dff25c364ce07629e1c79c84368a3105f8", "access": "manual_download" }
+    { "source_id": "at-nrwo-s107", "publisher": "Bundeskanzleramt (RIS)", "title": "Nationalrats-Wahlordnung 1992 § 107", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40250868/NOR40250868.html", "kind": "statute", "language": "de", "version": "valid from 1 January 2024", "retrieved_on": "2026-11-16", "retrieval_sha256": "8e162bec856fe4adf0dcc8ca78bab5dff25c364ce07629e1c79c84368a3105f8", "access": "manual_download" },
+    { "source_id": "at-bgbl-2023-ii-197", "publisher": "Bundeskanzleramt (RIS)", "title": "Entschließung des Bundespräsidenten betreffend die Festsetzung der Zahl der von den Ländern in den Bundesrat zu entsendenden Mitglieder, BGBl. II Nr. 197/2023", "url": "https://www.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2023_II_197/BGBLA_2023_II_197.html", "kind": "official_gazette_record", "language": "de", "version": "issued 26 June 2023", "retrieved_on": "2026-11-17", "retrieval_sha256": "484226f02cced4397bc0dd38af2e228b9526321cfb4be518021ae6fee5059d2a", "access": "manual_download" }
   ]
 }

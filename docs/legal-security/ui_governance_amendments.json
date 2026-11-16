@@ -3790,6 +3790,55 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "six-gaps-2026-11-17",
+      "status": "owner_approved",
+      "approved_by": "Owner request of 2026-11-17 to close six short gaps in the institutions registry (Austrian and German Bundesrat sizes, Croatian and Slovenian constitutional dates, Serbia's 2022 referendum date, Romania's 2003 revision dates and Chamber count); the owner approved registering www.bundesrat.de the same day. Supersedes earlier hashes of these registry files.",
+      "baseline": "1db7f59acfe2e4322eedf13d7732a5454aa2e57c",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-17",
+      "files": [
+        {
+          "path": "src/lib/institutions/countries/austria.json",
+          "sha256": "0d52f0ede040845182782974d2686065fb942a1629db99a2848fac7e69ea35b2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/croatia.json",
+          "sha256": "2d753942272e7960feda5b6047b62b19360c4ca10d9d5cdc1a256e4d214cfde8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/germany.json",
+          "sha256": "19ff7d26278dc2d0326125fa5b0e42992d8760200f07851828fb9c5744ce227c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/romania.json",
+          "sha256": "32c578351bbecd29342a705d05b832ae4cad73b14fdc58eab5746cae84980e89",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/serbia.json",
+          "sha256": "81b05130eeaa8110f9210d48ab4743c4e7e630389089da90021e4ccfc2945a54",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/slovenia.json",
+          "sha256": "a39d30af332cd0a0704cf1334d8ae99f8299ce25686dae95227f8157f19e6e04",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/election_links.json",
+          "sha256": "ae2bdc4a088cdede13f1a0a79d66d3a18f1d2ef02b0b7c641c4998736d61e999",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }
