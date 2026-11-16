@@ -76,7 +76,8 @@ for (const [series, country] of [["industrial_production_index", "poland"], ["in
 for (const s of manifest.series.filter((x) => x.status === "held_for_review")) check(!history.records.some((r) => r.series === s.series && r.country_slug === s.country), `${s.series}/${s.country}: held series must not be ingested`);
 
 // --- Isolation from formal models ---------------------------------------------------------------------------
-const allowed = [/^scripts\/export-research-data\.mjs$/, /^scripts\/data-refresh\//, /^scripts\/historical-monthly-descriptive\//, /^scripts\/data-coverage\//, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//, ...displayOnlyPatterns()];
+// Owner decision 2026-11-17: the thematic-layer builder (one exact file) may read this store; its outputs are display data only.
+const allowed = [/^scripts\/research-themes\/build-research-themes\.mjs$/, /^scripts\/export-research-data\.mjs$/, /^scripts\/data-refresh\//, /^scripts\/historical-monthly-descriptive\//, /^scripts\/data-coverage\//, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//, ...displayOnlyPatterns()];
 for (const problem of displayOnlyViolations(root)) check(false, problem);
 const offenders = [];
 const walk = (dir) => { for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) { const rel = path.join(dir, e.name); if (e.isDirectory()) { if (!["node_modules", "raw", "snapshots"].includes(e.name)) walk(rel); } else if (/\.(m?js|ts|tsx|py)$/.test(e.name) && fs.readFileSync(path.join(root, rel), "utf8").includes("monthly_descriptive_history")) offenders.push(rel); } };

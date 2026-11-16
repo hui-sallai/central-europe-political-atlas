@@ -110,3 +110,13 @@ test('authored English text avoids causal claims', () => {
   const text = JSON.stringify([load('cases.json'), load('event_mappings.json'), load('investment_records.json')]);
   for (const phrase of ['led to', 'resulted in', 'boosted', 'drove up', 'thanks to', 'impact of the plant', 'caused by the']) assert.ok(!text.includes(phrase), phrase);
 });
+
+test('only display code imports the thematic layer (owner decision 2026-11-17)', () => {
+  const allowed = [/^src\/lib\/thematicResearch\.ts$/, /^src\/app\//, /^src\/components\//, /^scripts\/research-themes\//];
+  const offenders = [];
+  const walk = (dir) => { for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) { const rel = `${dir}/${e.name}`; if (e.isDirectory()) { if (!['node_modules', 'raw', 'snapshots'].includes(e.name)) walk(rel); } else if (/\.(m?js|ts|tsx|py)$/.test(e.name) && /research-themes\/|thematicResearch/.test(fs.readFileSync(path.join(root, rel), 'utf8'))) offenders.push(rel); } };
+  walk('src'); walk('scripts');
+  assert.deepEqual(offenders.filter((f) => !allowed.some((re) => re.test(f))), []);
+  for (const f of ['scripts/historical-annual/validate.mjs', 'scripts/historical-monthly-descriptive/validate.mjs', 'scripts/historical-regional/validate.mjs', 'scripts/serbia-sors/validate.mjs'])
+    assert.ok(fs.readFileSync(path.join(root, f), 'utf8').includes('research-themes\\/build-research-themes\\.mjs$/'), `${f}: exact-file exception only`);
+});

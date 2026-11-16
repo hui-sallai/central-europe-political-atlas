@@ -79,7 +79,8 @@ check(manifest.fx.eur_conversion_withheld_years.every((y) => stores.annual.recor
 const offenders = [];
 const walk = (d) => { for (const e of fs.readdirSync(path.join(root, d), { withFileTypes: true })) { const rel = path.join(d, e.name); if (e.isDirectory()) { if (!["node_modules", "raw", "snapshots"].includes(e.name)) walk(rel); } else if (/\.(m?js|ts|tsx|py)$/.test(e.name) && /serbia_descriptive_history|src\/data\/serbia|serbia_indicator_mapping|serbia_data_integration_plan/.test(fs.readFileSync(path.join(root, rel), "utf8"))) offenders.push(rel); } };
 walk("src"); walk("scripts");
-const allowedReaders = [/^scripts\/serbia-sors\//, /^scripts\/data-refresh\//, /^scripts\/data-coverage\//, /^scripts\/export-research-data\.mjs$/, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//, ...displayOnlyPatterns()];
+// Owner decision 2026-11-17: the thematic-layer builder (one exact file) may read this store; its outputs are display data only.
+const allowedReaders = [/^scripts\/research-themes\/build-research-themes\.mjs$/, /^scripts\/serbia-sors\//, /^scripts\/data-refresh\//, /^scripts\/data-coverage\//, /^scripts\/export-research-data\.mjs$/, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//, ...displayOnlyPatterns()];
 for (const problem of displayOnlyViolations(root)) check(false, problem);
 check(offenders.every((f) => allowedReaders.some((re) => re.test(f))), `model/scenario code must not read the Serbia data: ${offenders.filter((f) => !allowedReaders.some((re) => re.test(f))).join(", ")}`);
 

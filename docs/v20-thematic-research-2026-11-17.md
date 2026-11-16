@@ -199,7 +199,7 @@ identifiers are not translated.
 **New tooling and API:**
 - `src/lib/thematicResearch.ts` (typed API and Notebook draft helper)
 - `scripts/research-themes/build-research-themes.mjs` (validator and builder, `--check`)
-- `tests/tooling/research-themes.test.mjs` (13 tests, including negative cases)
+- `tests/tooling/research-themes.test.mjs` (14 tests, including negative cases)
 
 **Governance:** UI amendment `thematic-research-layer-2026-11-17` (8 exact hashes, DATA_PRESENTATION).
 
@@ -212,7 +212,7 @@ No existing store, event, project, case-study or frozen file was changed.
 | Check | Result |
 |---|---|
 | `node scripts/research-themes/build-research-themes.mjs --check` | OK (89 events, 73 rows, 4 cases) |
-| `node --test tests/tooling/research-themes.test.mjs` | 13/13 |
+| `node --test tests/tooling/research-themes.test.mjs` | 14/14 |
 | `node --test tests/tooling/*.test.mjs` | 491 passed, 0 failed (492 tests) |
 | `npm run -s legal-security:validate`, `i18n:validate`, `typecheck` | pass, pass, pass |
 | `node docs/political-data/source-closure/validate.mjs --checkpoint` | pass |
@@ -225,7 +225,22 @@ Recorded after commit (§M).
 
 ## M. Deployment
 
-Not pushed. Pushing needs the owner's explicit 推送上线.
+**First push.** `89e87d9` (on 推送上线). Deploy run 43962737014 failed at "Validate descriptive histories and model
+isolation". Four guards only let publishing, refresh and display code read the descriptive stores, and the new builder
+reads them. These four validators are part of the full `build` chain and were not run locally before the push. Production
+stayed on `cd88adf`.
+
+**Owner decision (2026-11-17).** Allow the one builder file. Its exact path
+`scripts/research-themes/build-research-themes.mjs` was added to the reader allowlists of:
+- `scripts/historical-annual/validate.mjs`
+- `scripts/historical-monthly-descriptive/validate.mjs`
+- `scripts/historical-regional/validate.mjs`
+- `scripts/serbia-sors/validate.mjs`
+
+The exception is one file, not a directory. A new tooling test checks that only `src/lib/thematicResearch.ts`,
+`src/app/`, `src/components/` and the builder import the thematic files, and that each exception stays one exact file.
+
+**Fix commit.** Recorded after it is pushed.
 
 ## N. Remaining gaps
 

@@ -81,7 +81,8 @@ check(manifest.review_queue.length === REVIEW_QUEUE_AFTER_RECOVERY.length, "mani
 
 // --- Isolation from formal models ---------------------------------------------------------------------------
 // Publishing (export) and UI display are allowed; estimation, scenario and index code is not.
-const allowed = [/^scripts\/export-research-data\.mjs$/, /^scripts\/data-refresh\//, /^scripts\/historical-annual\//, /^scripts\/data-coverage\//, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//, ...displayOnlyPatterns()];
+// Owner decision 2026-11-17: the thematic-layer builder (one exact file) may read this store; its outputs are display data only.
+const allowed = [/^scripts\/research-themes\/build-research-themes\.mjs$/, /^scripts\/export-research-data\.mjs$/, /^scripts\/data-refresh\//, /^scripts\/historical-annual\//, /^scripts\/data-coverage\//, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//, ...displayOnlyPatterns()];
 for (const problem of displayOnlyViolations(root)) check(false, problem);
 const offenders = [];
 const walk = (dir) => { for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) { const rel = path.join(dir, e.name); if (e.isDirectory()) { if (!["node_modules", "raw", "snapshots"].includes(e.name)) walk(rel); } else if (/\.(m?js|ts|tsx|py)$/.test(e.name) && fs.readFileSync(path.join(root, rel), "utf8").includes("annual_descriptive_history")) offenders.push(rel); } };
