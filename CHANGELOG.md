@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 thematic research layer — 2026-11-17
+
+- Add four research themes (industrial policy and strategic investment, FDI and production networks, energy dependency and transition, EU funding) built on existing records: 89 reviewed events classified A–E against held indicators, stage-by-stage investment and EU-funding records, a country × theme coverage matrix, and four bilingual research cases (Hungary battery investment, Serbia mining and foreign investment, Czechia REPowerEU, EU funding stages) with descriptive evidence windows. Data, validation and a frontend handoff only; no observation, event or model changes.
+
 ### v2.0 connected research journeys — 2026-11-17
 
 - Carry the selected regional map into a regional workspace, follow reviewed event indicators into historical observations, and collect a sourced institutional comparison in the existing Notebook. Regional coverage and event language now follow the same records across research entry points.

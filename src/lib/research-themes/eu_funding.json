@@ -1,0 +1,825 @@
+{
+  "schema_version": "atlas-thematic-research-v1",
+  "eu_member_states": [
+    "poland",
+    "hungary",
+    "czechia",
+    "slovakia",
+    "germany",
+    "romania",
+    "slovenia",
+    "austria",
+    "croatia"
+  ],
+  "programmes": {
+    "RRF": {
+      "label": {
+        "en": "Recovery and Resilience Facility",
+        "zh": "复苏与韧性基金"
+      },
+      "eligible": "eu_member_states"
+    },
+    "RRF_REPowerEU": {
+      "label": {
+        "en": "Recovery and Resilience Facility, REPowerEU chapter",
+        "zh": "复苏与韧性基金 REPowerEU 章节"
+      },
+      "eligible": "eu_member_states"
+    },
+    "ERDF_CF_Competitiveness_Cohesion": {
+      "label": {
+        "en": "Cohesion policy (Croatia's Competitiveness and Cohesion Programme)",
+        "zh": "凝聚政策（克罗地亚竞争力和凝聚力计划）"
+      },
+      "eligible": "eu_member_states"
+    },
+    "EAFRD": {
+      "label": {
+        "en": "European Agricultural Fund for Rural Development",
+        "zh": "欧洲农业农村发展基金"
+      },
+      "eligible": "eu_member_states"
+    },
+    "EU_budget_conditionality": {
+      "label": {
+        "en": "Rule-of-law conditionality measures on the EU budget",
+        "zh": "欧盟预算法治条件机制措施"
+      },
+      "eligible": "eu_member_states"
+    },
+    "SAFE": {
+      "label": {
+        "en": "Security Action for Europe (defence loans)",
+        "zh": "欧洲安全行动（国防贷款）"
+      },
+      "eligible": "eu_member_states"
+    },
+    "EU_programme_not_stated": {
+      "label": {
+        "en": "EU funding, programme not stated in the record",
+        "zh": "欧盟资金（记录未写明计划）"
+      },
+      "eligible": "not_specified"
+    }
+  },
+  "records": [
+    {
+      "record_id": "cz-rrf-plan-2023-allocation",
+      "country": "czechia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "mixed",
+      "stage": "allocation",
+      "amount": 9200000000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2023-09-26",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_implementation_record",
+        "ref": "cz-e2-02-commission-assessment"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": null,
+      "implementation_milestone": "cz-e2-02-commission-assessment",
+      "case_id": "cz-repowereu-energy-transition",
+      "related_indicators": [],
+      "note": {
+        "en": "Modified recovery plan as assessed by the Commission: €8.4 billion grants and €818 million loans (rounded as published).",
+        "zh": "委员会评估的修订复苏计划：赠款 84 亿欧元、贷款 8.18 亿欧元（按发布数字取整）。"
+      }
+    },
+    {
+      "record_id": "cz-repowereu-2023-allocation",
+      "country": "czechia",
+      "programme": "RRF_REPowerEU",
+      "funding_period": "2021-2026",
+      "category": "grants",
+      "stage": "allocation",
+      "amount": 681000000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2023-09-26",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_implementation_record",
+        "ref": "cz-e2-02-commission-assessment"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": null,
+      "implementation_milestone": "cz-e2-02-commission-assessment",
+      "case_id": "cz-repowereu-energy-transition",
+      "related_indicators": [],
+      "note": {
+        "en": "REPowerEU grants in the assessed plan, plus a separate €55 million transfer from the Brexit Adjustment Reserve.",
+        "zh": "评估计划中的 REPowerEU 赠款，另有 5500 万欧元脱欧调整储备转入。"
+      }
+    },
+    {
+      "record_id": "cz-repowereu-2023-prefinancing",
+      "country": "czechia",
+      "programme": "RRF_REPowerEU",
+      "funding_period": "2021-2026",
+      "category": "grants",
+      "stage": "disbursement",
+      "amount": 147090000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2023-12-21",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_implementation_record",
+        "ref": "cz-e2-05-repowereu-prefinancing"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": null,
+      "implementation_milestone": "cz-e2-05-repowereu-prefinancing",
+      "case_id": "cz-repowereu-energy-transition",
+      "related_indicators": [],
+      "note": {
+        "en": "REPowerEU pre-financing paid by the Commission.",
+        "zh": "委员会支付的 REPowerEU 预付款。"
+      }
+    },
+    {
+      "record_id": "cz-rrf-2024-authorisation",
+      "country": "czechia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "grants",
+      "stage": "approved_financing",
+      "amount": 1482476906,
+      "currency": "EUR",
+      "amount_precision": "exact",
+      "price_basis": "nominal",
+      "status_date": "2024-12-18",
+      "date_precision": "day",
+      "evidence_status": "official_document_verified",
+      "source": {
+        "kind": "atlas_implementation_record",
+        "ref": "cz-e2-06-payment-authorised-2024"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": null,
+      "implementation_milestone": "cz-e2-06-payment-authorised-2024",
+      "case_id": "cz-repowereu-energy-transition",
+      "related_indicators": [
+        "government_revenue_gdp",
+        "government_expenditure_gdp"
+      ],
+      "note": {
+        "en": "Non-repayable support to be paid after clearing pre-financing, under decision C(2024) 9258; a further €190.9 million first loan instalment is authorised separately.",
+        "zh": "依据 C(2024) 9258 决定，扣除预付款后应支付的非偿还性支持；另单独授权第一期贷款 1.909 亿欧元。"
+      }
+    },
+    {
+      "record_id": "cz-rrf-2024-loan-authorisation",
+      "country": "czechia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "loans",
+      "stage": "approved_financing",
+      "amount": 190898548,
+      "currency": "EUR",
+      "amount_precision": "exact",
+      "price_basis": "nominal",
+      "status_date": "2024-12-18",
+      "date_precision": "day",
+      "evidence_status": "official_document_verified",
+      "source": {
+        "kind": "atlas_implementation_record",
+        "ref": "cz-e2-06-payment-authorised-2024"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": null,
+      "implementation_milestone": "cz-e2-06-payment-authorised-2024",
+      "case_id": "cz-repowereu-energy-transition",
+      "related_indicators": [
+        "government_debt_gdp"
+      ],
+      "note": {
+        "en": "First loan instalment authorised under decision C(2024) 9258.",
+        "zh": "依据 C(2024) 9258 决定授权的第一期贷款。"
+      }
+    },
+    {
+      "record_id": "cz-rrf-2024-suspension",
+      "country": "czechia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "grants",
+      "stage": "restriction",
+      "amount": 97629788,
+      "currency": "EUR",
+      "amount_precision": "exact",
+      "price_basis": "nominal",
+      "status_date": "2024-12-18",
+      "date_precision": "day",
+      "evidence_status": "official_document_verified",
+      "source": {
+        "kind": "atlas_implementation_record",
+        "ref": "cz-e2-07-grid-milestone-suspended"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": null,
+      "implementation_milestone": "cz-e2-07-grid-milestone-suspended",
+      "case_id": "cz-repowereu-energy-transition",
+      "related_indicators": [],
+      "note": {
+        "en": "Part of the fifth instalment suspended for REPowerEU grid milestone 304 (decision C(2024) 9246); lifted on 21 November 2025.",
+        "zh": "因 REPowerEU 电网第 304 号里程碑暂停支付第五期部分款项（C(2024) 9246 决定）；2025 年 11 月 21 日解除。"
+      }
+    },
+    {
+      "record_id": "cz-rrf-2025-disbursement",
+      "country": "czechia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "grants",
+      "stage": "disbursement",
+      "amount": 1570000000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2025-09-26",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_implementation_record",
+        "ref": "cz-e2-09-payment-2025-09"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": null,
+      "implementation_milestone": "cz-e2-09-payment-2025-09",
+      "case_id": "cz-repowereu-energy-transition",
+      "related_indicators": [],
+      "note": {
+        "en": "Grant payment net of pre-financing; €41 million of loans were paid the same day and are recorded separately.",
+        "zh": "扣除预付款后的赠款付款；同日支付的 4100 万欧元贷款另行记录。"
+      }
+    },
+    {
+      "record_id": "cz-rrf-2025-loan-disbursement",
+      "country": "czechia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "loans",
+      "stage": "disbursement",
+      "amount": 41000000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2025-09-26",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_implementation_record",
+        "ref": "cz-e2-09-payment-2025-09"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": null,
+      "implementation_milestone": "cz-e2-09-payment-2025-09",
+      "case_id": "cz-repowereu-energy-transition",
+      "related_indicators": [],
+      "note": {
+        "en": "Loan payment.",
+        "zh": "贷款付款。"
+      }
+    },
+    {
+      "record_id": "cz-rrf-2026-03-disbursement",
+      "country": "czechia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "grants",
+      "stage": "disbursement",
+      "amount": 614000000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2026-03-20",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_implementation_record",
+        "ref": "cz-e2-13-payment-2026-03"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": null,
+      "implementation_milestone": "cz-e2-13-payment-2026-03",
+      "case_id": "cz-repowereu-energy-transition",
+      "related_indicators": [],
+      "note": {
+        "en": "Fifth payment.",
+        "zh": "第五笔付款。"
+      }
+    },
+    {
+      "record_id": "cz-rrf-2026-08-disbursement",
+      "country": "czechia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "grants",
+      "stage": "disbursement",
+      "amount": 897000000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2026-08-11",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_implementation_record",
+        "ref": "cz-e2-15-payment-2026-08"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": null,
+      "implementation_milestone": "cz-e2-15-payment-2026-08",
+      "case_id": "cz-repowereu-energy-transition",
+      "related_indicators": [],
+      "note": {
+        "en": "Sixth payment.",
+        "zh": "第六笔付款。"
+      }
+    },
+    {
+      "record_id": "cz-rrf-2026-final-request",
+      "country": "czechia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "not_stated",
+      "stage": "payment_request",
+      "amount": 951000000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2026-08-31",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_implementation_record",
+        "ref": "cz-e21-17-final-request-assessed"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": null,
+      "implementation_milestone": "cz-e21-17-final-request-assessed",
+      "case_id": "cz-repowereu-energy-transition",
+      "related_indicators": [],
+      "note": {
+        "en": "Seventh and final payment request, submitted on 31 August 2026 and given a positive preliminary assessment by the Commission on 29 October 2026; not yet paid.",
+        "zh": "第七次即最后一次付款申请，2026 年 8 月 31 日提交，委员会于 2026 年 10 月 29 日作出积极初步评估；尚未支付。"
+      }
+    },
+    {
+      "record_id": "sk-rrf-2024-authorisation",
+      "country": "slovakia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "grants",
+      "stage": "approved_financing",
+      "amount": 923828000,
+      "currency": "EUR",
+      "amount_precision": "exact",
+      "price_basis": "nominal",
+      "status_date": "2024-10-22",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": "sk-2024-10-22-rrf-fourth-instalment",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [
+        "government_revenue_gdp",
+        "government_expenditure_gdp"
+      ],
+      "note": {
+        "en": "Fourth non-repayable instalment authorised by Commission decision C(2024) 7457, as recorded in the admitted event.",
+        "zh": "欧盟委员会 C(2024) 7457 决定授权的第四笔非偿还性支持，按已收录事件记录。"
+      }
+    },
+    {
+      "record_id": "pl-rrf-2024-amended-plan",
+      "country": "poland",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "mixed",
+      "stage": "approved_financing",
+      "amount": null,
+      "currency": null,
+      "amount_precision": null,
+      "price_basis": null,
+      "status_date": "2024-07-01",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": "pl-2024-07-01-amended-recovery-plan",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [],
+      "note": {
+        "en": "Commission positive assessment of the amended plan (grants, loans and REPowerEU); the record does not restate amounts.",
+        "zh": "委员会对修订计划的积极评估（赠款、贷款和 REPowerEU）；记录未转述金额。"
+      }
+    },
+    {
+      "record_id": "si-rrf-2026-final-request-grants",
+      "country": "slovenia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "grants",
+      "stage": "payment_request",
+      "amount": 268670000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2026-09-29",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": "si-2026-09-29-2026-09-29-slovenia-submits-final-payment-request-for-funds-under-the-recovery-and-resilience-f",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [],
+      "note": {
+        "en": "Final payment request, grant part; still under assessment.",
+        "zh": "最后一笔付款申请的赠款部分；仍在评估中。"
+      }
+    },
+    {
+      "record_id": "si-rrf-2026-final-request-loans",
+      "country": "slovenia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "loans",
+      "stage": "payment_request",
+      "amount": 3100000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2026-09-29",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": "si-2026-09-29-2026-09-29-slovenia-submits-final-payment-request-for-funds-under-the-recovery-and-resilience-f",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [],
+      "note": {
+        "en": "Final payment request, loan part; still under assessment.",
+        "zh": "最后一笔付款申请的贷款部分；仍在评估中。"
+      }
+    },
+    {
+      "record_id": "ro-rrf-2026-final-request",
+      "country": "romania",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "mixed",
+      "stage": "payment_request",
+      "amount": null,
+      "currency": null,
+      "amount_precision": null,
+      "price_basis": null,
+      "status_date": "2026-09-30",
+      "date_precision": "day",
+      "evidence_status": "media_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": "ro-2026-10-01-final-payment-request-under-nrrp-id1065838",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [],
+      "note": {
+        "en": "Final payment request including grants and loans; the amount is not stated in the record.",
+        "zh": "包括赠款和贷款的最后一笔付款申请；记录未载明金额。"
+      }
+    },
+    {
+      "record_id": "hr-rrf-2026-water-contracts",
+      "country": "croatia",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "grants",
+      "stage": "legal_commitment",
+      "amount": null,
+      "currency": null,
+      "amount_precision": null,
+      "price_basis": null,
+      "status_date": "2026-11-05",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": "hr-2026-11-05-za-vodoopskrbu-diljem-hrvatske-gotovo-275-milijuna-eura",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [
+        "government_expenditure_gdp"
+      ],
+      "note": {
+        "en": "22 water-supply and wastewater contracts funded by the recovery plan in 13 counties; the government gives about €275 million for all water contracts signed that day, including the Vir contract below, without a separate total for these 22.",
+        "zh": "13 个县的 22 份由复苏计划资助的供水和污水合同；政府给出的当天全部水务合同约 2.75 亿欧元包括下方的维尔岛合同，未单列这 22 份的合计。"
+      }
+    },
+    {
+      "record_id": "hr-cohesion-2026-vir-contract",
+      "country": "croatia",
+      "programme": "ERDF_CF_Competitiveness_Cohesion",
+      "funding_period": "2021-2027",
+      "category": "grants",
+      "stage": "legal_commitment",
+      "amount": 213900000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2026-11-05",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "project",
+      "region_id": null,
+      "event_id": "hr-2026-11-05-za-vodoopskrbu-diljem-hrvatske-gotovo-275-milijuna-eura",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [],
+      "note": {
+        "en": "Water-infrastructure contract for the island of Vir, co-financed by the Competitiveness and Cohesion Programme; the contract value is not the EU share.",
+        "zh": "维尔岛供水基础设施合同，由竞争力和凝聚力计划共同资助；合同金额不是欧盟出资部分。"
+      }
+    },
+    {
+      "record_id": "hu-conditionality-2022-restriction",
+      "country": "hungary",
+      "programme": "EU_budget_conditionality",
+      "funding_period": "2021-2027",
+      "category": "not_stated",
+      "stage": "restriction",
+      "amount": null,
+      "currency": null,
+      "amount_precision": null,
+      "price_basis": null,
+      "status_date": "2022-12-15",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": "hu-2023-01-26-eu-funds-conditionality",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [
+        "government_revenue_gdp",
+        "government_expenditure_gdp"
+      ],
+      "note": {
+        "en": "Council measures restricting new EU-budget legal commitments with public-interest trusts and the entities they maintain, as explained by the Commission on 26 January 2023.",
+        "zh": "理事会措施限制与公共利益信托及其维持实体签署新的欧盟预算法律承诺，委员会于 2023 年 1 月 26 日作出说明。"
+      }
+    },
+    {
+      "record_id": "hu-conditionality-2026-lifted",
+      "country": "hungary",
+      "programme": "EU_budget_conditionality",
+      "funding_period": "2021-2027",
+      "category": "not_stated",
+      "stage": "restriction_lifted",
+      "amount": null,
+      "currency": null,
+      "amount_precision": null,
+      "price_basis": null,
+      "status_date": "2026-10-13",
+      "date_precision": "day",
+      "evidence_status": "media_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": "hu-2026-10-27-erasmus-is-back-at-all-hungarian-universities",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [],
+      "note": {
+        "en": "The Council ended the procedure; Erasmus+ grant agreements were signed again.",
+        "zh": "理事会终止该程序；伊拉斯谟+资助协议重新签署。"
+      }
+    },
+    {
+      "record_id": "cz-eafrd-2026-suspension",
+      "country": "czechia",
+      "programme": "EAFRD",
+      "funding_period": "2021-2027",
+      "category": "grants",
+      "stage": "restriction",
+      "amount": null,
+      "currency": null,
+      "amount_precision": null,
+      "price_basis": null,
+      "status_date": "2026-09-08",
+      "date_precision": "day",
+      "evidence_status": "media_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "project",
+      "region_id": null,
+      "event_id": "cz-2026-09-08-commission-confirms-suspension-some-subsidies-group-founded-babis-8896815",
+      "implementation_milestone": null,
+      "case_id": null,
+      "related_indicators": [],
+      "note": {
+        "en": "Suspension of some rural-development payments to one company group over potential conflicts of interest.",
+        "zh": "因潜在利益冲突暂停向一家企业集团支付部分农村发展资金。"
+      }
+    },
+    {
+      "record_id": "ro-safe-2026-allocation",
+      "country": "romania",
+      "programme": "SAFE",
+      "funding_period": "2026-2030",
+      "category": "loans",
+      "stage": "allocation",
+      "amount": 16670000000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2026-08-26",
+      "date_precision": "day",
+      "evidence_status": "media_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": "ro-2026-08-26-safe-payment",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [
+        "government_debt_gdp"
+      ],
+      "note": {
+        "en": "Romania's SAFE loan envelope as stated in the report of the first payment.",
+        "zh": "首笔付款报道中所述罗马尼亚 SAFE 贷款总额度。"
+      }
+    },
+    {
+      "record_id": "ro-safe-2026-disbursement",
+      "country": "romania",
+      "programme": "SAFE",
+      "funding_period": "2026-2030",
+      "category": "loans",
+      "stage": "disbursement",
+      "amount": 2500000000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2026-08-26",
+      "date_precision": "day",
+      "evidence_status": "media_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": "ro-2026-08-26-safe-payment",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [
+        "government_debt_gdp"
+      ],
+      "note": {
+        "en": "First SAFE loan payment (15% of the envelope).",
+        "zh": "SAFE 首笔贷款付款（额度的 15%）。"
+      }
+    },
+    {
+      "record_id": "cz-safe-2026-disbursement",
+      "country": "czechia",
+      "programme": "SAFE",
+      "funding_period": "2026-2030",
+      "category": "loans",
+      "stage": "disbursement",
+      "amount": 309000000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2026-10-07",
+      "date_precision": "day",
+      "evidence_status": "media_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": "cz-2026-10-07-czechia-receives-first-eu309-million-eu-safe-defence-fund-8899283",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [
+        "government_debt_gdp"
+      ],
+      "note": {
+        "en": "First SAFE loan payment, about 15% of a €2 billion allocation.",
+        "zh": "SAFE 首笔贷款付款，约为 20 亿欧元额度的 15%。"
+      }
+    },
+    {
+      "record_id": "si-eu-2026-maribor-research",
+      "country": "slovenia",
+      "programme": "EU_programme_not_stated",
+      "funding_period": "not_stated",
+      "category": "grants",
+      "stage": "approved_financing",
+      "amount": 17000000,
+      "currency": "EUR",
+      "amount_precision": "lower_bound",
+      "price_basis": "nominal",
+      "status_date": "2026-08-24",
+      "date_precision": "day",
+      "evidence_status": "official_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "project",
+      "region_id": null,
+      "event_id": "si-2026-08-24-maribor-research-eu-funds",
+      "implementation_milestone": null,
+      "case_id": null,
+      "related_indicators": [],
+      "note": {
+        "en": "More than €17 million of EU funding for University of Maribor research capacity; the programme is not named in the record, and the amount is a lower bound.",
+        "zh": "逾 1700 万欧元欧盟资金用于马里博尔大学研究能力；记录未写明计划名称，金额为下限。"
+      }
+    },
+    {
+      "record_id": "ro-eu-2026-black-sea-hub",
+      "country": "romania",
+      "programme": "EU_programme_not_stated",
+      "funding_period": "not_stated",
+      "category": "not_stated",
+      "stage": "announcement",
+      "amount": 50000000,
+      "currency": "EUR",
+      "amount_precision": "rounded_as_published",
+      "price_basis": "nominal",
+      "status_date": "2026-11-10",
+      "date_precision": "day",
+      "evidence_status": "media_record_admitted",
+      "source": {
+        "kind": "atlas_event_record"
+      },
+      "geographic_scope": "project",
+      "region_id": null,
+      "event_id": "ro-2026-11-10-european-commission-president-ursula-von-der-leyen-travels-to-bucharest",
+      "implementation_milestone": null,
+      "case_id": null,
+      "related_indicators": [],
+      "note": {
+        "en": "Announced by the Commission President for a Black Sea maritime security hub co-managed with Bulgaria; no decision is cited.",
+        "zh": "欧盟委员会主席宣布为与保加利亚共同管理的黑海海上安全中心提供资金；未引用决定。"
+      }
+    }
+  ]
+}

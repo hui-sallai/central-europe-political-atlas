@@ -1,0 +1,615 @@
+{
+  "schema_version": "atlas-thematic-research-v1",
+  "themes": [
+    {
+      "theme_id": "industrial_policy_strategic_investment",
+      "code": "A",
+      "title": {
+        "en": "Industrial policy and strategic investment",
+        "zh": "产业政策与战略投资"
+      },
+      "description": {
+        "en": "Government instruments that direct or support manufacturing investment — priority-investment designations, infrastructure budgets, permits, procurement and research targets — and the strategic projects they concern, traced stage by stage from announcement to any officially observed outcome.",
+        "zh": "引导或支持制造业投资的政府工具——重点投资认定、基础设施预算、许可、采购和研发目标——以及相关战略项目，从公告到官方观测结果逐阶段追踪。"
+      },
+      "countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "serbia",
+        "austria",
+        "croatia"
+      ],
+      "indicators": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "Manufacturing gross value added as a share of GDP (NACE C).",
+            "zh": "制造业增加值占 GDP 比重（NACE C 门类）。"
+          }
+        },
+        {
+          "indicator_id": "industrial_production_index",
+          "layers": [
+            "high_frequency_monthly",
+            "historical_monthly"
+          ],
+          "role": {
+            "en": "Monthly production volume of industry (NACE B–D, mining to energy supply).",
+            "zh": "工业月度产量指数（NACE B–D，采矿至能源供应）。"
+          }
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "Exports of motor-vehicle enterprises (NACE C29) as a share of all exports.",
+            "zh": "汽车制造企业（NACE C29）出口占全部出口比重。"
+          }
+        },
+        {
+          "indicator_id": "labour_productivity_growth",
+          "layers": [
+            "historical_annual"
+          ],
+          "role": {
+            "en": "Annual change in real labour productivity per person employed.",
+            "zh": "按就业人员计算的实际劳动生产率年度变化。"
+          }
+        },
+        {
+          "indicator_id": "regional_manufacturing_share",
+          "layers": [
+            "regional_annual",
+            "regional_history"
+          ],
+          "role": {
+            "en": "Manufacturing share of regional gross value added, for regions where a project is located.",
+            "zh": "项目所在区域的制造业增加值占比。"
+          }
+        },
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "layers": [
+            "sors_annual"
+          ],
+          "scope": [
+            "serbia"
+          ],
+          "role": {
+            "en": "SORS manufacturing share of GDP for Serbia (national definition).",
+            "zh": "塞尔维亚统计局口径的制造业占 GDP 比重。"
+          }
+        },
+        {
+          "indicator_id": "industrial_production_index",
+          "layers": [
+            "sors_monthly"
+          ],
+          "scope": [
+            "serbia"
+          ],
+          "role": {
+            "en": "SORS industrial production index for Serbia.",
+            "zh": "塞尔维亚统计局工业生产指数。"
+          }
+        }
+      ],
+      "pending_indicators": [
+        {
+          "indicator_id": "battery_investment",
+          "reason": {
+            "en": "Defined in the indicator registry with no admitted observations; company announcements are not a statistical series.",
+            "zh": "指标库已有定义但无已收录观测值；企业公告不构成统计序列。"
+          }
+        }
+      ],
+      "not_held": [
+        {
+          "en": "Industrial production or value added by detailed activity (for example NACE C27 batteries or C29 vehicles)",
+          "zh": "按细分行业的工业产量或增加值（如 NACE C27 电池、C29 汽车）"
+        },
+        {
+          "en": "Public support paid to individual investors (State aid amounts by project)",
+          "zh": "向单个投资者支付的公共支持（按项目的国家援助金额）"
+        },
+        {
+          "en": "Employment by plant or project",
+          "zh": "按工厂或项目的就业人数"
+        }
+      ],
+      "event_types": [
+        "industrial_policy",
+        "FDI",
+        "China"
+      ],
+      "research_questions": [
+        {
+          "en": "Which stages of a strategic investment does the official record document, and which rest only on company statements?",
+          "zh": "官方记录记载了战略投资的哪些阶段，哪些只依据企业表述？"
+        },
+        {
+          "en": "Which government instruments (designation, budget, permit) were adopted for a project, on which dates, and by which institution?",
+          "zh": "为某项目通过了哪些政府工具（认定、预算、许可），在何日、由哪个机构作出？"
+        },
+        {
+          "en": "What do national and regional manufacturing indicators show over the same period, and why can a single plant not be read from them?",
+          "zh": "同期全国和区域制造业指标呈现什么情况，为什么无法从中读出单个工厂的作用？"
+        }
+      ],
+      "limitations": [
+        {
+          "en": "National manufacturing and production aggregates cannot isolate one plant; no plant-level output statistic is held.",
+          "zh": "全国制造业和生产总量无法分离单个工厂；Atlas 不持有工厂层面的产出统计。"
+        },
+        {
+          "en": "A permitted capacity is an upper limit set by an authority, not production.",
+          "zh": "许可产能是主管机关设定的上限，不是实际产量。"
+        }
+      ],
+      "case_ids": [
+        "hu-battery-strategic-investment"
+      ]
+    },
+    {
+      "theme_id": "fdi_production_networks",
+      "code": "B",
+      "title": {
+        "en": "Foreign direct investment and production networks",
+        "zh": "外商直接投资与生产网络"
+      },
+      "description": {
+        "en": "Balance-of-payments direct-investment flows and the trade and manufacturing series that describe production networks, read alongside documented acquisitions, licences and investment projects without merging project amounts into the official flows.",
+        "zh": "国际收支直接投资流量以及描述生产网络的贸易与制造业序列，与有记录的收购、许可和投资项目对照阅读，但不把项目金额并入官方流量。"
+      },
+      "countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "serbia",
+        "austria",
+        "croatia"
+      ],
+      "indicators": [
+        {
+          "indicator_id": "fdi_inflow",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "Direct-investment liabilities, net incurrence (BPM6, all entities including special-purpose entities).",
+            "zh": "直接投资负债净发生额（BPM6，全部实体，含特殊目的实体）。"
+          }
+        },
+        {
+          "indicator_id": "exports_goods_services",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "Exports of goods and services, national accounts (P6).",
+            "zh": "国民账户货物和服务出口（P6）。"
+          }
+        },
+        {
+          "indicator_id": "imports_goods_services",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "Imports of goods and services, national accounts (P7).",
+            "zh": "国民账户货物和服务进口（P7）。"
+          }
+        },
+        {
+          "indicator_id": "trade_openness",
+          "layers": [
+            "historical_annual"
+          ],
+          "role": {
+            "en": "Exports plus imports relative to GDP.",
+            "zh": "进出口合计占 GDP 比重。"
+          }
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "layers": [
+            "canonical_annual"
+          ],
+          "not_applicable_for": [
+            "germany"
+          ],
+          "role": {
+            "en": "Share of goods exports going to Germany (UN Comtrade).",
+            "zh": "对德国货物出口占比（UN Comtrade）。"
+          }
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "Motor-vehicle exports as a share of all exports.",
+            "zh": "汽车出口占全部出口比重。"
+          }
+        },
+        {
+          "indicator_id": "goods_exports_eur_monthly",
+          "layers": [
+            "sors_monthly"
+          ],
+          "scope": [
+            "serbia"
+          ],
+          "role": {
+            "en": "SORS monthly goods exports for Serbia, EUR.",
+            "zh": "塞尔维亚统计局月度货物出口（欧元）。"
+          }
+        }
+      ],
+      "pending_indicators": [],
+      "not_held": [
+        {
+          "en": "FDI inward or outward stocks (positions)",
+          "zh": "外商直接投资存量（头寸），包括流入和流出"
+        },
+        {
+          "en": "FDI outward flows",
+          "zh": "对外直接投资流量"
+        },
+        {
+          "en": "FDI by partner country or by industry",
+          "zh": "按伙伴国或行业划分的外商直接投资"
+        },
+        {
+          "en": "FDI excluding special-purpose entities",
+          "zh": "剔除特殊目的实体的外商直接投资"
+        }
+      ],
+      "event_types": [
+        "FDI",
+        "China",
+        "industrial_policy"
+      ],
+      "research_questions": [
+        {
+          "en": "How do documented acquisitions, licences and project announcements relate in time to the published national direct-investment flows?",
+          "zh": "有记录的收购、许可和项目公告，与公布的全国直接投资流量在时间上如何对应？"
+        },
+        {
+          "en": "Which parts of an investment chain (licence, transaction, construction, operation) does each source document?",
+          "zh": "每个来源记录了投资链条的哪一部分（许可、交易、建设、运营）？"
+        },
+        {
+          "en": "How do manufacturing and export structures differ across the ten countries in the held series?",
+          "zh": "在已持有序列中，十国的制造业和出口结构有何差异？"
+        }
+      ],
+      "limitations": [
+        {
+          "en": "The FDI series covers all resident entities, including special-purpose entities, so large swings can reflect financial restructuring rather than new production capacity.",
+          "zh": "FDI 序列覆盖全部常住实体，包括特殊目的实体，因此大幅波动可能反映财务重组，而不是新增产能。"
+        },
+        {
+          "en": "No partner or industry breakdown is held, so a flow cannot be attributed to an investor country or sector.",
+          "zh": "未持有按伙伴国或行业的细分，因此无法把流量归于某一投资来源国或行业。"
+        },
+        {
+          "en": "The canonical (2021 onwards) and historical (before 2021) layers come from different data releases and are never spliced; FDI history before 2021 is held only for Romania, Serbia and Slovakia.",
+          "zh": "规范层（2021 年起）与历史层（2021 年前）来自不同的数据发布版本，从不拼接；2021 年前的 FDI 历史只持有罗马尼亚、塞尔维亚和斯洛伐克的数据。"
+        }
+      ],
+      "case_ids": [
+        "rs-mining-foreign-investment",
+        "hu-battery-strategic-investment"
+      ]
+    },
+    {
+      "theme_id": "energy_dependency_transition",
+      "code": "C",
+      "title": {
+        "en": "Energy dependency and energy transition",
+        "zh": "能源依赖与能源转型"
+      },
+      "description": {
+        "en": "Energy-balance dependency, retail electricity prices and consumer energy-price inflation, read alongside documented energy-security measures, price regulation and transition investments. Physical quantities, shares, prices and policy announcements are kept as separate kinds of evidence.",
+        "zh": "能源平衡依赖度、零售电价和居民能源价格通胀，与有记录的能源安全措施、价格管制和转型投资对照阅读。实物量、比重、价格和政策公告作为不同类型的证据分开保存。"
+      },
+      "countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "serbia",
+        "austria",
+        "croatia"
+      ],
+      "indicators": [
+        {
+          "indicator_id": "energy_import_dependency",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "Net energy imports as a share of gross available energy (energy balance, physical quantities).",
+            "zh": "能源净进口占可用能源总量比重（能源平衡，实物量）。"
+          }
+        },
+        {
+          "indicator_id": "household_electricity_price",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "Household electricity price, EUR per kWh, all taxes included.",
+            "zh": "居民电价，欧元/千瓦时，含全部税费。"
+          }
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "Non-household electricity price, EUR per kWh.",
+            "zh": "非居民电价，欧元/千瓦时。"
+          }
+        },
+        {
+          "indicator_id": "energy_inflation",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "Annual average rate of the HICP energy component.",
+            "zh": "HICP 能源分项年均变化率。"
+          }
+        },
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "role": {
+            "en": "Monthly year-on-year rate of the HICP energy component.",
+            "zh": "HICP 能源分项月度同比。"
+          }
+        },
+        {
+          "indicator_id": "europe_natural_gas_price_usd",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "role": {
+            "en": "European natural-gas benchmark price (common series, not country-specific).",
+            "zh": "欧洲天然气基准价格（共同序列，非国别）。"
+          }
+        }
+      ],
+      "pending_indicators": [
+        {
+          "indicator_id": "gas_import_dependency",
+          "reason": {
+            "en": "Defined in the indicator registry with no admitted observations.",
+            "zh": "指标库已有定义，但没有已收录观测值。"
+          }
+        }
+      ],
+      "not_held": [
+        {
+          "en": "Electricity generation by source (generation mix)",
+          "zh": "按电源划分的发电量（发电结构）"
+        },
+        {
+          "en": "Renewable energy shares",
+          "zh": "可再生能源占比"
+        },
+        {
+          "en": "Energy intensity and final energy consumption",
+          "zh": "能源强度和终端能源消费"
+        },
+        {
+          "en": "Gas imports by supplier country and gas storage levels",
+          "zh": "按供应国划分的天然气进口和储气水平"
+        },
+        {
+          "en": "Monetary value of energy imports",
+          "zh": "能源进口货值"
+        }
+      ],
+      "event_types": [
+        "energy"
+      ],
+      "research_questions": [
+        {
+          "en": "Which energy-security and price measures are documented in each country, and which indicators describe the conditions around them?",
+          "zh": "各国记录了哪些能源安全与价格措施，哪些指标描述了它们前后的状况？"
+        },
+        {
+          "en": "How do import dependency and retail electricity prices compare across the ten countries over the held periods?",
+          "zh": "在已持有期间，十国的进口依赖度和零售电价如何比较？"
+        },
+        {
+          "en": "What does a documented funding commitment for energy establish, and what would be needed to observe an energy outcome?",
+          "zh": "有记录的能源资金承诺能证明什么？观测能源结果还需要什么？"
+        }
+      ],
+      "limitations": [
+        {
+          "en": "Import dependency is a physical energy-balance ratio; it does not distinguish suppliers and is not a measure of import costs.",
+          "zh": "进口依赖度是能源平衡的实物比率，不区分供应来源，也不衡量进口成本。"
+        },
+        {
+          "en": "Electricity prices and HICP energy reflect wholesale markets, taxes and regulation together; a single measure cannot be isolated in them.",
+          "zh": "电价和 HICP 能源分项同时反映批发市场、税费和管制；无法从中分离单一措施。"
+        },
+        {
+          "en": "Monthly HICP energy is held to July 2026, so measures from August 2026 onwards have no post-event observations yet.",
+          "zh": "月度 HICP 能源数据截至 2026 年 7 月，因此 2026 年 8 月起的措施尚无事件后观测值。"
+        }
+      ],
+      "case_ids": [
+        "cz-repowereu-energy-transition"
+      ]
+    },
+    {
+      "theme_id": "eu_funding_development",
+      "code": "D",
+      "title": {
+        "en": "EU funding and economic development",
+        "zh": "欧盟资金与经济发展"
+      },
+      "description": {
+        "en": "EU financial instruments represented in admitted records — the Recovery and Resilience Facility and its REPowerEU chapters, rural-development funds, the SAFE defence instrument and rule-of-law conditionality — recorded stage by stage, with public-finance and regional series as context only.",
+        "zh": "已收录记录中涉及的欧盟金融工具——复苏与韧性基金及其 REPowerEU 章节、农村发展基金、SAFE 国防工具和法治条件机制——逐阶段记录，公共财政和区域序列只作背景。"
+      },
+      "countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "serbia",
+        "austria",
+        "croatia"
+      ],
+      "indicators": [
+        {
+          "indicator_id": "government_revenue_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "General government revenue relative to GDP.",
+            "zh": "广义政府收入占 GDP 比重。"
+          }
+        },
+        {
+          "indicator_id": "government_expenditure_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "General government expenditure relative to GDP.",
+            "zh": "广义政府支出占 GDP 比重。"
+          }
+        },
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "role": {
+            "en": "General government deficit or surplus relative to GDP.",
+            "zh": "广义政府赤字或盈余占 GDP 比重。"
+          }
+        },
+        {
+          "indicator_id": "regional_gdp_per_capita",
+          "layers": [
+            "regional_annual",
+            "regional_history"
+          ],
+          "role": {
+            "en": "Regional GDP per inhabitant, for regions named in funding records.",
+            "zh": "资金记录中所涉区域的人均 GDP。"
+          }
+        }
+      ],
+      "pending_indicators": [
+        {
+          "indicator_id": "eu_funds_received",
+          "reason": {
+            "en": "Defined in the indicator registry with no admitted observations; programme amounts at different stages are not a single series.",
+            "zh": "指标库已有定义但无已收录观测值；不同阶段的计划金额不构成单一序列。"
+          }
+        }
+      ],
+      "not_held": [
+        {
+          "en": "Cohesion-policy allocations, payments and absorption by programme",
+          "zh": "按计划划分的凝聚政策额度、付款和吸收"
+        },
+        {
+          "en": "Recovery and Resilience Facility disbursements as a time series",
+          "zh": "复苏与韧性基金拨付的时间序列"
+        },
+        {
+          "en": "Expenditure and completion data for funded projects",
+          "zh": "受资助项目的支出和完成数据"
+        },
+        {
+          "en": "IPA pre-accession funds for Serbia",
+          "zh": "塞尔维亚的 IPA 入盟前援助资金"
+        }
+      ],
+      "event_types": [
+        "EU_funds"
+      ],
+      "research_questions": [
+        {
+          "en": "At which financial stage does each admitted funding record sit, and which later stages are documented?",
+          "zh": "每条已收录资金记录处于哪个财务阶段，后续哪些阶段有记录？"
+        },
+        {
+          "en": "How do loans and grants, and requests and authorisations, differ across the countries' recovery plans?",
+          "zh": "各国复苏计划中，贷款与赠款、申请与授权有何差别？"
+        },
+        {
+          "en": "Which public-finance series describe the period, and why can EU transfers not be read from them?",
+          "zh": "哪些公共财政序列描述了该时期，为什么无法从中读出欧盟转移支付？"
+        }
+      ],
+      "limitations": [
+        {
+          "en": "No series of EU funds received is held; amounts exist only as stage-specific records.",
+          "zh": "Atlas 不持有欧盟资金收入序列；金额只以分阶段记录存在。"
+        },
+        {
+          "en": "How RRF grants are recorded in government revenue follows Eurostat's statistical guidance on the facility, which the Atlas has not admitted; a disbursement date is not assumed to be the date a transfer enters government accounts.",
+          "zh": "复苏与韧性基金赠款如何计入政府收入，取决于 Eurostat 对该基金的统计记录指引，Atlas 尚未收录该指引；不假定拨付日期就是转移支付进入政府账户的日期。"
+        },
+        {
+          "en": "Serbia is not an EU member state; EU-internal programmes are not applicable rather than zero.",
+          "zh": "塞尔维亚不是欧盟成员国；欧盟内部计划对其不适用，而不是记为零。"
+        }
+      ],
+      "case_ids": [
+        "eu-rrf-funding-stages",
+        "cz-repowereu-energy-transition"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2476 @@
+{
+  "schema_version": "atlas-thematic-research-v1",
+  "limitation_library": {
+    "descriptive_only": {
+      "en": "Observations around the event are descriptive; there is no comparison group or identification strategy, so they cannot show an effect of the event.",
+      "zh": "事件前后的观测值仅作描述；没有对照组和识别策略，不能证明事件产生了效应。"
+    },
+    "aggregate_not_isolable": {
+      "en": "A national aggregate cannot isolate one measure, project or transaction.",
+      "zh": "全国总量无法分离单一措施、项目或交易。"
+    },
+    "monthly_not_yet": {
+      "en": "Monthly HICP energy is held to July 2026, so no observation after this event is published yet.",
+      "zh": "月度 HICP 能源数据截至 2026 年 7 月，事件之后尚无已发布观测值。"
+    },
+    "annual_not_yet": {
+      "en": "Annual observations for the event year are not yet published.",
+      "zh": "事件当年的年度观测值尚未发布。"
+    },
+    "fdi_entity_total": {
+      "en": "The series covers all resident entities including special-purpose entities; large swings can reflect financial restructuring.",
+      "zh": "该序列覆盖含特殊目的实体在内的全部常住实体；大幅波动可能反映财务重组。"
+    },
+    "project_amount_not_bop": {
+      "en": "A project amount is not a balance-of-payments flow and is never added to or compared with one.",
+      "zh": "项目金额不是国际收支流量，从不与其相加或比较。"
+    },
+    "announcement_not_realised": {
+      "en": "An announcement or plan is not realised investment, output or employment.",
+      "zh": "公告或计划不是已实现的投资、产出或就业。"
+    },
+    "prices_multi_cause": {
+      "en": "Energy prices reflect wholesale markets, taxes and regulation together.",
+      "zh": "能源价格同时反映批发市场、税费和管制。"
+    },
+    "dependency_no_supplier": {
+      "en": "Import dependency is a physical energy-balance ratio and does not distinguish supplier countries or fuels.",
+      "zh": "进口依赖度是能源平衡的实物比率，不区分供应国或燃料。"
+    },
+    "ip_aggregate": {
+      "en": "The index covers mining, manufacturing and energy supply together (NACE B–D); no single industry is held separately.",
+      "zh": "该指数同时覆盖采矿、制造和能源供应（NACE B–D）；未单独持有某一行业。"
+    },
+    "rrf_recording": {
+      "en": "How RRF transfers enter government revenue and expenditure follows Eurostat guidance the Atlas has not admitted; the disbursement date is not assumed to be the recording date.",
+      "zh": "复苏与韧性基金转移支付如何计入政府收支，取决于 Atlas 未收录的 Eurostat 指引；不假定拨付日期即记录日期。"
+    },
+    "indicator_pending": {
+      "en": "The indicator is defined but has no admitted observations.",
+      "zh": "该指标已有定义，但没有已收录观测值。"
+    },
+    "sors_national": {
+      "en": "SORS series follow Serbia's national definitions and are not comparable across countries.",
+      "zh": "塞尔维亚统计局序列采用本国口径，不可跨国比较。"
+    },
+    "partner_not_held": {
+      "en": "Trade or investment by partner country is not held.",
+      "zh": "Atlas 未持有按伙伴国划分的贸易或投资数据。"
+    }
+  },
+  "records": [
+    {
+      "event_id": "hu-2022-08-12-catl-debrecen",
+      "theme_ids": [
+        "industrial_policy_strategic_investment",
+        "fdi_production_networks"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "A company announcement of a plant whose later approvals are documented in official records; national FDI and manufacturing series are research topics only, and the plant's activity (NACE C27) lies outside the automotive export indicator (C29).",
+        "zh": "企业公告的工厂，其后续审批有官方记录；全国 FDI 和制造业序列只作为研究课题，工厂活动（NACE C27）不在汽车出口指标（C29）范围内。"
+      },
+      "evidence_status": "company_statement",
+      "indicators": [
+        {
+          "indicator_id": "fdi_inflow",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "Greenfield capital enters direct-investment liabilities when it flows, not when announced; no project-level flow or expenditure record exists, so the national total cannot be attributed.",
+            "zh": "绿地投资在资金实际流动时计入直接投资负债，而非公告时；没有项目层面的资金流或支出记录，因此全国总量无法归因。"
+          },
+          "limitations": [
+            "fdi_entity_total",
+            "project_amount_not_bop",
+            "aggregate_not_isolable"
+          ]
+        },
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "Battery manufacturing counts in manufacturing value added once it produces; the company reports module output from 2024 but no output value.",
+            "zh": "电池制造投产后计入制造业增加值；企业报告自 2024 年起的模组产量，但没有产值。"
+          },
+          "limitations": [
+            "aggregate_not_isolable",
+            "announcement_not_realised"
+          ]
+        },
+        {
+          "indicator_id": "regional_manufacturing_share",
+          "layers": [
+            "regional_annual",
+            "regional_history"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "The plant is in Hajdú-Bihar County (HU321); the county's manufacturing share is regional context for the project location, not a measured project effect.",
+            "zh": "工厂位于豪伊杜-比豪尔州（HU321）；该州制造业占比是项目所在地的区域背景，不是测得的项目效应。"
+          },
+          "limitations": [
+            "descriptive_only",
+            "aggregate_not_isolable"
+          ],
+          "region_id": "hungary_hajdu_bihar"
+        },
+        {
+          "indicator_id": "industrial_production_index",
+          "layers": [
+            "high_frequency_monthly"
+          ],
+          "relationship": "D",
+          "connection": {
+            "en": "The announcement date is not a production start; monthly industrial production around it has no explainable relationship to the project.",
+            "zh": "公告日不是投产日；其前后的月度工业生产与该项目没有可说明的关系。"
+          },
+          "limitations": [
+            "ip_aggregate"
+          ]
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "D",
+          "connection": {
+            "en": "The environmental permit classifies the activity as TEÁOR'08 2720 (NACE C27); the indicator covers NACE C29. This revises the earlier event-analysis link, which proposed the indicator before the permit was read.",
+            "zh": "环境许可把该活动归为 TEÁOR'08 2720（NACE C27）；该指标覆盖 NACE C29。这修正了早先事件分析中在核读许可前提出的关联。"
+          },
+          "limitations": [],
+          "revises_existing": {
+            "source": "implementationLinkSpecs",
+            "measurement": "classification_incompatible"
+          }
+        },
+        {
+          "indicator_id": "battery_investment",
+          "layers": [
+            "canonical_annual"
+          ],
+          "relationship": "E",
+          "connection": {
+            "en": "Coded on the event record, but the indicator has no admitted observations.",
+            "zh": "事件记录编码了该指标，但该指标没有已收录观测值。"
+          },
+          "limitations": [
+            "indicator_pending"
+          ]
+        }
+      ],
+      "extends_event_analysis": true
+    },
+    {
+      "event_id": "hu-2026-11-04-tarkanyi-zsolt-catl-szandeknyilatkozat",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "Publication of further pages of a non-binding 2022 letter of intent listing promised support (visas, rental housing, land options, tax incentives); no held indicator measures these instruments and none is documented as implemented.",
+        "zh": "公开 2022 年不具约束力意向书的更多页面，列出承诺的支持（签证、租赁住房、土地选择权、税收优惠）；没有已持有指标衡量这些工具，也没有记录表明其已落实。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "sk-2023-11-22-gotion-inobat-surany",
+      "theme_ids": [
+        "industrial_policy_strategic_investment",
+        "fdi_production_networks"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "A memorandum of understanding with the Slovak government for a planned battery plant; FDI and manufacturing links are research topics, the plant's activity classification is not documented.",
+        "zh": "与斯洛伐克政府签署的计划中电池工厂谅解备忘录；FDI 和制造业关系属研究课题，工厂的行业分类没有记录。"
+      },
+      "evidence_status": "company_statement",
+      "indicators": [
+        {
+          "indicator_id": "fdi_inflow",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "If the plant is built with foreign capital, the flows enter direct-investment liabilities when paid; no project-level flow is recorded.",
+            "zh": "如果工厂以外国资本建设，资金在支付时计入直接投资负债；没有项目层面的资金流记录。"
+          },
+          "limitations": [
+            "project_amount_not_bop",
+            "aggregate_not_isolable"
+          ]
+        },
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "A plant in production would count in manufacturing value added; no production is documented.",
+            "zh": "投产的工厂会计入制造业增加值；没有投产记录。"
+          },
+          "limitations": [
+            "announcement_not_realised",
+            "aggregate_not_isolable"
+          ]
+        },
+        {
+          "indicator_id": "regional_manufacturing_share",
+          "layers": [
+            "regional_annual",
+            "regional_history"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Šurany is in the Nitra Region (SK023); the regional manufacturing share is location context only.",
+            "zh": "舒拉尼位于尼特拉州（SK023）；区域制造业占比仅作项目所在地背景。"
+          },
+          "limitations": [
+            "descriptive_only"
+          ],
+          "region_id": "slovakia_nitra"
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "E",
+          "connection": {
+            "en": "Whether the plant's activity would fall under the C29 classification is not documented in the source.",
+            "zh": "来源没有说明工厂活动是否属于 C29 分类。"
+          },
+          "limitations": []
+        },
+        {
+          "indicator_id": "battery_investment",
+          "layers": [
+            "canonical_annual"
+          ],
+          "relationship": "E",
+          "connection": {
+            "en": "Coded on the event record, but the indicator has no admitted observations.",
+            "zh": "事件记录编码了该指标，但该指标没有已收录观测值。"
+          },
+          "limitations": [
+            "indicator_pending"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "hu-2026-11-07-piacepito-exportprogramot-indit-a-kormany",
+      "theme_ids": [
+        "industrial_policy_strategic_investment",
+        "fdi_production_networks"
+      ],
+      "classification": "C",
+      "summary": {
+        "en": "An announced HUF 25 billion export programme to start in 2027; exports are measured nationally, but a programme of this size cannot be identified in the national total and has not started.",
+        "zh": "宣布将于 2027 年启动的 250 亿福林出口计划；出口有全国统计，但这一规模的计划无法在全国总量中识别，且尚未启动。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "exports_goods_services",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "The programme targets exports by Hungarian firms; whether supported firms export more would need beneficiary-level data, which is not held.",
+            "zh": "该计划针对匈牙利企业出口；受资助企业是否增加出口需要受益企业层面的数据，Atlas 未持有。"
+          },
+          "limitations": [
+            "announcement_not_realised",
+            "aggregate_not_isolable"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "hu-2026-09-04-science-innovation-strategy",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "Policy targets for R&D spending of 2% of GDP by 2030 and 3% by 2035; an R&D expenditure series is held only for Serbia (SORS), not for Hungary.",
+        "zh": "研发支出 2030 年达 GDP 2%、2035 年达 3% 的政策目标；研发支出序列仅持有塞尔维亚（统计局）数据，没有匈牙利数据。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "cz-2026-09-04-ai-gigafactory",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A planned CZK 100 billion AI computing facility at proposal stage; no held indicator measures data-centre investment, and planned spending is not expenditure.",
+        "zh": "规模约 1000 亿克朗、处于提案阶段的人工智能计算设施；没有已持有指标衡量数据中心投资，计划支出也不是实际支出。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "cz-2026-09-04-vw-skoda-restructuring",
+      "theme_ids": [
+        "industrial_policy_strategic_investment",
+        "fdi_production_networks"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "A company statement that the Volkswagen group restructuring will not directly affect Škoda; motor-vehicle exports are the relevant held measure as context.",
+        "zh": "企业表示大众集团重组不会直接影响斯柯达；汽车出口是相关的已持有指标，作背景参考。"
+      },
+      "evidence_status": "company_statement",
+      "indicators": [
+        {
+          "indicator_id": "automotive_export_share",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Motor-vehicle manufacturers' share of Czech exports describes the sector the statement concerns.",
+            "zh": "汽车制造企业占捷克出口的比重描述了该表态所涉行业。"
+          },
+          "limitations": [
+            "descriptive_only",
+            "annual_not_yet"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "de-2026-09-03-vw-savings-plan",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "A supervisory-board savings plan affecting about 50,000 jobs, with possible plant closures still conditional; national manufacturing and motor-vehicle export series describe the sector.",
+        "zh": "监事会通过涉及约五万个岗位的节支计划，可能的工厂关闭仍有条件；全国制造业和汽车出口序列描述该行业。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Describes the weight of manufacturing in German GDP around the plan.",
+            "zh": "描述计划前后制造业在德国 GDP 中的比重。"
+          },
+          "limitations": [
+            "descriptive_only",
+            "annual_not_yet"
+          ]
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Describes motor-vehicle manufacturers' share of German exports.",
+            "zh": "描述汽车制造企业在德国出口中的比重。"
+          },
+          "limitations": [
+            "descriptive_only",
+            "annual_not_yet"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "de-2026-11-03-autozulieferer-schaeffler-schliesst-vier-deutsche-standorte",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "A supplier's announced closure of four German sites and 2,660 German job cuts by 2028; employment by industry or plant is not held, so only sector context applies.",
+        "zh": "供应商宣布到 2028 年关闭德国四处工厂、削减 2660 个德国岗位；Atlas 未持有按行业或工厂的就业数据，只能提供行业背景。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Manufacturing's share of GDP is sector context; announced cuts to 2028 are not observed outcomes.",
+            "zh": "制造业占 GDP 比重是行业背景；到 2028 年的削减计划不是已观测结果。"
+          },
+          "limitations": [
+            "descriptive_only",
+            "announcement_not_realised",
+            "annual_not_yet"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-19-auto-production-pause",
+      "theme_ids": [
+        "industrial_policy_strategic_investment",
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "Dacia and Ford paused production to reduce electricity demand during the Cernavodă outage; Romania's monthly industrial production index covers August 2026.",
+        "zh": "切尔纳沃德停运期间，Dacia 与 Ford 为降低用电需求暂停生产；罗马尼亚月度工业生产指数覆盖 2026 年 8 月。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "industrial_production_index",
+          "layers": [
+            "high_frequency_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Motor-vehicle production is part of industrial production; the pause falls in a month the series covers, but the index cannot separate one firm's pause.",
+            "zh": "汽车生产属于工业生产；停产发生在该序列覆盖的月份，但指数无法分离单个企业的停产。"
+          },
+          "limitations": [
+            "ip_aggregate",
+            "aggregate_not_isolable",
+            "descriptive_only"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "pl-2026-08-20-industrial-output",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "A",
+      "summary": {
+        "en": "A monthly industrial production release; the Atlas holds the same measure for Poland as Eurostat's calendar- and seasonally-adjusted index.",
+        "zh": "工业生产月度发布；Atlas 持有波兰同一指标的 Eurostat 日历和季节调整指数。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "industrial_production_index",
+          "layers": [
+            "high_frequency_monthly"
+          ],
+          "relationship": "A",
+          "connection": {
+            "en": "Same statistical measure: Eurostat compiles the index from national industrial production data; the Atlas version is NACE B–D, 2021=100, calendar and seasonally adjusted, so headline rates in the national release can differ.",
+            "zh": "同一统计量：Eurostat 根据各国工业生产数据编制该指数；Atlas 版本为 NACE B–D、2021=100、经日历和季节调整，因此可能与国家发布的标题增速不同。"
+          },
+          "limitations": [
+            "ip_aggregate"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "sk-2026-08-17-industrial-orders",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "A monthly new-orders release; new orders in industry are not held in the Atlas.",
+        "zh": "工业新订单月度发布；Atlas 未持有工业新订单数据。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "de-2026-08-19-industrial-order-backlog",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "A release on the industrial order backlog; order backlogs are not held in the Atlas.",
+        "zh": "工业订单存量发布；Atlas 未持有订单存量数据。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "de-2026-09-03-electric-car-share",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "Monthly new-car registrations by drive type; vehicle registrations are not held.",
+        "zh": "按动力类型的月度新车登记；Atlas 未持有车辆登记数据。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "at-2026-08-25-carbon-storage-bill",
+      "theme_ids": [
+        "industrial_policy_strategic_investment",
+        "energy_dependency_transition"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A draft law to lift the general ban on carbon capture and storage, still in coalition coordination; no held indicator measures it.",
+        "zh": "拟解除碳捕集与封存普遍禁令的法案，仍在执政联盟内部协调；没有已持有指标衡量该事项。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "at-2026-08-26-public-procurement-industry",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "Planned procurement guidelines favouring domestic and European value added; procurement is not held as a series and the guidelines are not yet issued.",
+        "zh": "拟制定偏向本国和欧洲增加值的采购指引；Atlas 未持有采购序列，指引尚未发布。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "pl-2026-09-01-domestic-defence-production",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A shift of defence procurement towards domestic producers; defence production is not held as a series.",
+        "zh": "国防采购转向本国生产商；Atlas 未持有国防生产序列。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "at-2026-11-11-voestalpine-mit-grossem-gewinnplus",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A company's half-year financial results and outlook; company accounts are not measured by any held national indicator.",
+        "zh": "企业半年财务业绩与展望；企业账目不由任何已持有的全国指标衡量。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "cz-2026-06-24-v4-summit",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A summit communiqué naming competitiveness, emissions trading and the car industry as coordination topics; the indicators coded on the event record have no relationship to a stated agenda.",
+        "zh": "峰会公告列出竞争力、排放交易和汽车产业为协调议题；事件记录编码的指标与所述议程没有关系。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [],
+      "reason_code": "position_statement_only"
+    },
+    {
+      "event_id": "pl-2024-04-23-nuctech-fsr-inspection",
+      "theme_ids": [
+        "fdi_production_networks"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A Commission inspection under the Foreign Subsidies Regulation at one company's premises; the amount is not stated and one investigation has no relationship to Poland's national FDI or manufacturing share.",
+        "zh": "欧盟委员会依据外国补贴条例对一家企业场所进行检查；金额未载明，单一调查与波兰全国 FDI 或制造业占比没有关系。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "fdi_inflow",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "D",
+          "connection": {
+            "en": "No transaction value is stated; an inspection is not an investment flow.",
+            "zh": "未载明交易金额；检查不是投资流量。"
+          },
+          "limitations": []
+        },
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "D",
+          "connection": {
+            "en": "The source does not describe a relationship between the inspection and the manufacturing share.",
+            "zh": "来源未描述检查与制造业占比之间的关系。"
+          },
+          "limitations": []
+        }
+      ],
+      "extends_event_analysis": true
+    },
+    {
+      "event_id": "de-2026-10-07-hamburg-zippel-china-staatsreederei-cosco-wirtschaftsministerium-100",
+      "theme_ids": [
+        "fdi_production_networks"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A prohibited acquisition; the transaction did not take place and its value is unknown.",
+        "zh": "被禁止的收购；交易未发生，金额未知。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "fdi_inflow",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "D",
+          "connection": {
+            "en": "A blocked acquisition creates no direct-investment flow, and its value is not stated.",
+            "zh": "被阻止的收购不产生直接投资流量，金额也未载明。"
+          },
+          "limitations": []
+        }
+      ],
+      "extends_event_analysis": true
+    },
+    {
+      "event_id": "rs-2026-11-10-australian-mdi-takes-over-project-in-majdanpek-formerly-funded-by-rio-tinto",
+      "theme_ids": [
+        "fdi_production_networks",
+        "industrial_policy_strategic_investment"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "The sale of an exploration project between two Australian companies after the licence was renewed; exploration is not mining production, and a sale between two foreign companies is not by itself a Serbian balance-of-payments flow.",
+        "zh": "勘探许可续期后，两家澳大利亚企业之间出售勘探项目；勘探不是采矿生产，两家外国企业之间的出售本身也不构成塞尔维亚的国际收支流量。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "fdi_inflow",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "D",
+          "connection": {
+            "en": "As reported, the project changed hands between two non-resident companies; balance-of-payments statistics record transactions between residents and non-residents, and the ownership structure is not documented in an official source.",
+            "zh": "据报道，项目在两家非常住企业之间转手；国际收支统计记录常住与非常住单位之间的交易，而所有权结构没有官方来源记录。"
+          },
+          "limitations": [
+            "project_amount_not_bop"
+          ]
+        },
+        {
+          "indicator_id": "industrial_production_index",
+          "layers": [
+            "sors_monthly"
+          ],
+          "relationship": "D",
+          "connection": {
+            "en": "An exploration licence produces no output; the index measures production.",
+            "zh": "勘探许可不产生产出；该指数衡量的是生产。"
+          },
+          "limitations": [
+            "ip_aggregate",
+            "sors_national"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "pl-2026-11-05-chinese-fashion-platform-shein-to-invest-500-million-in-polish-logistics-hub",
+      "theme_ids": [
+        "fdi_production_networks"
+      ],
+      "classification": "C",
+      "summary": {
+        "en": "A company-announced €500 million expansion of an operating logistics centre; if financed by the foreign parent it would enter direct-investment liabilities, but no flow is recorded.",
+        "zh": "企业宣布对已运营物流中心追加 5 亿欧元扩建；若由外国母公司出资，会计入直接投资负债，但没有资金流记录。"
+      },
+      "evidence_status": "company_statement",
+      "indicators": [
+        {
+          "indicator_id": "fdi_inflow",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "Financing by the foreign parent (equity or reinvested earnings) would be direct investment; the financing route and timing are not documented.",
+            "zh": "外国母公司出资（股权或再投资收益）属于直接投资；融资方式和时间没有记录。"
+          },
+          "limitations": [
+            "project_amount_not_bop",
+            "announcement_not_realised",
+            "annual_not_yet"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "si-2026-11-06-major-tech-retailer-sold-to-slovenian-big-bang",
+      "theme_ids": [
+        "fdi_production_networks"
+      ],
+      "classification": "C",
+      "summary": {
+        "en": "A pending acquisition of a Serbian retailer by a Slovenian group, subject to competition approval; if completed it would be direct investment into Serbia, and outward FDI from Slovenia is not held.",
+        "zh": "一家斯洛文尼亚集团对塞尔维亚零售商的收购尚待竞争主管机构批准；完成后将构成对塞尔维亚的直接投资，而 Atlas 未持有斯洛文尼亚对外直接投资。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "fdi_inflow",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "A completed purchase of a resident Serbian company by a non-resident group is a Serbian direct-investment liability flow; the price is not disclosed and the deal is not completed.",
+            "zh": "非常住集团收购塞尔维亚常住企业，完成后属于塞尔维亚直接投资负债流量；价格未披露，交易尚未完成。"
+          },
+          "limitations": [
+            "project_amount_not_bop",
+            "annual_not_yet"
+          ],
+          "country": "serbia"
+        }
+      ]
+    },
+    {
+      "event_id": "ro-2026-11-05-economic-relaunch-is-the-governments-key-priority",
+      "theme_ids": [
+        "fdi_production_networks"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "The report cites a 62% fall in foreign direct investment in January–August 2026; the Atlas holds annual Eurostat direct-investment liabilities, not the monthly national presentation cited.",
+        "zh": "报道引用 2026 年 1–8 月外国直接投资同比下降 62%；Atlas 持有的是 Eurostat 年度直接投资负债，而不是报道引用的月度国家口径。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "fdi_inflow",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Same concept, different presentation and period: the cited figure is a monthly national release for 2026, while the held series is annual and ends before 2026.",
+            "zh": "概念相同，口径和时期不同：引用数字是 2026 年的月度国家发布，而已持有序列是年度数据，截至 2026 年以前。"
+          },
+          "limitations": [
+            "fdi_entity_total",
+            "annual_not_yet"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-13-transgaz-loan",
+      "theme_ids": [
+        "fdi_production_networks",
+        "energy_dependency_transition"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A bank loan to a domestic gas-transmission operator for network investment; a loan to a resident company is not direct investment, although the event is typed as FDI.",
+        "zh": "银行向国内天然气输送运营商提供用于管网投资的贷款；向常住企业提供的贷款不是直接投资，尽管该事件被归为 FDI 类型。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "classification_incompatible"
+    },
+    {
+      "event_id": "ro-2026-08-13-cluj-industrial-site",
+      "theme_ids": [
+        "fdi_production_networks"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "A €40 million land purchase disclosed by a company; the investor's residence is not stated, so whether it is direct investment cannot be established.",
+        "zh": "企业披露以 4000 万欧元购买土地；投资方的常住地未载明，无法判断是否属于直接投资。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "source_insufficient"
+    },
+    {
+      "event_id": "hu-2026-08-14-commercial-property-investment",
+      "theme_ids": [
+        "fdi_production_networks"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "Industry figures on commercial-property transactions from a non-specific source page; not linkable to an official series.",
+        "zh": "来自非特定来源页面的商业地产交易行业数据；无法连接官方序列。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "source_insufficient"
+    },
+    {
+      "event_id": "pl-2026-09-16-china-overtakes-germany-as-polands-biggest-source-of-imports-for-first-time",
+      "theme_ids": [
+        "fdi_production_networks"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "Central-bank import figures by partner for one month; partner breakdowns are not held, so only total imports apply as context.",
+        "zh": "央行一个月的按伙伴国进口数据；Atlas 未持有伙伴国细分，只能以进口总额作背景。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "imports_goods_services",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Total imports describe the scale within which the partner ranking sits; the ranking itself is not held.",
+            "zh": "进口总额描述了伙伴排名所处的规模；排名本身未持有。"
+          },
+          "limitations": [
+            "partner_not_held",
+            "annual_not_yet",
+            "descriptive_only"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "de-2026-08-20-china-trade",
+      "theme_ids": [
+        "fdi_production_networks"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "Federal statistics on China as Germany's largest trading partner in the first half; partner breakdowns are not held.",
+        "zh": "联邦统计显示上半年中国为德国最大贸易伙伴；Atlas 未持有伙伴国细分。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "exports_goods_services",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Total exports are context for the partner structure, which is not held.",
+            "zh": "出口总额是伙伴结构的背景，伙伴结构本身未持有。"
+          },
+          "limitations": [
+            "partner_not_held",
+            "annual_not_yet",
+            "descriptive_only"
+          ]
+        },
+        {
+          "indicator_id": "imports_goods_services",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Total imports are context for the partner structure, which is not held.",
+            "zh": "进口总额是伙伴结构的背景，伙伴结构本身未持有。"
+          },
+          "limitations": [
+            "partner_not_held",
+            "annual_not_yet",
+            "descriptive_only"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "at-2026-09-02-japan-economic-security",
+      "theme_ids": [
+        "fdi_production_networks"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "Ministers agreed to deepen economic-security and technology cooperation; no investment is recorded.",
+        "zh": "部长们同意深化经济安全与技术合作；没有记录投资。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "position_statement_only"
+    },
+    {
+      "event_id": "pl-2026-09-03-presidential-business-delegations",
+      "theme_ids": [
+        "fdi_production_networks"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "Companies may join presidential delegations abroad; participation is not a contract or an investment.",
+        "zh": "企业可参加总统出访代表团；参加不等于合同或投资。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "cz-2023-10-16-repowereu-plan",
+      "theme_ids": [
+        "energy_dependency_transition",
+        "eu_funding_development"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "Adoption of the REPowerEU chapter of Czechia's recovery plan; consumer energy prices and import dependency are descriptive context or a long-run research topic, and no series of EU funds received is held.",
+        "zh": "捷克复苏计划 REPowerEU 章节获得通过；居民能源价格和进口依赖度只是描述性背景或长期研究课题，Atlas 未持有欧盟资金收入序列。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Describes the domestic energy-price environment around adoption; the window is dominated by the 2022–2023 price shock and cannot be attributed to the plan.",
+            "zh": "描述通过前后的国内能源价格环境；该时段主要受 2022–2023 年价格冲击影响，不能归因于该计划。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "descriptive_only"
+          ],
+          "transformation": "yoy_rate"
+        },
+        {
+          "indicator_id": "energy_import_dependency",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "The chapter targets renewables and grid connection; any effect on import dependency is a hypothesis that would take years and require completed investments, which are not recorded.",
+            "zh": "该章节针对可再生能源和电网接入；对进口依赖度的影响是需要多年、并以投资完成为前提的假设，而投资完成没有记录。"
+          },
+          "limitations": [
+            "dependency_no_supplier",
+            "aggregate_not_isolable"
+          ]
+        },
+        {
+          "indicator_id": "household_electricity_price",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Household electricity prices describe the retail conditions the chapter's efficiency measures address.",
+            "zh": "居民电价描述了该章节能效措施所针对的零售环境。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "descriptive_only"
+          ]
+        },
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "D",
+          "connection": {
+            "en": "Coded on the event record, but the source describes no relationship between the plan and the manufacturing share.",
+            "zh": "事件记录编码了该指标，但来源没有描述计划与制造业占比之间的关系。"
+          },
+          "limitations": []
+        },
+        {
+          "indicator_id": "eu_funds_received",
+          "layers": [
+            "canonical_annual"
+          ],
+          "relationship": "E",
+          "connection": {
+            "en": "The most directly relevant measure, but it has no admitted observations; stage-specific amounts are in the funding records.",
+            "zh": "这是最直接相关的指标，但没有已收录观测值；分阶段金额见资金记录。"
+          },
+          "limitations": [
+            "indicator_pending"
+          ]
+        }
+      ],
+      "extends_event_analysis": true
+    },
+    {
+      "event_id": "sk-2026-10-09-sakova-slovakia-has-secured-contracts-and-sufficient-gas-supplies-for-winter",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "A minister's statement that winter gas supply is contracted; import dependency and consumer energy prices are background only, and gas dependency by supplier is not held.",
+        "zh": "部长表示冬季天然气供应已签约；进口依赖度和居民能源价格只作背景，Atlas 未持有按供应方的天然气依赖数据。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "energy_import_dependency",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Imported gas is part of energy imports; the indicator does not distinguish suppliers.",
+            "zh": "进口天然气属于能源进口；该指标不区分供应方。"
+          },
+          "limitations": [
+            "dependency_no_supplier",
+            "annual_not_yet",
+            "descriptive_only"
+          ]
+        },
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Describes the domestic energy-price environment only; it cannot be attributed to supply contracts.",
+            "zh": "仅描述国内能源价格环境，不能归因于供应合同。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "monthly_not_yet",
+            "descriptive_only"
+          ],
+          "transformation": "yoy_rate"
+        },
+        {
+          "indicator_id": "europe_natural_gas_price_usd",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "D",
+          "connection": {
+            "en": "The European benchmark price is set by the whole market and has no explainable relationship to one country's contracts.",
+            "zh": "欧洲基准价格由整个市场决定，与单个国家的合同没有可说明的关系。"
+          },
+          "limitations": [],
+          "country": "common",
+          "transformation": "level"
+        },
+        {
+          "indicator_id": "gas_import_dependency",
+          "layers": [
+            "canonical_annual"
+          ],
+          "relationship": "E",
+          "connection": {
+            "en": "The directly relevant measure is defined but has no admitted observations.",
+            "zh": "直接相关的指标已有定义，但没有已收录观测值。"
+          },
+          "limitations": [
+            "indicator_pending"
+          ]
+        }
+      ],
+      "extends_event_analysis": true
+    },
+    {
+      "event_id": "sk-2026-10-19-mochovce-nuclear-power-plant-fourth-unit-supplying-electricity-to-grid",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "C",
+      "summary": {
+        "en": "Mochovce unit 4 began supplying the grid on trial before regulatory approval of trial operation; in Eurostat energy balances nuclear heat is primary production, so more nuclear output adds to domestic supply, but 2026 balances are not published.",
+        "zh": "莫霍夫采 4 号机组在试运行获监管批准前开始向电网供电；在 Eurostat 能源平衡中核热属于一次能源生产，因此核电增加会提高国内供给，但 2026 年平衡表尚未发布。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "energy_import_dependency",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "Nuclear heat counts as domestic primary production in the energy balance; whether dependency falls also depends on demand and other imports, and the unit was not yet at full output.",
+            "zh": "能源平衡中核热计为国内一次能源生产；依赖度是否下降还取决于需求和其他进口，且该机组尚未满负荷运行。"
+          },
+          "limitations": [
+            "annual_not_yet",
+            "aggregate_not_isolable"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-13-cernavoda-shutdown",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "A controlled shutdown of a Cernavodă unit because of low Danube water; lost nuclear output would have to be replaced by other domestic sources or imports, which the 2026 energy balance would record.",
+        "zh": "多瑙河低水位导致切尔纳沃德机组受控停运；损失的核电需由其他国内电源或进口替代，2026 年能源平衡会记录这一点。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "energy_import_dependency",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "Replacement by electricity imports would raise net imports; the size of replacement is not documented and 2026 data are not published.",
+            "zh": "以电力进口替代会增加净进口；替代规模没有记录，2026 年数据尚未发布。"
+          },
+          "limitations": [
+            "annual_not_yet",
+            "dependency_no_supplier"
+          ]
+        },
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Describes consumer energy prices around the outage; Romanian retail electricity prices are also shaped by regulation.",
+            "zh": "描述停运前后的居民能源价格；罗马尼亚零售电价也受管制影响。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "monthly_not_yet",
+            "descriptive_only"
+          ],
+          "transformation": "yoy_rate"
+        }
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-14-alternative-power-supply",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "C",
+      "summary": {
+        "en": "The government relied on other domestic plants, renewables and imports to balance the system during the outage; the import channel is stated, its volume is not.",
+        "zh": "停运期间政府依靠其他国内电厂、可再生能源和进口平衡系统；进口渠道有表述，规模没有。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "energy_import_dependency",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "Electricity imports enter net energy imports; the volume is not stated and 2026 balances are not published.",
+            "zh": "电力进口计入能源净进口；规模未载明，2026 年平衡表尚未发布。"
+          },
+          "limitations": [
+            "annual_not_yet",
+            "dependency_no_supplier"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "ro-2026-09-23-the-energy-crisis-worsens-id1062593",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "A report of lower hydropower output and the Cernavodă shutdown; consumer energy prices are context, with no post-event monthly data yet.",
+        "zh": "报道水电出力下降和切尔纳沃德停运；居民能源价格作背景，事件后尚无月度数据。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Describes the consumer energy-price path before the report.",
+            "zh": "描述报道之前的居民能源价格走势。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "monthly_not_yet",
+            "descriptive_only"
+          ],
+          "transformation": "yoy_rate"
+        }
+      ]
+    },
+    {
+      "event_id": "ro-2026-11-09-romania-and-diversifying-energy-sources",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "Plans to diversify sources and build storage after months of reliance on imports; import dependency describes the structure the plans address.",
+        "zh": "在依赖进口数月后，政府计划多元化能源来源并建设储能；进口依赖度描述了这些计划所针对的结构。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "energy_import_dependency",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Describes Romania's dependency over the held years; the plans are not implemented.",
+            "zh": "描述罗马尼亚在已持有年份的依赖度；相关计划尚未实施。"
+          },
+          "limitations": [
+            "dependency_no_supplier",
+            "announcement_not_realised",
+            "descriptive_only"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "rs-2026-11-09-janaf-suspends-oil-transport-to-serbia-after-pipeline-accident",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "Crude deliveries to the Pančevo refinery through the JANAF pipeline were suspended after an accident; import dependency describes Serbia's reliance on imported energy.",
+        "zh": "事故后经 JANAF 管道向潘切沃炼油厂输送原油中断；进口依赖度描述塞尔维亚对进口能源的依赖。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "energy_import_dependency",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Crude oil is imported energy; a temporary route suspension is not measured by an annual ratio.",
+            "zh": "原油属于进口能源；暂时的运输中断不由年度比率衡量。"
+          },
+          "limitations": [
+            "dependency_no_supplier",
+            "annual_not_yet",
+            "descriptive_only"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "rs-2026-10-30-nis-gets-new-operating-license",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "A US Treasury licence lets NIS keep operating, including crude imports, until 11 December 2026; import dependency is background.",
+        "zh": "美国财政部许可 NIS 继续运营（包括原油进口）至 2026 年 12 月 11 日；进口依赖度作背景。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "energy_import_dependency",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "The licence concerns refinery operation and crude imports, which sit within Serbia's energy imports.",
+            "zh": "该许可涉及炼油运营和原油进口，属于塞尔维亚能源进口范围。"
+          },
+          "limitations": [
+            "dependency_no_supplier",
+            "annual_not_yet",
+            "descriptive_only"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "rs-2026-09-30-srbijagas-ceo-bajatovic-gas-supply-deal-with-russia-extended-through-end-of-year",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "A company chief's statement that the Russian gas-supply agreement is extended to year-end; gas dependency by supplier is not held.",
+        "zh": "企业负责人表示俄罗斯天然气供应协议延长至年底；Atlas 未持有按供应方的天然气依赖数据。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "energy_import_dependency",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Imported gas is part of Serbia's energy imports; suppliers are not distinguished.",
+            "zh": "进口天然气属于塞尔维亚能源进口；不区分供应方。"
+          },
+          "limitations": [
+            "dependency_no_supplier",
+            "annual_not_yet",
+            "descriptive_only"
+          ]
+        },
+        {
+          "indicator_id": "gas_import_dependency",
+          "layers": [
+            "canonical_annual"
+          ],
+          "relationship": "E",
+          "connection": {
+            "en": "Defined but without admitted observations.",
+            "zh": "已有定义但没有已收录观测值。"
+          },
+          "limitations": [
+            "indicator_pending"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "rs-2026-09-25-world-bank-approves-600-million-for-serbias-gas-sector-development-program",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A World Bank approval of a USD 600 million multiphase gas-sector programme; an approval is not disbursement, and no held indicator measures gas-sector investment.",
+        "zh": "世界银行批准 6 亿美元分阶段天然气行业计划；批准不是拨付，没有已持有指标衡量天然气行业投资。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "rs-2026-08-14-nis-gas-power-plant",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "Planning for a gas-fired plant near Niš; generation capacity is not held.",
+        "zh": "尼什附近燃气电站的规划；Atlas 未持有发电装机数据。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "at-2026-09-28-403194332",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "Parliament adopted fuel relief for October and November through tax relief and margin limits.",
+        "zh": "议会通过 10 月和 11 月的燃油减负措施，包括减税和利润限制。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "HICP energy includes fuels for personal transport and records consumer prices including taxes, so a retail cap or tax cut falls within what the series measures; its weight in the index is not documented here.",
+            "zh": "HICP 能源分项包括私人交通燃料，并按含税的消费者价格记录，因此零售限价或减税属于该序列的计量范围；其在指数中的权重此处未记录。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "monthly_not_yet",
+            "descriptive_only"
+          ],
+          "transformation": "yoy_rate"
+        }
+      ]
+    },
+    {
+      "event_id": "at-2026-10-31-spritpreisbremse-verlaengert-30-november-12-cent",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "Austria extended its fuel price relief (mineral-oil tax cut and margin cap) to 30 November 2026.",
+        "zh": "奥地利把燃油价格减负（矿物油税下调和利润上限）延长至 2026 年 11 月 30 日。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "HICP energy includes fuels for personal transport and records consumer prices including taxes, so a retail cap or tax cut falls within what the series measures; its weight in the index is not documented here.",
+            "zh": "HICP 能源分项包括私人交通燃料，并按含税的消费者价格记录，因此零售限价或减税属于该序列的计量范围；其在指数中的权重此处未记录。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "monthly_not_yet",
+            "descriptive_only"
+          ],
+          "transformation": "yoy_rate"
+        }
+      ]
+    },
+    {
+      "event_id": "at-2026-08-28-energy-cost-increase",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "The Austrian Energy Agency estimates billions of euros in extra costs from six months of higher oil and gas prices; the monthly HICP energy series covers that six-month period.",
+        "zh": "奥地利能源署估算过去六个月油气涨价带来数十亿欧元额外成本；月度 HICP 能源序列覆盖这六个月。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "Consumer energy-price inflation for February–July 2026 describes the period the estimate covers; the agency's cost estimate is not an official statistic.",
+            "zh": "2026 年 2–7 月的居民能源价格通胀描述了该估算覆盖的时期；能源署的成本估算不是官方统计。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "descriptive_only"
+          ],
+          "transformation": "yoy_rate"
+        }
+      ]
+    },
+    {
+      "event_id": "cz-2026-09-30-czech-government-sets-fuel-price-caps-amid-rising-prices-8898710",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "Czechia set maximum fuel prices from 1 October 2026.",
+        "zh": "捷克自 2026 年 10 月 1 日起设定燃油最高价格。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "HICP energy includes fuels for personal transport and records consumer prices including taxes, so a retail cap or tax cut falls within what the series measures; its weight in the index is not documented here.",
+            "zh": "HICP 能源分项包括私人交通燃料，并按含税的消费者价格记录，因此零售限价或减税属于该序列的计量范围；其在指数中的权重此处未记录。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "monthly_not_yet",
+            "descriptive_only"
+          ],
+          "transformation": "yoy_rate"
+        }
+      ]
+    },
+    {
+      "event_id": "cz-2026-10-26-government-extends-fuel-price-regulation-until-november-30",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "Czech fuel price regulation (maximum prices, margin cap, diesel excise cut) extended to 30 November.",
+        "zh": "捷克燃油价格管制（最高价、利润上限、柴油消费税下调）延长至 11 月 30 日。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "HICP energy includes fuels for personal transport and records consumer prices including taxes, so a retail cap or tax cut falls within what the series measures; its weight in the index is not documented here.",
+            "zh": "HICP 能源分项包括私人交通燃料，并按含税的消费者价格记录，因此零售限价或减税属于该序列的计量范围；其在指数中的权重此处未记录。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "monthly_not_yet",
+            "descriptive_only"
+          ],
+          "transformation": "yoy_rate"
+        }
+      ]
+    },
+    {
+      "event_id": "hr-2026-11-09-od-utorka-nize-cijene-goriva",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "Croatia's government set new maximum retail fuel prices for seven days from 10 November 2026.",
+        "zh": "克罗地亚政府自 2026 年 11 月 10 日起设定为期七天的新燃油最高零售价。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "HICP energy includes fuels for personal transport and records consumer prices including taxes, so a retail cap or tax cut falls within what the series measures; its weight in the index is not documented here.",
+            "zh": "HICP 能源分项包括私人交通燃料，并按含税的消费者价格记录，因此零售限价或减税属于该序列的计量范围；其在指数中的权重此处未记录。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "monthly_not_yet",
+            "descriptive_only"
+          ],
+          "transformation": "yoy_rate"
+        }
+      ]
+    },
+    {
+      "event_id": "hr-2026-11-05-mjera-subvencioniranja-cijene-grijanja-za-kucanstva-nastavlja-se",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "Croatia extended its household heat-price subsidy from October 2026 to March 2027.",
+        "zh": "克罗地亚将居民供热价格补贴延长至 2026 年 10 月至 2027 年 3 月。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "HICP energy includes heat energy for households; the subsidy changes a price the series records, but its weight and the post-event months are not available.",
+            "zh": "HICP 能源分项包括居民供热；补贴改变了该序列记录的价格，但其权重和事件后月份数据均不可得。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "monthly_not_yet",
+            "descriptive_only"
+          ],
+          "transformation": "yoy_rate"
+        }
+      ]
+    },
+    {
+      "event_id": "de-2026-09-15-merz-kuendigt-entlastungen-bei-spritpreisen-an-100",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "B",
+      "summary": {
+        "en": "The Chancellor announced fuel-price relief with instruments not yet specified.",
+        "zh": "总理宣布燃油价格减负措施，具体工具尚未明确。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "B",
+          "connection": {
+            "en": "HICP energy includes fuels for personal transport and records consumer prices including taxes, so a retail cap or tax cut falls within what the series measures; its weight in the index is not documented here. No instrument was adopted at the time of the report.",
+            "zh": "HICP 能源分项包括私人交通燃料，并按含税的消费者价格记录，因此零售限价或减税属于该序列的计量范围；其在指数中的权重此处未记录。报道时尚未通过具体工具。"
+          },
+          "limitations": [
+            "prices_multi_cause",
+            "monthly_not_yet",
+            "descriptive_only"
+          ],
+          "transformation": "yoy_rate"
+        }
+      ]
+    },
+    {
+      "event_id": "pl-2026-11-03-poland-has-eus-second-highest-electricity-prices-accounting-for-cost-of-living",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "A",
+      "summary": {
+        "en": "A report of Eurostat household electricity prices for the first half of 2026; the Atlas holds the same Eurostat household price dataset as annual EUR values to 2024.",
+        "zh": "报道 Eurostat 2026 年上半年居民电价；Atlas 持有同一 Eurostat 居民电价数据集，为截至 2024 年的年度欧元值。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "household_electricity_price",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "A",
+          "connection": {
+            "en": "Same Eurostat dataset (nrg_pc_204); the report uses semi-annual 2026 data and purchasing-power standards, while the Atlas holds annual EUR per kWh, so the cited figures are not in the held periods or unit.",
+            "zh": "同一 Eurostat 数据集（nrg_pc_204）；报道使用 2026 年半年度数据和购买力标准，而 Atlas 持有的是年度每千瓦时欧元值，因此引用数字不在已持有期间或单位之内。"
+          },
+          "limitations": [
+            "annual_not_yet"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "si-2026-09-03-energy-excise",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "C",
+      "summary": {
+        "en": "The government proposed amending excise duty on energy to ease prices; if adopted it would change prices that HICP energy records, but adoption and dates are not recorded.",
+        "zh": "政府提出修改能源消费税以缓解价格；若通过将改变 HICP 能源分项记录的价格，但通过情况和日期没有记录。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layers": [
+            "macro_driver_monthly"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "Excise duty is part of the consumer price HICP records; the proposal's adoption and entry into force are not documented.",
+            "zh": "消费税是 HICP 记录的消费者价格的一部分；提案的通过和生效没有记录。"
+          },
+          "limitations": [
+            "monthly_not_yet",
+            "prices_multi_cause"
+          ],
+          "transformation": "yoy_rate"
+        }
+      ]
+    },
+    {
+      "event_id": "sk-2026-09-10-fico-believes-reducing-electricity-prices-will-be-key-issue-for-v4",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A stated priority for lower electricity prices in V4 talks; no measure is recorded.",
+        "zh": "在 V4 会谈中表示优先降低电价；没有记录措施。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "position_statement_only"
+    },
+    {
+      "event_id": "si-2026-10-15-2026-10-15-prime-minister-jansa-all-available-options-must-be-used-to-ensure-stable-energy-prices",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A statement of priorities before a European Council meeting; no measure is recorded.",
+        "zh": "欧洲理事会会议前的优先事项表态；没有记录措施。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [],
+      "reason_code": "position_statement_only"
+    },
+    {
+      "event_id": "cz-2026-10-15-czechia-and-visegrad-partners-seek-delay-eu-emissions-scheme-8900132",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A diplomatic request to delay ETS2; no EU decision was taken and ETS2 is not in force.",
+        "zh": "要求推迟 ETS2 的外交诉求；欧盟未作决定，ETS2 尚未实施。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "position_statement_only"
+    },
+    {
+      "event_id": "cz-2026-09-23-skoda-js-supply-drives-rolls-royce-small-modular-reactors-8898064",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A supply contract for future small modular reactors; no held indicator measures it.",
+        "zh": "为未来小型模块化反应堆供货的合同；没有已持有指标衡量该事项。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "pl-2026-10-03-poland-updates-nuclear-strategy-with-delays-to-launch-of-first-two-plants",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "Revised target dates for nuclear plants in 2036 and 2040; no held indicator measures planned capacity.",
+        "zh": "核电站目标投运时间修订为 2036 和 2040 年；没有已持有指标衡量规划装机。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "pl-2026-10-15-poland-signs-agreement-on-planned-second-nuclear-plant",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "An agreement allocating preparatory roles for a second nuclear plant; no held indicator measures it.",
+        "zh": "为第二座核电站分配筹备职责的协议；没有已持有指标衡量该事项。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "pl-2026-10-30-poland-approves-first-fast-track-renewable-energy-zones",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "Approval of the first renewable acceleration zones (66–80 MW technical potential); renewable capacity and generation are not held.",
+        "zh": "首批可再生能源加速区获批（技术潜力 66–80 兆瓦）；Atlas 未持有可再生能源装机和发电数据。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "hu-2026-11-03-szelenergia-szeleromu-palyazat-2300-megawatt-jelentkezesek",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "A wind-capacity tender drew about 2,300 MW of bids for roughly 700 MW of grid capacity; generation capacity is not held.",
+        "zh": "风电装机招标收到约 2300 兆瓦申请，而电网容量约 700 兆瓦；Atlas 未持有发电装机数据。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "hu-2026-09-01-wind-energy-grid",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "A minister's plan to open space for wind after grid upgrades funded by EU money; generation capacity is not held and the EU amount has no official source in the record.",
+        "zh": "部长计划在欧盟资金支持的电网升级后为风电开放空间；Atlas 未持有发电装机数据，记录中的欧盟金额也没有官方来源。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "de-2026-08-20-solar-target",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "Industry data on solar capacity additions; renewable capacity is not held.",
+        "zh": "关于太阳能新增装机的行业数据；Atlas 未持有可再生能源装机数据。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "de-2026-11-10-gasspeicher-betreiber-warnen-vor-engpaessen-bei-extremer-kaelte",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "Storage operators report 61% fill on 1 November against an 80% target; gas storage is not held and gas dependency is pending.",
+        "zh": "储气运营商报告 11 月 1 日储气率 61%，低于 80% 目标；Atlas 未持有储气数据，天然气依赖度尚待接入。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "de-2026-09-03-us-lng-dependence",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "Discussion of reliance on US LNG; gas imports by supplier are not held.",
+        "zh": "关于依赖美国液化天然气的讨论；Atlas 未持有按供应方的天然气进口数据。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "cz-2026-09-03-gas-storage",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "Czech gas storage near 70% full; gas storage is not held.",
+        "zh": "捷克储气设施接近 70%；Atlas 未持有储气数据。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "hu-2026-08-15-energy-development-plan",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "A government energy-system development plan summarised without its measures or amounts; the record does not state enough to relate it to an indicator.",
+        "zh": "政府能源系统发展方案的摘要未列出措施或金额；记录信息不足以与指标建立关系。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "source_insufficient"
+    },
+    {
+      "event_id": "hr-2026-08-19-energy-statistics",
+      "theme_ids": [
+        "energy_dependency_transition"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "A short-term energy statistics release; monthly energy production and supply are not held.",
+        "zh": "短期能源统计发布；Atlas 未持有月度能源生产和供应数据。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [],
+      "reason_code": "indicator_not_held"
+    },
+    {
+      "event_id": "hu-2023-01-26-eu-funds-conditionality",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "C",
+      "summary": {
+        "en": "Council measures under the conditionality regulation restrict new EU-budget legal commitments with Hungarian public-interest trusts; public-finance links are hypotheses and no EU-funds series is held.",
+        "zh": "理事会依据条件机制条例采取措施，限制与匈牙利公共利益信托签署新的欧盟预算法律承诺；与公共财政的关系属假设，Atlas 未持有欧盟资金序列。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "government_expenditure_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "If the national budget replaced restricted EU funding, this could appear in expenditure; the annual total cannot isolate it.",
+            "zh": "如果国家预算替代被限制的欧盟资金，可能体现在支出中；年度总量无法分离。"
+          },
+          "limitations": [
+            "aggregate_not_isolable",
+            "rrf_recording"
+          ]
+        },
+        {
+          "indicator_id": "government_revenue_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "EU transfers recorded as government revenue could be affected; the restriction covers new commitments only.",
+            "zh": "计入政府收入的欧盟转移支付可能受影响；限制只涉及新的承诺。"
+          },
+          "limitations": [
+            "aggregate_not_isolable",
+            "rrf_recording"
+          ]
+        },
+        {
+          "indicator_id": "eu_funds_received",
+          "layers": [
+            "canonical_annual"
+          ],
+          "relationship": "E",
+          "connection": {
+            "en": "The most relevant measure, but without admitted observations.",
+            "zh": "最相关的指标，但没有已收录观测值。"
+          },
+          "limitations": [
+            "indicator_pending"
+          ]
+        }
+      ],
+      "extends_event_analysis": true
+    },
+    {
+      "event_id": "hu-2026-10-27-erasmus-is-back-at-all-hungarian-universities",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "The Council ended the 2022 conditionality procedure on 13 October and Erasmus+ agreements were signed again; the amounts involved are reported inconsistently and no EU-funds series is held.",
+        "zh": "理事会于 10 月 13 日终止 2022 年的条件机制程序，伊拉斯谟+协议重新签署；报道中的相关金额前后不一，Atlas 未持有欧盟资金序列。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "eu_funds_received",
+          "layers": [
+            "canonical_annual"
+          ],
+          "relationship": "E",
+          "connection": {
+            "en": "No admitted observations.",
+            "zh": "没有已收录观测值。"
+          },
+          "limitations": [
+            "indicator_pending"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "sk-2024-10-22-rrf-fourth-instalment",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "C",
+      "summary": {
+        "en": "A Commission decision authorising Slovakia's fourth RRF non-repayable instalment of €923.828 million; it is an authorisation, and how the transfer enters government accounts is not established in the Atlas.",
+        "zh": "欧盟委员会决定授权斯洛伐克第四笔复苏与韧性基金非偿还性支持 9.23828 亿欧元；这是授权，转移支付如何计入政府账户在 Atlas 中尚未确定。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "government_revenue_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "RRF grants are transfers to government; their recording follows statistical guidance not admitted here.",
+            "zh": "复苏与韧性基金赠款是对政府的转移支付；其记录方式取决于此处未收录的统计指引。"
+          },
+          "limitations": [
+            "rrf_recording",
+            "aggregate_not_isolable"
+          ]
+        },
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "Coded on the event record; any effect on the balance depends on the recording of revenue and the expenditure it finances.",
+            "zh": "事件记录编码了该指标；对差额的影响取决于收入记录方式和其所资助的支出。"
+          },
+          "limitations": [
+            "rrf_recording",
+            "aggregate_not_isolable"
+          ]
+        },
+        {
+          "indicator_id": "eu_funds_received",
+          "layers": [
+            "canonical_annual"
+          ],
+          "relationship": "E",
+          "connection": {
+            "en": "No admitted observations.",
+            "zh": "没有已收录观测值。"
+          },
+          "limitations": [
+            "indicator_pending"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "pl-2024-07-01-amended-recovery-plan",
+      "theme_ids": [
+        "eu_funding_development",
+        "energy_dependency_transition"
+      ],
+      "classification": "C",
+      "summary": {
+        "en": "A Commission positive assessment of Poland's amended recovery plan, combining grants, loans and REPowerEU investments; amounts are not restated in the record.",
+        "zh": "欧盟委员会对波兰修订后复苏计划作出积极评估，计划包括赠款、贷款和 REPowerEU 投资；记录未转述金额。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "government_expenditure_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "Spending financed by the plan would appear in government expenditure when incurred; the annual total cannot isolate it.",
+            "zh": "计划资助的支出发生时会计入政府支出；年度总量无法分离。"
+          },
+          "limitations": [
+            "rrf_recording",
+            "aggregate_not_isolable"
+          ]
+        },
+        {
+          "indicator_id": "energy_import_dependency",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "REPowerEU investments aim at energy security; an effect on dependency would require completed investments, which are not recorded.",
+            "zh": "REPowerEU 投资旨在能源安全；对依赖度的影响需以投资完成为前提，而投资完成没有记录。"
+          },
+          "limitations": [
+            "dependency_no_supplier",
+            "aggregate_not_isolable"
+          ]
+        },
+        {
+          "indicator_id": "eu_funds_received",
+          "layers": [
+            "canonical_annual"
+          ],
+          "relationship": "E",
+          "connection": {
+            "en": "No admitted observations.",
+            "zh": "没有已收录观测值。"
+          },
+          "limitations": [
+            "indicator_pending"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "si-2026-09-29-2026-09-29-slovenia-submits-final-payment-request-for-funds-under-the-recovery-and-resilience-f",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "Slovenia submitted its final RRF payment request (€268.67 million grants, €3.1 million loans), still under assessment; a request is not a payment and no EU-funds series is held.",
+        "zh": "斯洛文尼亚提交复苏与韧性基金最后一笔付款申请（赠款 2.6867 亿欧元，贷款 310 万欧元），仍在评估中；申请不是付款，Atlas 未持有欧盟资金序列。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "eu_funds_received",
+          "layers": [
+            "canonical_annual"
+          ],
+          "relationship": "E",
+          "connection": {
+            "en": "No admitted observations.",
+            "zh": "没有已收录观测值。"
+          },
+          "limitations": [
+            "indicator_pending"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "ro-2026-10-01-final-payment-request-under-nrrp-id1065838",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "Romania submitted its final recovery-plan payment request on 30 September; the amount is not stated in the record.",
+        "zh": "罗马尼亚于 9 月 30 日提交复苏计划最后一笔付款申请；记录未载明金额。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "source_insufficient"
+    },
+    {
+      "event_id": "ro-2026-09-02-rrf-absorption",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "The caretaker prime minister's expected absorption rates; a ministerial expectation is not an official payment statistic.",
+        "zh": "看守总理预计的吸收率；部长的预期不是官方付款统计。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "source_insufficient"
+    },
+    {
+      "event_id": "ro-2026-08-26-safe-payment",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "C",
+      "summary": {
+        "en": "Romania received a €2.5 billion first payment under the SAFE defence loan instrument; loans drawn by government count towards debt, but 2026 annual data are not published.",
+        "zh": "罗马尼亚收到 SAFE 国防贷款工具首笔 25 亿欧元付款；政府提取的贷款计入债务，但 2026 年年度数据尚未发布。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "government_debt_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "A loan drawn by government adds to gross debt; the year's data are not yet published and other borrowing moves the ratio too.",
+            "zh": "政府提取的贷款增加总债务；当年数据尚未发布，其他借款也会影响该比率。"
+          },
+          "limitations": [
+            "annual_not_yet",
+            "aggregate_not_isolable"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "cz-2026-10-07-czechia-receives-first-eu309-million-eu-safe-defence-fund-8899283",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "C",
+      "summary": {
+        "en": "Czechia received a first €309 million SAFE payment; links to debt and expenditure are hypotheses until annual data are published.",
+        "zh": "捷克收到 SAFE 首笔 3.09 亿欧元付款；在年度数据发布前，与债务和支出的关系只是假设。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "government_debt_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "A drawn loan counts towards government debt; 2026 data are not published.",
+            "zh": "已提取的贷款计入政府债务；2026 年数据尚未发布。"
+          },
+          "limitations": [
+            "annual_not_yet",
+            "aggregate_not_isolable"
+          ]
+        },
+        {
+          "indicator_id": "government_expenditure_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "Spending of the loan would appear in expenditure; no separate defence-expenditure series is held.",
+            "zh": "贷款支出会计入政府支出；Atlas 未单独持有国防支出序列。"
+          },
+          "limitations": [
+            "annual_not_yet",
+            "aggregate_not_isolable"
+          ]
+        }
+      ],
+      "extends_event_analysis": true
+    },
+    {
+      "event_id": "hr-2026-11-05-za-vodoopskrbu-diljem-hrvatske-gotovo-275-milijuna-eura",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "C",
+      "summary": {
+        "en": "Croatia signed about €275 million of water-supply and wastewater contracts, 22 of them funded by the recovery plan; contracts are commitments, not completed works.",
+        "zh": "克罗地亚签署约 2.75 亿欧元供水和污水合同，其中 22 份由复苏计划资助；合同是承诺，不是已完工程。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [
+        {
+          "indicator_id": "government_expenditure_gdp",
+          "layers": [
+            "canonical_annual",
+            "historical_annual"
+          ],
+          "relationship": "C",
+          "connection": {
+            "en": "Payments under the contracts would appear in public expenditure as works are carried out; 2026 data are not published.",
+            "zh": "合同付款会随工程实施计入公共支出；2026 年数据尚未发布。"
+          },
+          "limitations": [
+            "annual_not_yet",
+            "rrf_recording",
+            "aggregate_not_isolable"
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "si-2026-08-24-maribor-research-eu-funds",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "EU funding of over €17 million for University of Maribor research capacity; no held indicator measures research capacity.",
+        "zh": "逾 1700 万欧元欧盟资金用于马里博尔大学研究能力；没有已持有指标衡量研究能力。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "cz-2026-09-08-commission-confirms-suspension-some-subsidies-group-founded-babis-8896815",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "The Commission suspended some rural-development payments to one company group over potential conflicts of interest; one beneficiary's payments are not measured by any held indicator.",
+        "zh": "欧盟委员会因潜在利益冲突暂停向一家企业集团支付部分农村发展资金；单一受益方的付款不由任何已持有指标衡量。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "ro-2026-11-10-european-commission-president-ursula-von-der-leyen-travels-to-bucharest",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "The Commission President announced €50 million for a Black Sea maritime security hub; an announcement with no cited decision.",
+        "zh": "欧盟委员会主席宣布为黑海海上安全中心提供 5000 万欧元；宣布时未引用任何决定。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "no_quantitative_channel"
+    },
+    {
+      "event_id": "at-2026-09-04-eu-budget-position",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A negotiating position on the next EU long-term budget.",
+        "zh": "关于下一期欧盟长期预算的谈判立场。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "position_statement_only"
+    },
+    {
+      "event_id": "si-2026-10-13-2026-10-13-state-secretary-weingerl-pozar-at-the-general-affairs-council-on-the-next-multiannual-financial-framework",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A negotiating position on the 2028–2034 multiannual financial framework.",
+        "zh": "关于 2028—2034 年多年期财政框架的谈判立场。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [],
+      "reason_code": "position_statement_only"
+    },
+    {
+      "event_id": "hr-2026-10-16-hrvatska-zeli-ocuvati-tradicionalnu-kohezijsku-i-poljoprivrednu-politiku-ali-i-osigurati-sredstva-za-nove-prioritete-47440",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A national position on the next EU budget; the €7 billion net figure is the prime minister's statement about a proposal under negotiation.",
+        "zh": "关于下一期欧盟预算的国家立场；70 亿欧元净额是总理对谈判中方案的说法。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [],
+      "reason_code": "position_statement_only"
+    },
+    {
+      "event_id": "sk-2026-11-10-premier-merzs-letter-is-blackmail-well-discuss-issue-with-babis",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A reaction to a reported letter on the EU budget; no decision.",
+        "zh": "对报道中关于欧盟预算信函的回应；没有决定。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "position_statement_only"
+    },
+    {
+      "event_id": "sk-2026-10-19-sakova-v4-countries-want-to-discuss-support-for-industry-from-eu-funds",
+      "theme_ids": [
+        "eu_funding_development",
+        "energy_dependency_transition"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A joint declaration asking for EU funds to support industry; a position, not a funding decision.",
+        "zh": "要求欧盟资金支持工业的联合声明；是立场，不是资金决定。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "position_statement_only"
+    },
+    {
+      "event_id": "pl-2026-06-24-v4-summit",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "D",
+      "summary": {
+        "en": "A summit statement on coordinating EU agenda positions; the funding and fiscal indicators coded on the event record have no relationship to it.",
+        "zh": "关于协调欧盟议程立场的峰会声明；事件记录编码的资金和财政指标与之没有关系。"
+      },
+      "evidence_status": "official_record_admitted",
+      "indicators": [],
+      "reason_code": "position_statement_only"
+    },
+    {
+      "event_id": "hu-2026-08-15-eu-recovery-fund",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "classification": "E",
+      "summary": {
+        "en": "A minister's statement on recovering about €10 billion of EU recovery funds, sourced to a non-specific category page.",
+        "zh": "部长关于争取收回约 100 亿欧元欧盟复苏资金的表态，来源为非特定的栏目页面。"
+      },
+      "evidence_status": "media_record_admitted",
+      "indicators": [],
+      "reason_code": "source_insufficient"
+    }
+  ]
+}

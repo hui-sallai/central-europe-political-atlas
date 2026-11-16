@@ -1,0 +1,368 @@
+{
+  "schema_version": "atlas-thematic-research-v1",
+  "verified_on": "2026-11-17",
+  "countries": [
+    "poland",
+    "hungary",
+    "czechia",
+    "slovakia",
+    "germany",
+    "romania",
+    "slovenia",
+    "serbia",
+    "austria",
+    "croatia"
+  ],
+  "method": {
+    "en": "The thematic layer links existing Atlas records: admitted events, project records, implementation milestones and official observation stores. It records what each source establishes and which held indicators can be inspected; it never estimates an effect, never converts a company figure into a statistic and never fills a missing observation.",
+    "zh": "专题层只连接 Atlas 已有记录：已收录事件、项目记录、实施里程碑和官方观测数据。它记录每个来源能证明什么、可以查看哪些已有指标；不估计效应，不把企业数字当作统计数据，也不补齐缺失观测值。"
+  },
+  "relationship_types": {
+    "A": {
+      "code": "documented_statistical",
+      "label": {
+        "en": "Documented statistical relationship",
+        "zh": "有文献记载的统计关系"
+      },
+      "definition": {
+        "en": "The event's own source reports, or is published from, the same statistical measure the Atlas holds, or an official document states a quantity measured by that indicator's definition.",
+        "zh": "事件来源本身报告或发布了 Atlas 持有的同一统计量，或官方文件载明了按该指标定义计量的数量。"
+      }
+    },
+    "B": {
+      "code": "descriptive_context",
+      "label": {
+        "en": "Relevant descriptive context",
+        "zh": "相关描述性背景"
+      },
+      "definition": {
+        "en": "The indicator measures the domain the event concerns and can be read around the event date as background. No quantity in the event is linked to the indicator.",
+        "zh": "该指标衡量事件所涉领域，可在事件日期前后作为背景查看；事件中的数量与指标之间没有对应关系。"
+      }
+    },
+    "C": {
+      "code": "research_topic",
+      "label": {
+        "en": "Plausible research topic, further evidence needed",
+        "zh": "合理的研究课题，需要更多证据"
+      },
+      "definition": {
+        "en": "A channel from the event to the indicator is plausible and stated as a hypothesis. The evidence needed to test it (project-level flows, dates of realisation, a comparison design) is not held.",
+        "zh": "从事件到指标存在合理渠道，按研究假设记录；检验所需的证据（项目层面的资金流、实现日期、比较设计）尚未持有。"
+      }
+    },
+    "D": {
+      "code": "no_justified_relationship",
+      "label": {
+        "en": "No justified indicator relationship",
+        "zh": "无合理的指标关系"
+      },
+      "definition": {
+        "en": "No held indicator measures what the event concerns, or the event's quantities fall outside the indicator's definition.",
+        "zh": "没有已持有指标衡量事件所涉内容，或事件中的数量不在指标定义范围内。"
+      }
+    },
+    "E": {
+      "code": "insufficient_evidence",
+      "label": {
+        "en": "Source evidence insufficient",
+        "zh": "来源证据不足"
+      },
+      "definition": {
+        "en": "The relevant measure is pending or not held, or the event source does not state enough to establish a relationship.",
+        "zh": "相关指标尚待接入或未持有，或事件来源的信息不足以建立关系。"
+      }
+    }
+  },
+  "reason_codes": {
+    "indicator_not_held": {
+      "en": "The relevant measure is not held in the Atlas.",
+      "zh": "Atlas 未持有相关指标。"
+    },
+    "indicator_pending": {
+      "en": "The indicator is defined but has no admitted observations.",
+      "zh": "该指标已有定义，但没有已收录的观测值。"
+    },
+    "no_quantitative_channel": {
+      "en": "The event has no quantity or channel that a held indicator measures.",
+      "zh": "事件没有任何可由已持有指标衡量的数量或渠道。"
+    },
+    "classification_incompatible": {
+      "en": "The activity falls outside the indicator's statistical classification.",
+      "zh": "该活动不在指标的统计分类范围内。"
+    },
+    "position_statement_only": {
+      "en": "The event records a stated position or request, not a measure.",
+      "zh": "事件记录的是立场或诉求，而不是措施。"
+    },
+    "source_insufficient": {
+      "en": "The event source does not state enough to establish a relationship.",
+      "zh": "事件来源信息不足，无法建立关系。"
+    },
+    "not_yet_published": {
+      "en": "Observations for the period after the event are not yet published.",
+      "zh": "事件之后时期的观测值尚未发布。"
+    }
+  },
+  "investment_stages": [
+    {
+      "id": "policy_announcement",
+      "label": {
+        "en": "Policy or project announcement",
+        "zh": "政策或项目公告"
+      }
+    },
+    {
+      "id": "legislative_adoption",
+      "label": {
+        "en": "Legislative or regulatory adoption",
+        "zh": "立法或法规通过"
+      }
+    },
+    {
+      "id": "administrative_approval",
+      "label": {
+        "en": "Administrative approval (permit, licence, designation)",
+        "zh": "行政审批（许可、执照、认定）"
+      }
+    },
+    {
+      "id": "financial_commitment",
+      "label": {
+        "en": "Financial commitment",
+        "zh": "资金承诺"
+      }
+    },
+    {
+      "id": "construction",
+      "label": {
+        "en": "Construction or development",
+        "zh": "建设或开发"
+      }
+    },
+    {
+      "id": "production_commencement",
+      "label": {
+        "en": "Start of production or operation",
+        "zh": "投产或运营开始"
+      }
+    },
+    {
+      "id": "observed_outcome",
+      "label": {
+        "en": "Officially observed outcome",
+        "zh": "官方观测到的结果"
+      }
+    }
+  ],
+  "stage_status": {
+    "documented": {
+      "en": "Documented by an official record",
+      "zh": "有官方记录"
+    },
+    "company_stated": {
+      "en": "Stated by the company only",
+      "zh": "仅有企业表述"
+    },
+    "reported": {
+      "en": "Reported by media, not confirmed by an official record",
+      "zh": "媒体报道，未经官方记录确认"
+    },
+    "disputed": {
+      "en": "Contested before a court or authority",
+      "zh": "在法院或主管机关面前存在争议"
+    },
+    "not_documented": {
+      "en": "No record located",
+      "zh": "未找到记录"
+    },
+    "not_applicable": {
+      "en": "Stage does not apply to this record",
+      "zh": "该阶段不适用"
+    }
+  },
+  "funding_stages": [
+    {
+      "id": "allocation",
+      "label": {
+        "en": "Programme allocation",
+        "zh": "计划拨款额度"
+      }
+    },
+    {
+      "id": "payment_request",
+      "label": {
+        "en": "Payment request submitted",
+        "zh": "已提交付款申请"
+      }
+    },
+    {
+      "id": "approved_financing",
+      "label": {
+        "en": "Approved financing (assessment or payment authorisation)",
+        "zh": "已批准资金（评估或付款授权）"
+      }
+    },
+    {
+      "id": "legal_commitment",
+      "label": {
+        "en": "Committed funds (contracts or legal commitments)",
+        "zh": "已承诺资金（合同或法律承诺）"
+      }
+    },
+    {
+      "id": "disbursement",
+      "label": {
+        "en": "Disbursement",
+        "zh": "已拨付"
+      }
+    },
+    {
+      "id": "expenditure",
+      "label": {
+        "en": "Actual expenditure",
+        "zh": "实际支出"
+      }
+    },
+    {
+      "id": "project_completion",
+      "label": {
+        "en": "Project completion",
+        "zh": "项目完成"
+      }
+    },
+    {
+      "id": "restriction",
+      "label": {
+        "en": "Restriction or suspension of funding",
+        "zh": "资金限制或暂停"
+      }
+    },
+    {
+      "id": "restriction_lifted",
+      "label": {
+        "en": "Restriction lifted",
+        "zh": "限制解除"
+      }
+    },
+    {
+      "id": "announcement",
+      "label": {
+        "en": "Announced funding, no decision cited",
+        "zh": "已宣布资金，未引用决定"
+      }
+    }
+  ],
+  "evidence_status": {
+    "official_document_verified": {
+      "en": "Read in the official document (SHA-256 recorded where a PDF was used)",
+      "zh": "已在官方文件中核读（PDF 记录 SHA-256）"
+    },
+    "official_record_admitted": {
+      "en": "Restated from an admitted Atlas record that cites an official source",
+      "zh": "转述自引用官方来源的已收录 Atlas 记录"
+    },
+    "media_record_admitted": {
+      "en": "Restated from an admitted Atlas event record based on a media report",
+      "zh": "转述自基于媒体报道的已收录 Atlas 事件记录"
+    },
+    "company_statement": {
+      "en": "Company statement only",
+      "zh": "仅为企业表述"
+    },
+    "not_located": {
+      "en": "No source located",
+      "zh": "未找到来源"
+    }
+  },
+  "coverage_statuses": {
+    "theme_applicable": {
+      "en": "Theme applicable",
+      "zh": "专题适用"
+    },
+    "official_source_identified": {
+      "en": "Official theme-specific source identified",
+      "zh": "已识别官方专题来源"
+    },
+    "data_admitted": {
+      "en": "Theme indicators admitted",
+      "zh": "专题指标已收录"
+    },
+    "historical_observations": {
+      "en": "Observations before 2021 available",
+      "zh": "有 2021 年以前的观测值"
+    },
+    "case_implemented": {
+      "en": "Research case implemented",
+      "zh": "研究案例已实现"
+    },
+    "evidence_missing": {
+      "en": "Evidence still missing",
+      "zh": "仍缺证据"
+    }
+  },
+  "layers": {
+    "canonical_annual": {
+      "en": "Canonical annual observations (2021 onwards)",
+      "zh": "规范年度观测值（2021 年起）"
+    },
+    "historical_annual": {
+      "en": "Annual descriptive history (before 2021)",
+      "zh": "年度描述性历史（2021 年前）"
+    },
+    "high_frequency_monthly": {
+      "en": "Monthly observations (2015 onwards)",
+      "zh": "月度观测值（2015 年起）"
+    },
+    "historical_monthly": {
+      "en": "Monthly descriptive history (before 2015)",
+      "zh": "月度描述性历史（2015 年前）"
+    },
+    "macro_driver_monthly": {
+      "en": "Monthly macro driver series",
+      "zh": "月度宏观驱动序列"
+    },
+    "sors_annual": {
+      "en": "Statistical Office of Serbia, annual",
+      "zh": "塞尔维亚统计局年度数据"
+    },
+    "sors_monthly": {
+      "en": "Statistical Office of Serbia, monthly",
+      "zh": "塞尔维亚统计局月度数据"
+    },
+    "regional_annual": {
+      "en": "Regional annual observations (2021 onwards)",
+      "zh": "区域年度观测值（2021 年起）"
+    },
+    "regional_history": {
+      "en": "Regional descriptive history (before 2021)",
+      "zh": "区域描述性历史（2021 年前）"
+    },
+    "sors_regional": {
+      "en": "Statistical Office of Serbia, NSTJ regional",
+      "zh": "塞尔维亚统计局 NSTJ 区域数据"
+    }
+  },
+  "boundaries": [
+    {
+      "en": "A policy event and an indicator shown together are not evidence that the event moved the indicator.",
+      "zh": "政策事件与指标并列展示，不构成事件推动指标变化的证据。"
+    },
+    {
+      "en": "Announced investment, permitted capacity and company-reported output are not realised investment, production or employment statistics.",
+      "zh": "公告投资额、许可产能和企业报告的产量，不是已实现投资、生产或就业统计。"
+    },
+    {
+      "en": "Project amounts are never added to, or compared as shares of, balance-of-payments direct-investment flows.",
+      "zh": "项目金额从不与国际收支直接投资流量相加，也不作为其占比比较。"
+    },
+    {
+      "en": "Funding stages (allocation, request, authorisation, commitment, disbursement, expenditure, completion) are kept separate and never summed into one amount.",
+      "zh": "资金各阶段（额度、申请、授权、承诺、拨付、支出、完成）分别记录，从不合并成一个金额。"
+    },
+    {
+      "en": "A project location identifies where a project is, not a measured regional effect; national figures are never assigned to a region.",
+      "zh": "项目地点只说明项目所在位置，不代表测得的区域效应；全国数字从不分配到某一区域。"
+    }
+  ]
+}

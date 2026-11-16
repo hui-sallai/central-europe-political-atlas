@@ -1,0 +1,923 @@
+{
+  "schema_version": "atlas-thematic-research-v1",
+  "records": [
+    {
+      "record_id": "hu-catl-debrecen-battery-plant",
+      "kind": "strategic_investment",
+      "theme_ids": [
+        "industrial_policy_strategic_investment",
+        "fdi_production_networks"
+      ],
+      "country": "hungary",
+      "title": {
+        "en": "CATL battery plant, Debrecen",
+        "zh": "宁德时代德布勒森电池工厂"
+      },
+      "project_id": "hu-catl-debrecen",
+      "event_ids": [
+        "hu-2022-08-12-catl-debrecen",
+        "hu-2026-11-04-tarkanyi-zsolt-catl-szandeknyilatkozat"
+      ],
+      "implementation_event_id": "hu-2022-08-12-catl-debrecen",
+      "sector": {
+        "en": "Lithium-ion battery cells, modules and packs",
+        "zh": "锂离子电池电芯、模组和电池包"
+      },
+      "activity_classification": "TEÁOR'08 2720 / TEÁOR'25 2720 (NACE Rev. 2 C27.20, batteries and accumulators), as stated in the environmental permits",
+      "responsible_institutions": [
+        {
+          "en": "Government of Hungary (decrees and resolutions in Magyar Közlöny)",
+          "zh": "匈牙利政府（《匈牙利公报》中的法令和决议）"
+        },
+        {
+          "en": "Hajdú-Bihar County Government Office (environmental, building and labour-safety authority)",
+          "zh": "豪伊杜-比豪尔州政府办公室（环境、建筑和劳动安全主管机关）"
+        },
+        {
+          "en": "Debrecen Regional Court (permit litigation)",
+          "zh": "德布勒森地区法院（许可诉讼）"
+        }
+      ],
+      "location": {
+        "region_id": "hungary_hajdu_bihar",
+        "admin_code": "HU321",
+        "classification": "NUTS 2024",
+        "locality": "Debrecen, Southern Industrial Park",
+        "basis": "project_location"
+      },
+      "administrative_responsibility": {
+        "en": "Permits are issued by the county government office; priority designation and infrastructure financing are national government acts.",
+        "zh": "许可由州政府办公室签发；重点认定和基础设施融资属于中央政府行为。"
+      },
+      "stages": [
+        {
+          "stage": "policy_announcement",
+          "status": "company_stated",
+          "date": "2022-08-12",
+          "date_precision": "day",
+          "summary": {
+            "en": "Company announcement of a €7.34 billion investment, 100 GWh planned capacity and a 221-hectare site.",
+            "zh": "企业公告 73.4 亿欧元投资、规划产能 100 吉瓦时和 221 公顷用地。"
+          },
+          "evidence": {
+            "implementation_milestones": [
+              "hu-e2-01-announcement"
+            ],
+            "event_ids": [
+              "hu-2022-08-12-catl-debrecen"
+            ]
+          },
+          "amounts": [
+            {
+              "value": 7340000000,
+              "currency": "EUR",
+              "kind": "announced_investment",
+              "precision": "rounded_as_published",
+              "label": {
+                "en": "announced investment",
+                "zh": "公告投资额"
+              }
+            }
+          ],
+          "quantities": [
+            {
+              "value": 100,
+              "unit": "GWh_per_year",
+              "kind": "announced_capacity",
+              "label": {
+                "en": "planned capacity",
+                "zh": "规划产能"
+              }
+            }
+          ]
+        },
+        {
+          "stage": "legislative_adoption",
+          "status": "documented",
+          "date": "2022-08-19",
+          "date_precision": "day",
+          "summary": {
+            "en": "Government Decree 323/2022 replaces the special building rules and boundary of the Debrecen site, a priority case of national economic importance; the decree does not name the investor.",
+            "zh": "第 323/2022 号政府法令替换德布勒森园区的特别建筑规则和边界，该园区属于具有国家经济意义的重点事项；法令未点名投资者。"
+          },
+          "evidence": {
+            "implementation_milestones": [
+              "hu-e2-02-priority-decree"
+            ]
+          }
+        },
+        {
+          "stage": "financial_commitment",
+          "status": "documented",
+          "date": "2022-08-18",
+          "date_precision": "day",
+          "summary": {
+            "en": "Government Resolution 1415/2022 budgets HUF 87.7 billion from the central budget for grid works serving the Southern Economic Zone (zone infrastructure, not support to the investor).",
+            "zh": "第 1415/2022 号政府决议从中央预算安排 877 亿福林用于南部经济区电网工程（属园区基础设施，不是对投资者的支持）。"
+          },
+          "evidence": {
+            "implementation_milestones": [
+              "hu-e2-03-grid-budget"
+            ]
+          },
+          "amounts": [
+            {
+              "value": 87718849000,
+              "currency": "HUF",
+              "kind": "budgeted",
+              "precision": "exact",
+              "label": {
+                "en": "grid works financing (zone infrastructure)",
+                "zh": "电网工程资金（园区基础设施）"
+              }
+            }
+          ]
+        },
+        {
+          "stage": "financial_commitment",
+          "status": "not_documented",
+          "date": null,
+          "date_precision": "undated",
+          "summary": {
+            "en": "No official record of public support to the investor was located; the 2022 letter of intent published in 2026 lists promised support but is non-binding.",
+            "zh": "未找到对投资者公共支持的官方记录；2026 年公开的 2022 年意向书列出承诺的支持，但不具约束力。"
+          },
+          "evidence": {
+            "implementation_milestones": [
+              "hu-e2-07-support-unavailable"
+            ],
+            "event_ids": [
+              "hu-2026-11-04-tarkanyi-zsolt-catl-szandeknyilatkozat"
+            ]
+          }
+        },
+        {
+          "stage": "administrative_approval",
+          "status": "documented",
+          "date": "2023-08",
+          "date_precision": "month",
+          "summary": {
+            "en": "Unified environmental use permit, modified after a significant-change review; permitted cell capacity 40 GWh a year.",
+            "zh": "统一环境使用许可经重大变更审查后修改；许可电芯产能每年 40 吉瓦时。"
+          },
+          "evidence": {
+            "implementation_milestones": [
+              "hu-e2-04-environmental-permit",
+              "hu-e2-05-permit-modified"
+            ]
+          },
+          "quantities": [
+            {
+              "value": 40,
+              "unit": "GWh_per_year",
+              "kind": "permitted_capacity",
+              "label": {
+                "en": "permitted cell capacity",
+                "zh": "许可电芯产能"
+              }
+            }
+          ]
+        },
+        {
+          "stage": "administrative_approval",
+          "status": "documented",
+          "date": "2025-11-17",
+          "date_precision": "day",
+          "summary": {
+            "en": "Fourth permit amendment: cell capacity 40.7 GWh, module and pack assembly 18.9 GWh, total 59.6 GWh a year; no final industrial-safety permit yet.",
+            "zh": "第四次许可修改：电芯产能 40.7 吉瓦时，模组和电池包组装 18.9 吉瓦时，合计每年 59.6 吉瓦时；尚无最终工业安全许可。"
+          },
+          "evidence": {
+            "implementation_milestones": [
+              "hu-e21-13-permit-fourth-amendment",
+              "hu-e21-14-no-final-safety-permit"
+            ]
+          },
+          "quantities": [
+            {
+              "value": 59.6,
+              "unit": "GWh_per_year",
+              "kind": "permitted_capacity",
+              "label": {
+                "en": "permitted total production capacity",
+                "zh": "许可总产能"
+              }
+            }
+          ]
+        },
+        {
+          "stage": "administrative_approval",
+          "status": "disputed",
+          "date": "2026-10-29",
+          "date_precision": "day",
+          "summary": {
+            "en": "The environmental permit is the subject of an administrative court case; no judgment text has been published.",
+            "zh": "环境许可是一宗行政诉讼的标的；尚未公布判决文本。"
+          },
+          "evidence": {
+            "implementation_milestones": [
+              "hu-e2-06-permits-litigated"
+            ]
+          }
+        },
+        {
+          "stage": "construction",
+          "status": "documented",
+          "date": "2026-08-25",
+          "date_precision": "day",
+          "summary": {
+            "en": "Occupancy permit granted for the first phase of the cell-manufacturing building; the second phase was refused on 19 August.",
+            "zh": "电芯制造厂房一期获得使用许可；二期于 8 月 19 日被拒。"
+          },
+          "evidence": {
+            "implementation_milestones": [
+              "hu-e21-15-occupancy-first-phase",
+              "hu-e2-08-occupancy-permit"
+            ]
+          }
+        },
+        {
+          "stage": "production_commencement",
+          "status": "company_stated",
+          "date": "2026-09-22",
+          "date_precision": "day",
+          "summary": {
+            "en": "The company reports module manufacturing since autumn 2024 (537,000 modules) and trial cell production from 22 September 2026; the authority prohibited work in three areas after nickel-exposure findings.",
+            "zh": "企业称自 2024 年秋起制造模组（53.7 万个），2026 年 9 月 22 日起试生产电芯；主管机关因镍暴露问题禁止三个区域作业。"
+          },
+          "evidence": {
+            "implementation_milestones": [
+              "hu-e2-10-module-output",
+              "hu-e2-11-trial-production",
+              "hu-e21-16-work-prohibition"
+            ]
+          },
+          "quantities": [
+            {
+              "value": 537000,
+              "unit": "modules",
+              "kind": "company_reported_output",
+              "label": {
+                "en": "modules produced to the release date",
+                "zh": "截至发布日的模组产量"
+              }
+            }
+          ]
+        },
+        {
+          "stage": "observed_outcome",
+          "status": "not_documented",
+          "date": null,
+          "date_precision": "undated",
+          "summary": {
+            "en": "No official record of capital invested, employment or series production at the plant was located.",
+            "zh": "未找到工厂实际投资、就业或批量生产的官方记录。"
+          },
+          "evidence": {
+            "implementation_milestones": [
+              "hu-e2-09-capital-unavailable",
+              "hu-e2-12-outcomes-unavailable"
+            ]
+          }
+        }
+      ],
+      "realised_expenditure": {
+        "status": "not_documented",
+        "milestone_id": "hu-e2-09-capital-unavailable"
+      },
+      "limitations": [
+        {
+          "en": "Permitted capacity is a ceiling set by the authority and the company's module count is not an output value; neither is national production.",
+          "zh": "许可产能是主管机关设定的上限，企业的模组数量也不是产值；两者都不是全国产量。"
+        },
+        {
+          "en": "The grid budget finances zone infrastructure; it is not a subsidy to the investor and is not added to the announced investment.",
+          "zh": "电网预算资助的是园区基础设施，不是对投资者的补贴，也不与公告投资额相加。"
+        }
+      ]
+    },
+    {
+      "record_id": "hu-byd-szeged-vehicle-plant",
+      "kind": "strategic_investment",
+      "theme_ids": [
+        "industrial_policy_strategic_investment",
+        "fdi_production_networks"
+      ],
+      "country": "hungary",
+      "title": {
+        "en": "BYD vehicle plant, Szeged",
+        "zh": "比亚迪塞格德汽车工厂"
+      },
+      "project_id": "hu-byd-szeged",
+      "event_ids": [],
+      "implementation_event_id": null,
+      "sector": {
+        "en": "Electric passenger vehicles",
+        "zh": "电动乘用车"
+      },
+      "activity_classification": null,
+      "responsible_institutions": [
+        {
+          "en": "Government of Hungary (as stated in the project record; permit holders not verified)",
+          "zh": "匈牙利政府（据项目记录；许可主体未核验）"
+        }
+      ],
+      "location": {
+        "region_id": "hungary_csongrad_csanad",
+        "admin_code": "HU333",
+        "classification": "NUTS 2024",
+        "locality": "Szeged",
+        "basis": "project_location"
+      },
+      "administrative_responsibility": {
+        "en": "Not documented in the Atlas record.",
+        "zh": "Atlas 记录中未载明。"
+      },
+      "stages": [
+        {
+          "stage": "policy_announcement",
+          "status": "reported",
+          "date": "2023",
+          "date_precision": "year",
+          "summary": {
+            "en": "Project announcement reported by a news agency; no investment amount is recorded.",
+            "zh": "通讯社报道项目宣布；未记录投资额。"
+          },
+          "evidence": {
+            "project_id": "hu-byd-szeged"
+          }
+        },
+        {
+          "stage": "administrative_approval",
+          "status": "not_documented",
+          "date": null,
+          "date_precision": "undated",
+          "summary": {
+            "en": "No permit is recorded.",
+            "zh": "未记录许可。"
+          },
+          "evidence": {}
+        },
+        {
+          "stage": "production_commencement",
+          "status": "not_documented",
+          "date": null,
+          "date_precision": "undated",
+          "summary": {
+            "en": "No production record is held.",
+            "zh": "未持有生产记录。"
+          },
+          "evidence": {}
+        }
+      ],
+      "realised_expenditure": {
+        "status": "not_documented",
+        "milestone_id": null
+      },
+      "limitations": [
+        {
+          "en": "Listed for comparison within Hungary only; the project record is unverified.",
+          "zh": "仅为匈牙利国内比较而列出；该项目记录未经核验。"
+        }
+      ]
+    },
+    {
+      "record_id": "hu-export-market-building-programme",
+      "kind": "industrial_policy_instrument",
+      "theme_ids": [
+        "industrial_policy_strategic_investment"
+      ],
+      "country": "hungary",
+      "title": {
+        "en": "Market-Building Export Programme (announced)",
+        "zh": "市场开拓出口计划（已宣布）"
+      },
+      "project_id": null,
+      "event_ids": [
+        "hu-2026-11-07-piacepito-exportprogramot-indit-a-kormany"
+      ],
+      "implementation_event_id": null,
+      "sector": {
+        "en": "Exporting small and medium-sized enterprises",
+        "zh": "出口型中小企业"
+      },
+      "activity_classification": null,
+      "responsible_institutions": [
+        {
+          "en": "Ministry for Economy and Energy (announcement)",
+          "zh": "经济与能源部（宣布）"
+        }
+      ],
+      "location": null,
+      "administrative_responsibility": {
+        "en": "National programme.",
+        "zh": "全国性计划。"
+      },
+      "stages": [
+        {
+          "stage": "policy_announcement",
+          "status": "reported",
+          "date": "2026-11-07",
+          "date_precision": "day",
+          "summary": {
+            "en": "A HUF 25 billion programme announced for 2027 on social media by the minister.",
+            "zh": "部长在社交媒体宣布 2027 年启动 250 亿福林计划。"
+          },
+          "evidence": {
+            "event_ids": [
+              "hu-2026-11-07-piacepito-exportprogramot-indit-a-kormany"
+            ]
+          },
+          "amounts": [
+            {
+              "value": 25000000000,
+              "currency": "HUF",
+              "kind": "announced_budget",
+              "precision": "rounded_as_published",
+              "label": {
+                "en": "announced programme budget",
+                "zh": "宣布的计划预算"
+              }
+            }
+          ]
+        },
+        {
+          "stage": "legislative_adoption",
+          "status": "not_documented",
+          "date": null,
+          "date_precision": "undated",
+          "summary": {
+            "en": "No government decree or budget appropriation is recorded.",
+            "zh": "未记录政府法令或预算拨款。"
+          },
+          "evidence": {}
+        }
+      ],
+      "realised_expenditure": {
+        "status": "not_documented",
+        "milestone_id": null
+      },
+      "limitations": [
+        {
+          "en": "An announced budget is not spending.",
+          "zh": "宣布的预算不是支出。"
+        }
+      ]
+    },
+    {
+      "record_id": "sk-gotion-inobat-surany-battery-plant",
+      "kind": "strategic_investment",
+      "theme_ids": [
+        "industrial_policy_strategic_investment",
+        "fdi_production_networks"
+      ],
+      "country": "slovakia",
+      "title": {
+        "en": "Gotion InoBat battery plant, Šurany",
+        "zh": "国轩高科—InoBat 舒拉尼电池工厂"
+      },
+      "project_id": "sk-gotion-inobat-surany",
+      "event_ids": [
+        "sk-2023-11-22-gotion-inobat-surany"
+      ],
+      "implementation_event_id": null,
+      "sector": {
+        "en": "Battery cells",
+        "zh": "电池电芯"
+      },
+      "activity_classification": null,
+      "responsible_institutions": [
+        {
+          "en": "Government of the Slovak Republic (memorandum of understanding)",
+          "zh": "斯洛伐克政府（谅解备忘录）"
+        }
+      ],
+      "location": {
+        "region_id": "slovakia_nitra",
+        "admin_code": "SK023",
+        "classification": "NUTS 2024",
+        "locality": "Šurany",
+        "basis": "project_location"
+      },
+      "administrative_responsibility": {
+        "en": "Not documented in the Atlas record.",
+        "zh": "Atlas 记录中未载明。"
+      },
+      "stages": [
+        {
+          "stage": "policy_announcement",
+          "status": "documented",
+          "date": "2023",
+          "date_precision": "year",
+          "summary": {
+            "en": "The economy ministry announced a €1.2 billion battery investment.",
+            "zh": "经济部宣布 12 亿欧元电池投资。"
+          },
+          "evidence": {
+            "project_id": "sk-gotion-inobat-surany"
+          },
+          "amounts": [
+            {
+              "value": 1200000000,
+              "currency": "EUR",
+              "kind": "announced_investment",
+              "precision": "rounded_as_published",
+              "label": {
+                "en": "announced investment",
+                "zh": "公告投资额"
+              }
+            }
+          ]
+        },
+        {
+          "stage": "policy_announcement",
+          "status": "company_stated",
+          "date": "2023-11-22",
+          "date_precision": "day",
+          "summary": {
+            "en": "Memorandum of understanding with the government to support construction, as published by the company.",
+            "zh": "企业发布的与政府签署的支持建设谅解备忘录。"
+          },
+          "evidence": {
+            "event_ids": [
+              "sk-2023-11-22-gotion-inobat-surany"
+            ]
+          }
+        },
+        {
+          "stage": "financial_commitment",
+          "status": "not_documented",
+          "date": null,
+          "date_precision": "undated",
+          "summary": {
+            "en": "Public support amounts and the equity structure are not recorded.",
+            "zh": "未记录公共支持金额和股权结构。"
+          },
+          "evidence": {}
+        },
+        {
+          "stage": "construction",
+          "status": "not_documented",
+          "date": null,
+          "date_precision": "undated",
+          "summary": {
+            "en": "No construction record is held.",
+            "zh": "未持有建设记录。"
+          },
+          "evidence": {}
+        }
+      ],
+      "realised_expenditure": {
+        "status": "not_documented",
+        "milestone_id": null
+      },
+      "limitations": [
+        {
+          "en": "A memorandum of understanding is not a binding commitment.",
+          "zh": "谅解备忘录不是有约束力的承诺。"
+        }
+      ]
+    },
+    {
+      "record_id": "rs-zijin-rtb-bor-acquisition",
+      "kind": "strategic_investment",
+      "theme_ids": [
+        "fdi_production_networks",
+        "industrial_policy_strategic_investment"
+      ],
+      "country": "serbia",
+      "title": {
+        "en": "Zijin Mining strategic partnership in RTB Bor",
+        "zh": "紫金矿业与 RTB Bor 的战略合作"
+      },
+      "project_id": "rs-zijin-rtb-bor",
+      "event_ids": [],
+      "implementation_event_id": null,
+      "sector": {
+        "en": "Copper mining and smelting",
+        "zh": "铜矿开采与冶炼"
+      },
+      "activity_classification": "Mining of metal ores and basic metal production (NACE B07, C24); not stated as a code in the source",
+      "responsible_institutions": [
+        {
+          "en": "Government of Serbia / Ministry of Economy (strategic partnership and takeover of management)",
+          "zh": "塞尔维亚政府/经济部（战略合作与管理权移交）"
+        }
+      ],
+      "location": {
+        "region_id": "serbia_bor",
+        "admin_code": "RS221",
+        "classification": "SORS NSTJ",
+        "locality": "Bor and Majdanpek",
+        "basis": "project_location"
+      },
+      "administrative_responsibility": {
+        "en": "Mining rights are national; the assets lie in several municipalities of the Bor district.",
+        "zh": "采矿权属国家层面；资产分布于博尔州多个市镇。"
+      },
+      "stages": [
+        {
+          "stage": "financial_commitment",
+          "status": "documented",
+          "date": "2018",
+          "date_precision": "year",
+          "summary": {
+            "en": "USD 350 million capital increase paid for a 63% stake; the separate USD 1.26 billion six-year investment commitment is a commitment, not realised spending.",
+            "zh": "支付 3.5 亿美元增资取得 63% 股权；另有 12.6 亿美元六年投资承诺，属于承诺而非已实现支出。"
+          },
+          "evidence": {
+            "project_id": "rs-zijin-rtb-bor"
+          },
+          "amounts": [
+            {
+              "value": 350000000,
+              "currency": "USD",
+              "kind": "paid_capital_increase",
+              "precision": "rounded_as_published",
+              "label": {
+                "en": "capital increase paid",
+                "zh": "已支付增资"
+              }
+            },
+            {
+              "value": 1260000000,
+              "currency": "USD",
+              "kind": "investment_commitment",
+              "precision": "rounded_as_published",
+              "label": {
+                "en": "six-year investment commitment",
+                "zh": "六年投资承诺"
+              }
+            }
+          ]
+        },
+        {
+          "stage": "production_commencement",
+          "status": "not_applicable",
+          "date": null,
+          "date_precision": "undated",
+          "summary": {
+            "en": "RTB Bor was an operating mining and smelting company before the partnership; the transaction transferred control and management rather than starting production.",
+            "zh": "合作前 RTB Bor 已是运营中的采矿和冶炼企业；交易转移的是控制权和管理权，而不是开始生产。"
+          },
+          "evidence": {
+            "project_id": "rs-zijin-rtb-bor"
+          }
+        },
+        {
+          "stage": "observed_outcome",
+          "status": "not_documented",
+          "date": null,
+          "date_precision": "undated",
+          "summary": {
+            "en": "Mine and smelter output is not held; the national industrial production index covers mining, manufacturing and energy together.",
+            "zh": "Atlas 未持有矿山和冶炼厂产量；全国工业生产指数把采矿、制造和能源合并统计。"
+          },
+          "evidence": {}
+        }
+      ],
+      "realised_expenditure": {
+        "status": "partially_documented",
+        "milestone_id": null
+      },
+      "limitations": [
+        {
+          "en": "The paid capital increase and the investment commitment are recorded separately and never added.",
+          "zh": "已支付增资与投资承诺分开记录，从不相加。"
+        },
+        {
+          "en": "The amount is in US dollars at project level and is not compared with balance-of-payments flows in euros.",
+          "zh": "该金额为项目层面的美元数额，不与以欧元计的国际收支流量比较。"
+        }
+      ]
+    },
+    {
+      "record_id": "rs-majdanpek-west-exploration",
+      "kind": "strategic_investment",
+      "theme_ids": [
+        "fdi_production_networks",
+        "industrial_policy_strategic_investment"
+      ],
+      "country": "serbia",
+      "title": {
+        "en": "Majdanpek West exploration project",
+        "zh": "马伊丹佩克西部勘探项目"
+      },
+      "project_id": null,
+      "event_ids": [
+        "rs-2026-11-10-australian-mdi-takes-over-project-in-majdanpek-formerly-funded-by-rio-tinto"
+      ],
+      "implementation_event_id": null,
+      "sector": {
+        "en": "Mineral exploration (copper and gold)",
+        "zh": "矿产勘探（铜、金）"
+      },
+      "activity_classification": null,
+      "responsible_institutions": [
+        {
+          "en": "Ministry of Mining and Energy of Serbia (exploration licence, as reported)",
+          "zh": "塞尔维亚矿业和能源部（勘探许可，据报道）"
+        }
+      ],
+      "location": {
+        "region_id": "serbia_bor",
+        "admin_code": "RS221",
+        "classification": "SORS NSTJ",
+        "locality": "Majdanpek (about 3 km from the operating Majdanpek mine, as reported)",
+        "basis": "project_location"
+      },
+      "administrative_responsibility": {
+        "en": "Exploration licences are issued nationally.",
+        "zh": "勘探许可由国家层面签发。"
+      },
+      "stages": [
+        {
+          "stage": "administrative_approval",
+          "status": "reported",
+          "date": "2026-09",
+          "date_precision": "month",
+          "summary": {
+            "en": "The exploration licence was renewed in late September 2026, as reported from the company's exchange announcement.",
+            "zh": "据企业交易所公告报道，勘探许可于 2026 年 9 月下旬续期。"
+          },
+          "evidence": {
+            "event_ids": [
+              "rs-2026-11-10-australian-mdi-takes-over-project-in-majdanpek-formerly-funded-by-rio-tinto"
+            ]
+          }
+        },
+        {
+          "stage": "financial_commitment",
+          "status": "reported",
+          "date": "2026-11-10",
+          "date_precision": "day",
+          "summary": {
+            "en": "Sale of the project to Middle Island Resources for AU$300,000 in cash or shares, with a 1% net smelter return royalty retained by the seller.",
+            "zh": "以 30 万澳元现金或股票将项目出售给 Middle Island Resources，卖方保留 1% 冶炼净收益权益金。"
+          },
+          "evidence": {
+            "event_ids": [
+              "rs-2026-11-10-australian-mdi-takes-over-project-in-majdanpek-formerly-funded-by-rio-tinto"
+            ]
+          },
+          "amounts": [
+            {
+              "value": 300000,
+              "currency": "AUD",
+              "kind": "transaction_consideration",
+              "precision": "rounded_as_published",
+              "label": {
+                "en": "consideration for the project",
+                "zh": "项目对价"
+              }
+            }
+          ]
+        },
+        {
+          "stage": "administrative_approval",
+          "status": "not_documented",
+          "date": null,
+          "date_precision": "undated",
+          "summary": {
+            "en": "No mining (exploitation) permit is recorded.",
+            "zh": "未记录开采许可。"
+          },
+          "evidence": {}
+        },
+        {
+          "stage": "production_commencement",
+          "status": "not_applicable",
+          "date": null,
+          "date_precision": "undated",
+          "summary": {
+            "en": "Exploration stage; no production.",
+            "zh": "处于勘探阶段，无生产。"
+          },
+          "evidence": {}
+        }
+      ],
+      "realised_expenditure": {
+        "status": "not_documented",
+        "milestone_id": null
+      },
+      "limitations": [
+        {
+          "en": "An exploration transaction is not evidence of mining production.",
+          "zh": "勘探项目交易不是采矿生产的证据。"
+        }
+      ]
+    },
+    {
+      "record_id": "rs-linglong-zrenjanin-tyre-plant",
+      "kind": "strategic_investment",
+      "theme_ids": [
+        "fdi_production_networks",
+        "industrial_policy_strategic_investment"
+      ],
+      "country": "serbia",
+      "title": {
+        "en": "Linglong tyre plant, Zrenjanin",
+        "zh": "玲珑轮胎兹雷尼亚宁工厂"
+      },
+      "project_id": "rs-linglong-zrenjanin-tire",
+      "event_ids": [],
+      "implementation_event_id": null,
+      "sector": {
+        "en": "Tyres for vehicles",
+        "zh": "汽车轮胎"
+      },
+      "activity_classification": "Manufacture of rubber tyres (NACE C22.11); not stated as a code in the source",
+      "responsible_institutions": [
+        {
+          "en": "Government of Serbia",
+          "zh": "塞尔维亚政府"
+        }
+      ],
+      "location": {
+        "region_id": "serbia_central_banat",
+        "admin_code": "RS126",
+        "classification": "SORS NSTJ",
+        "locality": "Zrenjanin",
+        "basis": "project_location"
+      },
+      "administrative_responsibility": {
+        "en": "Not documented in the Atlas record.",
+        "zh": "Atlas 记录中未载明。"
+      },
+      "stages": [
+        {
+          "stage": "policy_announcement",
+          "status": "documented",
+          "date": "2019",
+          "date_precision": "year",
+          "summary": {
+            "en": "First-phase investment estimated by the government at USD 1 billion; a later €645 million plan is a separate phase.",
+            "zh": "政府估计第一阶段投资 10 亿美元；之后的 6.45 亿欧元计划属于另一阶段。"
+          },
+          "evidence": {
+            "project_id": "rs-linglong-zrenjanin-tire"
+          },
+          "amounts": [
+            {
+              "value": 1000000000,
+              "currency": "USD",
+              "kind": "announced_investment",
+              "precision": "rounded_as_published",
+              "label": {
+                "en": "first-phase estimate",
+                "zh": "第一阶段估计"
+              }
+            }
+          ]
+        },
+        {
+          "stage": "construction",
+          "status": "documented",
+          "date": "2019",
+          "date_precision": "year",
+          "summary": {
+            "en": "Groundbreaking in 2019 and main construction from 2020.",
+            "zh": "2019 年奠基，2020 年起主体建设。"
+          },
+          "evidence": {
+            "project_id": "rs-linglong-zrenjanin-tire"
+          }
+        },
+        {
+          "stage": "production_commencement",
+          "status": "documented",
+          "date": "2024",
+          "date_precision": "year",
+          "summary": {
+            "en": "Serial production of tyres began in 2024.",
+            "zh": "2024 年开始批量生产轮胎。"
+          },
+          "evidence": {
+            "project_id": "rs-linglong-zrenjanin-tire"
+          }
+        },
+        {
+          "stage": "observed_outcome",
+          "status": "not_documented",
+          "date": null,
+          "date_precision": "undated",
+          "summary": {
+            "en": "Plant output and employment are not held.",
+            "zh": "Atlas 未持有工厂产量和就业数据。"
+          },
+          "evidence": {}
+        }
+      ],
+      "realised_expenditure": {
+        "status": "not_documented",
+        "milestone_id": null
+      },
+      "limitations": [
+        {
+          "en": "Tyre manufacturing (C22) is outside the motor-vehicle export indicator (C29).",
+          "zh": "轮胎制造（C22）不在汽车出口指标（C29）范围内。"
+        }
+      ]
+    }
+  ]
+}

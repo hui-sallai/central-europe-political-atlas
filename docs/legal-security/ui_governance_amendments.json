@@ -3927,6 +3927,60 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "thematic-research-layer-2026-11-17",
+      "status": "owner_approved",
+      "approved_by": "Owner brief of 2026-11-17 (comparative political-economic research expansion: industrial policy, investment, energy and EU funding) requesting a thematic research layer that extends the existing registries, with a frontend handoff and deployment through the established workflow. Hashes identify the authored thematic records, the derived thematic index and the typed API that reads them; no store, event, project or case-study file is changed.",
+      "baseline": "cd88adfa98db7e90955f1def0616247626d42cae",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-17",
+      "files": [
+        {
+          "path": "src/lib/thematicResearch.ts",
+          "sha256": "cf8f4b2c0a9bbe9ec41ad6e788aea83ff0c9c67c4e412435ca03d24b56988ea8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/research-themes/meta.json",
+          "sha256": "2baff09dc84f64878d59b15c76b989b10322152e4eef763b1394e195a366bb4d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/research-themes/themes.json",
+          "sha256": "289fed7e8b5fde3f6dda7fae14e6fe371e932d64e7fc44ba05ef930a29346499",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/research-themes/event_mappings.json",
+          "sha256": "c95e715498035ae5cbf2cb598d4d29ff8db043d458a52ddc9802487889f01f51",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/research-themes/investment_records.json",
+          "sha256": "85299e47d7f00b22066320b0ae5d1d2637102ae52c381e0a23d7121326663b36",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/research-themes/eu_funding.json",
+          "sha256": "288b1ecac41b14f8c837ab4d44501259af4976c9396d6d2036b99612be4262df",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/research-themes/cases.json",
+          "sha256": "b78e017d184b6537135d7932ad4511f5fe7fe59a5ed938ceede9e6bf1e8f0d16",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/research-themes/thematic_index.json",
+          "sha256": "baea1dc6c6342556d710797ddc91a54d0b2f47c6192c9366bd2084fef982b591",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

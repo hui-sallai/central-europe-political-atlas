@@ -1,0 +1,80 @@
+{
+  "schema_version": "thematic-development-backlog-v1",
+  "created_on": "2026-11-17",
+  "persistent": true,
+  "rule": "Inherited and new issues stay listed until a later iteration closes them with evidence; items are never deleted.",
+  "items": [
+    {
+      "id": "A",
+      "issue": "Incomplete historical economic coverage",
+      "owner": "Claude (data)",
+      "status": "open",
+      "this_iteration": "Thematic windows use only held layers and list missing periods; no backfill was attempted. The persistent span-level list stays in docs/data-coverage/historical_gap_backlog.json (474 items).",
+      "next": "Annual-history refresh run for the Eurostat 2026-11-11 releases needs an owner decision (DATA-2026-11-16-01)."
+    },
+    {
+      "id": "B",
+      "issue": "Inconsistent availability across country-indicator combinations",
+      "owner": "Claude (data)",
+      "status": "open",
+      "this_iteration": "coverage_matrix in src/lib/research-themes/thematic_index.json records, per country and theme, admitted versus defined indicators and the missing ones; Serbia EU funding is not_applicable rather than zero.",
+      "next": "FDI stocks, outward flows and partner/industry FDI; renewables share, generation mix, energy intensity; gas import dependency observations."
+    },
+    {
+      "id": "C",
+      "issue": "Limited regional economic data for some countries",
+      "owner": "Claude (data)",
+      "status": "open",
+      "this_iteration": "Project regions are connected (HU321, HU333, SK023, RS221, RS126) with their held regional series; Serbia NSTJ3 labour data end in 2020.",
+      "next": "SORS NSTJ3 labour-market data after 2020; regional GVA for Serbia."
+    },
+    {
+      "id": "D",
+      "issue": "Events lacking verified indicator relationships",
+      "owner": "Claude (data)",
+      "status": "partially_addressed",
+      "this_iteration": "89 of 578 event records reviewed (88 of the 146 verified energy, industrial-policy, FDI, EU-funds and China events, plus one regional-type event); classes A 2, B 25, C 12, D 29, E 21. 489 records remain unreviewed and must show 'not yet reviewed'.",
+      "next": "Review the remaining 58 thematic-type events, then macro, fiscal and regional events."
+    },
+    {
+      "id": "E",
+      "issue": "Bilingual metadata leakage in selected frontend pages",
+      "owner": "Codex (frontend)",
+      "status": "open",
+      "this_iteration": "All new prose is {en, zh}; no frontend change was made.",
+      "next": "Codex check on pages that render the thematic layer."
+    },
+    {
+      "id": "F",
+      "issue": "Stale Serbia regional-coverage wording in Research Workspaces",
+      "owner": "Codex (frontend)",
+      "status": "open",
+      "this_iteration": "Not changed (frontend).",
+      "next": "Codex wording fix."
+    },
+    {
+      "id": "G",
+      "issue": "Country-to-country and historical research workflow improvements",
+      "owner": "Codex (frontend) with Claude data",
+      "status": "open",
+      "this_iteration": "Thematic API, chronologies and evidence windows delivered for workspace integration.",
+      "next": "Codex thematic workspace journey (docs/thematic-research-handoff-2026-11-17.md)."
+    },
+    {
+      "id": "T1",
+      "issue": "Case-study loan figure discrepancy (Czech modified plan: €260 million in eventCaseStudies.ts vs €818 million in implementation record cz-e2-02)",
+      "owner": "Owner decision / Claude",
+      "status": "open",
+      "this_iteration": "Flagged in case cz-repowereu-energy-transition; neither file changed.",
+      "next": "Re-read IP/23/4642 and correct the wrong file under a new UI amendment."
+    },
+    {
+      "id": "T2",
+      "issue": "EU-funding amounts restated from admitted records, not re-read in Commission documents (SK C(2024) 7457, SI and HR government pages)",
+      "owner": "Owner decision",
+      "status": "open",
+      "this_iteration": "Evidence status shown per record; commission.europa.eu and reforms-investments.ec.europa.eu are not in the network registry.",
+      "next": "Register the Commission document hosts (owner approval) and verify amounts with SHA-256."
+    }
+  ]
+}

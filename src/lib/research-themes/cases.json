@@ -1,0 +1,1321 @@
+{
+  "schema_version": "atlas-thematic-research-v1",
+  "cases": [
+    {
+      "case_id": "hu-battery-strategic-investment",
+      "theme_ids": [
+        "industrial_policy_strategic_investment",
+        "fdi_production_networks"
+      ],
+      "countries": [
+        "hungary"
+      ],
+      "context_countries": [
+        "slovakia"
+      ],
+      "status": "published",
+      "extends": {
+        "kind": "event_case_study",
+        "event_id": "hu-2022-08-12-catl-debrecen"
+      },
+      "title": {
+        "en": "Hungary: battery industrial policy and strategic investment",
+        "zh": "匈牙利：电池产业政策与战略投资"
+      },
+      "research_question": {
+        "en": "What did the Hungarian state formally decide for the Debrecen battery plant, at which stages and through which instruments, and what do national and county manufacturing and direct-investment statistics show over the same years — without attributing them to the plant?",
+        "zh": "匈牙利国家针对德布勒森电池工厂正式作出了哪些决定、处于哪些阶段、通过哪些工具？同期全国和州一级的制造业及直接投资统计呈现什么情况——且不将其归因于该工厂？"
+      },
+      "event_ids": [
+        "hu-2022-08-12-catl-debrecen",
+        "hu-2026-11-04-tarkanyi-zsolt-catl-szandeknyilatkozat",
+        "hu-2026-11-07-piacepito-exportprogramot-indit-a-kormany"
+      ],
+      "investment_records": [
+        "hu-catl-debrecen-battery-plant",
+        "hu-byd-szeged-vehicle-plant",
+        "hu-export-market-building-programme",
+        "sk-gotion-inobat-surany-battery-plant"
+      ],
+      "funding_records": [],
+      "institutional_context": [
+        {
+          "en": "The priority-site designation and the grid budget are government acts published in Magyar Közlöny; neither names the investor.",
+          "zh": "重点园区认定和电网预算是在《匈牙利公报》上公布的政府行为，均未点名投资者。"
+        },
+        {
+          "en": "Environmental, building and labour-safety decisions are taken by the Hajdú-Bihar County Government Office, a territorial body of the national government; the environmental permit is contested before the Debrecen Regional Court.",
+          "zh": "环境、建筑和劳动安全决定由豪伊杜-比豪尔州政府办公室作出，该机构是中央政府的地方机构；环境许可在德布勒森地区法院受到诉讼。"
+        },
+        {
+          "en": "The 2022 letter of intent between the then government and the company, published in part by a state secretary in November 2026, lists promised support but is non-binding.",
+          "zh": "2022 年当时的政府与该企业签署的意向书于 2026 年 11 月由一名国务秘书部分公开，列出承诺的支持，但不具约束力。"
+        }
+      ],
+      "series": [
+        {
+          "indicator_id": "fdi_inflow",
+          "layer": "canonical_annual",
+          "country": "hungary"
+        },
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "layer": "canonical_annual",
+          "country": "hungary"
+        },
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "layer": "historical_annual",
+          "country": "hungary"
+        },
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "layer": "canonical_annual",
+          "country": "slovakia"
+        },
+        {
+          "indicator_id": "regional_manufacturing_share",
+          "layer": "regional_annual",
+          "region_id": "hungary_hajdu_bihar"
+        },
+        {
+          "indicator_id": "regional_manufacturing_share",
+          "layer": "regional_history",
+          "region_id": "hungary_hajdu_bihar"
+        },
+        {
+          "indicator_id": "regional_gdp_per_capita",
+          "layer": "regional_annual",
+          "region_id": "hungary_hajdu_bihar"
+        },
+        {
+          "indicator_id": "industrial_production_index",
+          "layer": "high_frequency_monthly",
+          "country": "hungary"
+        }
+      ],
+      "windows": [
+        {
+          "window_id": "hu-catl-announcement-annual",
+          "anchor": {
+            "event_id": "hu-2022-08-12-catl-debrecen",
+            "label": {
+              "en": "Company announcement",
+              "zh": "企业公告"
+            }
+          },
+          "frequency": "annual",
+          "before": 3,
+          "after": 3,
+          "series": [
+            {
+              "indicator_id": "fdi_inflow",
+              "layer": "canonical_annual",
+              "country": "hungary"
+            },
+            {
+              "indicator_id": "manufacturing_share_gdp",
+              "layer": "canonical_annual",
+              "country": "hungary"
+            },
+            {
+              "indicator_id": "manufacturing_share_gdp",
+              "layer": "historical_annual",
+              "country": "hungary"
+            },
+            {
+              "indicator_id": "regional_manufacturing_share",
+              "layer": "regional_annual",
+              "region_id": "hungary_hajdu_bihar"
+            },
+            {
+              "indicator_id": "regional_manufacturing_share",
+              "layer": "regional_history",
+              "region_id": "hungary_hajdu_bihar"
+            }
+          ]
+        },
+        {
+          "window_id": "hu-catl-trial-production-monthly",
+          "anchor": {
+            "date": "2026-09-22",
+            "label": {
+              "en": "Company-reported start of trial cell production",
+              "zh": "企业报告的电芯试生产开始"
+            }
+          },
+          "frequency": "monthly",
+          "before": 12,
+          "after": 12,
+          "series": [
+            {
+              "indicator_id": "industrial_production_index",
+              "layer": "high_frequency_monthly",
+              "country": "hungary"
+            }
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "hungary_hajdu_bihar",
+          "admin_code": "HU321",
+          "role": "project_location",
+          "records": [
+            "hu-catl-debrecen-battery-plant"
+          ],
+          "indicators": [
+            "regional_manufacturing_share",
+            "regional_gdp_per_capita"
+          ]
+        },
+        {
+          "region_id": "hungary_csongrad_csanad",
+          "admin_code": "HU333",
+          "role": "project_location",
+          "records": [
+            "hu-byd-szeged-vehicle-plant"
+          ],
+          "indicators": [
+            "regional_manufacturing_share"
+          ]
+        },
+        {
+          "region_id": "slovakia_nitra",
+          "admin_code": "SK023",
+          "role": "project_location",
+          "records": [
+            "sk-gotion-inobat-surany-battery-plant"
+          ],
+          "indicators": [
+            "regional_manufacturing_share"
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "en": "The official record documents the 2022 priority-site decree, the HUF 87.7 billion grid budget for the industrial zone, the environmental permit and its amendments, and the first-phase occupancy permit of August 2026. Production rests on company statements only, and no official record of public support to the investor or of capital actually invested was located.",
+          "zh": "官方记录载明了 2022 年重点园区法令、工业园区 877 亿福林电网预算、环境许可及其修改，以及 2026 年 8 月一期使用许可。生产情况只有企业表述，未找到对投资者公共支持或实际投资的官方记录。"
+        },
+        {
+          "en": "Permitted capacity rose from 40 GWh a year (2023) to 59.6 GWh a year in total (November 2025 amendment), against an announced 100 GWh; a permitted ceiling is not output.",
+          "zh": "许可产能从每年 40 吉瓦时（2023 年）提高到每年合计 59.6 吉瓦时（2025 年 11 月修改），而公告为 100 吉瓦时；许可上限不是产量。"
+        },
+        {
+          "en": "Hungary's direct-investment liability flows (all entities) were €28,749.9 million in 2021, −€63,063.9 million in 2023 and −€57,492.7 million in 2024. Swings of this size reflect entity-level financial transactions including special-purpose entities, so the series cannot register one plant; no Hungarian FDI history before 2021 is held in the canonical or historical layers.",
+          "zh": "匈牙利直接投资负债流量（全部实体）2021 年为 287.499 亿欧元，2023 年为 −630.639 亿欧元，2024 年为 −574.927 亿欧元。如此规模的波动反映包括特殊目的实体在内的实体层面金融交易，因此该序列无法反映单个工厂；规范层和历史层均未持有 2021 年以前的匈牙利 FDI 数据。"
+        },
+        {
+          "en": "Manufacturing's share of Hungarian GDP was 17.2% in 2023 and 15.1% in 2025, while Hajdú-Bihar's manufacturing share of regional value added rose from 15.06% in 2021 to 17.29% in 2024. Neither series identifies the plant, and other investments in the county are not recorded in the Atlas.",
+          "zh": "制造业占匈牙利 GDP 比重 2023 年为 17.2%，2025 年为 15.1%；同期豪伊杜-比豪尔州制造业占区域增加值比重从 2021 年的 15.06% 升至 2024 年的 17.29%。两个序列都无法识别该工厂，且 Atlas 未记录该州的其他投资。"
+        },
+        {
+          "en": "For comparison, Slovakia's Gotion InoBat project in Šurany has only announcement-stage records (a €1.2 billion government announcement and a memorandum of understanding); no permit, support or construction record is held.",
+          "zh": "作为比较，斯洛伐克舒拉尼的国轩高科—InoBat 项目只有公告阶段的记录（政府宣布 12 亿欧元和一份谅解备忘录）；未持有许可、支持或建设记录。"
+        }
+      ],
+      "checks": [
+        {
+          "layer": "canonical_annual",
+          "indicator_id": "fdi_inflow",
+          "period": "2021",
+          "value": 28749.9,
+          "country": "hungary"
+        },
+        {
+          "layer": "canonical_annual",
+          "indicator_id": "fdi_inflow",
+          "period": "2023",
+          "value": -63063.9,
+          "country": "hungary"
+        },
+        {
+          "layer": "canonical_annual",
+          "indicator_id": "fdi_inflow",
+          "period": "2024",
+          "value": -57492.7,
+          "country": "hungary"
+        },
+        {
+          "layer": "canonical_annual",
+          "indicator_id": "manufacturing_share_gdp",
+          "period": "2023",
+          "value": 17.2,
+          "country": "hungary"
+        },
+        {
+          "layer": "canonical_annual",
+          "indicator_id": "manufacturing_share_gdp",
+          "period": "2025",
+          "value": 15.1,
+          "country": "hungary"
+        },
+        {
+          "layer": "regional_annual",
+          "indicator_id": "regional_manufacturing_share",
+          "period": "2021",
+          "value": 15.06,
+          "region_id": "hungary_hajdu_bihar"
+        },
+        {
+          "layer": "regional_annual",
+          "indicator_id": "regional_manufacturing_share",
+          "period": "2024",
+          "value": 17.29,
+          "region_id": "hungary_hajdu_bihar"
+        }
+      ],
+      "interpretation": {
+        "en": "The case documents a sequence of state decisions around a company-led project and shows what national and county statistics look like in the same years. It does not estimate what the plant contributed to investment, output or regional development; that would need plant-level output, expenditure and employment data and a comparison design.",
+        "zh": "本案例记录了围绕企业主导项目的一系列国家决定，并展示同期全国和州一级统计的情况。它不估计工厂对投资、产出或区域发展的贡献；这需要工厂层面的产出、支出和就业数据以及比较设计。"
+      },
+      "limitations": [
+        {
+          "en": "Company statements on output and trial production are kept as statements; no official production record exists.",
+          "zh": "企业关于产量和试生产的表述按表述保存；没有官方生产记录。"
+        },
+        {
+          "en": "The FDI series includes special-purpose entities and has no partner or industry breakdown.",
+          "zh": "FDI 序列包括特殊目的实体，且没有伙伴国或行业细分。"
+        },
+        {
+          "en": "Monthly industrial production is held to August 2026, before the reported start of trial cell production, so there are no post-anchor months.",
+          "zh": "月度工业生产数据截至 2026 年 8 月，早于报告的电芯试生产开始，因此没有锚点之后的月份。"
+        },
+        {
+          "en": "Regional current (2021+) and history (before 2021) layers come from different releases and are not spliced.",
+          "zh": "区域现行层（2021 年起）和历史层（2021 年前）来自不同发布，未拼接。"
+        }
+      ],
+      "links": [
+        {
+          "kind": "country_profile",
+          "route": "/en/countries/hungary/",
+          "label": {
+            "en": "Hungary country profile",
+            "zh": "匈牙利国家概况"
+          }
+        },
+        {
+          "kind": "event_case",
+          "route": "/en/models/?tab=run&skill=event_window_analysis&country=hungary&event=hu-2022-08-12-catl-debrecen&section=case",
+          "label": {
+            "en": "Published CATL event case study",
+            "zh": "已发布的宁德时代事件案例"
+          }
+        },
+        {
+          "kind": "event_library",
+          "route": "/en/news/?country=hungary&type=FDI&from=2022-08-12&to=2022-08-12#hu-2022-08-12-catl-debrecen",
+          "label": {
+            "en": "Event record",
+            "zh": "事件记录"
+          }
+        },
+        {
+          "kind": "data_explorer",
+          "route": "/en/data/?compare_countries=hungary,slovakia&comparison_indicator=annual:manufacturing_share_gdp",
+          "label": {
+            "en": "Compare manufacturing share",
+            "zh": "比较制造业占比"
+          }
+        },
+        {
+          "kind": "regional_map",
+          "route": "/en/map/?country=hungary&layer=regional_manufacturing_share&year=2024&regions=hungary_hajdu_bihar",
+          "label": {
+            "en": "Hajdú-Bihar on the regional map",
+            "zh": "区域地图中的豪伊杜-比豪尔州"
+          }
+        },
+        {
+          "kind": "workspace",
+          "route": "/en/workspaces/trade_external_exposure/",
+          "label": {
+            "en": "Trade and external exposure workspace",
+            "zh": "贸易与外部暴露工作区"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "rs-mining-foreign-investment",
+      "theme_ids": [
+        "fdi_production_networks",
+        "industrial_policy_strategic_investment"
+      ],
+      "countries": [
+        "serbia"
+      ],
+      "context_countries": [],
+      "status": "published",
+      "extends": null,
+      "title": {
+        "en": "Serbia: foreign investment and mining development",
+        "zh": "塞尔维亚：外国投资与矿业发展"
+      },
+      "research_question": {
+        "en": "Which stages of Serbia's documented mining and manufacturing investments are recorded — licence, transaction, capital paid, production — and what do official direct-investment, industrial-production and Bor district statistics show over the same period?",
+        "zh": "塞尔维亚有记录的矿业和制造业投资记载了哪些阶段——许可、交易、已付资本、生产？同期官方直接投资、工业生产和博尔州统计呈现什么情况？"
+      },
+      "event_ids": [
+        "rs-2026-11-10-australian-mdi-takes-over-project-in-majdanpek-formerly-funded-by-rio-tinto"
+      ],
+      "investment_records": [
+        "rs-zijin-rtb-bor-acquisition",
+        "rs-majdanpek-west-exploration",
+        "rs-linglong-zrenjanin-tyre-plant"
+      ],
+      "funding_records": [],
+      "institutional_context": [
+        {
+          "en": "The 2018 strategic partnership in RTB Bor was concluded with the Government of Serbia, which held the company; management passed to the investor under the partnership.",
+          "zh": "2018 年 RTB Bor 战略合作是与持有该公司的塞尔维亚政府达成的；根据合作，管理权移交给投资方。"
+        },
+        {
+          "en": "Exploration licences are issued by the Ministry of Mining and Energy; an exploration licence does not authorise mining, which needs a separate exploitation permit.",
+          "zh": "勘探许可由矿业和能源部签发；勘探许可不授权开采，开采需要单独的开采许可。"
+        },
+        {
+          "en": "Serbia is not an EU member state; its statistics are published by SORS under national definitions, with Eurostat series where Serbia reports to Eurostat.",
+          "zh": "塞尔维亚不是欧盟成员国；其统计由塞尔维亚统计局按本国口径发布，Eurostat 序列仅在塞尔维亚向 Eurostat 报送时可用。"
+        }
+      ],
+      "series": [
+        {
+          "indicator_id": "fdi_inflow",
+          "layer": "historical_annual",
+          "country": "serbia"
+        },
+        {
+          "indicator_id": "fdi_inflow",
+          "layer": "canonical_annual",
+          "country": "serbia"
+        },
+        {
+          "indicator_id": "industrial_production_index",
+          "layer": "high_frequency_monthly",
+          "country": "serbia"
+        },
+        {
+          "indicator_id": "industrial_production_index",
+          "layer": "sors_monthly",
+          "country": "serbia"
+        },
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "layer": "sors_annual",
+          "country": "serbia"
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "layer": "canonical_annual",
+          "country": "serbia"
+        },
+        {
+          "indicator_id": "regional_unemployment_rate_2014_2020",
+          "layer": "sors_regional",
+          "region_id": "serbia_bor"
+        },
+        {
+          "indicator_id": "regional_population_estimate_sors",
+          "layer": "sors_regional",
+          "region_id": "serbia_bor"
+        },
+        {
+          "indicator_id": "regional_population_estimate_sors",
+          "layer": "sors_regional",
+          "region_id": "serbia_central_banat"
+        }
+      ],
+      "windows": [
+        {
+          "window_id": "rs-zijin-2018-annual",
+          "anchor": {
+            "date": "2018",
+            "label": {
+              "en": "Capital increase paid in RTB Bor",
+              "zh": "向 RTB Bor 支付增资"
+            }
+          },
+          "frequency": "annual",
+          "before": 3,
+          "after": 3,
+          "series": [
+            {
+              "indicator_id": "fdi_inflow",
+              "layer": "historical_annual",
+              "country": "serbia"
+            },
+            {
+              "indicator_id": "fdi_inflow",
+              "layer": "canonical_annual",
+              "country": "serbia"
+            },
+            {
+              "indicator_id": "manufacturing_share_gdp",
+              "layer": "sors_annual",
+              "country": "serbia"
+            },
+            {
+              "indicator_id": "regional_unemployment_rate_2014_2020",
+              "layer": "sors_regional",
+              "region_id": "serbia_bor"
+            },
+            {
+              "indicator_id": "regional_population_estimate_sors",
+              "layer": "sors_regional",
+              "region_id": "serbia_bor"
+            }
+          ]
+        },
+        {
+          "window_id": "rs-majdanpek-2026-monthly",
+          "anchor": {
+            "event_id": "rs-2026-11-10-australian-mdi-takes-over-project-in-majdanpek-formerly-funded-by-rio-tinto",
+            "label": {
+              "en": "Exploration project sale reported",
+              "zh": "勘探项目出售见报"
+            }
+          },
+          "frequency": "monthly",
+          "before": 12,
+          "after": 12,
+          "series": [
+            {
+              "indicator_id": "industrial_production_index",
+              "layer": "sors_monthly",
+              "country": "serbia"
+            },
+            {
+              "indicator_id": "industrial_production_index",
+              "layer": "high_frequency_monthly",
+              "country": "serbia"
+            }
+          ]
+        },
+        {
+          "window_id": "rs-linglong-2024-annual",
+          "anchor": {
+            "date": "2024",
+            "label": {
+              "en": "Start of serial tyre production",
+              "zh": "轮胎批量生产开始"
+            }
+          },
+          "frequency": "annual",
+          "before": 3,
+          "after": 3,
+          "series": [
+            {
+              "indicator_id": "automotive_export_share",
+              "layer": "canonical_annual",
+              "country": "serbia"
+            },
+            {
+              "indicator_id": "manufacturing_share_gdp",
+              "layer": "sors_annual",
+              "country": "serbia"
+            },
+            {
+              "indicator_id": "regional_population_estimate_sors",
+              "layer": "sors_regional",
+              "region_id": "serbia_central_banat"
+            }
+          ]
+        }
+      ],
+      "regional": [
+        {
+          "region_id": "serbia_bor",
+          "admin_code": "RS221",
+          "role": "project_location",
+          "records": [
+            "rs-zijin-rtb-bor-acquisition",
+            "rs-majdanpek-west-exploration"
+          ],
+          "indicators": [
+            "regional_unemployment_rate_2014_2020",
+            "regional_population_estimate_sors",
+            "regional_population"
+          ]
+        },
+        {
+          "region_id": "serbia_central_banat",
+          "admin_code": "RS126",
+          "role": "project_location",
+          "records": [
+            "rs-linglong-zrenjanin-tyre-plant"
+          ],
+          "indicators": [
+            "regional_population_estimate_sors",
+            "regional_population"
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "en": "Serbia's direct-investment liability inflows rose from €1,485 million in 2013 to €3,464 million in 2018 (historical layer) and €5,226 million in 2024 (canonical layer). Project amounts — the USD 350 million capital increase paid into RTB Bor in 2018 and the USD 1 billion first-phase estimate for Linglong — are project-level dollar figures and are not set against these totals.",
+          "zh": "塞尔维亚直接投资负债流入从 2013 年的 14.85 亿欧元增至 2018 年的 34.64 亿欧元（历史层）和 2024 年的 52.26 亿欧元（规范层）。项目金额——2018 年向 RTB Bor 支付的 3.5 亿美元增资和玲珑第一阶段 10 亿美元估计——是项目层面的美元数字，不与这些总量对比。"
+        },
+        {
+          "en": "The RTB Bor transaction transferred control of an already operating mining and smelting company; the record documents capital paid and a separate six-year commitment, not new production. Mine and smelter output is not held, and the industrial production index combines mining, manufacturing and energy.",
+          "zh": "RTB Bor 交易转移的是一家已在运营的采矿冶炼企业的控制权；记录载明了已付资本和单独的六年承诺，而不是新的生产。Atlas 未持有矿山和冶炼厂产量，工业生产指数也把采矿、制造和能源合并统计。"
+        },
+        {
+          "en": "The 2026 Majdanpek West transaction is an exploration-stage sale (AU$300,000) between two foreign companies after a licence renewal. No exploitation permit or production is recorded, and as reported the sale is not itself a Serbian balance-of-payments flow.",
+          "zh": "2026 年马伊丹佩克西部交易是许可续期后两家外国企业之间的勘探阶段出售（30 万澳元）。没有开采许可或生产记录，据报道该出售本身也不构成塞尔维亚的国际收支流量。"
+        },
+        {
+          "en": "Manufacturing's share of GDP (SORS national definition) fell from 17.8% in 2015 to 12.2% in 2025, while Eurostat's industrial production index for Serbia (2021=100) was 100.9 in August 2021 and 109.7 in August 2026.",
+          "zh": "按塞尔维亚统计局口径，制造业占 GDP 比重从 2015 年的 17.8% 降至 2025 年的 12.2%；同期 Eurostat 塞尔维亚工业生产指数（2021=100）2021 年 8 月为 100.9，2026 年 8 月为 109.7。"
+        },
+        {
+          "en": "In Bor district (NSTJ3 RS221), where the RTB Bor assets and the Majdanpek project lie, the SORS population estimate fell from 125,285 in 2011 to 96,478 in 2025, and the unemployment rate was 19.5% in 2014 and 15.0% in 2020 (no later NSTJ3 data). These describe the district, not effects of the investments.",
+          "zh": "在 RTB Bor 资产和马伊丹佩克项目所在的博尔州（NSTJ3 RS221），塞尔维亚统计局人口估计从 2011 年的 125,285 降至 2025 年的 96,478，失业率 2014 年为 19.5%，2020 年为 15.0%（此后无 NSTJ3 数据）。这些数字描述该州状况，不是投资的效应。"
+        },
+        {
+          "en": "Linglong's tyre manufacturing (NACE C22) lies outside the motor-vehicle export indicator (C29), whose Serbian value rose from 11.653% of exports in 2021 to 16.901% in 2024; that indicator cannot include the plant's exports unless they are made by a C29 enterprise.",
+          "zh": "玲珑的轮胎制造（NACE C22）不在汽车出口指标（C29）范围内；该指标在塞尔维亚从 2021 年占出口的 11.653% 升至 2024 年的 16.901%，除非出口由 C29 企业完成，否则不包括该工厂的出口。"
+        }
+      ],
+      "checks": [
+        {
+          "layer": "historical_annual",
+          "indicator_id": "fdi_inflow",
+          "period": "2013",
+          "value": 1485,
+          "country": "serbia"
+        },
+        {
+          "layer": "historical_annual",
+          "indicator_id": "fdi_inflow",
+          "period": "2018",
+          "value": 3464,
+          "country": "serbia"
+        },
+        {
+          "layer": "canonical_annual",
+          "indicator_id": "fdi_inflow",
+          "period": "2024",
+          "value": 5226,
+          "country": "serbia"
+        },
+        {
+          "layer": "sors_annual",
+          "indicator_id": "manufacturing_share_gdp",
+          "period": "2015",
+          "value": 17.8,
+          "country": "serbia"
+        },
+        {
+          "layer": "sors_annual",
+          "indicator_id": "manufacturing_share_gdp",
+          "period": "2025",
+          "value": 12.2,
+          "country": "serbia"
+        },
+        {
+          "layer": "high_frequency_monthly",
+          "indicator_id": "industrial_production_index",
+          "period": "2021-08",
+          "value": 100.9,
+          "country": "serbia"
+        },
+        {
+          "layer": "high_frequency_monthly",
+          "indicator_id": "industrial_production_index",
+          "period": "2026-08",
+          "value": 109.7,
+          "country": "serbia"
+        },
+        {
+          "layer": "sors_regional",
+          "indicator_id": "regional_population_estimate_sors",
+          "period": "2011",
+          "value": 125285,
+          "region_id": "serbia_bor"
+        },
+        {
+          "layer": "sors_regional",
+          "indicator_id": "regional_population_estimate_sors",
+          "period": "2025",
+          "value": 96478,
+          "region_id": "serbia_bor"
+        },
+        {
+          "layer": "sors_regional",
+          "indicator_id": "regional_unemployment_rate_2014_2020",
+          "period": "2014",
+          "value": 19.5,
+          "region_id": "serbia_bor"
+        },
+        {
+          "layer": "sors_regional",
+          "indicator_id": "regional_unemployment_rate_2014_2020",
+          "period": "2020",
+          "value": 15,
+          "region_id": "serbia_bor"
+        },
+        {
+          "layer": "canonical_annual",
+          "indicator_id": "automotive_export_share",
+          "period": "2021",
+          "value": 11.653,
+          "country": "serbia"
+        },
+        {
+          "layer": "canonical_annual",
+          "indicator_id": "automotive_export_share",
+          "period": "2024",
+          "value": 16.901,
+          "country": "serbia"
+        }
+      ],
+      "interpretation": {
+        "en": "Serbia's official series show rising direct-investment inflows, a falling manufacturing share and a shrinking Bor district population over the period of the documented investments. The records establish which investment stages occurred; they do not establish that any investment moved these series.",
+        "zh": "在有记录的投资期间，塞尔维亚官方序列显示直接投资流入上升、制造业占比下降、博尔州人口减少。记录证明了发生了哪些投资阶段，但不证明任何投资推动了这些序列。"
+      },
+      "limitations": [
+        {
+          "en": "Exploration, a change of ownership and an operating mine are different stages; none is a production statistic.",
+          "zh": "勘探、所有权变更和运营中的矿山是不同阶段；都不是生产统计。"
+        },
+        {
+          "en": "SORS series follow national definitions and are not comparable across countries; NSTJ3 labour-market data end in 2020.",
+          "zh": "塞尔维亚统计局序列采用本国口径，不可跨国比较；NSTJ3 劳动力市场数据止于 2020 年。"
+        },
+        {
+          "en": "Monthly industrial production is held to September 2026 (SORS) and August 2026 (Eurostat), before the November 2026 sale, so there are no post-anchor months.",
+          "zh": "月度工业生产数据截至 2026 年 9 月（统计局）和 8 月（Eurostat），早于 2026 年 11 月的出售，因此没有锚点之后的月份。"
+        },
+        {
+          "en": "Project amounts are in US or Australian dollars at project level and are never converted or compared with balance-of-payments flows.",
+          "zh": "项目金额为项目层面的美元或澳元，从不换算或与国际收支流量比较。"
+        }
+      ],
+      "links": [
+        {
+          "kind": "country_profile",
+          "route": "/en/countries/serbia/",
+          "label": {
+            "en": "Serbia country profile",
+            "zh": "塞尔维亚国家概况"
+          }
+        },
+        {
+          "kind": "data_explorer",
+          "route": "/en/data/?compare_countries=serbia,hungary&comparison_indicator=annual:fdi_inflow",
+          "label": {
+            "en": "Compare FDI inflows",
+            "zh": "比较 FDI 流入"
+          }
+        },
+        {
+          "kind": "regional_map",
+          "route": "/en/map/?country=serbia&layer=regional_population&year=2024&regions=serbia_bor",
+          "label": {
+            "en": "Bor district on the regional map",
+            "zh": "区域地图中的博尔州"
+          }
+        },
+        {
+          "kind": "event_library",
+          "route": "/en/news/?country=serbia&type=FDI&from=2026-11-10&to=2026-11-10#rs-2026-11-10-australian-mdi-takes-over-project-in-majdanpek-formerly-funded-by-rio-tinto",
+          "label": {
+            "en": "Event record",
+            "zh": "事件记录"
+          }
+        },
+        {
+          "kind": "workspace",
+          "route": "/en/workspaces/trade_external_exposure/",
+          "label": {
+            "en": "Trade and external exposure workspace",
+            "zh": "贸易与外部暴露工作区"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "cz-repowereu-energy-transition",
+      "theme_ids": [
+        "energy_dependency_transition",
+        "eu_funding_development"
+      ],
+      "countries": [
+        "czechia"
+      ],
+      "context_countries": [
+        "slovakia"
+      ],
+      "status": "published",
+      "extends": {
+        "kind": "event_case_study",
+        "event_id": "cz-2023-10-16-repowereu-plan"
+      },
+      "title": {
+        "en": "Czechia: REPowerEU and energy transition",
+        "zh": "捷克：REPowerEU 与能源转型"
+      },
+      "research_question": {
+        "en": "What did the REPowerEU chapter of Czechia's recovery plan commit, what has been documented as paid or fulfilled, and what do the held energy indicators show before and after its adoption?",
+        "zh": "捷克复苏计划的 REPowerEU 章节承诺了什么？哪些已有支付或完成的记录？通过前后已持有的能源指标呈现什么情况？"
+      },
+      "event_ids": [
+        "cz-2023-10-16-repowereu-plan"
+      ],
+      "investment_records": [],
+      "funding_records": [
+        "cz-rrf-plan-2023-allocation",
+        "cz-repowereu-2023-allocation",
+        "cz-repowereu-2023-prefinancing",
+        "cz-rrf-2024-authorisation",
+        "cz-rrf-2024-loan-authorisation",
+        "cz-rrf-2024-suspension",
+        "cz-rrf-2025-disbursement",
+        "cz-rrf-2025-loan-disbursement",
+        "cz-rrf-2026-03-disbursement",
+        "cz-rrf-2026-08-disbursement",
+        "cz-rrf-2026-final-request"
+      ],
+      "implementation_milestones": [
+        "cz-e2-04-chapter-content",
+        "cz-e2-07-grid-milestone-suspended",
+        "cz-e2-10-grid-milestone-fulfilled",
+        "cz-e21-18-distribution-grid-completed",
+        "cz-e21-19-electricity-data-centre",
+        "cz-e21-20-acceleration-areas",
+        "cz-e2-16-outcome-unavailable"
+      ],
+      "institutional_context": [
+        {
+          "en": "The Council approves recovery plans and their amendments on a Commission proposal; the Commission assesses payment requests and authorises payments by decision.",
+          "zh": "理事会根据委员会提案批准复苏计划及其修订；委员会评估付款申请并以决定授权付款。"
+        },
+        {
+          "en": "Payments are tied to milestones and targets for the plan as a whole; later payment decisions do not separate the REPowerEU chapter except where a named milestone is suspended or assessed.",
+          "zh": "付款与整个计划的里程碑和目标挂钩；后续付款决定不单列 REPowerEU 章节，除非涉及被暂停或评估的特定里程碑。"
+        }
+      ],
+      "series": [
+        {
+          "indicator_id": "energy_import_dependency",
+          "layer": "canonical_annual",
+          "country": "czechia"
+        },
+        {
+          "indicator_id": "energy_import_dependency",
+          "layer": "historical_annual",
+          "country": "czechia"
+        },
+        {
+          "indicator_id": "household_electricity_price",
+          "layer": "canonical_annual",
+          "country": "czechia"
+        },
+        {
+          "indicator_id": "household_electricity_price",
+          "layer": "historical_annual",
+          "country": "czechia"
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "layer": "canonical_annual",
+          "country": "czechia"
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "layer": "historical_annual",
+          "country": "czechia"
+        },
+        {
+          "indicator_id": "energy_inflation",
+          "layer": "canonical_annual",
+          "country": "czechia"
+        },
+        {
+          "indicator_id": "energy_inflation",
+          "layer": "historical_annual",
+          "country": "czechia"
+        },
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layer": "macro_driver_monthly",
+          "country": "czechia",
+          "transformation": "yoy_rate"
+        },
+        {
+          "indicator_id": "hicp_energy_annual_rate",
+          "layer": "macro_driver_monthly",
+          "country": "slovakia",
+          "transformation": "yoy_rate"
+        },
+        {
+          "indicator_id": "government_revenue_gdp",
+          "layer": "canonical_annual",
+          "country": "czechia"
+        }
+      ],
+      "windows": [
+        {
+          "window_id": "cz-repowereu-annual",
+          "anchor": {
+            "event_id": "cz-2023-10-16-repowereu-plan",
+            "label": {
+              "en": "REPowerEU chapter added to the plan",
+              "zh": "复苏计划加入 REPowerEU 章节"
+            }
+          },
+          "frequency": "annual",
+          "before": 4,
+          "after": 3,
+          "series": [
+            {
+              "indicator_id": "energy_import_dependency",
+              "layer": "canonical_annual",
+              "country": "czechia"
+            },
+            {
+              "indicator_id": "energy_import_dependency",
+              "layer": "historical_annual",
+              "country": "czechia"
+            },
+            {
+              "indicator_id": "household_electricity_price",
+              "layer": "canonical_annual",
+              "country": "czechia"
+            },
+            {
+              "indicator_id": "household_electricity_price",
+              "layer": "historical_annual",
+              "country": "czechia"
+            },
+            {
+              "indicator_id": "industrial_electricity_price",
+              "layer": "canonical_annual",
+              "country": "czechia"
+            },
+            {
+              "indicator_id": "industrial_electricity_price",
+              "layer": "historical_annual",
+              "country": "czechia"
+            }
+          ]
+        },
+        {
+          "window_id": "cz-repowereu-monthly",
+          "anchor": {
+            "event_id": "cz-2023-10-16-repowereu-plan",
+            "label": {
+              "en": "REPowerEU chapter added to the plan",
+              "zh": "复苏计划加入 REPowerEU 章节"
+            }
+          },
+          "frequency": "monthly",
+          "before": 12,
+          "after": 12,
+          "series": [
+            {
+              "indicator_id": "hicp_energy_annual_rate",
+              "layer": "macro_driver_monthly",
+              "country": "czechia",
+              "transformation": "yoy_rate"
+            },
+            {
+              "indicator_id": "hicp_energy_annual_rate",
+              "layer": "macro_driver_monthly",
+              "country": "slovakia",
+              "transformation": "yoy_rate"
+            }
+          ]
+        }
+      ],
+      "regional": [],
+      "findings": [
+        {
+          "en": "The chapter's money is documented at three stages: €681 million of REPowerEU grants allocated in the Commission's September 2023 assessment, €147.09 million of REPowerEU pre-financing paid in December 2023, and a €97.6 million suspension tied to grid milestone 304 from December 2024 until November 2025. Later payments (€1.57 billion of grants in September 2025, €614 million in March 2026, €897 million in August 2026) concern the plan as a whole and do not separate the REPowerEU part.",
+          "zh": "该章节资金在三个阶段有记录：委员会 2023 年 9 月评估中分配的 6.81 亿欧元 REPowerEU 赠款、2023 年 12 月支付的 1.4709 亿欧元 REPowerEU 预付款，以及 2024 年 12 月至 2025 年 11 月因电网第 304 号里程碑暂停的 9760 万欧元。之后的付款（2025 年 9 月赠款 15.7 亿欧元、2026 年 3 月 6.14 亿欧元、2026 年 8 月 8.97 亿欧元）针对整个计划，不单列 REPowerEU 部分。"
+        },
+        {
+          "en": "Fulfilment evidence exists for named measures — the distribution-grid target and renewable acceleration areas in the Commission's preliminary assessment of October 2026 — but no realised energy outcome is documented.",
+          "zh": "具体措施有完成证据——委员会 2026 年 10 月初步评估中的配电网目标和可再生能源加速区——但没有记录已实现的能源结果。"
+        },
+        {
+          "en": "Czechia's energy import dependency was 40.81% in 2019, 41.772% in 2022 and 39.32% in 2024, the latest year held; 2024 precedes the August 2026 deadline for the chapter's milestones, so the held years can only show the starting level.",
+          "zh": "捷克能源进口依赖度 2019 年为 40.81%，2022 年为 41.772%，2024 年（已持有的最新年份）为 39.32%；2024 年早于该章节里程碑 2026 年 8 月的截止期，因此已持有年份只能显示起点水平。"
+        },
+        {
+          "en": "The household electricity price rose from €0.2083 per kWh in 2022 to €0.31705 in 2023 and €0.33415 in 2024. Monthly HICP energy inflation was 35.4% in October 2023, the adoption month, 2.6% in January 2024 and 1.8% in October 2024; base effects from 2022 and wholesale prices dominate these rates, as the existing case study records.",
+          "zh": "居民电价从 2022 年每千瓦时 0.2083 欧元升至 2023 年 0.31705 欧元和 2024 年 0.33415 欧元。月度 HICP 能源通胀在通过当月 2023 年 10 月为 35.4%，2024 年 1 月为 2.6%，2024 年 10 月为 1.8%；如既有案例研究所记录，这些读数主要受 2022 年基数效应和批发价格影响。"
+        },
+        {
+          "en": "Data issue for review: the existing case-study text gives €260 million in loans for the modified plan, while the implementation record from the Commission's press release IP/23/4642 gives €818 million. The funding layer uses the implementation record and does not change either file.",
+          "zh": "待核数据问题：既有案例研究文本称修订计划贷款为 2.6 亿欧元，而依据委员会新闻稿 IP/23/4642 的实施记录为 8.18 亿欧元。资金层采用实施记录，两个文件均未改动。"
+        }
+      ],
+      "checks": [
+        {
+          "layer": "canonical_annual",
+          "indicator_id": "energy_import_dependency",
+          "period": "2022",
+          "value": 41.772,
+          "country": "czechia"
+        },
+        {
+          "layer": "canonical_annual",
+          "indicator_id": "energy_import_dependency",
+          "period": "2024",
+          "value": 39.32,
+          "country": "czechia"
+        },
+        {
+          "layer": "historical_annual",
+          "indicator_id": "energy_import_dependency",
+          "period": "2019",
+          "value": 40.81,
+          "country": "czechia"
+        },
+        {
+          "layer": "historical_annual",
+          "indicator_id": "household_electricity_price",
+          "period": "2022",
+          "value": 0.2083,
+          "country": "czechia"
+        },
+        {
+          "layer": "canonical_annual",
+          "indicator_id": "household_electricity_price",
+          "period": "2023",
+          "value": 0.31705,
+          "country": "czechia"
+        },
+        {
+          "layer": "canonical_annual",
+          "indicator_id": "household_electricity_price",
+          "period": "2024",
+          "value": 0.33415,
+          "country": "czechia"
+        },
+        {
+          "layer": "macro_driver_monthly",
+          "indicator_id": "hicp_energy_annual_rate",
+          "period": "2023-10",
+          "value": 35.4,
+          "country": "czechia",
+          "transformation": "yoy_rate"
+        },
+        {
+          "layer": "macro_driver_monthly",
+          "indicator_id": "hicp_energy_annual_rate",
+          "period": "2024-01",
+          "value": 2.6,
+          "country": "czechia",
+          "transformation": "yoy_rate"
+        },
+        {
+          "layer": "macro_driver_monthly",
+          "indicator_id": "hicp_energy_annual_rate",
+          "period": "2024-10",
+          "value": 1.8,
+          "country": "czechia",
+          "transformation": "yoy_rate"
+        },
+        {
+          "funding_record": "cz-repowereu-2023-allocation",
+          "value": 681000000
+        },
+        {
+          "funding_record": "cz-repowereu-2023-prefinancing",
+          "value": 147090000
+        },
+        {
+          "funding_record": "cz-rrf-2024-suspension",
+          "value": 97629788
+        },
+        {
+          "funding_record": "cz-rrf-2025-disbursement",
+          "value": 1570000000
+        },
+        {
+          "funding_record": "cz-rrf-2026-03-disbursement",
+          "value": 614000000
+        },
+        {
+          "funding_record": "cz-rrf-2026-08-disbursement",
+          "value": 897000000
+        }
+      ],
+      "interpretation": {
+        "en": "The REPowerEU chapter is well documented as a funding and milestone process, and poorly documented as an energy outcome. The held energy indicators describe the starting conditions and the price shock around adoption; they cannot show what the chapter changed.",
+        "zh": "REPowerEU 章节作为资金和里程碑过程有充分记录，作为能源结果则缺乏记录。已持有的能源指标描述了起点状况和通过前后的价格冲击，但无法说明该章节改变了什么。"
+      },
+      "limitations": [
+        {
+          "en": "A funding commitment, a payment or a fulfilled milestone is not a realised energy outcome.",
+          "zh": "资金承诺、付款或完成的里程碑都不是已实现的能源结果。"
+        },
+        {
+          "en": "Slovakia is shown under the same definition for context only; it is not a control group.",
+          "zh": "斯洛伐克在相同定义下仅作背景展示，不是对照组。"
+        },
+        {
+          "en": "Annual energy indicators end in 2024 and monthly HICP energy in July 2026.",
+          "zh": "年度能源指标止于 2024 年，月度 HICP 能源止于 2026 年 7 月。"
+        }
+      ],
+      "links": [
+        {
+          "kind": "country_profile",
+          "route": "/en/countries/czechia/",
+          "label": {
+            "en": "Czechia country profile",
+            "zh": "捷克国家概况"
+          }
+        },
+        {
+          "kind": "event_case",
+          "route": "/en/models/?tab=run&skill=event_window_analysis&country=czechia&event=cz-2023-10-16-repowereu-plan&section=case",
+          "label": {
+            "en": "Published REPowerEU event case study",
+            "zh": "已发布的 REPowerEU 事件案例"
+          }
+        },
+        {
+          "kind": "data_explorer",
+          "route": "/en/data/?compare_countries=czechia,slovakia&comparison_indicator=annual:energy_import_dependency",
+          "label": {
+            "en": "Compare energy import dependency",
+            "zh": "比较能源进口依赖度"
+          }
+        },
+        {
+          "kind": "event_library",
+          "route": "/en/news/?country=czechia&type=energy&from=2023-10-16&to=2023-10-16#cz-2023-10-16-repowereu-plan",
+          "label": {
+            "en": "Event record",
+            "zh": "事件记录"
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "eu-rrf-funding-stages",
+      "theme_ids": [
+        "eu_funding_development"
+      ],
+      "countries": [
+        "czechia",
+        "slovakia",
+        "poland",
+        "slovenia",
+        "romania",
+        "croatia",
+        "hungary"
+      ],
+      "context_countries": [],
+      "status": "published",
+      "extends": null,
+      "title": {
+        "en": "EU funding stages in the admitted records",
+        "zh": "已收录记录中的欧盟资金阶段"
+      },
+      "research_question": {
+        "en": "At which financial stage does each admitted EU-funding record sit — allocation, request, authorisation, commitment, disbursement or restriction — and what does each stage establish about money that has actually reached the country?",
+        "zh": "每条已收录的欧盟资金记录处于哪个财务阶段——额度、申请、授权、承诺、拨付或限制——每个阶段对实际到达该国的资金能证明什么？"
+      },
+      "event_ids": [
+        "sk-2024-10-22-rrf-fourth-instalment",
+        "pl-2024-07-01-amended-recovery-plan",
+        "si-2026-09-29-2026-09-29-slovenia-submits-final-payment-request-for-funds-under-the-recovery-and-resilience-f",
+        "ro-2026-10-01-final-payment-request-under-nrrp-id1065838",
+        "hr-2026-11-05-za-vodoopskrbu-diljem-hrvatske-gotovo-275-milijuna-eura",
+        "hu-2023-01-26-eu-funds-conditionality",
+        "hu-2026-10-27-erasmus-is-back-at-all-hungarian-universities",
+        "ro-2026-08-26-safe-payment",
+        "cz-2026-10-07-czechia-receives-first-eu309-million-eu-safe-defence-fund-8899283"
+      ],
+      "investment_records": [],
+      "funding_records": [
+        "cz-rrf-2025-disbursement",
+        "cz-rrf-2025-loan-disbursement",
+        "cz-rrf-2024-suspension",
+        "sk-rrf-2024-authorisation",
+        "pl-rrf-2024-amended-plan",
+        "si-rrf-2026-final-request-grants",
+        "si-rrf-2026-final-request-loans",
+        "ro-rrf-2026-final-request",
+        "hr-rrf-2026-water-contracts",
+        "hr-cohesion-2026-vir-contract",
+        "hu-conditionality-2022-restriction",
+        "hu-conditionality-2026-lifted",
+        "ro-safe-2026-allocation",
+        "ro-safe-2026-disbursement",
+        "cz-safe-2026-disbursement"
+      ],
+      "institutional_context": [
+        {
+          "en": "Recovery-plan money moves through distinct acts: Council approval of the plan, national payment requests, Commission assessment and payment decisions, and national contracts with final recipients.",
+          "zh": "复苏计划资金经过不同环节：理事会批准计划、成员国提交付款申请、委员会评估和付款决定，以及成员国与最终受益方签订合同。"
+        },
+        {
+          "en": "SAFE provides defence loans to member states and is separate from the Recovery and Resilience Facility; conditionality measures are Council decisions under the EU budget conditionality regulation.",
+          "zh": "SAFE 向成员国提供国防贷款，与复苏与韧性基金相互独立；条件机制措施是理事会依据欧盟预算条件机制条例作出的决定。"
+        }
+      ],
+      "series": [
+        {
+          "indicator_id": "government_revenue_gdp",
+          "layer": "canonical_annual",
+          "country": "czechia"
+        },
+        {
+          "indicator_id": "government_revenue_gdp",
+          "layer": "canonical_annual",
+          "country": "slovakia"
+        },
+        {
+          "indicator_id": "government_revenue_gdp",
+          "layer": "canonical_annual",
+          "country": "poland"
+        },
+        {
+          "indicator_id": "government_revenue_gdp",
+          "layer": "canonical_annual",
+          "country": "slovenia"
+        },
+        {
+          "indicator_id": "government_revenue_gdp",
+          "layer": "canonical_annual",
+          "country": "romania"
+        },
+        {
+          "indicator_id": "government_revenue_gdp",
+          "layer": "canonical_annual",
+          "country": "croatia"
+        },
+        {
+          "indicator_id": "government_revenue_gdp",
+          "layer": "canonical_annual",
+          "country": "hungary"
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "layer": "canonical_annual",
+          "country": "czechia"
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "layer": "canonical_annual",
+          "country": "romania"
+        }
+      ],
+      "windows": [],
+      "window_blocker": {
+        "en": "No quantitative event window is shown: no series of EU funds received is held, and public-finance aggregates cannot reveal individual transfers. The case is documentary.",
+        "zh": "不展示定量事件窗口：Atlas 未持有欧盟资金收入序列，公共财政总量也无法显示单笔转移支付。本案例为文献性研究。"
+      },
+      "regional": [],
+      "findings": [
+        {
+          "en": "Only Czechia has documented RRF grant disbursements in the admitted records (for example €1.57 billion in September 2025). Slovakia's record is a payment authorisation (€923.828 million, October 2024), Slovenia's and Romania's are final payment requests (2026), Croatia's are signed contracts, and Poland's is a plan assessment without amounts.",
+          "zh": "在已收录记录中，只有捷克有已记录的复苏与韧性基金赠款拨付（如 2025 年 9 月 15.7 亿欧元）。斯洛伐克的记录是付款授权（2024 年 10 月 9.23828 亿欧元），斯洛文尼亚和罗马尼亚的是最后一笔付款申请（2026 年），克罗地亚的是已签合同，波兰的是没有金额的计划评估。"
+        },
+        {
+          "en": "Grants and loans are recorded separately: Czechia's September 2025 payment comprised €1.57 billion of grants and €41 million of loans, and Slovenia's final request €268.67 million of grants and €3.1 million of loans. SAFE payments to Romania (€2.5 billion) and Czechia (€309 million) are defence loans, not recovery funds.",
+          "zh": "赠款和贷款分开记录：捷克 2025 年 9 月付款包括 15.7 亿欧元赠款和 4100 万欧元贷款，斯洛文尼亚最后一笔申请包括 2.6867 亿欧元赠款和 310 万欧元贷款。SAFE 对罗马尼亚（25 亿欧元）和捷克（3.09 亿欧元）的付款是国防贷款，不是复苏资金。"
+        },
+        {
+          "en": "Restrictions are recorded as their own stage: Hungary's conditionality measures (December 2022) restricted new commitments with public-interest trusts until the Council ended the procedure on 13 October 2026, and €97.6 million of Czechia's fifth instalment was suspended from December 2024 to November 2025.",
+          "zh": "限制作为独立阶段记录：匈牙利的条件机制措施（2022 年 12 月）限制与公共利益信托签署新承诺，直至理事会于 2026 年 10 月 13 日终止程序；捷克第五期中 9760 万欧元在 2024 年 12 月至 2025 年 11 月被暂停。"
+        },
+        {
+          "en": "No admitted record documents expenditure by final recipients or project completion; Croatia's water contracts are commitments, and the government's €275 million total covers contracts from two programmes without a separate figure for the recovery-plan part.",
+          "zh": "没有已收录记录载明最终受益方的支出或项目完成；克罗地亚的水务合同是承诺，政府给出的 2.75 亿欧元合计涵盖两个计划的合同，未单列复苏计划部分。"
+        },
+        {
+          "en": "Germany and Austria have no admitted EU-funding records in this layer, and EU-internal programmes do not apply to Serbia; neither is recorded as zero.",
+          "zh": "德国和奥地利在本层没有已收录的欧盟资金记录，欧盟内部计划也不适用于塞尔维亚；两者都不记为零。"
+        }
+      ],
+      "checks": [
+        {
+          "funding_record": "cz-rrf-2025-disbursement",
+          "value": 1570000000
+        },
+        {
+          "funding_record": "cz-rrf-2025-loan-disbursement",
+          "value": 41000000
+        },
+        {
+          "funding_record": "sk-rrf-2024-authorisation",
+          "value": 923828000
+        },
+        {
+          "funding_record": "si-rrf-2026-final-request-grants",
+          "value": 268670000
+        },
+        {
+          "funding_record": "si-rrf-2026-final-request-loans",
+          "value": 3100000
+        },
+        {
+          "funding_record": "ro-safe-2026-disbursement",
+          "value": 2500000000
+        },
+        {
+          "funding_record": "cz-safe-2026-disbursement",
+          "value": 309000000
+        },
+        {
+          "funding_record": "cz-rrf-2024-suspension",
+          "value": 97629788
+        }
+      ],
+      "interpretation": {
+        "en": "The admitted records describe very different points in the funding cycle across countries, so they cannot be summed or ranked into a single 'EU funding' figure. What they show is where each country's documented evidence stops.",
+        "zh": "已收录记录描述的是各国资金周期中截然不同的节点，因此不能加总或排序成单一的“欧盟资金”数字。它们显示的是各国有记录证据止于何处。"
+      },
+      "limitations": [
+        {
+          "en": "The layer reflects admitted Atlas records only; absence of a record is not absence of funding.",
+          "zh": "本层只反映 Atlas 已收录记录；没有记录不等于没有资金。"
+        },
+        {
+          "en": "Several records restate media reports; their evidence status is shown on each record.",
+          "zh": "部分记录转述媒体报道；每条记录都标明证据状态。"
+        },
+        {
+          "en": "Amounts are nominal euros at the stated date and are not converted to real terms.",
+          "zh": "金额为所述日期的名义欧元，未换算为实际值。"
+        }
+      ],
+      "links": [
+        {
+          "kind": "workspace",
+          "route": "/en/workspaces/fiscal_macro_conditions/",
+          "label": {
+            "en": "Fiscal and macroeconomic conditions workspace",
+            "zh": "财政与宏观状况工作区"
+          }
+        },
+        {
+          "kind": "data_explorer",
+          "route": "/en/data/?compare_countries=czechia,slovakia,poland,croatia&comparison_indicator=annual:government_revenue_gdp",
+          "label": {
+            "en": "Compare government revenue",
+            "zh": "比较政府收入"
+          }
+        },
+        {
+          "kind": "event_library",
+          "route": "/en/news/?type=EU_funds",
+          "label": {
+            "en": "EU-funding events",
+            "zh": "欧盟资金事件"
+          }
+        }
+      ]
+    }
+  ]
+}
