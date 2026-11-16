@@ -208,11 +208,16 @@ The registry tests cover: schema, stable IDs, duplicates, chamber naming, dates,
 
 ## 13. Commit
 
-The implementation commit is on branch `data/historical-coverage-2026-11-16`; its full SHA is given in the delivery message.
+Implementation commit `be8268a362ce5194d768a6bd1d29d81c56e59a17` (branch `data/historical-coverage-2026-11-16`), pushed to `main` on 2026-11-16 after the owner's approval ("推送上线").
 
 ## 14. GitHub Actions and deployment
 
-Not pushed. Deployment waits for the owner's explicit approval ("推送上线").
+- Deploy GitHub Pages run 43847109234: build and deploy jobs succeeded.
+- Live `research-data/deployment_provenance.json`: `source_commit` `be8268a362ce5194d768a6bd1d29d81c56e59a17`, `workflow_run_id` 43847109234.
+- Live `research-data/research-data-v2.0.zip` sha256 `7208a7ca331bb66e0f3d50bdf5fc88da21ebe6eb5bf86b14e34b518b773a135e`, equal to the provenance record.
+- Production acceptance (`playwright.production-acceptance.config.ts`): 6 of 6 passed.
+- Code scanning: 0 open alerts. Dependabot: only the known minimatch alert (waiting for upstream).
+- Live `/en/politics/`: "Chamber of Deputies" appears only in Czech Statistical Office source titles.
 
 ## 15. Remaining data gaps
 
