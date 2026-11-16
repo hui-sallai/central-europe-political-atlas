@@ -229,7 +229,7 @@
       "manual_allowed": true,
       "robots_checked_at": "2026-10-25",
       "robots_note": "No robots.txt: /robots.txt returns the e-Sbírka application page (HTTP 200, text/html).",
-      "reason": "Owner-approved 2026-10-25; one browser reading of the consolidated text; quoted clauses and a checksum of the captured sections are stored.",
+      "reason": "Owner-approved 2026-10-25; one browser reading of the consolidated text; quoted clauses and a checksum of the captured sections are stored. 2026-11-16 (institutions brief): Constitution 1/1993 Sb. (current version and the 2009–2012 and 2012–2013 versions) and Act 247/1995 current version read once in a browser.",
       "status": "allowed_review_due"
     },
     {
@@ -249,7 +249,7 @@
       "manual_allowed": true,
       "robots_checked_at": "2026-11-03",
       "robots_note": "User-agent: * with empty Disallow",
-      "reason": "Owner-approved 2026-11-03: one reading per named document (PKW notices, Electoral Code, Copyright Act, Supreme Court validity resolutions, PKW communiqué); no automated collection.",
+      "reason": "Owner-approved 2026-11-03: one reading per named document (PKW notices, Electoral Code, Copyright Act, Supreme Court validity resolutions, PKW communiqué); no automated collection. Owner approval 2026-11-16 (institutions brief): Constitution of 2 April 1997 (ELI record, unified text) and Electoral Code Dz.U. 2022 poz. 1277, one reading each.",
       "status": "allowed_review_due"
     },
     {
@@ -309,7 +309,7 @@
       "manual_allowed": true,
       "robots_checked_at": "2026-11-05",
       "robots_note": "Allows /jogszabaly/*; disallows /search/*",
-      "reason": "Owner-approved 2026-11-05 to read statutes.",
+      "reason": "Owner-approved 2026-11-05 to read statutes. 2026-11-16: Fundamental Law (Hungarian consolidated text and English translation) and its sixteenth and seventeenth amendments read for the institutions registry.",
       "status": "allowed_review_due"
     },
     {
@@ -339,7 +339,7 @@
       "manual_allowed": true,
       "robots_checked_at": "2026-11-15",
       "robots_note": "robots.txt: User-agent * disallows only the info board, contact documents and archive .txt files",
-      "reason": "Owner approval 2026-11-15 (\"批准登记这五个塞尔维亚站点，仅人工读取\"): manual reading only; one reading per named page; institutional facts only; no member names.",
+      "reason": "Owner approval 2026-11-15 (\"批准登记这五个塞尔维亚站点，仅人工读取\"): manual reading only; one reading per named page; institutional facts only; no member names. 2026-11-16: English constitution PDF read once for the institutions registry.",
       "status": "evidence_only_pending_publisher"
     },
     {
@@ -349,7 +349,7 @@
       "manual_allowed": true,
       "robots_checked_at": "2026-11-15",
       "robots_note": "robots.txt request answered 302 (redirects to pravno-informacioni-sistem.rs); not followed; manual reading only",
-      "reason": "Owner approval 2026-11-15 (\"批准登记这五个塞尔维亚站点，仅人工读取\"): manual reading only; one reading per named statute, to record the rights route and electoral-system facts.",
+      "reason": "Owner approval 2026-11-15 (\"批准登记这五个塞尔维亚站点，仅人工读取\"): manual reading only; one reading per named statute, to record the rights route and electoral-system facts. 2026-11-16: consolidated Constitution read once in a browser for the institutions registry.",
       "status": "evidence_only_pending_publisher"
     },
     {
@@ -381,6 +381,106 @@
       "robots_note": "robots.txt not read separately; the www host redirects all paths here",
       "reason": "Owner approval 2026-11-15 (\"批准登记这五个塞尔维亚站点，仅人工读取\"): manual reading only; one reading per named statute, to record the rights route and electoral-system facts.",
       "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "www.gesetze-im-internet.de",
+      "purpose": "Federal Ministry of Justice legal portal: Basic Law (German and English) and Federal Electoral Act, read for the institutions registry",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-16",
+      "robots_note": "User-agent: * with empty Disallow",
+      "reason": "Owner approval 2026-11-16 (ten-country institutions brief; answer \"Register all\"): manual reading only, one reading per named legal text or page, institutional facts only; raw files stay in scratch storage and are never committed.",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "www.ris.bka.gv.at",
+      "purpose": "Federal Chancellery legal information system (RIS): single-article documents of the B-VG and the National Council Electoral Act 1992",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-16",
+      "robots_note": "Disallow /GeltendeFassung/, /geltendefassung/, /showdata/; crawl-delay 2. Only /Dokumente/Bundesnormen/ article pages and /Ergebnis.wxe result lists were read, at least 2 s apart.",
+      "reason": "Owner approval 2026-11-16 (ten-country institutions brief; answer \"Register all\"): manual reading only, one reading per named legal text or page, institutional facts only; raw files stay in scratch storage and are never committed.",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "www.cdep.ro",
+      "purpose": "Romanian Chamber of Deputies: Constitution of Romania (Romanian and English titles) and Law 429/2003 revision text",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-16",
+      "robots_note": "User-agent: * Disallow: /declaratii/ only",
+      "reason": "Owner approval 2026-11-16 (ten-country institutions brief; answer \"Register all\"): manual reading only, one reading per named legal text or page, institutional facts only; raw files stay in scratch storage and are never committed.",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "pisrs.si",
+      "purpose": "Slovenian legal information system (PISRS): Constitution of the Republic of Slovenia, consolidated text",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-16",
+      "robots_note": "Allow /; Disallow /iskanje (search). A curl request received HTTP 407; the page was read once in a browser.",
+      "reason": "Owner approval 2026-11-16 (ten-country institutions brief; answer \"Register all\"): manual reading only, one reading per named legal text or page, institutional facts only; raw files stay in scratch storage and are never committed.",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "www.sabor.hr",
+      "purpose": "Croatian Parliament: institutional pages (about the Parliament, constituencies, count of national-minority MPs); no member names stored",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-16",
+      "robots_note": "Disallows admin, search, user and README paths only",
+      "reason": "Owner approval 2026-11-16 (ten-country institutions brief; answer \"Register all\"): manual reading only, one reading per named legal text or page, institutional facts only; raw files stay in scratch storage and are never committed.",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "narodne-novine.nn.hr",
+      "purpose": "Croatian official gazette: consolidated Constitution (NN 85/2010)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-16",
+      "robots_note": "Disallows 207 specific article paths; the documents read are not among them",
+      "reason": "Owner approval 2026-11-16 (ten-country institutions brief; answer \"Register all\"): manual reading only, one reading per named legal text or page, institutional facts only; raw files stay in scratch storage and are never committed.",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "www.psp.cz",
+      "purpose": "Czech Chamber of Deputies (official English constitution translation; the requested page returned 404, so nothing was used)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-16",
+      "robots_note": "Disallows image, style and some cgi-bin paths only",
+      "reason": "Owner approval 2026-11-16 (ten-country institutions brief; answer \"Register all\"): manual reading only, one reading per named legal text or page, institutional facts only; raw files stay in scratch storage and are never committed.",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "www.sejm.gov.pl",
+      "purpose": "Sejm website (English constitution translation) — not used",
+      "automation_allowed": false,
+      "manual_allowed": false,
+      "robots_checked_at": "2026-11-16",
+      "robots_note": "robots.txt: User-agent: Googlebot Disallow: (empty); User-agent: * Disallow: /",
+      "reason": "robots.txt disallows all other agents; not read. The Polish text is read from eli.gov.pl.",
+      "status": "blocked"
+    },
+    {
+      "host": "www.dz-rs.si",
+      "purpose": "Slovenian National Assembly website — not used",
+      "automation_allowed": false,
+      "manual_allowed": false,
+      "robots_checked_at": "2026-11-16",
+      "robots_note": "robots.txt request answered by an 'Access forbidden' gateway page (HTTP 403), also in a browser",
+      "reason": "Access refused; no retry and no workaround. PISRS is used instead.",
+      "status": "blocked"
+    },
+    {
+      "host": "legislatie.just.ro",
+      "purpose": "Romanian legislation portal — not used",
+      "automation_allowed": false,
+      "manual_allowed": false,
+      "robots_checked_at": "2026-11-16",
+      "robots_note": "robots.txt request timed out; the browser navigation failed",
+      "reason": "Unreachable from this environment; not retried. Law 208/2015 stays pending.",
+      "status": "blocked"
     }
   ],
   "reference_hosts": {

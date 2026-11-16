@@ -2,6 +2,7 @@ import {test,expect} from '@playwright/test';
 test('compare institutions in two languages and preserve a four-country handoff',async({page})=>{
  await page.goto('/en/countries/poland/#institutions');
  await expect(page.locator('[data-institution-profile=poland]')).toContainText('Sejm and Senate');
+ await expect(page.locator('[data-institution-profile=poland]')).not.toContainText('Chamber of Deputies');
  await page.getByRole('link',{name:'Compare political institutions',exact:true}).click();
  const comparison=page.locator('#institutions');
  await expect(comparison.getByRole('checkbox',{name:'Poland',exact:true})).toBeChecked();
@@ -20,8 +21,11 @@ test('compare institutions in two languages and preserve a four-country handoff'
  await expect(page.locator('[data-national-comparison]').getByLabel('指标',{exact:true})).toHaveValue('annual:hicp_inflation');
 });
 test('historical election scope, missing rules and translated statistical descriptions',async({page})=>{
- await page.goto('/en/politics/?institution_countries=austria,serbia#institutions');
- await expect(page.locator('[data-institution-profile=austria]')).toContainText('await article-level verification');
+ await page.goto('/en/politics/?institution_countries=austria,serbia,croatia#institutions');
+ await expect(page.locator('[data-institution-profile=austria]')).toContainText('Federal President · Federal Chancellor');
+ const croatia=page.locator('[data-institution-profile=croatia]');
+ await croatia.getByText('Institutional sources and scope').click();
+ await expect(croatia).toContainText('Not yet verified in this record');
  const serbia=page.locator('[data-institution-profile=serbia]');
  await serbia.getByText(/Electoral rules and seats/).click();
  await serbia.getByRole('link',{name:'Results, ballot definitions and election sources'}).click();

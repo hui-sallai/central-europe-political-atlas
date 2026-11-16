@@ -1,0 +1,954 @@
+{
+ "schema_version": "institutional-election-links-v1",
+ "generated_from": "src/lib/institutions/countries/*.json and src/data/political/<country>/{elections,legislatures,electoral_systems}.json",
+ "rule": "Each election is linked to its own stored election-specific rule record; current statutory text is never applied retroactively. Institutional changes are listed as in force on polling day only when their documented date precedes it; undated changes are listed separately.",
+ "periods": {
+  "poland": [
+   {
+    "period_id": "poland-period-1997-10-17",
+    "from": "1997-10-17",
+    "to_exclusive": null,
+    "opened_by": [
+     "pl-1997-constitution"
+    ]
+   }
+  ],
+  "hungary": [
+   {
+    "period_id": "hungary-period-2012-01-01",
+    "from": "2012-01-01",
+    "to_exclusive": "2026-06-20",
+    "opened_by": [
+     "hu-2012-fundamental-law"
+    ]
+   },
+   {
+    "period_id": "hungary-period-2026-06-20",
+    "from": "2026-06-20",
+    "to_exclusive": "2026-07-19",
+    "opened_by": [
+     "hu-2026-amendment-16"
+    ]
+   },
+   {
+    "period_id": "hungary-period-2026-07-19",
+    "from": "2026-07-19",
+    "to_exclusive": null,
+    "opened_by": [
+     "hu-2026-amendment-17"
+    ]
+   }
+  ],
+  "czechia": [
+   {
+    "period_id": "czechia-period-1993-01-01",
+    "from": "1993-01-01",
+    "to_exclusive": "2012-10-01",
+    "opened_by": [
+     "cz-1993-constitution"
+    ]
+   },
+   {
+    "period_id": "czechia-period-2012-10-01",
+    "from": "2012-10-01",
+    "to_exclusive": null,
+    "opened_by": [
+     "cz-2012-direct-president"
+    ]
+   }
+  ],
+  "slovakia": [
+   {
+    "period_id": "slovakia-period-1992-10-01",
+    "from": "1992-10-01",
+    "to_exclusive": "1999-01-27",
+    "opened_by": [
+     "sk-1992-constitution"
+    ]
+   },
+   {
+    "period_id": "slovakia-period-1999-01-27",
+    "from": "1999-01-27",
+    "to_exclusive": "2023-01-26",
+    "opened_by": [
+     "sk-1999-direct-president"
+    ]
+   },
+   {
+    "period_id": "slovakia-period-2023-01-26",
+    "from": "2023-01-26",
+    "to_exclusive": null,
+    "opened_by": [
+     "sk-2023-term-shortening"
+    ]
+   }
+  ],
+  "germany": [
+   {
+    "period_id": "germany-period-1949-05-23",
+    "from": "1949-05-23",
+    "to_exclusive": "2023-06-14",
+    "opened_by": [
+     "de-1949-basic-law"
+    ]
+   },
+   {
+    "period_id": "germany-period-2023-06-14",
+    "from": "2023-06-14",
+    "to_exclusive": "2024-07-30",
+    "opened_by": [
+     "de-2023-electoral-reform"
+    ]
+   },
+   {
+    "period_id": "germany-period-2024-07-30",
+    "from": "2024-07-30",
+    "to_exclusive": null,
+    "opened_by": [
+     "de-2024-bverfg-threshold"
+    ]
+   }
+  ],
+  "romania": [
+   {
+    "period_id": "romania-period-1991-11-21",
+    "from": "1991-11-21",
+    "to_exclusive": "2003-09-22",
+    "opened_by": [
+     "ro-1991-constitution"
+    ]
+   },
+   {
+    "period_id": "romania-period-2003-09-22",
+    "from": "2003-09-22",
+    "to_exclusive": null,
+    "opened_by": [
+     "ro-2003-revision"
+    ]
+   }
+  ],
+  "slovenia": [
+   {
+    "period_id": "slovenia-period-1991-12-28",
+    "from": "1991-12-28",
+    "to_exclusive": "2000-07-26",
+    "opened_by": [
+     "si-1991-constitution"
+    ]
+   },
+   {
+    "period_id": "slovenia-period-2000-07-26",
+    "from": "2000-07-26",
+    "to_exclusive": "2013-05-31",
+    "opened_by": [
+     "si-2000-art80"
+    ]
+   },
+   {
+    "period_id": "slovenia-period-2013-05-31",
+    "from": "2013-05-31",
+    "to_exclusive": null,
+    "opened_by": [
+     "si-2013-referendum"
+    ]
+   }
+  ],
+  "serbia": [
+   {
+    "period_id": "serbia-period-2006-11-10",
+    "from": "2006-11-10",
+    "to_exclusive": "2022-02-09",
+    "opened_by": [
+     "rs-2006-constitution"
+    ]
+   },
+   {
+    "period_id": "serbia-period-2022-02-09",
+    "from": "2022-02-09",
+    "to_exclusive": null,
+    "opened_by": [
+     "rs-2022-amendments-i-xxix"
+    ]
+   }
+  ],
+  "austria": [
+   {
+    "period_id": "austria-period-2008-10-28",
+    "from": "2008-10-28",
+    "to_exclusive": null,
+    "opened_by": [
+     "at-2008-five-year-term"
+    ]
+   }
+  ],
+  "croatia": []
+ },
+ "elections": [
+  {
+   "election_id": "el-pl-sejm-2011-10-09",
+   "country": "poland",
+   "date": "2011-10-09",
+   "chamber_id": "pl-sejm",
+   "chamber_official_name": "Sejm Rzeczypospolitej Polskiej",
+   "seats": 460,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-pl-sejm-2011",
+   "system_family": "open-list proportional representation in 41 districts",
+   "allocation_method": "successive divisors 1, 2, 3 … within each district (d’Hondt)",
+   "base_seats": 460,
+   "thresholds": [
+    {
+     "applies_to": "committee of a party or of voters",
+     "percent": 5,
+     "description": {
+      "en": "Lists below 5% of national valid votes take no part in the allocation (Art. 196 § 1).",
+      "zh": "低于全国有效票 5% 的名单不参与席位分配（第 196 条第 1 款）。"
+     }
+    },
+    {
+     "applies_to": "coalition committee",
+     "percent": 8,
+     "description": {
+      "en": "Coalition committee lists need 8% of national valid votes (Art. 196 § 2).",
+      "zh": "联盟委员会名单须获得全国有效票 8%（第 196 条第 2 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Electoral Code; rule text read: Dz.U. 2011 poz. 112), not legal enactment dates",
+   "constitution_id": "pl-constitution-1997",
+   "institutional_period_id": "poland-period-1997-10-17",
+   "changes_in_force": [
+    "pl-1997-constitution"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-pl-sejm-2015-10-25",
+   "country": "poland",
+   "date": "2015-10-25",
+   "chamber_id": "pl-sejm",
+   "chamber_official_name": "Sejm Rzeczypospolitej Polskiej",
+   "seats": 460,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-pl-sejm-2015",
+   "system_family": "open-list proportional representation in 41 districts",
+   "allocation_method": "successive divisors 1, 2, 3 … within each district (d’Hondt)",
+   "base_seats": 460,
+   "thresholds": [
+    {
+     "applies_to": "committee of a party or of voters",
+     "percent": 5,
+     "description": {
+      "en": "Lists below 5% of national valid votes take no part in the allocation (Art. 196 § 1).",
+      "zh": "低于全国有效票 5% 的名单不参与席位分配（第 196 条第 1 款）。"
+     }
+    },
+    {
+     "applies_to": "coalition committee",
+     "percent": 8,
+     "description": {
+      "en": "Coalition committee lists need 8% of national valid votes (Art. 196 § 2).",
+      "zh": "联盟委员会名单须获得全国有效票 8%（第 196 条第 2 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Electoral Code; rule text read: Dz.U. 2011 poz. 112), not legal enactment dates",
+   "constitution_id": "pl-constitution-1997",
+   "institutional_period_id": "poland-period-1997-10-17",
+   "changes_in_force": [
+    "pl-1997-constitution"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-pl-sejm-2019-10-13",
+   "country": "poland",
+   "date": "2019-10-13",
+   "chamber_id": "pl-sejm",
+   "chamber_official_name": "Sejm Rzeczypospolitej Polskiej",
+   "seats": 460,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-pl-sejm-2019",
+   "system_family": "open-list proportional representation in 41 districts",
+   "allocation_method": "successive divisors 1, 2, 3 … within each district (d’Hondt)",
+   "base_seats": 460,
+   "thresholds": [
+    {
+     "applies_to": "committee of a party or of voters",
+     "percent": 5,
+     "description": {
+      "en": "Lists below 5% of national valid votes take no part in the allocation (Art. 196 § 1).",
+      "zh": "低于全国有效票 5% 的名单不参与席位分配（第 196 条第 1 款）。"
+     }
+    },
+    {
+     "applies_to": "coalition committee",
+     "percent": 8,
+     "description": {
+      "en": "Coalition committee lists need 8% of national valid votes (Art. 196 § 2).",
+      "zh": "联盟委员会名单须获得全国有效票 8%（第 196 条第 2 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Electoral Code; rule text read: Dz.U. 2019 poz. 684), not legal enactment dates",
+   "constitution_id": "pl-constitution-1997",
+   "institutional_period_id": "poland-period-1997-10-17",
+   "changes_in_force": [
+    "pl-1997-constitution"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-pl-sejm-2023-10-15",
+   "country": "poland",
+   "date": "2023-10-15",
+   "chamber_id": "pl-sejm",
+   "chamber_official_name": "Sejm Rzeczypospolitej Polskiej",
+   "seats": 460,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-pl-sejm-2023",
+   "system_family": "open-list proportional representation in 41 districts",
+   "allocation_method": "successive divisors 1, 2, 3 … within each district (d’Hondt)",
+   "base_seats": 460,
+   "thresholds": [
+    {
+     "applies_to": "committee of a party or of voters",
+     "percent": 5,
+     "description": {
+      "en": "Lists below 5% of national valid votes take no part in the allocation (Art. 196 § 1).",
+      "zh": "低于全国有效票 5% 的名单不参与席位分配（第 196 条第 1 款）。"
+     }
+    },
+    {
+     "applies_to": "coalition committee",
+     "percent": 8,
+     "description": {
+      "en": "Coalition committee lists need 8% of national valid votes (Art. 196 § 2).",
+      "zh": "联盟委员会名单须获得全国有效票 8%（第 196 条第 2 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Electoral Code; rule text read: Dz.U. 2022 poz. 1277), not legal enactment dates",
+   "constitution_id": "pl-constitution-1997",
+   "institutional_period_id": "poland-period-1997-10-17",
+   "changes_in_force": [
+    "pl-1997-constitution"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-hu-ogy-2022-04-03",
+   "country": "hungary",
+   "date": "2022-04-03",
+   "chamber_id": "hu-orszaggyules",
+   "chamber_official_name": "Országgyűlés",
+   "seats": 199,
+   "seat_count_basis": "statutory_total_not_current_composition",
+   "electoral_system_id": "es-hu-ogy-2022",
+   "system_family": "mixed: 106 single-member districts and 93 national list seats",
+   "allocation_method": "national list seats: highest averages over list votes plus surplus votes (§ 16)",
+   "base_seats": 199,
+   "thresholds": [
+    {
+     "applies_to": "party list",
+     "percent": 5,
+     "description": {
+      "en": "A party list below 5% of all valid party-list and nationality-list votes wins no list seat (§ 14(1)).",
+      "zh": "政党名单得票低于政党名单和民族名单有效票总数的 5% 时，不获得名单席位（第 14 条第 1 款）。"
+     }
+    },
+    {
+     "applies_to": "joint party list of two parties",
+     "percent": 10,
+     "description": {
+      "en": "A joint list of two parties below 10% of the same total wins no list seat (§ 14(2)).",
+      "zh": "两党联合名单低于同一总数的 10% 时，不获得名单席位（第 14 条第 2 款）。"
+     }
+    },
+    {
+     "applies_to": "joint party list of more than two parties",
+     "percent": 15,
+     "description": {
+      "en": "A joint list of more than two parties below 15% of the same total wins no list seat (§ 14(2)).",
+      "zh": "两党以上联合名单低于同一总数的 15% 时，不获得名单席位（第 14 条第 2 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Act CCIII of 2011, version read on the retrieval date; the minutes apply the same thresholds and method), not legal enactment dates",
+   "constitution_id": "hu-fundamental-law-2011",
+   "institutional_period_id": "hungary-period-2012-01-01",
+   "changes_in_force": [
+    "hu-2012-fundamental-law"
+   ],
+   "later_changes": [
+    "hu-2026-amendment-16",
+    "hu-2026-amendment-17"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-hu-ogy-2026-04-12",
+   "country": "hungary",
+   "date": "2026-04-12",
+   "chamber_id": "hu-orszaggyules",
+   "chamber_official_name": "Országgyűlés",
+   "seats": 199,
+   "seat_count_basis": "statutory_total_not_current_composition",
+   "electoral_system_id": "es-hu-ogy-2026",
+   "system_family": "mixed: 106 single-member districts and 93 national list seats",
+   "allocation_method": "national list seats: highest averages over list votes plus surplus votes (§ 16)",
+   "base_seats": 199,
+   "thresholds": [
+    {
+     "applies_to": "party list",
+     "percent": 5,
+     "description": {
+      "en": "A party list below 5% of all valid party-list and nationality-list votes wins no list seat (§ 14(1)).",
+      "zh": "政党名单得票低于政党名单和民族名单有效票总数的 5% 时，不获得名单席位（第 14 条第 1 款）。"
+     }
+    },
+    {
+     "applies_to": "joint party list of two parties",
+     "percent": 10,
+     "description": {
+      "en": "A joint list of two parties below 10% of the same total wins no list seat (§ 14(2)).",
+      "zh": "两党联合名单低于同一总数的 10% 时，不获得名单席位（第 14 条第 2 款）。"
+     }
+    },
+    {
+     "applies_to": "joint party list of more than two parties",
+     "percent": 15,
+     "description": {
+      "en": "A joint list of more than two parties below 15% of the same total wins no list seat (§ 14(2)).",
+      "zh": "两党以上联合名单低于同一总数的 15% 时，不获得名单席位（第 14 条第 2 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Act CCIII of 2011, version read on the retrieval date; the minutes apply the same thresholds and method), not legal enactment dates",
+   "constitution_id": "hu-fundamental-law-2011",
+   "institutional_period_id": "hungary-period-2012-01-01",
+   "changes_in_force": [
+    "hu-2012-fundamental-law"
+   ],
+   "later_changes": [
+    "hu-2026-amendment-16",
+    "hu-2026-amendment-17"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-cz-ps-2017-10-20",
+   "country": "czechia",
+   "date": "2017-10-20",
+   "chamber_id": "cz-poslanecka-snemovna",
+   "chamber_official_name": "Poslanecká sněmovna Parlamentu České republiky",
+   "seats": 200,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-cz-ps-2017",
+   "system_family": "list proportional representation in 14 regions",
+   "allocation_method": "one scrutiny: successive divisors 1, 2, 3 … within each region",
+   "base_seats": 200,
+   "thresholds": [
+    {
+     "applies_to": "political party or movement",
+     "percent": 5,
+     "description": {
+      "en": "Lists of a single party or movement below 5% of national valid votes take no part in the allocation (§ 49(1)(a)).",
+      "zh": "单一政党或运动的名单低于全国有效票 5% 时不参与席位分配（第 49 条第 1 款 a 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of two parties or movements",
+     "percent": 10,
+     "description": {
+      "en": "Coalitions of two below 10% take no part (§ 49(1)(b)).",
+      "zh": "两个政党或运动组成的联盟低于 10% 时不参与（第 49 条第 1 款 b 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of three parties or movements",
+     "percent": 15,
+     "description": {
+      "en": "Coalitions of three below 15% take no part (§ 49(1)(c)).",
+      "zh": "三个政党或运动组成的联盟低于 15% 时不参与（第 49 条第 1 款 c 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of four or more parties or movements",
+     "percent": 20,
+     "description": {
+      "en": "Coalitions of four or more below 20% take no part (§ 49(1)(d)).",
+      "zh": "四个及以上政党或运动组成的联盟低于 20% 时不参与（第 49 条第 1 款 d 项）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Act 247/1995 Coll., znění 13. 4. 2017 – 18. 5. 2018), not legal enactment dates",
+   "constitution_id": "cz-constitution-1993",
+   "institutional_period_id": "czechia-period-2012-10-01",
+   "changes_in_force": [
+    "cz-1993-constitution",
+    "cz-2012-direct-president"
+   ],
+   "later_changes": [],
+   "undated_changes": [
+    "cz-2021-chamber-electoral-rules"
+   ]
+  },
+  {
+   "election_id": "el-cz-ps-2021-10-08",
+   "country": "czechia",
+   "date": "2021-10-08",
+   "chamber_id": "cz-poslanecka-snemovna",
+   "chamber_official_name": "Poslanecká sněmovna Parlamentu České republiky",
+   "seats": 200,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-cz-ps-2021",
+   "system_family": "list proportional representation in 14 regions",
+   "allocation_method": "two scrutinies: regional quota (votes ÷ (seats + 2)), then national remainders (÷ (unallocated seats + 1))",
+   "base_seats": 200,
+   "thresholds": [
+    {
+     "applies_to": "political party or movement",
+     "percent": 5,
+     "description": {
+      "en": "Lists of a single party or movement below 5% of national valid votes take no part in the allocation (§ 49(1)(a)).",
+      "zh": "单一政党或运动的名单低于全国有效票 5% 时不参与席位分配（第 49 条第 1 款 a 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of two parties or movements",
+     "percent": 8,
+     "description": {
+      "en": "Coalitions of two below 8% take no part (§ 49(1)(b)).",
+      "zh": "两个政党或运动组成的联盟低于 8% 时不参与（第 49 条第 1 款 b 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of three or more parties or movements",
+     "percent": 11,
+     "description": {
+      "en": "Coalitions of three or more below 11% take no part (§ 49(1)(c)).",
+      "zh": "三个及以上政党或运动组成的联盟低于 11% 时不参与（第 49 条第 1 款 c 项）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Act 247/1995 Coll., znění 1. 7. 2021 – 30. 6. 2024), not legal enactment dates",
+   "constitution_id": "cz-constitution-1993",
+   "institutional_period_id": "czechia-period-2012-10-01",
+   "changes_in_force": [
+    "cz-1993-constitution",
+    "cz-2012-direct-president"
+   ],
+   "later_changes": [],
+   "undated_changes": [
+    "cz-2021-chamber-electoral-rules"
+   ]
+  },
+  {
+   "election_id": "el-cz-ps-2025-10-03",
+   "country": "czechia",
+   "date": "2025-10-03",
+   "chamber_id": "cz-poslanecka-snemovna",
+   "chamber_official_name": "Poslanecká sněmovna Parlamentu České republiky",
+   "seats": 200,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-cz-ps-2025",
+   "system_family": "list proportional representation in 14 regions",
+   "allocation_method": "two scrutinies: regional quota (votes ÷ (seats + 2)), then national remainders (÷ (unallocated seats + 1))",
+   "base_seats": 200,
+   "thresholds": [
+    {
+     "applies_to": "political party or movement",
+     "percent": 5,
+     "description": {
+      "en": "Lists of a single party or movement below 5% of national valid votes take no part in the allocation (§ 49(1)(a)).",
+      "zh": "单一政党或运动的名单低于全国有效票 5% 时不参与席位分配（第 49 条第 1 款 a 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of two parties or movements",
+     "percent": 8,
+     "description": {
+      "en": "Coalitions of two parties or movements below 8% take no part (§ 49(1)(b)).",
+      "zh": "两个政党或运动组成的联盟低于 8% 时不参与（第 49 条第 1 款 b 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of three or more parties or movements",
+     "percent": 11,
+     "description": {
+      "en": "Coalitions of three or more below 11% take no part (§ 49(1)(c)); if fewer than two lists qualify, the thresholds are lowered step by step (§ 49(3)–(5)).",
+      "zh": "三个及以上政党或运动组成的联盟低于 11% 时不参与（第 49 条第 1 款 c 项）；若晋级名单少于两个，门槛逐级降低（第 49 条第 3—5 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Act 247/1995 Coll., version in force 1 January – 9 October 2025), not legal enactment dates",
+   "constitution_id": "cz-constitution-1993",
+   "institutional_period_id": "czechia-period-2012-10-01",
+   "changes_in_force": [
+    "cz-1993-constitution",
+    "cz-2012-direct-president"
+   ],
+   "later_changes": [],
+   "undated_changes": [
+    "cz-2021-chamber-electoral-rules"
+   ]
+  },
+  {
+   "election_id": "el-sk-nrsr-2023-09-30",
+   "country": "slovakia",
+   "date": "2023-09-30",
+   "chamber_id": "sk-narodna-rada",
+   "chamber_official_name": "Národná rada Slovenskej republiky",
+   "seats": 150,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-sk-nrsr-2023",
+   "system_family": "list proportional representation in one national district",
+   "allocation_method": "national quota: votes of qualifying lists ÷ 151, then largest remainders (§ 68)",
+   "base_seats": 150,
+   "thresholds": [
+    {
+     "applies_to": "political party",
+     "percent": 5,
+     "description": {
+      "en": "Parties below 5% of valid votes take no part in the allocation (§ 66(2)(a)).",
+      "zh": "低于有效票 5% 的政党不参与席位分配（第 66 条第 2 款 a 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of two or three parties",
+     "percent": 7,
+     "description": {
+      "en": "Coalitions of two or three parties below 7% take no part (§ 66(2)(b)).",
+      "zh": "两或三个政党组成的联盟低于 7% 时不参与（第 66 条第 2 款 b 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of four or more parties",
+     "percent": 10,
+     "description": {
+      "en": "Coalitions of at least four parties below 10% take no part (§ 66(2)(c)).",
+      "zh": "至少四个政党组成的联盟低于 10% 时不参与（第 66 条第 2 款 c 项）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Act 180/2014 Coll., version of 1 March 2023), not legal enactment dates",
+   "constitution_id": "sk-constitution-1992",
+   "institutional_period_id": "slovakia-period-2023-01-26",
+   "changes_in_force": [
+    "sk-1992-constitution",
+    "sk-1999-direct-president",
+    "sk-2023-term-shortening"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-de-bt-2002-09-22",
+   "country": "germany",
+   "date": "2002-09-22",
+   "chamber_id": "de-bundestag",
+   "chamber_official_name": "Deutscher Bundestag",
+   "seats": 603,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-de-bt-2002",
+   "system_family": "personalised proportional representation",
+   "allocation_method": "Hare/Niemeyer",
+   "base_seats": 598,
+   "thresholds": [],
+   "rule_basis": "election-specific rule observation, not legal enactment dates",
+   "constitution_id": "de-basic-law-1949",
+   "institutional_period_id": "germany-period-1949-05-23",
+   "changes_in_force": [
+    "de-1949-basic-law"
+   ],
+   "later_changes": [
+    "de-2023-electoral-reform",
+    "de-2024-bverfg-threshold"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-de-bt-2005-09-18",
+   "country": "germany",
+   "date": "2005-09-18",
+   "chamber_id": "de-bundestag",
+   "chamber_official_name": "Deutscher Bundestag",
+   "seats": 614,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-de-bt-2005",
+   "system_family": "personalised proportional representation",
+   "allocation_method": "Hare/Niemeyer",
+   "base_seats": 598,
+   "thresholds": [],
+   "rule_basis": "election-specific rule observation, not legal enactment dates",
+   "constitution_id": "de-basic-law-1949",
+   "institutional_period_id": "germany-period-1949-05-23",
+   "changes_in_force": [
+    "de-1949-basic-law"
+   ],
+   "later_changes": [
+    "de-2023-electoral-reform",
+    "de-2024-bverfg-threshold"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-de-bt-2009-09-27",
+   "country": "germany",
+   "date": "2009-09-27",
+   "chamber_id": "de-bundestag",
+   "chamber_official_name": "Deutscher Bundestag",
+   "seats": 622,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-de-bt-2009",
+   "system_family": "personalised proportional representation",
+   "allocation_method": "Sainte-Laguë/Schepers",
+   "base_seats": 598,
+   "thresholds": [],
+   "rule_basis": "election-specific rule observation, not legal enactment dates",
+   "constitution_id": "de-basic-law-1949",
+   "institutional_period_id": "germany-period-1949-05-23",
+   "changes_in_force": [
+    "de-1949-basic-law"
+   ],
+   "later_changes": [
+    "de-2023-electoral-reform",
+    "de-2024-bverfg-threshold"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-de-bt-2013-09-22",
+   "country": "germany",
+   "date": "2013-09-22",
+   "chamber_id": "de-bundestag",
+   "chamber_official_name": "Deutscher Bundestag",
+   "seats": 631,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-de-bt-2013",
+   "system_family": "personalised proportional representation",
+   "allocation_method": "Sainte-Laguë/Schepers",
+   "base_seats": 598,
+   "thresholds": [],
+   "rule_basis": "election-specific rule observation, not legal enactment dates",
+   "constitution_id": "de-basic-law-1949",
+   "institutional_period_id": "germany-period-1949-05-23",
+   "changes_in_force": [
+    "de-1949-basic-law"
+   ],
+   "later_changes": [
+    "de-2023-electoral-reform",
+    "de-2024-bverfg-threshold"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-de-bt-2017-09-24",
+   "country": "germany",
+   "date": "2017-09-24",
+   "chamber_id": "de-bundestag",
+   "chamber_official_name": "Deutscher Bundestag",
+   "seats": 709,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-de-bt-2017",
+   "system_family": "personalised proportional representation",
+   "allocation_method": "Sainte-Laguë/Schepers",
+   "base_seats": 598,
+   "thresholds": [],
+   "rule_basis": "election-specific rule observation, not legal enactment dates",
+   "constitution_id": "de-basic-law-1949",
+   "institutional_period_id": "germany-period-1949-05-23",
+   "changes_in_force": [
+    "de-1949-basic-law"
+   ],
+   "later_changes": [
+    "de-2023-electoral-reform",
+    "de-2024-bverfg-threshold"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-de-bt-2021-09-26",
+   "country": "germany",
+   "date": "2021-09-26",
+   "chamber_id": "de-bundestag",
+   "chamber_official_name": "Deutscher Bundestag",
+   "seats": 735,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-de-bt-2021",
+   "system_family": "personalised proportional representation",
+   "allocation_method": "Sainte-Laguë/Schepers",
+   "base_seats": 598,
+   "thresholds": [],
+   "rule_basis": "election-specific rule observation, not legal enactment dates",
+   "constitution_id": "de-basic-law-1949",
+   "institutional_period_id": "germany-period-1949-05-23",
+   "changes_in_force": [
+    "de-1949-basic-law"
+   ],
+   "later_changes": [
+    "de-2023-electoral-reform",
+    "de-2024-bverfg-threshold"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-de-bt-2025-02-23",
+   "country": "germany",
+   "date": "2025-02-23",
+   "chamber_id": "de-bundestag",
+   "chamber_official_name": "Deutscher Bundestag",
+   "seats": 630,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-de-bt-2025",
+   "system_family": "personalised proportional representation",
+   "allocation_method": "Sainte-Laguë/Schepers",
+   "base_seats": 630,
+   "thresholds": [],
+   "rule_basis": "election-specific rule observation, not legal enactment dates",
+   "constitution_id": "de-basic-law-1949",
+   "institutional_period_id": "germany-period-2024-07-30",
+   "changes_in_force": [
+    "de-1949-basic-law",
+    "de-2023-electoral-reform",
+    "de-2024-bverfg-threshold"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-rs-nsk-2020-06-21",
+   "country": "serbia",
+   "date": "2020-06-21",
+   "chamber_id": "rs-narodna-skupstina",
+   "chamber_official_name": "Народна скупштина Републике Србије",
+   "seats": 250,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-rs-nsk-2020",
+   "system_family": "list proportional representation, single nationwide constituency",
+   "allocation_method": "highest quotients (D’Hondt) over 250 seats (Art. 129)",
+   "base_seats": 250,
+   "thresholds": [
+    {
+     "applies_to": "electoral list",
+     "percent": 3,
+     "description": {
+      "en": "A list below 3% of the voters who voted takes no part in the seat allocation (Art. 128); national-minority lists are exempt (Art. 140).",
+      "zh": "得票低于投票选民人数 3% 的名单不参与席位分配（第 128 条）；少数民族名单不受此限（第 140 条）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the 2020 statute version was not read; the rule is recorded from the 2026 version and the printed seats reproduce under it (consistency check only)",
+   "constitution_id": "rs-constitution-2006",
+   "institutional_period_id": "serbia-period-2006-11-10",
+   "changes_in_force": [
+    "rs-2006-constitution"
+   ],
+   "later_changes": [
+    "rs-2022-amendments-i-xxix"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-rs-nsk-2022-04-03",
+   "country": "serbia",
+   "date": "2022-04-03",
+   "chamber_id": "rs-narodna-skupstina",
+   "chamber_official_name": "Народна скупштина Републике Србије",
+   "seats": 250,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-rs-nsk-2022",
+   "system_family": "list proportional representation, single nationwide constituency",
+   "allocation_method": "highest quotients (D’Hondt) over 250 seats (Art. 129)",
+   "base_seats": 250,
+   "thresholds": [
+    {
+     "applies_to": "electoral list",
+     "percent": 3,
+     "description": {
+      "en": "A list below 3% of the voters who voted takes no part in the seat allocation (Art. 128); national-minority lists are exempt (Art. 140).",
+      "zh": "得票低于投票选民人数 3% 的名单不参与席位分配（第 128 条）；少数民族名单不受此限（第 140 条）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the statute text in force in 2022 (14/2022, before the 2026 amendment) was not read separately; the rule is recorded from the 2026 version and the printed seats reproduce under it (consistency check only)",
+   "constitution_id": "rs-constitution-2006",
+   "institutional_period_id": "serbia-period-2022-02-09",
+   "changes_in_force": [
+    "rs-2006-constitution",
+    "rs-2022-amendments-i-xxix"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-rs-nsk-2023-12-17",
+   "country": "serbia",
+   "date": "2023-12-17",
+   "chamber_id": "rs-narodna-skupstina",
+   "chamber_official_name": "Народна скупштина Републике Србије",
+   "seats": 250,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-rs-nsk-2023",
+   "system_family": "list proportional representation, single nationwide constituency",
+   "allocation_method": "highest quotients (D’Hondt) over 250 seats (Art. 129)",
+   "base_seats": 250,
+   "thresholds": [
+    {
+     "applies_to": "electoral list",
+     "percent": 3,
+     "description": {
+      "en": "A list below 3% of the voters who voted takes no part in the seat allocation (Art. 128); national-minority lists are exempt (Art. 140).",
+      "zh": "得票低于投票选民人数 3% 的名单不参与席位分配（第 128 条）；少数民族名单不受此限（第 140 条）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the statute text in force in 2023 (14/2022, before the 2026 amendment) was not read separately; the rule is recorded from the 2026 version and the printed seats reproduce under it (consistency check only)",
+   "constitution_id": "rs-constitution-2006",
+   "institutional_period_id": "serbia-period-2022-02-09",
+   "changes_in_force": [
+    "rs-2006-constitution",
+    "rs-2022-amendments-i-xxix"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-rs-nsk-2026-10-25",
+   "country": "serbia",
+   "date": "2026-10-25",
+   "chamber_id": "rs-narodna-skupstina",
+   "chamber_official_name": "Народна скупштина Републике Србије",
+   "seats": 250,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-rs-nsk-2026",
+   "system_family": "list proportional representation, single nationwide constituency",
+   "allocation_method": "highest quotients (D’Hondt) over 250 seats (Art. 129)",
+   "base_seats": 250,
+   "thresholds": [
+    {
+     "applies_to": "electoral list",
+     "percent": 3,
+     "description": {
+      "en": "A list below 3% of the voters who voted takes no part in the seat allocation (Art. 128); national-minority lists are exempt (Art. 140).",
+      "zh": "得票低于投票选民人数 3% 的名单不参与席位分配（第 128 条）；少数民族名单不受此限（第 140 条）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Law on the Election of Members of Parliament, version read on the retrieval date), not legal enactment dates",
+   "constitution_id": "rs-constitution-2006",
+   "institutional_period_id": "serbia-period-2022-02-09",
+   "changes_in_force": [
+    "rs-2006-constitution",
+    "rs-2022-amendments-i-xxix"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  }
+ ]
+}

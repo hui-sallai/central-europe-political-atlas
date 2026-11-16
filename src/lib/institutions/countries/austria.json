@@ -1,0 +1,139 @@
+{
+  "schema_version": "institutional-country-v1",
+  "country": "austria",
+  "iso2": "AT",
+  "verified_on": "2026-11-16",
+  "baseline_status": "complete",
+  "case_study": false,
+  "overview": {
+    "en": "The National Council (Nationalrat) of 183 members is elected by proportional representation for five years; the Federal Council (Bundesrat) is elected by the Land parliaments and can delay legislation with a reasoned objection. The directly elected Federal President appoints the Federal Chancellor and Government without an investiture vote; the National Council can remove them by an express vote of no confidence.",
+    "zh": "国民议会（Nationalrat）183 名议员以比例代表制选出，任期五年；联邦议会（Bundesrat）由各州议会选举产生，可通过附理由的异议延缓立法。直选联邦总统任命联邦总理和政府，无需授职投票；国民议会可通过明确的不信任决议将其免职。"
+  },
+  "constitution": {
+    "id": "at-b-vg",
+    "official_name": "Bundes-Verfassungsgesetz (B-VG)",
+    "name": { "en": "Federal Constitutional Act (B-VG)", "zh": "联邦宪法性法律（B-VG）" },
+    "adopted": null,
+    "in_force": null,
+    "publication": "BGBl. Nr. 1/1930 (republished text)",
+    "current_text": { "as_of": "2026-11-16", "note": { "en": "RIS consolidated federal law, version of 16 November 2026; each article carries its own valid-from date.", "zh": "RIS 联邦法律合并文本，2026 年 11 月 16 日版本；各条款分别标注生效日期。" } },
+    "source_ids": ["at-bvg-art1", "at-bvg-art2"]
+  },
+  "chambers": [
+    {
+      "chamber_id": "at-nationalrat",
+      "official_name": "Nationalrat",
+      "name": { "en": "National Council", "zh": "国民议会（Nationalrat）" },
+      "role": "lower",
+      "members": { "value": 183, "basis": { "en": "set by the National Council Electoral Act 1992", "zh": "由《1992 年国民议会选举法》规定" }, "articles": "NRWO 1992 § 1(1)", "source_ids": ["at-nrwo-s1"] },
+      "term_years": 5,
+      "selection": { "code": "direct_proportional", "label": { "en": "Equal, direct, personal, free and secret suffrage of citizens aged 16 or over, on the principles of proportional representation", "zh": "年满 16 岁公民平等、直接、亲自、自由、秘密投票，依比例代表原则" }, "articles": "B-VG Art. 26(1)" },
+      "powers": { "en": "Adopts federal laws (subject to the Bundesrat's objection, Art. 42) and can withdraw confidence from the Government or any minister (Art. 74).", "zh": "通过联邦法律（受联邦议会异议权约束，第 42 条），并可撤回对政府或任何部长的信任（第 74 条）。" },
+      "note": { "en": "The legislative period is five years (Art. 27, wording valid from 28 October 2008); the National Council may dissolve itself by simple law (Art. 29(2)).", "zh": "立法期为五年（第 27 条，2008 年 10 月 28 日起生效的措辞）；国民议会可通过普通法律自行解散（第 29 条第 2 款）。" }
+    },
+    {
+      "chamber_id": "at-bundesrat",
+      "official_name": "Bundesrat",
+      "name": { "en": "Federal Council", "zh": "联邦议会（Bundesrat）" },
+      "role": "upper",
+      "members": { "value": null, "basis": { "en": "the most populous Land sends 12 members, the others in proportion to their citizens, each at least 3; numbers fixed by the Federal President after each census", "zh": "人口最多的州派 12 名，其他州按公民人数比例派出，每州至少 3 名；各州人数由联邦总统在每次人口普查后确定" }, "articles": "B-VG Art. 34", "source_ids": ["at-bvg-art34"] },
+      "term_years": null,
+      "selection": { "code": "elected_by_land_parliaments", "label": { "en": "Elected by each Land parliament for its own legislative period, by proportional representation; the second-strongest party receives at least one seat", "zh": "由各州议会按比例代表原则选举，任期与该州议会立法期一致；第二大党至少获得一席" }, "articles": "B-VG Art. 35(1)" },
+      "powers": { "en": "May raise a reasoned objection to a National Council law within eight weeks; the National Council overrides it by repeating its decision with at least half of its members present (Art. 42).", "zh": "可在八周内对国民议会通过的法律提出附理由的异议；国民议会在至少半数议员出席时重申原决议即可推翻（第 42 条）。" },
+      "note": { "en": "Members need not belong to the Land parliament that elects them but must be eligible for it (Art. 35(2)). The current total was not verified.", "zh": "成员不必是选举其的州议会议员，但须具备该州议会被选举资格（第 35 条第 2 款）。当前总人数未核实。" }
+    }
+  ],
+  "offices": [
+    {
+      "office_id": "at-federal-president",
+      "role": "head_of_state",
+      "official_name": "Bundespräsident",
+      "name": { "en": "Federal President", "zh": "联邦总统" },
+      "selection": { "label": { "en": "Elected by the federal people by equal, direct, personal, free and secret ballot; more than half of all valid votes", "zh": "由联邦人民以平等、直接、亲自、自由、秘密方式选举；须获全部有效票过半数" }, "articles": "B-VG Art. 60(1)–(2)" },
+      "term_years": 6,
+      "term_limit": { "en": "Re-election for the immediately following term only once; removable before the end of term by referendum on the Federal Assembly's demand", "zh": "仅可连任一次；可应联邦大会要求经全民公投提前罢免" },
+      "source_ids": ["at-bvg-art60"]
+    },
+    {
+      "office_id": "at-federal-chancellor",
+      "role": "head_of_government",
+      "official_name": "Bundeskanzler",
+      "name": { "en": "Federal Chancellor", "zh": "联邦总理" },
+      "selection": { "label": { "en": "Appointed by the Federal President; other ministers on the Chancellor's proposal. No investiture vote; dismissal of the Chancellor or whole Government needs no proposal", "zh": "由联邦总统任命，其他部长依总理提议任命。无授职投票；免去总理或整个政府无需提议" }, "articles": "B-VG Art. 70(1)" },
+      "term_years": null,
+      "term_limit": null,
+      "source_ids": ["at-bvg-art70"]
+    }
+  ],
+  "fields": {
+    "state_form": { "value": "republic", "label": { "en": "Democratic republic", "zh": "民主共和国" }, "articles": "B-VG Art. 1", "source_ids": ["at-bvg-art1"], "status": "verified" },
+    "territorial_organisation": { "value": "federal", "label": { "en": "Federal state of nine Länder", "zh": "由九个州组成的联邦制国家" }, "articles": "B-VG Art. 2", "source_ids": ["at-bvg-art2"], "status": "verified" },
+    "government_system": { "value": "dual_executive_parliamentary_confidence", "label": { "en": "Federal parliamentary republic", "zh": "联邦议会共和制" }, "detail": { "en": "The Government needs the National Council's tolerance (Art. 74) but is appointed, and may be dismissed, by a directly elected Federal President (Arts. 60, 70). Comparative literature sometimes classifies this as semi-presidential.", "zh": "政府须获国民议会容忍（第 74 条），但由直选联邦总统任命并可被其免职（第 60、70 条）。比较政治学文献有时将其归为半总统制。" }, "articles": "B-VG Arts. 60, 70, 74", "source_ids": ["at-bvg-art60", "at-bvg-art70", "at-bvg-art74"], "status": "verified", "comparability": "qualified" },
+    "legislature_structure": { "value": "bicameral_indirect_second_chamber", "label": { "en": "National Council (elected) and Federal Council (elected by Land parliaments)", "zh": "国民议会（直选）与联邦议会（由州议会选举）" }, "detail": { "en": "The Federal Council's objection is suspensive: the National Council can override it with a simple repeat decision.", "zh": "联邦议会的异议为搁置性：国民议会以简单的重申决议即可推翻。" }, "articles": "B-VG Arts. 26, 34–35, 42", "source_ids": ["at-bvg-art26", "at-bvg-art34", "at-bvg-art35", "at-bvg-art42"], "status": "verified", "comparability": "qualified" },
+    "head_of_state_selection": { "value": "direct_popular_vote", "label": { "en": "Direct popular vote; absolute majority of valid votes", "zh": "选民直选；须获有效票绝对多数" }, "articles": "B-VG Art. 60(1)–(2)", "source_ids": ["at-bvg-art60"], "status": "verified" },
+    "head_of_state_term": { "value": 6, "label": { "en": "6 years; one immediate re-election", "zh": "六年；可连任一次" }, "articles": "B-VG Art. 60(5)", "source_ids": ["at-bvg-art60"], "status": "verified" },
+    "head_of_government_appointment": { "value": "head_of_state_appoints_no_investiture", "label": { "en": "Federal President appoints the Chancellor and, on the Chancellor's proposal, the ministers", "zh": "联邦总统任命总理，并依总理提议任命部长" }, "detail": { "en": "The cited articles provide no investiture vote. If a Government is appointed while the National Council is not sitting, the President convenes it so the new Government can be presented (Art. 70(3)); the Government remains subject to Art. 74.", "zh": "所引条款未规定授职投票。若政府在国民议会休会期间任命，总统须召集国民议会以便介绍新政府（第 70 条第 3 款）；政府始终受第 74 条约束。" }, "steps": [ { "en": "Federal President appoints the Federal Chancellor", "zh": "联邦总统任命联邦总理" }, { "en": "Ministers appointed on the Chancellor's proposal", "zh": "部长依总理提议任命" } ], "articles": "B-VG Art. 70", "source_ids": ["at-bvg-art70"], "status": "verified" },
+    "investiture": { "value": "not_required", "label": { "en": "No investiture vote", "zh": "无授职投票" }, "articles": "B-VG Art. 70", "source_ids": ["at-bvg-art70"], "status": "verified" },
+    "no_confidence": { "value": "simple_majority_half_present", "label": { "en": "Express resolution of the National Council with half of members present", "zh": "国民议会在半数议员出席时作出明确决议" }, "detail": { "en": "Applies to the Government or individual ministers, who must then be removed from office; the vote can be postponed to the second working day on a minority request.", "zh": "适用于整个政府或个别部长，其后必须免职；经一定数量议员要求，表决可推迟至第二个工作日。" }, "articles": "B-VG Art. 74", "source_ids": ["at-bvg-art74"], "status": "verified" },
+    "confidence_vote": { "value": null, "label": { "en": "No separate confidence-vote procedure in the cited articles", "zh": "所引条款未规定单独的信任投票程序" }, "articles": null, "source_ids": [], "status": "not_applicable", "comparability": "not_comparable" },
+    "dissolution": { "value": "presidential_or_self", "label": { "en": "Federal President may dissolve the National Council once for the same reason; the Council may dissolve itself by law", "zh": "联邦总统可解散国民议会，但同一理由仅限一次；国民议会可通过法律自行解散" }, "detail": { "en": "After a presidential dissolution the new Council must be able to meet within 100 days.", "zh": "总统解散后，新国民议会须能在 100 日内召开。" }, "articles": "B-VG Art. 29", "source_ids": ["at-bvg-art29"], "status": "verified", "comparability": "qualified" },
+    "legislative_veto": { "value": "council_suspensive_veto", "label": { "en": "Federal Council suspensive objection within eight weeks; National Council repeat decision overrides", "zh": "联邦议会八周内可提出搁置性异议；国民议会重申决议即可推翻" }, "articles": "B-VG Art. 42", "source_ids": ["at-bvg-art42"], "status": "verified", "comparability": "qualified" },
+    "second_chamber_role": { "value": "suspensive_objection", "label": { "en": "Federal Council: reasoned suspensive objection", "zh": "联邦议会：附理由的搁置性异议" }, "articles": "B-VG Art. 42", "source_ids": ["at-bvg-art42"], "status": "verified", "comparability": "qualified" },
+    "constitutional_review": { "value": "constitutional_court", "label": { "en": "Constitutional Court (Verfassungsgerichtshof)", "zh": "宪法法院（Verfassungsgerichtshof）" }, "articles": "B-VG Art. 140", "source_ids": ["at-bvg-art140"], "status": "verified" },
+    "legislative_term": { "value": 5, "label": { "en": "5 years (National Council)", "zh": "五年（国民议会）" }, "articles": "B-VG Art. 27", "source_ids": ["at-bvg-art27"], "status": "verified", "effective_from": "2008-10-28" },
+    "electoral_system": { "value": "list_pr_three_tier", "label": { "en": "List PR in three procedures (regional, Land, federal); 4% nationally or one regional seat", "zh": "分地区、州、联邦三级程序的名单比例代表制；须全国 4% 或赢得一个地区议席" }, "articles": "NRWO 1992 §§ 1, 100, 107", "source_ids": ["at-nrwo-s1", "at-nrwo-s100", "at-nrwo-s107"], "status": "verified", "comparability": "qualified" }
+  },
+  "electoral_systems": [
+    {
+      "rule_id": "at-es-nr-current",
+      "chamber_id": "at-nationalrat",
+      "status": "verified",
+      "summary": { "en": "List proportional representation allocated in three procedures", "zh": "分三级程序分配的名单比例代表制" },
+      "constituencies": { "en": "Constituencies that do not cross Land borders, each subdivided into regional constituencies (B-VG Art. 26(2)), plus a federal tier (NRWO § 107)", "zh": "不跨越州界的选区，各再划分为地区选区（B-VG 第 26 条第 2 款），另设联邦层级（NRWO 第 107 条）" },
+      "allocation": { "en": "First procedure in regional constituencies, second in Land constituencies by the electoral quota (§ 101), third at federal level for all 183 seats less those already allocated (§ 107)", "zh": "第一级在地区选区、第二级在州选区按选举配额分配（第 101 条），第三级在联邦层面分配 183 席中尚未分配的议席（第 107 条）" },
+      "thresholds": [ { "applies_to": { "en": "parties without a regional seat", "zh": "未获地区议席的政党" }, "percent": 4, "articles": "NRWO §§ 100(1), 107(2)" } ],
+      "minority": null,
+      "legal_basis": "Nationalrats-Wahlordnung 1992 (NRWO), RIS version of 16 November 2026",
+      "source_ids": ["at-nrwo-s1", "at-nrwo-s100", "at-nrwo-s107"],
+      "store_rule_record": null
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "at-2008-five-year-term",
+      "dimension": "legislative_term",
+      "title": { "en": "Five-year legislative period of the National Council", "zh": "国民议会五年立法期" },
+      "adopted": null,
+      "promulgated": null,
+      "effective": "2008-10-28",
+      "previous": null,
+      "new": { "en": "The National Council's legislative period lasts five years from its first meeting (Art. 27(1)).", "zh": "国民议会立法期自首次会议起为五年（第 27 条第 1 款）。" },
+      "legal_basis": "B-VG Art. 27, RIS valid-from date 28 October 2008",
+      "source_ids": ["at-bvg-art27"],
+      "status": "partially_verified",
+      "note": { "en": "The previous wording and the amending act were not read.", "zh": "此前措辞和修正法未阅读。" }
+    }
+  ],
+  "case_study_sections": [],
+  "pending": [
+    { "field": "bundesrat_total", "reason": { "en": "The current number of Federal Council members fixed after the last census was not read.", "zh": "最近一次人口普查后确定的联邦议会现任人数未读取。" } },
+    { "field": "historical_changes", "reason": { "en": "Earlier versions of B-VG articles (for example the four-year term before 2008) were not read.", "zh": "B-VG 各条款的早期版本（如 2008 年前的四年任期）未阅读。" } }
+  ],
+  "sources": [
+    { "source_id": "at-bvg-art1", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 1", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR12015119/NOR12015119.html", "kind": "constitution", "language": "de", "version": "valid from 1 January 1995", "retrieved_on": "2026-11-16", "retrieval_sha256": "64591ab0347979e32ceea8d104d634c9d4a1a110d5c1d5a817f2aafa44c9b922", "access": "manual_download" },
+    { "source_id": "at-bvg-art2", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 2", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40094592/NOR40094592.html", "kind": "constitution", "language": "de", "version": "valid from 1 January 2008", "retrieved_on": "2026-11-16", "retrieval_sha256": "0e4a47b6b73e150aebd3c4698ed3a863c05f0056eb0b44d25741613ae715b5ea", "access": "manual_download" },
+    { "source_id": "at-bvg-art26", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 26", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40188240/NOR40188240.html", "kind": "constitution", "language": "de", "version": "valid from 1 January 2018", "retrieved_on": "2026-11-16", "retrieval_sha256": "f1a07e7b1a4abcf72be0b6f8a2dbd0a2b49278becdddf4ec4a85bf8902f3672e", "access": "manual_download" },
+    { "source_id": "at-bvg-art27", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 27", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40087977/NOR40087977.html", "kind": "constitution", "language": "de", "version": "valid from 28 October 2008", "retrieved_on": "2026-11-16", "retrieval_sha256": "e655cbb33371237250393054472459b6641f806d78825d165efcd3ebf406d0a5", "access": "manual_download" },
+    { "source_id": "at-bvg-art29", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 29", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40045757/NOR40045757.html", "kind": "constitution", "language": "de", "version": "valid from 1 January 2004", "retrieved_on": "2026-11-16", "retrieval_sha256": "49a649daf75b7688c969525360a405908dffbdad8a40b6a7247180a938ee3d73", "access": "manual_download" },
+    { "source_id": "at-bvg-art34", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 34", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40045879/NOR40045879.html", "kind": "constitution", "language": "de", "version": "valid from 1 January 2004", "retrieved_on": "2026-11-16", "retrieval_sha256": "2c4f88bdf3f08e0d2d434168af8a671d4bcd2aa3d2032dda0fbae65f1c21039e", "access": "manual_download" },
+    { "source_id": "at-bvg-art35", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 35", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40045759/NOR40045759.html", "kind": "constitution", "language": "de", "version": "valid from 1 January 2004", "retrieved_on": "2026-11-16", "retrieval_sha256": "78ff5dd19d2e24d6e7694b0d60442f5d94e3a2267c7915277b2605445258c9b1", "access": "manual_download" },
+    { "source_id": "at-bvg-art42", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 42", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40094600/NOR40094600.html", "kind": "constitution", "language": "de", "version": "current RIS version", "retrieved_on": "2026-11-16", "retrieval_sha256": "568604abd1b447b7ef7688e0da65905af015b6885c0bacd5cc439df6552ad9c7", "access": "manual_download" },
+    { "source_id": "at-bvg-art60", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 60", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40235171/NOR40235171.html", "kind": "constitution", "language": "de", "version": "valid from 1 January 2018", "retrieved_on": "2026-11-16", "retrieval_sha256": "7f7bb43ef765d7be2c75156ddc85d6337766bf9b7e1b588b13dfb08bfd0645d2", "access": "manual_download" },
+    { "source_id": "at-bvg-art70", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 70", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40180896/NOR40180896.html", "kind": "constitution", "language": "de", "version": "valid from 1 January 2017", "retrieved_on": "2026-11-16", "retrieval_sha256": "3eb7aa123bef29c7576ad006f8d74fde9a9a42f4b9fc970098c739fd2d3a5218", "access": "manual_download" },
+    { "source_id": "at-bvg-art74", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 74", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40045794/NOR40045794.html", "kind": "constitution", "language": "de", "version": "valid from 1 January 2004", "retrieved_on": "2026-11-16", "retrieval_sha256": "0d7810f39655c189935b03c45ec7b724b1e0941f78c71f6241cba5c724d7a771", "access": "manual_download" },
+    { "source_id": "at-bvg-art140", "publisher": "Bundeskanzleramt (RIS)", "title": "B-VG Art. 140", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40152548/NOR40152548.html", "kind": "constitution", "language": "de", "version": "valid from 1 January 2015", "retrieved_on": "2026-11-16", "retrieval_sha256": "7201bca67f21f1739edc98cb78ea556dba6971b9ec75afb5c416341c4fd08d7d", "access": "manual_download" },
+    { "source_id": "at-nrwo-s1", "publisher": "Bundeskanzleramt (RIS)", "title": "Nationalrats-Wahlordnung 1992 § 1", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40166613/NOR40166613.html", "kind": "statute", "language": "de", "version": "valid from 1 January 2015", "retrieved_on": "2026-11-16", "retrieval_sha256": "9728d01528be077b861c9e79855b741f35cc93c1ae338c6c05d9e93f394acf8d", "access": "manual_download" },
+    { "source_id": "at-nrwo-s100", "publisher": "Bundeskanzleramt (RIS)", "title": "Nationalrats-Wahlordnung 1992 § 100", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40177088/NOR40177088.html", "kind": "statute", "language": "de", "version": "valid from 1 January 2016", "retrieved_on": "2026-11-16", "retrieval_sha256": "c827b6c16a8cd887ac8d866f8bcc1d919cb8df17d47eea66621226dfd362234b", "access": "manual_download" },
+    { "source_id": "at-nrwo-s107", "publisher": "Bundeskanzleramt (RIS)", "title": "Nationalrats-Wahlordnung 1992 § 107", "url": "https://www.ris.bka.gv.at/Dokumente/Bundesnormen/NOR40250868/NOR40250868.html", "kind": "statute", "language": "de", "version": "valid from 1 January 2024", "retrieved_on": "2026-11-16", "retrieval_sha256": "8e162bec856fe4adf0dcc8ca78bab5dff25c364ce07629e1c79c84368a3105f8", "access": "manual_download" }
+  ]
+}

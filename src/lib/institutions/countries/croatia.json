@@ -1,0 +1,146 @@
+{
+  "schema_version": "institutional-country-v1",
+  "country": "croatia",
+  "iso2": "HR",
+  "verified_on": "2026-11-16",
+  "baseline_status": "partial",
+  "case_study": false,
+  "overview": {
+    "en": "The Croatian Parliament (Hrvatski sabor) has been unicameral since the 2001 amendments and has between 100 and 160 members elected for four years; 151 members were elected on 17 April 2024. The directly elected President entrusts the formation of the Government to the person who commands a majority, and the Government takes office once a majority of all members express confidence.",
+    "zh": "克罗地亚议会（Hrvatski sabor）自 2001 年修宪后为一院制，议员人数在 100 至 160 名之间，任期四年；2024 年 4 月 17 日选出 151 名议员。直选总统将组阁任务交给获得多数支持者，政府在获得全体议员过半数信任后就职。"
+  },
+  "constitution": {
+    "id": "hr-constitution-1990",
+    "official_name": "Ustav Republike Hrvatske",
+    "name": { "en": "Constitution of the Republic of Croatia", "zh": "克罗地亚共和国宪法" },
+    "adopted": null,
+    "in_force": null,
+    "in_force_note": { "en": "Enacted in December 1990 (Narodne novine 56/90); consolidated text NN 85/2010 of 9 July 2010.", "zh": "1990 年 12 月制定（《人民报》56/90）；合并文本为 2010 年 7 月 9 日 NN 85/2010。" },
+    "publication": "Narodne novine 56/90",
+    "current_text": { "as_of": "2010-07-09", "note": { "en": "Consolidated text NN 85/2010; the later change published in NN 5/2014 was not read.", "zh": "合并文本 NN 85/2010；其后刊于 NN 5/2014 的修改未阅读。" } },
+    "source_ids": ["hr-constitution-consolidated", "hr-sabor-about"]
+  },
+  "chambers": [
+    {
+      "chamber_id": "hr-sabor",
+      "official_name": "Hrvatski sabor",
+      "name": { "en": "Croatian Parliament", "zh": "克罗地亚议会（Hrvatski sabor）" },
+      "role": "sole",
+      "members": { "value": 151, "basis": { "en": "constitutional range 100–160, number set by law; 151 members elected on 17 April 2024", "zh": "宪法规定 100–160 名，具体人数由法律确定；2024 年 4 月 17 日选出 151 名" }, "articles": "Arts. 72–73", "source_ids": ["hr-constitution-consolidated", "hr-sabor-about"] },
+      "term_years": 4,
+      "selection": { "code": "direct_by_electoral_law", "label": { "en": "Universal and equal suffrage, direct and secret ballot; Parliament lists 12 constituencies", "zh": "普遍平等选举，直接秘密投票；议会列出 12 个选区" }, "articles": "Art. 72", "source_ids": ["hr-constitution-consolidated", "hr-sabor-constituencies"] },
+      "powers": { "en": "Representative body and holder of legislative power (Art. 71); expresses confidence in the Government (Arts. 110, 116) and elects the Constitutional Court's judges by two thirds of all members (Art. 126).", "zh": "代表机关和立法权的行使者（第 71 条）；对政府表示信任（第 110、116 条），并以全体议员三分之二多数选举宪法法院法官（第 126 条）。" },
+      "note": { "en": "Eight members representing national minorities sit in the current (11th) term.", "zh": "本届（第 11 届）有 8 名少数民族代表议员。" }
+    }
+  ],
+  "offices": [
+    {
+      "office_id": "hr-president",
+      "role": "head_of_state",
+      "official_name": "Predsjednik Republike Hrvatske",
+      "name": { "en": "President of the Republic", "zh": "共和国总统" },
+      "selection": { "label": { "en": "Direct election; a majority of all voters who voted, otherwise a second ballot between the two leading candidates after 14 days", "zh": "直接选举；须获全部投票选民过半数，否则 14 日后在得票前两名之间举行第二轮" }, "articles": "Art. 95" },
+      "term_years": 5,
+      "term_limit": { "en": "No one may be elected more than twice", "zh": "任何人不得当选两次以上" },
+      "source_ids": ["hr-constitution-consolidated"]
+    },
+    {
+      "office_id": "hr-prime-minister",
+      "role": "head_of_government",
+      "official_name": "Predsjednik Vlade Republike Hrvatske",
+      "name": { "en": "Prime Minister (President of the Government)", "zh": "总理（政府主席）" },
+      "selection": { "label": { "en": "Mandate from the President to the person with majority support; Government takes office on a confidence vote of a majority of all members", "zh": "总统将组阁任务交给获多数支持者；政府获全体议员过半数信任后就职" }, "articles": "Arts. 98, 110–111" },
+      "term_years": null,
+      "term_limit": null,
+      "source_ids": ["hr-constitution-consolidated"]
+    }
+  ],
+  "fields": {
+    "state_form": { "value": "republic", "label": { "en": "Republic", "zh": "共和国" }, "articles": "Art. 1", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
+    "territorial_organisation": { "value": "unitary", "label": { "en": "Unitary and indivisible state", "zh": "统一、不可分割的国家" }, "articles": "Art. 1", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
+    "government_system": { "value": "parliamentary", "label": { "en": "Parliamentary republic", "zh": "议会共和制" }, "detail": { "en": "Since the 2000 amendments the Government depends on parliamentary confidence; the 1990 constitution had established a semi-presidential system.", "zh": "自 2000 年修宪起政府依赖议会信任；1990 年宪法曾确立半总统制。" }, "articles": "Arts. 98, 110, 115–116", "source_ids": ["hr-constitution-consolidated", "hr-sabor-about"], "status": "verified" },
+    "legislature_structure": { "value": "unicameral", "label": { "en": "Unicameral: Croatian Parliament", "zh": "一院制：克罗地亚议会" }, "detail": { "en": "The Chamber of Counties (Županijski dom) was abolished by the March 2001 amendments.", "zh": "郡院（Županijski dom）已由 2001 年 3 月修宪废除。" }, "articles": "Art. 71", "source_ids": ["hr-constitution-consolidated", "hr-sabor-about"], "status": "verified" },
+    "head_of_state_selection": { "value": "direct_popular_vote", "label": { "en": "Direct popular vote, two ballots if needed", "zh": "选民直选，必要时两轮" }, "articles": "Art. 95", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
+    "head_of_state_term": { "value": 5, "label": { "en": "5 years; at most two terms", "zh": "五年；至多两届" }, "articles": "Art. 95", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
+    "head_of_government_appointment": { "value": "investiture_then_appointment", "label": { "en": "President gives the mandate; Parliament's confidence vote; President appoints the Prime Minister", "zh": "总统授予组阁任务；议会信任投票；总统任命总理" }, "detail": { "en": "The mandate-holder has 30 days, extendable by 30, to present the programme and Government and seek confidence. If that fails, the President entrusts the mandate to another person. The President's appointment decision is countersigned by the Speaker.", "zh": "受托人有 30 日（可延长 30 日）提交纲领和政府名单并请求信任；失败时总统将任务交予他人。总统的任命决定由议长副署。" }, "steps": [ { "en": "President entrusts the mandate to the person with majority support", "zh": "总统将组阁任务交给获多数支持者" }, { "en": "Mandate-holder presents the programme and Government and seeks confidence", "zh": "受托人提交纲领和政府名单并请求信任" }, { "en": "President appoints the Prime Minister, countersigned by the Speaker", "zh": "总统任命总理，由议长副署" } ], "articles": "Arts. 98, 110–111", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
+    "investiture": { "value": "required", "label": { "en": "Required: majority of all members", "zh": "须获全体议员过半数" }, "articles": "Art. 110", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
+    "no_confidence": { "value": "simple_majority_of_all_members", "label": { "en": "Raised by one fifth of members; majority of all members", "zh": "五分之一议员提出；须全体议员过半数" }, "detail": { "en": "May target the Prime Minister, a minister or the whole Government; vote between 7 and 30 days after submission.", "zh": "可针对总理、个别部长或整个政府；提出后 7 至 30 日内表决。" }, "articles": "Art. 116", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
+    "confidence_vote": { "value": "government_may_request", "label": { "en": "Prime Minister may request a confidence vote", "zh": "总理可请求信任投票" }, "articles": "Art. 116", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
+    "dissolution": { "value": "conditional", "label": { "en": "President dissolves on the Government's proposal, countersigned by the Prime Minister, in two cases", "zh": "总统依政府提议、经总理副署，在两种情形下解散议会" }, "detail": { "en": "If Parliament votes no confidence on the Government's own confidence request, or fails to adopt the budget within 120 days of its proposal; after consulting parliamentary group representatives.", "zh": "情形：议会在政府自行请求信任时表决不信任，或在预算提出后 120 日内未予通过；须事先征询议会党团代表。" }, "articles": "Art. 104", "source_ids": ["hr-constitution-consolidated"], "status": "verified", "comparability": "qualified" },
+    "legislative_veto": { "value": "no_presidential_veto", "label": { "en": "No veto: President promulgates within eight days and may seek constitutional review", "zh": "无否决权：总统须在八日内公布法律，可申请合宪性审查" }, "articles": "Art. 89", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
+    "second_chamber_role": { "value": "not_applicable", "label": { "en": "Not applicable (unicameral since 2001)", "zh": "不适用（2001 年起为一院制）" }, "articles": null, "source_ids": [], "status": "not_applicable" },
+    "constitutional_review": { "value": "constitutional_court", "label": { "en": "Constitutional Court (Ustavni sud), 13 judges elected by two thirds of all members", "zh": "宪法法院（Ustavni sud），13 名法官，由全体议员三分之二多数选举" }, "articles": "Art. 126", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
+    "legislative_term": { "value": 4, "label": { "en": "4 years", "zh": "四年" }, "articles": "Art. 73", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
+    "electoral_system": { "value": null, "label": { "en": "12 constituencies listed by Parliament; formula, threshold and special constituencies not verified", "zh": "议会列出 12 个选区；公式、门槛及特殊选区未核实" }, "articles": null, "source_ids": ["hr-sabor-constituencies"], "status": "pending", "comparability": "not_comparable" }
+  },
+  "electoral_systems": [
+    {
+      "rule_id": "hr-es-sabor",
+      "chamber_id": "hr-sabor",
+      "status": "pending",
+      "summary": { "en": "Constituency structure recorded; electoral act not read", "zh": "已记录选区结构；选举法未阅读" },
+      "constituencies": { "en": "12 numbered constituencies on Parliament's constituency list; the function of each was not read", "zh": "议会选区列表中共 12 个编号选区；各选区的性质未阅读" },
+      "allocation": null,
+      "thresholds": [],
+      "minority": { "en": "Eight minority members in the current term", "zh": "本届有 8 名少数民族议员" },
+      "legal_basis": "Zakon o izborima zastupnika u Hrvatski sabor (not read)",
+      "source_ids": ["hr-sabor-constituencies", "hr-sabor-minorities"],
+      "store_rule_record": null
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "hr-1990-constitution",
+      "dimension": "constitutional_framework",
+      "title": { "en": "Constitution of December 1990", "zh": "1990 年 12 月宪法" },
+      "adopted": null,
+      "promulgated": null,
+      "effective": null,
+      "effective_note": { "en": "Enacted in December 1990 (NN 56/90); the exact date was not read.", "zh": "1990 年 12 月制定（NN 56/90）；确切日期未阅读。" },
+      "previous": null,
+      "new": { "en": "Parliament composed of the Chamber of Deputies and the Chamber of Counties.", "zh": "议会由众议院和郡院组成。" },
+      "legal_basis": "Narodne novine 56/90",
+      "source_ids": ["hr-sabor-about", "hr-constitution-consolidated"],
+      "status": "partially_verified"
+    },
+    {
+      "change_id": "hr-2000-parliamentary-system",
+      "dimension": "government_system",
+      "title": { "en": "2000 amendments: parliamentary system", "zh": "2000 年修宪：改行议会制" },
+      "adopted": null,
+      "promulgated": null,
+      "effective": null,
+      "effective_note": { "en": "Amendments of 2000 (NN 113/2000 in the consolidated list); exact dates not read.", "zh": "2000 年修正（合并文本列表中的 NN 113/2000）；确切日期未阅读。" },
+      "previous": { "en": "Semi-presidential system.", "zh": "半总统制。" },
+      "new": { "en": "Parliamentary system of government.", "zh": "议会制政府。" },
+      "legal_basis": "Promjena Ustava (NN 113/2000)",
+      "source_ids": ["hr-sabor-about", "hr-constitution-consolidated"],
+      "status": "partially_verified"
+    },
+    {
+      "change_id": "hr-2001-unicameral",
+      "dimension": "legislature_structure",
+      "title": { "en": "March 2001 amendments abolish the Chamber of Counties", "zh": "2001 年 3 月修宪废除郡院" },
+      "adopted": null,
+      "effective_note": { "en": "Amendments enacted in March 2001 (Parliament's history page); exact dates not read.", "zh": "修正于 2001 年 3 月通过（议会历史页面）；确切日期未阅读。" },
+      "promulgated": null,
+      "effective": null,
+      "previous": { "en": "Bicameral: Chamber of Deputies and Chamber of Counties.", "zh": "两院制：众议院与郡院。" },
+      "new": { "en": "Unicameral Croatian Parliament.", "zh": "一院制克罗地亚议会。" },
+      "legal_basis": "Promjena Ustava (NN 28/2001)",
+      "source_ids": ["hr-sabor-about", "hr-constitution-consolidated"],
+      "status": "partially_verified"
+    }
+  ],
+  "case_study_sections": [],
+  "pending": [
+    { "field": "electoral_system", "reason": { "en": "The Act on Elections of Representatives to the Croatian Parliament was not read; formula, threshold and diaspora/minority seat counts are not asserted.", "zh": "《克罗地亚议会代表选举法》未阅读；不主张公式、门槛及境外/少数民族议席数。" } },
+    { "field": "amendment_dates", "reason": { "en": "Exact dates of the 1990, 2000 and 2001 constitutional acts and the NN 5/2014 change were not read.", "zh": "1990、2000、2001 年宪法文件及 NN 5/2014 修改的确切日期未阅读。" } }
+  ],
+  "sources": [
+    { "source_id": "hr-constitution-consolidated", "publisher": "Narodne novine d.d.", "title": "Ustav Republike Hrvatske (pročišćeni tekst), NN 85/2010", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2010_07_85_2422.html", "kind": "constitution", "language": "hr", "version": "consolidated text of 9 July 2010", "retrieved_on": "2026-11-16", "retrieval_sha256": "f08584865d7a054d23f203b42b478cf10711a6f8cc5e6cda8b6de82d4a0511cd", "access": "manual_download" },
+    { "source_id": "hr-sabor-about", "publisher": "Hrvatski sabor", "title": "About the Parliament", "url": "https://www.sabor.hr/en/about-parliament", "kind": "parliament_page", "language": "en", "version": "page retrieved 2026-11-16", "retrieved_on": "2026-11-16", "retrieval_sha256": "f7ba86aff25fabdd58770ab223e8cca7b23bc2f60710ac3f052d661fb2574d4f", "access": "manual_download" },
+    { "source_id": "hr-sabor-constituencies", "publisher": "Hrvatski sabor", "title": "Constituencies", "url": "https://www.sabor.hr/en/mps/constituencies", "kind": "parliament_page", "language": "en", "version": "page retrieved 2026-11-16", "retrieved_on": "2026-11-16", "retrieval_sha256": "0707e2dd15e1a39a958641e783b7ad9cf79db599ab330794a2b7d5494426420a", "access": "manual_download" },
+    { "source_id": "hr-sabor-minorities", "publisher": "Hrvatski sabor", "title": "National Minorities MPs (count only)", "url": "https://www.sabor.hr/en/mps/national-minorities-mps", "kind": "parliament_page", "language": "en", "version": "page retrieved 2026-11-16; only the count is used", "retrieved_on": "2026-11-16", "retrieval_sha256": "35d4857083e4671bdb4370cb6545ee1a3c778ed17ee6ad70c518008e619c4d6c", "access": "manual_download" }
+  ]
+}

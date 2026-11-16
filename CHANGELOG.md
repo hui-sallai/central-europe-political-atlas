@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 ten-country political institutions dataset — 2026-11-16
+
+- Add a source-backed institutional record for all ten countries (constitution, chambers, executive offices, 16 comparison fields, electoral rules, dated changes, official sources), with case studies for Poland, Hungary, Germany and Serbia. Link the 21 admitted parliamentary elections to their own rule records and to the institutional changes in force on polling day. Derive the institution comparison from this registry and cite official legal texts instead of overview pages.
+
 ### v2.0 comparative political institutions — 2026-11-16
 
 - Add a bilingual two-to-four-country comparison of institutional structures, source-scoped formation procedures and election-specific records. Carry selected countries into economic comparisons and translate registered statistical notes in country profiles.

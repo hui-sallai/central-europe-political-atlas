@@ -3653,6 +3653,95 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-11-16"
+    },
+    {
+      "amendment_id": "ten-country-political-institutions-2026-11-16",
+      "status": "owner_approved",
+      "approved_by": "Owner brief of 2026-11-16 (ten-country political institutions data expansion) requested source-backed institutional records integrated into the existing comparison contract; the owner approved manual reading of the official legal hosts the same day. Hashes identify the registry files and the two presentation files that read them.",
+      "baseline": "46dca48f4d6b85b14b8bda983440f5d44314368b",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-16",
+      "files": [
+        {
+          "path": "src/lib/institutionalRegistry.ts",
+          "sha256": "661b2393eb4a86f5d3a16ec7f1c175b76209446cba350d11b04d2d3f919c1421",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutionProfiles.ts",
+          "sha256": "99970c5edb99153c4ee51cfbb8f404b99384ad1f2d4d7451a7124bb17069a2e6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/InstitutionComparison.tsx",
+          "sha256": "fe14c9204673f31429949fa6472776b301dc391fd6cdbeed36bf75b3c96c5f60",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/meta.json",
+          "sha256": "712428812bc0cf9613916be2792fb8c9cd2095ff4b5fceeb5edd70eadf028a35",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/election_links.json",
+          "sha256": "26ce09f13f80ca344b75056db5647b7cd76768957b4c8a19090742237662d1c8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/austria.json",
+          "sha256": "ce904bca64089cc7570fc9c690c6745fb3e69826a057ed9ae0362f2e6576a1fd",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/croatia.json",
+          "sha256": "853076b9d9485cd86a1b7a485e8fcd782a6b7128edc4b7175cbd7cc4a090fbc8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/czechia.json",
+          "sha256": "2ac5f7190237c9490915b38463db587c3f113e86a52d1ff93b807ce5e4afd259",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/germany.json",
+          "sha256": "386df12e4afc82dae8fcc5f7e5797060d7fe7b28a58d4b1f0f50c7fd906e6a47",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/hungary.json",
+          "sha256": "d63571289abd58cabafce3500dea8118b0bcd8a63647821ecb2191758bf6c7db",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/poland.json",
+          "sha256": "77a6f5b43d26493278e16d16fa099cb99a3fd4ab9ba9073f47b563563bb07f03",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/romania.json",
+          "sha256": "a443a00fefb80df4d376605bea60562be07c450791f621763580256fda54ab3d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/serbia.json",
+          "sha256": "e28fe77cf33b8219db6dd41115e8135647e4b2d7b4e8c281cb25cf7be30980b0",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/slovakia.json",
+          "sha256": "f7e9e3b34a73b54d0a33a322bacc5ffe21f4b9141ee3d8b9ee290cc2c3c51617",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/slovenia.json",
+          "sha256": "8bdc08b5b0f67512e82c596e1258d2fe058a47623935aa5d20870c0a0568f228",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

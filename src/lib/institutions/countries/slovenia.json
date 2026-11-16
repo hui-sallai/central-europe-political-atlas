@@ -1,0 +1,151 @@
+{
+  "schema_version": "institutional-country-v1",
+  "country": "slovenia",
+  "iso2": "SI",
+  "verified_on": "2026-11-16",
+  "baseline_status": "complete",
+  "case_study": false,
+  "overview": {
+    "en": "The National Assembly (Državni zbor) of 90 deputies holds legislative power and elects the Prime Minister; two seats are always reserved for the Italian and Hungarian national communities. The 40-member National Council (Državni svet) represents social, economic, professional and local interests and can require the Assembly to vote again on a law.",
+    "zh": "国民议会（Državni zbor）由 90 名议员组成，行使立法权并选举总理；其中意大利族和匈牙利族民族共同体各固定一席。由 40 名成员组成的国民委员会（Državni svet）代表社会、经济、职业和地方利益，可要求国民议会对法律再次表决。"
+  },
+  "constitution": {
+    "id": "si-constitution-1991",
+    "official_name": "Ustava Republike Slovenije (URS)",
+    "name": { "en": "Constitution of the Republic of Slovenia", "zh": "斯洛文尼亚共和国宪法" },
+    "adopted": null,
+    "in_force": null,
+    "publication": "Uradni list RS, št. 33/91-I z dne 28. 12. 1991",
+    "current_text": { "as_of": "2025-12-02", "note": { "en": "Unofficial consolidated text no. 12 in PISRS, including amendments up to UZ74a (Uradni list RS 98/25 of 2 December 2025).", "zh": "PISRS 第 12 号非官方合并文本，含截至 UZ74a（2025 年 12 月 2 日《官方公报》98/25）的修正。" } },
+    "source_ids": ["si-constitution-current"]
+  },
+  "chambers": [
+    {
+      "chamber_id": "si-drzavni-zbor",
+      "official_name": "Državni zbor Republike Slovenije",
+      "name": { "en": "National Assembly", "zh": "国民议会（Državni zbor）" },
+      "role": "lower",
+      "members": { "value": 90, "basis": { "en": "fixed by the Constitution, including one deputy each of the Italian and Hungarian national communities", "zh": "宪法规定，含意大利族和匈牙利族民族共同体各一名议员" }, "articles": "Art. 80", "source_ids": ["si-constitution-current"] },
+      "term_years": 4,
+      "selection": { "code": "direct_proportional", "label": { "en": "Universal, equal, direct and secret voting; proportional representation with a 4% threshold, voters having a decisive influence on which candidates take the seats", "zh": "普遍、平等、直接、秘密投票；比例代表制，门槛 4%，选民对议席分配给哪些候选人有决定性影响" }, "articles": "Art. 80" },
+      "powers": { "en": "Holds legislative power, elects the Prime Minister (Art. 111) and can call a legislative referendum when 40,000 voters demand it (Art. 90).", "zh": "行使立法权，选举总理（第 111 条），并在 40,000 名选民要求时就法律举行公投（第 90 条）。" },
+      "note": { "en": "The electoral law must be adopted by two thirds of all deputies (Art. 80).", "zh": "选举法须经全体议员三分之二多数通过（第 80 条）。" }
+    },
+    {
+      "chamber_id": "si-drzavni-svet",
+      "official_name": "Državni svet Republike Slovenije",
+      "name": { "en": "National Council", "zh": "国民委员会（Državni svet）" },
+      "role": "interest_council",
+      "members": { "value": 40, "basis": { "en": "4 employers, 4 employees, 4 farmers, crafts and independent professions, 6 non-commercial activities, 22 local interests", "zh": "雇主代表 4 名、雇员代表 4 名、农民/手工业者/自由职业者代表 4 名、非营利领域代表 6 名、地方利益代表 22 名" }, "articles": "Art. 96", "source_ids": ["si-constitution-current"] },
+      "term_years": 5,
+      "selection": { "code": "indirect_by_interest_groups", "label": { "en": "Elected under a law adopted by two thirds of all deputies; not elected by universal suffrage", "zh": "依全体议员三分之二多数通过的法律选举产生；非普选" }, "articles": "Art. 98" },
+      "powers": { "en": "May propose laws, give opinions, demand that the National Assembly decide again on a law before promulgation, and demand a parliamentary inquiry (Art. 97). Its former right to demand a referendum was deleted.", "zh": "可提出法律案、发表意见、要求国民议会在法律公布前再次表决，并要求开展议会调查（第 97 条）。其原有的要求公投权已删除。" },
+      "note": { "en": "A representative body of interests with a suspensive veto, not a second chamber of equal standing.", "zh": "属于具有搁置性否决权的利益代表机构，而非地位对等的第二院。" }
+    }
+  ],
+  "offices": [
+    {
+      "office_id": "si-president",
+      "role": "head_of_state",
+      "official_name": "Predsednik republike",
+      "name": { "en": "President of the Republic", "zh": "共和国总统" },
+      "selection": { "label": { "en": "Direct, universal and secret elections; a majority of valid votes", "zh": "直接、普遍、秘密选举；须获有效票过半数" }, "articles": "Art. 103" },
+      "term_years": 5,
+      "term_limit": { "en": "At most two consecutive terms", "zh": "至多连任两届" },
+      "source_ids": ["si-constitution-current"]
+    },
+    {
+      "office_id": "si-prime-minister",
+      "role": "head_of_government",
+      "official_name": "Predsednik vlade",
+      "name": { "en": "Prime Minister (President of the Government)", "zh": "总理（政府主席）" },
+      "selection": { "label": { "en": "Elected by the National Assembly by secret ballot, by a majority of all deputies in the first rounds", "zh": "由国民议会秘密投票选举，前几轮须全体议员过半数" }, "articles": "Art. 111" },
+      "term_years": null,
+      "term_limit": null,
+      "source_ids": ["si-constitution-current"]
+    }
+  ],
+  "fields": {
+    "state_form": { "value": "republic", "label": { "en": "Democratic republic", "zh": "民主共和国" }, "articles": "Art. 1", "source_ids": ["si-constitution-current"], "status": "verified" },
+    "territorial_organisation": { "value": "unitary", "label": { "en": "Territorially unified and indivisible state", "zh": "领土统一、不可分割的国家" }, "articles": "Art. 4", "source_ids": ["si-constitution-current"], "status": "verified" },
+    "government_system": { "value": "parliamentary", "label": { "en": "Parliamentary republic", "zh": "议会共和制" }, "detail": { "en": "The National Assembly elects the Prime Minister and can replace the Government only by electing a successor; the President is directly elected.", "zh": "国民议会选举总理，只能通过选出继任者更换政府；总统直选。" }, "articles": "Arts. 103, 111, 116", "source_ids": ["si-constitution-current"], "status": "verified" },
+    "legislature_structure": { "value": "assembly_with_interest_council", "label": { "en": "National Assembly with a National Council of interest representatives", "zh": "国民议会加利益代表组成的国民委员会" }, "detail": { "en": "Often described as incomplete bicameralism: the National Council is not elected by universal suffrage and has only a suspensive veto.", "zh": "常被称为“不完全两院制”：国民委员会非普选产生，仅有搁置性否决权。" }, "articles": "Arts. 80, 91, 96–98", "source_ids": ["si-constitution-current"], "status": "verified", "comparability": "qualified" },
+    "head_of_state_selection": { "value": "direct_popular_vote", "label": { "en": "Direct popular vote", "zh": "选民直选" }, "articles": "Art. 103", "source_ids": ["si-constitution-current"], "status": "verified" },
+    "head_of_state_term": { "value": 5, "label": { "en": "5 years; at most two consecutive terms", "zh": "五年；至多连任两届" }, "articles": "Art. 103", "source_ids": ["si-constitution-current"], "status": "verified" },
+    "head_of_government_appointment": { "value": "parliament_elects_on_head_of_state_proposal", "label": { "en": "National Assembly elects the Prime Minister on the President's proposal; groups may nominate in later rounds", "zh": "国民议会依总统提名选举总理；后续轮次议会党团亦可提名" }, "detail": { "en": "If the first candidate fails, within 14 days the President, parliamentary groups or at least ten deputies may propose candidates. If no one is elected, the President dissolves the Assembly unless it decides within 48 hours to hold a further vote, in which a majority of votes cast by deputies present suffices.", "zh": "首位人选未当选时，总统、议会党团或至少十名议员可在 14 日内提名。如仍无人当选，总统解散国民议会，除非议会在 48 小时内决定再次投票，此时以出席议员所投票数过半数即可当选。" }, "steps": [ { "en": "President proposes a candidate after consulting group leaders", "zh": "总统在征询党团领袖后提名人选" }, { "en": "National Assembly elects the Prime Minister by secret ballot", "zh": "国民议会秘密投票选举总理" } ], "articles": "Art. 111", "source_ids": ["si-constitution-current"], "status": "verified" },
+    "investiture": { "value": "election_by_parliament", "label": { "en": "Majority of all deputies; majority of votes cast in the final round", "zh": "须全体议员过半数；最终一轮为所投票数过半数" }, "articles": "Art. 111", "source_ids": ["si-constitution-current"], "status": "verified" },
+    "no_confidence": { "value": "constructive", "label": { "en": "Constructive: ten deputies propose a successor; majority of all deputies", "zh": "建设性不信任：十名议员提名继任者；须全体议员过半数" }, "detail": { "en": "At least 48 hours between motion and vote unless two thirds of all deputies decide otherwise.", "zh": "动议与表决间隔至少 48 小时，除非全体议员三分之二另行决定。" }, "articles": "Art. 116", "source_ids": ["si-constitution-current"], "status": "verified" },
+    "confidence_vote": { "value": "government_may_request", "label": { "en": "Prime Minister may request a confidence vote; failure leads to a new election of the Prime Minister or dissolution", "zh": "总理可请求信任投票；失败后须重新选举总理，否则解散议会" }, "articles": "Art. 117", "source_ids": ["si-constitution-current"], "status": "verified" },
+    "dissolution": { "value": "conditional", "label": { "en": "Only after failed prime-ministerial elections (Art. 111) or a lost confidence vote without a new Prime Minister (Art. 117)", "zh": "仅在总理选举失败（第 111 条）或信任投票失败且未选出新总理（第 117 条）后" }, "articles": "Arts. 111, 117", "source_ids": ["si-constitution-current"], "status": "verified", "comparability": "qualified" },
+    "legislative_veto": { "value": "council_suspensive_veto", "label": { "en": "No presidential veto; the National Council may demand a new vote, overridden by a majority of all deputies", "zh": "总统无否决权；国民委员会可要求再次表决，全体议员过半数即可推翻" }, "detail": { "en": "The President promulgates laws within eight days; the Council has seven days from adoption to act.", "zh": "总统须在八日内公布法律；国民委员会须在法律通过后七日内提出要求。" }, "articles": "Art. 91", "source_ids": ["si-constitution-current"], "status": "verified", "comparability": "qualified" },
+    "second_chamber_role": { "value": "interest_council_suspensive", "label": { "en": "National Council: suspensive veto, legislative initiative, opinions, inquiries", "zh": "国民委员会：搁置性否决、立法提案、意见、调查" }, "articles": "Arts. 91, 97", "source_ids": ["si-constitution-current"], "status": "verified", "comparability": "qualified" },
+    "constitutional_review": { "value": "constitutional_court", "label": { "en": "Constitutional Court (Ustavno sodišče)", "zh": "宪法法院（Ustavno sodišče）" }, "articles": "Art. 160", "source_ids": ["si-constitution-current"], "status": "verified" },
+    "legislative_term": { "value": 4, "label": { "en": "National Assembly 4 years; National Council 5 years", "zh": "国民议会四年；国民委员会五年" }, "articles": "Arts. 81, 98", "source_ids": ["si-constitution-current"], "status": "verified", "comparability": "qualified" },
+    "electoral_system": { "value": "list_pr_threshold", "label": { "en": "Proportional representation with a 4% threshold and two reserved national-community seats", "zh": "比例代表制，门槛 4%，另设两个民族共同体保留议席" }, "articles": "Art. 80", "source_ids": ["si-constitution-current"], "status": "verified", "comparability": "qualified" }
+  },
+  "electoral_systems": [
+    {
+      "rule_id": "si-es-dz-constitutional",
+      "chamber_id": "si-drzavni-zbor",
+      "status": "partially_verified",
+      "summary": { "en": "Proportional representation with a 4% threshold (constitutional rule)", "zh": "比例代表制，门槛 4%（宪法规则）" },
+      "constituencies": null,
+      "allocation": { "en": "Not read: the National Assembly Elections Act was not consulted in this iteration", "zh": "未阅读：本轮未查阅《国民议会选举法》" },
+      "thresholds": [ { "applies_to": { "en": "entry to the National Assembly (except national-community deputies)", "zh": "进入国民议会（民族共同体议员除外）" }, "percent": 4, "articles": "Art. 80" } ],
+      "minority": { "en": "One deputy each of the Italian and Hungarian national communities is always elected (Art. 80)", "zh": "意大利族和匈牙利族民族共同体各固定选出一名议员（第 80 条）" },
+      "legal_basis": "Constitution Art. 80 as supplemented by UZ80 (Uradni list RS 66/00)",
+      "source_ids": ["si-constitution-current"],
+      "store_rule_record": null
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "si-1991-constitution",
+      "dimension": "constitutional_framework",
+      "title": { "en": "Constitution of the Republic of Slovenia published", "zh": "斯洛文尼亚共和国宪法公布" },
+      "adopted": null,
+      "promulgated": "1991-12-28",
+      "effective": null,
+      "previous": null,
+      "new": { "en": "National Assembly, National Council, directly elected President, Government elected by the Assembly.", "zh": "国民议会、国民委员会、直选总统、由议会选举的政府。" },
+      "legal_basis": "Uradni list RS, št. 33/91-I",
+      "source_ids": ["si-constitution-current"],
+      "status": "partially_verified"
+    },
+    {
+      "change_id": "si-2000-art80",
+      "dimension": "electoral_system",
+      "title": { "en": "Constitutional Act supplementing Article 80 (electoral system)", "zh": "补充第 80 条的宪法性法律（选举制度）" },
+      "adopted": null,
+      "promulgated": "2000-07-26",
+      "effective": null,
+      "previous": null,
+      "new": { "en": "Proportional representation with a 4% threshold and decisive voter influence on candidate selection written into Art. 80.", "zh": "将比例代表制、4% 门槛和选民对候选人当选的决定性影响写入第 80 条。" },
+      "legal_basis": "Ustavni zakon o dopolnitvi 80. člena ustave – UZ80 (Uradni list RS, št. 66/00 z dne 26. 7. 2000)",
+      "source_ids": ["si-constitution-current"],
+      "status": "partially_verified",
+      "note": { "en": "Attribution of the current Art. 80 wording to UZ80 follows the amendment's title; its text was not read separately.", "zh": "现行第 80 条措辞归于 UZ80 系依该修正的标题；其文本未单独阅读。" }
+    },
+    {
+      "change_id": "si-2013-referendum",
+      "dimension": "legislative_process",
+      "title": { "en": "Referendum reform (Arts. 90, 97, 99)", "zh": "公投制度改革（第 90、97、99 条）" },
+      "adopted": null,
+      "promulgated": "2013-05-31",
+      "effective": null,
+      "previous": null,
+      "new": { "en": "Legislative referendums require 40,000 voters, with listed exclusions (Art. 90); the National Council's right to demand a referendum is deleted (Art. 97).", "zh": "立法公投须 40,000 名选民提出并设排除事项（第 90 条）；国民委员会要求公投的权力被删除（第 97 条）。" },
+      "legal_basis": "Ustavni zakon o spremembah 90., 97. in 99. člena – UZ90,97,99 (Uradni list RS, št. 47/13 z dne 31. 5. 2013)",
+      "source_ids": ["si-constitution-current"],
+      "status": "partially_verified"
+    }
+  ],
+  "case_study_sections": [],
+  "pending": [
+    { "field": "electoral_law_detail", "reason": { "en": "Constituencies, districts and seat-allocation formula under the National Assembly Elections Act were not read.", "zh": "《国民议会选举法》下的选区、选举区和席位分配公式未阅读。" } },
+    { "field": "entry_into_force_dates", "reason": { "en": "Entry-into-force dates of the constitution and amendments were not read; publication dates are recorded.", "zh": "宪法及修正的生效日期未阅读；记录的是公布日期。" } }
+  ],
+  "sources": [
+    { "source_id": "si-constitution-current", "publisher": "Pravno-informacijski sistem Republike Slovenije (PISRS)", "title": "Ustava Republike Slovenije (URS) — neuradno prečiščeno besedilo št. 12", "url": "https://pisrs.si/pregledPredpisa?id=USTA1", "kind": "constitution", "language": "sl", "version": "unofficial consolidated text no. 12 (to UZ74a, 98/25)", "retrieved_on": "2026-11-16", "retrieval_sha256": null, "access": "browser_reading" }
+  ]
+}

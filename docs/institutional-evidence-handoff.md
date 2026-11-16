@@ -1,5 +1,7 @@
 # Institutional evidence still required
 
+> Superseded on 2026-11-16 by `docs/institutional-data-handoff-2026-11-16.md`: the fields below are now in `src/lib/institutions/` with official sources; the remaining gaps are listed in section L there.
+
 Use the existing country IDs and institution comparison. Record each rule as country, chamber or office, field ID, bilingual description, official article and URL, effective-from and effective-to dates (or unknown), retrieval date, language and verification status. Review native authoritative texts against the cited translation. Distinguish ordinary formation from fallback procedures and dissolution. Preserve the original election registry for seats, ballots, allocation and result dates.
 
 | Country | Existing evidence | Next fields and preferred primary source |

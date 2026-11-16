@@ -1,0 +1,148 @@
+{
+  "schema_version": "institutional-country-v1",
+  "country": "poland",
+  "iso2": "PL",
+  "verified_on": "2026-11-16",
+  "baseline_status": "complete",
+  "case_study": true,
+  "overview": {
+    "en": "Parliament consists of the Sejm (460 deputies, proportional representation) and the Senate (100 senators, single-member districts), both elected for the same four-year term. The President is directly elected; the Council of Ministers needs a vote of confidence in the Sejm and can be removed only by electing a successor prime minister.",
+    "zh": "议会由众议院（Sejm，460 名议员，比例代表制）和参议院（Senat，100 名参议员，单议席选区）组成，两院任期同为四年。总统由选民直选；部长会议须获得众议院信任投票，众议院只能通过选出继任总理来罢免政府。"
+  },
+  "constitution": {
+    "id": "pl-constitution-1997",
+    "official_name": "Konstytucja Rzeczypospolitej Polskiej z dnia 2 kwietnia 1997 r.",
+    "name": { "en": "Constitution of the Republic of Poland of 2 April 1997", "zh": "1997 年 4 月 2 日波兰共和国宪法" },
+    "adopted": "1997-04-02",
+    "in_force": "1997-10-17",
+    "publication": "Dz.U. 1997 nr 78 poz. 483",
+    "current_text": { "as_of": "2015-01-07", "note": { "en": "Sejm Chancellery unified text (tekst ujednolicony) dated 7 January 2015; the ELI record lists two amending acts.", "zh": "依据众议院办公厅 2015 年 1 月 7 日统一文本；ELI 记录列有两部修正法。" } },
+    "source_ids": ["pl-eli-constitution", "pl-constitution-unified"]
+  },
+  "chambers": [
+    {
+      "chamber_id": "pl-sejm",
+      "official_name": "Sejm Rzeczypospolitej Polskiej",
+      "name": { "en": "Sejm", "zh": "众议院（Sejm）" },
+      "role": "lower",
+      "store_chamber": "Sejm",
+      "members": { "value": 460, "basis": { "en": "fixed by the Constitution", "zh": "宪法规定" }, "articles": "Art. 96(1)", "source_ids": ["pl-constitution-unified"] },
+      "term_years": 4,
+      "selection": { "code": "direct_proportional", "label": { "en": "Universal, equal, direct and proportional elections by secret ballot", "zh": "普遍、平等、直接、比例选举，秘密投票" }, "articles": "Art. 96(2)" },
+      "powers": { "en": "Passes laws (Art. 120), oversees the Council of Ministers (Art. 95(2)), grants and withdraws confidence (Arts. 154–158).", "zh": "通过法律（第 120 条），监督部长会议（第 95 条第 2 款），给予和撤回信任（第 154–158 条）。" },
+      "note": { "en": "‘Sejm’ is the official name; English texts should not render it as ‘Chamber of Deputies’, which is the Czech and Romanian lower-chamber name.", "zh": "“Sejm”为正式名称；英文不应译作“Chamber of Deputies”（这是捷克和罗马尼亚下院的名称）。" }
+    },
+    {
+      "chamber_id": "pl-senat",
+      "official_name": "Senat Rzeczypospolitej Polskiej",
+      "name": { "en": "Senate", "zh": "参议院（Senat）" },
+      "role": "upper",
+      "members": { "value": 100, "basis": { "en": "fixed by the Constitution", "zh": "宪法规定" }, "articles": "Art. 97(1)", "source_ids": ["pl-constitution-unified"] },
+      "term_years": 4,
+      "selection": { "code": "direct_majoritarian", "label": { "en": "Universal and direct elections by secret ballot; since the Electoral Code, 100 single-member districts with the most votes winning", "zh": "普遍、直接选举，秘密投票；依《选举法典》设 100 个单议席选区，得票最多者当选" }, "articles": "Art. 97(2); Electoral Code Arts. 260, 273" },
+      "powers": { "en": "Within 30 days accepts, amends or rejects a bill passed by the Sejm; the Sejm overrides a rejection or amendment by an absolute majority with at least half of the deputies present (Art. 121).", "zh": "在 30 日内对众议院通过的法案予以接受、修正或否决；众议院可在至少半数议员出席时以绝对多数推翻参议院的否决或修正（第 121 条）。" },
+      "note": { "en": "The Senate's term is tied to the Sejm's: shortening the Sejm's term also shortens the Senate's (Art. 98(3)–(4)).", "zh": "参议院任期与众议院挂钩：众议院任期缩短时参议院任期同时缩短（第 98 条第 3–4 款）。" }
+    }
+  ],
+  "offices": [
+    {
+      "office_id": "pl-president",
+      "role": "head_of_state",
+      "official_name": "Prezydent Rzeczypospolitej Polskiej",
+      "name": { "en": "President of the Republic", "zh": "共和国总统" },
+      "selection": { "label": { "en": "Directly elected; more than half of valid votes, otherwise a second round", "zh": "直接选举；须获超过半数有效票，否则举行第二轮" }, "articles": "Art. 127(1), (4)" },
+      "term_years": 5,
+      "term_limit": { "en": "Re-election once only", "zh": "仅可连任一次" },
+      "source_ids": ["pl-constitution-unified"]
+    },
+    {
+      "office_id": "pl-prime-minister",
+      "role": "head_of_government",
+      "official_name": "Prezes Rady Ministrów",
+      "name": { "en": "Prime Minister (President of the Council of Ministers)", "zh": "总理（部长会议主席）" },
+      "selection": { "label": { "en": "Designated by the President, then subject to a Sejm vote of confidence; fallback rounds elect or appoint the government (Arts. 154–155)", "zh": "由总统提名，再经众议院信任投票；未获通过时依后续轮次选举或任命政府（第 154–155 条）" }, "articles": "Arts. 154–155" },
+      "term_years": null,
+      "term_limit": null,
+      "source_ids": ["pl-constitution-unified"]
+    }
+  ],
+  "fields": {
+    "state_form": { "value": "republic", "label": { "en": "Republic", "zh": "共和国" }, "articles": "Preamble; Art. 126", "source_ids": ["pl-constitution-unified"], "status": "verified" },
+    "territorial_organisation": { "value": "unitary", "label": { "en": "Unitary state", "zh": "单一制国家" }, "articles": "Art. 3", "source_ids": ["pl-constitution-unified"], "status": "verified" },
+    "government_system": { "value": "parliamentary", "label": { "en": "Parliamentary republic", "zh": "议会共和制" }, "detail": { "en": "The Council of Ministers depends on Sejm confidence; the President is directly elected and holds a suspensive veto.", "zh": "部长会议依赖众议院信任；总统直选并享有搁置性否决权。" }, "articles": "Arts. 10, 127, 154–158, 122(5)", "source_ids": ["pl-constitution-unified"], "status": "verified" },
+    "legislature_structure": { "value": "bicameral", "label": { "en": "Bicameral: Sejm and Senate", "zh": "两院制：众议院（Sejm）与参议院（Senat）" }, "detail": { "en": "Legislative power is exercised by the Sejm and the Senate (Art. 95(1)); the Sejm alone controls the government.", "zh": "立法权由众议院和参议院行使（第 95 条第 1 款）；仅众议院监督政府。" }, "articles": "Arts. 95–98", "source_ids": ["pl-constitution-unified"], "status": "verified", "comparability": "qualified" },
+    "head_of_state_selection": { "value": "direct_popular_vote", "label": { "en": "Direct popular vote, two rounds if needed", "zh": "选民直选，必要时两轮" }, "articles": "Art. 127", "source_ids": ["pl-constitution-unified"], "status": "verified" },
+    "head_of_state_term": { "value": 5, "label": { "en": "5 years; one re-election", "zh": "五年；可连任一次" }, "articles": "Art. 127(2)", "source_ids": ["pl-constitution-unified"], "status": "verified" },
+    "head_of_government_appointment": { "value": "head_of_state_appoints_then_investiture", "label": { "en": "President designates and appoints; Sejm vote of confidence follows", "zh": "总统提名并任命；随后众议院信任投票" }, "detail": { "en": "Step 1: the President appoints the Prime Minister and ministers within 14 days of the Sejm's first sitting; the Prime Minister seeks confidence within 14 days (absolute majority, half of deputies present). Step 2: if this fails, the Sejm elects a Prime Minister and ministers by absolute majority within 14 days. Step 3: if that fails, the President appoints a government that needs a simple majority; failing that, the President shortens the Sejm's term.", "zh": "第一步：总统在众议院首次会议后 14 日内任命总理和部长，总理须在 14 日内请求信任（须绝对多数，至少半数议员出席）。第二步：未获通过时，众议院在 14 日内以绝对多数选出总理和部长。第三步：仍未成功时，总统任命政府，只需简单多数信任；否则总统缩短众议院任期。" }, "steps": [ { "en": "President designates the Prime Minister and appoints the Council of Ministers", "zh": "总统提名总理并任命部长会议" }, { "en": "Prime Minister seeks a vote of confidence in the Sejm within 14 days", "zh": "总理须在 14 日内请求众议院信任投票" } ], "articles": "Arts. 154–155", "source_ids": ["pl-constitution-unified"], "status": "verified" },
+    "investiture": { "value": "required", "label": { "en": "Required: Sejm vote of confidence", "zh": "须经众议院信任投票" }, "articles": "Art. 154(2)", "source_ids": ["pl-constitution-unified"], "status": "verified" },
+    "no_confidence": { "value": "constructive", "label": { "en": "Constructive: majority of the statutory number of deputies electing a named successor", "zh": "建设性不信任：须法定议员总数过半数并选出指名的继任总理" }, "detail": { "en": "Motion by at least 46 deputies naming a candidate; vote no earlier than 7 days after submission. Individual ministers can be censured separately (Art. 159).", "zh": "须至少 46 名议员提出并指名总理人选；提出后至少 7 日方可表决。部长个人可另行受到不信任（第 159 条）。" }, "articles": "Arts. 158–159", "source_ids": ["pl-constitution-unified"], "status": "verified" },
+    "confidence_vote": { "value": "government_may_request", "label": { "en": "Prime Minister may request a vote of confidence (simple majority)", "zh": "总理可请求信任投票（简单多数）" }, "articles": "Art. 160", "source_ids": ["pl-constitution-unified"], "status": "verified" },
+    "dissolution": { "value": "conditional", "label": { "en": "Sejm self-dissolution by two-thirds; President shortens the term only in constitutional cases", "zh": "众议院可以三分之二多数自行解散；总统仅在宪法规定情形下缩短任期" }, "detail": { "en": "Cases: failure of the third government-formation step (Art. 155(2)) and a budget not presented for signature within four months (Art. 225). Shortening the Sejm's term also ends the Senate's.", "zh": "情形包括：组阁第三步失败（第 155 条第 2 款）；预算案提交后四个月内未呈交总统签署（第 225 条）。众议院任期缩短时参议院任期一并结束。" }, "articles": "Arts. 98(3)–(5), 155(2), 225", "source_ids": ["pl-constitution-unified"], "status": "verified", "comparability": "qualified" },
+    "legislative_veto": { "value": "suspensive_override_three_fifths", "label": { "en": "Presidential veto; Sejm override by three-fifths with half of deputies present", "zh": "总统否决；众议院在半数议员出席时以五分之三多数推翻" }, "detail": { "en": "Instead of vetoing, the President may refer the law to the Constitutional Tribunal before signing (Art. 122(3)); the two routes are alternatives.", "zh": "总统亦可在签署前将法律提交宪法法庭审查（第 122 条第 3 款），两种途径择一。" }, "articles": "Art. 122(3)–(5)", "source_ids": ["pl-constitution-unified"], "status": "verified" },
+    "second_chamber_role": { "value": "revising_with_override", "label": { "en": "Senate revises within 30 days; Sejm overrides by absolute majority", "zh": "参议院 30 日内审议修改；众议院以绝对多数推翻" }, "articles": "Art. 121", "source_ids": ["pl-constitution-unified"], "status": "verified", "comparability": "qualified" },
+    "constitutional_review": { "value": "constitutional_court", "label": { "en": "Constitutional Tribunal (Trybunał Konstytucyjny)", "zh": "宪法法庭（Trybunał Konstytucyjny）" }, "articles": "Art. 188", "source_ids": ["pl-constitution-unified"], "status": "verified" },
+    "legislative_term": { "value": 4, "label": { "en": "4 years (Sejm and Senate)", "zh": "四年（众议院与参议院）" }, "articles": "Art. 98(1)", "source_ids": ["pl-constitution-unified"], "status": "verified" },
+    "electoral_system": { "value": "list_pr_districts", "label": { "en": "Sejm: open-list PR in 41 districts (d’Hondt); Senate: plurality in 100 single-member districts", "zh": "众议院：41 个选区开放名单比例代表制（d’Hondt）；参议院：100 个单议席选区相对多数制" }, "articles": "Electoral Code Arts. 196–197, 201, 232, 260, 273", "source_ids": ["pl-electoral-code-2022"], "status": "verified", "comparability": "qualified" }
+  },
+  "electoral_systems": [
+    {
+      "rule_id": "pl-es-sejm-current",
+      "chamber_id": "pl-sejm",
+      "status": "verified",
+      "summary": { "en": "Open-list proportional representation in 41 multi-member districts", "zh": "41 个多议席选区的开放名单比例代表制" },
+      "constituencies": { "en": "Multi-member districts of at least 7 seats within voivodeship boundaries (Art. 201)", "zh": "多议席选区，每区至少 7 席，不跨越省界（第 201 条）" },
+      "allocation": { "en": "Successive divisors 1, 2, 3 … within each district (d’Hondt) among lists that pass the national threshold (Art. 232)", "zh": "在通过全国门槛的名单之间，按各选区连续除数 1、2、3……分配（d’Hondt，第 232 条）" },
+      "thresholds_from_store": true,
+      "minority": { "en": "Committees of registered national-minority organisations may be exempted from the national threshold (Art. 197)", "zh": "已登记少数民族组织的选举委员会可豁免全国门槛（第 197 条）" },
+      "legal_basis": "Kodeks wyborczy (Act of 5 January 2011), consolidated text Dz.U. 2022 poz. 1277",
+      "source_ids": ["pl-electoral-code-2022"],
+      "store_rule_record": "es-pl-sejm-2023"
+    },
+    {
+      "rule_id": "pl-es-senat-current",
+      "chamber_id": "pl-senat",
+      "status": "verified",
+      "summary": { "en": "Plurality in 100 single-member districts", "zh": "100 个单议席选区相对多数制" },
+      "constituencies": { "en": "Single-member districts within voivodeships, nested in Sejm districts, drawn on a uniform representation norm of population ÷ 100 (Arts. 260–261)", "zh": "单议席选区位于各省内，不跨越众议院选区界线，按人口 ÷ 100 的统一代表标准划分（第 260–261 条）" },
+      "allocation": { "en": "The candidate with the most valid votes is elected (Art. 273)", "zh": "得有效票最多的候选人当选（第 273 条）" },
+      "thresholds": [],
+      "minority": null,
+      "legal_basis": "Kodeks wyborczy, consolidated text Dz.U. 2022 poz. 1277",
+      "source_ids": ["pl-electoral-code-2022"],
+      "store_rule_record": null
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "pl-1997-constitution",
+      "dimension": "constitutional_framework",
+      "title": { "en": "Constitution of 2 April 1997 enters into force", "zh": "1997 年 4 月 2 日宪法生效" },
+      "adopted": "1997-04-02",
+      "promulgated": null,
+      "effective": "1997-10-17",
+      "previous": null,
+      "new": { "en": "Current constitutional order: Sejm and Senate, directly elected President, constructive vote of no confidence, Constitutional Tribunal.", "zh": "现行宪法秩序：众议院与参议院、总统直选、建设性不信任投票、宪法法庭。" },
+      "legal_basis": "Dz.U. 1997 nr 78 poz. 483; Art. 243 (entry into force three months after publication)",
+      "source_ids": ["pl-eli-constitution", "pl-constitution-unified"],
+      "status": "verified"
+    }
+  ],
+  "case_study_sections": [
+    { "id": "structure", "title": { "en": "Institutional structure", "zh": "制度结构" }, "text": { "en": "Legislative power belongs to two directly elected chambers with a common four-year term, but they are not equal. The Sejm passes every law first, alone controls the Council of Ministers and can override the Senate by an absolute majority. The Senate is a revising chamber with a 30-day window. Executive power is split between a directly elected President and the Council of Ministers (Art. 10).", "zh": "立法权属于两院，两院均由直选产生、任期同为四年，但地位并不对等。所有法律先由众议院通过，众议院独自监督部长会议，并可以绝对多数推翻参议院意见。参议院是审议院，审议期限为 30 日。行政权由直选总统与部长会议分享（第 10 条）。" }, "source_ids": ["pl-constitution-unified"] },
+    { "id": "formation", "title": { "en": "Government formation", "zh": "政府组建" }, "text": { "en": "Formation runs in up to three constitutionally timed steps. The President's nominee must win an absolute majority within 14 days of appointment. If that fails, initiative passes to the Sejm, which elects a Prime Minister and cabinet by absolute majority. Only in the third step may a President's appointee survive on a simple majority; failure then forces the President to shorten the Sejm's term.", "zh": "组阁最多分三个有宪法时限的步骤。总统任命的人选须在任命后 14 日内获得绝对多数信任。若失败，主动权转至众议院，由其以绝对多数选出总理和内阁。只有在第三步，总统任命的政府才可凭简单多数存续；再失败则总统必须缩短众议院任期。" }, "source_ids": ["pl-constitution-unified"] },
+    { "id": "accountability", "title": { "en": "Parliamentary accountability", "zh": "议会问责" }, "text": { "en": "The Sejm can remove the government only by electing a named successor with a majority of the statutory 460 deputies (Art. 158), on a motion signed by at least 46 deputies and voted no earlier than seven days later. Individual ministers face a separate no-confidence procedure (Art. 159), and the Prime Minister may seek a confidence vote at any time (Art. 160).", "zh": "众议院只能通过以法定 460 名议员的过半数选出指名继任者来罢免政府（第 158 条）；动议须至少 46 名议员签署，提出 7 日后方可表决。部长个人适用单独的不信任程序（第 159 条），总理可随时请求信任投票（第 160 条）。" }, "source_ids": ["pl-constitution-unified"] },
+    { "id": "electoral", "title": { "en": "Election-system mechanics", "zh": "选举制度运作" }, "text": { "en": "Sejm seats are allocated by d’Hondt within 41 districts of at least seven seats, among lists that pass 5% nationally (8% for coalition committees); registered national-minority committees can be exempted. The Senate is elected by plurality in 100 single-member districts. The two chambers are elected on the same day under different formulas, so their compositions can diverge.", "zh": "众议院席位在 41 个至少 7 席的选区内按 d’Hondt 法分配，参与分配的名单须获全国 5% 选票（联盟委员会为 8%）；已登记少数民族委员会可获豁免。参议院在 100 个单议席选区以相对多数选出。两院同日选举但适用不同公式，因而构成可能不同。" }, "source_ids": ["pl-electoral-code-2022"] },
+    { "id": "limits", "title": { "en": "Principal constitutional limitations", "zh": "主要宪法限制" }, "text": { "en": "The President's veto is suspensive: a three-fifths Sejm majority (with half the deputies present) overrides it, after which the President must sign within seven days. A law the Constitutional Tribunal has found constitutional cannot be refused (Art. 122(3)). Dissolution is not discretionary: the President may shorten the term only after a failed third formation step or a budget not presented within four months.", "zh": "总统否决为搁置性：众议院在半数议员出席时以五分之三多数即可推翻，之后总统须在 7 日内签署。宪法法庭认定合宪的法律总统不得拒签（第 122 条第 3 款）。解散并非自由裁量：只有在第三步组阁失败或预算案四个月内未呈交时，总统才可缩短任期。" }, "source_ids": ["pl-constitution-unified"] },
+    { "id": "changes", "title": { "en": "Historically significant changes", "zh": "重要历史变化" }, "text": { "en": "The current arrangements date from the Constitution of 2 April 1997, in force since 17 October 1997. Earlier post-1989 constitutional stages and the electoral laws used before the 2011 Electoral Code were not read in this iteration and are not recorded.", "zh": "现行安排源于 1997 年 4 月 2 日宪法（1997 年 10 月 17 日生效）。1989 年后较早的宪法阶段及 2011 年《选举法典》之前的选举法本轮未阅读，未予记录。" }, "source_ids": ["pl-eli-constitution"] },
+    { "id": "rules_vs_practice", "title": { "en": "Constitutional rules and election-specific practice", "zh": "宪法规则与具体选举实践" }, "text": { "en": "The Constitution fixes 460 deputies and requires proportional Sejm elections but leaves districts, formula and thresholds to the Electoral Code. Per-election rules for 2011–2023 are therefore taken from the election records, each tied to the Code version read for that election, not from the current text.", "zh": "宪法规定 460 名议员并要求众议院比例选举，但选区、公式和门槛由《选举法典》规定。因此 2011–2023 年各届规则取自选举记录，每届对应当届所读的法典文本，而非现行文本。" }, "source_ids": ["pl-constitution-unified", "pl-electoral-code-2022"] }
+  ],
+  "pending": [
+    { "field": "changes_before_1997", "reason": { "en": "Post-1989 constitutional amendments before 1997 and pre-2011 electoral laws were not read.", "zh": "1997 年前的 1989 年后宪法修正及 2011 年前选举法未阅读。" } },
+    { "field": "article_effective_dates", "reason": { "en": "The two amending acts listed by ELI were not read; per-article wording dates are not asserted.", "zh": "ELI 所列两部修正法未阅读；不主张逐条文本的生效日期。" } }
+  ],
+  "sources": [
+    { "source_id": "pl-eli-constitution", "publisher": "Rządowe Centrum Legislacji (Dziennik Ustaw, ELI)", "title": "Konstytucja Rzeczypospolitej Polskiej z dnia 2 kwietnia 1997 r. — ELI record (dates, amending acts)", "url": "https://eli.gov.pl/eli/DU/1997/483/ogl", "kind": "official_gazette_record", "language": "pl", "version": "record retrieved 2026-11-16", "retrieved_on": "2026-11-16", "retrieval_sha256": null, "access": "manual_download" },
+    { "source_id": "pl-constitution-unified", "publisher": "Kancelaria Sejmu (via eli.gov.pl)", "title": "Konstytucja Rzeczypospolitej Polskiej — tekst ujednolicony", "url": "https://eli.gov.pl/api/acts/DU/1997/483/text/U/D19970483Lj.pdf", "kind": "constitution", "language": "pl", "version": "unified text dated 2015-01-07", "retrieved_on": "2026-11-16", "retrieval_sha256": "9758dc31bcbcae253d0ac5499d1734954979d123397d61fc9773e287412d64b2", "access": "manual_download" },
+    { "source_id": "pl-electoral-code-2022", "publisher": "Rządowe Centrum Legislacji (Dziennik Ustaw)", "title": "Kodeks wyborczy — consolidated text, Dz.U. 2022 poz. 1277", "url": "https://eli.gov.pl/eli/DU/2022/1277/ogl", "kind": "statute", "language": "pl", "version": "Dz.U. 2022 poz. 1277", "retrieved_on": "2026-11-16", "retrieval_sha256": "bdeeea6985232fcffe4d1fc7f6f76f070a2bc02bdb893c38c1e7755a4ef11597", "access": "manual_download" }
+  ]
+}

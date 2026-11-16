@@ -3,20 +3,18 @@ import Link from "next/link";
 import {useEffect,useState} from "react";
 import {useLocale} from "@/i18n/LocaleProvider";
 import {countries,type Country} from "@/lib/data";
-import {chambers,constitutionalRules,institutionalSources} from "@/lib/institutionProfiles";
+import {chambers,constitutionalRules,executiveOffices,governmentSystem,institutionalCheckedOn,institutionalSourceLinks,pendingInstitutionalFields} from "@/lib/institutionProfiles";
 import {admittedCountrySlugs} from "@/lib/politicalAdmission";
 import type {PoliticalCountryView} from "@/lib/politicalExplorer";
 
 const queryKey='institution_countries';
-const systemNames:Record<string,string>={'议会共和制':'Parliamentary republic','半总统制共和制':'Semi-presidential republic','联邦议会共和制':'Federal parliamentary republic'};
 export function InstitutionalProfile({country,election}:{country:Country;election?:PoliticalCountryView['elections'][number]}) {
  const en=useLocale()==='en',i=en?0:1,slug=country.slug,prefix=en?'/en':'';
- const rule=constitutionalRules[slug],sources=institutionalSources(slug);
- const office=['austria','germany'].includes(slug)?(en?'Federal Chancellor':'联邦总理'):(en?'Prime Minister':'总理');
+ const rule=constitutionalRules[slug],sources=institutionalSourceLinks(slug),pending=pendingInstitutionalFields(slug);
  const facts=[
-  [en?'Government system':'政府制度',en?systemNames[country.polityZh]:country.polityZh],
+  [en?'Government system':'政府制度',governmentSystem(slug)[i]],
   [en?'Legislature':'立法机关',chambers[slug]?.[i]],
-  [en?'Head of state · head of government':'国家元首 · 政府首脑',(en?'President':'总统')+' · '+office],
+  [en?'Head of state · head of government':'国家元首 · 政府首脑',executiveOffices(slug)[i]],
   [en?'Selection of head of state':'元首产生方式',rule?.selection[i]],
   [en?'Legislative term':'议会任期',rule?.term[i]]
  ];
@@ -29,9 +27,10 @@ export function InstitutionalProfile({country,election}:{country:Country;electio
     <p>{election.chamber} · {election.totalSeats??'—'} {en?'seats':'席'} · {election.system.allocationMethod.replaceAll('_',' ')}</p>
     <Link className="underline" href={prefix+'/politics/'+slug+'/?election='+encodeURIComponent(election.electionId)}>{en?'Results, ballot definitions and election sources':'结果、选票定义与当届来源'}</Link></details>}
    <details><summary>{en?'Institutional sources and scope':'制度来源与适用范围'}</summary>
-    <p>{en?'Institutional overview checked 16 November 2026. Historical applicability requires the version in force at the time.':'制度概览核查日期为2026年11月16日。历史分析须查阅当时有效文本。'}</p>
-    {sources.map((url,n)=><a key={url} className="block underline" href={url}>{slug==='serbia'?'Narodna skupština':n===0?(en?'European Union country profile':'欧盟国别资料'):(en?'European Parliament chamber directory':'欧洲议会各国议院名录')}</a>)}
-    {rule&&<a className="block underline" href={rule.source}>{rule.basis}</a>}
+    <p>{en?`Official texts checked ${institutionalCheckedOn(slug)}. Historical applicability requires the version in force at the time.`:`官方文本核查日期为 ${institutionalCheckedOn(slug)}。历史分析须查阅当时有效文本。`}</p>
+    {rule&&<p>{rule.basis}</p>}
+    {sources.map(s=><a key={s.url} className="block underline" href={s.url}>{s.label[i]}</a>)}
+    {pending.length>0&&<><p className="mt-2">{en?'Not yet verified in this record:':'本记录尚未核实：'}</p><ul className="list-disc pl-5">{pending.map(p=><li key={p[0]}>{p[i]}</li>)}</ul></>}
    </details>
  </div>;
 }

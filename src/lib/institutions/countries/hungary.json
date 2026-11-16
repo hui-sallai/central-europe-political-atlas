@@ -1,0 +1,151 @@
+{
+  "schema_version": "institutional-country-v1",
+  "country": "hungary",
+  "iso2": "HU",
+  "verified_on": "2026-11-16",
+  "baseline_status": "complete",
+  "case_study": true,
+  "overview": {
+    "en": "A unicameral National Assembly (Országgyűlés) elects both the President of the Republic and the Prime Minister. Since 20 June 2026 no one may be elected Prime Minister after eight years in that office; since 19 July 2026 the Fundamental Law describes itself as transitional until a new Constitution enters into force.",
+    "zh": "一院制国民议会（Országgyűlés）同时选举共和国总统和总理。自 2026 年 6 月 20 日起，累计担任总理满八年者不得再当选；自 2026 年 7 月 19 日起，《基本法》将自身定位为新宪法生效前的过渡性安排。"
+  },
+  "constitution": {
+    "id": "hu-fundamental-law-2011",
+    "official_name": "Magyarország Alaptörvénye (2011. április 25.)",
+    "name": { "en": "Fundamental Law of Hungary (25 April 2011)", "zh": "匈牙利基本法（2011 年 4 月 25 日）" },
+    "adopted": "2011-04-25",
+    "in_force": "2012-01-01",
+    "publication": null,
+    "current_text": { "as_of": "2026-11-16", "note": { "en": "Consolidated text in the National Legislation Database, including the sixteenth (2026-06-15) and seventeenth (2026-07-13) amendments; footnotes identify each amended paragraph.", "zh": "国家法规数据库合并文本，含第十六次（2026-06-15）和第十七次（2026-07-13）修正；脚注标明各修改段落。" } },
+    "source_ids": ["hu-fundamental-law", "hu-fundamental-law-en"]
+  },
+  "chambers": [
+    {
+      "chamber_id": "hu-orszaggyules",
+      "official_name": "Országgyűlés",
+      "name": { "en": "National Assembly", "zh": "国民议会（Országgyűlés）" },
+      "role": "sole",
+      "store_chamber": "Országgyűlés",
+      "members": { "value": 199, "basis": { "en": "set by the cardinal Act CCIII of 2011 (106 constituency + 93 national-list seats), as recorded for the 2022 and 2026 elections", "zh": "由 2011 年第 CCIII 号基本法律规定（106 个选区议席 + 93 个全国名单议席），见 2022 和 2026 年选举记录" }, "articles": "Fundamental Law Art. 2(1); Act CCIII of 2011", "source_ids": ["hu-fundamental-law"], "store_rule_record": "es-hu-ogy-2026" },
+      "term_years": 4,
+      "selection": { "code": "direct_mixed", "label": { "en": "Universal, equal, direct and secret elections under a cardinal act; mixed single-member and national-list seats", "zh": "依基本法律举行普遍、平等、直接、秘密选举；单议席选区与全国名单混合" }, "articles": "Art. 2(1)–(2)" },
+      "powers": { "en": "Adopts and amends the Fundamental Law and laws, adopts the budget, elects the President, the Prime Minister and members of the Constitutional Court (Art. 1(2)).", "zh": "制定和修改《基本法》及法律，通过预算，选举总统、总理和宪法法院法官（第 1 条第 2 款）。" },
+      "note": { "en": "The term runs from the constituent sitting to the next one; general elections fall in April or May of the fourth year after the previous election (Arts. 2(3), 3(1)).", "zh": "任期自成立会议起至下届成立会议止；大选于上次选举后第四年的四月或五月举行（第 2 条第 3 款、第 3 条第 1 款）。" }
+    }
+  ],
+  "offices": [
+    {
+      "office_id": "hu-president",
+      "role": "head_of_state",
+      "official_name": "Magyarország köztársasági elnöke",
+      "name": { "en": "President of the Republic", "zh": "共和国总统" },
+      "selection": { "label": { "en": "Elected by the National Assembly by secret ballot: two-thirds of all MPs in the first round, otherwise the most votes between the two leading candidates", "zh": "由国民议会秘密投票选举：首轮须全体议员三分之二，否则在得票前两名之间以得票多者当选" }, "articles": "Arts. 10–11" },
+      "term_years": 5,
+      "term_limit": { "en": "Re-election once at most. Transitional rule since 2026-07-19: the incumbent's mandate ended the day after the seventeenth amendment entered into force, and the Assembly elects a President until a new Constitution takes effect, for at most five years.", "zh": "至多连任一次。2026-07-19 起的过渡规则：第十七次修正生效次日现任总统任期终止，国民议会选举一名总统，任期至新宪法生效为止，最长五年。" },
+      "source_ids": ["hu-fundamental-law", "hu-amendment-17"]
+    },
+    {
+      "office_id": "hu-prime-minister",
+      "role": "head_of_government",
+      "official_name": "Miniszterelnök",
+      "name": { "en": "Prime Minister", "zh": "总理" },
+      "selection": { "label": { "en": "Elected by more than half of all MPs on the President's proposal", "zh": "依总统提名，由全体议员过半数选举" }, "articles": "Art. 16(3)–(6)" },
+      "term_years": null,
+      "term_limit": { "en": "Since 2026-06-20: not electable after eight years in office in total, counting mandates from 2 May 1990; the mandate ends when eight years are reached (Arts. 16(3), 20(2)(h)).", "zh": "自 2026-06-20 起：累计任职满八年（自 1990 年 5 月 2 日起算）者不得当选；任职满八年时任期终止（第 16 条第 3 款、第 20 条第 2 款 h 项）。" },
+      "source_ids": ["hu-fundamental-law", "hu-amendment-16"]
+    }
+  ],
+  "fields": {
+    "state_form": { "value": "republic", "label": { "en": "Republic", "zh": "共和国" }, "articles": "Art. B(2)", "source_ids": ["hu-fundamental-law"], "status": "verified" },
+    "territorial_organisation": { "value": "unitary", "label": { "en": "Unitary state", "zh": "单一制国家" }, "detail": { "en": "No federal units; territory is divided into the capital, counties, towns and villages (Art. F).", "zh": "无联邦单位；领土划分为首都、州、城市和村镇（F 条）。" }, "articles": "Art. F", "source_ids": ["hu-fundamental-law"], "status": "verified" },
+    "government_system": { "value": "parliamentary", "label": { "en": "Parliamentary republic", "zh": "议会共和制" }, "detail": { "en": "The Government is accountable to the National Assembly (Art. 15(1)), which also elects the President.", "zh": "政府对国民议会负责（第 15 条第 1 款），总统亦由国民议会选举。" }, "articles": "Arts. 9–11, 15–16", "source_ids": ["hu-fundamental-law"], "status": "verified" },
+    "legislature_structure": { "value": "unicameral", "label": { "en": "Unicameral: National Assembly", "zh": "一院制：国民议会" }, "articles": "Art. 1(1)", "source_ids": ["hu-fundamental-law"], "status": "verified" },
+    "head_of_state_selection": { "value": "parliament", "label": { "en": "Elected by the National Assembly", "zh": "由国民议会选举" }, "detail": { "en": "Nomination needs written support from one fifth of MPs; two-thirds of all MPs elect in the first round, a plurality between the top two in the second.", "zh": "提名须五分之一议员书面支持；首轮须全体议员三分之二，第二轮在前两名之间以得票多者当选。" }, "articles": "Art. 11", "source_ids": ["hu-fundamental-law"], "status": "verified" },
+    "head_of_state_term": { "value": 5, "label": { "en": "5 years; one re-election (transitional rule since 2026-07-19)", "zh": "五年；可连任一次（2026-07-19 起有过渡规则）" }, "articles": "Art. 10(1), (3); Closing provisions point 34", "source_ids": ["hu-fundamental-law", "hu-amendment-17"], "status": "verified", "comparability": "qualified" },
+    "head_of_government_appointment": { "value": "parliament_elects_on_head_of_state_proposal", "label": { "en": "National Assembly elects the Prime Minister on the President's proposal", "zh": "国民议会依总统提名选举总理" }, "detail": { "en": "After an election the President proposes at the constituent sitting; otherwise within 15 days. A failed proposal is followed by a new one within 15 days. Ministers are then appointed by the President on the Prime Minister's proposal.", "zh": "大选后总统在成立会议上提名，其他情形须在 15 日内提名；提名未获通过须在 15 日内重新提名。部长随后由总统依总理提议任命。" }, "steps": [ { "en": "President proposes a prime minister", "zh": "总统提名总理" }, { "en": "National Assembly elects the prime minister", "zh": "国民议会选举总理" } ], "articles": "Art. 16(3)–(7)", "source_ids": ["hu-fundamental-law"], "status": "verified" },
+    "investiture": { "value": "election_by_parliament", "label": { "en": "Prime Minister elected by more than half of all MPs", "zh": "总理须获全体议员过半数选举" }, "articles": "Art. 16(4)", "source_ids": ["hu-fundamental-law"], "status": "verified" },
+    "no_confidence": { "value": "constructive", "label": { "en": "Constructive: one fifth of MPs table a motion naming a successor; more than half of all MPs needed", "zh": "建设性不信任：五分之一议员提出并指名继任者；须全体议员过半数" }, "detail": { "en": "Adopting the motion elects the named person as Prime Minister. The vote is held after three days and within eight days of tabling.", "zh": "动议通过即选出所指名者为总理。表决在提出后三日之后、八日之内进行。" }, "articles": "Art. 21(1)–(2), (5)", "source_ids": ["hu-fundamental-law"], "status": "verified" },
+    "confidence_vote": { "value": "government_may_request", "label": { "en": "Prime Minister may call a confidence vote, also linked to a Government proposal", "zh": "总理可请求信任投票，亦可与政府提案挂钩" }, "articles": "Art. 21(3)–(4)", "source_ids": ["hu-fundamental-law"], "status": "verified" },
+    "dissolution": { "value": "conditional", "label": { "en": "Self-dissolution; presidential dissolution only in two defined cases", "zh": "可自行解散；总统仅在两种情形下解散" }, "detail": { "en": "The President may dissolve if no Prime Minister is elected within 40 days of the first proposal, or if the budget for the year is not adopted by 31 March, after consulting the Prime Minister, the Speaker and group leaders.", "zh": "若自首次提名起 40 日内未选出总理，或当年预算至 3 月 31 日仍未通过，总统在征询总理、议长和议会党团领袖意见后可解散国民议会。" }, "articles": "Art. 3(2)–(5)", "source_ids": ["hu-fundamental-law"], "status": "verified", "comparability": "qualified" },
+    "legislative_veto": { "value": "return_once_simple_readoption", "label": { "en": "President may return a law once or refer it to the Constitutional Court", "zh": "总统可将法律退回一次或提交宪法法院" }, "detail": { "en": "The Assembly re-debates a returned law and decides again; no qualified majority is required. A law the Constitutional Court finds compatible must be signed at once.", "zh": "国民议会对退回法律重新审议并再次表决，无须特定多数。宪法法院认定合宪的法律须立即签署。" }, "articles": "Art. 6(3)–(7)", "source_ids": ["hu-fundamental-law"], "status": "verified" },
+    "second_chamber_role": { "value": "not_applicable", "label": { "en": "Not applicable (unicameral)", "zh": "不适用（一院制）" }, "articles": null, "source_ids": [], "status": "not_applicable" },
+    "constitutional_review": { "value": "constitutional_court", "label": { "en": "Constitutional Court (Alkotmánybíróság)", "zh": "宪法法院（Alkotmánybíróság）" }, "articles": "Art. 24", "source_ids": ["hu-fundamental-law"], "status": "verified" },
+    "legislative_term": { "value": 4, "label": { "en": "Elections in April or May of the fourth year", "zh": "第四年四月或五月选举" }, "articles": "Arts. 2(3), 3(1)", "source_ids": ["hu-fundamental-law"], "status": "verified", "comparability": "qualified" },
+    "electoral_system": { "value": "mixed", "label": { "en": "Mixed: 106 single-member districts and 93 national-list seats", "zh": "混合制：106 个单议席选区与 93 个全国名单议席" }, "articles": "Act CCIII of 2011", "source_ids": ["hu-fundamental-law"], "status": "verified", "comparability": "qualified", "store_rule_record": "es-hu-ogy-2026" }
+  },
+  "electoral_systems": [
+    {
+      "rule_id": "hu-es-ogy-current",
+      "chamber_id": "hu-orszaggyules",
+      "status": "verified",
+      "summary": { "en": "Mixed system: 106 single-member districts and 93 seats from national party and nationality lists", "zh": "混合制：106 个单议席选区和 93 个全国政党及民族名单议席" },
+      "constituencies": { "en": "106 single-member constituencies decided in one round by the most valid votes (Act CCIII § 13), plus one national list tier", "zh": "106 个单议席选区一轮投票、得有效票最多者当选（第 CCIII 号法第 13 条），另设一个全国名单层级" },
+      "allocation": { "en": "National-list seats by highest averages over list votes plus surplus votes transferred from the constituencies", "zh": "全国名单议席依最高平均数法，以名单票加上自选区转来的剩余票分配" },
+      "thresholds_from_store": true,
+      "minority": { "en": "Registered nationalities may run nationality lists with a preferential quota; see the election rule records", "zh": "已登记民族可提出民族名单并适用优惠配额；详见选举规则记录" },
+      "legal_basis": "Act CCIII of 2011 on the elections of Members of Parliament (cardinal act); Fundamental Law Art. 2",
+      "source_ids": ["hu-fundamental-law"],
+      "store_rule_record": "es-hu-ogy-2026"
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "hu-2012-fundamental-law",
+      "dimension": "constitutional_framework",
+      "title": { "en": "Fundamental Law enters into force", "zh": "《基本法》生效" },
+      "adopted": "2011-04-25",
+      "promulgated": null,
+      "effective": "2012-01-01",
+      "previous": null,
+      "new": { "en": "Fundamental Law replaces the previous constitution; unicameral National Assembly, President elected by the Assembly, constructive no-confidence.", "zh": "《基本法》取代此前宪法；一院制国民议会，总统由议会选举，建设性不信任投票。" },
+      "legal_basis": "Magyarország Alaptörvénye, Closing provisions (entry into force on 1 January 2012)",
+      "source_ids": ["hu-fundamental-law"],
+      "status": "verified"
+    },
+    {
+      "change_id": "hu-2026-amendment-16",
+      "dimension": "executive",
+      "title": { "en": "Sixteenth amendment: eight-year cap on the prime ministership", "zh": "第十六次修正：总理任职累计八年上限" },
+      "adopted": "2026-06-15",
+      "promulgated": "2026-06-19",
+      "effective": "2026-06-20",
+      "previous": { "en": "No limit on the number or length of prime-ministerial mandates.", "zh": "总理任期次数和时长无上限。" },
+      "new": { "en": "No one may be elected Prime Minister after holding the office for at least eight years in total, counting mandates held on or after 2 May 1990; reaching eight years ends the mandate (Arts. 16(3), 20(2)(h)).", "zh": "自 1990 年 5 月 2 日起累计担任总理满八年者不得当选；任职满八年时任期终止（第 16 条第 3 款、第 20 条第 2 款 h 项）。" },
+      "legal_basis": "Magyarország Alaptörvényének tizenhatodik módosítása (2026. június 15.), Arts. 1–2; entry into force the day after promulgation",
+      "source_ids": ["hu-amendment-16", "hu-fundamental-law"],
+      "status": "verified"
+    },
+    {
+      "change_id": "hu-2026-amendment-17",
+      "dimension": "executive",
+      "title": { "en": "Seventeenth amendment: transitional order pending a new Constitution", "zh": "第十七次修正：新宪法出台前的过渡秩序" },
+      "adopted": "2026-07-13",
+      "promulgated": "2026-07-18",
+      "effective": "2026-07-19",
+      "previous": { "en": "President elected for five years under Arts. 10–11 without a transitional limit.", "zh": "总统依第 10–11 条选举，任期五年，无过渡限制。" },
+      "new": { "en": "The incumbent President's mandate ended on the day after entry into force; the National Assembly elects a President under Art. 11 for the period until a new Constitution enters into force, at most five years. The amendment also rewrote Arts. XXIII, 24(8), 25 and 26(3) (Constitutional Court, judiciary); some provisions apply from 1 October 2026.", "zh": "现任总统任期于修正生效次日终止；国民议会依第 11 条选举总统，任期至新宪法生效为止，最长五年。该修正还改写了第 XXIII 条、第 24 条第 8 款、第 25 条和第 26 条第 3 款（宪法法院与司法）；部分条款自 2026 年 10 月 1 日起适用。" },
+      "legal_basis": "Magyarország Alaptörvényének tizenhetedik módosítása (2026. július 13.); Closing provisions point 34; entry into force the day after promulgation, certain provisions on 2026-10-01",
+      "source_ids": ["hu-amendment-17", "hu-fundamental-law"],
+      "status": "verified"
+    }
+  ],
+  "case_study_sections": [
+    { "id": "structure", "title": { "en": "Institutional structure", "zh": "制度结构" }, "text": { "en": "One chamber concentrates the main elective functions: the National Assembly adopts and amends the Fundamental Law, elects the President, the Prime Minister and the members of the Constitutional Court (Art. 1(2)). The Government is accountable to the Assembly (Art. 15(1)). There is no second chamber and no directly elected office at national level.", "zh": "主要选举职能集中于一院：国民议会制定和修改《基本法》，选举总统、总理和宪法法院法官（第 1 条第 2 款）。政府对议会负责（第 15 条第 1 款）。国家层面没有第二院，也没有直选职位。" }, "source_ids": ["hu-fundamental-law"] },
+    { "id": "formation", "title": { "en": "Government formation", "zh": "政府组建" }, "text": { "en": "The President proposes a candidate at the constituent sitting after an election, and the Assembly elects the Prime Minister by more than half of all MPs; the Prime Minister takes office on election (Art. 16(4)–(5)). Ministers are appointed by the President on the Prime Minister's proposal. If no Prime Minister is elected within 40 days of the first proposal, the President may dissolve the Assembly (Art. 3(3)(a)). Since 20 June 2026 a cumulative eight-year cap applies.", "zh": "大选后总统在成立会议上提名人选，国民议会以全体议员过半数选举总理，总理当选即就职（第 16 条第 4–5 款）。部长由总统依总理提议任命。若自首次提名起 40 日内未选出总理，总统可解散议会（第 3 条第 3 款 a 项）。自 2026 年 6 月 20 日起适用累计八年上限。" }, "source_ids": ["hu-fundamental-law", "hu-amendment-16"] },
+    { "id": "accountability", "title": { "en": "Parliamentary accountability", "zh": "议会问责" }, "text": { "en": "No-confidence is constructive and personal to the Prime Minister: one fifth of MPs table a motion naming a successor, and its adoption by more than half of all MPs both removes the Prime Minister and elects the successor (Art. 21(1)–(2)). The Prime Minister may also tie a confidence vote to a Government proposal (Art. 21(4)).", "zh": "不信任投票为建设性且针对总理本人：五分之一议员提出动议并指名继任者，动议以全体议员过半数通过即罢免总理并选出继任者（第 21 条第 1–2 款）。总理也可将信任投票与政府提案挂钩（第 21 条第 4 款）。" }, "source_ids": ["hu-fundamental-law"] },
+    { "id": "electoral", "title": { "en": "Election-system mechanics", "zh": "选举制度运作" }, "text": { "en": "Of 199 seats, 106 are won in single-member constituencies and 93 are distributed nationally by highest averages over list votes plus surplus votes from the constituencies. Thresholds are 5% for a party list, 10% for two-party joint lists and 15% for larger joint lists; nationality lists have a preferential quota. These figures are taken from the 2022 and 2026 election rule records.", "zh": "199 个议席中，106 席在单议席选区产生，93 席在全国层面按最高平均数法以名单票加选区剩余票分配。门槛为政党名单 5%、两党联合名单 10%、更多政党联合名单 15%；民族名单适用优惠配额。以上数字取自 2022 和 2026 年选举规则记录。" }, "source_ids": ["hu-fundamental-law"] },
+    { "id": "limits", "title": { "en": "Principal constitutional limitations", "zh": "主要宪法限制" }, "text": { "en": "The President cannot block legislation: a law may be returned once with comments or referred to the Constitutional Court, and must be signed once the Court finds no conflict (Art. 6(4)–(7)). Dissolution by the President is limited to a failed prime-ministerial election and a budget not adopted by 31 March, and is unavailable once the triggering condition has been cured (Art. 3(5)).", "zh": "总统无法阻止立法：法律只能附意见退回一次或提交宪法法院，法院认定无冲突后须签署（第 6 条第 4–7 款）。总统解散权仅限于总理选举失败和预算至 3 月 31 日未通过两种情形，且触发条件消除后即不可行使（第 3 条第 5 款）。" }, "source_ids": ["hu-fundamental-law"] },
+    { "id": "changes", "title": { "en": "Historically significant changes", "zh": "重要历史变化" }, "text": { "en": "The Fundamental Law entered into force on 1 January 2012. In 2026 two amendments changed the executive: the sixteenth (in force 20 June) capped prime-ministerial service at eight years, and the seventeenth (in force 19 July) ended the sitting President's mandate and declared the institutional order transitional until a new Constitution. The 1989–2011 constitutional history was not read in this iteration.", "zh": "《基本法》于 2012 年 1 月 1 日生效。2026 年两次修正改变了行政安排：第十六次修正（6 月 20 日生效）将总理任职上限定为八年，第十七次修正（7 月 19 日生效）终止现任总统任期并宣布在新宪法出台前实行过渡性制度。1989–2011 年宪法历史本轮未阅读。" }, "source_ids": ["hu-fundamental-law", "hu-amendment-16", "hu-amendment-17"] },
+    { "id": "rules_vs_practice", "title": { "en": "Constitutional rules and election-specific practice", "zh": "宪法规则与具体选举实践" }, "text": { "en": "The Fundamental Law leaves the electoral system to a cardinal act (Art. 2(1)). Both admitted elections (3 April 2022 and 12 April 2026) were held before the 2026 amendments, so they fall under the pre-amendment executive rules; the amendments do not alter the electoral formula.", "zh": "《基本法》将选举制度交由基本法律规定（第 2 条第 1 款）。已收录的两届选举（2022 年 4 月 3 日和 2026 年 4 月 12 日）均早于 2026 年修正，适用修正前的行政规则；这些修正未改变选举公式。" }, "source_ids": ["hu-fundamental-law", "hu-amendment-16", "hu-amendment-17"] }
+  ],
+  "pending": [
+    { "field": "changes_before_2012", "reason": { "en": "The 1949 constitution as amended in 1989 (Act XXXI of 1989) and the 1989 electoral law were not read.", "zh": "1989 年修正后的 1949 年宪法（1989 年第 XXXI 号法）及 1989 年选举法未阅读。" } },
+    { "field": "electoral_act_text", "reason": { "en": "Act CCIII of 2011 was not re-read in this iteration; electoral details come from the 2022 and 2026 election rule records.", "zh": "本轮未重读 2011 年第 CCIII 号法；选举细节取自 2022 和 2026 年选举规则记录。" } }
+  ],
+  "sources": [
+    { "source_id": "hu-fundamental-law", "publisher": "Nemzeti Jogszabálytár (Igazságügyi Minisztérium)", "title": "Magyarország Alaptörvénye (2011. április 25.) — hatályos szöveg", "url": "https://njt.hu/jogszabaly/2011-4301-02-00", "kind": "constitution", "language": "hu", "version": "consolidated text in force on 2026-11-16", "retrieved_on": "2026-11-16", "retrieval_sha256": "1e430565c96ad183e4cb9a5559a6c6f22381b988193df10b451d181c66807ac8", "access": "manual_download" },
+    { "source_id": "hu-fundamental-law-en", "publisher": "Nemzeti Jogszabálytár", "title": "The Fundamental Law of Hungary — English translation", "url": "https://njt.hu/jogszabaly/en/2011-4301-02-00", "kind": "translation", "language": "en", "version": "translation; does not include the 2026 amendments", "retrieved_on": "2026-11-16", "retrieval_sha256": "3d1ea5c2ea13510529a86652ba469b85b06b76277ba7f325f4db24ef6765515f", "access": "manual_download" },
+    { "source_id": "hu-amendment-16", "publisher": "Nemzeti Jogszabálytár", "title": "Magyarország Alaptörvényének tizenhatodik módosítása (2026. június 15.)", "url": "https://njt.hu/jogszabaly/2026-16-04-00", "kind": "constitutional_amendment", "language": "hu", "version": "as promulgated 2026-06-19", "retrieved_on": "2026-11-16", "retrieval_sha256": "58acb887e2802bf51724c7713f5820bb7b1f71bd82e7e70455746a8160525964", "access": "manual_download" },
+    { "source_id": "hu-amendment-17", "publisher": "Nemzeti Jogszabálytár", "title": "Magyarország Alaptörvényének tizenhetedik módosítása (2026. július 13.)", "url": "https://njt.hu/jogszabaly/2026-17-04-00", "kind": "constitutional_amendment", "language": "hu", "version": "as promulgated 2026-07-18", "retrieved_on": "2026-11-16", "retrieval_sha256": "0e2c75171cd00a438c14d93334e9f19ecbe143bc74fbb4c12da19175610a814c", "access": "manual_download" }
+  ]
+}

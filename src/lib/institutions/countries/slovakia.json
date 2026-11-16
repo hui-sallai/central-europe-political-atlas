@@ -1,0 +1,141 @@
+{
+  "schema_version": "institutional-country-v1",
+  "country": "slovakia",
+  "iso2": "SK",
+  "verified_on": "2026-11-16",
+  "baseline_status": "complete",
+  "case_study": false,
+  "overview": {
+    "en": "The unicameral National Council (Národná rada) has 150 deputies elected for four years by proportional representation in one national district. The President, directly elected since 27 January 1999, appoints the Government, which must present its programme and seek confidence within 30 days.",
+    "zh": "一院制国民议会（Národná rada）由 150 名议员组成，在单一全国选区以比例代表制选出，任期四年。总统自 1999 年 1 月 27 日起直选，任命政府；政府须在 30 日内提交施政纲领并请求信任。"
+  },
+  "constitution": {
+    "id": "sk-constitution-1992",
+    "official_name": "Ústava Slovenskej republiky (č. 460/1992 Zb.)",
+    "name": { "en": "Constitution of the Slovak Republic (No. 460/1992 Coll.)", "zh": "斯洛伐克共和国宪法（第 460/1992 号）" },
+    "adopted": "1992-09-01",
+    "in_force": "1992-10-01",
+    "in_force_note": { "en": "Effective on promulgation (1 October 1992) except provisions listed in Art. 156, which took effect later.", "zh": "自公布之日（1992 年 10 月 1 日）起生效，第 156 条所列条款除外，另行生效。" },
+    "publication": "460/1992 Zb.",
+    "current_text": { "as_of": "2025-11-01", "note": { "en": "Slov-Lex time version effective from 1 November 2025.", "zh": "Slov-Lex 2025 年 11 月 1 日起生效的时间版本。" } },
+    "source_ids": ["sk-constitution-current"]
+  },
+  "chambers": [
+    {
+      "chamber_id": "sk-narodna-rada",
+      "official_name": "Národná rada Slovenskej republiky",
+      "name": { "en": "National Council", "zh": "国民议会（Národná rada）" },
+      "role": "sole",
+      "store_chamber": "Národná rada",
+      "members": { "value": 150, "basis": { "en": "fixed by the Constitution", "zh": "宪法规定" }, "articles": "Art. 73(1)", "source_ids": ["sk-constitution-current"] },
+      "term_years": 4,
+      "selection": { "code": "direct_proportional", "label": { "en": "Universal, equal and direct elections by secret ballot on the principles of proportional representation; the whole country is one district", "zh": "普遍、平等、直接选举，秘密投票，依比例代表原则；全国为一个选区" }, "articles": "Art. 74(1), (3)" },
+      "powers": { "en": "Expresses confidence or no confidence in the Government (Arts. 88, 113–114) and can override a presidential return of a law by a majority of all deputies (Art. 84(3)).", "zh": "对政府表达信任或不信任（第 88、113–114 条），并可以全体议员过半数推翻总统对法律的退回（第 84 条第 3 款）。" },
+      "note": { "en": "Since 26 January 2023 the running term can be shortened by a resolution of the National Council adopted by three fifths of all deputies (Arts. 73(3), 84(4)).", "zh": "自 2023 年 1 月 26 日起，国民议会可以全体议员五分之三多数通过决议缩短本届任期（第 73 条第 3 款、第 84 条第 4 款）。" }
+    }
+  ],
+  "offices": [
+    {
+      "office_id": "sk-president",
+      "role": "head_of_state",
+      "official_name": "Prezident Slovenskej republiky",
+      "name": { "en": "President of the Slovak Republic", "zh": "斯洛伐克共和国总统" },
+      "selection": { "label": { "en": "Direct election by secret ballot; elected in the first round with an absolute majority of valid votes of eligible voters (Art. 101(4)); the further rounds were not read", "zh": "直接选举，秘密投票；首轮获合格选民有效票绝对多数者当选（第 101 条第 4 款）；后续轮次规则未阅读" }, "articles": "Art. 101(2)–(4)" },
+      "term_years": 5,
+      "term_limit": { "en": "At most two consecutive terms", "zh": "至多连任两届" },
+      "source_ids": ["sk-constitution-current"]
+    },
+    {
+      "office_id": "sk-prime-minister",
+      "role": "head_of_government",
+      "official_name": "Predseda vlády Slovenskej republiky",
+      "name": { "en": "Prime Minister", "zh": "总理（政府主席）" },
+      "selection": { "label": { "en": "Appointed and dismissed by the President; the Government seeks confidence within 30 days", "zh": "由总统任免；政府须在 30 日内请求信任" }, "articles": "Arts. 110, 113" },
+      "term_years": null,
+      "term_limit": null,
+      "source_ids": ["sk-constitution-current"]
+    }
+  ],
+  "fields": {
+    "state_form": { "value": "republic", "label": { "en": "Republic", "zh": "共和国" }, "articles": "Art. 1(1)", "source_ids": ["sk-constitution-current"], "status": "verified" },
+    "territorial_organisation": { "value": "unitary", "label": { "en": "Unitary state", "zh": "单一制国家" }, "articles": "Art. 3(1)", "source_ids": ["sk-constitution-current"], "status": "verified" },
+    "government_system": { "value": "parliamentary", "label": { "en": "Parliamentary republic", "zh": "议会共和制" }, "detail": { "en": "The Government is responsible to the National Council (Art. 114(1)); the President is directly elected.", "zh": "政府对国民议会负责（第 114 条第 1 款）；总统直选。" }, "articles": "Arts. 101, 114", "source_ids": ["sk-constitution-current"], "status": "verified" },
+    "legislature_structure": { "value": "unicameral", "label": { "en": "Unicameral: National Council", "zh": "一院制：国民议会" }, "articles": "Art. 73", "source_ids": ["sk-constitution-current"], "status": "verified" },
+    "head_of_state_selection": { "value": "direct_popular_vote", "label": { "en": "Direct popular vote since 27 January 1999", "zh": "自 1999 年 1 月 27 日起选民直选" }, "detail": { "en": "Before then the National Council elected the President by three fifths of all deputies.", "zh": "此前由国民议会以全体议员五分之三多数选举总统。" }, "articles": "Arts. 101, 103", "source_ids": ["sk-constitution-current", "sk-constitution-1998"], "status": "verified", "effective_from": "1999-01-27" },
+    "head_of_state_term": { "value": 5, "label": { "en": "5 years; at most two consecutive terms", "zh": "五年；至多连任两届" }, "articles": "Arts. 101(2), 103(2)", "source_ids": ["sk-constitution-current"], "status": "verified" },
+    "head_of_government_appointment": { "value": "head_of_state_appoints_then_investiture", "label": { "en": "President appoints; Government presents its programme and seeks confidence within 30 days", "zh": "总统任命；政府须在 30 日内提交纲领并请求信任" }, "steps": [ { "en": "President appoints the Prime Minister and, on the Prime Minister's proposal, the ministers", "zh": "总统任命总理，并依总理提议任命部长" }, { "en": "Government presents its programme to the National Council and asks for confidence within 30 days", "zh": "政府在 30 日内向国民议会提交纲领并请求信任" } ], "articles": "Arts. 110–111, 113", "source_ids": ["sk-constitution-current"], "status": "verified" },
+    "investiture": { "value": "required", "label": { "en": "Required: confidence vote within 30 days of appointment", "zh": "须在任命后 30 日内进行信任投票" }, "articles": "Art. 113", "source_ids": ["sk-constitution-current"], "status": "verified" },
+    "no_confidence": { "value": "simple_majority_of_all_members", "label": { "en": "Requested by one fifth of deputies; majority of all deputies", "zh": "五分之一议员提请；须全体议员过半数" }, "detail": { "en": "May target the Government or an individual member.", "zh": "可针对整个政府或个别成员。" }, "articles": "Art. 88", "source_ids": ["sk-constitution-current"], "status": "verified" },
+    "confidence_vote": { "value": "government_may_request", "label": { "en": "Government may request confidence at any time and link it to a bill", "zh": "政府可随时请求信任并可与法案挂钩" }, "articles": "Art. 114(2)–(3)", "source_ids": ["sk-constitution-current"], "status": "verified" },
+    "dissolution": { "value": "conditional", "label": { "en": "Presidential dissolution in listed cases; term shortening by a three-fifths resolution since 2023", "zh": "总统在列明情形下解散；自 2023 年起可以五分之三多数决议缩短任期" }, "detail": { "en": "The President may dissolve if the Government's programme is not approved within six months of its appointment, if a Government bill tied to confidence is not decided within three months, or if the Council is inquorate or its session suspended too long; not in the last six months of the President's term or during war or emergency.", "zh": "若政府任命后六个月内纲领未获批准、与信任挂钩的政府法案三个月内未表决，或议会长期无法形成决议、会议中断过久，总统可解散议会；总统任期最后六个月及战争或紧急状态期间不得解散。" }, "articles": "Arts. 73(3), 84(4), 102(1)(e)", "source_ids": ["sk-constitution-current"], "status": "verified", "comparability": "qualified" },
+    "legislative_veto": { "value": "suspensive_override_absolute", "label": { "en": "President may return a law; override by a majority of all deputies", "zh": "总统可退回法律；全体议员过半数即可推翻" }, "detail": { "en": "If the Council re-approves the law and the President still does not sign, it is promulgated without the President's signature (Art. 87(3)).", "zh": "国民议会再次通过而总统仍不签署时，法律不经总统签署即予公布（第 87 条第 3 款）。" }, "articles": "Arts. 84(3), 87(2)–(3)", "source_ids": ["sk-constitution-current"], "status": "verified" },
+    "second_chamber_role": { "value": "not_applicable", "label": { "en": "Not applicable (unicameral)", "zh": "不适用（一院制）" }, "articles": null, "source_ids": [], "status": "not_applicable" },
+    "constitutional_review": { "value": "constitutional_court", "label": { "en": "Constitutional Court (Ústavný súd)", "zh": "宪法法院（Ústavný súd）" }, "articles": "Art. 124", "source_ids": ["sk-constitution-current"], "status": "verified" },
+    "legislative_term": { "value": 4, "label": { "en": "4 years (may be shortened since 2023)", "zh": "四年（自 2023 年起可缩短）" }, "articles": "Art. 73(1), (3)", "source_ids": ["sk-constitution-current"], "status": "verified" },
+    "electoral_system": { "value": "list_pr_national", "label": { "en": "List PR in one national district; quota of votes ÷ 151 and largest remainders", "zh": "单一全国选区名单比例代表制；配额为票数 ÷ 151，余额最大者得席" }, "articles": "Constitution Art. 74(3); Act 180/2014 Coll.", "source_ids": ["sk-constitution-current"], "status": "verified", "comparability": "qualified", "store_rule_record": "es-sk-nrsr-2023" }
+  },
+  "electoral_systems": [
+    {
+      "rule_id": "sk-es-nrsr-current",
+      "chamber_id": "sk-narodna-rada",
+      "status": "verified",
+      "summary": { "en": "List proportional representation in one national district", "zh": "单一全国选区名单比例代表制" },
+      "constituencies": { "en": "The territory of the Slovak Republic forms one electoral district (Constitution Art. 74(3))", "zh": "斯洛伐克共和国全境为一个选区（宪法第 74 条第 3 款）" },
+      "allocation": { "en": "National quota: votes of qualifying lists ÷ 151, then largest remainders (Act 180/2014 § 68; 2023 election rule record)", "zh": "全国配额：合格名单票数 ÷ 151，再按最大余额法分配（第 180/2014 号法第 68 条；2023 年选举规则记录）" },
+      "thresholds_from_store": true,
+      "minority": null,
+      "legal_basis": "Act No. 180/2014 Coll. on the conditions for exercising the right to vote",
+      "source_ids": ["sk-constitution-current"],
+      "store_rule_record": "es-sk-nrsr-2023"
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "sk-1992-constitution",
+      "dimension": "constitutional_framework",
+      "title": { "en": "Constitution of the Slovak Republic approved and promulgated", "zh": "斯洛伐克共和国宪法通过并公布" },
+      "adopted": "1992-09-01",
+      "promulgated": "1992-10-01",
+      "effective": "1992-10-01",
+      "previous": null,
+      "new": { "en": "Unicameral National Council of 150 deputies; President elected by the National Council (until 1999).", "zh": "150 名议员的一院制国民议会；总统由国民议会选举（至 1999 年）。" },
+      "legal_basis": "460/1992 Zb., Art. 156",
+      "source_ids": ["sk-constitution-current", "sk-constitution-1998"],
+      "status": "verified"
+    },
+    {
+      "change_id": "sk-1999-direct-president",
+      "dimension": "head_of_state_selection",
+      "title": { "en": "Direct election of the President", "zh": "总统改为直选" },
+      "adopted": "1999-01-14",
+      "promulgated": "1999-01-27",
+      "effective": "1999-01-27",
+      "previous": { "en": "The National Council elected the President by secret ballot on the proposal of at least eight deputies; three fifths of all deputies were required (Art. 101, version of 5 August 1998).", "zh": "国民议会依至少八名议员提名秘密投票选举总统，须全体议员五分之三多数（第 101 条，1998 年 8 月 5 日文本）。" },
+      "new": { "en": "Citizens elect the President directly for five years (Art. 101(2)).", "zh": "公民直接选举总统，任期五年（第 101 条第 2 款）。" },
+      "legal_basis": "Constitutional Act No. 9/1999 Z. z.",
+      "source_ids": ["sk-act-9-1999", "sk-constitution-1998", "sk-constitution-current"],
+      "status": "verified"
+    },
+    {
+      "change_id": "sk-2023-term-shortening",
+      "dimension": "dissolution",
+      "title": { "en": "Shortening of the National Council's term by resolution", "zh": "以决议缩短国民议会任期" },
+      "adopted": "2023-01-25",
+      "promulgated": "2023-01-26",
+      "effective": "2023-01-26",
+      "previous": null,
+      "new": { "en": "The running term may be shortened by a National Council resolution setting the election date, proposed by at least one fifth of deputies and adopted by three fifths of all deputies (Arts. 73(3), 84(4)).", "zh": "国民议会可通过确定选举日期的决议缩短本届任期；决议须至少五分之一议员提出，并经全体议员五分之三多数通过（第 73 条第 3 款、第 84 条第 4 款）。" },
+      "legal_basis": "Constitutional Act No. 24/2023 Z. z.",
+      "source_ids": ["sk-act-24-2023", "sk-constitution-current"],
+      "status": "verified"
+    }
+  ],
+  "case_study_sections": [],
+  "pending": [],
+  "sources": [
+    { "source_id": "sk-constitution-current", "publisher": "Ministerstvo spravodlivosti SR (Slov-Lex)", "title": "Ústava Slovenskej republiky 460/1992 Zb. — časová verzia účinná od 1. 11. 2025", "url": "https://static.slov-lex.sk/static/SK/ZZ/1992/460/20251101.html", "kind": "constitution", "language": "sk", "version": "effective from 1 November 2025", "retrieved_on": "2026-11-16", "retrieval_sha256": "82465a6ebe8113d9a7c0d8fcae6db429fb3826ab7b8fc08cd10911961528effa", "access": "manual_download" },
+    { "source_id": "sk-constitution-1998", "publisher": "Ministerstvo spravodlivosti SR (Slov-Lex)", "title": "Ústava Slovenskej republiky — časová verzia účinná od 5. 8. 1998", "url": "https://static.slov-lex.sk/static/SK/ZZ/1992/460/19980805.html", "kind": "constitution_version", "language": "sk", "version": "effective from 5 August 1998", "retrieved_on": "2026-11-16", "retrieval_sha256": "a6e608c77ba53c2064a06b3acb4e9767e4c5243e5dbb827efe1a41e4b932b051", "access": "manual_download" },
+    { "source_id": "sk-act-9-1999", "publisher": "Ministerstvo spravodlivosti SR (Slov-Lex)", "title": "Ústavný zákon č. 9/1999 Z. z.", "url": "https://static.slov-lex.sk/static/SK/ZZ/1999/9/19990127.html", "kind": "constitutional_amendment", "language": "sk", "version": "approved 14 January 1999, effective 27 January 1999", "retrieved_on": "2026-11-16", "retrieval_sha256": "3b5483c252ff8ca4fbe19a78fe650058588c9113bf574c186333ecb8054f602e", "access": "manual_download" },
+    { "source_id": "sk-act-24-2023", "publisher": "Ministerstvo spravodlivosti SR (Slov-Lex)", "title": "Ústavný zákon č. 24/2023 Z. z.", "url": "https://static.slov-lex.sk/static/SK/ZZ/2023/24/20230126.html", "kind": "constitutional_amendment", "language": "sk", "version": "approved 25 January 2023, effective 26 January 2023", "retrieved_on": "2026-11-16", "retrieval_sha256": "5710e5d6c7bc14dcedc508503487350c79d9731441be277acd7b46d1e2a5f12e", "access": "manual_download" }
+  ]
+}

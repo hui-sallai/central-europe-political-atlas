@@ -1,0 +1,168 @@
+{
+  "schema_version": "institutional-country-v1",
+  "country": "czechia",
+  "iso2": "CZ",
+  "verified_on": "2026-11-16",
+  "baseline_status": "complete",
+  "case_study": false,
+  "overview": {
+    "en": "Parliament has a Chamber of Deputies of 200 members elected proportionally for four years and a Senate of 81 members elected by majority vote for six years, one third every two years. The Government is responsible to the Chamber of Deputies alone; the President has been directly elected since the rule in force on 1 October 2012.",
+    "zh": "议会由众议院（200 名议员，比例代表制，任期四年）和参议院（81 名参议员，多数制，任期六年，每两年改选三分之一）组成。政府仅对众议院负责；自 2012 年 10 月 1 日生效的规则起，总统由选民直选。"
+  },
+  "constitution": {
+    "id": "cz-constitution-1993",
+    "official_name": "Ústava České republiky (ústavní zákon č. 1/1993 Sb.)",
+    "name": { "en": "Constitution of the Czech Republic (Constitutional Act No. 1/1993 Coll.)", "zh": "捷克共和国宪法（第 1/1993 号宪法性法律）" },
+    "adopted": null,
+    "in_force": "1993-01-01",
+    "publication": "1/1993 Sb.",
+    "current_text": { "as_of": "2026-01-01", "note": { "en": "e-Sbírka informative consolidated version effective from 1 January 2026.", "zh": "e-Sbírka 系统 2026 年 1 月 1 日起生效的参考合并文本。" } },
+    "source_ids": ["cz-constitution-current"]
+  },
+  "chambers": [
+    {
+      "chamber_id": "cz-poslanecka-snemovna",
+      "official_name": "Poslanecká sněmovna Parlamentu České republiky",
+      "name": { "en": "Chamber of Deputies", "zh": "众议院（Poslanecká sněmovna）" },
+      "role": "lower",
+      "store_chamber": "Poslanecká sněmovna",
+      "members": { "value": 200, "basis": { "en": "fixed by the Constitution", "zh": "宪法规定" }, "articles": "Art. 16(1)", "source_ids": ["cz-constitution-current"] },
+      "term_years": 4,
+      "selection": { "code": "direct_proportional", "label": { "en": "Universal, equal and direct suffrage by secret ballot, on the principles of proportional representation", "zh": "普遍、平等、直接选举，秘密投票，依比例代表原则" }, "articles": "Art. 18(1)" },
+      "powers": { "en": "Grants and withdraws confidence in the Government (Arts. 68, 72) and has the last word on ordinary bills (Art. 47).", "zh": "给予和撤回对政府的信任（第 68、72 条），对普通法案拥有最终决定权（第 47 条）。" },
+      "note": null
+    },
+    {
+      "chamber_id": "cz-senat",
+      "official_name": "Senát Parlamentu České republiky",
+      "name": { "en": "Senate", "zh": "参议院（Senát）" },
+      "role": "upper",
+      "members": { "value": 81, "basis": { "en": "fixed by the Constitution", "zh": "宪法规定" }, "articles": "Art. 16(2)", "source_ids": ["cz-constitution-current"] },
+      "term_years": 6,
+      "selection": { "code": "direct_majoritarian", "label": { "en": "Universal, equal and direct suffrage on majoritarian principles; 81 single-member districts, two rounds if no absolute majority", "zh": "普遍、平等、直接选举，依多数制原则；81 个单议席选区，未获绝对多数时举行两轮" }, "articles": "Art. 18(2); Act 247/1995 §§ 56, 59, 75–76" },
+      "powers": { "en": "Within 30 days approves, rejects or amends a bill or declares it will not deal with it; the Chamber of Deputies overrides rejection or amendments by a majority of all deputies (Arts. 46–47).", "zh": "在 30 日内批准、否决或修改法案，或声明不予审议；众议院可以全体议员过半数推翻否决或修改（第 46–47 条）。" },
+      "note": { "en": "One third of senators is elected every two years, so the Senate is never renewed as a whole.", "zh": "每两年改选三分之一参议员，参议院从不整体改选。" }
+    }
+  ],
+  "offices": [
+    {
+      "office_id": "cz-president",
+      "role": "head_of_state",
+      "official_name": "Prezident republiky",
+      "name": { "en": "President of the Republic", "zh": "共和国总统" },
+      "selection": { "label": { "en": "Direct election; an absolute majority of valid votes, otherwise a second round of the two leading candidates 14 days later", "zh": "直接选举；须获有效票绝对多数，否则 14 日后在得票前两名之间举行第二轮" }, "articles": "Arts. 54(2), 56" },
+      "term_years": 5,
+      "term_limit": { "en": "No one may be elected more than twice in succession", "zh": "任何人不得连续当选两次以上" },
+      "source_ids": ["cz-constitution-current"]
+    },
+    {
+      "office_id": "cz-prime-minister",
+      "role": "head_of_government",
+      "official_name": "Předseda vlády",
+      "name": { "en": "Prime Minister", "zh": "总理（政府主席）" },
+      "selection": { "label": { "en": "Appointed by the President; the Government must win the Chamber's confidence within 30 days", "zh": "由总统任命；政府须在 30 日内获得众议院信任" }, "articles": "Art. 68(2)–(4)" },
+      "term_years": null,
+      "term_limit": null,
+      "source_ids": ["cz-constitution-current"]
+    }
+  ],
+  "fields": {
+    "state_form": { "value": "republic", "label": { "en": "Republic", "zh": "共和国" }, "articles": "Art. 1(1)", "source_ids": ["cz-constitution-current"], "status": "verified" },
+    "territorial_organisation": { "value": "unitary", "label": { "en": "Unitary state", "zh": "单一制国家" }, "articles": "Art. 1(1)", "source_ids": ["cz-constitution-current"], "status": "verified" },
+    "government_system": { "value": "parliamentary", "label": { "en": "Parliamentary republic", "zh": "议会共和制" }, "detail": { "en": "The Government is responsible to the Chamber of Deputies (Art. 68(1)); the President is directly elected but not accountable for the exercise of office (Art. 54(3)).", "zh": "政府对众议院负责（第 68 条第 1 款）；总统直选，但不对其职务行为负责（第 54 条第 3 款）。" }, "articles": "Arts. 54, 68", "source_ids": ["cz-constitution-current"], "status": "verified" },
+    "legislature_structure": { "value": "bicameral", "label": { "en": "Bicameral: Chamber of Deputies and Senate", "zh": "两院制：众议院与参议院" }, "articles": "Art. 15(2)", "source_ids": ["cz-constitution-current"], "status": "verified", "comparability": "qualified" },
+    "head_of_state_selection": { "value": "direct_popular_vote", "label": { "en": "Direct popular vote since 1 October 2012", "zh": "自 2012 年 10 月 1 日起选民直选" }, "detail": { "en": "Before that date the President was elected by Parliament at a joint session of both chambers.", "zh": "此前总统由议会两院联席会议选举。" }, "articles": "Arts. 54(2), 56", "source_ids": ["cz-constitution-current", "cz-constitution-2009-2012"], "status": "verified", "effective_from": "2012-10-01" },
+    "head_of_state_term": { "value": 5, "label": { "en": "5 years; at most two consecutive terms", "zh": "五年；至多连任两届" }, "articles": "Arts. 55, 57(2)", "source_ids": ["cz-constitution-current"], "status": "verified" },
+    "head_of_government_appointment": { "value": "head_of_state_appoints_then_investiture", "label": { "en": "President appoints; Government seeks the Chamber's confidence within 30 days", "zh": "总统任命；政府须在 30 日内请求众议院信任" }, "detail": { "en": "If the first Government fails, the procedure is repeated; if the second also fails, the President appoints a Prime Minister proposed by the Speaker of the Chamber of Deputies.", "zh": "首届政府未获信任时程序重复一次；第二次仍失败，总统依众议院议长提议任命总理。" }, "steps": [ { "en": "President appoints the Prime Minister and, on the Prime Minister's proposal, the ministers", "zh": "总统任命总理，并依总理提议任命部长" }, { "en": "Government asks the Chamber of Deputies for confidence within 30 days", "zh": "政府在 30 日内请求众议院信任" } ], "articles": "Art. 68", "source_ids": ["cz-constitution-current"], "status": "verified" },
+    "investiture": { "value": "required", "label": { "en": "Required: Chamber of Deputies vote of confidence", "zh": "须经众议院信任投票" }, "articles": "Art. 68(3)", "source_ids": ["cz-constitution-current"], "status": "verified" },
+    "no_confidence": { "value": "simple_majority_of_all_members", "label": { "en": "Motion by at least 50 deputies; majority of all deputies", "zh": "至少 50 名议员提出；须全体议员过半数" }, "articles": "Art. 72", "source_ids": ["cz-constitution-current"], "status": "verified" },
+    "confidence_vote": { "value": "government_may_request", "label": { "en": "Government may link confidence to a bill (Art. 35(1)(b))", "zh": "政府可将信任问题与法案挂钩（第 35 条第 1 款 b 项）" }, "articles": "Art. 35(1)(b)", "source_ids": ["cz-constitution-current"], "status": "verified", "comparability": "qualified" },
+    "dissolution": { "value": "conditional", "label": { "en": "President may dissolve the Chamber in four listed cases, and must on a three-fifths Chamber resolution", "zh": "总统可在四种列明情形下解散众议院，众议院以五分之三多数决议时必须解散" }, "detail": { "en": "Cases: no confidence in a Government appointed on the Speaker's proposal; no decision within three months on a Government bill tied to confidence; session suspended too long; Chamber inquorate for over three months. Not in the last three months of the term.", "zh": "情形：依议长提议任命的政府未获信任；与信任挂钩的政府法案三个月内未表决；会议中断超过允许期限；众议院连续三个月以上无法形成决议。任期最后三个月内不得解散。" }, "articles": "Art. 35", "source_ids": ["cz-constitution-current"], "status": "verified", "comparability": "qualified" },
+    "legislative_veto": { "value": "suspensive_override_absolute", "label": { "en": "President may return a law within 15 days; Chamber overrides by a majority of all deputies", "zh": "总统可在 15 日内退回法律；众议院以全体议员过半数推翻" }, "detail": { "en": "Not available for constitutional acts; no amendments are allowed in the repeat vote.", "zh": "不适用于宪法性法律；重新表决时不得修改。" }, "articles": "Art. 50", "source_ids": ["cz-constitution-current"], "status": "verified" },
+    "second_chamber_role": { "value": "revising_with_override", "label": { "en": "Senate revises within 30 days; Chamber overrides by a majority of all deputies", "zh": "参议院 30 日内审议；众议院以全体议员过半数推翻" }, "articles": "Arts. 46–47", "source_ids": ["cz-constitution-current"], "status": "verified", "comparability": "qualified" },
+    "constitutional_review": { "value": "constitutional_court", "label": { "en": "Constitutional Court (Ústavní soud), 15 judges appointed for ten years", "zh": "宪法法院（Ústavní soud），15 名法官，任期十年" }, "articles": "Arts. 83–84", "source_ids": ["cz-constitution-current"], "status": "verified" },
+    "legislative_term": { "value": 4, "label": { "en": "Chamber 4 years; Senate 6 years, staggered", "zh": "众议院四年；参议院六年，交错改选" }, "articles": "Art. 16", "source_ids": ["cz-constitution-current"], "status": "verified", "comparability": "qualified" },
+    "electoral_system": { "value": "list_pr_districts", "label": { "en": "Chamber: list PR in 14 regions with two scrutinies; Senate: two-round majority in 81 districts", "zh": "众议院：14 个选区名单比例代表制，两级计票；参议院：81 个选区两轮多数制" }, "articles": "Act 247/1995 Coll.", "source_ids": ["cz-elections-act-current"], "status": "verified", "comparability": "qualified", "store_rule_record": "es-cz-ps-2025" }
+  },
+  "electoral_systems": [
+    {
+      "rule_id": "cz-es-ps-current",
+      "chamber_id": "cz-poslanecka-snemovna",
+      "status": "verified",
+      "summary": { "en": "List proportional representation in 14 regions with a regional and a national scrutiny", "zh": "14 个选区的名单比例代表制，分地区和全国两级计票" },
+      "constituencies": { "en": "14 regions (kraje) as electoral districts", "zh": "以 14 个州（kraje）为选区" },
+      "allocation": { "en": "First scrutiny: regional quota (votes ÷ (seats + 2)); remaining seats in a national second scrutiny (election rule record for 2021 and 2025)", "zh": "第一级计票：地区配额（票数 ÷（席位数 + 2））；剩余席位在全国第二级计票中分配（见 2021 和 2025 年选举规则记录）" },
+      "thresholds_from_store": true,
+      "minority": null,
+      "legal_basis": "Act No. 247/1995 Coll. on elections to the Parliament of the Czech Republic",
+      "source_ids": ["cz-elections-act-current"],
+      "store_rule_record": "es-cz-ps-2025"
+    },
+    {
+      "rule_id": "cz-es-senat-current",
+      "chamber_id": "cz-senat",
+      "status": "verified",
+      "summary": { "en": "Two-round majority voting in 81 single-member districts", "zh": "81 个单议席选区两轮多数制" },
+      "constituencies": { "en": "81 single-member districts (§ 59)", "zh": "81 个单议席选区（第 59 条）" },
+      "allocation": { "en": "A candidate with an absolute majority of valid votes in the first round is elected (§ 75); otherwise the two leading candidates meet in a second round starting on the sixth day after the first (§ 76)", "zh": "第一轮获有效票绝对多数者当选（第 75 条）；否则得票前两名在首轮结束后第六日开始的第二轮中对决（第 76 条）" },
+      "thresholds": [],
+      "minority": null,
+      "legal_basis": "Act No. 247/1995 Coll., §§ 56, 59, 75–76 (version of 26 June 2026)",
+      "source_ids": ["cz-elections-act-current"],
+      "store_rule_record": null
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "cz-1993-constitution",
+      "dimension": "constitutional_framework",
+      "title": { "en": "Constitution of the Czech Republic takes effect", "zh": "捷克共和国宪法生效" },
+      "adopted": null,
+      "promulgated": null,
+      "effective": "1993-01-01",
+      "previous": null,
+      "new": { "en": "Bicameral Parliament (Chamber of Deputies and Senate), Government responsible to the Chamber, Constitutional Court.", "zh": "两院制议会（众议院与参议院）、对众议院负责的政府、宪法法院。" },
+      "legal_basis": "Ústava ČR, Art. 113",
+      "source_ids": ["cz-constitution-current"],
+      "status": "verified"
+    },
+    {
+      "change_id": "cz-2012-direct-president",
+      "dimension": "head_of_state_selection",
+      "title": { "en": "Direct election of the President", "zh": "总统改为直选" },
+      "adopted": null,
+      "promulgated": null,
+      "effective": "2012-10-01",
+      "previous": { "en": "President elected by Parliament at a joint session of both chambers; a candidate needed a majority of all deputies and of all senators (Arts. 54(2), 58, version 14 September 2009 – 30 September 2012).", "zh": "总统由议会两院联席会议选举；候选人须同时获得全体众议员和全体参议员的过半数（第 54 条第 2 款、第 58 条，2009 年 9 月 14 日至 2012 年 9 月 30 日文本）。" },
+      "new": { "en": "President elected directly (Art. 54(2)); two-round majority system (Art. 56).", "zh": "总统由选民直接选举（第 54 条第 2 款）；两轮多数制（第 56 条）。" },
+      "legal_basis": "Constitutional Act No. 71/2012 Coll.; version of the Constitution effective 1 October 2012",
+      "source_ids": ["cz-constitution-2009-2012", "cz-constitution-2012-2013"],
+      "status": "verified"
+    },
+    {
+      "change_id": "cz-2021-chamber-electoral-rules",
+      "dimension": "electoral_system",
+      "title": { "en": "Chamber of Deputies: two scrutinies and lower coalition thresholds", "zh": "众议院：两级计票与较低的联盟门槛" },
+      "adopted": null,
+      "promulgated": null,
+      "effective": null,
+      "effective_note": { "en": "Between the 2017 and 2021 elections; the 2021 rule record reads the Act in its version from 1 July 2021.", "zh": "介于 2017 与 2021 年选举之间；2021 年规则记录所读为 2021 年 7 月 1 日起的法律文本。" },
+      "previous": { "en": "2017 election: one scrutiny by successive divisors within each region; thresholds 5% / 10% / 15% / 20% by number of coalition members.", "zh": "2017 年选举：各选区内按连续除数一级计票；按联盟成员数，门槛为 5%/10%/15%/20%。" },
+      "new": { "en": "2021 and 2025 elections: regional quota plus national scrutiny; thresholds 5% / 8% / 11%.", "zh": "2021 和 2025 年选举：地区配额加全国计票；门槛为 5%/8%/11%。" },
+      "legal_basis": "Act 247/1995 Coll., versions read for the 2017 (13 April 2017 – 18 May 2018) and 2021 (from 1 July 2021) election rule records",
+      "source_ids": ["cz-elections-act-current"],
+      "status": "partially_verified",
+      "note": { "en": "Derived from the stored election rule records; the amending act and its effective date were not read, so the change is placed between the 2017 and 2021 elections only.", "zh": "依已存选举规则记录推定；修正法及其生效日期未阅读，因此仅确定变化发生在 2017 与 2021 年选举之间。" }
+    }
+  ],
+  "case_study_sections": [],
+  "pending": [
+    { "field": "article_effective_dates", "reason": { "en": "Apart from the 2012 presidential change, per-article version dates were not read.", "zh": "除 2012 年总统选举变化外，逐条版本日期未阅读。" } }
+  ],
+  "sources": [
+    { "source_id": "cz-constitution-current", "publisher": "Ministerstvo vnitra ČR (e-Sbírka)", "title": "Ústava České republiky, 1/1993 Sb. — aktuální znění", "url": "https://e-sbirka.gov.cz/sb/1993/1?zalozka=text", "kind": "constitution", "language": "cs", "version": "version effective 1 January 2026", "retrieved_on": "2026-11-16", "retrieval_sha256": null, "access": "browser_reading" },
+    { "source_id": "cz-constitution-2009-2012", "publisher": "Ministerstvo vnitra ČR (e-Sbírka)", "title": "Ústava České republiky, 1/1993 Sb. — znění 14. 9. 2009 – 30. 9. 2012", "url": "https://e-sbirka.gov.cz/sb/1993/1/2009-09-14?zalozka=text", "kind": "constitution_version", "language": "cs", "version": "14 September 2009 – 30 September 2012", "retrieved_on": "2026-11-16", "retrieval_sha256": null, "access": "browser_reading" },
+    { "source_id": "cz-constitution-2012-2013", "publisher": "Ministerstvo vnitra ČR (e-Sbírka)", "title": "Ústava České republiky, 1/1993 Sb. — znění 1. 10. 2012 – 7. 3. 2013 (ve znění 71/2012 Sb.)", "url": "https://e-sbirka.gov.cz/sb/1993/1/2012-10-01?zalozka=text", "kind": "constitution_version", "language": "cs", "version": "1 October 2012 – 7 March 2013", "retrieved_on": "2026-11-16", "retrieval_sha256": null, "access": "browser_reading" },
+    { "source_id": "cz-elections-act-current", "publisher": "Ministerstvo vnitra ČR (e-Sbírka)", "title": "Zákon č. 247/1995 Sb., o volbách do Parlamentu České republiky — aktuální znění", "url": "https://e-sbirka.gov.cz/sb/1995/247?zalozka=text", "kind": "statute", "language": "cs", "version": "version effective 26 June 2026", "retrieved_on": "2026-11-16", "retrieval_sha256": null, "access": "browser_reading" }
+  ]
+}

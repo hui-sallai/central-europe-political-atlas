@@ -1,0 +1,166 @@
+{
+  "schema_version": "institutional-country-v1",
+  "country": "germany",
+  "iso2": "DE",
+  "verified_on": "2026-11-16",
+  "baseline_status": "complete",
+  "case_study": true,
+  "overview": {
+    "en": "The Bundestag is the only directly elected federal body; the Länder take part in federal legislation through the Bundesrat, whose members belong to the Land governments. The Federal Chancellor is elected by the Bundestag and can be removed only by electing a successor; the Federal President is elected by the Federal Convention.",
+    "zh": "联邦议院是唯一由直选产生的联邦机构；各州通过联邦参议院参与联邦立法，其成员为各州政府成员。联邦总理由联邦议院选举，只能通过选出继任者被罢免；联邦总统由联邦大会选举。"
+  },
+  "constitution": {
+    "id": "de-basic-law-1949",
+    "official_name": "Grundgesetz für die Bundesrepublik Deutschland",
+    "name": { "en": "Basic Law for the Federal Republic of Germany", "zh": "德意志联邦共和国基本法" },
+    "adopted": "1949-05-23",
+    "in_force": null,
+    "in_force_note": { "en": "In force at the end of the day of promulgation (Art. 145(2)); certified (Ausfertigung) on 23 May 1949.", "zh": "于公布当日结束时生效（第 145 条第 2 款）；签署日期为 1949 年 5 月 23 日。" },
+    "publication": "BGBl. 1949 S. 1",
+    "current_text": { "as_of": "2025-03-22", "note": { "en": "Consolidated text, last amended by Art. 1 of the Act of 22 March 2025 (BGBl. 2025 I Nr. 94).", "zh": "合并文本，最近一次由 2025 年 3 月 22 日法律第 1 条修改（BGBl. 2025 I Nr. 94）。" } },
+    "source_ids": ["de-basic-law", "de-basic-law-en"]
+  },
+  "chambers": [
+    {
+      "chamber_id": "de-bundestag",
+      "official_name": "Deutscher Bundestag",
+      "name": { "en": "Bundestag", "zh": "联邦议院（Bundestag）" },
+      "role": "lower",
+      "store_chamber": "Bundestag",
+      "members": { "value": 630, "basis": { "en": "fixed by the Federal Electoral Act since the 2023 reform (first applied 2025); 2002–2021 elections had 598 base seats, with overhang seats and, from 2013, compensatory seats (election rule records)", "zh": "自 2023 年改革起由《联邦选举法》固定（2025 年首次适用）；2002–2021 年选举基础席位为 598 席，另有超额席位，2013 年起另有平衡席位（见选举规则记录）" }, "articles": "BWahlG § 1(1)", "source_ids": ["de-bwahlg"] },
+      "term_years": 4,
+      "selection": { "code": "direct_personalised_pr", "label": { "en": "General, direct, free, equal and secret elections; proportional representation with constituency candidates", "zh": "普遍、直接、自由、平等、秘密选举；结合选区候选人的比例代表制" }, "articles": "GG Arts. 38–39; BWahlG §§ 1, 4–6" },
+      "powers": { "en": "Passes federal laws (Art. 77(1)), elects the Federal Chancellor (Art. 63) and half of the judges of each senate of the Federal Constitutional Court, the other half being elected by the Bundesrat (Art. 93(2)).", "zh": "通过联邦法律（第 77 条第 1 款），选举联邦总理（第 63 条），并选举联邦宪法法院各审判庭半数法官，另一半由联邦参议院选举（第 93 条第 2 款）。" },
+      "note": { "en": "New elections take place 46 to 48 months after the start of the term, or within 60 days of a dissolution (Art. 39(1)).", "zh": "新选举于任期开始后第 46 至 48 个月举行；解散后须在 60 日内举行（第 39 条第 1 款）。" }
+    },
+    {
+      "chamber_id": "de-bundesrat",
+      "official_name": "Bundesrat",
+      "name": { "en": "Bundesrat", "zh": "联邦参议院（Bundesrat）" },
+      "role": "federal_council",
+      "members": { "value": null, "basis": { "en": "each Land casts 3 to 6 votes by population, cast as a block; members are appointed and recalled by the Land governments", "zh": "各州按人口拥有 3 至 6 票，须统一投票；成员由州政府任免" }, "articles": "GG Art. 51", "source_ids": ["de-basic-law"] },
+      "term_years": null,
+      "selection": { "code": "appointed_by_land_governments", "label": { "en": "Members of the Land governments, appointed and recalled by them; not elected", "zh": "由各州政府成员组成，由州政府任免；非选举产生" }, "articles": "Art. 51(1)" },
+      "powers": { "en": "Through the Bundesrat the Länder participate in federal legislation, administration and EU matters (Art. 50). Laws requiring its consent cannot pass without it; for other laws its objection can be overridden by the Bundestag (Art. 77(4)).", "zh": "各州通过联邦参议院参与联邦立法、行政和欧盟事务（第 50 条）。需其同意的法律未经同意不能通过；其他法律的异议可被联邦议院推翻（第 77 条第 4 款）。" },
+      "note": { "en": "A federal constitutional organ of the Länder rather than an elected second chamber; it has no fixed term and changes composition whenever a Land government changes.", "zh": "属于各州参与联邦事务的宪法机关，而非选举产生的第二院；无固定任期，州政府更替时其组成随之变化。" }
+    }
+  ],
+  "offices": [
+    {
+      "office_id": "de-federal-president",
+      "role": "head_of_state",
+      "official_name": "Bundespräsident",
+      "name": { "en": "Federal President", "zh": "联邦总统" },
+      "selection": { "label": { "en": "Elected without debate by the Federal Convention (Bundestag members plus an equal number elected by the Land parliaments); majority of members in two ballots, plurality in a third", "zh": "由联邦大会不经辩论选举（联邦议院议员加上由各州议会选出的同等数量代表）；前两轮须成员过半数，第三轮得票最多者当选" }, "articles": "Art. 54" },
+      "term_years": 5,
+      "term_limit": { "en": "One consecutive re-election", "zh": "可连任一次" },
+      "source_ids": ["de-basic-law"]
+    },
+    {
+      "office_id": "de-federal-chancellor",
+      "role": "head_of_government",
+      "official_name": "Bundeskanzler",
+      "name": { "en": "Federal Chancellor", "zh": "联邦总理" },
+      "selection": { "label": { "en": "Elected by the Bundestag on the Federal President's proposal (Art. 63)", "zh": "依联邦总统提名由联邦议院选举（第 63 条）" }, "articles": "Art. 63" },
+      "term_years": null,
+      "term_limit": null,
+      "source_ids": ["de-basic-law"]
+    }
+  ],
+  "fields": {
+    "state_form": { "value": "republic", "label": { "en": "Federal republic", "zh": "联邦共和国" }, "articles": "Art. 20(1)", "source_ids": ["de-basic-law"], "status": "verified" },
+    "territorial_organisation": { "value": "federal", "label": { "en": "Federal state", "zh": "联邦制国家" }, "articles": "Art. 20(1)", "source_ids": ["de-basic-law"], "status": "verified" },
+    "government_system": { "value": "parliamentary", "label": { "en": "Federal parliamentary republic", "zh": "联邦议会共和制" }, "detail": { "en": "The Chancellor depends on a Bundestag majority; the Federal President is indirectly elected.", "zh": "联邦总理依赖联邦议院多数；联邦总统间接选举产生。" }, "articles": "Arts. 54, 63, 67", "source_ids": ["de-basic-law"], "status": "verified" },
+    "legislature_structure": { "value": "parliament_with_federal_council", "label": { "en": "Bundestag (elected) with Bundesrat (Land governments)", "zh": "联邦议院（选举产生）与联邦参议院（州政府代表）" }, "detail": { "en": "Often counted as bicameral, but the Bundesrat's members are Land government members, not elected representatives.", "zh": "常被归为两院制，但联邦参议院成员为州政府成员，并非民选代表。" }, "articles": "Arts. 38, 50–51, 77", "source_ids": ["de-basic-law"], "status": "verified", "comparability": "qualified" },
+    "head_of_state_selection": { "value": "federal_convention", "label": { "en": "Elected by the Federal Convention", "zh": "由联邦大会选举" }, "articles": "Art. 54(1), (3), (6)", "source_ids": ["de-basic-law"], "status": "verified" },
+    "head_of_state_term": { "value": 5, "label": { "en": "5 years; one consecutive re-election", "zh": "五年；可连任一次" }, "articles": "Art. 54(2)", "source_ids": ["de-basic-law"], "status": "verified" },
+    "head_of_government_appointment": { "value": "parliament_elects_on_head_of_state_proposal", "label": { "en": "Bundestag elects the Chancellor on the Federal President's proposal", "zh": "联邦议院依联邦总统提名选举总理" }, "detail": { "en": "A majority of members elects; if the nominee fails, the Bundestag may elect another person by a majority of members within 14 days; then a final ballot decides by plurality, after which the President either appoints a minority chancellor or dissolves the Bundestag within seven days.", "zh": "须获议员过半数；提名人未当选时，联邦议院可在 14 日内以议员过半数另选他人；随后举行最终一轮，得票最多者当选，此时联邦总统须在 7 日内任命该少数总理或解散联邦议院。" }, "steps": [ { "en": "Federal President proposes a chancellor", "zh": "联邦总统提名总理" }, { "en": "Bundestag votes without debate (majority of members)", "zh": "联邦议院不经辩论投票（须议员过半数）" }, { "en": "Federal President appoints the elected chancellor (Art. 63)", "zh": "联邦总统依第 63 条任命当选总理" } ], "articles": "Art. 63", "source_ids": ["de-basic-law"], "status": "verified" },
+    "investiture": { "value": "election_by_parliament", "label": { "en": "Chancellor elected by a majority of Bundestag members (plurality only in the final ballot)", "zh": "总理须获联邦议院议员过半数选举（仅最终一轮可凭相对多数）" }, "articles": "Art. 63(2)–(4)", "source_ids": ["de-basic-law"], "status": "verified" },
+    "no_confidence": { "value": "constructive", "label": { "en": "Constructive: electing a successor by a majority of members", "zh": "建设性不信任：以议员过半数选出继任者" }, "detail": { "en": "48 hours must pass between the motion and the vote; the Federal President must dismiss the Chancellor and appoint the person elected.", "zh": "动议与表决之间须间隔 48 小时；联邦总统必须免去原总理并任命当选者。" }, "articles": "Art. 67", "source_ids": ["de-basic-law"], "status": "verified" },
+    "confidence_vote": { "value": "government_may_request", "label": { "en": "Chancellor may ask for confidence; on defeat the President may dissolve within 21 days", "zh": "总理可请求信任投票；失败后总统可在 21 日内解散联邦议院" }, "articles": "Art. 68", "source_ids": ["de-basic-law"], "status": "verified" },
+    "dissolution": { "value": "conditional", "label": { "en": "Only after a failed chancellor election (Art. 63(4)) or a lost confidence vote (Art. 68)", "zh": "仅在总理选举失败（第 63 条第 4 款）或信任投票失败（第 68 条）后" }, "detail": { "en": "The Bundestag cannot dissolve itself; the right under Art. 68 lapses once it elects another Chancellor.", "zh": "联邦议院不能自行解散；一旦另选总理，第 68 条规定的解散权即告消灭。" }, "articles": "Arts. 63(4), 68(1)", "source_ids": ["de-basic-law"], "status": "verified", "comparability": "qualified" },
+    "legislative_veto": { "value": "no_political_veto", "label": { "en": "Federal President certifies and promulgates laws; Bundesrat objection or consent", "zh": "联邦总统签署并公布法律；联邦参议院可提出异议或行使同意权" }, "detail": { "en": "An objection carried by a majority of Bundesrat votes is overridden by a majority of Bundestag members; a two-thirds objection needs a two-thirds Bundestag majority that is also a majority of members. Consent laws cannot be overridden.", "zh": "以联邦参议院多数票提出的异议，联邦议院以议员过半数即可推翻；三分之二多数提出的异议，须联邦议院三分之二多数且不少于议员过半数方可推翻。需同意的法律不可推翻。" }, "articles": "Arts. 77(2)–(4), 82(1)", "source_ids": ["de-basic-law"], "status": "verified", "comparability": "qualified" },
+    "second_chamber_role": { "value": "federal_council_objection_or_consent", "label": { "en": "Bundesrat: suspensive objection or absolute consent requirement, depending on the law", "zh": "联邦参议院：视法律类型行使搁置性异议或绝对同意权" }, "articles": "Arts. 50, 77", "source_ids": ["de-basic-law"], "status": "verified", "comparability": "qualified" },
+    "constitutional_review": { "value": "constitutional_court", "label": { "en": "Federal Constitutional Court (Bundesverfassungsgericht)", "zh": "联邦宪法法院（Bundesverfassungsgericht）" }, "articles": "Arts. 93–94", "source_ids": ["de-basic-law"], "status": "verified" },
+    "legislative_term": { "value": 4, "label": { "en": "4 years (Bundestag)", "zh": "四年（联邦议院）" }, "articles": "Art. 39(1)", "source_ids": ["de-basic-law"], "status": "verified" },
+    "electoral_system": { "value": "personalised_pr", "label": { "en": "Proportional representation with 299 constituencies; 630 seats; second-vote coverage", "zh": "设 299 个选区的比例代表制；630 席；第二票覆盖规则" }, "articles": "BWahlG §§ 1, 4–6", "source_ids": ["de-bwahlg"], "status": "verified", "comparability": "qualified" }
+  },
+  "electoral_systems": [
+    {
+      "rule_id": "de-es-bundestag-current",
+      "chamber_id": "de-bundestag",
+      "status": "verified",
+      "summary": { "en": "Proportional representation with two votes; 630 fixed seats since the 2023 reform", "zh": "两票制比例代表制；2023 年改革后固定 630 席" },
+      "constituencies": { "en": "299 constituencies (first vote) and Land lists (second vote)", "zh": "299 个选区（第一票）与州名单（第二票）" },
+      "allocation": { "en": "Seats distributed nationally and then to Land lists by the divisor method with standard rounding (§ 5). A constituency winner takes a seat only if covered by the party's second votes in that Land (Zweitstimmendeckung, § 6(1)).", "zh": "席位先在全国、再在各州名单间按除数法（标准舍入）分配（第 5 条）。选区胜出者只有在其政党在该州的第二票覆盖范围内才能获得议席（第二票覆盖规则，第 6 条第 1 款）。" },
+      "thresholds": [
+        { "applies_to": { "en": "party lists (national minority parties exempt)", "zh": "政党名单（少数民族政党豁免）" }, "percent": 5, "articles": "§ 4(2)" }
+      ],
+      "threshold_note": { "en": "Until new legislation, parties below 5% still take part if their candidates won at least three constituencies (Federal Constitutional Court, 30 July 2024, 2 BvF 1/23).", "zh": "在新立法出台前，得票低于 5% 的政党若有候选人赢得至少三个选区，仍参与席位分配（联邦宪法法院 2024 年 7 月 30 日裁决，2 BvF 1/23）。" },
+      "minority": { "en": "Lists of national minority parties are exempt from the 5% threshold (§ 4(2))", "zh": "少数民族政党名单豁免 5% 门槛（第 4 条第 2 款）" },
+      "legal_basis": "Bundeswahlgesetz (BWahlG), consolidated text last amended by Art. 8 of the Act of 3 July 2026",
+      "source_ids": ["de-bwahlg"],
+      "store_rule_record": "es-de-bt-2025"
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "de-1949-basic-law",
+      "dimension": "constitutional_framework",
+      "title": { "en": "Basic Law certified and promulgated", "zh": "《基本法》签署并公布" },
+      "adopted": "1949-05-23",
+      "promulgated": "1949-05-23",
+      "effective": null,
+      "effective_note": { "en": "In force at the end of the day of promulgation (Art. 145(2)).", "zh": "于公布当日结束时生效（第 145 条第 2 款）。" },
+      "previous": null,
+      "new": { "en": "Federal order with a Bundestag, a Bundesrat of Land governments, a Federal President elected by the Federal Convention and a constructive vote of no confidence.", "zh": "联邦秩序：联邦议院、由州政府组成的联邦参议院、由联邦大会选举的联邦总统以及建设性不信任投票。" },
+      "legal_basis": "Grundgesetz Art. 145",
+      "source_ids": ["de-basic-law"],
+      "status": "verified"
+    },
+    {
+      "change_id": "de-2023-electoral-reform",
+      "dimension": "electoral_system",
+      "title": { "en": "Federal Electoral Act reform: 630 seats and second-vote coverage", "zh": "《联邦选举法》改革：630 席与第二票覆盖规则" },
+      "adopted": "2023-06-08",
+      "promulgated": null,
+      "effective": "2023-06-14",
+      "previous": { "en": "598 base seats; overhang seats, compensated by enlarging the chamber at the 2013 and 2017 elections and with up to three uncompensated in 2021 (election rule records).", "zh": "598 个基础席位；超额席位在 2013 和 2017 年选举中通过扩大议院规模予以平衡，2021 年最多三个超额席位可不予平衡（见选举规则记录）。" },
+      "new": { "en": "Bundestag fixed at 630 seats; constituency winners take seats only within their party's second-vote share in the Land (§§ 1(1), 1(3), 6(1)). First applied at the 2025 election.", "zh": "联邦议院固定为 630 席；选区胜出者仅在其政党该州第二票份额内获得议席（第 1 条第 1、3 款，第 6 条第 1 款）。2025 年选举首次适用。" },
+      "legal_basis": "Gesetz vom 8. Juni 2023 (BGBl. 2023 I Nr. 147), in force 14 June 2023, as cited in the consolidated BWahlG",
+      "source_ids": ["de-bwahlg"],
+      "status": "verified",
+      "note": { "en": "The amending act is identified from the consolidated text's amendment notes; the reform's previous seat rules are taken from the stored election records, not re-read.", "zh": "修正法依合并文本的修改注释确认；改革前的席位规则取自已存选举记录，未重新阅读。" }
+    },
+    {
+      "change_id": "de-2024-bverfg-threshold",
+      "dimension": "electoral_system",
+      "title": { "en": "Constitutional Court ruling on the 2023 reform: interim three-constituency rule", "zh": "宪法法院就 2023 年改革作出裁决：过渡性的三选区规则" },
+      "adopted": "2024-07-30",
+      "promulgated": null,
+      "effective": "2024-07-30",
+      "previous": { "en": "5% threshold without exception for constituency winners (2023 text).", "zh": "5% 门槛，不对选区胜出者设例外（2023 年文本）。" },
+      "new": { "en": "§ 4(2) sentence 2 no. 2 is incompatible with the Basic Law as framed; until new legislation, parties under 5% are excluded only if they won fewer than three constituencies. Second-vote coverage was upheld.", "zh": "第 4 条第 2 款第 2 句第 2 项按现行表述与《基本法》不符；在新立法出台前，得票低于 5% 的政党只有在赢得少于三个选区时才被排除。第二票覆盖规则获维持。" },
+      "legal_basis": "BVerfG, 2 BvF 1/23 u.a., 30 July 2024 (BGBl. 2024 I Nr. 281), as recorded in the consolidated BWahlG",
+      "source_ids": ["de-bwahlg"],
+      "status": "verified"
+    }
+  ],
+  "case_study_sections": [
+    { "id": "structure", "title": { "en": "Institutional structure", "zh": "制度结构" }, "text": { "en": "Federal legislation passes through two bodies of different nature. The Bundestag is elected by the people; the Bundesrat consists of members of the sixteen Land governments, each Land casting three to six votes as a block (Art. 51). The Federal President is elected by a Federal Convention made up of the Bundestag and an equal number of delegates chosen by the Land parliaments (Art. 54(3)).", "zh": "联邦立法经由两个性质不同的机构。联邦议院由人民选举；联邦参议院由十六个州政府的成员组成，各州按人口拥有三至六票并须统一投票（第 51 条）。联邦总统由联邦大会选举，联邦大会由联邦议院议员和由各州议会选出的同等数量代表组成（第 54 条第 3 款）。" }, "source_ids": ["de-basic-law"] },
+    { "id": "formation", "title": { "en": "Government formation", "zh": "政府组建" }, "text": { "en": "Only the Chancellor is elected; ministers are appointed and dismissed by the Federal President on the Chancellor's proposal (Art. 64). Article 63 sets a three-stage sequence: the President's nominee needs a majority of members; failing that, the Bundestag has 14 days to elect anyone by that majority; a final ballot then decides by plurality, and a plurality winner is either appointed or the Bundestag is dissolved within seven days.", "zh": "只有总理经选举产生；部长由联邦总统依总理提议任免（第 64 条）。第 63 条规定三阶段程序：总统提名人须获议员过半数；未获通过时，联邦议院有 14 日以同样多数另选他人；随后最终一轮以相对多数决定，若当选者仅获相对多数，总统须在 7 日内任命或解散联邦议院。" }, "source_ids": ["de-basic-law"] },
+    { "id": "accountability", "title": { "en": "Parliamentary accountability", "zh": "议会问责" }, "text": { "en": "The Bundestag can express no confidence only by electing a successor with a majority of its members, with 48 hours between motion and vote (Art. 67). A Chancellor who loses a confidence vote under Article 68 may propose dissolution, which the President may grant within 21 days unless the Bundestag elects another Chancellor first.", "zh": "联邦议院只能通过以议员过半数选出继任者来表达不信任，动议与表决间隔 48 小时（第 67 条）。总理依第 68 条信任投票失败后可提议解散，总统可在 21 日内批准，除非联邦议院先选出另一位总理。" }, "source_ids": ["de-basic-law"] },
+    { "id": "electoral", "title": { "en": "Election-system mechanics", "zh": "选举制度运作" }, "text": { "en": "Voters cast a first vote in one of 299 constituencies and a second vote for a Land list. Since the 2023 reform the 630 seats follow the second votes: a constituency winner is seated only if the party's second votes in that Land cover the seat (§ 6(1)). Lists below 5% are excluded unless they won three constituencies (interim rule after the 2024 ruling) or represent a national minority (§ 4(2)).", "zh": "选民在 299 个选区之一投第一票，并为州名单投第二票。2023 年改革后 630 个议席按第二票分配：选区胜出者只有在其政党在该州的第二票覆盖该席时才能入席（第 6 条第 1 款）。低于 5% 的名单被排除，除非赢得三个选区（2024 年裁决后的过渡规则）或代表少数民族（第 4 条第 2 款）。" }, "source_ids": ["de-bwahlg"] },
+    { "id": "limits", "title": { "en": "Principal constitutional limitations", "zh": "主要宪法限制" }, "text": { "en": "The Bundestag has no power of self-dissolution, and the Federal President may dissolve it only in the two cases of Articles 63(4) and 68. For laws requiring Bundesrat consent, a Bundestag majority alone is never sufficient; a mediation committee of both bodies can be convened (Art. 77(2)).", "zh": "联邦议院无权自行解散，联邦总统只能在第 63 条第 4 款和第 68 条两种情形下解散。对需联邦参议院同意的法律，仅凭联邦议院多数永远不够；可召集两院组成的调解委员会（第 77 条第 2 款）。" }, "source_ids": ["de-basic-law"] },
+    { "id": "changes", "title": { "en": "Historically significant changes", "zh": "重要历史变化" }, "text": { "en": "The election rule records show the seat-allocation method changing from Hare/Niemeyer (2002, 2005) to Sainte-Laguë/Schepers (2009 onwards) with 598 base seats, and the 2023 reform fixing the Bundestag at 630 seats from the 2025 election. The 30 July 2024 ruling kept second-vote coverage but restored a three-constituency exception to the threshold until Parliament legislates.", "zh": "选举规则记录显示，席位分配方法由 Hare/Niemeyer（2002、2005 年）改为 Sainte-Laguë/Schepers（2009 年起），基础席位 598 席；2023 年改革将联邦议院自 2025 年选举起固定为 630 席。2024 年 7 月 30 日裁决维持第二票覆盖规则，但在议会立法前恢复了门槛的三选区例外。" }, "source_ids": ["de-bwahlg"] },
+    { "id": "rules_vs_practice", "title": { "en": "Constitutional rules and election-specific practice", "zh": "宪法规则与具体选举实践" }, "text": { "en": "The Basic Law requires general, direct, free, equal and secret elections but leaves the system to federal statute (Art. 38(3)). Seat counts and allocation methods therefore differ by election and are taken from each election's rule record; the 2025 election is the only admitted election under the 2023 reform and the 2024 interim threshold rule.", "zh": "《基本法》要求普遍、直接、自由、平等和秘密选举，但将选举制度交由联邦法律规定（第 38 条第 3 款）。因此席位数和分配方法因届而异，取自各届选举规则记录；2025 年选举是唯一适用 2023 年改革和 2024 年过渡门槛规则的已收录选举。" }, "source_ids": ["de-basic-law", "de-bwahlg"] }
+  ],
+  "pending": [
+    { "field": "bundesrat_total_votes", "reason": { "en": "The current distribution of Bundesrat votes by Land was not read; only the constitutional rule is recorded.", "zh": "各州当前联邦参议院票数分布未读取；仅记录宪法规则。" } }
+  ],
+  "sources": [
+    { "source_id": "de-basic-law", "publisher": "Bundesministerium der Justiz (gesetze-im-internet.de)", "title": "Grundgesetz für die Bundesrepublik Deutschland", "url": "https://www.gesetze-im-internet.de/gg/BJNR000010949.html", "kind": "constitution", "language": "de", "version": "last amended by Art. 1 G v. 22.3.2025 I Nr. 94", "retrieved_on": "2026-11-16", "retrieval_sha256": "8df99989fc820e2d3f6c11be5a208fc84dc8edb79b60fd53826ab83fac8a7eca", "access": "manual_download" },
+    { "source_id": "de-basic-law-en", "publisher": "Bundesministerium der Justiz (gesetze-im-internet.de)", "title": "Basic Law for the Federal Republic of Germany — English translation", "url": "https://www.gesetze-im-internet.de/englisch_gg/englisch_gg.html", "kind": "translation", "language": "en", "version": "translation used for English designations only", "retrieved_on": "2026-11-16", "retrieval_sha256": "3cbafb0d16ab8a97c0958f6b51d855af5254db41b6bea02ae8f321ebc20ce0e8", "access": "manual_download" },
+    { "source_id": "de-bwahlg", "publisher": "Bundesministerium der Justiz (gesetze-im-internet.de)", "title": "Bundeswahlgesetz (BWahlG)", "url": "https://www.gesetze-im-internet.de/bwahlg/BJNR003830956.html", "kind": "statute", "language": "de", "version": "last amended by Art. 8 G v. 3.7.2026 I Nr. 199", "retrieved_on": "2026-11-16", "retrieval_sha256": "f6f5fe2560725006139316828dead60a3e34bfccf48ba6c7c5486455d5d001af", "access": "manual_download" }
+  ]
+}

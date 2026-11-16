@@ -1,0 +1,138 @@
+{
+  "schema_version": "institutional-country-v1",
+  "country": "serbia",
+  "iso2": "RS",
+  "verified_on": "2026-11-16",
+  "baseline_status": "complete",
+  "case_study": true,
+  "overview": {
+    "en": "The unicameral National Assembly (Narodna skupština) has 250 deputies elected for four years in one nationwide constituency. The directly elected President proposes the Prime Minister; the Assembly elects the whole Government in a single vote on its programme and composition.",
+    "zh": "一院制国民议会（Narodna skupština）由 250 名议员组成，在单一全国选区选举产生，任期四年。直选总统提名总理人选；国民议会对政府施政纲领和组成进行一次性表决，选举整个政府。"
+  },
+  "constitution": {
+    "id": "rs-constitution-2006",
+    "official_name": "Устав Републике Србије / Ustav Republike Srbije",
+    "name": { "en": "Constitution of the Republic of Serbia", "zh": "塞尔维亚共和国宪法" },
+    "adopted": "2006-09-30",
+    "in_force": null,
+    "in_force_note": { "en": "Adopted by the National Assembly on 30 September 2006, endorsed by referendum on 28–29 October 2006, published in Službeni glasnik RS 98/2006 of 10 November 2006.", "zh": "国民议会于 2006 年 9 月 30 日通过，2006 年 10 月 28–29 日经全民公决确认，刊登于 2006 年 11 月 10 日《塞尔维亚共和国官方公报》第 98/2006 号。" },
+    "publication": "Službeni glasnik RS 98/2006",
+    "current_text": { "as_of": "2022-02-09", "note": { "en": "Consolidated text including Amendments I–XXIX (Sl. glasnik 115/2021; proclamation in Sl. glasnik 16/2022 of 9 February 2022), which concern Arts. 4, 99 and 105 and the judiciary.", "zh": "合并文本含第 I–XXIX 号修正案（官方公报 115/2021；2022 年 2 月 9 日官方公报 16/2022 公布），涉及第 4、99、105 条及司法部分。" } },
+    "source_ids": ["rs-constitution-consolidated", "rs-constitution-en"]
+  },
+  "chambers": [
+    {
+      "chamber_id": "rs-narodna-skupstina",
+      "official_name": "Народна скупштина Републике Србије",
+      "name": { "en": "National Assembly", "zh": "国民议会（Narodna skupština）" },
+      "role": "sole",
+      "store_chamber": "Народна скупштина",
+      "members": { "value": 250, "basis": { "en": "fixed by the Constitution", "zh": "宪法规定" }, "articles": "Art. 100", "source_ids": ["rs-constitution-consolidated", "rs-constitution-en"] },
+      "term_years": 4,
+      "selection": { "code": "direct_proportional", "label": { "en": "Direct elections by secret ballot under statute; gender equality and minority representation to be ensured by law", "zh": "依法律直接选举、秘密投票；性别平等和少数民族代表性由法律保障" }, "articles": "Art. 100" },
+      "powers": { "en": "Adopts and amends the Constitution and laws, adopts the budget, elects the Government and supervises it (Art. 99).", "zh": "制定和修改宪法与法律，通过预算，选举并监督政府（第 99 条）。" },
+      "note": { "en": "The Assembly is constituted once two thirds of deputies' mandates are confirmed (Art. 101).", "zh": "三分之二议员资格获确认后国民议会即告组成（第 101 条）。" }
+    }
+  ],
+  "offices": [
+    {
+      "office_id": "rs-president",
+      "role": "head_of_state",
+      "official_name": "Председник Републике",
+      "name": { "en": "President of the Republic", "zh": "共和国总统" },
+      "selection": { "label": { "en": "Direct elections by secret ballot under statute", "zh": "依法律直接选举、秘密投票" }, "articles": "Art. 114" },
+      "term_years": 5,
+      "term_limit": { "en": "No one may be elected more than twice", "zh": "任何人不得当选两次以上" },
+      "source_ids": ["rs-constitution-en"]
+    },
+    {
+      "office_id": "rs-prime-minister",
+      "role": "head_of_government",
+      "official_name": "Председник Владе",
+      "name": { "en": "Prime Minister", "zh": "总理（政府主席）" },
+      "selection": { "label": { "en": "Proposed by the President after considering the views of representatives of elected lists; elected together with the Government by a majority of all deputies", "zh": "总统在听取当选名单代表意见后提名；与政府一并由全体议员过半数选举" }, "articles": "Arts. 112, 127" },
+      "term_years": null,
+      "term_limit": null,
+      "source_ids": ["rs-constitution-consolidated", "rs-constitution-en"]
+    }
+  ],
+  "fields": {
+    "state_form": { "value": "republic", "label": { "en": "Republic", "zh": "共和国" }, "articles": "Art. 1", "source_ids": ["rs-constitution-en"], "status": "verified" },
+    "territorial_organisation": { "value": "unitary_with_autonomous_provinces", "label": { "en": "Unitary state with constitutionally established autonomous provinces", "zh": "设有宪法规定自治省的单一制国家" }, "detail": { "en": "Art. 182 names the Autonomous Province of Vojvodina and the Autonomous Province of Kosovo and Metohija. The record describes the constitutional text, not territorial control.", "zh": "第 182 条列明伏伊伏丁那自治省和科索沃—梅托希亚自治省。本记录仅描述宪法文本，不涉及实际管辖。" }, "articles": "Arts. 12, 182", "source_ids": ["rs-constitution-en"], "status": "verified", "comparability": "qualified" },
+    "government_system": { "value": "parliamentary", "label": { "en": "Parliamentary republic", "zh": "议会共和制" }, "detail": { "en": "The Government is elected by and accountable to the National Assembly; the President is directly elected and may return laws once.", "zh": "政府由国民议会选举并对其负责；总统直选，可将法律退回一次。" }, "articles": "Arts. 113–114, 127, 130", "source_ids": ["rs-constitution-en"], "status": "verified" },
+    "legislature_structure": { "value": "unicameral", "label": { "en": "Unicameral: National Assembly", "zh": "一院制：国民议会" }, "articles": "Arts. 98, 100", "source_ids": ["rs-constitution-en"], "status": "verified" },
+    "head_of_state_selection": { "value": "direct_popular_vote", "label": { "en": "Direct popular vote", "zh": "选民直选" }, "articles": "Art. 114", "source_ids": ["rs-constitution-en"], "status": "verified" },
+    "head_of_state_term": { "value": 5, "label": { "en": "5 years; at most two terms", "zh": "五年；至多两届" }, "articles": "Art. 116", "source_ids": ["rs-constitution-en"], "status": "verified" },
+    "head_of_government_appointment": { "value": "parliament_elects_on_head_of_state_proposal", "label": { "en": "Assembly elects Prime Minister and Government together on the President's proposal", "zh": "国民议会依总统提名一并选举总理与政府" }, "detail": { "en": "The candidate presents the Government's programme and proposed composition; one vote covers the programme, the Prime Minister and all members.", "zh": "总理人选陈述政府施政纲领并提出组成名单；一次表决同时涵盖纲领、总理及全体成员。" }, "steps": [ { "en": "President proposes a candidate", "zh": "总统提名总理人选" }, { "en": "National Assembly votes on the programme and government", "zh": "国民议会表决施政纲领和政府组成" } ], "articles": "Art. 127", "source_ids": ["rs-constitution-consolidated", "rs-constitution-en"], "status": "verified" },
+    "investiture": { "value": "election_by_parliament", "label": { "en": "Government elected by a majority of all deputies", "zh": "政府须获全体议员过半数选举" }, "articles": "Art. 127", "source_ids": ["rs-constitution-consolidated"], "status": "verified" },
+    "no_confidence": { "value": "simple_majority_of_all_members", "label": { "en": "At least 60 deputies may move; more than half of all deputies needed", "zh": "至少 60 名议员可提出；须全体议员过半数通过" }, "detail": { "en": "Applies to the Government or an individual member. If adopted, the President must start the election of a new Government.", "zh": "可针对整个政府或个别成员。通过后总统必须启动新政府的选举程序。" }, "articles": "Art. 130", "source_ids": ["rs-constitution-consolidated", "rs-constitution-en"], "status": "verified" },
+    "confidence_vote": { "value": "government_may_request", "label": { "en": "Government may request a confidence vote (more than half of all deputies)", "zh": "政府可请求信任投票（须全体议员过半数）" }, "articles": "Art. 131", "source_ids": ["rs-constitution-en"], "status": "verified" },
+    "dissolution": { "value": "conditional", "label": { "en": "President dissolves on the Government's reasoned proposal; mandatory if no Government within 90 days", "zh": "总统依政府附理由的提议解散；组成后 90 日内未选出政府则必须解散" }, "detail": { "en": "The Government may not propose dissolution while a no-confidence or confidence motion is pending; no dissolution during a state of war or emergency.", "zh": "不信任或信任动议待决期间政府不得提议解散；战争或紧急状态期间不得解散。" }, "articles": "Art. 109", "source_ids": ["rs-constitution-en"], "status": "verified", "comparability": "qualified" },
+    "legislative_veto": { "value": "suspensive_override_absolute", "label": { "en": "President may return a law once; override by a majority of all deputies", "zh": "总统可将法律退回一次；全体议员过半数即可推翻" }, "detail": { "en": "Return within 15 days (7 for urgent procedure); if the President fails to promulgate, the Speaker issues the decree.", "zh": "须在 15 日内退回（紧急程序为 7 日）；总统逾期不公布时由议长发布公布令。" }, "articles": "Art. 113", "source_ids": ["rs-constitution-en"], "status": "verified" },
+    "second_chamber_role": { "value": "not_applicable", "label": { "en": "Not applicable (unicameral)", "zh": "不适用（一院制）" }, "articles": null, "source_ids": [], "status": "not_applicable" },
+    "constitutional_review": { "value": "constitutional_court", "label": { "en": "Constitutional Court (Ustavni sud)", "zh": "宪法法院（Ustavni sud）" }, "articles": "Art. 166", "source_ids": ["rs-constitution-en"], "status": "verified" },
+    "legislative_term": { "value": 4, "label": { "en": "4 years", "zh": "四年" }, "articles": "Art. 102", "source_ids": ["rs-constitution-en"], "status": "verified" },
+    "electoral_system": { "value": "list_pr_national", "label": { "en": "List PR in a single nationwide constituency (D’Hondt), 3% threshold", "zh": "单一全国选区名单比例代表制（D’Hondt），3% 门槛" }, "articles": "Law on the Election of Members of Parliament, Arts. 128–129, 140", "source_ids": ["rs-constitution-en"], "status": "verified", "comparability": "qualified", "store_rule_record": "es-rs-nsk-2026" }
+  },
+  "electoral_systems": [
+    {
+      "rule_id": "rs-es-nsk-current",
+      "chamber_id": "rs-narodna-skupstina",
+      "status": "verified",
+      "summary": { "en": "Closed-list proportional representation in one nationwide constituency", "zh": "单一全国选区的封闭名单比例代表制" },
+      "constituencies": { "en": "The whole country forms one constituency for 250 seats", "zh": "全国为一个选区，产生 250 席" },
+      "allocation": { "en": "Highest quotients (D’Hondt) over 250 seats among lists that reach 3% of voters who voted (Arts. 128–129)", "zh": "在得票达投票选民人数 3% 的名单之间按最高商数法（D’Hondt）分配 250 席（第 128–129 条）" },
+      "thresholds_from_store": true,
+      "minority": { "en": "National-minority lists take part below 3%, with quotients increased by 35% (Art. 140)", "zh": "少数民族名单低于 3% 仍参与分配，其商数提高 35%（第 140 条）" },
+      "legal_basis": "Zakon o izboru narodnih poslanika (Law on the Election of Members of Parliament), Sl. glasnik RS 14/2022 as amended",
+      "source_ids": [],
+      "store_rule_record": "es-rs-nsk-2026"
+    }
+  ],
+  "changes": [
+    {
+      "change_id": "rs-2006-constitution",
+      "dimension": "constitutional_framework",
+      "title": { "en": "Constitution of 2006 adopted and endorsed by referendum", "zh": "2006 年宪法通过并经全民公决确认" },
+      "adopted": "2006-09-30",
+      "promulgated": "2006-11-10",
+      "effective": null,
+      "effective_note": { "en": "Endorsed by referendum on 28–29 October 2006; published 10 November 2006. The proclamation date was not separately read.", "zh": "2006 年 10 月 28–29 日经全民公决确认；2006 年 11 月 10 日公布。公布令日期未单独核实。" },
+      "previous": null,
+      "new": { "en": "Unicameral National Assembly of 250 deputies, directly elected President, Government elected by the Assembly.", "zh": "250 名议员的一院制国民议会、直选总统、由议会选举的政府。" },
+      "legal_basis": "Službeni glasnik RS 98/2006",
+      "source_ids": ["rs-constitution-en", "rs-constitution-consolidated"],
+      "status": "verified"
+    },
+    {
+      "change_id": "rs-2022-amendments-i-xxix",
+      "dimension": "judiciary_and_assembly_powers",
+      "title": { "en": "Amendments I–XXIX (judiciary)", "zh": "第 I–XXIX 号修正案（司法）" },
+      "adopted": null,
+      "promulgated": "2022-02-09",
+      "effective": "2022-02-09",
+      "previous": null,
+      "new": { "en": "Amended Arts. 4, 99 and 105 and the judiciary chapter; the provisions on the Assembly's composition, the President and Government formation cited here are unchanged.", "zh": "修改第 4、99、105 条及司法章节；本记录所引关于议会组成、总统和组阁的条款未变。" },
+      "legal_basis": "Akt o promeni Ustava (Sl. glasnik RS 115/2021); Odluka o proglašenju (Sl. glasnik RS 16/2022 of 9 February 2022)",
+      "source_ids": ["rs-constitution-consolidated"],
+      "status": "partially_verified",
+      "note": { "en": "Effective date taken as the proclamation date in the consolidated text; the referendum that preceded it was not read.", "zh": "生效日期按合并文本所载公布日期记录；此前的全民公决未阅读。" }
+    }
+  ],
+  "case_study_sections": [
+    { "id": "structure", "title": { "en": "Institutional structure", "zh": "制度结构" }, "text": { "en": "Serbia has one representative chamber of 250 deputies, a directly elected President and a Government elected by the Assembly. The Constitution establishes two autonomous provinces (Art. 182) but no second chamber representing them. A constitutional amendment requires a two-thirds majority of all deputies (Art. 203).", "zh": "塞尔维亚设一个由 250 名议员组成的代表机关、一位直选总统和一个由议会选举的政府。宪法设立两个自治省（第 182 条），但没有代表自治省的第二院。修宪须全体议员三分之二多数（第 203 条）。" }, "source_ids": ["rs-constitution-en"] },
+    { "id": "formation", "title": { "en": "Government formation", "zh": "政府组建" }, "text": { "en": "After hearing representatives of the elected lists, the President proposes a prime-ministerial candidate, who presents a programme and the proposed cabinet. The Assembly votes once on the programme, the Prime Minister and all ministers, and the Government is elected with a majority of all 250 deputies (Art. 127). If no Government is elected within 90 days of the Assembly's constitution, the Assembly must be dissolved (Art. 109).", "zh": "总统在听取当选名单代表意见后提名总理人选，由其陈述施政纲领和拟议内阁。国民议会对纲领、总理和全体部长进行一次表决，政府须获 250 名议员的过半数方能当选（第 127 条）。若议会组成后 90 日内未选出政府，议会必须解散（第 109 条）。" }, "source_ids": ["rs-constitution-consolidated", "rs-constitution-en"] },
+    { "id": "accountability", "title": { "en": "Parliamentary accountability", "zh": "议会问责" }, "text": { "en": "Sixty deputies can table a no-confidence motion against the Government or a single minister; it passes with more than half of all deputies and is not constructive, so the President must then start a new formation procedure (Art. 130). The Government may seek a confidence vote, and losing it ends its term (Art. 131).", "zh": "60 名议员即可对政府或个别部长提出不信任动议；动议须全体议员过半数通过，且不是建设性的，通过后总统必须启动新的组阁程序（第 130 条）。政府可请求信任投票，失败即任期终止（第 131 条）。" }, "source_ids": ["rs-constitution-consolidated", "rs-constitution-en"] },
+    { "id": "electoral", "title": { "en": "Election-system mechanics", "zh": "选举制度运作" }, "text": { "en": "All 250 seats are distributed by D’Hondt in one national constituency among lists that reach 3% of the voters who voted. National-minority lists are exempt from the threshold and their quotients are increased by 35%. These rules come from the 2026 election rule record; the 2020 record notes that the 2020 statute version was not read.", "zh": "全部 250 席在单一全国选区内，按 D’Hondt 法在得票达投票选民人数 3% 的名单之间分配。少数民族名单不受门槛限制，其商数提高 35%。上述规则取自 2026 年选举规则记录；2020 年记录注明未阅读 2020 年的法律文本。" }, "source_ids": [] },
+    { "id": "limits", "title": { "en": "Principal constitutional limitations", "zh": "主要宪法限制" }, "text": { "en": "The President's veto is weak: a returned law passes again with a majority of all deputies and must then be promulgated (Art. 113). Dissolution requires a reasoned Government proposal, is barred while a confidence or no-confidence motion is pending, and is excluded during war or emergency (Art. 109).", "zh": "总统否决权较弱：被退回的法律经全体议员过半数再次通过后必须公布（第 113 条）。解散须政府附理由提议，信任或不信任动议待决时不得解散，战争或紧急状态期间亦不得解散（第 109 条）。" }, "source_ids": ["rs-constitution-en"] },
+    { "id": "changes", "title": { "en": "Historically significant changes", "zh": "重要历史变化" }, "text": { "en": "The 2006 Constitution replaced the previous constitutional order after a referendum on 28–29 October 2006. The 2021–22 amendments (I–XXIX) reorganised the judiciary and touched Arts. 4, 99 and 105, but did not change the Assembly's size, the presidency or government formation.", "zh": "2006 年宪法经 2006 年 10 月 28–29 日全民公决后取代此前的宪法秩序。2021–22 年修正案（I–XXIX）重组了司法体系并涉及第 4、99、105 条，但未改变议会规模、总统制度或组阁程序。" }, "source_ids": ["rs-constitution-en", "rs-constitution-consolidated"] },
+    { "id": "rules_vs_practice", "title": { "en": "Constitutional rules and election-specific practice", "zh": "宪法规则与具体选举实践" }, "text": { "en": "The Constitution fixes 250 deputies and direct elections but leaves the formula, threshold and minority provisions to statute. The four admitted elections (2020, 2022, 2023, 2026) are therefore linked to their own rule records rather than to the current text of the electoral law.", "zh": "宪法规定 250 名议员和直接选举，但公式、门槛和少数民族条款由法律规定。因此已收录的四届选举（2020、2022、2023、2026 年）分别对应各自的规则记录，而非现行选举法文本。" }, "source_ids": ["rs-constitution-en"] }
+  ],
+  "pending": [
+    { "field": "electoral_law_history", "reason": { "en": "Electoral-law versions before 2022 were not read; the 2020 rule is recorded from the later text as a consistency check only.", "zh": "2022 年前的选举法文本未阅读；2020 年规则仅依较新文本作一致性检查记录。" } }
+  ],
+  "sources": [
+    { "source_id": "rs-constitution-consolidated", "publisher": "Службени гласник / Pravno-informacioni sistem Republike Srbije", "title": "Устав Републике Србије (98/2006, 115/2021, 16/2022) — пречишћен текст", "url": "https://www.pravno-informacioni-sistem.rs/SlGlasnikPortal/eli/rep/sgrs/ustav/ustav/2006/98/1/reg", "kind": "constitution", "language": "sr", "version": "consolidated text with Amendments I–XXIX", "retrieved_on": "2026-11-16", "retrieval_sha256": null, "access": "browser_reading" },
+    { "source_id": "rs-constitution-en", "publisher": "Narodna skupština Republike Srbije", "title": "Constitution of the Republic of Serbia — English text", "url": "https://www.parlament.gov.rs/upload/documents/Constitution_%20of_Serbia_pdf.pdf", "kind": "translation", "language": "en", "version": "2006 text (does not show the 2021–22 amendments)", "retrieved_on": "2026-11-16", "retrieval_sha256": "cfdb16d390ad801388ddf01790062c681048d8892bf17cdd52f32fc87e031414", "access": "manual_download" }
+  ]
+}
