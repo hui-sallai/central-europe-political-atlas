@@ -222,8 +222,8 @@ Implementation commit `be8268a362ce5194d768a6bd1d29d81c56e59a17` (branch `data/h
 ## 15. Remaining data gaps
 
 See handoff section L. The main ones:
-- **Romania:** electoral law and chamber sizes; dates of the 2003 revision.
-- **Croatia:** electoral act; exact amendment dates.
+- **Romania:** the consolidated text of Law 208/2015 (the electoral system is partly verified from the 2015 text and the act record); the Chamber of Deputies' sitting total; dates of the 2003 revision.
+- **Croatia:** exact dates of the 1990, 2000 and 2001 constitutional acts; the NN 5/2014 change.
 - **Slovenia:** electoral act detail.
 - **Austria:** current Bundesrat total.
 - **All countries:** constitutional history before the current constitutions, and per-article version dates.
@@ -240,3 +240,49 @@ See `docs/institutional-data-handoff-2026-11-16.md`, sections A–L. The steps:
 ## 17. Recommended next milestone
 
 Close the electoral-law gaps for the four countries without admitted elections (RO Law 208/2015, HR electoral act, SI National Assembly Elections Act, AT NRWO detail). Then add verified pre-current constitutional stages, starting with Poland 1989–1997 and Hungary 1989–2011, so the timeline reaches back to 1989/90. Both need official texts on hosts already registered, or one more owner approval for legislatie.just.ro alternatives.
+
+## Follow-up (2026-11-16): Romania and Croatia electoral laws
+
+The owner asked to close the two electoral-law gaps. Both baselines are now complete: no comparison field is pending.
+
+**Croatia** (`electoral_system` verified). Read on narodne-novine.nn.hr:
+- the consolidated Election Act, NN 66/2015;
+- Constitutional Court decision U-I-1397/2015 (NN 104/2015), which struck candidacy-signature and gender-list sanctions, not seat-allocation rules;
+- the 2019 amendment, NN 98/2019, which concerns incompatibilities only;
+- the Constituencies Act, NN 114/2023;
+- Constitutional Court decision U-I-4116/2023 (NN 20/2024), which lists the Election Act's amendments ending at NN 98/19 and records the Constituencies Act's entry into force on 3 November 2023.
+
+Recorded rules:
+- ten territorial constituencies of 14 seats, allocated by D'Hondt;
+- a 5% threshold per constituency;
+- a preferential vote counted from 10% of the list's votes;
+- 3 diaspora seats;
+- 8 national-minority seats elected by plurality.
+
+Two changes were added:
+- the 2015 preferential vote (effective 25 February 2015, partly verified);
+- the 2023 Constituencies Act (adopted 28 September, promulgated 3 October, effective 3 November 2023, verified).
+
+**Romania** (`electoral_system` partly verified). roaep.ro was registered on the owner's approval, but it answered even robots.txt with a Google reCAPTCHA challenge, so it is recorded as blocked and was not retried. On the owner's second answer, two documents were read on www.cdep.ro:
+- the Chamber of Deputies' record for Law 208/2015, including its amending acts;
+- the text sent for promulgation (PL-x 445/2015).
+
+Recorded rules:
+- 43 constituencies;
+- Annex 1 fixes 312 deputies and 136 senators;
+- representation norms of 73,000 and 168,000 inhabitants;
+- a 5% threshold, or 20% in four constituencies; alliances 5% plus 3% plus 1% per further member, up to 10%;
+- allocation by constituency quotient, then national highest quotients;
+- minority-organisation seats at 5% of the average votes per deputy.
+
+The act record lists no later amendment to these articles or to Annex 1, except Emergency Ordinance 26/2020, which the Constitutional Court found unconstitutional (Decision 150/2020). The consolidated text was not read, so the field stays partly verified. The Senate's 136 seats are now recorded. The Chamber of Deputies' total varies with the minority seats and stays pending as a sitting number.
+
+**Governance**
+- Network registry: roaep.ro added as blocked; www.cdep.ro's purpose extended to Law 208/2015.
+- Coverage matrix: regenerated; only its registry input hash changed.
+- New exact-hash amendment `romania-croatia-electoral-law-2026-11-16` for the two country records and `election_links.json`.
+
+**Tests**
+- Tooling: 478 pass, 1 skip (the existing one).
+- Checkpoint, legal-security, i18n, type check and site build: pass.
+- UI suite: 748 pass, 2 skipped; no screenshot baselines changed.

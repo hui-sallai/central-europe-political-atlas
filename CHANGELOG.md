@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Romania and Croatia electoral rules — 2026-11-16
+
+- Record Croatia’s parliamentary electoral system from the official gazette (ten 14-seat constituencies, D’Hondt, 5% constituency threshold, preferential vote, 3 diaspora and 8 national-minority seats) with the 2023 Constituencies Act and its entry into force. Record Romania’s Law 208/2015 (43 constituencies, 312 deputies and 136 senators, 5% threshold, two-stage allocation, minority-organisation seats) from the Chamber of Deputies’ text and act record, marked partly verified because the consolidated text was not read.
+
 ### v2.0 ten-country political institutions dataset — 2026-11-16
 
 - Add a source-backed institutional record for all ten countries (constitution, chambers, executive offices, 16 comparison fields, electoral rules, dated changes, official sources), with case studies for Poland, Hungary, Germany and Serbia. Link the 21 admitted parliamentary elections to their own rule records and to the institutional changes in force on polling day. Derive the institution comparison from this registry and cite official legal texts instead of overview pages.

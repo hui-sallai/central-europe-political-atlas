@@ -3742,6 +3742,35 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "romania-croatia-electoral-law-2026-11-16",
+      "status": "owner_approved",
+      "approved_by": "Owner request of 2026-11-16 to close the Romania and Croatia electoral-law gaps in the institutions registry; the owner approved registering roaep.ro (found CAPTCHA-protected and recorded as blocked) and then reading Law 208/2015 on cdep.ro. Supersedes the hashes of these three registry files in ten-country-political-institutions-2026-11-16.",
+      "baseline": "551301f1cab8d9caf2d34fc430ce8a663bae2398",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-16",
+      "files": [
+        {
+          "path": "src/lib/institutions/countries/croatia.json",
+          "sha256": "dc44fe1c8af1986d2fc3e11eca1bdaab156b43a5d23754c7c74ab3e8bf94a3a1",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/romania.json",
+          "sha256": "dfc47cf68161516269f1d9144bc228117cdc13e331b881fd55507c7dc9ff5871",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/election_links.json",
+          "sha256": "fd21d79f8392ce01d4ee90cad46f15b367782874e39a9aee21cdc3cf03015ac6",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

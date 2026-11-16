@@ -90,8 +90,8 @@ All ten countries have all 16 fields. Field counts below are verified / partly v
 | Slovakia | complete | 15 / 0 / 0 / 1 | — | 1 |
 | Austria | complete | 15 / 0 / 0 / 1 (no separate confidence vote) | — | 0 |
 | Slovenia | complete | 16 / 0 / 0 / 0 | — | 0 |
-| Romania | **partial** | 15 / 0 / 1 (electoral system) / 0 | — | 0 |
-| Croatia | **partial** | 14 / 0 / 1 (electoral system) / 1 | — | 0 |
+| Romania | complete | 15 / 1 (electoral system) / 0 / 0 | — | 0 |
+| Croatia | complete | 15 / 0 / 0 / 1 | — | 0 |
 
 "Not applicable" is the second chamber in unicameral countries, plus Austria's confidence vote.
 
@@ -200,11 +200,12 @@ Keep full constitutional text off the page. Link to the sources instead.
 ## L. Remaining research-data gaps
 
 **Romania**
-- Law 208/2015: the official portal was unreachable. Pending: chamber sizes, constituencies, formula and thresholds.
+- Law 208/2015 was read from the 2015 text sent for promulgation and the Chamber of Deputies' act record; the consolidated text was not read. roaep.ro is CAPTCHA-protected and legislatie.just.ro unreachable; both are blocked.
+- The Chamber of Deputies' sitting total (312 constituency seats plus a variable number of minority seats).
 - Dates of the 2003 revision's referendum and its entry into force.
 
 **Croatia**
-- The electoral act was not read. Pending: formula, threshold, and the function of each constituency.
+- Election Act read and current through the Constitutional Court's list of 6 February 2024; amendments after that date were not checked.
 - Exact dates of the 1990, 2000 and 2001 constitutional acts.
 - The NN 5/2014 change was not read.
 

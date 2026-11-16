@@ -121,9 +121,17 @@
    {
     "period_id": "romania-period-2003-09-22",
     "from": "2003-09-22",
-    "to_exclusive": null,
+    "to_exclusive": "2015-07-20",
     "opened_by": [
      "ro-2003-revision"
+    ]
+   },
+   {
+    "period_id": "romania-period-2015-07-20",
+    "from": "2015-07-20",
+    "to_exclusive": null,
+    "opened_by": [
+     "ro-2015-electoral-law"
     ]
    }
   ],
@@ -181,7 +189,24 @@
     ]
    }
   ],
-  "croatia": []
+  "croatia": [
+   {
+    "period_id": "croatia-period-2015-02-25",
+    "from": "2015-02-25",
+    "to_exclusive": "2023-11-03",
+    "opened_by": [
+     "hr-2015-preferential-vote"
+    ]
+   },
+   {
+    "period_id": "croatia-period-2023-11-03",
+    "from": "2023-11-03",
+    "to_exclusive": null,
+    "opened_by": [
+     "hr-2023-constituencies-act"
+    ]
+   }
+  ]
  },
  "elections": [
   {

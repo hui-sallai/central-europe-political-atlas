@@ -3,11 +3,11 @@
   "country": "romania",
   "iso2": "RO",
   "verified_on": "2026-11-16",
-  "baseline_status": "partial",
+  "baseline_status": "complete",
   "case_study": false,
   "overview": {
-    "en": "Parliament consists of the Chamber of Deputies and the Senate, both directly elected for four years, with membership set by electoral law in proportion to population. The directly elected President designates a prime-ministerial candidate, and the Government needs a vote of confidence from both chambers in joint sitting.",
-    "zh": "议会由众议院和参议院组成，两院均直选产生，任期四年，议员人数由选举法按人口比例确定。直选总统提名总理人选，政府须获得两院联席会议的信任投票。"
+    "en": "Parliament consists of the Chamber of Deputies and the Senate, both directly elected for four years, with membership set by electoral law in proportion to population: 312 constituency deputies plus minority-organisation seats, and 136 senators, elected by list proportional representation in 43 constituencies. The directly elected President designates a prime-ministerial candidate, and the Government needs a vote of confidence from both chambers in joint sitting.",
+    "zh": "议会由众议院和参议院组成，两院均直选产生，任期四年，议员人数由选举法按人口比例确定：选区众议员 312 名另加少数民族组织议席，参议员 136 名，在 43 个选区以名单比例代表制选出。直选总统提名总理人选，政府须获得两院联席会议的信任投票。"
   },
   "constitution": {
     "id": "ro-constitution-1991",
@@ -26,7 +26,7 @@
       "official_name": "Camera Deputaților",
       "name": { "en": "Chamber of Deputies", "zh": "众议院（Camera Deputaților）" },
       "role": "lower",
-      "members": { "value": null, "basis": { "en": "set by the electoral law in proportion to the population; plus one seat for each national-minority organisation that does not otherwise win representation", "zh": "由选举法按人口比例确定；另为未获代表权的每个少数民族组织各设一个议席" }, "articles": "Art. 62(2)–(3)", "source_ids": ["ro-constitution-en-t3"] },
+      "members": { "value": null, "basis": { "en": "312 constituency seats under Annex 1 of Law 208/2015 (one per 73,000 inhabitants), plus one seat for each national-minority organisation that qualifies under Art. 56; the total therefore varies by election", "zh": "依第 208/2015 号法律附件 1 设 312 个选区议席（每 73,000 名居民一名），另为符合第 56 条的每个少数民族组织各设一席；因此总数随选举而变" }, "articles": "Constitution Art. 62(2)–(3); Law 208/2015 Arts. 5, 56, Annex 1", "source_ids": ["ro-constitution-en-t3", "ro-law-208-text", "ro-law-208-record"] },
       "term_years": 4,
       "selection": { "code": "direct_by_electoral_law", "label": { "en": "Universal, equal, direct, secret and free suffrage under the electoral law", "zh": "依选举法普遍、平等、直接、秘密、自由选举" }, "articles": "Art. 62(1)" },
       "powers": { "en": "First-notified chamber for treaty ratification and the organic laws listed in Art. 75(1); for other bills it is the decision-making chamber.", "zh": "对条约批准及第 75 条第 1 款所列组织法为首先受理院；对其他法案为决定院。" },
@@ -37,7 +37,7 @@
       "official_name": "Senatul",
       "name": { "en": "Senate", "zh": "参议院（Senatul）" },
       "role": "upper",
-      "members": { "value": null, "basis": { "en": "set by the electoral law in proportion to the population", "zh": "由选举法按人口比例确定" }, "articles": "Art. 62(3)", "source_ids": ["ro-constitution-en-t3"] },
+      "members": { "value": 136, "basis": { "en": "136 senators under Annex 1 of Law 208/2015 (one per 168,000 inhabitants, at least 2 per constituency); 2015 text, Annex 1 not validly amended according to the act record", "zh": "依第 208/2015 号法律附件 1 设 136 名参议员（每 168,000 名居民一名，每个选区至少 2 名）；依据 2015 年文本，法规档案显示附件 1 未经有效修正" }, "articles": "Constitution Art. 62(3); Law 208/2015 Art. 5, Annex 1", "source_ids": ["ro-constitution-en-t3", "ro-law-208-text", "ro-law-208-record"] },
       "term_years": 4,
       "selection": { "code": "direct_by_electoral_law", "label": { "en": "Universal, equal, direct, secret and free suffrage under the electoral law", "zh": "依选举法普遍、平等、直接、秘密、自由选举" }, "articles": "Art. 62(1)" },
       "powers": { "en": "First-notified chamber for bills not reserved to the Chamber of Deputies; the other chamber then decides definitively (Art. 75).", "zh": "对未保留给众议院的法案为首先受理院，随后由另一院作出最终决定（第 75 条）。" },
@@ -82,20 +82,20 @@
     "second_chamber_role": { "value": "subject_matter_division", "label": { "en": "First-notified and decision-making chambers divided by subject matter", "zh": "按事项划分首先受理院和决定院" }, "detail": { "en": "The first-notified chamber has 45 days (60 for codes); silence counts as adoption.", "zh": "首先受理院审议期限为 45 日（法典为 60 日），逾期视为通过。" }, "articles": "Art. 75", "source_ids": ["ro-constitution-en-t3", "ro-revision-2003"], "status": "verified", "comparability": "qualified" },
     "constitutional_review": { "value": "constitutional_court", "label": { "en": "Constitutional Court (Curtea Constituțională), nine judges for nine years", "zh": "宪法法院（Curtea Constituțională），九名法官，任期九年" }, "articles": "Art. 142", "source_ids": ["ro-constitution-en-t5"], "status": "verified" },
     "legislative_term": { "value": 4, "label": { "en": "4 years (both chambers)", "zh": "四年（两院）" }, "articles": "Art. 63(1)", "source_ids": ["ro-constitution-en-t3"], "status": "verified" },
-    "electoral_system": { "value": null, "label": { "en": "Set by the electoral law; details not verified in this iteration", "zh": "由选举法规定；本轮未核实细节" }, "detail": { "en": "The Constitution guarantees one Chamber of Deputies seat to each national-minority organisation that fails to win representation (Art. 62(2)).", "zh": "宪法保障未获代表权的每个少数民族组织在众议院获得一个议席（第 62 条第 2 款）。" }, "articles": "Art. 62", "source_ids": ["ro-constitution-en-t3"], "status": "pending", "comparability": "not_comparable" }
+    "electoral_system": { "value": "list_pr_districts", "label": { "en": "List PR in 43 constituencies with national pooling of remainders; 5% threshold (alliances up to 10%); minority-organisation seats", "zh": "43 个选区的名单比例代表制，剩余票全国汇总；门槛 5%（联盟最高 10%）；另设少数民族组织议席" }, "detail": { "en": "312 deputies and 136 senators in the constituencies, plus a variable number of minority-organisation deputies. Read in the 2015 text sent for promulgation; the Chamber of Deputies’ act record lists no later amendment to Arts. 4, 5(1)–(6), 56 or 94, or to Annex 1 other than Emergency Ordinance 26/2020, which the Constitutional Court found unconstitutional (Decision 150/2020). The consolidated text was not read.", "zh": "选区议席为众议员 312 名、参议员 136 名，另加数量不定的少数民族组织众议员。依据 2015 年送交颁布的文本阅读；众议院法规档案未列出对第 4 条、第 5 条第 1–6 款、第 56 条、第 94 条或附件 1 的后续修正，唯一例外是第 26/2020 号紧急法令，宪法法院已裁定其违宪（第 150/2020 号裁决）。合并文本未阅读。" }, "articles": "Law 208/2015 Arts. 4–5, 56, 94; Annex 1; Constitution Art. 62", "source_ids": ["ro-law-208-text", "ro-law-208-record", "ro-constitution-en-t3"], "status": "partially_verified", "comparability": "qualified" }
   },
   "electoral_systems": [
     {
       "rule_id": "ro-es-parliament",
       "chamber_id": "ro-camera-deputatilor",
-      "status": "pending",
-      "summary": { "en": "Electoral law not read; only the constitutional minority-seat guarantee is recorded", "zh": "选举法未阅读；仅记录宪法规定的少数民族议席保障" },
-      "constituencies": null,
-      "allocation": null,
-      "thresholds": [],
-      "minority": { "en": "One Chamber of Deputies seat for each national-minority organisation that fails to reach representation under the electoral law (Art. 62(2))", "zh": "未能依选举法获得代表权的每个少数民族组织在众议院各获一个议席（第 62 条第 2 款）" },
-      "legal_basis": "Constitution Art. 62",
-      "source_ids": ["ro-constitution-en-t3"],
+      "status": "partially_verified",
+      "summary": { "en": "List proportional representation in 43 constituencies, allocated in two stages (constituency quota, then national highest quotients), for both chambers", "zh": "两院均在 43 个选区实行名单比例代表制，分两阶段分配（选区配额，再按全国最高商数）" },
+      "constituencies": { "en": "43 constituencies: the 41 counties, Bucharest, and one for citizens living abroad (Art. 4). Annex 1 fixes the seats per constituency: 312 deputies and 136 senators, of which 4 deputies and 2 senators abroad, from representation norms of one deputy per 73,000 and one senator per 168,000 inhabitants, with at least 4 deputies and 2 senators per constituency (Art. 5).", "zh": "43 个选区：41 个县、布加勒斯特，以及一个旅居国外公民选区（第 4 条）。附件 1 规定各选区议席：众议员 312 名、参议员 136 名，其中国外选区众议员 4 名、参议员 2 名；依据每 73,000 名居民一名众议员、每 168,000 名居民一名参议员的代表标准，每个选区至少 4 名众议员和 2 名参议员（第 5 条）。" },
+      "allocation": { "en": "Separately for each chamber: in each constituency, seats go to lists by the constituency electoral quotient (valid votes of qualifying competitors divided by the seats, Art. 94(6)); remaining votes and unallocated seats are pooled nationally and allocated by highest quotients (divisors 1, 2, 3 …), then distributed back to constituencies (Art. 94(7)–(8)). Independent candidates win a seat if they reach the constituency quotient.", "zh": "两院分别计算：在每个选区，按选区选举商数（达门槛竞选者的有效票除以议席数，第 94 条第 6 款）向名单分配议席；剩余选票和未分配议席在全国汇总，按最高商数（除数 1、2、3……）分配，再分回各选区（第 94 条第 7–8 款）。独立候选人得票达到选区商数即获一席。" },
+      "thresholds": [ { "applies_to": { "en": "parties, organisations and lists (nationally), or 20% of the valid votes in at least 4 constituencies", "zh": "政党、组织及名单（全国），或在至少 4 个选区获得 20% 有效票" }, "percent": 5, "articles": "Art. 94(2)(a)" }, { "applies_to": { "en": "alliances: 5% plus 3% for the second member and 1% for each further member", "zh": "联盟：5%，第二个成员另加 3%，其后每个成员各加 1%" }, "percent": 10, "articles": "Art. 94(2)(b) (maximum)" } ],
+      "minority": { "en": "An organisation of a national minority that wins no seat receives one Chamber of Deputies seat if it obtains at least 5% of the average number of valid votes per deputy elected nationally (Art. 56; Constitution Art. 62(2))", "zh": "未获议席的少数民族组织，若其全国得票达到当选一名众议员所需平均有效票数的至少 5%，即获得一个众议院议席（第 56 条；宪法第 62 条第 2 款）" },
+      "legal_basis": "Legea nr. 208/2015 privind alegerea Senatului şi a Camerei Deputaţilor (M.Of. nr. 553/24 iul. 2015), text sent for promulgation; Constitution Art. 62",
+      "source_ids": ["ro-law-208-text", "ro-law-208-record", "ro-constitution-en-t3"],
       "store_rule_record": null
     }
   ],
@@ -127,12 +127,25 @@
       "legal_basis": "Law no. 429/2003 on the revision of the Constitution of Romania",
       "source_ids": ["ro-revision-2003"],
       "status": "partially_verified"
+    },
+    {
+      "change_id": "ro-2015-electoral-law",
+      "dimension": "electoral_system",
+      "title": { "en": "Law 208/2015 on the election of the Senate and the Chamber of Deputies", "zh": "关于参议院和众议院选举的第 208/2015 号法律" },
+      "adopted": null,
+      "promulgated": "2015-07-20",
+      "effective": null,
+      "effective_note": { "en": "Promulgated by Decree 660/2015 and published in Monitorul Oficial no. 553 of 24 July 2015. The law has no commencement clause, so it took effect under Constitution Art. 78 (three days after publication); the resulting date was not read in an official record.", "zh": "经第 660/2015 号法令颁布，刊载于 2015 年 7 月 24 日第 553 号《官方公报》。该法无生效条款，故依宪法第 78 条（公布后三日）生效；所得确切日期未在官方记录中读到。" },
+      "previous": { "en": "Elections under Law 35/2008, which Law 208/2015 repeals (Art. 123); its system was not read.", "zh": "依第 35/2008 号法律选举，第 208/2015 号法律将其废止（第 123 条）；其制度未阅读。" },
+      "new": { "en": "Closed-list proportional representation in 43 constituencies with representation norms of 73,000 inhabitants per deputy and 168,000 per senator, a 5% threshold, and national pooling of remainders.", "zh": "43 个选区的封闭名单比例代表制，代表标准为每 73,000 名居民一名众议员、每 168,000 名居民一名参议员，门槛 5%，剩余票全国汇总。" },
+      "legal_basis": "Legea nr. 208/2015 (M.Of. nr. 553/24 iul. 2015)",
+      "source_ids": ["ro-law-208-text", "ro-law-208-record"],
+      "status": "partially_verified"
     }
   ],
   "case_study_sections": [],
   "pending": [
-    { "field": "electoral_system", "reason": { "en": "Law no. 208/2015 (parliamentary elections) was not read: the official legislation portal was unreachable from this environment.", "zh": "第 208/2015 号法律（议会选举）未阅读：官方法规门户在本环境中无法访问。" } },
-    { "field": "chamber_membership", "reason": { "en": "Current numbers of deputies and senators were not verified from an official page.", "zh": "现任众议员和参议员人数未经官方页面核实。" } },
+    { "field": "chamber_membership", "reason": { "en": "The Chamber of Deputies’ total depends on the minority-organisation seats won at each election, and current sitting numbers were not verified from an official page.", "zh": "众议院总人数取决于每次选举中少数民族组织所获议席，现任人数未经官方页面核实。" } },
     { "field": "revision_2003_dates", "reason": { "en": "Referendum and entry-into-force dates of the 2003 revision were not read.", "zh": "2003 年修订的全民公决和生效日期未阅读。" } }
   ],
   "sources": [
@@ -140,6 +153,8 @@
     { "source_id": "ro-constitution-en-t3", "publisher": "Camera Deputaților", "title": "Constitution of Romania — Title III, Public Authorities (English)", "url": "https://www.cdep.ro/ords/pls/dic/site2015.page?id=371&idl=2&par1=3", "kind": "translation", "language": "en", "version": "2003 revised text", "retrieved_on": "2026-11-16", "retrieval_sha256": "9b3d631351b1278051f790145f32954f7e6ebead1f92f9d7a642432f5d5a422c", "access": "manual_download" },
     { "source_id": "ro-constitution-en-t5", "publisher": "Camera Deputaților", "title": "Constitution of Romania — Title V, Constitutional Court (English)", "url": "https://www.cdep.ro/ords/pls/dic/site2015.page?id=371&idl=2&par1=5", "kind": "translation", "language": "en", "version": "2003 revised text", "retrieved_on": "2026-11-16", "retrieval_sha256": "971b1b7e4fbd65fbabe6b5311a13a5e8a8ed72efd9b1d58fdbed59d2a316cbb2", "access": "manual_download" },
     { "source_id": "ro-constitution-ro-t3", "publisher": "Camera Deputaților", "title": "Constituția României — Titlul III (română)", "url": "https://www.cdep.ro/ords/pls/dic/site2015.page?id=339&idl=1&par1=3", "kind": "constitution", "language": "ro", "version": "2003 revised text", "retrieved_on": "2026-11-16", "retrieval_sha256": "1fb83701dc22d68650ee7d4cbcffabda1672ecdb0d61b6e1aaee5c9f3bea4289", "access": "manual_download" },
-    { "source_id": "ro-revision-2003", "publisher": "Camera Deputaților", "title": "Law No. 429/2003 on the revision of the Constitution of Romania (English)", "url": "https://www.cdep.ro/pdfs/reviz_constitutie_en.pdf", "kind": "constitutional_amendment", "language": "en", "version": "as published", "retrieved_on": "2026-11-16", "retrieval_sha256": "d00c17d99377e0f7aa466230bf4ae4a9558a8fd5f73cd655466c2c5fa068530d", "access": "manual_download" }
+    { "source_id": "ro-revision-2003", "publisher": "Camera Deputaților", "title": "Law No. 429/2003 on the revision of the Constitution of Romania (English)", "url": "https://www.cdep.ro/pdfs/reviz_constitutie_en.pdf", "kind": "constitutional_amendment", "language": "en", "version": "as published", "retrieved_on": "2026-11-16", "retrieval_sha256": "d00c17d99377e0f7aa466230bf4ae4a9558a8fd5f73cd655466c2c5fa068530d", "access": "manual_download" },
+    { "source_id": "ro-law-208-record", "publisher": "Camera Deputaților", "title": "LEGE nr.208 din 20 iulie 2015 privind alegerea Senatului şi a Camerei Deputaţilor, precum si pentru organizarea şi funcţionarea Autorităţii Electorale Permanente (fişa actului)", "url": "https://www.cdep.ro/ords/pls/legis/legis_pck.htp_act?ida=131595", "kind": "parliament_page", "language": "ro", "version": "act record with amending acts, read 16 November 2026", "retrieved_on": "2026-11-16", "retrieval_sha256": "7ef70b6197f2b340e16f0823fde9184639beeabd971961e9daef5a72157ab88a", "access": "manual_download" },
+    { "source_id": "ro-law-208-text", "publisher": "Camera Deputaților", "title": "Lege privind alegerea Senatului şi a Camerei Deputaţilor, precum şi pentru organizarea şi funcţionarea Autorităţii Electorale Permanente (forma trimisă la promulgare, PL-x 445/2015)", "url": "https://www.cdep.ro/ords/pls/proiecte/docs?2015/pr445_15.pdf", "kind": "statute", "language": "ro", "version": "text adopted by Parliament and sent for promulgation, 2015", "retrieved_on": "2026-11-16", "retrieval_sha256": "ae5018443e1bbc1307388dbd04f2f8276e76be8051264d11ef6535b6a5026bf6", "access": "manual_download" }
   ]
 }

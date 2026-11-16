@@ -404,13 +404,23 @@
     },
     {
       "host": "www.cdep.ro",
-      "purpose": "Romanian Chamber of Deputies: Constitution of Romania (Romanian and English titles) and Law 429/2003 revision text",
+      "purpose": "Romanian Chamber of Deputies: Constitution of Romania (Romanian and English titles), Law 429/2003 revision text, and Law 208/2015 (act record and the text sent for promulgation)",
       "automation_allowed": false,
       "manual_allowed": true,
       "robots_checked_at": "2026-11-16",
       "robots_note": "User-agent: * Disallow: /declaratii/ only",
-      "reason": "Owner approval 2026-11-16 (ten-country institutions brief; answer \"Register all\"): manual reading only, one reading per named legal text or page, institutional facts only; raw files stay in scratch storage and are never committed.",
+      "reason": "Owner approval 2026-11-16 (ten-country institutions brief; answer \"Register all\"): manual reading only, one reading per named legal text or page, institutional facts only; raw files stay in scratch storage and are never committed. Law 208/2015 added 2026-11-16 on the owner's answer \"Use cdep.ro\" after roaep.ro proved CAPTCHA-protected.",
       "status": "allowed_review_due"
+    },
+    {
+      "host": "roaep.ro",
+      "purpose": "Romanian Permanent Electoral Authority: consolidated text of Law 208/2015 — not used",
+      "automation_allowed": false,
+      "manual_allowed": false,
+      "robots_checked_at": "2026-11-16",
+      "robots_note": "robots.txt request answered with a Google reCAPTCHA challenge page (bot detection); no further request made",
+      "reason": "Owner approved manual-only registration 2026-11-16, but the host challenges automated clients with a CAPTCHA, which is never bypassed or completed. Law 208/2015 stays pending.",
+      "status": "blocked"
     },
     {
       "host": "pisrs.si",

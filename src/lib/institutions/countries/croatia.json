@@ -3,11 +3,11 @@
   "country": "croatia",
   "iso2": "HR",
   "verified_on": "2026-11-16",
-  "baseline_status": "partial",
+  "baseline_status": "complete",
   "case_study": false,
   "overview": {
-    "en": "The Croatian Parliament (Hrvatski sabor) has been unicameral since the 2001 amendments and has between 100 and 160 members elected for four years; 151 members were elected on 17 April 2024. The directly elected President entrusts the formation of the Government to the person who commands a majority, and the Government takes office once a majority of all members express confidence.",
-    "zh": "克罗地亚议会（Hrvatski sabor）自 2001 年修宪后为一院制，议员人数在 100 至 160 名之间，任期四年；2024 年 4 月 17 日选出 151 名议员。直选总统将组阁任务交给获得多数支持者，政府在获得全体议员过半数信任后就职。"
+    "en": "The Croatian Parliament (Hrvatski sabor) has been unicameral since the 2001 amendments and has between 100 and 160 members elected for four years; 151 members were elected on 17 April 2024. The directly elected President entrusts the formation of the Government to the person who commands a majority, and the Government takes office once a majority of all members express confidence. Members are elected by list proportional representation in ten constituencies, with separate diaspora and national-minority seats.",
+    "zh": "克罗地亚议会（Hrvatski sabor）自 2001 年修宪后为一院制，议员人数在 100 至 160 名之间，任期四年；2024 年 4 月 17 日选出 151 名议员。直选总统将组阁任务交给获得多数支持者，政府在获得全体议员过半数信任后就职。议员在十个选区以名单比例代表制选出，另设境外议席和少数民族议席。"
   },
   "constitution": {
     "id": "hr-constitution-1990",
@@ -26,7 +26,7 @@
       "official_name": "Hrvatski sabor",
       "name": { "en": "Croatian Parliament", "zh": "克罗地亚议会（Hrvatski sabor）" },
       "role": "sole",
-      "members": { "value": 151, "basis": { "en": "constitutional range 100–160, number set by law; 151 members elected on 17 April 2024", "zh": "宪法规定 100–160 名，具体人数由法律确定；2024 年 4 月 17 日选出 151 名" }, "articles": "Arts. 72–73", "source_ids": ["hr-constitution-consolidated", "hr-sabor-about"] },
+      "members": { "value": 151, "basis": { "en": "constitutional range 100–160, number set by law: 140 constituency members, 3 diaspora members and 8 national-minority members (Election Act Arts. 8, 16, 38); 151 members elected on 17 April 2024", "zh": "宪法规定 100–160 名，具体人数由法律确定：选区议员 140 名、境外议员 3 名、少数民族议员 8 名（《选举法》第 8、16、38 条）；2024 年 4 月 17 日选出 151 名" }, "articles": "Arts. 72–73", "source_ids": ["hr-constitution-consolidated", "hr-election-act-2015", "hr-sabor-about"] },
       "term_years": 4,
       "selection": { "code": "direct_by_electoral_law", "label": { "en": "Universal and equal suffrage, direct and secret ballot; Parliament lists 12 constituencies", "zh": "普遍平等选举，直接秘密投票；议会列出 12 个选区" }, "articles": "Art. 72", "source_ids": ["hr-constitution-consolidated", "hr-sabor-constituencies"] },
       "powers": { "en": "Representative body and holder of legislative power (Art. 71); expresses confidence in the Government (Arts. 110, 116) and elects the Constitutional Court's judges by two thirds of all members (Art. 126).", "zh": "代表机关和立法权的行使者（第 71 条）；对政府表示信任（第 110、116 条），并以全体议员三分之二多数选举宪法法院法官（第 126 条）。" },
@@ -71,20 +71,20 @@
     "second_chamber_role": { "value": "not_applicable", "label": { "en": "Not applicable (unicameral since 2001)", "zh": "不适用（2001 年起为一院制）" }, "articles": null, "source_ids": [], "status": "not_applicable" },
     "constitutional_review": { "value": "constitutional_court", "label": { "en": "Constitutional Court (Ustavni sud), 13 judges elected by two thirds of all members", "zh": "宪法法院（Ustavni sud），13 名法官，由全体议员三分之二多数选举" }, "articles": "Art. 126", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
     "legislative_term": { "value": 4, "label": { "en": "4 years", "zh": "四年" }, "articles": "Art. 73", "source_ids": ["hr-constitution-consolidated"], "status": "verified" },
-    "electoral_system": { "value": null, "label": { "en": "12 constituencies listed by Parliament; formula, threshold and special constituencies not verified", "zh": "议会列出 12 个选区；公式、门槛及特殊选区未核实" }, "articles": null, "source_ids": ["hr-sabor-constituencies"], "status": "pending", "comparability": "not_comparable" }
+    "electoral_system": { "value": "list_pr_districts", "label": { "en": "List PR in ten 14-seat constituencies (D’Hondt), 5% constituency threshold, preferential vote; plus 3 diaspora and 8 minority seats", "zh": "十个 14 席选区的名单比例代表制（D’Hondt），选区门槛 5%，设优先票；另有 3 个境外议席和 8 个少数民族议席" }, "detail": { "en": "140 + 3 + 8 = 151 members. The threshold applies per constituency, not nationally. Rules read in the 2015 consolidated text with the 2015 Constitutional Court decision (which concerned candidacy rules, not seat allocation) and the 2019 amendment (incompatibilities only); the Constitutional Court’s decision of 6 February 2024 lists no later amendment. Amendments after that date were not checked.", "zh": "140 + 3 + 8 = 151 名议员。门槛按选区计算，而非全国。规则依据 2015 年合并文本，并结合 2015 年宪法法院裁决（涉及候选资格规则，而非议席分配）及 2019 年修正（仅涉及职务不兼容）；宪法法院 2024 年 2 月 6 日的裁决未列出更晚的修正。该日期之后的修正未核查。" }, "articles": "Election Act Arts. 8, 16–17, 38, 40–41, 44, 46; Constituencies Act Arts. 2–14", "source_ids": ["hr-election-act-2015", "hr-usrh-2015", "hr-election-act-2019", "hr-constituencies-act-2023", "hr-usrh-2024"], "status": "verified", "comparability": "qualified" }
   },
   "electoral_systems": [
     {
       "rule_id": "hr-es-sabor",
       "chamber_id": "hr-sabor",
-      "status": "pending",
-      "summary": { "en": "Constituency structure recorded; electoral act not read", "zh": "已记录选区结构；选举法未阅读" },
-      "constituencies": { "en": "12 numbered constituencies on Parliament's constituency list; the function of each was not read", "zh": "议会选区列表中共 12 个编号选区；各选区的性质未阅读" },
-      "allocation": null,
-      "thresholds": [],
-      "minority": { "en": "Eight minority members in the current term", "zh": "本届有 8 名少数民族议员" },
-      "legal_basis": "Zakon o izborima zastupnika u Hrvatski sabor (not read)",
-      "source_ids": ["hr-sabor-constituencies", "hr-sabor-minorities"],
+      "status": "verified",
+      "summary": { "en": "List proportional representation in ten territorial constituencies (D’Hondt, 14 seats each) with a preferential vote, plus a diaspora constituency and a national-minority constituency", "zh": "十个地域选区的名单比例代表制（D’Hondt，每区 14 席），设优先票，另设境外选区和少数民族选区" },
+      "constituencies": { "en": "Ten territorial constituencies elect 140 members, 14 each (Art. 38); constituency XI elects 3 members for citizens without residence in Croatia (Art. 8); constituency XII, covering the whole country, elects 8 national-minority members (Art. 16). Since 3 November 2023 the ten territorial constituencies are defined by the Constituencies Act (NN 114/23, 125/23), and the number of voters in each may not differ by more than 5% from the average (Art. 14).", "zh": "十个地域选区共选出 140 名议员，每区 14 名（第 38 条）；第 XI 选区为在克罗地亚无住所的公民选出 3 名议员（第 8 条）；覆盖全国的第 XII 选区选出 8 名少数民族议员（第 16 条）。自 2023 年 11 月 3 日起，十个地域选区由《选区法》（NN 114/23、125/23）划定，各区选民人数与平均数的偏差不得超过 5%（第 14 条）。" },
+      "allocation": { "en": "In each territorial constituency list votes are divided by 1 to 14 and the 14 highest quotients win seats (D’Hondt, Art. 40). A candidate’s preferential votes count when they reach at least 10% of the list’s votes; seats go first to those candidates in order of preferential votes, then by list order (Art. 40). Constituency XI uses the same highest-quotient rule over 3 seats (Art. 44). Minority members are elected individually by plurality (Art. 46).", "zh": "在每个地域选区，各名单得票分别除以 1 至 14，取最大的 14 个商数分配议席（D’Hondt，第 40 条）。候选人的优先票达到该名单得票的至少 10% 时才计入；议席先按优先票多少分配给这些候选人，其余按名单顺序（第 40 条）。第 XI 选区按同一最高商数规则分配 3 席（第 44 条）。少数民族议员以相对多数单独选举产生（第 46 条）。" },
+      "thresholds": [ { "applies_to": { "en": "lists in a constituency (share of valid votes in that constituency)", "zh": "选区内的名单（占该选区有效票的比例）" }, "percent": 5, "articles": "Art. 41" } ],
+      "minority": { "en": "8 seats: Serb minority 3; Hungarian 1; Italian 1; Czech and Slovak together 1; Austrian, Bulgarian, German, Polish, Roma, Romanian, Rusyn, Russian, Turkish, Ukrainian, Vlach and Jewish together 1; Albanian, Bosniak, Montenegrin, Macedonian and Slovene together 1 (Art. 17)", "zh": "共 8 席：塞尔维亚族 3 席；匈牙利族 1 席；意大利族 1 席；捷克族与斯洛伐克族合计 1 席；奥地利、保加利亚、德意志、波兰、罗姆、罗马尼亚、卢森尼亚、俄罗斯、土耳其、乌克兰、弗拉赫和犹太族合计 1 席；阿尔巴尼亚、波什尼亚克、黑山、马其顿和斯洛文尼亚族合计 1 席（第 17 条）" },
+      "legal_basis": "Zakon o izborima zastupnika u Hrvatski sabor (NN 116/99 … 19/15, 66/15 consolidated, 104/15, 98/19; amendment list as cited by the Constitutional Court on 6 February 2024); Zakon o izbornim jedinicama (NN 114/23, 125/23)",
+      "source_ids": ["hr-election-act-2015", "hr-usrh-2015", "hr-election-act-2019", "hr-constituencies-act-2023", "hr-usrh-2024"],
       "store_rule_record": null
     }
   ],
@@ -130,17 +130,49 @@
       "legal_basis": "Promjena Ustava (NN 28/2001)",
       "source_ids": ["hr-sabor-about", "hr-constitution-consolidated"],
       "status": "partially_verified"
+    },
+    {
+      "change_id": "hr-2015-preferential-vote",
+      "dimension": "electoral_system",
+      "title": { "en": "2015 amendments: preferential vote in parliamentary elections", "zh": "2015 年修正：议会选举引入优先票" },
+      "adopted": null,
+      "promulgated": null,
+      "effective": "2015-02-25",
+      "previous": null,
+      "new": { "en": "Articles 38, 40 and 44 rewritten: voters may mark one preferred candidate, and candidates with at least 10% of their list’s votes are elected first.", "zh": "第 38、40、44 条重写：选民可标记一名优先候选人，获得所在名单至少 10% 选票的候选人优先当选。" },
+      "effective_note": { "en": "In force 25 February 2015 per the consolidated text’s notes; adoption date and the previous wording were not read.", "zh": "据合并文本注释，于 2015 年 2 月 25 日生效；通过日期及原条文未阅读。" },
+      "legal_basis": "Zakon o izmjenama i dopunama Zakona o izborima zastupnika u Hrvatski sabor (NN 19/15), Arts. 23–24, 26",
+      "source_ids": ["hr-election-act-2015"],
+      "status": "partially_verified"
+    },
+    {
+      "change_id": "hr-2023-constituencies-act",
+      "dimension": "electoral_system",
+      "title": { "en": "2023 Constituencies Act redraws the ten territorial constituencies", "zh": "2023 年《选区法》重新划定十个地域选区" },
+      "adopted": "2023-09-28",
+      "promulgated": "2023-10-03",
+      "effective": "2023-11-03",
+      "previous": { "en": "Constituencies set by the 1999 act (NN 116/99), which the Constitutional Court repealed on 7 February 2023 with effect from 1 October 2023.", "zh": "选区由 1999 年法律（NN 116/99）划定；宪法法院于 2023 年 2 月 7 日将其废止，自 2023 年 10 月 1 日起失效。" },
+      "new": { "en": "Ten territorial constituencies defined by municipalities and city districts, with a ±5% limit on deviation from the average number of voters and twice-yearly reports to Parliament; constituencies XI (diaspora) and XII (minorities) unchanged.", "zh": "十个地域选区按市镇和城区划定，选民人数与平均数的偏差限定在 ±5% 以内，并每年两次向议会报告；第 XI（境外）和第 XII（少数民族）选区不变。" },
+      "effective_note": { "en": "Published 4 October 2023 (NN 114/23); the original 1 October 2023 commencement was replaced by NN 125/23, under which the act entered into force on 3 November 2023 (Constitutional Court, 6 February 2024).", "zh": "2023 年 10 月 4 日公布（NN 114/23）；原定 2023 年 10 月 1 日的生效条款被 NN 125/23 取代，据此该法于 2023 年 11 月 3 日生效（宪法法院，2024 年 2 月 6 日）。" },
+      "legal_basis": "Zakon o izbornim jedinicama za izbor zastupnika u Hrvatski sabor (NN 114/23, 125/23)",
+      "source_ids": ["hr-constituencies-act-2023", "hr-usrh-2024"],
+      "status": "verified"
     }
   ],
   "case_study_sections": [],
   "pending": [
-    { "field": "electoral_system", "reason": { "en": "The Act on Elections of Representatives to the Croatian Parliament was not read; formula, threshold and diaspora/minority seat counts are not asserted.", "zh": "《克罗地亚议会代表选举法》未阅读；不主张公式、门槛及境外/少数民族议席数。" } },
     { "field": "amendment_dates", "reason": { "en": "Exact dates of the 1990, 2000 and 2001 constitutional acts and the NN 5/2014 change were not read.", "zh": "1990、2000、2001 年宪法文件及 NN 5/2014 修改的确切日期未阅读。" } }
   ],
   "sources": [
     { "source_id": "hr-constitution-consolidated", "publisher": "Narodne novine d.d.", "title": "Ustav Republike Hrvatske (pročišćeni tekst), NN 85/2010", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2010_07_85_2422.html", "kind": "constitution", "language": "hr", "version": "consolidated text of 9 July 2010", "retrieved_on": "2026-11-16", "retrieval_sha256": "f08584865d7a054d23f203b42b478cf10711a6f8cc5e6cda8b6de82d4a0511cd", "access": "manual_download" },
     { "source_id": "hr-sabor-about", "publisher": "Hrvatski sabor", "title": "About the Parliament", "url": "https://www.sabor.hr/en/about-parliament", "kind": "parliament_page", "language": "en", "version": "page retrieved 2026-11-16", "retrieved_on": "2026-11-16", "retrieval_sha256": "f7ba86aff25fabdd58770ab223e8cca7b23bc2f60710ac3f052d661fb2574d4f", "access": "manual_download" },
     { "source_id": "hr-sabor-constituencies", "publisher": "Hrvatski sabor", "title": "Constituencies", "url": "https://www.sabor.hr/en/mps/constituencies", "kind": "parliament_page", "language": "en", "version": "page retrieved 2026-11-16", "retrieved_on": "2026-11-16", "retrieval_sha256": "0707e2dd15e1a39a958641e783b7ad9cf79db599ab330794a2b7d5494426420a", "access": "manual_download" },
-    { "source_id": "hr-sabor-minorities", "publisher": "Hrvatski sabor", "title": "National Minorities MPs (count only)", "url": "https://www.sabor.hr/en/mps/national-minorities-mps", "kind": "parliament_page", "language": "en", "version": "page retrieved 2026-11-16; only the count is used", "retrieved_on": "2026-11-16", "retrieval_sha256": "35d4857083e4671bdb4370cb6545ee1a3c778ed17ee6ad70c518008e619c4d6c", "access": "manual_download" }
+    { "source_id": "hr-sabor-minorities", "publisher": "Hrvatski sabor", "title": "National Minorities MPs (count only)", "url": "https://www.sabor.hr/en/mps/national-minorities-mps", "kind": "parliament_page", "language": "en", "version": "page retrieved 2026-11-16; only the count is used", "retrieved_on": "2026-11-16", "retrieval_sha256": "35d4857083e4671bdb4370cb6545ee1a3c778ed17ee6ad70c518008e619c4d6c", "access": "manual_download" },
+    { "source_id": "hr-election-act-2015", "publisher": "Narodne novine d.d.", "title": "Zakon o izborima zastupnika u Hrvatski sabor (pročišćeni tekst), NN 66/2015", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2015_06_66_1259.html", "kind": "statute", "language": "hr", "version": "consolidated text of 15 June 2015", "retrieved_on": "2026-11-16", "retrieval_sha256": "539ad398ff66febead26244c332877a9c032de7456f2a320acbb80e2a7df68ac", "access": "manual_download" },
+    { "source_id": "hr-usrh-2015", "publisher": "Narodne novine d.d.", "title": "Odluka i Rješenje Ustavnog suda Republike Hrvatske broj: U-I-1397/2015 od 24. rujna 2015., NN 104/2015", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2015_09_104_2036.html", "kind": "official_gazette_record", "language": "hr", "version": "published 30 September 2015", "retrieved_on": "2026-11-16", "retrieval_sha256": "5cfa6753c6f2d55687d7e70564224e2a9a75e02ed4e73f8bb73d9e837847007f", "access": "manual_download" },
+    { "source_id": "hr-election-act-2019", "publisher": "Narodne novine d.d.", "title": "Zakon o izmjeni Zakona o izborima zastupnika u Hrvatski sabor, NN 98/2019", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2019_10_98_1926.html", "kind": "statute", "language": "hr", "version": "published 16 October 2019", "retrieved_on": "2026-11-16", "retrieval_sha256": "6ab70df950673bff7cd4d7272f1fefae84602bf0e54e5eda48d903ca47e7c42d", "access": "manual_download" },
+    { "source_id": "hr-constituencies-act-2023", "publisher": "Narodne novine d.d.", "title": "Zakon o izbornim jedinicama za izbor zastupnika u Hrvatski sabor, NN 114/2023", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2023_10_114_1608.html", "kind": "statute", "language": "hr", "version": "published 4 October 2023", "retrieved_on": "2026-11-16", "retrieval_sha256": "4997237acc347361f137141e04202f40931f8e3eb6f5207918546783aa45fac7", "access": "manual_download" },
+    { "source_id": "hr-usrh-2024", "publisher": "Narodne novine d.d.", "title": "Odluka i Rješenje Ustavnog suda Republike Hrvatske broj: U-I-4116/2023 i dr. od 6. veljače 2024., NN 20/2024", "url": "https://narodne-novine.nn.hr/clanci/sluzbeni/2024_02_20_333.html", "kind": "official_gazette_record", "language": "hr", "version": "published 21 February 2024", "retrieved_on": "2026-11-16", "retrieval_sha256": "e9e95e0d8e7e5c894d805cac905212078c1e9a3936828d0c6f46137aa5810340", "access": "manual_download" }
   ]
 }
