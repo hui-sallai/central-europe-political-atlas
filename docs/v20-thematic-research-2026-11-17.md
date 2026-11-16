@@ -221,7 +221,7 @@ No existing store, event, project, case-study or frozen file was changed.
 
 ## L. Final commit
 
-Recorded after commit (§M).
+Data commit `89e87d9`, guard fix `5e588fa` (live).
 
 ## M. Deployment
 
@@ -240,7 +240,20 @@ stayed on `cd88adf`.
 The exception is one file, not a directory. A new tooling test checks that only `src/lib/thematicResearch.ts`,
 `src/app/`, `src/components/` and the builder import the thematic files, and that each exception stays one exact file.
 
-**Fix commit.** Recorded after it is pushed.
+**Fix commit.** `5e588fa` (on 推送上线). Deploy run 43973595081: build and deploy succeeded. Production provenance shows
+`5e588fa` (generated 2026-11-16T22:51:54Z).
+
+**Production checks:**
+- Research package: 169,434,897 bytes, sha256 `1bb0d23ec5b1cee8…`.
+- Production acceptance: 6/6.
+
+**Alerts:**
+- Code scanning: 2 open (#17, #18, `js/xss-through-dom` warnings in `src/components/InstitutionComparison.tsx` lines 77 and
+  92). They were first raised at 16:41 UTC on Codex's institutional-explorer commits, before this iteration's pushes, and
+  are Codex-owned.
+- Dependabot: `minimatch` (#24, unchanged), plus a new Next.js advisory (#25 and #26, medium, `'use cache'` information
+  disclosure, affects 16.3.0–16.4.4, fixed in 16.4.5; the project pins 16.4.1). Upgrading needs an owner decision because it
+  changes `package.json`.
 
 ## N. Remaining gaps
 
