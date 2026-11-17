@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 import { matchDependencyException, unapprovedFrozenChanges } from '../../scripts/political-data/germany/frozen-boundary.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -118,5 +119,20 @@ test('the zod exception validates the committed lockfile against its anchored pr
   assert.equal(zodEx.kind, 'transitive_lockfile');
   assert.equal(zodEx.builds_on, 'dep-sec-2026-11-next-16-4-1');
   assert.deepEqual(zodEx.approved_scope.transitive_changes, [{ package: 'zod', from: '4.4.3', to: '4.6.7' }]);
-  assert.equal(exceptions.at(-1).exception_id, zodEx.exception_id);
+  assert.equal(exceptions.at(-2).exception_id, zodEx.exception_id);
+});
+test('the Next.js 16.4.5 exception is the latest, direct, and anchored to the zod lockfile it replaces (2026-11-17)', () => {
+  const ex = exceptions.at(-1);
+  assert.equal(ex.exception_id, 'dep-sec-2026-11-next-16-4-5');
+  assert.equal(ex.kind, undefined);
+  assert.deepEqual(ex.approved_scope.package_changes.map((c) => `${c.package}:${c.from}->${c.to}`), ['next:16.2.6->16.4.5', 'eslint-config-next:16.2.6->16.4.5']);
+  const zodEx = exceptions.find((e) => e.exception_id === 'dep-sec-2026-11-zod-4-6-7');
+  assert.equal(ex.previous_lockfile_sha256, zodEx.new_lockfile_sha256);
+  const prev = execFileSync('git', ['show', `${ex.previous_lockfile_commit}:pnpm-lock.yaml`], { cwd: root, encoding: 'utf8', maxBuffer: 1e9 });
+  assert.equal(sha(prev), ex.previous_lockfile_sha256);
+  const current = fs.readFileSync(path.join(root, 'pnpm-lock.yaml'), 'utf8');
+  assert.ok(/zod@4\.6\.7(?=[':\s()])/.test(current) && !/zod@(?!4\.6\.7(?=[':\s()]))[0-9]/.test(current), 'zod stays 4.6.7');
+  const pkg = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
+  assert.equal(pkg.dependencies.next, '16.4.5');
+  assert.equal(pkg.devDependencies['eslint-config-next'], '16.4.5');
 });

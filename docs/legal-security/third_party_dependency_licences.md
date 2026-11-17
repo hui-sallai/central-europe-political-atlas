@@ -1,8 +1,8 @@
-# Third-party dependencies, licences and vulnerability status (re-audited 2026-11-08 after maintenance)
+# Third-party dependencies, licences and vulnerability status (re-audited 2026-11-17 after maintenance)
 
 | Package | Version | Licence | Runtime / dev | Purpose |
 |---|---|---|---|---|
-| next | 16.4.1 (was 16.3.6; 16.2.6 at baseline) | MIT | runtime (build-time static export) | framework, static export, OG images |
+| next | 16.4.5 (was 16.4.1; 16.2.6 at baseline) | MIT | runtime (build-time static export) | framework, static export, OG images |
 | react | 19.2.6 | MIT | runtime | UI |
 | react-dom | 19.2.6 | MIT | runtime | UI |
 | @axe-core/playwright | 4.13.0 | MPL-2.0 | dev | accessibility tests |
@@ -11,7 +11,7 @@
 | tailwindcss | 4.3.0 | MIT | dev | CSS build |
 | @types/node, @types/react, @types/react-dom | 25.9.1 / 19.2.15 / 19.2.3 | MIT | dev | types |
 | eslint | 9.39.1 | MIT | dev | lint |
-| eslint-config-next | 16.4.1 (was 16.3.6; 16.2.6 at baseline) | MIT | dev | lint |
+| eslint-config-next | 16.4.5 (was 16.4.1; 16.2.6 at baseline) | MIT | dev | lint |
 | typescript | 6.0.3 | Apache-2.0 | dev | typecheck |
 
 MPL-2.0 (axe-core) is used unmodified as a dev tool and is not distributed in the site bundle.
@@ -145,5 +145,18 @@ Remaining advisories (both dev-only, lint tooling, not in the site bundle):
 | Audit (`pnpm audit`) | Total | Critical | High | Moderate | Production tree |
 |---|---|---|---|---|---|
 | after (zod 4.6.7) | 1 | 0 | 0 | 1 | 0 |
+
+The only remaining advisory is the dev-only `minimatch` described above.
+
+## Dependency maintenance: Next.js 16.4.1 → 16.4.5 (2026-11-17)
+
+- **Trigger:** two open GitHub Dependabot alerts (#25 `package.json`, #26 `pnpm-lock.yaml`) for GHSA-mfr8-8qww-v76h (medium). A `use cache` function called through `unstable_cache()` can disclose data across root params. Affected `>=16.3.0 <=16.4.4`, patched in 16.4.5.
+- **Exposure before the upgrade:** none in production. The site is a static export with no Next.js server, `use cache` or `unstable_cache` at runtime, and `src/` uses neither.
+- **Change:** `next` and `eslint-config-next` 16.4.1 → **16.4.5** (published 2026-11-03). The lockfile diff is limited to `next`, `@next/env`, `@next/eslint-plugin-next`, the `@next/swc-*` binaries and `eslint-config-next`. `caniuse-lite` and zod 4.6.7 are unchanged, and no override was used.
+- **Governance:** owner-approved exception `dep-sec-2026-11-next-16-4-5`. The previous lockfile is anchored at `b97e482` (sha256 `4de7282b…bf22`), and the new lockfile has sha256 `d85664de…d96b`. Every research, model, political and release flag is false.
+
+| Audit (`pnpm audit`) | Total | Critical | High | Moderate | Production tree |
+|---|---|---|---|---|---|
+| after (16.4.5) | 1 | 0 | 0 | 1 | 0 |
 
 The only remaining advisory is the dev-only `minimatch` described above.
