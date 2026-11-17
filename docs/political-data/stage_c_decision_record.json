@@ -84,10 +84,13 @@
   {
    "country": "slovenia",
    "elections": [
+    2014,
+    2018,
+    2022,
     2026
    ],
-   "scope": "National Assembly 2026, whole chamber (90 seats): national list results (88) and the Italian and Hungarian national-community elections, from the National Electoral Commission minutes in Uradni list RS 197/2026; candidates without names; earlier elections not admitted",
-   "record": "docs/political-data/slovenia_dz_admission.json"
+   "scope": "National Assembly 2014, 2018, 2022 and 2026, whole chamber (90 seats): national list results (88) and the Italian and Hungarian national-community elections (2014 and 2018 as ranking points); candidates without names; 2011 and earlier not admitted",
+   "record": "docs/political-data/slovenia_dz2014_2022_admission.json"
   },
   {
    "country": "romania",
@@ -176,6 +179,12 @@
    "country": "romania",
    "question": "Admit Romania 2016 from the AEP data.gov.ro files, given that turnout columns are undocumented, the minority seats are derived by rule and the files are not the BEC final act?",
    "decision": "Owner answer \"ii then i\": read the Chamber of Deputies' 2016-2020 composition page once to confirm the minority organisations, then admit 2016 with these limits stated."
+  },
+  {
+   "date": "2026-11-18",
+   "country": "slovenia",
+   "question": "Continue with Slovenia's earlier elections from the commission's own documents?",
+   "decision": "Owner reply \"continue\": 2014, 2018 and 2022 admitted from the scanned minutes/report and the final results by polling station; 2011 left for an .xls reader."
   }
  ],
  "countries": {

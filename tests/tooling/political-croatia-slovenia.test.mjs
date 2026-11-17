@@ -14,7 +14,7 @@ const hrEvidence = read('docs/political-data/raw/croatia/sabor/evidence.json');
 const siEvidence = read('docs/political-data/raw/slovenia/dz/evidence.json');
 // Names of persons printed in the source documents (party leaders, elected members, committee members) that must never
 // appear in committed data: a sample across both countries and all admitted years.
-const PERSON_NAMES = ['PLENKOVIĆ', 'KELEMINEC', 'PERNARA', 'OREŠKOVIĆ', 'ŠKORE', 'PETRINA', 'BANDIĆ', 'KERUM', 'LACKOVIĆ', 'JOSIPOVIĆA', 'VESELICA', 'PUPOVAC', 'LOTRIČA', 'LOGARJA', 'PREBILIČA', 'RUPARJA', 'ERJAVEC', 'Ziza', 'Horváth', 'Golob'];
+const PERSON_NAMES = ['PLENKOVIĆ', 'KELEMINEC', 'PERNARA', 'OREŠKOVIĆ', 'ŠKORE', 'PETRINA', 'BANDIĆ', 'KERUM', 'LACKOVIĆ', 'JOSIPOVIĆA', 'VESELICA', 'PUPOVAC', 'LOTRIČA', 'LOGARJA', 'PREBILIČA', 'RUPARJA', 'ERJAVEC', 'Ziza', 'Horváth', 'Golob', 'Tremul', 'Močnek', 'Kasaš', 'BATTELLI', 'GÖNCZ', 'SOBOČAN', 'Šarca', 'BRATUŠEK', 'PIVEC', 'Popoviča', 'CERARJA'];
 
 test('both builds reproduce the committed stores and exports', () => {
   for (const script of ['scripts/political-data/croatia/build-sabor.mjs', 'scripts/political-data/slovenia/build-dz.mjs']) {
@@ -87,23 +87,32 @@ test('Croatia: the seat rule fails closed on a tampered decision', () => {
   assert.throws(() => reconcileUnit('2015', v, 'truncated_two_decimals'), /printed percentage/, '2015 prints rounded percentages');
 });
 
-test('Slovenia: 88 list seats and two national-community seats; the National Council is excluded', () => {
+test('Slovenia: 88 list seats and two national-community seats in every election; the National Council is excluded', () => {
   const data = buildSlovenia();
-  const [leg] = data.legislatures;
-  assert.equal(leg.total_seats, 90);
-  assert.deepEqual(leg.seats_by_mechanism, { general_lists: 88, italian_national_community: 1, hungarian_national_community: 1 });
-  assert.match(leg.excluded_bodies[0].body, /Državni svet/);
-  const general = data.election_results.filter((r) => r.vote_type === 'si_list_vote');
-  assert.equal(general.reduce((n, r) => n + r.seats, 0), 88);
-  assert.deepEqual(general.filter((r) => r.seats > 0).map((r) => r.seats), [29, 28, 9, 6, 6, 5, 5]);
-  for (const g of ['si-nc-italijanska', 'si-nc-madzarska']) assert.equal(data.election_results.filter((r) => r.geography === g && r.elected).length, 1, g);
+  assert.deepEqual(data.elections.map((e) => e.election_id), ['el-si-dz-2014-07-13', 'el-si-dz-2018-06-03', 'el-si-dz-2022-04-24', 'el-si-dz-2026-03-22']);
+  for (const leg of data.legislatures) {
+    assert.equal(leg.total_seats, 90);
+    assert.deepEqual(leg.seats_by_mechanism, { general_lists: 88, italian_national_community: 1, hungarian_national_community: 1 });
+    assert.match(leg.excluded_bodies[0].body, /Državni svet/);
+  }
+  const seats = { 'el-si-dz-2014-07-13': [36, 21, 10, 6, 6, 5, 4], 'el-si-dz-2018-06-03': [25, 13, 10, 10, 9, 7, 5, 5, 4], 'el-si-dz-2022-04-24': [41, 27, 8, 7, 5], 'el-si-dz-2026-03-22': [29, 28, 9, 6, 6, 5, 5] };
+  for (const [id, expected] of Object.entries(seats)) {
+    const general = data.election_results.filter((r) => r.election_id === id && r.vote_type === 'si_list_vote');
+    assert.deepEqual(general.filter((r) => r.seats > 0).map((r) => r.seats), expected, id);
+    for (const g of ['si-nc-italijanska', 'si-nc-madzarska']) assert.equal(data.election_results.filter((r) => r.election_id === id && r.geography === g && r.elected).length, 1, `${id} ${g}`);
+  }
   assert.ok(data.electoral_contestants.filter((c) => c.contestant_kind === 'individual_candidate').every((c) => c.name_stored === false));
 });
 
 test('Slovenia: list names with persons use the commission short name; minutes and data file agree; no personal data', () => {
   const data = buildSlovenia();
-  const short = data.electoral_contestants.filter((c) => c.label_basis === 'dvk_short_name_for_personal_name').map((c) => c.historical_display_label);
+  const short = data.electoral_contestants.filter((c) => c.election_id === 'el-si-dz-2026-03-22' && c.label_basis === 'dvk_short_name_for_personal_name').map((c) => c.historical_display_label);
   assert.deepEqual(short.sort(), ['DEMOKRATI.', 'GLAS UPOKOJENCEV', 'NSi, SLS, FOKUS', 'PREROD', 'ZAUPANJE']);
+  assert.deepEqual(data.electoral_contestants.filter((c) => c.election_id === 'el-si-dz-2022-04-24' && c.label_basis === 'dvk_short_name_for_personal_name').map((c) => c.historical_display_label).sort(), ["L'BP", 'LMŠ', 'NAŠA DEŽELA', 'SAB']);
+  // 2014 and 2018: ranking points are stored as points, never as votes.
+  const pts = data.election_results.filter((r) => r.vote_type === 'si_national_community_candidate_points');
+  assert.equal(new Set(pts.map((r) => r.election_id)).size, 2);
+  assert.ok(pts.every((r) => r.votes === null && Number.isInteger(r.points) && r.derived_vote_share === null));
   const g = siEvidence.elections['2026'].general;
   assert.equal(reconcileSi('2026', siEvidence.elections['2026']).lists_in_allocation, 7);
   assert.deepEqual([g.entitled, g.voted, g.voted_printed_percent], [1695249, 1190932, '70,25']);

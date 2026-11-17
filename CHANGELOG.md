@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Slovenian parliamentary elections 2014–2022 — 2026-11-18
+
+- Add Slovenia's National Assembly elections of 2014, 2018 and 2022 (all 90 seats each, with the Italian and Hungarian national-community deputies), from the electoral commission's own result documents and its final station-level results. The 2014 and 2018 community results are ranking points and are labelled as such.
+
 ### v2.0 Romanian parliamentary election 2016 — 2026-11-18
 
 - Add Romania's 2016 parliamentary election as two separate elections: Chamber of Deputies (329 seats, including 17 seats for national-minority organisations) and Senate (136 seats), from the Permanent Electoral Authority's open-licence files, with independent candidates aggregated without names. Turnout is not published because the files do not define their count columns.

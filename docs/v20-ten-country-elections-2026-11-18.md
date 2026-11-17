@@ -125,3 +125,20 @@ Required behaviour:
 - Institutions: `store_chamber` set for `ro-camera-deputatilor` and `ro-senat`; both elections link to `romania-period-2015-07-20` (Law 208/2015).
 - Codex: `politicalRomanianStores()` (raw, gated); two separate elections — chamber selection required, never one combined chart; minority seats shown as a separate mechanism; turnout shown as "not published" with `turnout_definition`.
 - Still missing: Romania 2024 and 2020 (owner to save RF_2.pdf / RF_3.pdf into `local-evidence/romania/`), 2012 (mixed-member system with single-member colleges; not started); Austria (owner files pending in `local-evidence/austria/`).
+
+## Addendum: Slovenia 2014, 2018 and 2022 (owner reply "continue")
+
+Admission `slovenia-dz-2014-2022` (`docs/political-data/slovenia_dz2014_2022_admission.json`); same build (`scripts/political-data/slovenia/build-dz.mjs`), now four elections.
+
+| Election | Source document (www.dvk-rs.si) | Lists | List seats (88) | National communities |
+|---|---|---|---|---|
+| `el-si-dz-2014-07-13` | report 041-34/2014-286, 24 July 2014 (scan, anonymised) | 17 | SMC 36, SDS 21, DeSUS 10, SD 6, ZL 6, NSi 5, ZaAB 4 | ranking points (sole candidate in each) |
+| `el-si-dz-2018-06-03` | minutes adopted 14 June 2018 (scan) | 25 | SDS 25, LMŠ 13, SD 10, SMC 10, Levica 9, NSi 7, SAB 5, DeSUS 5, SNS 4 | ranking points |
+| `el-si-dz-2022-04-24` | minutes 041-5/2022-28, 7 May 2022 (scan) | 21 | Svoboda 41, SDS 27, NSi 8, SD 7, Levica 5 | votes |
+
+- The scans have no text layer: the 1-bit page images were converted locally and read; every printed total (entitled voters, voters, ballots, invalid, valid) equals the sum of the commission's final results by polling station, which also give the exact list votes and short names. 2022 also agrees with the commission's archive data file (votes, seats, short names).
+- D'Hondt over 88 seats with the 4% threshold reproduces every printed seat statement.
+- 2014 and 2018 national-community results are ranking points (točk) and are stored as `points` under vote type `si_national_community_candidate_points`, never as votes; 2022 and 2026 are votes.
+- Labels: 2014 and 2018 use the commission's short names (full names not transcribed); 2022 names with a person use the commission's short name (LMŠ, SAB, L'BP, NAŠA DEŽELA).
+- 2011 not admitted: the polling-station file is in the legacy .xls format, so the cross-check could not be run.
+- Institutions: `election_links.json` now holds 31 elections; all four Slovenian elections link to `slovenia-period-2013-05-24`.

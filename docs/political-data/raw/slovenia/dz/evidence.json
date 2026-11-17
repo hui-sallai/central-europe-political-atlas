@@ -13,6 +13,903 @@
   "how": "read once in the browser pane (PISRS)"
  },
  "elections": {
+  "2014": {
+   "election_id": "el-si-dz-2014-07-13",
+   "polling_day": "2014-07-13",
+   "minutes": {
+    "title": "Poročilo o izidu predčasnih volitev poslancev v Državni zbor Republike Slovenije (anonimizirano)",
+    "kind": "report",
+    "dvk_number": "041-34/2014-286",
+    "adopted": "2014-07-24",
+    "url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2014/Porocilo-o-izidu---predcasne-volitve-v-DZ-2014--anonimizirano.pdf",
+    "publisher_file_sha256": "8e8d82f7334c8c7a3f5a6c9bfb4533eb8b7019bb9f1d1e8dfe19c227c6a747a3",
+    "bytes": 738454,
+    "gazette": null,
+    "how": "scanned document (image only) downloaded once from www.dvk-rs.si; totals, seats and national-community figures read from the page images and checked against the station file; elected members’ names not transcribed",
+    "act_cited": "ZVDZ (as cited in the report, Art. 90–92)"
+   },
+   "cross_check": {
+    "title": "DVK final results by polling station (Končni izid po voliščih)",
+    "url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2014/VsaVolisca20140721-_12_.xlsx",
+    "publisher_file_sha256": "0123aaddbfd52246cc8af340a3e301458fa6dc042fcb811e8eccc48d0bb76ab2",
+    "retrieved_at": "2026-11-18",
+    "stations": 17223
+   },
+   "general": {
+    "entitled": 1713067,
+    "entitled_on_roll": 1713057,
+    "entitled_with_certificate": 10,
+    "voted": 886124,
+    "voted_printed_percent": "51,73",
+    "ballots_cast": 885860,
+    "invalid": 11569,
+    "valid": 874291,
+    "threshold_percent": 4,
+    "lists_in_allocation_printed": 7,
+    "voted_note": "voters who voted include 10 with a certificate and 3 on the list of disabled voters",
+    "lists": [
+     {
+      "row": 1,
+      "votes": 301563,
+      "seats": 36,
+      "dvk_list_id": null,
+      "display_label": "SMC",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SMC",
+      "title_sha256": null
+     },
+     {
+      "row": 2,
+      "votes": 181052,
+      "seats": 21,
+      "dvk_list_id": null,
+      "display_label": "SDS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SDS",
+      "title_sha256": null
+     },
+     {
+      "row": 3,
+      "votes": 88968,
+      "seats": 10,
+      "dvk_list_id": null,
+      "display_label": "DeSUS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "DeSUS",
+      "title_sha256": null
+     },
+     {
+      "row": 4,
+      "votes": 52249,
+      "seats": 6,
+      "dvk_list_id": null,
+      "display_label": "SD",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SD",
+      "title_sha256": null
+     },
+     {
+      "row": 5,
+      "votes": 52189,
+      "seats": 6,
+      "dvk_list_id": null,
+      "display_label": "ZL",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "ZL",
+      "title_sha256": null
+     },
+     {
+      "row": 6,
+      "votes": 48846,
+      "seats": 5,
+      "dvk_list_id": null,
+      "display_label": "NSi",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "NSi",
+      "title_sha256": null
+     },
+     {
+      "row": 7,
+      "votes": 38293,
+      "seats": 4,
+      "dvk_list_id": null,
+      "display_label": "ZAAB",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "ZAAB",
+      "title_sha256": null
+     },
+     {
+      "row": 8,
+      "votes": 34548,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "SLS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SLS",
+      "title_sha256": null
+     },
+     {
+      "row": 9,
+      "votes": 25975,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "PS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "PS",
+      "title_sha256": null
+     },
+     {
+      "row": 10,
+      "votes": 19218,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "SNS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SNS",
+      "title_sha256": null
+     },
+     {
+      "row": 11,
+      "votes": 11737,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "PSS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "PSS",
+      "title_sha256": null
+     },
+     {
+      "row": 12,
+      "votes": 6800,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "VERJAMEM",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "VERJAMEM",
+      "title_sha256": null
+     },
+     {
+      "row": 13,
+      "votes": 5556,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "DL",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "DL",
+      "title_sha256": null
+     },
+     {
+      "row": 14,
+      "votes": 4629,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "ZS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "ZS",
+      "title_sha256": null
+     },
+     {
+      "row": 15,
+      "votes": 2125,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "ED-NS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "ED-NS",
+      "title_sha256": null
+     },
+     {
+      "row": 16,
+      "votes": 458,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "LGS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "LGS",
+      "title_sha256": null
+     },
+     {
+      "row": 17,
+      "votes": 85,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "SHS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SHS",
+      "title_sha256": null
+     }
+    ]
+   },
+   "national_communities": [
+    {
+     "community": "italijanska",
+     "community_en": "Italian",
+     "on_roll": 2619,
+     "with_certificate": 0,
+     "entitled": 2619,
+     "voted": 812,
+     "ballots_cast": 812,
+     "invalid": 120,
+     "valid": 692,
+     "method": "points",
+     "candidates": [
+      {
+       "row": 1,
+       "points": 692,
+       "elected": true
+      }
+     ]
+    },
+    {
+     "community": "madzarska",
+     "community_en": "Hungarian",
+     "on_roll": 6184,
+     "with_certificate": 3,
+     "entitled": 6187,
+     "voted": 2412,
+     "ballots_cast": 2412,
+     "invalid": 147,
+     "valid": 2265,
+     "method": "points",
+     "candidates": [
+      {
+       "row": 1,
+       "points": 2265,
+       "elected": true
+      }
+     ]
+    }
+   ],
+   "retrieved_at": "2026-11-18"
+  },
+  "2018": {
+   "election_id": "el-si-dz-2018-06-03",
+   "polling_day": "2018-06-03",
+   "minutes": {
+    "title": "Zapisnik o ugotovitvi izida predčasnih volitev poslancev v Državni zbor Republike Slovenije",
+    "kind": "minutes",
+    "dvk_number": null,
+    "adopted": "2018-06-14",
+    "url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2018/011dyenp.pdf",
+    "publisher_file_sha256": "101d9f1e8424a78cecf424d12d799a3449adb93ae5b8dde89bf9146d672bed0e",
+    "bytes": 949451,
+    "gazette": null,
+    "how": "scanned document (image only) downloaded once from www.dvk-rs.si; totals, seats and national-community figures read from the page images and checked against the station file; elected members’ names not transcribed",
+    "act_cited": "ZVDZ (Uradni list RS, št. 109/06 – uradno prečiščeno besedilo, 54/07 – odl. US in 23/17)"
+   },
+   "cross_check": {
+    "title": "DVK final results by polling station (Končni izid po voliščih)",
+    "url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2018/Koncni-izid_VsaVolisca20180612Internet.xlsx",
+    "publisher_file_sha256": "e6c649098470f7f72cf099ea013f218e259872007fa81bc203a7cc987788006b",
+    "retrieved_at": "2026-11-18",
+    "stations": 6445
+   },
+   "general": {
+    "entitled": 1712676,
+    "entitled_on_roll": 1712659,
+    "entitled_with_certificate": 17,
+    "voted": 901512,
+    "voted_printed_percent": "52,64",
+    "ballots_cast": 901454,
+    "invalid": 10357,
+    "valid": 891097,
+    "threshold_percent": 4,
+    "lists_in_allocation_printed": 9,
+    "lists": [
+     {
+      "row": 1,
+      "votes": 222042,
+      "seats": 25,
+      "dvk_list_id": null,
+      "display_label": "SDS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SDS",
+      "title_sha256": null
+     },
+     {
+      "row": 2,
+      "votes": 112250,
+      "seats": 13,
+      "dvk_list_id": null,
+      "display_label": "LMŠ",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "LMŠ",
+      "title_sha256": null
+     },
+     {
+      "row": 3,
+      "votes": 88524,
+      "seats": 10,
+      "dvk_list_id": null,
+      "display_label": "SD",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SD",
+      "title_sha256": null
+     },
+     {
+      "row": 4,
+      "votes": 86868,
+      "seats": 10,
+      "dvk_list_id": null,
+      "display_label": "SMC",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SMC",
+      "title_sha256": null
+     },
+     {
+      "row": 5,
+      "votes": 83108,
+      "seats": 9,
+      "dvk_list_id": null,
+      "display_label": "LEVICA",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "LEVICA",
+      "title_sha256": null
+     },
+     {
+      "row": 6,
+      "votes": 63792,
+      "seats": 7,
+      "dvk_list_id": null,
+      "display_label": "NSi",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "NSi",
+      "title_sha256": null
+     },
+     {
+      "row": 7,
+      "votes": 45492,
+      "seats": 5,
+      "dvk_list_id": null,
+      "display_label": "STRANKA AB",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "STRANKA AB",
+      "title_sha256": null
+     },
+     {
+      "row": 8,
+      "votes": 43889,
+      "seats": 5,
+      "dvk_list_id": null,
+      "display_label": "DeSUS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "DeSUS",
+      "title_sha256": null
+     },
+     {
+      "row": 9,
+      "votes": 37182,
+      "seats": 4,
+      "dvk_list_id": null,
+      "display_label": "SNS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SNS",
+      "title_sha256": null
+     },
+     {
+      "row": 10,
+      "votes": 23329,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "SLS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SLS",
+      "title_sha256": null
+     },
+     {
+      "row": 11,
+      "votes": 19182,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "PIRATI",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "PIRATI",
+      "title_sha256": null
+     },
+     {
+      "row": 12,
+      "votes": 13540,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "DD",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "DD",
+      "title_sha256": null
+     },
+     {
+      "row": 13,
+      "votes": 9708,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "ZELENI",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "ZELENI",
+      "title_sha256": null
+     },
+     {
+      "row": 14,
+      "votes": 7835,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "LNBP",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "LNBP",
+      "title_sha256": null
+     },
+     {
+      "row": 15,
+      "votes": 5548,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "ZD",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "ZD",
+      "title_sha256": null
+     },
+     {
+      "row": 16,
+      "votes": 5287,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "Zsi",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "Zsi",
+      "title_sha256": null
+     },
+     {
+      "row": 17,
+      "votes": 5072,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "ZDRUŽENA LEVICA",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "ZDRUŽENA LEVICA",
+      "title_sha256": null
+     },
+     {
+      "row": 18,
+      "votes": 4345,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "GSN",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "GSN",
+      "title_sha256": null
+     },
+     {
+      "row": 19,
+      "votes": 3672,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "ReSET",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "ReSET",
+      "title_sha256": null
+     },
+     {
+      "row": 20,
+      "votes": 3132,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "GAS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "GAS",
+      "title_sha256": null
+     },
+     {
+      "row": 21,
+      "votes": 2184,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "SOLIDARNOST",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SOLIDARNOST",
+      "title_sha256": null
+     },
+     {
+      "row": 22,
+      "votes": 2141,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "ZDRUŽENA DESNICA",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "ZDRUŽENA DESNICA",
+      "title_sha256": null
+     },
+     {
+      "row": 23,
+      "votes": 1551,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "SPS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SPS",
+      "title_sha256": null
+     },
+     {
+      "row": 24,
+      "votes": 1237,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "SSN",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "SSN",
+      "title_sha256": null
+     },
+     {
+      "row": 25,
+      "votes": 187,
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "NPS",
+      "label_basis": "dvk_short_name",
+      "dvk_short_name": "NPS",
+      "title_sha256": null
+     }
+    ]
+   },
+   "national_communities": [
+    {
+     "community": "italijanska",
+     "community_en": "Italian",
+     "on_roll": 2693,
+     "with_certificate": 34,
+     "entitled": 2727,
+     "voted": 1486,
+     "ballots_cast": 1486,
+     "invalid": 22,
+     "valid": 1464,
+     "method": "points",
+     "candidates": [
+      {
+       "row": 1,
+       "points": 2570,
+       "elected": true
+      },
+      {
+       "row": 2,
+       "points": 2160,
+       "elected": false
+      },
+      {
+       "row": 3,
+       "points": 1043,
+       "elected": false
+      }
+     ]
+    },
+    {
+     "community": "madzarska",
+     "community_en": "Hungarian",
+     "on_roll": 5952,
+     "with_certificate": 10,
+     "entitled": 5962,
+     "voted": 3043,
+     "ballots_cast": 3043,
+     "invalid": 42,
+     "valid": 3001,
+     "method": "points",
+     "candidates": [
+      {
+       "row": 1,
+       "points": 4193,
+       "elected": true
+      },
+      {
+       "row": 2,
+       "points": 2772,
+       "elected": false
+      }
+     ]
+    }
+   ],
+   "retrieved_at": "2026-11-18"
+  },
+  "2022": {
+   "election_id": "el-si-dz-2022-04-24",
+   "polling_day": "2022-04-24",
+   "minutes": {
+    "title": "Zapisnik o ugotovitvi izida volitev poslancev v Državni zbor",
+    "kind": "minutes",
+    "dvk_number": "041-5/2022-28",
+    "adopted": "2022-05-07",
+    "url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/DZ/2022/izidi_volitev/VDZ_2022_Zapisnik_o_ugotovitvi_izida_sprejet_7.5.2022.pdf",
+    "publisher_file_sha256": "50d12bcd6629e7c968a02566ab1d20cdf49eeda5864532e1899ff5c3096f129c",
+    "bytes": 950921,
+    "gazette": null,
+    "how": "scanned document (image only) downloaded once from www.dvk-rs.si; totals, seats and national-community figures read from the page images and checked against the station file; elected members’ names not transcribed",
+    "act_cited": "ZVDZ (Uradni list RS, št. 109/06 – uradno prečiščeno besedilo, 54/07 – odl. US, 23/17 in 29/21)"
+   },
+   "cross_check": {
+    "title": "DVK final results by polling station (Končni izid po voliščih)",
+    "url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/DZ/2022/izidi_volitev/VoliscaDZ20220506Koncni.xlsx",
+    "publisher_file_sha256": "5409375c6cbe4b2831f33b7dd31dc2d79a2f5925dc8977dc4bba7b115576ea66",
+    "retrieved_at": "2026-11-18",
+    "stations": 14172,
+    "data_file": "https://www.dvk-rs.si/arhivi/dz2022/data/rezultati.json",
+    "data_file_sha256": "2c1de5fd6c8daca3b09e22a2702702111d1e63da8b42379d46af1a0b2348c297"
+   },
+   "general": {
+    "entitled": 1695796,
+    "entitled_on_roll": 1695766,
+    "entitled_with_certificate": 30,
+    "voted": 1203522,
+    "voted_printed_percent": "70,97",
+    "ballots_cast": 1203373,
+    "invalid": 11080,
+    "valid": 1192293,
+    "threshold_percent": 4,
+    "lists_in_allocation_printed": 5,
+    "lists": [
+     {
+      "row": 1,
+      "votes": 410769,
+      "seats": 41,
+      "dvk_list_id": 4,
+      "display_label": "GIBANJE SVOBODA",
+      "label_basis": "verbatim",
+      "dvk_short_name": "SVOBODA",
+      "title_sha256": "b2c21c8a9a9156c8aca27a0093d0001379020009bbd4f9a64b722acf692db6aa"
+     },
+     {
+      "row": 2,
+      "votes": 279897,
+      "seats": 27,
+      "dvk_list_id": 15,
+      "display_label": "SLOVENSKA DEMOKRATSKA STRANKA - SDS",
+      "label_basis": "verbatim",
+      "dvk_short_name": "SDS",
+      "title_sha256": "81659c5badb0966d79827d58346b8b6170bb8d93130da03a1b8f380d4d92355e"
+     },
+     {
+      "row": 3,
+      "votes": 81794,
+      "seats": 8,
+      "dvk_list_id": 12,
+      "display_label": "NOVA SLOVENIJA - KRŠČANSKI DEMOKRATI",
+      "label_basis": "verbatim",
+      "dvk_short_name": "NSi",
+      "title_sha256": "cd62da6f372e47677e865c877c45c3a672f00f661c2918afa51fd68e83033b8e"
+     },
+     {
+      "row": 4,
+      "votes": 79709,
+      "seats": 7,
+      "dvk_list_id": 17,
+      "display_label": "SOCIALNI DEMOKRATI - SD",
+      "label_basis": "verbatim",
+      "dvk_short_name": "SD",
+      "title_sha256": "8cdde6ab46f354aefb8542ae788d3eed72df77dac452f4b7f336315bde54de13"
+     },
+     {
+      "row": 5,
+      "votes": 53234,
+      "seats": 5,
+      "dvk_list_id": 6,
+      "display_label": "LEVICA",
+      "label_basis": "verbatim",
+      "dvk_short_name": "LEVICA",
+      "title_sha256": "51c5ae492db026ee13b725ebbfbc5235933a21db92e75367ceceb02bed17cc51"
+     },
+     {
+      "row": 6,
+      "votes": 44401,
+      "seats": 0,
+      "dvk_list_id": 8,
+      "display_label": "LMŠ",
+      "label_basis": "dvk_short_name_for_personal_name",
+      "dvk_short_name": "LMŠ",
+      "title_sha256": "583e1d85e9f0ae9b4bf4f81a21f6016d3fa506b18463457b9bde79e8a5cea954"
+     },
+     {
+      "row": 7,
+      "votes": 40612,
+      "seats": 0,
+      "dvk_list_id": 14,
+      "display_label": "POVEŽIMO SLOVENIJO (KONKRETNO, ZELENI, SLS, NLS, NS)",
+      "label_basis": "verbatim",
+      "dvk_short_name": "POVEŽIMO",
+      "title_sha256": "f6446faab5e6c96b4350c4d881f9ee224350fb18b52d6a9c8d434dc57396a081"
+     },
+     {
+      "row": 8,
+      "votes": 34107,
+      "seats": 0,
+      "dvk_list_id": 3,
+      "display_label": "Državljansko gibanje Resni.ca",
+      "label_basis": "verbatim",
+      "dvk_short_name": "Resni.ca",
+      "title_sha256": "ed41e18b1f5c39872adc846cde7a3f838bd80dec117fde404921c81862074350"
+     },
+     {
+      "row": 9,
+      "votes": 31117,
+      "seats": 0,
+      "dvk_list_id": 18,
+      "display_label": "SAB",
+      "label_basis": "dvk_short_name_for_personal_name",
+      "dvk_short_name": "SAB",
+      "title_sha256": "927615d7e0c05021bf3a1d27f2b8e280b03e6b9338bcfa54b4f6412b4aa0b275"
+     },
+     {
+      "row": 10,
+      "votes": 21021,
+      "seats": 0,
+      "dvk_list_id": 11,
+      "display_label": "NESTRANKARSKA LJUDSKA LISTA GIBANJA ZDRAVA DRUŽBA",
+      "label_basis": "verbatim",
+      "dvk_short_name": "NESTRANKARSKA",
+      "title_sha256": "e62cccb5dbe0474be171f643c63b9c6b127271f7ed712a69fa68ea8d8a395a3f"
+     },
+     {
+      "row": 11,
+      "votes": 20279,
+      "seats": 0,
+      "dvk_list_id": 10,
+      "display_label": "NAŠA PRIHODNOST IN DOBRA DRŽAVA",
+      "label_basis": "verbatim",
+      "dvk_short_name": "SNP-DD",
+      "title_sha256": "19c0013d9545e0493c55646806d27f1bd71f18075a193921f4984a38306c2a91"
+     },
+     {
+      "row": 12,
+      "votes": 19480,
+      "seats": 0,
+      "dvk_list_id": 13,
+      "display_label": "PIRATSKA STRANKA SLOVENIJE",
+      "label_basis": "verbatim",
+      "dvk_short_name": "Pirati",
+      "title_sha256": "725ca694815d71979c7738abde20011328552d25ea8e25b009a5a20cf51f8c01"
+     },
+     {
+      "row": 13,
+      "votes": 17846,
+      "seats": 0,
+      "dvk_list_id": 9,
+      "display_label": "NAŠA DEŽELA",
+      "label_basis": "dvk_short_name_for_personal_name",
+      "dvk_short_name": "NAŠA DEŽELA",
+      "title_sha256": "575cf8f927c32fe603992fc9e635e385c1b5f7a2efaefa517bc0fd6652b6adba"
+     },
+     {
+      "row": 14,
+      "votes": 17736,
+      "seats": 0,
+      "dvk_list_id": 16,
+      "display_label": "SLOVENSKA NACIONALNA STRANKA - SNS",
+      "label_basis": "verbatim",
+      "dvk_short_name": "SNS",
+      "title_sha256": "2efe1f3367f38f352355e6e564f2b63f8d66c2b6aabd8344356476b06b6f312e"
+     },
+     {
+      "row": 15,
+      "votes": 16089,
+      "seats": 0,
+      "dvk_list_id": 19,
+      "display_label": "VESNA - zelena stranka",
+      "label_basis": "verbatim",
+      "dvk_short_name": "VESNA",
+      "title_sha256": "631b3b6a5d3821f0b9218052b2ca5b6efd4ea49418cca5c4d05b05ed98acf408"
+     },
+     {
+      "row": 16,
+      "votes": 8340,
+      "seats": 0,
+      "dvk_list_id": 20,
+      "display_label": "ZA LJUDSTVO SLOVENIJE  - ZLS",
+      "label_basis": "verbatim",
+      "dvk_short_name": "ZLS",
+      "title_sha256": "7c26b07725fde1b68964d6b70b06b260c33f06e3cc3ce8f2edb79c4019bddc43"
+     },
+     {
+      "row": 17,
+      "votes": 7840,
+      "seats": 0,
+      "dvk_list_id": 1,
+      "display_label": "DeSUS - DEMOKRATIČNA STRANKA UPOKOJENCEV SLOVENIJE",
+      "label_basis": "verbatim",
+      "dvk_short_name": "DeSUS",
+      "title_sha256": "5484435fbe6d4c149436092bb929cfaf97417fc712df437836d176ff3b57d650"
+     },
+     {
+      "row": 18,
+      "votes": 5174,
+      "seats": 0,
+      "dvk_list_id": 7,
+      "display_label": "L'BP",
+      "label_basis": "dvk_short_name_for_personal_name",
+      "dvk_short_name": "L'BP",
+      "title_sha256": "9cf4380c057fe41a3e44ab2454529630aab6dcf7f6d051e02d6844112c0a13be"
+     },
+     {
+      "row": 19,
+      "votes": 2117,
+      "seats": 0,
+      "dvk_list_id": 2,
+      "display_label": "DOMOVINSKA LIGA - DOM",
+      "label_basis": "verbatim",
+      "dvk_short_name": "DOM",
+      "title_sha256": "2b7cc22366cd3feaa56cec00c3fb212a5d2dc54ca1ba7ccb129e86d25ee2d1df"
+     },
+     {
+      "row": 20,
+      "votes": 563,
+      "seats": 0,
+      "dvk_list_id": 21,
+      "display_label": "ZOS - ZAVEZNIŠTVO OSVOBODIMO SLOVENIJO (GIBANJE ZEDINJENA SLOVENIJA - ZSI IN STRANKA SLOVENSKEGA NARODA - SSN)",
+      "label_basis": "verbatim",
+      "dvk_short_name": "ZOS",
+      "title_sha256": "7b1da724be2b1a1e0e5f95a946e7a42a82c8da5ca72fcd76587770ffd6a90e58"
+     },
+     {
+      "row": 21,
+      "votes": 168,
+      "seats": 0,
+      "dvk_list_id": 5,
+      "display_label": "Gibanje Zedinjena Slovenija - ZSi",
+      "label_basis": "verbatim",
+      "dvk_short_name": "ZSi",
+      "title_sha256": "b788095c319a75ece91187569100124202bfe63c9237aeefd6b9548d92792e98"
+     }
+    ]
+   },
+   "national_communities": [
+    {
+     "community": "italijanska",
+     "community_en": "Italian",
+     "on_roll": 2710,
+     "with_certificate": 33,
+     "entitled": 2743,
+     "voted": 1918,
+     "ballots_cast": 1918,
+     "invalid": 51,
+     "valid": 1867,
+     "method": "votes",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 740,
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 1127,
+       "elected": true
+      }
+     ]
+    },
+    {
+     "community": "madzarska",
+     "community_en": "Hungarian",
+     "on_roll": 5478,
+     "with_certificate": 7,
+     "entitled": 5485,
+     "voted": 3583,
+     "ballots_cast": 3583,
+     "invalid": 74,
+     "valid": 3509,
+     "method": "votes",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 647,
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 2026,
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 836,
+       "elected": false
+      }
+     ]
+    }
+   ],
+   "retrieved_at": "2026-11-18"
+  },
   "2026": {
    "election_id": "el-si-dz-2026-03-22",
    "polling_day": "2026-03-22",

@@ -1,0 +1,91 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "slovenia-dz-2014-2022",
+ "country": "slovenia",
+ "election_ids": [
+  "el-si-dz-2014-07-13",
+  "el-si-dz-2018-06-03",
+  "el-si-dz-2022-04-24",
+  "el-si-dz-2026-03-22"
+ ],
+ "scope": "National Assembly elections of 13 July 2014, 3 June 2018 and 24 April 2022, added to 22 March 2026 (unchanged), all 90 seats each: every list with national votes and seats (88) and the Italian and Hungarian national-community elections (votes in 2022, ranking points in 2014 and 2018; candidates without names), with entitled voters, voters who voted, ballots cast, valid and invalid ballots. 2014-2022 figures come from the commission's scanned minutes or report (totals, seats, community results) and its final results by polling station (list votes and short names), which agree on every printed total; the 2022 list names and short names also come from the commission's data file. Earlier elections, constituency results, candidate names and the indirectly elected National Council are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief \"Complete ten-country parliamentary election coverage and historical institutional integration\" (Croatia, Slovenia, Romania, Austria), naming www.izbori.hr and www.dvk-rs.si as official sources."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner answer \"Accept for all four\": publication on the reading of each copyright act's official-texts provision, national and constituency figures only, no candidate names."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner answer \"Register both\": www.dvk-rs.si and www.izbori.hr registered for manual reading only (exact files and pages, one request each, no crawling)."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner reply \"continue\" to the proposal to admit Slovenia 2022, 2018, 2014 (and 2011) from the commission's own result documents on the registered www.dvk-rs.si, under the same rights basis."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/slovenia/dz/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "statute_art_9_zasp",
+   "basis": "ZASP Art. 9(1)(2): official texts from the legislative, administrative and judicial fields are not protected (read 2026-11-18 on PISRS) — the owner's reading for the commission's minutes published in the official gazette. Weaker than a licence."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_from_minutes",
+   "evidence_kind": "statute_art_9_zasp",
+   "basis": "National figures only (voters, ballots, list votes and seats; national-community candidate votes without names) transcribed from the minutes; attribution to the National Electoral Commission and Uradni list RS."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The minutes (which also print the 90 elected members' names, dates of birth and addresses) are identified by checksum and not committed; no personal data is transcribed. The commission's data files are kept in local-evidence/ by checksum."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "pisrs.si already registered (manual); the minutes PDF linked from the commission's page was read once in the visible browser pane (curl receives HTTP 407) and its text decoded in the page. www.dvk-rs.si registered (robots.txt read); the archive's documented result files rezultati.json and udelezba.json were downloaded once each. Test files on the commission's page (built from partial 2022 data) were identified and not used. 2014-2022: the commission's pages for each election read once; the scanned minutes/report and the final results by polling station downloaded once each; the 2022 archive data file (rezultati.json) downloaded once. The scans carry no text layer: figures were read from the page images (CCITT layer converted locally) and every total was checked against the polling-station sums."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "The minutes print entitled voters, voters who voted, ballots, invalid and valid ballots, every list with votes and percentage, the lists taking part, the quotient sequence and seats per list, and both national-community elections; all figures are transcribed. 2014-2022: the scanned documents print the totals, the seat statement and the community results; list votes are the polling-station sums, equal to the printed totals."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "List votes equal valid ballots; valid plus invalid equal ballots cast; printed turnout and percentages reproduce (rounded); lists at or above 4% equal the seven named; D'Hondt over 88 seats reproduces the seats; each community's candidate votes equal valid ballots and the elected candidate has most votes; the commission's data file agrees on every list's votes and seats; seats total 90. 2014, 2018, 2022: polling-station sums equal the printed entitled voters, ballots, invalid and valid ballots; D'Hondt over 88 seats reproduces the printed seats (2014: SMC 36, SDS 21, DeSUS 10, SD 6, ZL 6, NSi 5, ZaAB 4; 2018: SDS 25, LMŠ 13, SD 10, SMC 10, Levica 9, NSi 7, SAB 5, DeSUS 5, SNS 4; 2022: Svoboda 41, SDS 27, NSi 8, SD 7, Levica 5); community ranking points are consistent with valid ballots and the elected candidate has most points."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_printed_list",
+   "evidence_kind": "owner_decision",
+   "basis": "Each list keeps its row, the commission's list id and a name checksum; names containing a person are shown by the commission's published short name. No list is linked to a party or across elections. 2014 and 2018 lists are labelled by the commission's short names (full names not transcribed); 2022 names with a person use the commission's short name."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "rules_printed_in_minutes_reproduced",
+   "evidence_kind": "official_act",
+   "basis": "The minutes cite ZVDZ Arts. 90–93 and print the 4% threshold and the D'Hondt quotient sequence over 88 seats; the institutional registry record si-es-dz-constitutional holds the statute read from PISRS. 2014 and 2018: the minutes print national-community results as ranking points (točk), stored as points under their own vote type, never as votes."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_minutes",
+   "evidence_kind": "official_act",
+   "basis": "The minutes (DVK 041-5/2025-26) were adopted on 7 April 2026 and published in Uradni list RS 197/2026. 2014: report 041-34/2014-286 adopted 24 July 2014; 2018: minutes adopted 14 June 2018; 2022: minutes 041-5/2022-28 adopted 7 May 2022."
+  }
+ },
+ "continuity": "None: no party register was reviewed; continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

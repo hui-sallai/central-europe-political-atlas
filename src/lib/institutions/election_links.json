@@ -937,6 +937,105 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-si-dz-2014-07-13",
+   "country": "slovenia",
+   "date": "2014-07-13",
+   "chamber_id": "si-drzavni-zbor",
+   "chamber_official_name": "Državni zbor Republike Slovenije",
+   "seats": 90,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-si-dz-2014",
+   "system_family": "list proportional representation (eight 11-seat constituencies, seats fixed nationally) plus two national-community deputies elected separately",
+   "allocation_method": "D'Hondt over all 88 seats nationally among lists with at least 4% (Art. 92); first distribution in constituencies by the Droop quota (Arts. 90–91), remaining seats to constituencies by largest remainders (Art. 93)",
+   "base_seats": 90,
+   "thresholds": [
+    {
+     "applies_to": "list of candidates, nationally",
+     "percent": 4,
+     "description": {
+      "en": "A list needs at least 4% of all list votes in the country to take part in the seat allocation (minutes item 7, ZVDZ Art. 90(2) and 92(3)).",
+      "zh": "名单须获得全国全部名单票至少 4% 才能参与席位分配（纪要第 7 项，ZVDZ 第 90 条第 2 款、第 92 条第 3 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: rules applied in the 2014 minutes (ZVDZ (as cited in the report, Art. 90–92)); the institutional registry record si-es-dz-constitutional holds the statutory text read from PISRS",
+   "constitution_id": "si-constitution-1991",
+   "institutional_period_id": "slovenia-period-2013-05-24",
+   "changes_in_force": [
+    "si-1991-constitution",
+    "si-2000-art80",
+    "si-2013-referendum"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-si-dz-2018-06-03",
+   "country": "slovenia",
+   "date": "2018-06-03",
+   "chamber_id": "si-drzavni-zbor",
+   "chamber_official_name": "Državni zbor Republike Slovenije",
+   "seats": 90,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-si-dz-2018",
+   "system_family": "list proportional representation (eight 11-seat constituencies, seats fixed nationally) plus two national-community deputies elected separately",
+   "allocation_method": "D'Hondt over all 88 seats nationally among lists with at least 4% (Art. 92); first distribution in constituencies by the Droop quota (Arts. 90–91), remaining seats to constituencies by largest remainders (Art. 93)",
+   "base_seats": 90,
+   "thresholds": [
+    {
+     "applies_to": "list of candidates, nationally",
+     "percent": 4,
+     "description": {
+      "en": "A list needs at least 4% of all list votes in the country to take part in the seat allocation (minutes item 7, ZVDZ Art. 90(2) and 92(3)).",
+      "zh": "名单须获得全国全部名单票至少 4% 才能参与席位分配（纪要第 7 项，ZVDZ 第 90 条第 2 款、第 92 条第 3 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: rules applied in the 2018 minutes (ZVDZ (Uradni list RS, št. 109/06 – uradno prečiščeno besedilo, 54/07 – odl. US in 23/17)); the institutional registry record si-es-dz-constitutional holds the statutory text read from PISRS",
+   "constitution_id": "si-constitution-1991",
+   "institutional_period_id": "slovenia-period-2013-05-24",
+   "changes_in_force": [
+    "si-1991-constitution",
+    "si-2000-art80",
+    "si-2013-referendum"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-si-dz-2022-04-24",
+   "country": "slovenia",
+   "date": "2022-04-24",
+   "chamber_id": "si-drzavni-zbor",
+   "chamber_official_name": "Državni zbor Republike Slovenije",
+   "seats": 90,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-si-dz-2022",
+   "system_family": "list proportional representation (eight 11-seat constituencies, seats fixed nationally) plus two national-community deputies elected separately",
+   "allocation_method": "D'Hondt over all 88 seats nationally among lists with at least 4% (Art. 92); first distribution in constituencies by the Droop quota (Arts. 90–91), remaining seats to constituencies by largest remainders (Art. 93)",
+   "base_seats": 90,
+   "thresholds": [
+    {
+     "applies_to": "list of candidates, nationally",
+     "percent": 4,
+     "description": {
+      "en": "A list needs at least 4% of all list votes in the country to take part in the seat allocation (minutes item 7, ZVDZ Art. 90(2) and 92(3)).",
+      "zh": "名单须获得全国全部名单票至少 4% 才能参与席位分配（纪要第 7 项，ZVDZ 第 90 条第 2 款、第 92 条第 3 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: rules applied in the 2022 minutes (ZVDZ (Uradni list RS, št. 109/06 – uradno prečiščeno besedilo, 54/07 – odl. US, 23/17 in 29/21)); the institutional registry record si-es-dz-constitutional holds the statutory text read from PISRS",
+   "constitution_id": "si-constitution-1991",
+   "institutional_period_id": "slovenia-period-2013-05-24",
+   "changes_in_force": [
+    "si-1991-constitution",
+    "si-2000-art80",
+    "si-2013-referendum"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-si-dz-2026-03-22",
    "country": "slovenia",
    "date": "2026-03-22",

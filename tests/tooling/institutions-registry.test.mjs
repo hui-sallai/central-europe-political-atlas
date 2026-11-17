@@ -110,7 +110,8 @@ test("election links: reproducible, complete, and tied to each election's own ru
       for (const id of link.later_changes) assert.ok(changeDate(countries[slug].changes.find((c) => c.change_id === id)) > e.date);
     }
   }
-  assert.equal(links.elections.length, 28);
+  assert.equal(links.elections.length, 31);
+  assert.deepEqual(links.elections.filter((l) => l.country === "slovenia").map((l) => l.date), ["2014-07-13", "2018-06-03", "2022-04-24", "2026-03-22"]);
   // Romania 2016: both chambers, each linked to the period opened by Law 208/2015.
   assert.deepEqual(links.elections.filter((l) => l.country === "romania").map((l) => [l.chamber_id, l.seats, l.institutional_period_id]), [["ro-camera-deputatilor", 329, "romania-period-2015-07-20"], ["ro-senat", 136, "romania-period-2015-07-20"]]);
   // Croatia and Slovenia (admitted 2026-11-18): elections before the 2023 Constituencies Act link to the earlier period.
