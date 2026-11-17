@@ -6,8 +6,8 @@
   "src/lib/research-themes/themes.json": "289fed7e8b5fde3f6dda7fae14e6fe371e932d64e7fc44ba05ef930a29346499",
   "src/lib/research-themes/event_mappings.json": "c95e715498035ae5cbf2cb598d4d29ff8db043d458a52ddc9802487889f01f51",
   "src/lib/research-themes/investment_records.json": "85299e47d7f00b22066320b0ae5d1d2637102ae52c381e0a23d7121326663b36",
-  "src/lib/research-themes/eu_funding.json": "288b1ecac41b14f8c837ab4d44501259af4976c9396d6d2036b99612be4262df",
-  "src/lib/research-themes/cases.json": "b78e017d184b6537135d7932ad4511f5fe7fe59a5ed938ceede9e6bf1e8f0d16",
+  "src/lib/research-themes/eu_funding.json": "adac1b11c2466e633bebff6847d5e2333f616f4ab5657bb52c59de4b6bb208c3",
+  "src/lib/research-themes/cases.json": "e3d85539131499b4f9ed642a977c878c5ddd280ed5cd5fc44d162e61f2a2c7c5",
   "public/research-data/events.json": "e06e554cebff63ace3b233e1db384acb34968691184c52c86fda9fb8b909f1a3",
   "src/data/projects/projects.json": "b9cb44e69d2772b8b998e1c210e4b20a24f9a622bba57ffc19cb6eec3d9a2e2b",
   "src/data/indicators/indicators.json": "9ca44d474b8f9e36dd53d19287c06f848a0600cf23256bb441212a3cb494d7f1",
@@ -44,7 +44,7 @@
    "eu_funding_development": 21
   },
   "investment_records": 7,
-  "funding_records": 26,
+  "funding_records": 27,
   "cases": 4,
   "evidence_windows": 7,
   "window_observations": 159
@@ -10351,7 +10351,7 @@
     "E": 0
    },
    "investment_records": 0,
-   "funding_records": 1,
+   "funding_records": 2,
    "evidence_missing": [
     "eu_funds_received"
    ],
@@ -11310,7 +11310,7 @@
   {
    "country": "poland",
    "programmes": {
-    "RRF": "admitted:1",
+    "RRF": "admitted:2",
     "RRF_REPowerEU": "applicable_no_admitted_record",
     "ERDF_CF_Competitiveness_Cohesion": "applicable_no_admitted_record",
     "EAFRD": "applicable_no_admitted_record",
@@ -12124,14 +12124,29 @@
      "date_precision": "day",
      "kind": "funding_stage",
      "record_id": "pl-rrf-2024-amended-plan",
-     "stage": "approved_financing",
-     "status": "official_record_admitted",
-     "amount": null,
-     "currency": null,
-     "category": "mixed",
+     "stage": "allocation",
+     "status": "official_document_verified",
+     "amount": 25276853716,
+     "currency": "EUR",
+     "category": "grants",
      "summary": {
-      "en": "Commission positive assessment of the amended plan (grants, loans and REPowerEU); the record does not restate amounts.",
-      "zh": "委员会对修订计划的积极评估（赠款、贷款和 REPowerEU）；记录未转述金额。"
+      "en": "Total non-repayable financial contribution allocated to the amended plan, as proposed by the Commission in COM(2024) 284 of 1 July 2024 (read 2026-11-17). The estimated total cost of the plan (EUR 59 818 157 236) is a cost estimate, not funding, and is not recorded here. The Council adoption was not re-read.",
+      "zh": "欧盟委员会 2024 年 7 月 1 日 COM(2024) 284 提案中为修订计划分配的非偿还性资金总额（2026-11-17 核读）。计划估计总成本（59 818 157 236 欧元）是成本估算而非资金，此处不记录。未复核理事会通过文本。"
+     }
+    },
+    {
+     "date": "2024-07-01",
+     "date_precision": "day",
+     "kind": "funding_stage",
+     "record_id": "pl-rrf-2024-amended-plan-loans",
+     "stage": "allocation",
+     "status": "official_document_verified",
+     "amount": 34541303518,
+     "currency": "EUR",
+     "category": "loans",
+     "summary": {
+      "en": "Loan support available to Poland, stated in COM(2024) 284 as unchanged by the amendment (read 2026-11-17). Kept separate from the grant allocation and never added to it.",
+      "zh": "COM(2024) 284 所述波兰可获贷款支持，修订未作改变（2026-11-17 核读）。与赠款分配分开记录，从不相加。"
      }
     },
     {
@@ -12149,13 +12164,13 @@
      "kind": "funding_stage",
      "record_id": "sk-rrf-2024-authorisation",
      "stage": "approved_financing",
-     "status": "official_record_admitted",
+     "status": "official_document_verified",
      "amount": 923828000,
      "currency": "EUR",
      "category": "grants",
      "summary": {
-      "en": "Fourth non-repayable instalment authorised by Commission decision C(2024) 7457, as recorded in the admitted event.",
-      "zh": "欧盟委员会 C(2024) 7457 决定授权的第四笔非偿还性支持，按已收录事件记录。"
+      "en": "Fourth non-repayable instalment of EUR 923 828 000 authorised by Commission Implementing Decision C(2024) 7457 of 22 October 2024 (read 2026-11-17). Of the payment, EUR 125 168 818 clears pre-financing, so EUR 798 659 182 is paid; neither figure is added to the authorised amount.",
+      "zh": "欧盟委员会 2024 年 10 月 22 日实施决定 C(2024) 7457 授权第四笔非偿还性支持 923 828 000 欧元（2026-11-17 核读）。其中 125 168 818 欧元用于清偿预付款，实付 798 659 182 欧元；两者均不与授权金额相加。"
      }
     },
     {

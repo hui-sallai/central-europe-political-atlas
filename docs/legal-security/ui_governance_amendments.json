@@ -3981,6 +3981,40 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "commission-documents-verification-2026-11-17",
+      "status": "owner_approved",
+      "approved_by": "Owner chat instruction of 2026-11-17 (\"do it\") approving the open decisions: register commission.europa.eu and verify the EU-funding amounts and the Czech loan figure in Commission documents. Hashes identify the corrected case-study sentence (loans €818 million at the 2023 assessment per IP/23/4642, €260 million now on the country page), the SK and PL funding records read in C(2024) 7457 and COM(2024) 284 with SHA-256, and the rebuilt thematic index; no store, event, project or model file is changed.",
+      "baseline": "736bb293d3fc4048125db051feb5444b8a5b800d",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-17",
+      "files": [
+        {
+          "path": "src/lib/eventCaseStudies.ts",
+          "sha256": "1bd9f983785f559e10b1ab91d3c2fc5d026c11b80882ee049bf53820d164b1ef",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/research-themes/cases.json",
+          "sha256": "e3d85539131499b4f9ed642a977c878c5ddd280ed5cd5fc44d162e61f2a2c7c5",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/research-themes/eu_funding.json",
+          "sha256": "adac1b11c2466e633bebff6847d5e2333f616f4ab5657bb52c59de4b6bb208c3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/research-themes/thematic_index.json",
+          "sha256": "6ea1aa038d9b8394c923b9b2f4e342d56a679fc1f4e9169d5d56e9b8fcbe125b",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

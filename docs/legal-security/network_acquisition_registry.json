@@ -23,6 +23,17 @@
       "status": "allowed"
     },
     {
+      "host": "commission.europa.eu",
+      "purpose": "European Commission documents (RRF implementing decisions, plan assessments, statements) — manual verification of amounts only",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-17",
+      "robots_note": "standard Drupal robots.txt; User-agent * disallows only /core/, /profiles/, /admin/, /search/, /user/* and similar; /document/download/ and /news-and-media/ allowed; no AI-agent rule",
+      "rate_policy": "exact cited document URLs only, one request each, no crawling or link following",
+      "approved_by": "owner (chat instruction \"do it\" on the open Commission-host decision, 2026-11-17)",
+      "status": "allowed"
+    },
+    {
       "host": "data.bis.org",
       "purpose": "BIS bulk downloads",
       "automation_allowed": true,

@@ -950,8 +950,8 @@
           "zh": "居民电价从 2022 年每千瓦时 0.2083 欧元升至 2023 年 0.31705 欧元和 2024 年 0.33415 欧元。月度 HICP 能源通胀在通过当月 2023 年 10 月为 35.4%，2024 年 1 月为 2.6%，2024 年 10 月为 1.8%；如既有案例研究所记录，这些读数主要受 2022 年基数效应和批发价格影响。"
         },
         {
-          "en": "Data issue for review: the existing case-study text gives €260 million in loans for the modified plan, while the implementation record from the Commission's press release IP/23/4642 gives €818 million. The funding layer uses the implementation record and does not change either file.",
-          "zh": "待核数据问题：既有案例研究文本称修订计划贷款为 2.6 亿欧元，而依据委员会新闻稿 IP/23/4642 的实施记录为 8.18 亿欧元。资金层采用实施记录，两个文件均未改动。"
+          "en": "Loan figure checked on 2026-11-17 in the Commission press release IP/23/4642: at the assessment of 26 September 2023 the modified plan had €818 million in loans, as the implementation record states. The existing case-study text, which had paired the €260 million now shown on the country page with the 2023 total, now gives both figures with their dates.",
+          "zh": "2026-11-17 在委员会新闻稿 IP/23/4642 中核对贷款数字：2023 年 9 月 26 日评估时修订计划贷款为 8.18 亿欧元，与实施记录一致。既有案例研究文本此前把国家页面现显示的 2.6 亿欧元与 2023 年总额并列，现已分别注明两个数字及其时点。"
         }
       ],
       "checks": [
@@ -1142,6 +1142,7 @@
         "cz-rrf-2024-suspension",
         "sk-rrf-2024-authorisation",
         "pl-rrf-2024-amended-plan",
+        "pl-rrf-2024-amended-plan-loans",
         "si-rrf-2026-final-request-grants",
         "si-rrf-2026-final-request-loans",
         "ro-rrf-2026-final-request",
@@ -1218,8 +1219,8 @@
       "regional": [],
       "findings": [
         {
-          "en": "Only Czechia has documented RRF grant disbursements in the admitted records (for example €1.57 billion in September 2025). Slovakia's record is a payment authorisation (€923.828 million, October 2024), Slovenia's and Romania's are final payment requests (2026), Croatia's are signed contracts, and Poland's is a plan assessment without amounts.",
-          "zh": "在已收录记录中，只有捷克有已记录的复苏与韧性基金赠款拨付（如 2025 年 9 月 15.7 亿欧元）。斯洛伐克的记录是付款授权（2024 年 10 月 9.23828 亿欧元），斯洛文尼亚和罗马尼亚的是最后一笔付款申请（2026 年），克罗地亚的是已签合同，波兰的是没有金额的计划评估。"
+          "en": "Only Czechia has documented RRF grant disbursements in the admitted records (for example €1.57 billion in September 2025). Slovakia's record is a payment authorisation (€923.828 million, October 2024, read in the Commission decision), Slovenia's and Romania's are final payment requests (2026), Croatia's are signed contracts, and Poland's are the grant allocation and unchanged loan support of the amended plan as proposed by the Commission (July 2024), recorded separately.",
+          "zh": "在已收录记录中，只有捷克有已记录的复苏与韧性基金赠款拨付（如 2025 年 9 月 15.7 亿欧元）。斯洛伐克的记录是付款授权（2024 年 10 月 9.23828 亿欧元，已在委员会决定中核读），斯洛文尼亚和罗马尼亚的是最后一笔付款申请（2026 年），克罗地亚的是已签合同，波兰的是委员会提案（2024 年 7 月）中修订计划的赠款分配和未变的贷款支持，两者分开记录。"
         },
         {
           "en": "Grants and loans are recorded separately: Czechia's September 2025 payment comprised €1.57 billion of grants and €41 million of loans, and Slovenia's final request €268.67 million of grants and €3.1 million of loans. SAFE payments to Romania (€2.5 billion) and Czechia (€309 million) are defence loans, not recovery funds.",
@@ -1270,6 +1271,14 @@
         {
           "funding_record": "cz-rrf-2024-suspension",
           "value": 97629788
+        },
+        {
+          "funding_record": "pl-rrf-2024-amended-plan",
+          "value": 25276853716
+        },
+        {
+          "funding_record": "pl-rrf-2024-amended-plan-loans",
+          "value": 34541303518
         }
       ],
       "interpretation": {

@@ -245,6 +245,7 @@ export function build(overrides = {}) {
 
   // ---------------- EU funding ----------------
   const fundStages = new Set(meta.funding_stages.map((s) => s.id));
+  const manualHosts = new Map(json('docs/legal-security/network_acquisition_registry.json').hosts.filter((h) => h.status === 'allowed' && h.manual_allowed === true).map((h) => [h.host, h]));
   const fundIds = new Set();
   for (const f of funding.records) {
     if (fundIds.has(f.record_id)) fail(`funding: duplicate ${f.record_id}`);
@@ -263,6 +264,16 @@ export function build(overrides = {}) {
       else if (f.amount !== null && !milestoneBlock(f.implementation_milestone).includes(String(f.amount))) fail(`funding ${f.record_id}: amount ${f.amount} not stated in ${f.implementation_milestone}`);
     }
     if (!f.event_id && !f.implementation_milestone) fail(`funding ${f.record_id}: no evidence reference`);
+    // A document read by hand: exact registered host (manual reading allowed), exact sha256 of the copy read, read date.
+    if (f.source?.kind === 'official_document') {
+      const d = f.source; let host = null;
+      try { host = new URL(d.url).hostname; } catch { fail(`funding ${f.record_id}: official_document url invalid`); }
+      const reg = manualHosts.get(host);
+      if (host && !reg) fail(`funding ${f.record_id}: ${host} is not a registered manual-reading host`);
+      if (!d.ref || !/^[0-9a-f]{64}$/.test(d.sha256 ?? '') || !/^\d{4}-\d{2}-\d{2}$/.test(d.read_on ?? '')) fail(`funding ${f.record_id}: official_document needs ref, exact sha256 and read_on`);
+      if (f.evidence_status !== 'official_document_verified') fail(`funding ${f.record_id}: official_document source must be official_document_verified`);
+    }
+    if (f.evidence_status === 'official_document_verified' && f.source?.kind !== 'official_document' && !f.implementation_milestone) fail(`funding ${f.record_id}: official_document_verified needs a read document or a verified implementation milestone`);
     if (f.case_id && !caseIds.has(f.case_id)) fail(`funding ${f.record_id}: unknown case`);
     if (f.region_id && !regions.has(f.region_id)) fail(`funding ${f.record_id}: unknown region`);
   }

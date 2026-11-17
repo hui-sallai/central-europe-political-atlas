@@ -120,3 +120,15 @@ test('only display code imports the thematic layer (owner decision 2026-11-17)',
   for (const f of ['scripts/historical-annual/validate.mjs', 'scripts/historical-monthly-descriptive/validate.mjs', 'scripts/historical-regional/validate.mjs', 'scripts/serbia-sors/validate.mjs'])
     assert.ok(fs.readFileSync(path.join(root, f), 'utf8').includes('research-themes\\/build-research-themes\\.mjs$/'), `${f}: exact-file exception only`);
 });
+
+test('a funding amount marked as read in an official document names a registered manual-reading host, an exact sha256 and a read date', () => {
+  const sk = load('eu_funding.json').records.find((f) => f.record_id === 'sk-rrf-2024-authorisation');
+  assert.equal(sk.evidence_status, 'official_document_verified');
+  assert.equal(new URL(sk.source.url).hostname, 'commission.europa.eu');
+  const mutate = (fn) => { const doc = load('eu_funding.json'); fn(doc.records.find((f) => f.record_id === 'sk-rrf-2024-authorisation')); return build({ 'eu_funding.json': doc }).errors; };
+  assert.ok(mutate((f) => { f.source.url = 'https://reforms-investments.ec.europa.eu/x.pdf'; }).some((e) => e.includes('not a registered manual-reading host')));
+  assert.ok(mutate((f) => { f.source.url = 'https://www.dz-rs.si/x.pdf'; }).some((e) => e.includes('not a registered manual-reading host')), 'blocked host');
+  assert.ok(mutate((f) => { delete f.source.sha256; }).some((e) => e.includes('exact sha256')));
+  assert.ok(mutate((f) => { f.evidence_status = 'official_record_admitted'; }).some((e) => e.includes('must be official_document_verified')));
+  assert.ok(mutate((f) => { f.source = { kind: 'atlas_event_record' }; }).some((e) => e.includes('needs a read document')));
+});

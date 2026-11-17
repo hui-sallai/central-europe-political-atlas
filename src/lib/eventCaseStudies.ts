@@ -84,7 +84,7 @@ export const eventCaseStudies: EventCaseStudy[] = [
       en: "The Atlas event record is dated 2023-10-16; the Commission's plan page now lists the update adding the REPowerEU chapter as 17 October 2023. Both fall in October 2023, so the event month of the monthly window is unaffected; the event record itself is unchanged.",
     },
     establishes: [
-      { zh: "捷克修订后的复苏与韧性计划加入了 REPowerEU 章节，计划总值 92 亿欧元（复苏基金赠款 84 亿欧元、贷款 2.6 亿欧元）。", en: "Czechia's amended recovery and resilience plan added a REPowerEU chapter; the plan is valued at €9.2 billion (€8.4 billion in RRF grants and €260 million in loans)." },
+      { zh: "捷克修订后的复苏与韧性计划加入了 REPowerEU 章节；委员会 2023 年 9 月 26 日评估时（新闻稿 IP/23/4642）计划总值 92 亿欧元（复苏基金赠款 84 亿欧元、贷款 8.18 亿欧元）。之后的计划修订使委员会国家页面现显示贷款 2.6 亿欧元。", en: "Czechia's amended recovery and resilience plan added a REPowerEU chapter; at the Commission's assessment of 26 September 2023 (press release IP/23/4642) the plan was valued at €9.2 billion (€8.4 billion in RRF grants and €818 million in loans). After later plan amendments, the Commission's country page now shows €260 million in loans." },
       { zh: "REPowerEU 赠款为 6.81 亿欧元，另有 5500 万欧元由脱欧调整储备转入。", en: "The REPowerEU grant is €681 million, plus €55 million transferred from the Brexit Adjustment Reserve." },
       { zh: "该章节的改革与投资针对电网接入、可再生能源和能源安全；按条例，全部里程碑与目标的截止期为 2026 年 8 月。", en: "The chapter's reforms and investments target grid access, renewable energy and energy security; under the Regulation, all milestones and targets are due by August 2026." },
     ],
@@ -164,6 +164,7 @@ export const eventCaseStudies: EventCaseStudy[] = [
     ],
     sources: [
       { label: "European Commission — Czechia's recovery and resilience plan", url: COMMISSION_RRP, supports: { zh: "计划金额、REPowerEU 赠款、通过与付款节点。", en: "Plan amounts, REPowerEU grant, adoption and payment milestones." } },
+      { label: "European Commission — press release IP/23/4642 (26 September 2023)", url: "https://ec.europa.eu/commission/presscorner/detail/en/ip_23_4642", supports: { zh: "评估时的计划总额、赠款与贷款（8.18 亿欧元），2026-11-17 人工复核。", en: "Plan total, grants and loans (€818 million) at assessment; re-read by hand on 2026-11-17." } },
       { label: "European Commission (Atlas event source)", url: "https://commission.europa.eu/business-economy-euro/economic-recovery/recovery-and-resilience-facility/country-pages/czechias-recovery-and-resilience-plan_en", supports: { zh: "Atlas 事件记录引用的原始地址（现重定向至上一页面）。", en: "The original address cited by the Atlas event record (now redirects to the page above)." } },
     ],
   },

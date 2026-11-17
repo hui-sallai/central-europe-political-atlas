@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Commission funding documents and Next.js 16.4.5 — 2026-11-17
+
+- Read the Slovak and Polish recovery-funding amounts in the Commission documents themselves (SHA-256 recorded). Poland's grant allocation and loan support are shown as separate records. Correct the Czech case-study loan figure to the €818 million stated at the 2023 assessment, noting the €260 million now shown on the Commission's country page. Upgrade Next.js to 16.4.5 for a security advisory.
+
 ### v2.0 thematic research layer — 2026-11-17
 
 - Add four research themes (industrial policy and strategic investment, FDI and production networks, energy dependency and transition, EU funding) built on existing records: 89 reviewed events classified A–E against held indicators, stage-by-stage investment and EU-funding records, a country × theme coverage matrix, and four bilingual research cases (Hungary battery investment, Serbia mining and foreign investment, Czechia REPowerEU, EU funding stages) with descriptive evidence windows. Data, validation and a frontend handoff only; no observation, event or model changes.

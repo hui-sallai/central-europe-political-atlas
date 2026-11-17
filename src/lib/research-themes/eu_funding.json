@@ -400,9 +400,13 @@
       "price_basis": "nominal",
       "status_date": "2024-10-22",
       "date_precision": "day",
-      "evidence_status": "official_record_admitted",
+      "evidence_status": "official_document_verified",
       "source": {
-        "kind": "atlas_event_record"
+        "kind": "official_document",
+        "ref": "C(2024) 7457 final",
+        "url": "https://commission.europa.eu/document/download/f8d60e98-0929-43ae-af64-fe3bd52fa3c2_en?filename=C_2024_7457_1_EN_ACT_part1_v3.pdf",
+        "sha256": "dafea154b89ab8cb66e5f49e1846bdaf359c8f0c8d92f1e0cce8f8d25b9f5267",
+        "read_on": "2026-11-17"
       },
       "geographic_scope": "national",
       "region_id": null,
@@ -414,8 +418,8 @@
         "government_expenditure_gdp"
       ],
       "note": {
-        "en": "Fourth non-repayable instalment authorised by Commission decision C(2024) 7457, as recorded in the admitted event.",
-        "zh": "欧盟委员会 C(2024) 7457 决定授权的第四笔非偿还性支持，按已收录事件记录。"
+        "en": "Fourth non-repayable instalment of EUR 923 828 000 authorised by Commission Implementing Decision C(2024) 7457 of 22 October 2024 (read 2026-11-17). Of the payment, EUR 125 168 818 clears pre-financing, so EUR 798 659 182 is paid; neither figure is added to the authorised amount.",
+        "zh": "欧盟委员会 2024 年 10 月 22 日实施决定 C(2024) 7457 授权第四笔非偿还性支持 923 828 000 欧元（2026-11-17 核读）。其中 125 168 818 欧元用于清偿预付款，实付 798 659 182 欧元；两者均不与授权金额相加。"
       }
     },
     {
@@ -423,17 +427,21 @@
       "country": "poland",
       "programme": "RRF",
       "funding_period": "2021-2026",
-      "category": "mixed",
-      "stage": "approved_financing",
-      "amount": null,
-      "currency": null,
-      "amount_precision": null,
-      "price_basis": null,
+      "category": "grants",
+      "stage": "allocation",
+      "amount": 25276853716,
+      "currency": "EUR",
+      "amount_precision": "exact",
+      "price_basis": "nominal",
       "status_date": "2024-07-01",
       "date_precision": "day",
-      "evidence_status": "official_record_admitted",
+      "evidence_status": "official_document_verified",
       "source": {
-        "kind": "atlas_event_record"
+        "kind": "official_document",
+        "ref": "COM(2024) 284 final",
+        "url": "https://commission.europa.eu/document/download/2ca5f289-d08e-4dda-aade-4d74a6447594_en?filename=COM_2024_284_1_EN_ACT_part1_v4.pdf",
+        "sha256": "c5f88996250ee909f146ab7072bf84c8bf5ce80fee1fb39c7ce7cdf1d56b1d73",
+        "read_on": "2026-11-17"
       },
       "geographic_scope": "national",
       "region_id": null,
@@ -442,8 +450,40 @@
       "case_id": "eu-rrf-funding-stages",
       "related_indicators": [],
       "note": {
-        "en": "Commission positive assessment of the amended plan (grants, loans and REPowerEU); the record does not restate amounts.",
-        "zh": "委员会对修订计划的积极评估（赠款、贷款和 REPowerEU）；记录未转述金额。"
+        "en": "Total non-repayable financial contribution allocated to the amended plan, as proposed by the Commission in COM(2024) 284 of 1 July 2024 (read 2026-11-17). The estimated total cost of the plan (EUR 59 818 157 236) is a cost estimate, not funding, and is not recorded here. The Council adoption was not re-read.",
+        "zh": "欧盟委员会 2024 年 7 月 1 日 COM(2024) 284 提案中为修订计划分配的非偿还性资金总额（2026-11-17 核读）。计划估计总成本（59 818 157 236 欧元）是成本估算而非资金，此处不记录。未复核理事会通过文本。"
+      }
+    },
+    {
+      "record_id": "pl-rrf-2024-amended-plan-loans",
+      "country": "poland",
+      "programme": "RRF",
+      "funding_period": "2021-2026",
+      "category": "loans",
+      "stage": "allocation",
+      "amount": 34541303518,
+      "currency": "EUR",
+      "amount_precision": "exact",
+      "price_basis": "nominal",
+      "status_date": "2024-07-01",
+      "date_precision": "day",
+      "evidence_status": "official_document_verified",
+      "source": {
+        "kind": "official_document",
+        "ref": "COM(2024) 284 final",
+        "url": "https://commission.europa.eu/document/download/2ca5f289-d08e-4dda-aade-4d74a6447594_en?filename=COM_2024_284_1_EN_ACT_part1_v4.pdf",
+        "sha256": "c5f88996250ee909f146ab7072bf84c8bf5ce80fee1fb39c7ce7cdf1d56b1d73",
+        "read_on": "2026-11-17"
+      },
+      "geographic_scope": "national",
+      "region_id": null,
+      "event_id": "pl-2024-07-01-amended-recovery-plan",
+      "implementation_milestone": null,
+      "case_id": "eu-rrf-funding-stages",
+      "related_indicators": [],
+      "note": {
+        "en": "Loan support available to Poland, stated in COM(2024) 284 as unchanged by the amendment (read 2026-11-17). Kept separate from the grant allocation and never added to it.",
+        "zh": "COM(2024) 284 所述波兰可获贷款支持，修订未作改变（2026-11-17 核读）。与赠款分配分开记录，从不相加。"
       }
     },
     {

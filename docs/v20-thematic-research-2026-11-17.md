@@ -280,3 +280,35 @@ visual rules and reusable components.
    SI and HR funding amounts in Commission documents and resolve the CZ loan figure.
 4. Admit FDI positions and outward flows (`bop_fdi6_pos`, `bop_fdi6_flow` asset side) and energy-mix shares
    (`nrg_bal_peh`, `nrg_ind_ren`) as new data-refresh units under the existing gate.
+
+## Q. Follow-up 2026-11-17: owner decisions applied
+
+The owner approved both open decisions ("do it").
+
+**Next.js 16.4.5.** `next` and `eslint-config-next` 16.4.1 → 16.4.5 for GHSA-mfr8-8qww-v76h (medium; Dependabot #25 and #26).
+- The change is recorded under exception `dep-sec-2026-11-next-16-4-5`. The new lockfile has sha256 `d85664de…d96b`; the previous one is anchored at `b97e482`.
+- The lockfile diff touches only the Next family. zod stays 4.6.7, and `pnpm audit` now reports only the dev-only minimatch advisory.
+- A local CI-mirror run passed: tooling 493/0 and Playwright 758 passed (2 skipped). The Python-reference panel steps run in CI only.
+
+**Commission documents.** `commission.europa.eu` was added to the network registry for manual reading only: exact cited URLs, one request each, no crawling. Its robots.txt was checked on 2026-11-17.
+
+| Record | Document | SHA-256 | Amount |
+|---|---|---|---|
+| `sk-rrf-2024-authorisation` | C(2024) 7457, 22.10.2024 | `dafea154…5267` | EUR 923 828 000 authorised (unchanged) |
+| `pl-rrf-2024-amended-plan` | COM(2024) 284, 1.7.2024 | `c5f88996…1d73` | grants EUR 25 276 853 716 (allocation as proposed) |
+| `pl-rrf-2024-amended-plan-loans` (new) | same | same | loans EUR 34 541 303 518 (unchanged, recorded separately) |
+
+- The first PL request returned HTTP 429. One later retry succeeded.
+- The builder now requires every `official_document` source to have:
+  - a registered manual-reading host;
+  - an exact SHA-256;
+  - a read date.
+
+**CZ loan figure (backlog T1, resolved).**
+- IP/23/4642 was re-read by hand. It gives €818 million in loans at the 26 September 2023 assessment, matching `cz-e2-02`.
+- `eventCaseStudies.ts` had paired the €260 million now shown on the country page with the 2023 total of €9.2 billion. It now gives both figures with their dates, and IP/23/4642 is listed as a source.
+- The change is recorded under amendment `commission-documents-verification-2026-11-17`.
+
+**Still open.**
+- The SI and HR amounts come from `www.gov.si` and `vlada.gov.hr`. Neither host is registered, and registering them needs a separate owner decision.
+- `reforms-investments.ec.europa.eu` (the current Czech country page) is also unregistered.

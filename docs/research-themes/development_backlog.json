@@ -64,17 +64,17 @@
       "id": "T1",
       "issue": "Case-study loan figure discrepancy (Czech modified plan: €260 million in eventCaseStudies.ts vs €818 million in implementation record cz-e2-02)",
       "owner": "Owner decision / Claude",
-      "status": "open",
-      "this_iteration": "Flagged in case cz-repowereu-energy-transition; neither file changed.",
-      "next": "Re-read IP/23/4642 and correct the wrong file under a new UI amendment."
+      "status": "resolved",
+      "this_iteration": "Resolved 2026-11-17: IP/23/4642 (re-read by hand) gives €818 million in loans at the 26 September 2023 assessment, as cz-e2-02 records. The case-study sentence paired the €260 million now on the country page with the 2023 total; it now states both figures with their dates (amendment commission-documents-verification-2026-11-17).",
+      "next": "None."
     },
     {
       "id": "T2",
       "issue": "EU-funding amounts restated from admitted records, not re-read in Commission documents (SK C(2024) 7457, SI and HR government pages)",
       "owner": "Owner decision",
-      "status": "open",
-      "this_iteration": "Evidence status shown per record; commission.europa.eu and reforms-investments.ec.europa.eu are not in the network registry.",
-      "next": "Register the Commission document hosts (owner approval) and verify amounts with SHA-256."
+      "status": "partly_resolved",
+      "this_iteration": "commission.europa.eu registered (manual reading, owner-approved 2026-11-17). SK C(2024) 7457 (EUR 923 828 000) and PL COM(2024) 284 (grants EUR 25 276 853 716; loans EUR 34 541 303 518, recorded separately) read with SHA-256 and marked official_document_verified. The first PL request returned HTTP 429; one later retry succeeded.",
+      "next": "SI and HR amounts come from www.gov.si and vlada.gov.hr pages, which are not in the network registry; registering them needs a separate owner decision. reforms-investments.ec.europa.eu (current Czech country page) is also unregistered."
     }
   ]
 }
