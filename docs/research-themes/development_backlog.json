@@ -72,9 +72,9 @@
       "id": "T2",
       "issue": "EU-funding amounts restated from admitted records, not re-read in Commission documents (SK C(2024) 7457, SI and HR government pages)",
       "owner": "Owner decision",
-      "status": "partly_resolved",
-      "this_iteration": "commission.europa.eu registered (manual reading, owner-approved 2026-11-17). SK C(2024) 7457 (EUR 923 828 000) and PL COM(2024) 284 (grants EUR 25 276 853 716; loans EUR 34 541 303 518, recorded separately) read with SHA-256 and marked official_document_verified. The first PL request returned HTTP 429; one later retry succeeded.",
-      "next": "SI and HR amounts come from www.gov.si and vlada.gov.hr pages, which are not in the network registry; registering them needs a separate owner decision. reforms-investments.ec.europa.eu (current Czech country page) is also unregistered."
+      "status": "resolved",
+      "this_iteration": "commission.europa.eu registered (manual reading, owner-approved 2026-11-17). SK C(2024) 7457 (EUR 923 828 000) and PL COM(2024) 284 (grants EUR 25 276 853 716; loans EUR 34 541 303 518, recorded separately) read with SHA-256 and marked official_document_verified. The first PL request returned HTTP 429; one later retry succeeded. Follow-up 2026-11-17: www.gov.si, vlada.gov.hr and reforms-investments.ec.europa.eu registered (manual reading, owner-approved). The SI final request (grants EUR 268.67 million, loans EUR 3.1 million), the SI Maribor ERDF amount (exact EUR 17 353 132.20) and the HR water and Vir records were read on the government releases with SHA-256 and marked official_document_verified. The Czech country page confirms EUR 260 million in loans.",
+      "next": "None."
     }
   ]
 }

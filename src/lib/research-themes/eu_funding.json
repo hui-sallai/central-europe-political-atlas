@@ -60,6 +60,13 @@
         "zh": "欧盟资金（记录未写明计划）"
       },
       "eligible": "not_specified"
+    },
+    "ERDF": {
+      "label": {
+        "en": "European Regional Development Fund (cohesion policy)",
+        "zh": "欧洲区域发展基金（凝聚政策）"
+      },
+      "eligible": "eu_member_states"
     }
   },
   "records": [
@@ -499,9 +506,13 @@
       "price_basis": "nominal",
       "status_date": "2026-09-29",
       "date_precision": "day",
-      "evidence_status": "official_record_admitted",
+      "evidence_status": "official_document_verified",
       "source": {
-        "kind": "atlas_event_record"
+        "kind": "official_document",
+        "ref": "GOV.SI news release of 29 September 2026 (Office of the Republic of Slovenia for Recovery and Resilience)",
+        "url": "https://www.gov.si/en/news/2026-09-29-slovenia-submits-final-payment-request-for-funds-under-the-recovery-and-resilience-facility/",
+        "sha256": "495044405b505b9ea0cf098ea60c006144cd2f4d02a1c3bc46a397667ee12f6c",
+        "read_on": "2026-11-17"
       },
       "geographic_scope": "national",
       "region_id": null,
@@ -510,8 +521,8 @@
       "case_id": "eu-rrf-funding-stages",
       "related_indicators": [],
       "note": {
-        "en": "Final payment request, grant part; still under assessment.",
-        "zh": "最后一笔付款申请的赠款部分；仍在评估中。"
+        "en": "Final payment request, ninth grant instalment; still under assessment. The government release (read 2026-11-17) gives €271.77 million for the whole request.",
+        "zh": "最后一笔付款申请，第九期赠款；仍在评估中。政府新闻稿（2026-11-17 核读）给出整笔申请 2.7177 亿欧元。"
       }
     },
     {
@@ -527,9 +538,13 @@
       "price_basis": "nominal",
       "status_date": "2026-09-29",
       "date_precision": "day",
-      "evidence_status": "official_record_admitted",
+      "evidence_status": "official_document_verified",
       "source": {
-        "kind": "atlas_event_record"
+        "kind": "official_document",
+        "ref": "GOV.SI news release of 29 September 2026 (Office of the Republic of Slovenia for Recovery and Resilience)",
+        "url": "https://www.gov.si/en/news/2026-09-29-slovenia-submits-final-payment-request-for-funds-under-the-recovery-and-resilience-facility/",
+        "sha256": "495044405b505b9ea0cf098ea60c006144cd2f4d02a1c3bc46a397667ee12f6c",
+        "read_on": "2026-11-17"
       },
       "geographic_scope": "national",
       "region_id": null,
@@ -538,8 +553,8 @@
       "case_id": "eu-rrf-funding-stages",
       "related_indicators": [],
       "note": {
-        "en": "Final payment request, loan part; still under assessment.",
-        "zh": "最后一笔付款申请的贷款部分；仍在评估中。"
+        "en": "Final payment request, fourth loan instalment; still under assessment (read 2026-11-17).",
+        "zh": "最后一笔付款申请，第四期贷款；仍在评估中（2026-11-17 核读）。"
       }
     },
     {
@@ -583,9 +598,13 @@
       "price_basis": null,
       "status_date": "2026-11-05",
       "date_precision": "day",
-      "evidence_status": "official_record_admitted",
+      "evidence_status": "official_document_verified",
       "source": {
-        "kind": "atlas_event_record"
+        "kind": "official_document",
+        "ref": "Vlada Republike Hrvatske news release of 5 November 2026",
+        "url": "https://vlada.gov.hr/za-bolju-kvalitetu-zivota-romske-zajednice-4-5-milijuna-eura-za-vodoopskrbu-diljem-hrvatske-gotovo-275-milijuna-eura/47558",
+        "sha256": "fd6124bb9d74955282fe0f685711e0123343d8fd45e28b173118a1ebffe175b5",
+        "read_on": "2026-11-17"
       },
       "geographic_scope": "national",
       "region_id": null,
@@ -596,8 +615,8 @@
         "government_expenditure_gdp"
       ],
       "note": {
-        "en": "22 water-supply and wastewater contracts funded by the recovery plan in 13 counties; the government gives about €275 million for all water contracts signed that day, including the Vir contract below, without a separate total for these 22.",
-        "zh": "13 个县的 22 份由复苏计划资助的供水和污水合同；政府给出的当天全部水务合同约 2.75 亿欧元包括下方的维尔岛合同，未单列这 22 份的合计。"
+        "en": "22 water-supply and wastewater contracts under the National Recovery and Resilience Programme in 13 counties. The government release (read 2026-11-17) gives almost €275 million for all water contracts handed over that day, including the Vir contract below, and no separate total for these 22.",
+        "zh": "13 个县的 22 份国家复苏与韧性计划供水和污水合同。政府新闻稿（2026-11-17 核读）给出当天交付的全部水务合同近 2.75 亿欧元，包括下方的维尔岛合同，未单列这 22 份的合计。"
       }
     },
     {
@@ -613,9 +632,13 @@
       "price_basis": "nominal",
       "status_date": "2026-11-05",
       "date_precision": "day",
-      "evidence_status": "official_record_admitted",
+      "evidence_status": "official_document_verified",
       "source": {
-        "kind": "atlas_event_record"
+        "kind": "official_document",
+        "ref": "Vlada Republike Hrvatske news release of 5 November 2026",
+        "url": "https://vlada.gov.hr/za-bolju-kvalitetu-zivota-romske-zajednice-4-5-milijuna-eura-za-vodoopskrbu-diljem-hrvatske-gotovo-275-milijuna-eura/47558",
+        "sha256": "fd6124bb9d74955282fe0f685711e0123343d8fd45e28b173118a1ebffe175b5",
+        "read_on": "2026-11-17"
       },
       "geographic_scope": "project",
       "region_id": null,
@@ -624,8 +647,8 @@
       "case_id": "eu-rrf-funding-stages",
       "related_indicators": [],
       "note": {
-        "en": "Water-infrastructure contract for the island of Vir, co-financed by the Competitiveness and Cohesion Programme; the contract value is not the EU share.",
-        "zh": "维尔岛供水基础设施合同，由竞争力和凝聚力计划共同资助；合同金额不是欧盟出资部分。"
+        "en": "Water-infrastructure contract for the island of Vir, co-financed by the Competitiveness and Cohesion Programme (read 2026-11-17); the contract value is not the EU share.",
+        "zh": "维尔岛供水基础设施合同，由竞争力和凝聚力计划共同资助（2026-11-17 核读）；合同金额不是欧盟出资部分。"
       }
     },
     {
@@ -808,19 +831,23 @@
     {
       "record_id": "si-eu-2026-maribor-research",
       "country": "slovenia",
-      "programme": "EU_programme_not_stated",
-      "funding_period": "not_stated",
+      "programme": "ERDF",
+      "funding_period": "2021-2027",
       "category": "grants",
       "stage": "approved_financing",
-      "amount": 17000000,
+      "amount": 17353132.2,
       "currency": "EUR",
-      "amount_precision": "lower_bound",
+      "amount_precision": "exact",
       "price_basis": "nominal",
       "status_date": "2026-08-24",
       "date_precision": "day",
-      "evidence_status": "official_record_admitted",
+      "evidence_status": "official_document_verified",
       "source": {
-        "kind": "atlas_event_record"
+        "kind": "official_document",
+        "ref": "GOV.SI news release of 24 August 2026 (Ministry of Local Self-Government, Cohesion and Regional Development)",
+        "url": "https://www.gov.si/en/news/2026-08-24-over-17-million-in-eu-funding-to-strengthen-the-research-capacity-of-university-of-maribor/",
+        "sha256": "b16bb048218276e60c002c4f7d4f766a20a96029384cab84f5031ed77ba22377",
+        "read_on": "2026-11-17"
       },
       "geographic_scope": "project",
       "region_id": null,
@@ -829,8 +856,8 @@
       "case_id": null,
       "related_indicators": [],
       "note": {
-        "en": "More than €17 million of EU funding for University of Maribor research capacity; the programme is not named in the record, and the amount is a lower bound.",
-        "zh": "逾 1700 万欧元欧盟资金用于马里博尔大学研究能力；记录未写明计划名称，金额为下限。"
+        "en": "European Regional Development Fund support of €17,353,132.20 under Slovenia's EU Cohesion Policy Programme 2021-2027 for the University of Maribor research-infrastructure project (RIUM 2), as stated in the government release (read 2026-11-17). The project value of €20,415,449.65 is not the EU share. The event record gave only \"over €17 million\" without the programme.",
+        "zh": "据政府新闻稿（2026-11-17 核读），斯洛文尼亚 2021-2027 年欧盟凝聚政策计划下欧洲区域发展基金为马里博尔大学研究基础设施项目（RIUM 2）提供 17,353,132.20 欧元。项目总值 20,415,449.65 欧元不是欧盟出资部分。事件记录只写“逾 1700 万欧元”，未写明计划。"
       }
     },
     {

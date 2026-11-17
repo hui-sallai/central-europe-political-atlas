@@ -312,3 +312,41 @@ The owner approved both open decisions ("do it").
 **Still open.**
 - The SI and HR amounts come from `www.gov.si` and `vlada.gov.hr`. Neither host is registered, and registering them needs a separate owner decision.
 - `reforms-investments.ec.europa.eu` (the current Czech country page) is also unregistered.
+
+## R. Follow-up 2026-11-17: Slovenian, Croatian and Czech country-page amounts
+
+The owner approved registering the three remaining hosts ("do it").
+
+**Hosts registered** in `network_acquisition_registry.json`:
+- `www.gov.si`, `vlada.gov.hr` and `reforms-investments.ec.europa.eu`;
+- all three are manual reading only, limited to the exact cited URLs, one request each, with no crawling;
+- robots.txt was read first on 2026-11-17:
+  - `www.gov.si` disallows only `/admin`, `/resources` and `/pomoc`;
+  - `vlada.gov.hr` returns 404, so no rules are published;
+  - `reforms-investments.ec.europa.eu` uses the standard Drupal file. Its country pages and document downloads are allowed.
+- The Czech country-page URL redirected (301) to a path on the same host. That location was requested once.
+
+**Records read** (SHA-256 of the copy read; read on 2026-11-17):
+
+| Record | Page | SHA-256 | Result |
+|---|---|---|---|
+| `si-rrf-2026-final-request-grants` | GOV.SI release, 29.9.2026 | `49504440…2f6c` | €268.67 million, the ninth grant instalment (confirmed). The whole request is €271.77 million. |
+| `si-rrf-2026-final-request-loans` | same | same | €3.1 million, the fourth loan instalment (confirmed) |
+| `si-eu-2026-maribor-research` | GOV.SI release, 24.8.2026 | `b16bb048…2377` | Exact figure €17,353,132.20, from the ERDF under Slovenia's EU Cohesion Policy Programme 2021–2027 (see below) |
+| `hr-rrf-2026-water-contracts` | Vlada RH release, 5.11.2026 | `fd6124bb…75b5` | 22 recovery-programme contracts in 13 counties. No separate total is given, so the amount stays null (confirmed). |
+| `hr-cohesion-2026-vir-contract` | same | same | €213.9 million, co-financed by the Competitiveness and Cohesion Programme (confirmed) |
+
+**Maribor record.**
+- The event record had said "over €17 million", programme not stated.
+- The release names the fund and gives the exact amount. The record now uses a new programme entry, `ERDF` (European Regional Development Fund, cohesion policy), with `funding_period` 2021-2027 and `amount_precision` exact.
+- The project value of €20,415,449.65 is not the EU share, so it is not used as the amount.
+
+**Croatian total.** The release gives *almost* (gotovo) €275 million for all water contracts handed over that day. The case finding and the record note now say "almost".
+
+**Czech country page** (SHA-256 `cc6e24a4…472a`):
+- It shows a plan value of €8.7 billion, €8.4 billion in RRF grants and €260 million in RRF loans.
+- This confirms the case-study wording: €818 million in loans at the 2023 assessment, and €260 million now shown on the country page. No text changed.
+
+**Backlog T2 is resolved.** The builder's `official_document` rule (a registered manual host, a SHA-256 and a read date) now covers the SK, PL, SI and HR records.
+
+The change is recorded under amendment `government-pages-verification-2026-11-17`.

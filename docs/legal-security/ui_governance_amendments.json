@@ -4015,6 +4015,35 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "government-pages-verification-2026-11-17",
+      "status": "owner_approved",
+      "approved_by": "Owner chat instruction of 2026-11-17 (\"do it\") approving registration of www.gov.si, vlada.gov.hr and reforms-investments.ec.europa.eu for manual reading and verification of the Slovenian, Croatian and current Czech country-page amounts. Hashes identify the SI and HR funding records read on the cited government releases with SHA-256 (the Maribor record now gives the exact ERDF amount and programme stated in the release), the EU-funding case wording, and the rebuilt thematic index; no store, event, project or model file is changed.",
+      "baseline": "e4e6ee9c0e178134e31bb7ac68db55790fe12469",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-17",
+      "files": [
+        {
+          "path": "src/lib/research-themes/cases.json",
+          "sha256": "2d983a2d2ee9539021c759d87335e6db69a7a7227dd0cb271382afbe4fb208f4",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/research-themes/eu_funding.json",
+          "sha256": "ed9eb42259af3e35376801970d657bf7bf4b4a285d767ecc9737b47aad515a00",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/research-themes/thematic_index.json",
+          "sha256": "f811631f01eec97cff709210d91999f2ca8f33bdcc01cf06939938ece821076f",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

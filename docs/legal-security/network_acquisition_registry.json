@@ -34,6 +34,39 @@
       "status": "allowed"
     },
     {
+      "host": "reforms-investments.ec.europa.eu",
+      "purpose": "European Commission Recovery and Resilience Facility country pages and documents — manual verification of amounts only",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-17",
+      "robots_note": "standard Drupal robots.txt; User-agent * disallows only /core/, /profiles/, /admin/, /search/, /user/* and similar; country pages and /document/download/ allowed; no AI-agent rule",
+      "rate_policy": "exact cited page URLs only, one request each, no crawling or link following; a same-host redirect of a cited URL is followed once",
+      "approved_by": "owner (chat instruction \"do it\" on the open SI/HR/Commission country-page host decision, 2026-11-17)",
+      "status": "allowed"
+    },
+    {
+      "host": "www.gov.si",
+      "purpose": "Government of Slovenia news releases — manual verification of amounts only",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-17",
+      "robots_note": "User-agent * disallows /admin, /resources and /pomoc only; /en/news/ allowed; no AI-agent rule",
+      "rate_policy": "exact cited page URLs only, one request each, no crawling or link following",
+      "approved_by": "owner (chat instruction \"do it\" on the open SI/HR/Commission country-page host decision, 2026-11-17)",
+      "status": "allowed"
+    },
+    {
+      "host": "vlada.gov.hr",
+      "purpose": "Government of Croatia news releases — manual verification of amounts only",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-17",
+      "robots_note": "robots.txt 404 (no rules published)",
+      "rate_policy": "exact cited page URLs only, one request each, no crawling or link following",
+      "approved_by": "owner (chat instruction \"do it\" on the open SI/HR/Commission country-page host decision, 2026-11-17)",
+      "status": "allowed"
+    },
+    {
       "host": "data.bis.org",
       "purpose": "BIS bulk downloads",
       "automation_allowed": true,

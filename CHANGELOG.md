@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Slovenian and Croatian funding amounts — 2026-11-17
+
+- Read the Slovenian and Croatian EU-funding amounts on the government releases they come from (SHA-256 recorded). Slovenia's final recovery-fund request (€268.67 million in grants, €3.1 million in loans) and Croatia's water contracts are confirmed. The University of Maribor record now gives the exact European Regional Development Fund amount (€17,353,132.20) and programme. The Commission's Czech country page confirms the €260 million loan figure.
+
 ### v2.0 Commission funding documents and Next.js 16.4.5 — 2026-11-17
 
 - Read the Slovak and Polish recovery-funding amounts in the Commission documents themselves (SHA-256 recorded). Poland's grant allocation and loan support are shown as separate records. Correct the Czech case-study loan figure to the €818 million stated at the 2023 assessment, noting the €260 million now shown on the Commission's country page. Upgrade Next.js to 16.4.5 for a security advisory.

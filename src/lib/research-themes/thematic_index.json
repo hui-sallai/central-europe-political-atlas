@@ -6,8 +6,8 @@
   "src/lib/research-themes/themes.json": "289fed7e8b5fde3f6dda7fae14e6fe371e932d64e7fc44ba05ef930a29346499",
   "src/lib/research-themes/event_mappings.json": "c95e715498035ae5cbf2cb598d4d29ff8db043d458a52ddc9802487889f01f51",
   "src/lib/research-themes/investment_records.json": "85299e47d7f00b22066320b0ae5d1d2637102ae52c381e0a23d7121326663b36",
-  "src/lib/research-themes/eu_funding.json": "adac1b11c2466e633bebff6847d5e2333f616f4ab5657bb52c59de4b6bb208c3",
-  "src/lib/research-themes/cases.json": "e3d85539131499b4f9ed642a977c878c5ddd280ed5cd5fc44d162e61f2a2c7c5",
+  "src/lib/research-themes/eu_funding.json": "ed9eb42259af3e35376801970d657bf7bf4b4a285d767ecc9737b47aad515a00",
+  "src/lib/research-themes/cases.json": "2d983a2d2ee9539021c759d87335e6db69a7a7227dd0cb271382afbe4fb208f4",
   "public/research-data/events.json": "e06e554cebff63ace3b233e1db384acb34968691184c52c86fda9fb8b909f1a3",
   "src/data/projects/projects.json": "b9cb44e69d2772b8b998e1c210e4b20a24f9a622bba57ffc19cb6eec3d9a2e2b",
   "src/data/indicators/indicators.json": "9ca44d474b8f9e36dd53d19287c06f848a0600cf23256bb441212a3cb494d7f1",
@@ -11316,7 +11316,8 @@
     "EAFRD": "applicable_no_admitted_record",
     "EU_budget_conditionality": "applicable_no_admitted_record",
     "SAFE": "applicable_no_admitted_record",
-    "EU_programme_not_stated": "applicable_no_admitted_record"
+    "EU_programme_not_stated": "applicable_no_admitted_record",
+    "ERDF": "applicable_no_admitted_record"
    }
   },
   {
@@ -11328,7 +11329,8 @@
     "EAFRD": "applicable_no_admitted_record",
     "EU_budget_conditionality": "admitted:2",
     "SAFE": "applicable_no_admitted_record",
-    "EU_programme_not_stated": "applicable_no_admitted_record"
+    "EU_programme_not_stated": "applicable_no_admitted_record",
+    "ERDF": "applicable_no_admitted_record"
    }
   },
   {
@@ -11340,7 +11342,8 @@
     "EAFRD": "admitted:1",
     "EU_budget_conditionality": "applicable_no_admitted_record",
     "SAFE": "admitted:1",
-    "EU_programme_not_stated": "applicable_no_admitted_record"
+    "EU_programme_not_stated": "applicable_no_admitted_record",
+    "ERDF": "applicable_no_admitted_record"
    }
   },
   {
@@ -11352,7 +11355,8 @@
     "EAFRD": "applicable_no_admitted_record",
     "EU_budget_conditionality": "applicable_no_admitted_record",
     "SAFE": "applicable_no_admitted_record",
-    "EU_programme_not_stated": "applicable_no_admitted_record"
+    "EU_programme_not_stated": "applicable_no_admitted_record",
+    "ERDF": "applicable_no_admitted_record"
    }
   },
   {
@@ -11364,7 +11368,8 @@
     "EAFRD": "applicable_no_admitted_record",
     "EU_budget_conditionality": "applicable_no_admitted_record",
     "SAFE": "applicable_no_admitted_record",
-    "EU_programme_not_stated": "applicable_no_admitted_record"
+    "EU_programme_not_stated": "applicable_no_admitted_record",
+    "ERDF": "applicable_no_admitted_record"
    }
   },
   {
@@ -11376,7 +11381,8 @@
     "EAFRD": "applicable_no_admitted_record",
     "EU_budget_conditionality": "applicable_no_admitted_record",
     "SAFE": "admitted:2",
-    "EU_programme_not_stated": "admitted:1"
+    "EU_programme_not_stated": "admitted:1",
+    "ERDF": "applicable_no_admitted_record"
    }
   },
   {
@@ -11388,7 +11394,8 @@
     "EAFRD": "applicable_no_admitted_record",
     "EU_budget_conditionality": "applicable_no_admitted_record",
     "SAFE": "applicable_no_admitted_record",
-    "EU_programme_not_stated": "admitted:1"
+    "EU_programme_not_stated": "applicable_no_admitted_record",
+    "ERDF": "admitted:1"
    }
   },
   {
@@ -11400,7 +11407,8 @@
     "EAFRD": "not_applicable",
     "EU_budget_conditionality": "not_applicable",
     "SAFE": "not_applicable",
-    "EU_programme_not_stated": "applicable_no_admitted_record"
+    "EU_programme_not_stated": "applicable_no_admitted_record",
+    "ERDF": "not_applicable"
    }
   },
   {
@@ -11412,7 +11420,8 @@
     "EAFRD": "applicable_no_admitted_record",
     "EU_budget_conditionality": "applicable_no_admitted_record",
     "SAFE": "applicable_no_admitted_record",
-    "EU_programme_not_stated": "applicable_no_admitted_record"
+    "EU_programme_not_stated": "applicable_no_admitted_record",
+    "ERDF": "applicable_no_admitted_record"
    }
   },
   {
@@ -11424,7 +11433,8 @@
     "EAFRD": "applicable_no_admitted_record",
     "EU_budget_conditionality": "applicable_no_admitted_record",
     "SAFE": "applicable_no_admitted_record",
-    "EU_programme_not_stated": "applicable_no_admitted_record"
+    "EU_programme_not_stated": "applicable_no_admitted_record",
+    "ERDF": "applicable_no_admitted_record"
    }
   }
  ],
@@ -12272,13 +12282,13 @@
      "kind": "funding_stage",
      "record_id": "si-rrf-2026-final-request-grants",
      "stage": "payment_request",
-     "status": "official_record_admitted",
+     "status": "official_document_verified",
      "amount": 268670000,
      "currency": "EUR",
      "category": "grants",
      "summary": {
-      "en": "Final payment request, grant part; still under assessment.",
-      "zh": "最后一笔付款申请的赠款部分；仍在评估中。"
+      "en": "Final payment request, ninth grant instalment; still under assessment. The government release (read 2026-11-17) gives €271.77 million for the whole request.",
+      "zh": "最后一笔付款申请，第九期赠款；仍在评估中。政府新闻稿（2026-11-17 核读）给出整笔申请 2.7177 亿欧元。"
      }
     },
     {
@@ -12287,13 +12297,13 @@
      "kind": "funding_stage",
      "record_id": "si-rrf-2026-final-request-loans",
      "stage": "payment_request",
-     "status": "official_record_admitted",
+     "status": "official_document_verified",
      "amount": 3100000,
      "currency": "EUR",
      "category": "loans",
      "summary": {
-      "en": "Final payment request, loan part; still under assessment.",
-      "zh": "最后一笔付款申请的贷款部分；仍在评估中。"
+      "en": "Final payment request, fourth loan instalment; still under assessment (read 2026-11-17).",
+      "zh": "最后一笔付款申请，第四期贷款；仍在评估中（2026-11-17 核读）。"
      }
     },
     {
@@ -12383,13 +12393,13 @@
      "kind": "funding_stage",
      "record_id": "hr-cohesion-2026-vir-contract",
      "stage": "legal_commitment",
-     "status": "official_record_admitted",
+     "status": "official_document_verified",
      "amount": 213900000,
      "currency": "EUR",
      "category": "grants",
      "summary": {
-      "en": "Water-infrastructure contract for the island of Vir, co-financed by the Competitiveness and Cohesion Programme; the contract value is not the EU share.",
-      "zh": "维尔岛供水基础设施合同，由竞争力和凝聚力计划共同资助；合同金额不是欧盟出资部分。"
+      "en": "Water-infrastructure contract for the island of Vir, co-financed by the Competitiveness and Cohesion Programme (read 2026-11-17); the contract value is not the EU share.",
+      "zh": "维尔岛供水基础设施合同，由竞争力和凝聚力计划共同资助（2026-11-17 核读）；合同金额不是欧盟出资部分。"
      }
     },
     {
@@ -12398,13 +12408,13 @@
      "kind": "funding_stage",
      "record_id": "hr-rrf-2026-water-contracts",
      "stage": "legal_commitment",
-     "status": "official_record_admitted",
+     "status": "official_document_verified",
      "amount": null,
      "currency": null,
      "category": "grants",
      "summary": {
-      "en": "22 water-supply and wastewater contracts funded by the recovery plan in 13 counties; the government gives about €275 million for all water contracts signed that day, including the Vir contract below, without a separate total for these 22.",
-      "zh": "13 个县的 22 份由复苏计划资助的供水和污水合同；政府给出的当天全部水务合同约 2.75 亿欧元包括下方的维尔岛合同，未单列这 22 份的合计。"
+      "en": "22 water-supply and wastewater contracts under the National Recovery and Resilience Programme in 13 counties. The government release (read 2026-11-17) gives almost €275 million for all water contracts handed over that day, including the Vir contract below, and no separate total for these 22.",
+      "zh": "13 个县的 22 份国家复苏与韧性计划供水和污水合同。政府新闻稿（2026-11-17 核读）给出当天交付的全部水务合同近 2.75 亿欧元，包括下方的维尔岛合同，未单列这 22 份的合计。"
      }
     }
    ],

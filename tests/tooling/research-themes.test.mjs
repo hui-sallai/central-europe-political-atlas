@@ -126,9 +126,27 @@ test('a funding amount marked as read in an official document names a registered
   assert.equal(sk.evidence_status, 'official_document_verified');
   assert.equal(new URL(sk.source.url).hostname, 'commission.europa.eu');
   const mutate = (fn) => { const doc = load('eu_funding.json'); fn(doc.records.find((f) => f.record_id === 'sk-rrf-2024-authorisation')); return build({ 'eu_funding.json': doc }).errors; };
-  assert.ok(mutate((f) => { f.source.url = 'https://reforms-investments.ec.europa.eu/x.pdf'; }).some((e) => e.includes('not a registered manual-reading host')));
+  assert.ok(mutate((f) => { f.source.url = 'https://kormany.hu/x.pdf'; }).some((e) => e.includes('not a registered manual-reading host')), 'unregistered host');
   assert.ok(mutate((f) => { f.source.url = 'https://www.dz-rs.si/x.pdf'; }).some((e) => e.includes('not a registered manual-reading host')), 'blocked host');
   assert.ok(mutate((f) => { delete f.source.sha256; }).some((e) => e.includes('exact sha256')));
   assert.ok(mutate((f) => { f.evidence_status = 'official_record_admitted'; }).some((e) => e.includes('must be official_document_verified')));
   assert.ok(mutate((f) => { f.source = { kind: 'atlas_event_record' }; }).some((e) => e.includes('needs a read document')));
+});
+
+test('Slovenian and Croatian funding amounts are read on the registered government pages (owner decision 2026-11-17)', () => {
+  const recs = new Map(load('eu_funding.json').records.map((f) => [f.record_id, f]));
+  const expect = { 'si-rrf-2026-final-request-grants': ['www.gov.si', 268670000], 'si-rrf-2026-final-request-loans': ['www.gov.si', 3100000], 'si-eu-2026-maribor-research': ['www.gov.si', 17353132.2], 'hr-rrf-2026-water-contracts': ['vlada.gov.hr', null], 'hr-cohesion-2026-vir-contract': ['vlada.gov.hr', 213900000] };
+  for (const [id, [host, amount]] of Object.entries(expect)) {
+    const f = recs.get(id);
+    assert.equal(f.evidence_status, 'official_document_verified', id);
+    assert.equal(new URL(f.source.url).hostname, host, id);
+    assert.equal(f.amount, amount, id);
+  }
+  const mb = recs.get('si-eu-2026-maribor-research');
+  assert.deepEqual([mb.programme, mb.funding_period, mb.amount_precision], ['ERDF', '2021-2027', 'exact']);
+  const reg = JSON.parse(fs.readFileSync(path.join(root, 'docs/legal-security/network_acquisition_registry.json'), 'utf8')).hosts;
+  for (const h of ['www.gov.si', 'vlada.gov.hr', 'reforms-investments.ec.europa.eu']) {
+    const e = reg.find((x) => x.host === h);
+    assert.deepEqual([e.status, e.automation_allowed, e.manual_allowed], ['allowed', false, true], h);
+  }
 });
