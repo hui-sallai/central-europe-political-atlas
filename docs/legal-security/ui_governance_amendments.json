@@ -4182,8 +4182,8 @@
     {
       "amendment_id": "croatia-slovenia-elections-2026-11-18",
       "status": "owner_approved",
-      "approved_by": "owner brief 2026-11-18 \"Complete ten-country parliamentary election coverage\" with answers \"Accept for all four\" and \"Register both\": politicalData.ts imports the admitted Croatian and Slovenian stores behind the publication gate (raw constituency stores, no national view and no comparison set changed); politicalAdmission.ts adds the two admitted rows and the pipeline note; institutions registry: store_chamber added for hr-sabor and si-drzavni-zbor and election_links.json regenerated so the new elections link to their institutional periods; no component, page or design change",
-      "baseline": "61643db05494c9ab5c2b39311eb54b72adebb7b6",
+      "approved_by": "owner brief 2026-11-18 \"Complete ten-country parliamentary election coverage\" with answers \"Accept for all four\" and \"Register both\": politicalData.ts imports the admitted Croatian and Slovenian stores behind the publication gate (raw constituency stores, no national view and no comparison set changed); politicalAdmission.ts adds the two admitted rows and the pipeline note; institutions registry: store_chamber added for hr-sabor and si-drzavni-zbor and election_links.json regenerated so the new elections link to their institutional periods; pages link only to countries with a politics page (admittedCountrySlugs; Croatia and Slovenia flagged politicsRoute false and left out of countryElectionLinks until Codex adds their pages); no component, page or design change",
+      "baseline": "010e048456a18cc6d76d30d62fb5a0f7551647bb",
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
       "political_data_change_allowed": false,
@@ -4198,7 +4198,7 @@
         },
         {
           "path": "src/lib/politicalAdmission.ts",
-          "sha256": "4be6f13c2481507473a602731639dac8b195848ca9b7dabe33c03fd1569be49a",
+          "sha256": "f14fa00138195e9fcce407049d9c04efe38a8092cba4858b7acf4ea43ab2ff94",
           "classification": "DATA_PRESENTATION"
         },
         {
@@ -4214,6 +4214,11 @@
         {
           "path": "src/lib/institutions/election_links.json",
           "sha256": "8d719dd8bec353e59066a098ce0039dfb3903fe4ad37dc5145265ecf7bed60a8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutionalRegistry.ts",
+          "sha256": "1e343081213fe8f1b5eb543849f38ad8a804134fd133de1846cf25b984897bac",
           "classification": "DATA_PRESENTATION"
         }
       ]

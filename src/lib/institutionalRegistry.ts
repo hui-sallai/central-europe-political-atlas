@@ -4,6 +4,7 @@
 // Every view reads institutional facts from here, so one correction to a country record reaches all of them.
 import meta from "@/lib/institutions/meta.json";
 import links from "@/lib/institutions/election_links.json";
+import { admittedCountrySlugs } from "@/lib/politicalAdmission";
 import poland from "@/lib/institutions/countries/poland.json";
 import hungary from "@/lib/institutions/countries/hungary.json";
 import czechia from "@/lib/institutions/countries/czechia.json";
@@ -84,5 +85,7 @@ export function institutionalTimeline(slug: string) {
 }
 export function institutionalPeriods(slug: string): InstitutionalPeriod[] { return LINKS.periods[slug] ?? []; }
 export function electionInstitutionalContext(electionId: string) { return LINKS.elections.find((e) => e.election_id === electionId); }
-export function countryElectionLinks(slug: string) { return LINKS.elections.filter((e) => e.country === slug); }
+/** Elections linked to institutional periods, for countries with a /politics/<slug>/ page (pages link each election there).
+ * Croatia and Slovenia are in election_links.json but have no page yet, so they are not listed for linking. */
+export function countryElectionLinks(slug: string) { return admittedCountrySlugs.includes(slug) ? LINKS.elections.filter((e) => e.country === slug) : []; }
 export function caseStudy(slug: string) { return RECORDS[slug]?.case_study_sections ?? []; }

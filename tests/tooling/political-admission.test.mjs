@@ -11,7 +11,7 @@ const require = createRequire(import.meta.url);
 const resolve = Module._resolveFilename;
 Module._resolveFilename = function (request, ...rest) { return resolve.call(this, request.startsWith('@/') ? path.join(root, 'src', request.slice(2)) : request, ...rest); };
 require.extensions['.ts'] = (module, file) => module._compile(ts.transpileModule(fs.readFileSync(file, 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020, esModuleInterop: true } }).outputText, file);
-const { politicalAdmissions, admittedCountrySlugs } = require('../../src/lib/politicalAdmission.ts');
+const { politicalAdmissions, admittedCountrySlugs, admittedDataCountrySlugs } = require('../../src/lib/politicalAdmission.ts');
 const read = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8'));
 const gateMatrix = read('docs/political-data/source-closure/gate_matrix.json');
 const hungary = read('docs/political-data/hungary_source_status.json');
@@ -20,7 +20,9 @@ const replies = read('docs/legal-security/publisher_response_records.json').reco
 
 test('admitted countries are exactly the countries whose official stores are imported', () => {
   const imported = [...new Set([...fs.readFileSync(path.join(root, 'src/lib/politicalData.ts'), 'utf8').matchAll(/@\/data\/political\/([a-z]+)\//g)].map((m) => m[1]))].sort();
-  assert.deepEqual([...admittedCountrySlugs].sort(), imported);
+  assert.deepEqual([...admittedDataCountrySlugs].sort(), imported);
+  // Croatia and Slovenia are published as research data before their /politics/ pages exist; pages must not link to them.
+  assert.deepEqual([...admittedCountrySlugs].sort(), imported.filter((c) => !['croatia', 'slovenia'].includes(c)));
   assert.deepEqual(fs.readdirSync(path.join(root, 'src/data/political')).filter((d) => fs.statSync(path.join(root, 'src/data/political', d)).isDirectory()).sort(), imported);
   assert.deepEqual(imported, ['croatia', 'czechia', 'germany', 'hungary', 'poland', 'serbia', 'slovakia', 'slovenia']);
 });
