@@ -4178,6 +4178,45 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "croatia-slovenia-elections-2026-11-18",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-18 \"Complete ten-country parliamentary election coverage\" with answers \"Accept for all four\" and \"Register both\": politicalData.ts imports the admitted Croatian and Slovenian stores behind the publication gate (raw constituency stores, no national view and no comparison set changed); politicalAdmission.ts adds the two admitted rows and the pipeline note; institutions registry: store_chamber added for hr-sabor and si-drzavni-zbor and election_links.json regenerated so the new elections link to their institutional periods; no component, page or design change",
+      "baseline": "c6838eb96081455b6d8bae2b4e8275d265dad84d",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-18",
+      "files": [
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "b4df700ea8864305621ee1f38df4a555df8061561925f89a55d447fe7080534d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "d2af049781cd2796eed6b9985c5fb56a37e4f46b83f305e1cf4bd873ff7d0b0b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/croatia.json",
+          "sha256": "7053ad1b22658a600c70d47212b75b7248e84e5adcc22b53d599667c53672626",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/slovenia.json",
+          "sha256": "5f0456aa56264f2a6671b1bca17c6da33a6d820067f8a90a676757ad23ca5373",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/election_links.json",
+          "sha256": "8d719dd8bec353e59066a098ce0039dfb3903fe4ad37dc5145265ecf7bed60a8",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

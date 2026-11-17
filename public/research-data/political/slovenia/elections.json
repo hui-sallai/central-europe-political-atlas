@@ -1,0 +1,59 @@
+[
+  {
+    "election_id": "el-si-dz-2026-03-22",
+    "country": "slovenia",
+    "election_type": "national_parliament",
+    "chamber": "Državni zbor",
+    "date": "2026-03-22",
+    "date_end": null,
+    "date_basis": "polling day stated in the minutes",
+    "result_coverage": "all_lists_and_both_national_community_elections_candidates_without_names",
+    "year": 2026,
+    "legislature_id": "lg-si-dz-2026",
+    "electoral_system_id": "es-si-dz-2026",
+    "result_status": "official_final",
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "constituency_structure": [
+      {
+        "unit": "general",
+        "constituencies": [
+          "si-national"
+        ],
+        "seats": 88,
+        "vote_type": "si_list_vote",
+        "note": "eight constituencies of 11 seats; list seats are fixed nationally (Art. 92), so national figures are the unit of the result"
+      },
+      {
+        "unit": "national_community",
+        "constituencies": [
+          "si-nc-italijanska",
+          "si-nc-madzarska"
+        ],
+        "seats": 2,
+        "vote_type": "si_national_community_candidate_vote"
+      }
+    ],
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "minutes heading and section I.A",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "date",
+          "result_vintage"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  }
+]

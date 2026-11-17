@@ -1434,6 +1434,246 @@
      "sha256": "1ca5645212c8835ef6368ff16e9e2635599fc3c9de5e49b80cd60e6c0975048f"
     }
    ]
+  },
+  {
+   "admission_id": "croatia-sabor-2015-2024",
+   "status": "owner_approved",
+   "approved_on": "2026-11-18",
+   "approved_by": "owner brief 2026-11-18 \"Complete ten-country parliamentary election coverage\" naming www.izbori.hr; answers \"Accept for all four\" (Copyright Act, official texts) and \"Register both\" (manual reading only); candidate names never stored",
+   "country": "croatia",
+   "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+   "verification": "build-sabor check: per-constituency list-vote, ballot, printed-percentage, 5% threshold and D'Hondt seat reconciliation for 2015, 2016, 2020 and 2024 (17 decisions each), minority elections by most votes, 151 seats, 2024 archive turnout table; official-total reconciliation and closed admission gate record",
+   "gate_record": "docs/political-data/croatia_sabor_admission.json",
+   "gate_record_sha256": "73f0e9f6473deb5fb51db5471fc93af91a5adab9054cbc7bea4e8c6c826642a9",
+   "gates_closed": [
+    "reuse_right",
+    "normalized_republication",
+    "acquisition_route",
+    "source_files_complete",
+    "national_definition_complete",
+    "same_election_identity_complete",
+    "electoral_system_metadata_complete",
+    "vintage_decisions_complete"
+   ],
+   "germany_change_allowed": false,
+   "canonical_data_change_allowed": false,
+   "model_change_allowed": false,
+   "research_gate_change_allowed": false,
+   "release_version_change_allowed": false,
+   "files": [
+    {
+     "path": "src/data/political/croatia/elections.json",
+     "sha256": "763ffc347e4a1dc9356d66a090147c9420960cf4685770c5011d48452e7d9e73"
+    },
+    {
+     "path": "src/data/political/croatia/election_turnout.json",
+     "sha256": "23b90d01171453d06405a5d39fe565615068c4206d2ea4256fa82eb237aad579"
+    },
+    {
+     "path": "src/data/political/croatia/election_results.json",
+     "sha256": "1edbddbeb7973dd8489fd1ff998881cbf6737fcece72c237f6f2ecfa51bb1ddf"
+    },
+    {
+     "path": "src/data/political/croatia/electoral_contestants.json",
+     "sha256": "c450343c42269d83e1c2aafa670318c496b9d12acf6b5aeebca517c541c3808d"
+    },
+    {
+     "path": "src/data/political/croatia/legislatures.json",
+     "sha256": "30ef1a720a7d12e2be15588847edeb657fd685d2d31ab950a35050022804252a"
+    },
+    {
+     "path": "src/data/political/croatia/electoral_systems.json",
+     "sha256": "04b53915b8d2703f5f2655fedcbc0db264a3e6d2b176acecfbab28dfc69a0a8f"
+    },
+    {
+     "path": "src/data/political/croatia/political_source_registry.json",
+     "sha256": "f4cd464617e2e3ea2937e01b0839c7b125aef1a644afea447947e64d3cf222ad"
+    },
+    {
+     "path": "public/research-data/political/croatia/elections.json",
+     "sha256": "763ffc347e4a1dc9356d66a090147c9420960cf4685770c5011d48452e7d9e73"
+    },
+    {
+     "path": "public/research-data/political/croatia/elections.csv",
+     "sha256": "72241ea35d42a597cfa458b25d39599b861d7927bbb2b22dea5e889474723580"
+    },
+    {
+     "path": "public/research-data/political/croatia/election_turnout.json",
+     "sha256": "23b90d01171453d06405a5d39fe565615068c4206d2ea4256fa82eb237aad579"
+    },
+    {
+     "path": "public/research-data/political/croatia/election_turnout.csv",
+     "sha256": "f0d2fbb769cdbcbfe8b956539df7eb802c68676373458158a9ee633f132a7f6a"
+    },
+    {
+     "path": "public/research-data/political/croatia/election_results.json",
+     "sha256": "1edbddbeb7973dd8489fd1ff998881cbf6737fcece72c237f6f2ecfa51bb1ddf"
+    },
+    {
+     "path": "public/research-data/political/croatia/election_results.csv",
+     "sha256": "338a46890d053361c0f8fa9d14a061108234db2f633fd1975aed906e2f044547"
+    },
+    {
+     "path": "public/research-data/political/croatia/electoral_contestants.json",
+     "sha256": "c450343c42269d83e1c2aafa670318c496b9d12acf6b5aeebca517c541c3808d"
+    },
+    {
+     "path": "public/research-data/political/croatia/electoral_contestants.csv",
+     "sha256": "21b746254d60bc2ead4159d83d8873afec2133481b9a019760f2a51ba84b6053"
+    },
+    {
+     "path": "public/research-data/political/croatia/legislatures.json",
+     "sha256": "30ef1a720a7d12e2be15588847edeb657fd685d2d31ab950a35050022804252a"
+    },
+    {
+     "path": "public/research-data/political/croatia/legislatures.csv",
+     "sha256": "6d9fa3fb7022e6f4eff8e7cc9683847db1c65b9f75d04418a1baa51bd99c0c6d"
+    },
+    {
+     "path": "public/research-data/political/croatia/electoral_systems.json",
+     "sha256": "04b53915b8d2703f5f2655fedcbc0db264a3e6d2b176acecfbab28dfc69a0a8f"
+    },
+    {
+     "path": "public/research-data/political/croatia/electoral_systems.csv",
+     "sha256": "710269a95fdb9cd185670d5e00e2fca5f9bc1039ade1f070188a564e47f1d68f"
+    },
+    {
+     "path": "public/research-data/political/croatia/political_source_registry.json",
+     "sha256": "f4cd464617e2e3ea2937e01b0839c7b125aef1a644afea447947e64d3cf222ad"
+    },
+    {
+     "path": "public/research-data/political/croatia/political_source_registry.csv",
+     "sha256": "c87bb0ff5b0a6e1cb7c2f5cdc82927e491f7d89c975986b5fe2c5bf70d2b2ef5"
+    },
+    {
+     "path": "public/research-data/political/croatia/README.md",
+     "sha256": "e5b3d3b7a72b0970d899c9fec25d110e7bafebd991e353b85d7c152b65dffe8b"
+    },
+    {
+     "path": "public/research-data/political/croatia/manifest.json",
+     "sha256": "233cd1bb6b8b0d7776423b00543bdc58d7f63661ff4cdb338b9189026bafac2f"
+    }
+   ]
+  },
+  {
+   "admission_id": "slovenia-dz-2026",
+   "status": "owner_approved",
+   "approved_on": "2026-11-18",
+   "approved_by": "owner brief 2026-11-18 \"Complete ten-country parliamentary election coverage\" naming www.dvk-rs.si; answers \"Accept for all four\" (ZASP Art. 9) and \"Register both\" (manual reading only); candidate names and personal data never stored",
+   "country": "slovenia",
+   "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+   "verification": "build-dz check: national list-vote, ballot, printed-turnout and percentage, 4% threshold and D'Hondt 88-seat reconciliation, both national-community elections, agreement with the commission data file, 90 seats; official-total reconciliation and closed admission gate record",
+   "gate_record": "docs/political-data/slovenia_dz_admission.json",
+   "gate_record_sha256": "376d924ea09cecf0e763de1763f49fb98db13155ce2e576378116e60ee02a50c",
+   "gates_closed": [
+    "reuse_right",
+    "normalized_republication",
+    "acquisition_route",
+    "source_files_complete",
+    "national_definition_complete",
+    "same_election_identity_complete",
+    "electoral_system_metadata_complete",
+    "vintage_decisions_complete"
+   ],
+   "germany_change_allowed": false,
+   "canonical_data_change_allowed": false,
+   "model_change_allowed": false,
+   "research_gate_change_allowed": false,
+   "release_version_change_allowed": false,
+   "files": [
+    {
+     "path": "src/data/political/slovenia/elections.json",
+     "sha256": "1b7aa8b67baacd24b25fc7ab72dc26c1c91a27c1a80e4f66b530c675342382a5"
+    },
+    {
+     "path": "src/data/political/slovenia/election_turnout.json",
+     "sha256": "a1f4427158a3057c19a0873009b00a26757656765915403f77536b02dedcdd24"
+    },
+    {
+     "path": "src/data/political/slovenia/election_results.json",
+     "sha256": "48e562e33c41db06cd232b8da26de5e10f16af39053c9717d72291fcdb5c61ca"
+    },
+    {
+     "path": "src/data/political/slovenia/electoral_contestants.json",
+     "sha256": "fb8c4e97d54ebb131edfa1615d43b0772e29bf72647579b2cbabda20abfc7e5c"
+    },
+    {
+     "path": "src/data/political/slovenia/legislatures.json",
+     "sha256": "5842994f2e93486e61886e436fc5aecd6ec3f7bb4bdebbe14ce9e16a9c552939"
+    },
+    {
+     "path": "src/data/political/slovenia/electoral_systems.json",
+     "sha256": "8abcbcfdc44b961d4e1219f126cb862ae28dca19373f1b2dfcca79a051301ab2"
+    },
+    {
+     "path": "src/data/political/slovenia/political_source_registry.json",
+     "sha256": "f5d67ec586b043e5ec08ebe1713b49810ac7747b05b51ebceb5f04cfd043de78"
+    },
+    {
+     "path": "public/research-data/political/slovenia/elections.json",
+     "sha256": "1b7aa8b67baacd24b25fc7ab72dc26c1c91a27c1a80e4f66b530c675342382a5"
+    },
+    {
+     "path": "public/research-data/political/slovenia/elections.csv",
+     "sha256": "7e257126565b46e22599da78f5a866fe2e6a45abecd09405ec6cb4749b6beace"
+    },
+    {
+     "path": "public/research-data/political/slovenia/election_turnout.json",
+     "sha256": "a1f4427158a3057c19a0873009b00a26757656765915403f77536b02dedcdd24"
+    },
+    {
+     "path": "public/research-data/political/slovenia/election_turnout.csv",
+     "sha256": "966c5b098cf714b77990ee2486f837b4be531abdb4f3fa1a0b5ca406c20bc111"
+    },
+    {
+     "path": "public/research-data/political/slovenia/election_results.json",
+     "sha256": "48e562e33c41db06cd232b8da26de5e10f16af39053c9717d72291fcdb5c61ca"
+    },
+    {
+     "path": "public/research-data/political/slovenia/election_results.csv",
+     "sha256": "d7e6194546c647c303ec95f2c6778463398c7707e26fb43598edb610d9604ee1"
+    },
+    {
+     "path": "public/research-data/political/slovenia/electoral_contestants.json",
+     "sha256": "fb8c4e97d54ebb131edfa1615d43b0772e29bf72647579b2cbabda20abfc7e5c"
+    },
+    {
+     "path": "public/research-data/political/slovenia/electoral_contestants.csv",
+     "sha256": "075f57813824200919d16af984f6e52e024315723a953205b0c20c1c74f4e1f4"
+    },
+    {
+     "path": "public/research-data/political/slovenia/legislatures.json",
+     "sha256": "5842994f2e93486e61886e436fc5aecd6ec3f7bb4bdebbe14ce9e16a9c552939"
+    },
+    {
+     "path": "public/research-data/political/slovenia/legislatures.csv",
+     "sha256": "3ba1d0b4ae041482f2243a5e29ba71da0c639b0dac69eb50d6a23f93c69f1bf7"
+    },
+    {
+     "path": "public/research-data/political/slovenia/electoral_systems.json",
+     "sha256": "8abcbcfdc44b961d4e1219f126cb862ae28dca19373f1b2dfcca79a051301ab2"
+    },
+    {
+     "path": "public/research-data/political/slovenia/electoral_systems.csv",
+     "sha256": "8a688512d43a33b2070b3a15d5cdce22571b7bf4d79c5381852d513879ef356d"
+    },
+    {
+     "path": "public/research-data/political/slovenia/political_source_registry.json",
+     "sha256": "f5d67ec586b043e5ec08ebe1713b49810ac7747b05b51ebceb5f04cfd043de78"
+    },
+    {
+     "path": "public/research-data/political/slovenia/political_source_registry.csv",
+     "sha256": "658625e71f50996f2004386a705257d0a4c9e952c4e3d64a07ce6b4d2aaae799"
+    },
+    {
+     "path": "public/research-data/political/slovenia/README.md",
+     "sha256": "edf884024bce17f6416f896b14d3723135512d6a74a2fb7a5f34b20de40b2bfa"
+    },
+    {
+     "path": "public/research-data/political/slovenia/manifest.json",
+     "sha256": "84f12b7aaa05cc23977a959f025e0f694612cb14b04aef8760216f431afd46c3"
+    }
+   ]
   }
  ]
 }

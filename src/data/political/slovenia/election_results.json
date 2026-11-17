@@ -1,0 +1,1199 @@
+[
+  {
+    "result_id": "er-ct-si-dz26-01",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-01",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 338102,
+    "published_vote_share": 28.66,
+    "derived_vote_share": 28.65832209525763,
+    "seats": 29,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 1",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107754 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-02",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-02",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 328923,
+    "published_vote_share": 27.88,
+    "derived_vote_share": 27.880288429345068,
+    "seats": 28,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 2",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107757 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-03",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-03",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 109201,
+    "published_vote_share": 9.26,
+    "derived_vote_share": 9.256134039799317,
+    "seats": 9,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 3",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107749 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-04",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-04",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 79175,
+    "published_vote_share": 6.71,
+    "derived_vote_share": 6.711059537926492,
+    "seats": 6,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 4",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107753 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-05",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-05",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 78902,
+    "published_vote_share": 6.69,
+    "derived_vote_share": 6.687919414732884,
+    "seats": 6,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 5",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107755 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-06",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-06",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 67183,
+    "published_vote_share": 5.69,
+    "derived_vote_share": 5.694589364528141,
+    "seats": 5,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 6",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107760 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-07",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-07",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 64799,
+    "published_vote_share": 5.49,
+    "derived_vote_share": 5.492515907775166,
+    "seats": 5,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 7",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107752 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-08",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-08",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 35976,
+    "published_vote_share": 3.05,
+    "derived_vote_share": 3.049410520195055,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 8",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107761 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-09",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-09",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 27811,
+    "published_vote_share": 2.36,
+    "derived_vote_share": 2.3573258832873214,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 9",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107756 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-10",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-10",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 26375,
+    "published_vote_share": 2.24,
+    "derived_vote_share": 2.2356071400418216,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 10",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107751 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-11",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-11",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 5657,
+    "published_vote_share": 0.48,
+    "derived_vote_share": 0.47950064800821174,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 11",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107759 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-12",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-12",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 5277,
+    "published_vote_share": 0.45,
+    "derived_vote_share": 0.4472909527204054,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 12",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107758 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-13",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-13",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 4785,
+    "published_vote_share": 0.41,
+    "derived_vote_share": 0.40558787355829834,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 13",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107800 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-14",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-14",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 4193,
+    "published_vote_share": 0.36,
+    "derived_vote_share": 0.3554085587941368,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 14",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107750 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-15",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-15",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 2995,
+    "published_vote_share": 0.25,
+    "derived_vote_share": 0.2538632562815263,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 15",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107799 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-16",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-16",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 251,
+    "published_vote_share": 0.02,
+    "derived_vote_share": 0.021275351361156294,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 16",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107803 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-17",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-17",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1179769,
+    "total_seats": 88,
+    "votes": 164,
+    "published_vote_share": 0.01,
+    "derived_vote_share": 0.013901026387369052,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6 and I.Č item 9, row 17",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "published_vote_share",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107801 (gl, man)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-nc-ita-01",
+    "country": "slovenia",
+    "geography": "si-nc-italijanska",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-nc-ita-01",
+    "vote_type": "si_national_community_candidate_vote",
+    "valid_votes": 1935,
+    "total_seats": 1,
+    "votes": 208,
+    "published_vote_share": null,
+    "derived_vote_share": 10.749354005167959,
+    "seats": 0,
+    "elected": false,
+    "seat_basis": "Italian national-community constituency: one deputy, the candidate with most votes (minutes section II)",
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section II (Italian community), row 1",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-nc-ita-02",
+    "country": "slovenia",
+    "geography": "si-nc-italijanska",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-nc-ita-02",
+    "vote_type": "si_national_community_candidate_vote",
+    "valid_votes": 1935,
+    "total_seats": 1,
+    "votes": 347,
+    "published_vote_share": null,
+    "derived_vote_share": 17.9328165374677,
+    "seats": 0,
+    "elected": false,
+    "seat_basis": "Italian national-community constituency: one deputy, the candidate with most votes (minutes section II)",
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section II (Italian community), row 2",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-nc-ita-03",
+    "country": "slovenia",
+    "geography": "si-nc-italijanska",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-nc-ita-03",
+    "vote_type": "si_national_community_candidate_vote",
+    "valid_votes": 1935,
+    "total_seats": 1,
+    "votes": 578,
+    "published_vote_share": null,
+    "derived_vote_share": 29.870801033591732,
+    "seats": 0,
+    "elected": false,
+    "seat_basis": "Italian national-community constituency: one deputy, the candidate with most votes (minutes section II)",
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section II (Italian community), row 3",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-nc-ita-04",
+    "country": "slovenia",
+    "geography": "si-nc-italijanska",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-nc-ita-04",
+    "vote_type": "si_national_community_candidate_vote",
+    "valid_votes": 1935,
+    "total_seats": 1,
+    "votes": 802,
+    "published_vote_share": null,
+    "derived_vote_share": 41.44702842377261,
+    "seats": 1,
+    "elected": true,
+    "seat_basis": "Italian national-community constituency: one deputy, the candidate with most votes (minutes section II)",
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section II (Italian community), row 4",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-nc-mad-01",
+    "country": "slovenia",
+    "geography": "si-nc-madzarska",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-nc-mad-01",
+    "vote_type": "si_national_community_candidate_vote",
+    "valid_votes": 3224,
+    "total_seats": 1,
+    "votes": 2336,
+    "published_vote_share": null,
+    "derived_vote_share": 72.45657568238212,
+    "seats": 1,
+    "elected": true,
+    "seat_basis": "Hungarian national-community constituency: one deputy, the candidate with most votes (minutes section II)",
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section II (Hungarian community), row 1",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz26-nc-mad-02",
+    "country": "slovenia",
+    "geography": "si-nc-madzarska",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_ref": "ct-si-dz26-nc-mad-02",
+    "vote_type": "si_national_community_candidate_vote",
+    "valid_votes": 3224,
+    "total_seats": 1,
+    "votes": 888,
+    "published_vote_share": null,
+    "derived_vote_share": 27.543424317617866,
+    "seats": 0,
+    "elected": false,
+    "seat_basis": "Hungarian national-community constituency: one deputy, the candidate with most votes (minutes section II)",
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section II (Hungarian community), row 2",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  }
+]

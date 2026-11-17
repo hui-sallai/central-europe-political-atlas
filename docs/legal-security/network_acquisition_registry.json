@@ -67,6 +67,28 @@
       "status": "allowed"
     },
     {
+      "host": "www.dvk-rs.si",
+      "purpose": "National Electoral Commission of Slovenia (Državna volilna komisija) — official National Assembly election results and result files, manual acquisition only",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-18",
+      "robots_note": "User-agent * disallows only /typo3/ and /typo3_src/; /fileadmin/user_upload/ and /volitve-in-referendumi/ allowed; no AI-agent rule",
+      "rate_policy": "exact official result files and pages named or linked by the election commission only, one request each, no crawling",
+      "approved_by": "owner (AskUserQuestion answer \"Register both\", ten-country parliamentary election brief, 2026-11-18)",
+      "status": "allowed"
+    },
+    {
+      "host": "www.izbori.hr",
+      "purpose": "State Electoral Commission of Croatia (Državno izborno povjerenstvo) — official Croatian Parliament election results (open-data result archives), manual acquisition only",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-18",
+      "robots_note": "no robots.txt published (https://www.izbori.hr/robots.txt redirects to the site home page)",
+      "rate_policy": "exact official result files and pages named or linked by the election commission only, one request each, no crawling",
+      "approved_by": "owner (AskUserQuestion answer \"Register both\", ten-country parliamentary election brief, 2026-11-18)",
+      "status": "allowed"
+    },
+    {
       "host": "data.bis.org",
       "purpose": "BIS bulk downloads",
       "automation_allowed": true,

@@ -1,0 +1,25 @@
+{
+  "schema_version": "slovenia-political-export-v1",
+  "country": "slovenia",
+  "elections": [
+    "el-si-dz-2026-03-22"
+  ],
+  "coverage": "whole_chamber_90_of_90_seats",
+  "units": "national (general election) and si-nc-* (national-community elections)",
+  "label_rule": "list names as printed; names containing a person replaced by the commission short name; national-community candidates without names",
+  "not_included": [
+    "candidate names and personal data",
+    "constituency and district results",
+    "party attribution and cross-election links",
+    "Državni svet (indirectly elected)"
+  ],
+  "stores": [
+    "elections",
+    "election_turnout",
+    "election_results",
+    "electoral_contestants",
+    "legislatures",
+    "electoral_systems",
+    "political_source_registry"
+  ]
+}

@@ -1,0 +1,301 @@
+{
+ "schema_version": "slovenia-dz-evidence-v1",
+ "country": "slovenia",
+ "label_rule": {
+  "rule": "Lists are stored with the name printed in the commission’s minutes. A name containing a person’s name is shown by the short name the commission publishes in its own result data file (knaz). title_sha256 identifies the printed name. Candidate names, dates of birth and addresses printed in the minutes are never stored.",
+  "reviewed_on": "2026-11-18"
+ },
+ "rights": {
+  "basis": "Zakon o avtorski in sorodnih pravicah (ZASP), Art. 9(1)(2): official texts from the legislative, administrative and judicial fields are not protected by copyright — owner reading 2026-11-18 (answer “Accept for all four”); not a licence",
+  "url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
+  "quoted": "Avtorskopravno niso varovane: … 2. uradna besedila z zakonodajnega, upravnega in sodnega področja",
+  "read_on": "2026-11-18",
+  "how": "read once in the browser pane (PISRS)"
+ },
+ "elections": {
+  "2026": {
+   "election_id": "el-si-dz-2026-03-22",
+   "polling_day": "2026-03-22",
+   "minutes": {
+    "title": "Zapisnik o ugotovitvi izida volitev poslancev v Državni zbor, ki so bile 22. 3. 2026",
+    "gazette": "Uradni list RS, št. 197/2026, 7. 4. 2026",
+    "dvk_number": "041-5/2025-26",
+    "adopted": "2026-04-07",
+    "url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+    "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d",
+    "bytes": 970172,
+    "how": "read once in the browser pane (curl receives HTTP 407); figures transcribed, the 90 elected members’ names, dates of birth and addresses (section III) not transcribed",
+    "act_cited": "Zakon o volitvah v državni zbor (Uradni list RS, št. 109/06 – uradno prečiščeno besedilo, 54/07 – odl. US, 23/17, 29/21 in 12/24)"
+   },
+   "cross_check": {
+    "title": "DVK result data file rezultati.json (archive dz2026), datum 2026-04-07T09:00:00Z",
+    "url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+    "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e",
+    "turnout_file": "https://www.dvk-rs.si/arhivi/dz2026/data/udelezba.json",
+    "turnout_file_sha256": "67c483efebc24427dc9d464d7e4743e622e5fbf9a7f0e4829829576fbf9ae427",
+    "retrieved_at": "2026-11-18"
+   },
+   "general": {
+    "entitled": 1695249,
+    "entitled_on_roll": 1190879,
+    "entitled_with_certificate": 53,
+    "voted": 1190932,
+    "voted_printed_percent": "70,25",
+    "ballots_cast": 1190819,
+    "invalid": 11050,
+    "valid": 1179769,
+    "threshold_percent": 4,
+    "lists_in_allocation_printed": 7,
+    "lists": [
+     {
+      "row": 1,
+      "votes": 338102,
+      "printed_percent": "28,66",
+      "seats": 29,
+      "dvk_list_id": 107754,
+      "display_label": "GIBANJE SVOBODA",
+      "label_basis": "verbatim",
+      "dvk_short_name": "SVOBODA",
+      "title_sha256": "b2c21c8a9a9156c8aca27a0093d0001379020009bbd4f9a64b722acf692db6aa"
+     },
+     {
+      "row": 2,
+      "votes": 328923,
+      "printed_percent": "27,88",
+      "seats": 28,
+      "dvk_list_id": 107757,
+      "display_label": "SLOVENSKA DEMOKRATSKA STRANKA",
+      "label_basis": "verbatim",
+      "dvk_short_name": "SDS",
+      "title_sha256": "23efcbe2c52a607d4e46d2c2826b35d1fec39f1c172e68a4ab1e9eda28af265c"
+     },
+     {
+      "row": 3,
+      "votes": 109201,
+      "printed_percent": "9,26",
+      "seats": 9,
+      "dvk_list_id": 107749,
+      "display_label": "NSi, SLS, FOKUS",
+      "label_basis": "dvk_short_name_for_personal_name",
+      "dvk_short_name": "NSi, SLS, FOKUS",
+      "title_sha256": "78c987a30a5c1fc6765cf0d0e8e1d43a0783bf621d03c5fd0e3f13365f25dd90"
+     },
+     {
+      "row": 4,
+      "votes": 79175,
+      "printed_percent": "6,71",
+      "seats": 6,
+      "dvk_list_id": 107753,
+      "display_label": "SOCIALNI DEMOKRATI",
+      "label_basis": "verbatim",
+      "dvk_short_name": "SD",
+      "title_sha256": "3b69c1c83271d6210198c50db5467c412f1d1ec97e50fb0ef56e70b3f6d7bb92"
+     },
+     {
+      "row": 5,
+      "votes": 78902,
+      "printed_percent": "6,69",
+      "seats": 6,
+      "dvk_list_id": 107755,
+      "display_label": "DEMOKRATI.",
+      "label_basis": "dvk_short_name_for_personal_name",
+      "dvk_short_name": "DEMOKRATI.",
+      "title_sha256": "1161abf4e3f809e72a3e5c1cd463c36282ebdf1becf722595e3159f81dd19eac"
+     },
+     {
+      "row": 6,
+      "votes": 67183,
+      "printed_percent": "5,69",
+      "seats": 5,
+      "dvk_list_id": 107760,
+      "display_label": "LEVICA IN VESNA",
+      "label_basis": "verbatim",
+      "dvk_short_name": "LEVICA IN VESNA",
+      "title_sha256": "8d45387b68c8a29add108528e4e3a99097b7deb73df2a0c4132c0f1bb546042c"
+     },
+     {
+      "row": 7,
+      "votes": 64799,
+      "printed_percent": "5,49",
+      "seats": 5,
+      "dvk_list_id": 107752,
+      "display_label": "DRŽAVLJANSKO GIBANJE RESNI.CA",
+      "label_basis": "verbatim",
+      "dvk_short_name": "RESNI.CA",
+      "title_sha256": "b9a01575220f76bf99d715d5b1a1c9c400168ece35f04f3e749d86d96603df53"
+     },
+     {
+      "row": 8,
+      "votes": 35976,
+      "printed_percent": "3,05",
+      "seats": 0,
+      "dvk_list_id": 107761,
+      "display_label": "PREROD",
+      "label_basis": "dvk_short_name_for_personal_name",
+      "dvk_short_name": "PREROD",
+      "title_sha256": "947059267bfc8f14a6bac6250bcfa6df56982d80e02098b48cb0d7f7bcb6dacf"
+     },
+     {
+      "row": 9,
+      "votes": 27811,
+      "printed_percent": "2,36",
+      "seats": 0,
+      "dvk_list_id": 107756,
+      "display_label": "PIRATSKA STRANKA SLOVENIJE",
+      "label_basis": "verbatim",
+      "dvk_short_name": "PIRATI",
+      "title_sha256": "725ca694815d71979c7738abde20011328552d25ea8e25b009a5a20cf51f8c01"
+     },
+     {
+      "row": 10,
+      "votes": 26375,
+      "printed_percent": "2,24",
+      "seats": 0,
+      "dvk_list_id": 107751,
+      "display_label": "SLOVENSKA NACIONALNA STRANKA",
+      "label_basis": "verbatim",
+      "dvk_short_name": "SNS",
+      "title_sha256": "53b9a4a4c44b940aeb424ab1d679fd0dd404ce0ef5ce8a7a7cd910a36409c6c7"
+     },
+     {
+      "row": 11,
+      "votes": 5657,
+      "printed_percent": "0,48",
+      "seats": 0,
+      "dvk_list_id": 107759,
+      "display_label": "MI, SOCIALISTI!",
+      "label_basis": "verbatim",
+      "dvk_short_name": "MI, SOCIALISTI!",
+      "title_sha256": "9f567e3dd9d461c92311f3aa6df182e448416815994a99e9d524b8a5cf11aba2"
+     },
+     {
+      "row": 12,
+      "votes": 5277,
+      "printed_percent": "0,45",
+      "seats": 0,
+      "dvk_list_id": 107758,
+      "display_label": "ZELENI SLOVENIJE + SG STRANKA GENERACIJ",
+      "label_basis": "verbatim",
+      "dvk_short_name": "ZELENI+SG",
+      "title_sha256": "b4eec69622c1c6596f01ae314d1e7bb55b130bfd4b878278438401c8bd771c06"
+     },
+     {
+      "row": 13,
+      "votes": 4785,
+      "printed_percent": "0,41",
+      "seats": 0,
+      "dvk_list_id": 107800,
+      "display_label": "KOALICIJA ALTERNATIVA ZA SLOVENIJO (STRANKA NIČ OD TEGA IN STRANKA ZA ZDRAVO DRUŽBO)",
+      "label_basis": "verbatim",
+      "dvk_short_name": "ALTERNATIVA",
+      "title_sha256": "d6a41363e4e1eebac31b650330b25af7f5fc244e2fbf80d3dff3f97c3e7dbd65"
+     },
+     {
+      "row": 14,
+      "votes": 4193,
+      "printed_percent": "0,36",
+      "seats": 0,
+      "dvk_list_id": 107750,
+      "display_label": "GLAS UPOKOJENCEV",
+      "label_basis": "dvk_short_name_for_personal_name",
+      "dvk_short_name": "GLAS UPOKOJENCEV",
+      "title_sha256": "408986c192dbc86240efb672b43cfa9b7acad34638fdb9e89d3568fd53a6c8a5"
+     },
+     {
+      "row": 15,
+      "votes": 2995,
+      "printed_percent": "0,25",
+      "seats": 0,
+      "dvk_list_id": 107799,
+      "display_label": "ZAUPANJE",
+      "label_basis": "dvk_short_name_for_personal_name",
+      "dvk_short_name": "ZAUPANJE",
+      "title_sha256": "d5ac6fbb8f40342c898a9e859e1ff4505ad3aab59d2c27df7ad81ed59f88906d"
+     },
+     {
+      "row": 16,
+      "votes": 251,
+      "printed_percent": "0,02",
+      "seats": 0,
+      "dvk_list_id": 107803,
+      "display_label": "SLOGA",
+      "label_basis": "verbatim",
+      "dvk_short_name": "SLOGA",
+      "title_sha256": "6aedf9ff02a5f24837f1dc6ec6fabf3ea834e8c1c264a71f6fdbe7de715e20e8"
+     },
+     {
+      "row": 17,
+      "votes": 164,
+      "printed_percent": "0,01",
+      "seats": 0,
+      "dvk_list_id": 107801,
+      "display_label": "REŠITEV - STRANKA UPOKOJENCEV VELENJE, SLOVENIJA",
+      "label_basis": "verbatim",
+      "dvk_short_name": "REŠITEV",
+      "title_sha256": "6d40eca7e697a65ffe98284c15858c106fbfb27ea62483f5e0cc814c95ae5d25"
+     }
+    ],
+    "note_on_entitled": "Item 1 prints 1,695,249 entitled voters, of whom 1,190,879 were on the rolls and 53 voted with a certificate; the figures are kept as printed."
+   },
+   "national_communities": [
+    {
+     "community": "italijanska",
+     "community_en": "Italian",
+     "entitled": 2856,
+     "on_roll": 2822,
+     "with_certificate": 34,
+     "voted": 1975,
+     "ballots_cast": 1975,
+     "invalid": 40,
+     "valid": 1935,
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 208,
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 347,
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 578,
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 802,
+       "elected": true
+      }
+     ]
+    },
+    {
+     "community": "madzarska",
+     "community_en": "Hungarian",
+     "entitled": 5384,
+     "on_roll": 5377,
+     "with_certificate": 7,
+     "voted": 3332,
+     "ballots_cast": 3332,
+     "invalid": 108,
+     "valid": 3224,
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 2336,
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 888,
+       "elected": false
+      }
+     ]
+    }
+   ],
+   "retrieved_at": "2026-11-18"
+  }
+ }
+}

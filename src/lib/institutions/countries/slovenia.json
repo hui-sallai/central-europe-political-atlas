@@ -26,6 +26,7 @@
       "official_name": "Državni zbor Republike Slovenije",
       "name": { "en": "National Assembly", "zh": "国民议会（Državni zbor）" },
       "role": "lower",
+      "store_chamber": "Državni zbor",
       "members": { "value": 90, "basis": { "en": "fixed by the Constitution; 88 deputies elected in eight constituencies of 11 plus one deputy each of the Italian and Hungarian national communities (ZVDZ Art. 20)", "zh": "宪法规定；八个选区每区 11 名共 88 名议员，另有意大利族和匈牙利族民族共同体各一名议员（ZVDZ 第 20 条）" }, "articles": "Art. 80", "source_ids": ["si-constitution-current", "si-zvdz-npb12"] },
       "term_years": 4,
       "selection": { "code": "direct_proportional", "label": { "en": "Universal, equal, direct and secret voting; proportional representation with a 4% threshold, voters having a decisive influence on which candidates take the seats", "zh": "普遍、平等、直接、秘密投票；比例代表制，门槛 4%，选民对议席分配给哪些候选人有决定性影响" }, "articles": "Art. 80" },

@@ -41,6 +41,18 @@ const SERBIAN_PATHS = [
   'public/research-data/political/serbia/README.md',
   'public/research-data/political/serbia/manifest.json',
 ];
+const CROATIAN_PATHS = [
+  ...STORES.map((s) => `src/data/political/croatia/${s}.json`),
+  ...STORES.flatMap((s) => [`public/research-data/political/croatia/${s}.json`, `public/research-data/political/croatia/${s}.csv`]),
+  'public/research-data/political/croatia/README.md',
+  'public/research-data/political/croatia/manifest.json',
+];
+const SLOVENIAN_PATHS = [
+  ...STORES.map((s) => `src/data/political/slovenia/${s}.json`),
+  ...STORES.flatMap((s) => [`public/research-data/political/slovenia/${s}.json`, `public/research-data/political/slovenia/${s}.csv`]),
+  'public/research-data/political/slovenia/README.md',
+  'public/research-data/political/slovenia/manifest.json',
+];
 // Later admissions of a country share its files; each record's gate record stays required, and the last record's hashes apply.
 export const POLITICAL_ADMISSIONS = {
   'czechia-ps-2025': { approved_on: '2026-10-25', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2025_admission.json', paths: CZECH_PATHS },
@@ -57,6 +69,11 @@ export const POLITICAL_ADMISSIONS = {
   // Owner brief, 2026-11-15: 2022 admitted and 2023 upgraded to the full RIK reports (sessions 79 and 51); the Assembly page stays a reference.
   'serbia-nsk-2022-2023-rik': { approved_on: '2026-11-15', country: 'serbia', gate_record: 'docs/political-data/serbia_nsk2022_2023_admission.json', paths: SERBIAN_PATHS },
   'slovakia-rights-evidence': { approved_on: '2026-11-04', country: 'slovakia', gate_record: 'docs/political-data/slovakia_rights_evidence_admission.json', paths: SLOVAK_PATHS },
+  // Owner brief 2026-11-18 (ten-country parliamentary elections) with answers "Accept for all four" and "Register both":
+  // Croatian Parliament 2015, 2016, 2020 and 2024 from the State Electoral Commission's final-results decisions.
+  'croatia-sabor-2015-2024': { approved_on: '2026-11-18', country: 'croatia', gate_record: 'docs/political-data/croatia_sabor_admission.json', paths: CROATIAN_PATHS },
+  // Same brief and answers: Slovenian National Assembly 2026 from the commission's minutes (Uradni list RS 197/2026).
+  'slovenia-dz-2026': { approved_on: '2026-11-18', country: 'slovenia', gate_record: 'docs/political-data/slovenia_dz_admission.json', paths: SLOVENIAN_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 const admissiblePath = (file, country) => country !== 'germany' && /^[a-z]+$/.test(country) && (file.startsWith(`src/data/political/${country}/`) || file.startsWith(`public/research-data/political/${country}/`));

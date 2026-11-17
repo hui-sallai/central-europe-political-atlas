@@ -48,6 +48,20 @@ import rsContestants from "@/data/political/serbia/electoral_contestants.json";
 import rsLegislatures from "@/data/political/serbia/legislatures.json";
 import rsSystems from "@/data/political/serbia/electoral_systems.json";
 import rsSources from "@/data/political/serbia/political_source_registry.json";
+import hrElections from "@/data/political/croatia/elections.json";
+import hrTurnout from "@/data/political/croatia/election_turnout.json";
+import hrResults from "@/data/political/croatia/election_results.json";
+import hrContestants from "@/data/political/croatia/electoral_contestants.json";
+import hrLegislatures from "@/data/political/croatia/legislatures.json";
+import hrSystems from "@/data/political/croatia/electoral_systems.json";
+import hrSources from "@/data/political/croatia/political_source_registry.json";
+import siElections from "@/data/political/slovenia/elections.json";
+import siTurnout from "@/data/political/slovenia/election_turnout.json";
+import siResults from "@/data/political/slovenia/election_results.json";
+import siContestants from "@/data/political/slovenia/electoral_contestants.json";
+import siLegislatures from "@/data/political/slovenia/legislatures.json";
+import siSystems from "@/data/political/slovenia/electoral_systems.json";
+import siSources from "@/data/political/slovenia/political_source_registry.json";
 import type { PoliticalCountryView, PoliticalElectionView } from "./politicalExplorer";
 import { electionViewsFromStores, type PoliticalStores } from "./politicalStores";
 import { politicalPublicationProblems } from "./politicalNational";
@@ -133,6 +147,27 @@ export function politicalSerbianElectionViews(): PoliticalElectionView[] {
   });
   for (const view of elections) if (politicalPublicationProblems(view.country!, view.sources, ["serbia"]).length) throw Error("Political source publication gate failed");
   return elections;
+}
+
+/** Raw admitted stores for a country whose results are not a single national table (constituencies, separate minority
+ * elections). The national view builder (electionViewsFromStores) does not apply to them; the publication gate still does. */
+export type PoliticalConstituencyStores = { elections: unknown[]; turnout: unknown[]; results: unknown[]; contestants: unknown[]; legislatures: unknown[]; systems: unknown[]; sources: PoliticalStores["sources"] };
+function gatedStores(country: string, stores: PoliticalConstituencyStores): PoliticalConstituencyStores {
+  const sources = stores.sources.map((s) => ({ id: s.source_id, title: s.dataset, url: s.url, sha256: s.raw_sha256, retrievedAt: s.retrieved_at, licenceUrl: s.licence_url, institution: s.institution }));
+  if (politicalPublicationProblems(country, sources, [country]).length) throw Error("Political source publication gate failed");
+  return stores;
+}
+
+/** Croatia's admitted Croatian Parliament elections (2015, 2016, 2020, 2024), whole chamber per constituency (hr-ie-01…11)
+ * and per national-minority election (hr-ie-12-*): docs/political-data/croatia_sabor_admission.json. */
+export function politicalCroatianStores(): PoliticalConstituencyStores {
+  return gatedStores("croatia", { elections: hrElections, turnout: hrTurnout, results: hrResults, contestants: hrContestants, legislatures: hrLegislatures, systems: hrSystems, sources: hrSources as PoliticalStores["sources"] });
+}
+
+/** Slovenia's admitted National Assembly election (2026): general election (national) and the Italian and Hungarian
+ * national-community elections (si-nc-*): docs/political-data/slovenia_dz_admission.json. */
+export function politicalSlovenianStores(): PoliticalConstituencyStores {
+  return gatedStores("slovenia", { elections: siElections, turnout: siTurnout, results: siResults, contestants: siContestants, legislatures: siLegislatures, systems: siSystems, sources: siSources as PoliticalStores["sources"] });
 }
 
 /**

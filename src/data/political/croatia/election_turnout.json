@@ -1,0 +1,3443 @@
+[
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-01",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 336961,
+    "voters_turned_out": null,
+    "voters": 235808,
+    "valid_votes": 233125,
+    "invalid_votes": 2683,
+    "ballots_cast": 235808,
+    "published_turnout": 69.98,
+    "derived_turnout": 69.98079896486537,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_02_001_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-18, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "7ab34d82d9b433e2dff9f6bf96d536137312755159f37c8dfae5a85c84ec6f7f"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-02",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 380485,
+    "voters_turned_out": null,
+    "voters": 233160,
+    "valid_votes": 229289,
+    "invalid_votes": 3871,
+    "ballots_cast": 233160,
+    "published_turnout": 61.28,
+    "derived_turnout": 61.27968251048005,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_02_002_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-19, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "fc166359b35c38b7e3333ba78fc6ed3f33354408985c62e11f280e1cd806d1d7"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-03",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 348082,
+    "voters_turned_out": null,
+    "voters": 211283,
+    "valid_votes": 206711,
+    "invalid_votes": 4572,
+    "ballots_cast": 211283,
+    "published_turnout": 60.7,
+    "derived_turnout": 60.69920306134762,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_02_003_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-20, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0dec327dd345b4e6bdbe380853eb54b55bc32ba1d4948d32c7b2d728156de3ff"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-04",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 303173,
+    "voters_turned_out": null,
+    "voters": 191974,
+    "valid_votes": 188368,
+    "invalid_votes": 3606,
+    "ballots_cast": 191974,
+    "published_turnout": 63.32,
+    "derived_turnout": 63.321601857685216,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_02_004_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-21, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "77f16fcddcf3a11f88cace45fa56ba9fae3dd2aa8858cfd07bd9104f8450c17c"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-05",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 329855,
+    "voters_turned_out": null,
+    "voters": 196804,
+    "valid_votes": 192738,
+    "invalid_votes": 4066,
+    "ballots_cast": 196804,
+    "published_turnout": 59.66,
+    "derived_turnout": 59.663791666035074,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_02_005_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-22, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "6862751317071d22fdbf916bc4d55005b5813a4e20632b5ba05fd38921ad1f06"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-06",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 321179,
+    "voters_turned_out": null,
+    "voters": 204264,
+    "valid_votes": 200639,
+    "invalid_votes": 3625,
+    "ballots_cast": 204264,
+    "published_turnout": 63.6,
+    "derived_turnout": 63.598180453890194,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_02_006_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-23, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "c5d480ca5194cc2b42f99ab5ccd8ea785bca1cd21519678112fc7ce66d3e7c56"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-07",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 392016,
+    "voters_turned_out": null,
+    "voters": 258150,
+    "valid_votes": 253813,
+    "invalid_votes": 4337,
+    "ballots_cast": 258150,
+    "published_turnout": 65.85,
+    "derived_turnout": 65.85190400391821,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_02_007_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-24, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "5bd5c9ab0b531bc202ca9ee318d47a6460685bd5c2cf99fc645cf4a69b02e789"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-08",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 357567,
+    "voters_turned_out": null,
+    "voters": 217267,
+    "valid_votes": 213385,
+    "invalid_votes": 3882,
+    "ballots_cast": 217267,
+    "published_turnout": 60.76,
+    "derived_turnout": 60.762598338213536,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_02_008_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-25, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "620e1c69042f6cac1405bf2065eb481bfe96dbdc03c5546aac8430d09ac98a64"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-09",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 397793,
+    "voters_turned_out": null,
+    "voters": 238905,
+    "valid_votes": 234534,
+    "invalid_votes": 4371,
+    "ballots_cast": 238905,
+    "published_turnout": 60.06,
+    "derived_turnout": 60.05761790680077,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_02_009_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-26, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "7b065b345a8f312827ea1e37ddbb9bc88798cc173ab23fd392866e2703b02abe"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-10",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 396286,
+    "voters_turned_out": null,
+    "voters": 248758,
+    "valid_votes": 244796,
+    "invalid_votes": 3962,
+    "ballots_cast": 248758,
+    "published_turnout": 62.77,
+    "derived_turnout": 62.772341187929925,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_02_010_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-27, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "35d9e81f49c9f3e7b6226c381499dd28e5cfcb269cd67c2ef892c295d6ac1306"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-11",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 28944,
+    "voters_turned_out": null,
+    "voters": 28917,
+    "valid_votes": 28525,
+    "invalid_votes": 392,
+    "ballots_cast": 28917,
+    "published_turnout": 99.91,
+    "derived_turnout": 99.90671641791045,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_02_011_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-28, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "9fcee0ee83ceca703ca2bd402d56046f22f84df8590f1009f6dd79deddb35923"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-12-srpska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 129683,
+    "voters_turned_out": null,
+    "voters": 18976,
+    "valid_votes": 18578,
+    "invalid_votes": 398,
+    "ballots_cast": 18976,
+    "published_turnout": 14.63,
+    "derived_turnout": 14.632604119275463,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_13_012_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-29, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "041e912b357015c690ef8805207fb6db53e56231db5f89a02cfd4bcc87b3673d"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-12-madjarska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 9129,
+    "voters_turned_out": null,
+    "voters": 4475,
+    "valid_votes": 4416,
+    "invalid_votes": 59,
+    "ballots_cast": 4475,
+    "published_turnout": 49.02,
+    "derived_turnout": 49.01960784313725,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_23_012_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-30, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "cfddb233e6e2cff7f25c9f71d76d40392c60defb0d9dd63057b20f3f4a1eb07e"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-12-talijanska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 10312,
+    "voters_turned_out": null,
+    "voters": 2447,
+    "valid_votes": 2421,
+    "invalid_votes": 26,
+    "ballots_cast": 2447,
+    "published_turnout": 23.73,
+    "derived_turnout": 23.729635376260667,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_33_012_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-31, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "e3a830bc253edf2e4f60d554857af42860025e658796f66593c0a8ca3f1dd1fa"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-12-ceska_slovacka",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 6456,
+    "voters_turned_out": null,
+    "voters": 2127,
+    "valid_votes": 2110,
+    "invalid_votes": 17,
+    "ballots_cast": 2127,
+    "published_turnout": 32.95,
+    "derived_turnout": 32.946096654275095,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_43_012_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-32, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "3319d621ea3aa9470d260256a9271366301c692ba6b5b53a93a858f9c6f9d06f"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 14093,
+    "voters_turned_out": null,
+    "voters": 4694,
+    "valid_votes": 4620,
+    "invalid_votes": 74,
+    "ballots_cast": 4694,
+    "published_turnout": 33.31,
+    "derived_turnout": 33.30731568863975,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_53_012_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-33, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "91f10d86132f8335c2a0a311700901c3cef26bd1cb12010921f3a20292c54fc4"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 26774,
+    "voters_turned_out": null,
+    "voters": 4764,
+    "valid_votes": 4714,
+    "invalid_votes": 50,
+    "ballots_cast": 4764,
+    "published_turnout": 17.79,
+    "derived_turnout": 17.793381638903412,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2015 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2015/izabrani/i_63_012_0000.pdf",
+        "source_record_id": "decision 013-03/15-01/87 / 507/11-15-34, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "e7cd414939e9073aced8c615c981cbfc80709f7c3a495938aeac82187e670ed1"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2015-11-08",
+    "country": "croatia",
+    "geography": "hr-territorial-i-x",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2015-11-23 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 3563397,
+    "voters_turned_out": null,
+    "voters": 2236373,
+    "valid_votes": 2197398,
+    "invalid_votes": 38975,
+    "ballots_cast": 2236373,
+    "published_turnout": null,
+    "derived_turnout": 62.759580254459436,
+    "turnout_definition": "Ten territorial constituencies (I–X) together: sums of the ten decisions. The constituency abroad and the national-minority elections are not included. The decisions print no count of voters who turned out; turnout here is voters who voted by ballot over voters on the roll.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Sum of constituencies I–X; abroad and minority elections excluded.",
+      "sourceIds": [
+        "src-hr-dip-final-2015"
+      ]
+    },
+    "published_or_derived_note": "sums and percentage derived from the decisions",
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2015",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2015",
+        "source_record_id": "sum of decisions I–X, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-01",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 334179,
+    "voters_turned_out": null,
+    "voters": 200023,
+    "valid_votes": 196963,
+    "invalid_votes": 3060,
+    "ballots_cast": 200023,
+    "published_turnout": 59.86,
+    "derived_turnout": 59.85504774387379,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_02_001_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-01, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d7d99d3c5428ceb78f10444b65c490b54e67d4861668e6bac4174d6f2b5ec8ee"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-02",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 378186,
+    "voters_turned_out": null,
+    "voters": 198165,
+    "valid_votes": 194774,
+    "invalid_votes": 3391,
+    "ballots_cast": 198165,
+    "published_turnout": 52.4,
+    "derived_turnout": 52.3988196284368,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_02_002_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-02, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "b2bb4ce2e7d6608486cac84ff4aeac99e4fb8202cc406a3d30dd4ee2449ab9dd"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-03",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 348381,
+    "voters_turned_out": null,
+    "voters": 181214,
+    "valid_votes": 177245,
+    "invalid_votes": 3969,
+    "ballots_cast": 181214,
+    "published_turnout": 52.02,
+    "derived_turnout": 52.01603991032806,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_02_003_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-03, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a30643864d2d67a28195c4f40b3a9eb50437db76bffe144d9391911e2be758c3"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-04",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 299067,
+    "voters_turned_out": null,
+    "voters": 161090,
+    "valid_votes": 157797,
+    "invalid_votes": 3293,
+    "ballots_cast": 161090,
+    "published_turnout": 53.86,
+    "derived_turnout": 53.86418427977677,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_02_004_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-04, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "b1ed63b6708d182f9635f6d6485b8f6a7a5cabfa8cb009f1df9ada8bb9276e87"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-05",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 324523,
+    "voters_turned_out": null,
+    "voters": 167642,
+    "valid_votes": 164029,
+    "invalid_votes": 3613,
+    "ballots_cast": 167642,
+    "published_turnout": 51.66,
+    "derived_turnout": 51.65797185407506,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_02_005_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-05, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "3420c05282359ca4e28f00445fd6e3381a447341310d840a165ed9a516d09f58"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-06",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 317238,
+    "voters_turned_out": null,
+    "voters": 173596,
+    "valid_votes": 170017,
+    "invalid_votes": 3579,
+    "ballots_cast": 173596,
+    "published_turnout": 54.72,
+    "derived_turnout": 54.72106115912973,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_02_006_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-06, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "cfce8a290ad77f8e958dc64c68a5e3ccdc672177564f8c6f6c2721b30edb71c9"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-07",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 389534,
+    "voters_turned_out": null,
+    "voters": 220523,
+    "valid_votes": 216392,
+    "invalid_votes": 4131,
+    "ballots_cast": 220523,
+    "published_turnout": 56.61,
+    "derived_turnout": 56.61200306006664,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_02_007_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-07, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f220d44b5514fdd01f029f9ef0fa5cf23c4625229f3fb6ce02feb91828d9ffb7"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-08",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 352754,
+    "voters_turned_out": null,
+    "voters": 182204,
+    "valid_votes": 178659,
+    "invalid_votes": 3545,
+    "ballots_cast": 182204,
+    "published_turnout": 51.65,
+    "derived_turnout": 51.651859369418915,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_02_008_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-08, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "68ebfe822683ec55d71a842b1084515136e867a44b776e92a8aabb7574571ba4"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-09",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 393452,
+    "voters_turned_out": null,
+    "voters": 211551,
+    "valid_votes": 207117,
+    "invalid_votes": 4434,
+    "ballots_cast": 211551,
+    "published_turnout": 53.77,
+    "derived_turnout": 53.76793103097709,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_02_009_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-09, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "da68517825c35abfa20d363f31d39250674ade489e02a272124519cb787de374"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-10",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 393965,
+    "voters_turned_out": null,
+    "voters": 223180,
+    "valid_votes": 219324,
+    "invalid_votes": 3856,
+    "ballots_cast": 223180,
+    "published_turnout": 56.65,
+    "derived_turnout": 56.64970238472961,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_02_010_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-10, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "237bddc992b78a367e94f4bbdb1a24877fcb787335493d321555f327eac6b643"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-11",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 21223,
+    "voters_turned_out": null,
+    "voters": 21208,
+    "valid_votes": 20913,
+    "invalid_votes": 295,
+    "ballots_cast": 21208,
+    "published_turnout": 99.93,
+    "derived_turnout": 99.92932196202233,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_02_011_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-11, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "2885941df5b7c99d99afa84f6ae82bc4b33fddcc47c5afda1eed499f12e3432b"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-12-srpska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 138539,
+    "voters_turned_out": null,
+    "voters": 19534,
+    "valid_votes": 19120,
+    "invalid_votes": 414,
+    "ballots_cast": 19534,
+    "published_turnout": 14.1,
+    "derived_turnout": 14.100000721818404,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_13_012_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-12, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "5bc3a71ac1fc8011c091413452399c8c41e2de1649ec4ae119fe5533bd5c87a6"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-12-madjarska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 9981,
+    "voters_turned_out": null,
+    "voters": 5212,
+    "valid_votes": 5151,
+    "invalid_votes": 61,
+    "ballots_cast": 5212,
+    "published_turnout": 52.22,
+    "derived_turnout": 52.2192165113716,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_23_012_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-13, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "85aeae5723c1588e253cf61e772e087cdec08b2ccd4a9be6003859621b1d9388"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-12-talijanska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 11440,
+    "voters_turned_out": null,
+    "voters": 2338,
+    "valid_votes": 2307,
+    "invalid_votes": 31,
+    "ballots_cast": 2338,
+    "published_turnout": 20.44,
+    "derived_turnout": 20.437062937062937,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_33_012_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-14, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "c40d524b823beb8b53580a089fcf0775dd764d3a7bc0e43a103d29b92dead3d1"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-12-ceska_slovacka",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 6763,
+    "voters_turned_out": null,
+    "voters": 1590,
+    "valid_votes": 1574,
+    "invalid_votes": 16,
+    "ballots_cast": 1590,
+    "published_turnout": 23.51,
+    "derived_turnout": 23.510276504509832,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_43_012_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-15, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "8a9d4819749861a7b4e4a6021b7ba42ec14ddb85522cf20c31a36b4cf7f24848"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 14767,
+    "voters_turned_out": null,
+    "voters": 3832,
+    "valid_votes": 3781,
+    "invalid_votes": 51,
+    "ballots_cast": 3832,
+    "published_turnout": 25.95,
+    "derived_turnout": 25.94975282724995,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_53_012_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-16, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "b7fd0137666e19b7205acd5243a57f0d83a808732e2fb537959d1de146067b78"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 29777,
+    "voters_turned_out": null,
+    "voters": 5396,
+    "valid_votes": 5350,
+    "invalid_votes": 46,
+    "ballots_cast": 5396,
+    "published_turnout": 18.12,
+    "derived_turnout": 18.121368841723477,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2016 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2016/izabrani/i_63_012_0000.pdf",
+        "source_record_id": "decision 013-03/16-01/125 / 507/11-16-17, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "53e0af73477c4a690a290f3525f117e90e89fa116f1f7b3d369958bdadd343a6"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2016-09-11",
+    "country": "croatia",
+    "geography": "hr-territorial-i-x",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2016-09-26 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 3531279,
+    "voters_turned_out": null,
+    "voters": 1919188,
+    "valid_votes": 1882317,
+    "invalid_votes": 36871,
+    "ballots_cast": 1919188,
+    "published_turnout": null,
+    "derived_turnout": 54.348240396751436,
+    "turnout_definition": "Ten territorial constituencies (I–X) together: sums of the ten decisions. The constituency abroad and the national-minority elections are not included. The decisions print no count of voters who turned out; turnout here is voters who voted by ballot over voters on the roll.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Sum of constituencies I–X; abroad and minority elections excluded.",
+      "sourceIds": [
+        "src-hr-dip-final-2016"
+      ]
+    },
+    "published_or_derived_note": "sums and percentage derived from the decisions",
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2016",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2016",
+        "source_record_id": "sum of decisions I–X, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-01",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 341787,
+    "voters_turned_out": null,
+    "voters": 176407,
+    "valid_votes": 173718,
+    "invalid_votes": 2689,
+    "ballots_cast": 176407,
+    "published_turnout": 51.61,
+    "derived_turnout": 51.61313917732389,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_02_001_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-18, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0e30bc0e95647f6198a8f9a4d99c4fc84a0b6d2131abfc91b3784589070b32a7"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-02",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 387890,
+    "voters_turned_out": null,
+    "voters": 173254,
+    "valid_votes": 169252,
+    "invalid_votes": 4002,
+    "ballots_cast": 173254,
+    "published_turnout": 44.67,
+    "derived_turnout": 44.66575575549769,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_02_002_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-19, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "62c03c503b0ea538a117f70c28d1813cb82dc1fb38e6af4cf7bf061e4575f931"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-03",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 347415,
+    "voters_turned_out": null,
+    "voters": 157183,
+    "valid_votes": 152774,
+    "invalid_votes": 4409,
+    "ballots_cast": 157183,
+    "published_turnout": 45.24,
+    "derived_turnout": 45.24358476174028,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_02_003_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-20, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "9432c64f8c16dcd3fbc34a9a6310c1dd7b5ff242895d16a763c17efc2f29add7"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-04",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 312592,
+    "voters_turned_out": null,
+    "voters": 142358,
+    "valid_votes": 138993,
+    "invalid_votes": 3365,
+    "ballots_cast": 142358,
+    "published_turnout": 45.54,
+    "derived_turnout": 45.54115268464964,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_02_004_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-21, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "4c90e36ea4e76554228c4a802f39c3c4e0c27befade93cd0127631303c15689c"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-05",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 337321,
+    "voters_turned_out": null,
+    "voters": 144560,
+    "valid_votes": 140832,
+    "invalid_votes": 3728,
+    "ballots_cast": 144560,
+    "published_turnout": 42.86,
+    "derived_turnout": 42.8553217854803,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_02_005_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-22, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d8703e11ca28921c42cd6052037a6b32caefb3e9eab695cedb6bb68aca265b9f"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-06",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 328499,
+    "voters_turned_out": null,
+    "voters": 150335,
+    "valid_votes": 146766,
+    "invalid_votes": 3569,
+    "ballots_cast": 150335,
+    "published_turnout": 45.76,
+    "derived_turnout": 45.76421846033017,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_02_006_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-23, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f6efad86dd8752948c8078f028bde010f9f74716d7e46d1487d7fc4da511a20e"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-07",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 408297,
+    "voters_turned_out": null,
+    "voters": 194719,
+    "valid_votes": 190471,
+    "invalid_votes": 4248,
+    "ballots_cast": 194719,
+    "published_turnout": 47.69,
+    "derived_turnout": 47.69052919810824,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_02_007_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-24, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f3297fe037e58a3a3df54111506d7aa63d58bedba22479831bd1ab50e015eb2c"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-08",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 372573,
+    "voters_turned_out": null,
+    "voters": 158230,
+    "valid_votes": 154518,
+    "invalid_votes": 3712,
+    "ballots_cast": 158230,
+    "published_turnout": 42.47,
+    "derived_turnout": 42.46952946134046,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_02_008_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-25, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "439cb6c5019f9aa0d508b356f82b88d09b4bba66de07fa5932e9c6616a85e814"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-09",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 409883,
+    "voters_turned_out": null,
+    "voters": 183814,
+    "valid_votes": 179242,
+    "invalid_votes": 4572,
+    "ballots_cast": 183814,
+    "published_turnout": 44.85,
+    "derived_turnout": 44.845480295596545,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_02_009_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-26, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "e06e701ffa04bbc81a9f843289fd6e02d40fe80f8aff24ee79e196b7480e4371"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-10",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 397508,
+    "voters_turned_out": null,
+    "voters": 196058,
+    "valid_votes": 191997,
+    "invalid_votes": 4061,
+    "ballots_cast": 196058,
+    "published_turnout": 49.32,
+    "derived_turnout": 49.32177465610755,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_02_010_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-27, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "c28e91fba38343922937dc0a4cf8e3d9664f3af42dc693df7d0a2cab0917ad14"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-11",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 28790,
+    "voters_turned_out": null,
+    "voters": 28768,
+    "valid_votes": 28410,
+    "invalid_votes": 358,
+    "ballots_cast": 28768,
+    "published_turnout": 99.92,
+    "derived_turnout": 99.92358457797846,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_02_011_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-28, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "523bdee7b9cd399c2b47ac63adc95d3feb3d81d3918cdd7748b4e8e9b5df2ff1"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-12-srpska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 13565,
+    "voters_turned_out": null,
+    "voters": 13551,
+    "valid_votes": 13228,
+    "invalid_votes": 323,
+    "ballots_cast": 13551,
+    "published_turnout": 99.9,
+    "derived_turnout": 99.89679321784003,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_13_012_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-29, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "fe5ec7c0746487e9bebdc454c3b91481c8c18112873a876d129369fd5ad69fdd"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-12-madjarska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 2843,
+    "voters_turned_out": null,
+    "voters": 2842,
+    "valid_votes": 2807,
+    "invalid_votes": 35,
+    "ballots_cast": 2842,
+    "published_turnout": 99.96,
+    "derived_turnout": 99.96482588814632,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_23_012_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-30, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "99bfe89c530ec4e3a1f1739539a37c8bf1371468b3893d59d72dbacc820b5ad6"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-12-talijanska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 950,
+    "voters_turned_out": null,
+    "voters": 949,
+    "valid_votes": 890,
+    "invalid_votes": 59,
+    "ballots_cast": 949,
+    "published_turnout": 99.89,
+    "derived_turnout": 99.89473684210526,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_33_012_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-31, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "266a6a8b907038092f4d73668e5cd0a69f6cde9f17c9839dfd3ae5cfce143829"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-12-ceska_slovacka",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 1705,
+    "voters_turned_out": null,
+    "voters": 1705,
+    "valid_votes": 1694,
+    "invalid_votes": 11,
+    "ballots_cast": 1705,
+    "published_turnout": 100,
+    "derived_turnout": 100,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_43_012_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-32, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bdb89ef9dfc21b7d8860f3ab3a36097695cf31587330d80d533527e7d268099d"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 4825,
+    "voters_turned_out": null,
+    "voters": 4823,
+    "valid_votes": 4772,
+    "invalid_votes": 51,
+    "ballots_cast": 4823,
+    "published_turnout": 99.96,
+    "derived_turnout": 99.95854922279793,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_53_012_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-33, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "841c049e50164e351774cdc3257947ddf9e08a3a19023a17205e4e5b69b1e7d1"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 5481,
+    "voters_turned_out": null,
+    "voters": 5477,
+    "valid_votes": 5421,
+    "invalid_votes": 56,
+    "ballots_cast": 5477,
+    "published_turnout": 99.93,
+    "derived_turnout": 99.92702061667579,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2020 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2020/izabrani/i_63_012_0000.pdf",
+        "source_record_id": "decision 013-03/20-01/127 / 507-03/02-20-34, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "86e06cc197edc38cad1176c15d9eedf4c89dbeeb9cdf5d36560ef24743d21cbd"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2020-07-05",
+    "country": "croatia",
+    "geography": "hr-territorial-i-x",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2020-07-16 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 3643765,
+    "voters_turned_out": null,
+    "voters": 1676918,
+    "valid_votes": 1638563,
+    "invalid_votes": 38355,
+    "ballots_cast": 1676918,
+    "published_turnout": null,
+    "derived_turnout": 46.021573839147145,
+    "turnout_definition": "Ten territorial constituencies (I–X) together: sums of the ten decisions. The constituency abroad and the national-minority elections are not included. The decisions print no count of voters who turned out; turnout here is voters who voted by ballot over voters on the roll.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Sum of constituencies I–X; abroad and minority elections excluded.",
+      "sourceIds": [
+        "src-hr-dip-final-2020"
+      ]
+    },
+    "published_or_derived_note": "sums and percentage derived from the decisions",
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2020",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2020",
+        "source_record_id": "sum of decisions I–X, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-01",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 341023,
+    "voters_turned_out": 235854,
+    "voters": 235553,
+    "valid_votes": 230550,
+    "invalid_votes": 5003,
+    "ballots_cast": 235553,
+    "published_turnout": 69.16,
+    "derived_turnout": 69.16073109438366,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_02_001_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-2, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bf0636fe52626dd8b9a36a07f276bc189b91a75335f60d2c64c65dcbaceb59d2"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-02",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 345398,
+    "voters_turned_out": 208757,
+    "voters": 208590,
+    "valid_votes": 202854,
+    "invalid_votes": 5736,
+    "ballots_cast": 208590,
+    "published_turnout": 60.44,
+    "derived_turnout": 60.439550894909644,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_02_002_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-4, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "b1153d632ea6d75dc4c2bd998e5ef8470d08c4f8e6d65d1b6725dc10548b051f"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-03",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 349058,
+    "voters_turned_out": 218626,
+    "voters": 218584,
+    "valid_votes": 211710,
+    "invalid_votes": 6874,
+    "ballots_cast": 218584,
+    "published_turnout": 62.63,
+    "derived_turnout": 62.633144062018346,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_02_003_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-6, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "53d511d33d7c5613997959b3d3e0387fdbb45b62f7477a0bb3bdee75a295fa2f"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-04",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 351860,
+    "voters_turned_out": 208606,
+    "voters": 208481,
+    "valid_votes": 202567,
+    "invalid_votes": 5914,
+    "ballots_cast": 208481,
+    "published_turnout": 59.29,
+    "derived_turnout": 59.28664809867561,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_02_004_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-8, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "ee69a4c181f34e920b1c4b58a55842ac26e827b7776ffcf7271ae55ab2e72a8a"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-05",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 336652,
+    "voters_turned_out": 183593,
+    "voters": 183520,
+    "valid_votes": 177190,
+    "invalid_votes": 6330,
+    "ballots_cast": 183520,
+    "published_turnout": 54.53,
+    "derived_turnout": 54.53495003742738,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_02_005_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-10, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a7ab3b8dba8b6f8cb07738ae789294b20aec02cd88cc99430dd5c570b08de8da"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-06",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 352234,
+    "voters_turned_out": 242083,
+    "voters": 241800,
+    "valid_votes": 236121,
+    "invalid_votes": 5679,
+    "ballots_cast": 241800,
+    "published_turnout": 68.73,
+    "derived_turnout": 68.72789111783644,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_02_006_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-12, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "2a71c8c1e1c262dbd1c62cb6cb93d7674b1113618791babb383db1fa56427d0f"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-07",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 340923,
+    "voters_turned_out": 201408,
+    "voters": 201283,
+    "valid_votes": 194831,
+    "invalid_votes": 6452,
+    "ballots_cast": 201283,
+    "published_turnout": 59.08,
+    "derived_turnout": 59.07726964739839,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_02_007_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-14, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "260b0d8f84f679ec269eaae3028188d13829508b30104eac634918a7596c283d"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-08",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 355951,
+    "voters_turned_out": 211123,
+    "voters": 211002,
+    "valid_votes": 205518,
+    "invalid_votes": 5484,
+    "ballots_cast": 211002,
+    "published_turnout": 59.31,
+    "derived_turnout": 59.312377265410134,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_02_008_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-16, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "8564bb7a64576ee8407bbbfa8651e4e5f357c7239279213044de3cf86b8b160a"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-09",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 350941,
+    "voters_turned_out": 208648,
+    "voters": 208481,
+    "valid_votes": 202706,
+    "invalid_votes": 5775,
+    "ballots_cast": 208481,
+    "published_turnout": 59.45,
+    "derived_turnout": 59.453868314047085,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_02_009_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-18, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "2d6585af931160472378ac8b343c8d229fa1bf44609829fbe1fff5b170c0c39c"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-10",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 358110,
+    "voters_turned_out": 222126,
+    "voters": 222010,
+    "valid_votes": 216320,
+    "invalid_votes": 5690,
+    "ballots_cast": 222010,
+    "published_turnout": 62.03,
+    "derived_turnout": 62.02731004439976,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_02_010_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-20, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "16b420169cb5cdaeba5a5c2be8f9d7b025b95c023bb43532ee9c0363c2d39ea4"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-11",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 41120,
+    "voters_turned_out": 41120,
+    "voters": 41107,
+    "valid_votes": 40412,
+    "invalid_votes": 695,
+    "ballots_cast": 41107,
+    "published_turnout": 100,
+    "derived_turnout": 100,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_02_011_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-22, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "9050feafb70eda1b0c8a4346b43bf8dcd11db0fe35a375c9072d48076d2c5ee4"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-12-srpska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 15939,
+    "voters_turned_out": 15939,
+    "voters": 15932,
+    "valid_votes": 15353,
+    "invalid_votes": 579,
+    "ballots_cast": 15932,
+    "published_turnout": 100,
+    "derived_turnout": 100,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_13_012_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-24, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfaa84274bfecedfc8ce688fd325e8c725cf6a336fd79ae61aa79388599838e7"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-12-madjarska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 2877,
+    "voters_turned_out": 2877,
+    "voters": 2877,
+    "valid_votes": 2804,
+    "invalid_votes": 73,
+    "ballots_cast": 2877,
+    "published_turnout": 100,
+    "derived_turnout": 100,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_23_012_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-26, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "2cb6fd644cefbcca13c3c8a1b700e3ad77b289a09a94780226c3e3c56c6f55ee"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-12-talijanska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 1951,
+    "voters_turned_out": 1951,
+    "voters": 1951,
+    "valid_votes": 1907,
+    "invalid_votes": 44,
+    "ballots_cast": 1951,
+    "published_turnout": 100,
+    "derived_turnout": 100,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_33_012_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-28, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "c00299e31cf058b006be8c11749753d6c260e379b8e8c778c7d66eec870edc87"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-12-ceska_slovacka",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 1908,
+    "voters_turned_out": 1908,
+    "voters": 1907,
+    "valid_votes": 1896,
+    "invalid_votes": 11,
+    "ballots_cast": 1907,
+    "published_turnout": 100,
+    "derived_turnout": 100,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_43_012_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-30, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "095e29f875c09a5cf53cf4841fddc73bf570fcf6e3a5fa9047615b0e6d35bc16"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 4931,
+    "voters_turned_out": 4931,
+    "voters": 4925,
+    "valid_votes": 4857,
+    "invalid_votes": 68,
+    "ballots_cast": 4925,
+    "published_turnout": 100,
+    "derived_turnout": 100,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_53_012_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-32, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1ffc5e4cd5879a563b7fbf66de29e77779a4c5d40fd4b97d822b9588b12d1e07"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 7213,
+    "voters_turned_out": 7213,
+    "voters": 7206,
+    "valid_votes": 7137,
+    "invalid_votes": 69,
+    "ballots_cast": 7206,
+    "published_turnout": 100,
+    "derived_turnout": 100,
+    "turnout_definition": "Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2024/izabrani/i_63_012_0000.pdf",
+        "source_record_id": "decision 012-01/24-01/91 / 507-02/01-24-34, section I",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "3d11f6a7dba45868d6ccf4b2dd27ab8c056a9afa61a79e97da48986e7a75d22e"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2024-04-17",
+    "country": "croatia",
+    "geography": "hr-territorial-i-x",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2024-04-29 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections)",
+    "eligible_voters": 3482150,
+    "voters_turned_out": 2140824,
+    "voters": 2139304,
+    "valid_votes": 2080367,
+    "invalid_votes": 58937,
+    "ballots_cast": 2139304,
+    "published_turnout": 61.48,
+    "derived_turnout": 61.47994773344054,
+    "turnout_definition": "Ten territorial constituencies (I–X) together: sums of the ten decisions; voters on the roll and voters who turned out equal the total printed on the commission’s archive page (UKUPNO REPUBLIKA HRVATSKA). The constituency abroad and the national-minority elections are not included.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Sum of constituencies I–X; abroad and minority elections excluded.",
+      "sourceIds": [
+        "src-hr-dip-final-2024"
+      ]
+    },
+    "published_or_derived_note": "sums derived from the decisions; percentage printed on the archive page",
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2024",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2024",
+        "source_record_id": "archive page turnout table (UKUPNO REPUBLIKA HRVATSKA)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "published_turnout"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]

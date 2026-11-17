@@ -1,0 +1,37 @@
+[
+  {
+    "source_id": "src-si-dvk-minutes-2026",
+    "country": "slovenia",
+    "institution": "Državna volilna komisija (National Electoral Commission)",
+    "dataset": "Zapisnik o ugotovitvi izida volitev poslancev v Državni zbor, ki so bile 22. 3. 2026 (Uradni list RS, št. 197/2026, 7. 4. 2026; DVK 041-5/2025-26)",
+    "tier": "tier1_official",
+    "url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+    "licence_status": "official_text_zasp_art_9_owner_reading_no_licence",
+    "raw_redistribution": "transcribed_figures_and_list_names_only_document_and_personal_data_not_redistributed",
+    "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
+    "attribution": "Državna volilna komisija; Uradni list Republike Slovenije",
+    "retrieved_at": "2026-11-18",
+    "raw_sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f",
+    "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
+    "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d",
+    "acquisition": "read once in the browser pane (curl receives HTTP 407); figures transcribed, the 90 elected members’ names, dates of birth and addresses (section III) not transcribed"
+  },
+  {
+    "source_id": "src-si-dvk-data-2026",
+    "country": "slovenia",
+    "institution": "Državna volilna komisija (National Electoral Commission)",
+    "dataset": "DVK result data file rezultati.json (archive dz2026), datum 2026-04-07T09:00:00Z",
+    "tier": "tier1_official",
+    "url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+    "role": "cross_check_and_short_names",
+    "licence_status": "official_text_zasp_art_9_owner_reading_no_licence",
+    "raw_redistribution": "list short names and cross-check only",
+    "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
+    "attribution": "Državna volilna komisija",
+    "retrieved_at": "2026-11-18",
+    "raw_sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f",
+    "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
+    "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e",
+    "turnout_file_sha256": "67c483efebc24427dc9d464d7e4743e622e5fbf9a7f0e4829829576fbf9ae427"
+  }
+]

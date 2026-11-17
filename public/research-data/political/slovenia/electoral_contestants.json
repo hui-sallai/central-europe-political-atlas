@@ -1,0 +1,1182 @@
+[
+  {
+    "contestant_id": "ct-si-dz26-01",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 1,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107754,
+    "registered_label_native": null,
+    "historical_display_label": "GIBANJE SVOBODA",
+    "display_label_rule": "list name as printed in the minutes",
+    "label_basis": "verbatim",
+    "title_sha256": "b2c21c8a9a9156c8aca27a0093d0001379020009bbd4f9a64b722acf692db6aa",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 1",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107754",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-02",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 2,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107757,
+    "registered_label_native": null,
+    "historical_display_label": "SLOVENSKA DEMOKRATSKA STRANKA",
+    "display_label_rule": "list name as printed in the minutes",
+    "label_basis": "verbatim",
+    "title_sha256": "23efcbe2c52a607d4e46d2c2826b35d1fec39f1c172e68a4ab1e9eda28af265c",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 2",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107757",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-03",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 3,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107749,
+    "registered_label_native": null,
+    "historical_display_label": "NSi, SLS, FOKUS",
+    "display_label_rule": "the printed name contains a person’s name; shown by the short name the commission publishes in its result data file",
+    "label_basis": "dvk_short_name_for_personal_name",
+    "title_sha256": "78c987a30a5c1fc6765cf0d0e8e1d43a0783bf621d03c5fd0e3f13365f25dd90",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 3",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107749",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-04",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 4,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107753,
+    "registered_label_native": null,
+    "historical_display_label": "SOCIALNI DEMOKRATI",
+    "display_label_rule": "list name as printed in the minutes",
+    "label_basis": "verbatim",
+    "title_sha256": "3b69c1c83271d6210198c50db5467c412f1d1ec97e50fb0ef56e70b3f6d7bb92",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 4",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107753",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-05",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 5,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107755,
+    "registered_label_native": null,
+    "historical_display_label": "DEMOKRATI.",
+    "display_label_rule": "the printed name contains a person’s name; shown by the short name the commission publishes in its result data file",
+    "label_basis": "dvk_short_name_for_personal_name",
+    "title_sha256": "1161abf4e3f809e72a3e5c1cd463c36282ebdf1becf722595e3159f81dd19eac",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 5",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107755",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-06",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 6,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107760,
+    "registered_label_native": null,
+    "historical_display_label": "LEVICA IN VESNA",
+    "display_label_rule": "list name as printed in the minutes",
+    "label_basis": "verbatim",
+    "title_sha256": "8d45387b68c8a29add108528e4e3a99097b7deb73df2a0c4132c0f1bb546042c",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 6",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107760",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-07",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 7,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107752,
+    "registered_label_native": null,
+    "historical_display_label": "DRŽAVLJANSKO GIBANJE RESNI.CA",
+    "display_label_rule": "list name as printed in the minutes",
+    "label_basis": "verbatim",
+    "title_sha256": "b9a01575220f76bf99d715d5b1a1c9c400168ece35f04f3e749d86d96603df53",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 7",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107752",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-08",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 8,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107761,
+    "registered_label_native": null,
+    "historical_display_label": "PREROD",
+    "display_label_rule": "the printed name contains a person’s name; shown by the short name the commission publishes in its result data file",
+    "label_basis": "dvk_short_name_for_personal_name",
+    "title_sha256": "947059267bfc8f14a6bac6250bcfa6df56982d80e02098b48cb0d7f7bcb6dacf",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 8",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107761",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-09",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 9,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107756,
+    "registered_label_native": null,
+    "historical_display_label": "PIRATSKA STRANKA SLOVENIJE",
+    "display_label_rule": "list name as printed in the minutes",
+    "label_basis": "verbatim",
+    "title_sha256": "725ca694815d71979c7738abde20011328552d25ea8e25b009a5a20cf51f8c01",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 9",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107756",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-10",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 10,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107751,
+    "registered_label_native": null,
+    "historical_display_label": "SLOVENSKA NACIONALNA STRANKA",
+    "display_label_rule": "list name as printed in the minutes",
+    "label_basis": "verbatim",
+    "title_sha256": "53b9a4a4c44b940aeb424ab1d679fd0dd404ce0ef5ce8a7a7cd910a36409c6c7",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 10",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107751",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-11",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 11,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107759,
+    "registered_label_native": null,
+    "historical_display_label": "MI, SOCIALISTI!",
+    "display_label_rule": "list name as printed in the minutes",
+    "label_basis": "verbatim",
+    "title_sha256": "9f567e3dd9d461c92311f3aa6df182e448416815994a99e9d524b8a5cf11aba2",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 11",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107759",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-12",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 12,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107758,
+    "registered_label_native": null,
+    "historical_display_label": "ZELENI SLOVENIJE + SG STRANKA GENERACIJ",
+    "display_label_rule": "list name as printed in the minutes",
+    "label_basis": "verbatim",
+    "title_sha256": "b4eec69622c1c6596f01ae314d1e7bb55b130bfd4b878278438401c8bd771c06",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 12",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107758",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-13",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 13,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107800,
+    "registered_label_native": null,
+    "historical_display_label": "KOALICIJA ALTERNATIVA ZA SLOVENIJO (STRANKA NIČ OD TEGA IN STRANKA ZA ZDRAVO DRUŽBO)",
+    "display_label_rule": "list name as printed in the minutes",
+    "label_basis": "verbatim",
+    "title_sha256": "d6a41363e4e1eebac31b650330b25af7f5fc244e2fbf80d3dff3f97c3e7dbd65",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 13",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107800",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-14",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 14,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107750,
+    "registered_label_native": null,
+    "historical_display_label": "GLAS UPOKOJENCEV",
+    "display_label_rule": "the printed name contains a person’s name; shown by the short name the commission publishes in its result data file",
+    "label_basis": "dvk_short_name_for_personal_name",
+    "title_sha256": "408986c192dbc86240efb672b43cfa9b7acad34638fdb9e89d3568fd53a6c8a5",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 14",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107750",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-15",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 15,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107799,
+    "registered_label_native": null,
+    "historical_display_label": "ZAUPANJE",
+    "display_label_rule": "the printed name contains a person’s name; shown by the short name the commission publishes in its result data file",
+    "label_basis": "dvk_short_name_for_personal_name",
+    "title_sha256": "d5ac6fbb8f40342c898a9e859e1ff4505ad3aab59d2c27df7ad81ed59f88906d",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 15",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107799",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-16",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 16,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107803,
+    "registered_label_native": null,
+    "historical_display_label": "SLOGA",
+    "display_label_rule": "list name as printed in the minutes",
+    "label_basis": "verbatim",
+    "title_sha256": "6aedf9ff02a5f24837f1dc6ec6fabf3ea834e8c1c264a71f6fdbe7de715e20e8",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 16",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107803",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-17",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "contestant_kind": "electoral_list",
+    "native_list_type": "lista kandidatov",
+    "kind_basis": "every contestant in the general election is a list of candidates; whether a list was proposed by one party, several parties or voters is not printed in the minutes and is not stored",
+    "list_number": 17,
+    "list_number_basis": "row in the minutes table (ordered by votes)",
+    "dvk_list_id": 107801,
+    "registered_label_native": null,
+    "historical_display_label": "REŠITEV - STRANKA UPOKOJENCEV VELENJE, SLOVENIJA",
+    "display_label_rule": "list name as printed in the minutes",
+    "label_basis": "verbatim",
+    "title_sha256": "6d40eca7e697a65ffe98284c15858c106fbfb27ea62483f5e0cc814c95ae5d25",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.B item 6, row 17",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number",
+          "title_sha256"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      },
+      {
+        "source_id": "src-si-dvk-data-2026",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2026/data/rezultati.json",
+        "source_record_id": "slovenija list st=107801",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-nc-ita-01",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "constituency": "si-nc-italijanska",
+    "contestant_kind": "individual_candidate",
+    "native_list_type": "kandidat",
+    "kind_basis": "the Italian national community elects one deputy from individual candidates in a separate constituency",
+    "list_number": 1,
+    "list_number_basis": "row in the minutes",
+    "registered_label_native": null,
+    "historical_display_label": "Kandidat, zap. št. 1",
+    "display_label_rule": "candidate names are not stored; the row number in the minutes identifies the candidate",
+    "label_basis": "row_only",
+    "name_stored": false,
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_candidate_contest",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section II (Italian community), row 1",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-nc-ita-02",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "constituency": "si-nc-italijanska",
+    "contestant_kind": "individual_candidate",
+    "native_list_type": "kandidat",
+    "kind_basis": "the Italian national community elects one deputy from individual candidates in a separate constituency",
+    "list_number": 2,
+    "list_number_basis": "row in the minutes",
+    "registered_label_native": null,
+    "historical_display_label": "Kandidat, zap. št. 2",
+    "display_label_rule": "candidate names are not stored; the row number in the minutes identifies the candidate",
+    "label_basis": "row_only",
+    "name_stored": false,
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_candidate_contest",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section II (Italian community), row 2",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-nc-ita-03",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "constituency": "si-nc-italijanska",
+    "contestant_kind": "individual_candidate",
+    "native_list_type": "kandidat",
+    "kind_basis": "the Italian national community elects one deputy from individual candidates in a separate constituency",
+    "list_number": 3,
+    "list_number_basis": "row in the minutes",
+    "registered_label_native": null,
+    "historical_display_label": "Kandidat, zap. št. 3",
+    "display_label_rule": "candidate names are not stored; the row number in the minutes identifies the candidate",
+    "label_basis": "row_only",
+    "name_stored": false,
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_candidate_contest",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section II (Italian community), row 3",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-nc-ita-04",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "constituency": "si-nc-italijanska",
+    "contestant_kind": "individual_candidate",
+    "native_list_type": "kandidat",
+    "kind_basis": "the Italian national community elects one deputy from individual candidates in a separate constituency",
+    "list_number": 4,
+    "list_number_basis": "row in the minutes",
+    "registered_label_native": null,
+    "historical_display_label": "Kandidat, zap. št. 4",
+    "display_label_rule": "candidate names are not stored; the row number in the minutes identifies the candidate",
+    "label_basis": "row_only",
+    "name_stored": false,
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_candidate_contest",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section II (Italian community), row 4",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-nc-mad-01",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "constituency": "si-nc-madzarska",
+    "contestant_kind": "individual_candidate",
+    "native_list_type": "kandidat",
+    "kind_basis": "the Hungarian national community elects one deputy from individual candidates in a separate constituency",
+    "list_number": 1,
+    "list_number_basis": "row in the minutes",
+    "registered_label_native": null,
+    "historical_display_label": "Kandidat, zap. št. 1",
+    "display_label_rule": "candidate names are not stored; the row number in the minutes identifies the candidate",
+    "label_basis": "row_only",
+    "name_stored": false,
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_candidate_contest",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section II (Hungarian community), row 1",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-si-dz26-nc-mad-02",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "constituency": "si-nc-madzarska",
+    "contestant_kind": "individual_candidate",
+    "native_list_type": "kandidat",
+    "kind_basis": "the Hungarian national community elects one deputy from individual candidates in a separate constituency",
+    "list_number": 2,
+    "list_number_basis": "row in the minutes",
+    "registered_label_native": null,
+    "historical_display_label": "Kandidat, zap. št. 2",
+    "display_label_rule": "candidate names are not stored; the row number in the minutes identifies the candidate",
+    "label_basis": "row_only",
+    "name_stored": false,
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_candidate_contest",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section II (Hungarian community), row 2",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  }
+]

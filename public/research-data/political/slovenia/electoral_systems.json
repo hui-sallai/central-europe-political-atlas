@@ -1,0 +1,106 @@
+[
+  {
+    "electoral_system_id": "es-si-dz-2026",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2026-03-22",
+    "institutional_rule_id": "si-es-dz-constitutional",
+    "valid_from": "2026-03-22",
+    "valid_to": "2026-03-22",
+    "interval_basis": "election-specific: rules applied in the 2026 minutes (Zakon o volitvah v državni zbor (Uradni list RS, št. 109/06 – uradno prečiščeno besedilo, 54/07 – odl. US, 23/17, 29/21 in 12/24)); the institutional registry record si-es-dz-constitutional holds the statutory text read from PISRS",
+    "system_family": "list proportional representation (eight 11-seat constituencies, seats fixed nationally) plus two national-community deputies elected separately",
+    "vote_type": "si_list_vote",
+    "allocation_method": "D'Hondt over all 88 seats nationally among lists with at least 4% (Art. 92); first distribution in constituencies by the Droop quota (Arts. 90–91), remaining seats to constituencies by largest remainders (Art. 93)",
+    "base_seats": 90,
+    "vote_definitions": [
+      {
+        "id": "si_list_vote",
+        "kind": "list",
+        "label": {
+          "en": "List votes (general election)",
+          "zh-CN": "名单票（一般选举）"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "general_88",
+        "sourceIds": [
+          "src-si-dvk-minutes-2026",
+          "src-si-dvk-data-2026"
+        ]
+      },
+      {
+        "id": "si_national_community_candidate_vote",
+        "kind": "candidate",
+        "label": {
+          "en": "National-community candidate votes",
+          "zh-CN": "民族共同体候选人票"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "national_community_constituency",
+        "sourceIds": [
+          "src-si-dvk-minutes-2026"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "Seats per list are fixed by D'Hondt over all 88 seats among lists with at least 4% of all list votes (Art. 92).",
+      "districtAllocation": "Each of eight constituencies elects 11 deputies: a list first wins seats there by the Droop quota (Arts. 90–91); the remaining seats are assigned to constituencies by largest remainders (Art. 93).",
+      "thresholds": [
+        {
+          "appliesTo": "list of candidates, nationally",
+          "percent": 4,
+          "description": {
+            "en": "A list needs at least 4% of all list votes in the country to take part in the seat allocation (minutes item 7, ZVDZ Art. 90(2) and 92(3)).",
+            "zh-CN": "名单须获得全国全部名单票至少 4% 才能参与席位分配（纪要第 7 项，ZVDZ 第 90 条第 2 款、第 92 条第 3 款）。"
+          },
+          "sourceIds": [
+            "src-si-dvk-minutes-2026"
+          ]
+        }
+      ],
+      "minorityRepresentation": {
+        "en": "The Italian and the Hungarian national communities each elect one deputy in a separate constituency, from individual candidates; the candidate with most votes is elected. Members of these communities also vote in the general election. Candidate names are not stored.",
+        "zh-CN": "意大利族和匈牙利族民族共同体各在单独选区从个人候选人中选出一名议员，得票最多者当选。这些共同体成员也参加一般选举。不存储候选人姓名。"
+      },
+      "totalSeatsDefinition": {
+        "en": "90 seats: 88 from lists of candidates and 2 national-community deputies. The National Council (Državni svet) is a separate, indirectly elected body and is not part of this election.",
+        "zh-CN": "90 席：名单产生 88 席，民族共同体议员 2 席。国民委员会（Državni svet）是另行间接选举的机构，不属于本次选举。"
+      },
+      "sourceIds": [
+        "src-si-dvk-minutes-2026"
+      ]
+    },
+    "notes": {
+      "en": "National list votes and seats are printed in the commission's minutes and agree with its result data file; the seats reproduce by D'Hondt with the 4% threshold. Vote shares are printed in the minutes (rounded to two decimals). Constituency-level results are not stored in this release.",
+      "zh-CN": "全国名单得票与席位见选举委员会纪要，并与其结果数据文件一致；席位可按 D’Hondt 与 4% 门槛复现。得票率见纪要（四舍五入至两位小数）。本次未存储选区级结果。"
+    },
+    "seat_check": {
+      "lists": 17,
+      "valid": 1179769,
+      "threshold_votes": 47191,
+      "lists_in_allocation": 7,
+      "general_seats": 88,
+      "national_community_seats": 2,
+      "total_seats": 90
+    },
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.C–Č items 7–9",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "allocation_method",
+          "thresholds",
+          "base_seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  }
+]

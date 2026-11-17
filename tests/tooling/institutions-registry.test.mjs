@@ -109,7 +109,12 @@ test("election links: reproducible, complete, and tied to each election's own ru
       for (const id of link.later_changes) assert.ok(changeDate(countries[slug].changes.find((c) => c.change_id === id)) > e.date);
     }
   }
-  assert.equal(links.elections.length, 21);
+  assert.equal(links.elections.length, 26);
+  // Croatia and Slovenia (admitted 2026-11-18): elections before the 2023 Constituencies Act link to the earlier period.
+  const hr2020 = links.elections.find((l) => l.election_id === "el-hr-sabor-2020-07-05"), hr2024 = links.elections.find((l) => l.election_id === "el-hr-sabor-2024-04-17");
+  assert.deepEqual(hr2020.later_changes, ["hr-2023-constituencies-act"]);
+  assert.ok(hr2024.changes_in_force.includes("hr-2023-constituencies-act"));
+  assert.deepEqual([hr2024.chamber_id, hr2024.seats, links.elections.find((l) => l.election_id === "el-si-dz-2026-03-22").chamber_id], ["hr-sabor", 151, "si-drzavni-zbor"]);
   const hu2026 = links.elections.find((l) => l.election_id === "el-hu-ogy-2026-04-12");
   assert.deepEqual(hu2026.later_changes, ["hu-2026-amendment-16", "hu-2026-amendment-17"]);
   const cz2017 = links.elections.find((l) => l.election_id === "el-cz-ps-2017-10-20");

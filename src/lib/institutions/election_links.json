@@ -871,6 +871,39 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-si-dz-2026-03-22",
+   "country": "slovenia",
+   "date": "2026-03-22",
+   "chamber_id": "si-drzavni-zbor",
+   "chamber_official_name": "Državni zbor Republike Slovenije",
+   "seats": 90,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-si-dz-2026",
+   "system_family": "list proportional representation (eight 11-seat constituencies, seats fixed nationally) plus two national-community deputies elected separately",
+   "allocation_method": "D'Hondt over all 88 seats nationally among lists with at least 4% (Art. 92); first distribution in constituencies by the Droop quota (Arts. 90–91), remaining seats to constituencies by largest remainders (Art. 93)",
+   "base_seats": 90,
+   "thresholds": [
+    {
+     "applies_to": "list of candidates, nationally",
+     "percent": 4,
+     "description": {
+      "en": "A list needs at least 4% of all list votes in the country to take part in the seat allocation (minutes item 7, ZVDZ Art. 90(2) and 92(3)).",
+      "zh": "名单须获得全国全部名单票至少 4% 才能参与席位分配（纪要第 7 项，ZVDZ 第 90 条第 2 款、第 92 条第 3 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: rules applied in the 2026 minutes (Zakon o volitvah v državni zbor (Uradni list RS, št. 109/06 – uradno prečiščeno besedilo, 54/07 – odl. US, 23/17, 29/21 in 12/24)); the institutional registry record si-es-dz-constitutional holds the statutory text read from PISRS",
+   "constitution_id": "si-constitution-1991",
+   "institutional_period_id": "slovenia-period-2013-05-24",
+   "changes_in_force": [
+    "si-1991-constitution",
+    "si-2000-art80",
+    "si-2013-referendum"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-rs-nsk-2020-06-21",
    "country": "serbia",
    "date": "2020-06-21",
@@ -995,6 +1028,149 @@
    "changes_in_force": [
     "rs-2006-constitution",
     "rs-2022-amendments-i-xxix"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-hr-sabor-2015-11-08",
+   "country": "croatia",
+   "date": "2015-11-08",
+   "chamber_id": "hr-sabor",
+   "chamber_official_name": "Hrvatski sabor",
+   "seats": 151,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-hr-sabor-2015",
+   "system_family": "list proportional representation in ten territorial constituencies and one constituency abroad; plurality election of national-minority members",
+   "allocation_method": "D'Hondt within each constituency among lists with at least 5% of valid ballots (Arts. 40–41); national-minority members: candidates with most votes (Art. 46)",
+   "base_seats": 151,
+   "thresholds": [
+    {
+     "applies_to": "electoral list, per constituency",
+     "percent": 5,
+     "description": {
+      "en": "A list needs at least 5% of the valid ballots in the constituency to take part in its seat allocation (Art. 41, as cited in each decision).",
+      "zh": "名单须获得本选区有效票至少 5% 才能参与该选区席位分配（第 41 条，各决定均引用）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the rules applied in the 2015 decisions (Election Act as cited in each decision, 5% constituency threshold and D'Hondt reproduce the printed seats); the institutional registry record hr-es-sabor holds the current statutory text read from the official gazette",
+   "constitution_id": "hr-constitution-1990",
+   "institutional_period_id": "croatia-period-2015-02-25",
+   "changes_in_force": [
+    "hr-1990-constitution",
+    "hr-2000-parliamentary-system",
+    "hr-2001-unicameral",
+    "hr-2015-preferential-vote"
+   ],
+   "later_changes": [
+    "hr-2023-constituencies-act"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-hr-sabor-2016-09-11",
+   "country": "croatia",
+   "date": "2016-09-11",
+   "chamber_id": "hr-sabor",
+   "chamber_official_name": "Hrvatski sabor",
+   "seats": 151,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-hr-sabor-2016",
+   "system_family": "list proportional representation in ten territorial constituencies and one constituency abroad; plurality election of national-minority members",
+   "allocation_method": "D'Hondt within each constituency among lists with at least 5% of valid ballots (Arts. 40–41); national-minority members: candidates with most votes (Art. 46)",
+   "base_seats": 151,
+   "thresholds": [
+    {
+     "applies_to": "electoral list, per constituency",
+     "percent": 5,
+     "description": {
+      "en": "A list needs at least 5% of the valid ballots in the constituency to take part in its seat allocation (Art. 41, as cited in each decision).",
+      "zh": "名单须获得本选区有效票至少 5% 才能参与该选区席位分配（第 41 条，各决定均引用）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the rules applied in the 2016 decisions (Election Act as cited in each decision, 5% constituency threshold and D'Hondt reproduce the printed seats); the institutional registry record hr-es-sabor holds the current statutory text read from the official gazette",
+   "constitution_id": "hr-constitution-1990",
+   "institutional_period_id": "croatia-period-2015-02-25",
+   "changes_in_force": [
+    "hr-1990-constitution",
+    "hr-2000-parliamentary-system",
+    "hr-2001-unicameral",
+    "hr-2015-preferential-vote"
+   ],
+   "later_changes": [
+    "hr-2023-constituencies-act"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-hr-sabor-2020-07-05",
+   "country": "croatia",
+   "date": "2020-07-05",
+   "chamber_id": "hr-sabor",
+   "chamber_official_name": "Hrvatski sabor",
+   "seats": 151,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-hr-sabor-2020",
+   "system_family": "list proportional representation in ten territorial constituencies and one constituency abroad; plurality election of national-minority members",
+   "allocation_method": "D'Hondt within each constituency among lists with at least 5% of valid ballots (Arts. 40–41); national-minority members: candidates with most votes (Art. 46)",
+   "base_seats": 151,
+   "thresholds": [
+    {
+     "applies_to": "electoral list, per constituency",
+     "percent": 5,
+     "description": {
+      "en": "A list needs at least 5% of the valid ballots in the constituency to take part in its seat allocation (Art. 41, as cited in each decision).",
+      "zh": "名单须获得本选区有效票至少 5% 才能参与该选区席位分配（第 41 条，各决定均引用）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the rules applied in the 2020 decisions (Election Act as cited in each decision, 5% constituency threshold and D'Hondt reproduce the printed seats); the institutional registry record hr-es-sabor holds the current statutory text read from the official gazette",
+   "constitution_id": "hr-constitution-1990",
+   "institutional_period_id": "croatia-period-2015-02-25",
+   "changes_in_force": [
+    "hr-1990-constitution",
+    "hr-2000-parliamentary-system",
+    "hr-2001-unicameral",
+    "hr-2015-preferential-vote"
+   ],
+   "later_changes": [
+    "hr-2023-constituencies-act"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-hr-sabor-2024-04-17",
+   "country": "croatia",
+   "date": "2024-04-17",
+   "chamber_id": "hr-sabor",
+   "chamber_official_name": "Hrvatski sabor",
+   "seats": 151,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-hr-sabor-2024",
+   "system_family": "list proportional representation in ten territorial constituencies and one constituency abroad; plurality election of national-minority members",
+   "allocation_method": "D'Hondt within each constituency among lists with at least 5% of valid ballots (Arts. 40–41); national-minority members: candidates with most votes (Art. 46)",
+   "base_seats": 151,
+   "thresholds": [
+    {
+     "applies_to": "electoral list, per constituency",
+     "percent": 5,
+     "description": {
+      "en": "A list needs at least 5% of the valid ballots in the constituency to take part in its seat allocation (Art. 41, as cited in each decision).",
+      "zh": "名单须获得本选区有效票至少 5% 才能参与该选区席位分配（第 41 条，各决定均引用）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the rules applied in the 2024 decisions (Election Act as cited in each decision, 5% constituency threshold and D'Hondt reproduce the printed seats); the institutional registry record hr-es-sabor holds the current statutory text read from the official gazette",
+   "constitution_id": "hr-constitution-1990",
+   "institutional_period_id": "croatia-period-2023-11-03",
+   "changes_in_force": [
+    "hr-1990-constitution",
+    "hr-2000-parliamentary-system",
+    "hr-2001-unicameral",
+    "hr-2015-preferential-vote",
+    "hr-2023-constituencies-act"
    ],
    "later_changes": [],
    "undated_changes": []

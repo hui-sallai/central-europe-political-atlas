@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Croatian and Slovenian parliamentary elections — 2026-11-18
+
+- Add official parliamentary election results for Croatia (2015, 2016, 2020 and 2024, all 151 seats per constituency, including the constituency abroad and the national-minority elections) and Slovenia (2026, all 90 seats including the two national-community deputies), each reconciled with the electoral commission's totals and seat rule and linked to its institutional period. Candidate names are not stored. Romania and Austria are not yet admitted.
+
 ### v2.0 thematic research workspaces — 2026-11-18
 
 - Explore industrial policy, foreign investment, energy and EU funding by country. Follow reviewed events to registered statistical series, inspect sourced project and financing stages, and collect or download case evidence in Chinese or English. Country hubs and the Event Library link directly to applicable cases.

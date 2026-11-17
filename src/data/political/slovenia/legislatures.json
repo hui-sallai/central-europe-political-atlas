@@ -1,0 +1,46 @@
+[
+  {
+    "legislature_id": "lg-si-dz-2026",
+    "country": "slovenia",
+    "chamber": "Državni zbor",
+    "official_term": null,
+    "election_id": "el-si-dz-2026-03-22",
+    "total_seats": 90,
+    "seats_by_mechanism": {
+      "general_lists": 88,
+      "italian_national_community": 1,
+      "hungarian_national_community": 1
+    },
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "excluded_bodies": [
+      {
+        "body": "Državni svet (National Council)",
+        "reason": "interest-representation council elected indirectly; not a directly elected chamber and not part of this election"
+      }
+    ],
+    "result_vintage": "final: National Electoral Commission minutes establishing the result, adopted 2026-04-07 (Uradni list RS, št. 197/2026, 7. 4. 2026)",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2026",
+        "source_url": "https://pisrs.si/api/uradni-list/objava/u20260197.pdf",
+        "source_record_id": "section I.Č item 9 and section II",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "e58303dc9a4323d2f331c2053590807588946bb74454ed0b00b20339cddbc03f"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5624883a0dc97fb33ac38fcb2f94bff30f18710b8dd0c02c52569d55a4e2d734",
+        "fields_covered": [
+          "total_seats",
+          "seats_by_mechanism"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d"
+      }
+    ]
+  }
+]
