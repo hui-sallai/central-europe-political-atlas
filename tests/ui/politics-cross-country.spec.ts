@@ -58,15 +58,15 @@ for (const locale of ["zh-CN", "en"] as const) test(`live politics page compares
   await panel.getByText(locale === "en" ? "Sources, provenance and downloads" : "来源、出处与下载", { exact: true }).click();
   await expect(panel.locator("[data-politics-definitions]")).toContainText(locale === "en" ? "Derived vote share" : "计算得票率");
   await expect(panel.locator("[data-politics-definitions]")).toContainText("voters / eligible voters");
-  expect((await page.request.get("/research-data/political/romania/election_results.json")).status()).toBe(404);
+  expect((await page.request.get("/research-data/political/romania/election_results.json")).status()).toBe(200);
 });
 
 for (const locale of ["zh-CN", "en"] as const) test(`publication-gate status names every blocked country and shows no values for it (${locale})`, async ({ page }) => {
   await page.goto(locale === "en" ? "/en/politics/?country=germany" : "/politics/?country=germany", { waitUntil: "networkidle" });
   const status = page.locator("[data-politics-explorer] [data-admission-status]");
   await status.locator("summary").click();
-  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(8);
-  for (const country of ["croatia", "slovenia"]) await expect(status.locator(`[data-admission='${country}']`)).toHaveAttribute("data-admission-state", "admitted");
+  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(9);
+  for (const country of ["croatia", "slovenia", "romania"]) await expect(status.locator(`[data-admission='${country}']`)).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='germany']")).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='czechia']")).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='poland']")).toHaveAttribute("data-admission-state", "admitted");
@@ -74,7 +74,6 @@ for (const locale of ["zh-CN", "en"] as const) test(`publication-gate status nam
   await expect(status.locator("[data-admission='hungary']")).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='serbia']")).toHaveAttribute("data-admission-state", "admitted");
   for (const country of ["austria"]) await expect(status.locator(`[data-admission='${country}']`)).toHaveAttribute("data-admission-state", "blocked");
-  await expect(status.locator("[data-admission='romania']")).toHaveAttribute("data-admission-state", "staged_not_published");
   await expect(status.locator("[data-admission='hungary']")).toContainText("robots.txt");
   expect(await status.innerText()).not.toMatch(/\d{1,3}(,\d{3})+|\d+(\.\d+)?\s?%/);
   if (locale === "en") expect(await status.innerText()).not.toMatch(/[㐀-鿿]/u);
