@@ -1,5 +1,6 @@
 "use client";
 
+import type { EventThemeNavigation } from "./thematicNavigation";
 import Link from "next/link";
 import {newsLibraryMetadata} from "@/lib/newsLibraryMetadata";
 import { useEffect, useMemo, useState } from "react";
@@ -46,7 +47,7 @@ const confidenceLabels: Record<Event["confidence"], string> = {
   pending: "待编码",
 };
 
-function EventCard({ item }: { item: Event }) {
+function EventCard({ item, thematic }: { item: Event; thematic?: EventThemeNavigation[string] }) {
   const locale = useLocale();
   const { title, summary } = eventPresentation(item, locale);
   const en = locale === "en";
@@ -61,8 +62,8 @@ function EventCard({ item }: { item: Event }) {
     caseStudyEventIds.includes(item.event_id) ? { level: "case", label: en ? "Case study" : "查看案例研究" } : null,
   ].filter((entry): entry is { level: string; label: string } => entry !== null);
   const indicatorLabel = (id:string) => { const record=getResearchIndicator(id); return (en ? record?.name : record?.name_zh) ?? id; };
-  const topics = [...new Set([item.topic, ...item.affected_indicator.map(indicatorLabel)])];
-  const connections=getEventAnalysis(item.event_id)?.indicators.filter(link=>link.basis!=="unsupported")??[];
+  const topics = thematic ? [item.topic] : [...new Set([item.topic, ...item.affected_indicator.map(indicatorLabel)])];
+  const connections=thematic ? [] : getEventAnalysis(item.event_id)?.indicators.filter(link=>link.basis!=="unsupported")??[];
   const annual=connections.filter(link=>link.frequency==="annual" && getResearchIndicator(link.indicator_id)?.frequency==="annual");
   return (
     <LocalizedContent><article id={item.id} className="scroll-mt-24 border-t border-[var(--line)] py-5 first:border-t-0">
@@ -91,9 +92,29 @@ function EventCard({ item }: { item: Event }) {
           <details className="advanced-disclosure mt-4">
             <summary>研究字段</summary>
             <nav className="my-3 flex flex-wrap gap-3" aria-label={en?"Research destinations":"研究入口"}>
+              {thematic?.links.map(entry=><Link key={entry.theme} className="underline" data-event-theme={entry.theme} href={workspaceToolLink('/workspaces/'+entry.theme+'/',locale,{country:item.country_slug,event:item.event_id,case:entry.caseId})}>{entry.title}</Link>)}
               <Link className="underline" href={workspaceToolLink('/countries/'+item.country_slug+'/',locale)}>{en?'Country profile':'国家档案'}</Link>
               <Link className="underline" href={workspaceToolLink('/data/',locale,{country:item.country_slug,tab:'annual'})}>{en?'Browse country observations':'浏览该国观测'}</Link>
             </nav>
+            {thematic && <div className="my-3 space-y-2 text-sm" data-thematic-review>
+              <p><strong>{thematic.classification}</strong>{thematic.status && <> · {thematic.status}</>}{thematic.reason && <> · {thematic.reason}</>}</p>
+              <p>{thematic.summary}</p>
+              <ul className="space-y-3">{thematic.indicators.map(indicator => <li key={indicator.id}>
+                <p><strong>{indicator.label}</strong> · {indicator.hypothesis && <>{en ? "Research hypothesis" : "研究假设"} · </>}{indicator.relationship}</p>
+                <p>{indicator.connection}</p>
+                <ul className="flex flex-wrap gap-x-4">{indicator.periods.map(period => {
+                  const country = researchCountries.find(c => c.slug === indicator.country);
+                  return <li key={period.key + period.layer}><Link className="underline" data-event-indicator={period.key}
+                    data-event-annual={period.frequency === "annual" ? indicator.id : undefined}
+                    href={workspaceToolLink("/data/", locale, {
+                      compare_countries: indicator.country, compare_frequency: period.frequency, comparison_indicator: period.key,
+                      comparison_mode: "side_by_side", compare_from: period.from, compare_to: period.to,
+                    })}>{en ? country?.name : country?.name_zh} · {indicator.label} · {period.from}{period.to !== period.from && "–" + period.to}</Link></li>;
+                })}</ul>
+                {!!indicator.limitations.length && <ul aria-label={en ? "Evidence limitations" : "证据局限"} className="list-disc pl-5 text-[var(--muted)]">{indicator.limitations.map(text => <li key={text}>{text}</li>)}</ul>}
+              </li>)}</ul>
+            </div>}
+            {!thematic && <p className="my-2 text-sm">{en ? "Thematic relationships have not yet been reviewed for this event." : "本事件的专题关联尚待审核。"}</p>}
             {connections.filter(link=>link.basis==="documented"&&link.frequency==="monthly"&&link.indicator_id==="policy_rate:level").map(link=><p key={link.indicator_id}><Link className="underline" href={workspaceToolLink("/data/",locale,{tab:"macro_drivers",country:item.country_slug,area:item.country_slug,driver:"policy_rate",transformation:"level",from:item.date.slice(0,4),to:item.date.slice(0,4)})}>{en?"Monthly policy rate":"月度政策利率"} · {item.date.slice(0,4)}</Link> · {en?link.rationale.en:link.rationale.zh}</p>)}
             {annual.map(link=><p key={link.indicator_id} className="my-2 text-sm"><Link className="underline" data-event-annual={link.indicator_id} href={workspaceToolLink('/data/',locale,{country:item.country_slug,tab:'annual',indicator:link.indicator_id,from:item.date.slice(0,4),to:item.date.slice(0,4)})}>{indicatorLabel(link.indicator_id)} · {item.date.slice(0,4)}</Link> · {link.basis==="proposed"?(en?"Research hypothesis":"研究假设"):(en?"Documented connection":"有来源的关联")} — {en?link.rationale.en:link.rationale.zh}</p>)}
             <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-2 lg:grid-cols-5">
@@ -102,7 +123,7 @@ function EventCard({ item }: { item: Event }) {
                 [en ? "Source publisher" : "来源发布方", publisher, true],
                 ["Direction", directionLabels[item.direction], false],
                 ["Confidence", confidenceLabels[item.confidence], false],
-                ["Affected indicators", item.affected_indicator.map(indicatorLabel).join(" / ") || "待编码", false],
+                [en ? "Registered indicators" : "登记指标", thematic ? [...new Set(thematic.indicators.map(row=>row.label))].join(" / ") || thematic.classification : item.affected_indicator.map(indicatorLabel).join(" / ") || (en ? "Pending coding" : "待编码"), false],
               ] as Array<[string, string, boolean]>).map(([label, value, original]) => <div key={label}><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 font-semibold leading-6">{original ? <span lang="zh-CN" data-original-language="zh-CN">{value}</span> : value}</dd></div>)}
             </dl>
             {item.related_project_ids.length ? <div className="mt-4 flex flex-wrap gap-2"><span className="text-xs font-semibold text-[var(--muted)]">相关项目</span>{item.related_project_ids.map((id) => <Link key={id} href={workspaceToolLink('/data/',locale,{country:item.country_slug})} className="text-xs font-semibold text-[var(--accent)]"><span lang="zh-CN" data-original-language="zh-CN">{getResearchProject(id)?.name ?? id}</span></Link>)}</div> : null}
@@ -117,7 +138,7 @@ function EventCard({ item }: { item: Event }) {
 const CSV_COLUMNS = ["id", "date", "country_slug", "country_name", "event_type", "topic", "title", "summary", "actor", "source_name", "source_url", "confidence", "coding_status"] as const;
 const csvCell = (value: unknown) => `"${String(value ?? "").replaceAll('"', '""')}"`;
 
-export function NewsExplorer() {
+export function NewsExplorer({ thematic }: { thematic: EventThemeNavigation }) {
   const locale = useLocale();
   const [countryFilter, setCountryFilter] = useState<CountryFilter>("all");
   const [eventTypeFilter, setEventTypeFilter] = useState<EventTypeFilter>("all");
@@ -170,14 +191,14 @@ export function NewsExplorer() {
     const terms = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
     return researchEvents
       .filter((item) => item.data_status === "verified")
-      .filter(item=>!linkedOnly||getEventAnalysis(item.event_id)?.indicators.some(link=>link.basis!=="unsupported"))
+      .filter(item=>!linkedOnly || (thematic[item.event_id] ? thematic[item.event_id].indicators.some(row => row.periods.length > 0) : getEventAnalysis(item.event_id)?.indicators.some(link=>link.basis!=="unsupported")))
       .filter((item) => countryFilter === "all" || item.country_slug === countryFilter)
       .filter((item) => eventTypeFilter === "all" || item.event_type === eventTypeFilter)
       .filter((item) => topicFilter === "all" || item.topic === topicFilter)
       .filter((item) => (!dateFrom || item.date >= dateFrom) && (!dateTo || item.date <= dateTo))
       .filter((item) => { if (!terms.length) return true; const translation = newsTranslations[item.id]; const haystack = [item.title, item.summary, translation?.title, translation?.summary, item.actor, item.source_name, item.topic, item.country_name].join(" ").toLowerCase(); return terms.every((term) => haystack.includes(term)); })
       .sort((a, b) => b.date.localeCompare(a.date) || a.event_id.localeCompare(b.event_id));
-  }, [linkedOnly, countryFilter, eventTypeFilter, topicFilter, query, dateFrom, dateTo]);
+  }, [thematic, linkedOnly, countryFilter, eventTypeFilter, topicFilter, query, dateFrom, dateTo]);
   const sampleCount = researchEvents.filter((item) => item.data_status === "sample").length;
   const filtered = linkedOnly || countryFilter !== "all" || eventTypeFilter !== "all" || topicFilter !== "all" || Boolean(query.trim()) || Boolean(dateFrom) || Boolean(dateTo);
   const reset = (apply: () => void) => { apply(); setVisibleCount(30); };
@@ -228,7 +249,7 @@ export function NewsExplorer() {
 
       <div>
         <div className="flex items-end justify-between gap-4 border-b border-[var(--line)] pb-4"><div><p className="editorial-kicker">Event Records</p><h2 className="mt-2 text-2xl font-semibold">正式事件</h2></div><p className="text-xs text-[var(--muted)]">按日期倒序</p></div>
-        <div>{verifiedItems.slice(0, visibleCount).map((item) => <EventCard key={item.id} item={item} />)}</div>
+        <div>{verifiedItems.slice(0, visibleCount).map((item) => <EventCard key={item.id} item={item} thematic={thematic[item.event_id]} />)}</div>
         {visibleCount < verifiedItems.length ? <button type="button" className="mt-5 w-full border-y border-[var(--line)] py-3 text-sm font-semibold text-[var(--accent)]" onClick={() => setVisibleCount((count) => count + 30)}>加载更多事件</button> : null}
         {urlReady && !verifiedItems.length ? <p className="py-10 text-center text-sm text-[var(--muted)]" role="status" data-event-archive-empty>当前发布档案中没有匹配的已核验事件。</p> : null}
         {sampleCount ? <details className="advanced-disclosure mt-8"><summary>结构样例记录（默认隐藏，不进入分析）</summary><p className="mt-3 text-sm leading-6 text-[var(--muted)]">结构样例只保留在原始数据导出中，不进入公开事件流、模型或情景分数。</p></details> : null}

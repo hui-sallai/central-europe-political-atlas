@@ -41,8 +41,8 @@
       "issue": "Bilingual metadata leakage in selected frontend pages",
       "owner": "Codex (frontend)",
       "status": "open",
-      "this_iteration": "All new prose is {en, zh}; no frontend change was made.",
-      "next": "Codex check on pages that render the thematic layer."
+      "this_iteration": "The thematic interfaces use bilingual metadata and preserve original document titles and series identifiers. Legacy surfaces outside these journeys remain open for review.",
+      "next": "Address specific user-visible language gaps when identified, retaining original source titles."
     },
     {
       "id": "F",
@@ -56,9 +56,9 @@
       "id": "G",
       "issue": "Country-to-country and historical research workflow improvements",
       "owner": "Codex (frontend) with Claude data",
-      "status": "open",
-      "this_iteration": "Thematic API, chronologies and evidence windows delivered for workspace integration.",
-      "next": "Codex thematic workspace journey (docs/thematic-research-handoff-2026-11-17.md)."
+      "status": "partially_addressed",
+      "this_iteration": "Four bilingual thematic workspaces now use the country × theme matrix, four cases, exact case windows and reviewed event links. The existing Explorer remains responsible for numerical comparisons.",
+      "next": "See the 2026-11-18 case-specific handoff. Revisit additional series or links only after their source evidence is admitted."
     },
     {
       "id": "T1",

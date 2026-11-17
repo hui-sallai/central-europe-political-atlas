@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
+import { eventThemeNavigation } from "@/components/thematicNavigation";
 import { NewsExplorer } from "@/components/NewsExplorer";
 import { platformStatus } from "@/lib/platformStatus";
 import { KickerVersion } from "@/components/KickerVersion";
@@ -14,7 +15,7 @@ export default function NewsPage() {
         <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">政治经济事件库</h1>
         <p className="mt-5 text-base leading-8 text-[var(--muted)]">将官方公告与可核验新闻整理成政治经济事件，连接国家、主题、指标和项目。事件编码用于研究索引与解释，不等于预测或因果判断。</p>
       </header>
-      <NewsExplorer />
+      <NewsExplorer thematic={eventThemeNavigation("zh-CN")} />
     </main>
   );
 }

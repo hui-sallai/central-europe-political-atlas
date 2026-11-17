@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 thematic research workspaces — 2026-11-18
+
+- Explore industrial policy, foreign investment, energy and EU funding by country. Follow reviewed events to registered statistical series, inspect sourced project and financing stages, and collect or download case evidence in Chinese or English. Country hubs and the Event Library link directly to applicable cases.
+
 ### v2.0 Slovenian and Croatian funding amounts — 2026-11-17
 
 - Read the Slovenian and Croatian EU-funding amounts on the government releases they come from (SHA-256 recorded). Slovenia's final recovery-fund request (€268.67 million in grants, €3.1 million in loans) and Croatia's water contracts are confirmed. The University of Maribor record now gives the exact European Regional Development Fund amount (€17,353,132.20) and programme. The Commission's Czech country page confirms the €260 million loan figure.

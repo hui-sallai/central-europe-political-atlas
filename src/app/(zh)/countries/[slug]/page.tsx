@@ -1,3 +1,4 @@
+import { ThematicEntryLinks } from "@/components/ThematicEntryLinks";
 import {CountryElectionHistory} from "@/components/CountryElectionHistory";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -45,7 +46,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
       <p className="mt-5 max-w-3xl text-sm leading-7 text-[var(--muted)]">{countryRecord.summary_zh}</p>
 
 
-      <CountryResearchProfile electionHistory={<CountryElectionHistory slug={slug} locale="zh-CN"/>}
+      <CountryResearchProfile themeLinks={<ThematicEntryLinks country={slug} locale="zh-CN"/>} electionHistory={<CountryElectionHistory slug={slug} locale="zh-CN"/>}
         country={country}
         observations={getCountryObservations(slug)}
         events={getEventsForCountry(slug)}

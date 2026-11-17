@@ -1,3 +1,4 @@
+import { ThematicEntryLinks } from "./ThematicEntryLinks";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import { localizedRoute } from "@/i18n/config";
@@ -9,5 +10,5 @@ export function WorkspaceEntrySection({ locale }: { locale: Locale }) {
 }
 export function WorkspaceIndex({ locale, children }: { locale: Locale; children?: import("react").ReactNode }) {
   const m = workspaceMessages[locale];
-  return <main className="page-shell"><h1 className="text-4xl font-semibold sm:text-5xl">{m.title}</h1><p className="mt-5 max-w-4xl leading-8 text-[var(--muted)]">{m.intro}</p><nav className="mt-7 grid gap-3 md:grid-cols-3" aria-label={m.select}><Link className="card p-5 text-[var(--accent)]" href={localizedRoute("/data/", locale)}>{m.dataFirst}</Link><Link className="card p-5 text-[var(--accent)]" href={localizedRoute("/models/", locale)}>{m.methodFirst}</Link><p className="card p-5">{m.questionFirst}</p></nav><WorkspaceEntrySection locale={locale} />{children}</main>;
+  return <main className="page-shell"><h1 className="text-4xl font-semibold sm:text-5xl">{m.title}</h1><p className="mt-5 max-w-4xl leading-8 text-[var(--muted)]">{m.intro}</p><nav className="mt-7 grid gap-3 md:grid-cols-3" aria-label={m.select}><Link className="card p-5 text-[var(--accent)]" href={localizedRoute("/data/", locale)}>{m.dataFirst}</Link><Link className="card p-5 text-[var(--accent)]" href={localizedRoute("/models/", locale)}>{m.methodFirst}</Link><p className="card p-5">{m.questionFirst}</p></nav><ThematicEntryLinks locale={locale} /><WorkspaceEntrySection locale={locale} />{children}</main>;
 }

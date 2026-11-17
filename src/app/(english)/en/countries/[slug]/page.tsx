@@ -1,3 +1,4 @@
+import { ThematicEntryLinks } from "@/components/ThematicEntryLinks";
 import {CountryElectionHistory} from "@/components/CountryElectionHistory";
 import {CountryResearchProfile} from "@/components/CountryResearchProfile";
 import {getCountry} from "@/lib/data";
@@ -23,5 +24,5 @@ export default async function EnglishCountry({ params }: Props) {
   const projects = getProjectsForCountry(slug);
   const modelOutputs = getModelOutputsForCountry(slug);
   const regionalMapAvailable = Boolean(regionalCoverageMatrixV087.find(row => row.country_id === slug)?.public_layer_count);
-  return <main className="page-shell"><header className="max-w-4xl"><p className="editorial-kicker">Country Research Profile</p><h1 className="mt-4 text-5xl font-semibold">{country.name}</h1><p className="mt-3 text-lg text-[var(--muted)]">{englishCapital(country.capital)} · {country.currency}</p><p className="mt-5 leading-7 text-[var(--muted)]">{countryDescriptions[slug]}</p></header><CountryResearchProfile electionHistory={<CountryElectionHistory slug={slug} locale="en"/>} country={getCountry(slug)!} observations={observations} events={events} projects={projects} modelOutputs={modelOutputs} modelCards={modelCards} regionalMapAvailable={regionalMapAvailable}/></main>;
+  return <main className="page-shell"><header className="max-w-4xl"><p className="editorial-kicker">Country Research Profile</p><h1 className="mt-4 text-5xl font-semibold">{country.name}</h1><p className="mt-3 text-lg text-[var(--muted)]">{englishCapital(country.capital)} · {country.currency}</p><p className="mt-5 leading-7 text-[var(--muted)]">{countryDescriptions[slug]}</p></header><CountryResearchProfile themeLinks={<ThematicEntryLinks country={slug} locale="en"/>} electionHistory={<CountryElectionHistory slug={slug} locale="en"/>} country={getCountry(slug)!} observations={observations} events={events} projects={projects} modelOutputs={modelOutputs} modelCards={modelCards} regionalMapAvailable={regionalMapAvailable}/></main>;
 }

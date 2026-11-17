@@ -10,7 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 const out = path.join(root, "out");
 const base = JSON.parse(fs.readFileSync(path.join(root, "src/data/release.json"), "utf8")).canonical_url.replace(/\/$/, "");
 const countries = JSON.parse(fs.readFileSync(path.join(root, "src/data/countries/countries.json"), "utf8")).records.map(country => country.slug);
-const workspaceIds = ["inflation_monetary_policy", "trade_external_exposure", "fiscal_macro_conditions", "regional_development"];
+const workspaceIds = ["inflation_monetary_policy", "trade_external_exposure", "fiscal_macro_conditions", "regional_development", "industrial_policy_strategic_investment", "fdi_production_networks", "energy_dependency_transition", "eu_funding_development"];
 const routes = ["/", "/countries/", "/data/", "/politics/", "/map/", "/models/", "/scenarios/", "/methodology/", "/legal/", "/privacy/", "/news/", "/workspaces/", "/notebook/", ...workspaceIds.map(id => `/workspaces/${id}/`), ...countries.map(slug => `/countries/${slug}/`)];
 const failures = [];
 let checks = 0;

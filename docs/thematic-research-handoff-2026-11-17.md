@@ -12,7 +12,7 @@ number is already in a validated file.
 | `src/lib/research-themes/themes.json` | 4 themes with indicators, pending indicators, concepts not held, questions, limitations | anywhere |
 | `src/lib/research-themes/event_mappings.json` | 89 reviewed events (authored) | via the API below |
 | `src/lib/research-themes/investment_records.json` | 7 investment/policy records with stage-by-stage evidence | anywhere |
-| `src/lib/research-themes/eu_funding.json` | 26 stage-specific EU-funding records and the programme list | anywhere |
+| `src/lib/research-themes/eu_funding.json` | 27 stage-specific EU-funding records and the programme list | anywhere |
 | `src/lib/research-themes/cases.json` | 4 published research cases | anywhere |
 | `src/lib/research-themes/thematic_index.json` | **Generated** (384 KB, includes copied observations): catalogue, enriched mappings, coverage matrix, funding applicability, chronologies, evidence windows | **build time / server components only** |
 | `src/lib/thematicResearch.ts` | Typed API over all of the above | — |
@@ -102,3 +102,16 @@ and the Data Explorer and map deep links. No new data component is needed.
 - **E. Bilingual metadata leakage**: keep checking that zh pages show only the `zh` fields of this layer.
 - **F. Stale Serbia regional-coverage wording in Research Workspaces**: unchanged here. The Serbia case uses NSTJ3
   data for RS221/RS126, with labour data to 2020 and population to 2025.
+
+## 2026-11-18 · Frontend delivery and remaining data requests for Claude Code
+
+The portals now consume the delivered records in four workspaces. The following are specific additions that would change what a researcher can inspect. Admit new evidence through the existing registry and leave fields unresolved if the supporting document cannot be verified.
+
+| Theme, country and record | Evidence already available | Missing field, period and use after verification |
+|---|---|---|
+| Industrial policy · Hungary · `hu-catl-debrecen-battery-plant` | Announcement, amended permits, occupancy decisions and scoped company reports in the CATL implementation file. `hu-e2-09-capital-unavailable` records the spending gap. | From the 2022 announcement onward, seek dated **realised project-specific expenditure** tied to the Debrecen legal entity and facility. Record currency, reporting period and definition from an audited filing or competent authority. Keep this separate from announced investment, grid support and national balance-of-payments FDI. The timeline can then display a documented expenditure stage. |
+| FDI and production networks · Serbia · `rs-majdanpek-west-exploration` | The 2026-11-10 transaction record identifies an exploration project. Bor location supplies descriptive NSTJ context. | For the November 2026 transaction and later revisions, verify the licence holder, licence number, geographic extent, effective date and exploration/operating status against the mining authority. Any production field needs independent site-level operational evidence, a period and unit. Country or Bor district industrial output cannot supply it. |
+| Energy transition · Czechia · `cz-repowereu-energy-transition` | Commission and Council records and the staged payments record include the preliminary final-request assessment (`cz-e21-17-final-request-assessed`). | For the seventh request, register an official final implementing decision or dated payment evidence, with grant/loan split, when available. For outcomes, separately identify actual generation or network use, geography, period and unit. Additional connection capacity is a different measure. |
+| EU funding · Romania · `ro-rrf-2026-final-request` | October 2026 request in event `ro-2026-10-01-final-payment-request-under-nrrp-id1065838`; amount missing. | Obtain the authority's dated request or Commission assessment specifying the instalment and amounts by instrument. A later authorisation or payment requires its own dated row. The country comparison must continue to show an unstated amount until then. |
+
+The inherited historical coverage, statistical comparability, regional gaps, remaining event reviews, bilingual consistency, institutional history and workflow obligations remain tracked in the existing backlogs. Prioritise the four requests above for the case timelines. No new model inputs are requested.

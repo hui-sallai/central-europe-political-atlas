@@ -4044,6 +4044,140 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "thematic-research-workspaces-2026-11-18",
+      "status": "owner_approved",
+      "approved_by": "Owner implementation and deployment brief of 2026-11-18. Exact presentation files integrate the delivered thematic cases, workspaces, reviewed event links, project documentation, country entries and sitemap. All evidence and numerical windows are read from existing registered records.",
+      "baseline": "e6e21af43e02dca08842b248fd98c823f7a6b760",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-18",
+      "files": [
+        {
+          "path": "src/app/(english)/en/countries/[slug]/page.tsx",
+          "sha256": "9adf83c991a8013f0913d528fc20485e10a3adfb98bd584f6d2d7f04aee7badd",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/news/page.tsx",
+          "sha256": "67d0df807c9aebe384eb2cc77f59bbfb85cb774ad6525166a5adbeb84823f801",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/workspaces/energy_dependency_transition/page.tsx",
+          "sha256": "2bb6d9254c52825c23a1f7f8bcdaf24141ff74eae65776213cb6bfaec465ce59",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/workspaces/eu_funding_development/page.tsx",
+          "sha256": "1eca8330ae4dcc4d584b28c007fe7bcb372d97e0bbb52c693c7e9b9175206e2f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/workspaces/fdi_production_networks/page.tsx",
+          "sha256": "c38b70544074309323ecb11f9422978e0edbd6d23ef8b585ebb403a470187d99",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/workspaces/industrial_policy_strategic_investment/page.tsx",
+          "sha256": "41ab3983f0b6f856fb4a1d47112db314e8d795d94d93330274e242b63a3e4765",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/countries/[slug]/page.tsx",
+          "sha256": "f071b39e851bc4a3c63393cc0fa6455aa9602793c432756dd32c603144c3ed9d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/news/page.tsx",
+          "sha256": "57c287842e48cb35cc1dfdcfe5985c55ac654662567bb270316a39f17393913f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/workspaces/energy_dependency_transition/page.tsx",
+          "sha256": "a1b164c3fa707996ae5441d4781adfb0f43638797b60b7a00eca086bb878b720",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/workspaces/eu_funding_development/page.tsx",
+          "sha256": "532bd2979936ee93ad4c9d59383a0b9f992284361f1859ee726dc3ee5bdcb18e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/workspaces/fdi_production_networks/page.tsx",
+          "sha256": "c4604e2bf2116dae298c38f1d6e501f53c6d5c7be5e47ba4ee3f12ef6a1ee230",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/workspaces/industrial_policy_strategic_investment/page.tsx",
+          "sha256": "ccf7eeb0e1c88e25974e45d2a1be9de9cb197e838f78db74dbada12f87a50980",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/sitemap.ts",
+          "sha256": "9acb703fd76bad873c0deba6cfd13b582de2e3ebbe974e89527f2b0f9f1363a1",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryResearchProfile.tsx",
+          "sha256": "69154c336bcc24494084bd9a982b262c03e37d79d819aa891cde340acc7d46eb",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/NewsExplorer.tsx",
+          "sha256": "3dff5d9a53f595a0fbe970b2d9b528c775e527e0f831da775686cbe5bae9b044",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ThematicCase.tsx",
+          "sha256": "5b6b5f0a5d58f83c2e107a35e7f799de4605aa90499e8d093fc6c08bbebe938d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ThematicEntryLinks.tsx",
+          "sha256": "079278db3e5bf1d1888375b5c16e09906ed02e4db830cf7a56ed71aba4620a0d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ThematicEvidence.tsx",
+          "sha256": "f2067737514fc17c946a2798fe10447fc22eeff4b68c44e8ed794a527086169f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ThematicExplorer.tsx",
+          "sha256": "7a52ca4e4d3a123c48674062aa02429d3ca0c7c2f02ea8b6a0258d230afe14c1",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ThematicInvestments.tsx",
+          "sha256": "3c1cdac77a69dad4067aa5c1a311bdac6aeb4e2ea6bf43736defdfc869ab3e3f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ThematicWorkspace.tsx",
+          "sha256": "b846af5725f5a9b63e8898c36385cba7d2b8c4080c0da8f3a4af2aa79dc9c09f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/WorkspaceIndex.tsx",
+          "sha256": "6fb764d75aa8bbf39e2792995a213d4a7599e3c64f1f8457766ecfcf7a75fd86",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/thematicIndicatorLabel.ts",
+          "sha256": "548f6efc837b2921a7558bb9b8e2706d47251518e98062cd6be47e6ec5b482fe",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/thematicNavigation.ts",
+          "sha256": "eede19f5f0453325ccce35aa2c9cca8ffde507d350ef4783bd070eafd1b3c342",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }
