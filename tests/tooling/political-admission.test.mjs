@@ -22,14 +22,14 @@ test('admitted countries are exactly the countries whose official stores are imp
   const imported = [...new Set([...fs.readFileSync(path.join(root, 'src/lib/politicalData.ts'), 'utf8').matchAll(/@\/data\/political\/([a-z]+)\//g)].map((m) => m[1]))].sort();
   assert.deepEqual([...admittedDataCountrySlugs].sort(), imported);
   // Croatia and Slovenia are published as research data before their /politics/ pages exist; pages must not link to them.
-  assert.deepEqual([...admittedCountrySlugs].sort(), imported.filter((c) => !['croatia', 'slovenia'].includes(c)));
+  assert.deepEqual([...admittedCountrySlugs].sort(), imported.filter((c) => !['croatia', 'slovenia', 'romania'].includes(c)));
   assert.deepEqual(fs.readdirSync(path.join(root, 'src/data/political')).filter((d) => fs.statSync(path.join(root, 'src/data/political', d)).isDirectory()).sort(), imported);
-  assert.deepEqual(imported, ['croatia', 'czechia', 'germany', 'hungary', 'poland', 'serbia', 'slovakia', 'slovenia']);
+  assert.deepEqual(imported, ['croatia', 'czechia', 'germany', 'hungary', 'poland', 'romania', 'serbia', 'slovakia', 'slovenia']);
 });
 
 test('gate-matrix countries stay blocked unless a separate owner-approved admission record exists', () => {
   const admitted = new Set(read('docs/legal-security/political_admission_records.json').admissions.filter((a) => a.status === 'owner_approved').map((a) => a.country));
-  assert.deepEqual([...admitted], ['czechia', 'poland', 'slovakia', 'hungary', 'serbia', 'croatia', 'slovenia']);
+  assert.deepEqual([...admitted], ['czechia', 'poland', 'slovakia', 'hungary', 'serbia', 'croatia', 'slovenia', 'romania']);
   for (const country of gateMatrix.countries) {
     const row = politicalAdmissions.find((r) => r.slug === country.country);
     assert.ok(row, country.country);
@@ -61,9 +61,9 @@ test('Hungary: 2022 and 2026 admitted; hosts registered; the robots-blocked term
   assert.match(hungary.elections_in_scope.find((e) => e.date === '2018-04-08').status, /^blocked/);
 });
 
-test('Romania stays staged; reasons are bilingual and make no unsupported claims', () => {
+test('Romania 2016 admitted from AEP files (the earlier Chamber-only staging package stays unused); reasons are bilingual and make no unsupported claims', () => {
   assert.equal(read('docs/political-data/romania_publication_readiness.json').technically_ready_for_activation, false);
-  assert.equal(politicalAdmissions.find((r) => r.slug === 'romania').state, 'staged_not_published');
+  assert.deepEqual(['state', 'politicsRoute'].map((k) => politicalAdmissions.find((r) => r.slug === 'romania')[k]), ['admitted', false]);
   for (const row of politicalAdmissions) {
     assert.ok(row.reason.en.trim() && row.reason['zh-CN'].trim() && row.name.en && row.name['zh-CN']);
     assert.doesNotMatch(row.reason.en, /[㐀-鿿]/u);

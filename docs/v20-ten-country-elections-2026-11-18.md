@@ -106,3 +106,22 @@ Required behaviour:
 3. Slovenia 2022, 2018, 2014, 2011 from the minutes in Uradni list (links from DVK pages).
 4. Croatia 2011 with a different text-extraction route; 2007, 2003, 2000 after that.
 5. Croatia and Slovenia in the cross-country comparison sets (after Codex builds the constituency-aware views).
+
+## Addendum (same day): Romania 2016 admitted; deploy fix
+
+**Deploy fix (LIVE d736f94).** The first push (010e048) failed `i18n:validate`: country hubs linked to `/politics/croatia/` and `/politics/slovenia/`, which Codex has not built. `admittedCountrySlugs` (used for links) now excludes admitted countries flagged `politicsRoute: false`; `admittedDataCountrySlugs` lists all admitted countries; `countryElectionLinks` lists elections only for countries with a page.
+
+**Romania (owner answers "both" and "ii then i").** Admission `romania-parliament-2016` (`docs/political-data/romania_parliament2016_admission.json`), build `scripts/political-data/romania/build-parliament.mjs`.
+
+| Election | Chamber | Lists | Independents (aggregated, no names) | Seats |
+|---|---|---|---|---|
+| `el-ro-cd-2016-12-11` | Camera Deputaților | 35 (17 national-minority organisations) | 39 | 329 = 312 list + 17 minority |
+| `el-ro-s-2016-12-11` | Senat | 19 | 5 | 136 |
+
+- Source: AEP files on data.gov.ro (OGL-ROU-1.0): polling-station results, postal results and mandate allocation by constituency, per chamber; downloaded once each at least 10 s apart.
+- Checks per chamber: list + independent votes = valid votes (column e + postal d1; CD 7,047,384, Senate 7,052,966); seat-holding lists = lists ≥ 5% nationally; mandate files 312 / 136 by constituency; a simplified two-stage allocation reproduces the Senate exactly and the Chamber within one seat (PSD/ALDE), so the official file is the seat source; Art. 56 (5% of the average valid votes per deputy) gives 17 minority organisation seats, equal to the organisations the Chamber of Deputies lists for its 2016–2020 term (cdep.ro, read once, owner-approved; block checksum `9cf30fc6…`).
+- Polling day 11 December 2016: earliest protocol transmission date in the AEP files.
+- Limits (owner-accepted): no registered voters, voters or turnout (AEP count columns undocumented); source is the AEP centralisation (14 December 2016), not the BEC final act; no constituency votes.
+- Institutions: `store_chamber` set for `ro-camera-deputatilor` and `ro-senat`; both elections link to `romania-period-2015-07-20` (Law 208/2015).
+- Codex: `politicalRomanianStores()` (raw, gated); two separate elections — chamber selection required, never one combined chart; minority seats shown as a separate mechanism; turnout shown as "not published" with `turnout_definition`.
+- Still missing: Romania 2024 and 2020 (owner to save RF_2.pdf / RF_3.pdf into `local-evidence/romania/`), 2012 (mixed-member system with single-member colleges; not started); Austria (owner files pending in `local-evidence/austria/`).

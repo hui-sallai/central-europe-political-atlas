@@ -62,6 +62,13 @@ import siContestants from "@/data/political/slovenia/electoral_contestants.json"
 import siLegislatures from "@/data/political/slovenia/legislatures.json";
 import siSystems from "@/data/political/slovenia/electoral_systems.json";
 import siSources from "@/data/political/slovenia/political_source_registry.json";
+import roElections from "@/data/political/romania/elections.json";
+import roTurnout from "@/data/political/romania/election_turnout.json";
+import roResults from "@/data/political/romania/election_results.json";
+import roContestants from "@/data/political/romania/electoral_contestants.json";
+import roLegislatures from "@/data/political/romania/legislatures.json";
+import roSystems from "@/data/political/romania/electoral_systems.json";
+import roSources from "@/data/political/romania/political_source_registry.json";
 import type { PoliticalCountryView, PoliticalElectionView } from "./politicalExplorer";
 import { electionViewsFromStores, type PoliticalStores } from "./politicalStores";
 import { politicalPublicationProblems } from "./politicalNational";
@@ -168,6 +175,13 @@ export function politicalCroatianStores(): PoliticalConstituencyStores {
  * national-community elections (si-nc-*): docs/political-data/slovenia_dz_admission.json. */
 export function politicalSlovenianStores(): PoliticalConstituencyStores {
   return gatedStores("slovenia", { elections: siElections, turnout: siTurnout, results: siResults, contestants: siContestants, legislatures: siLegislatures, systems: siSystems, sources: siSources as PoliticalStores["sources"] });
+}
+
+/** Romania's admitted Parliament election of 2016: two separate election records, Chamber of Deputies (329 seats incl.
+ * 17 national-minority organisation seats) and Senate (136); national figures from AEP files; turnout not published:
+ * docs/political-data/romania_parliament2016_admission.json. The chambers must never be combined. */
+export function politicalRomanianStores(): PoliticalConstituencyStores {
+  return gatedStores("romania", { elections: roElections, turnout: roTurnout, results: roResults, contestants: roContestants, legislatures: roLegislatures, systems: roSystems, sources: roSources as PoliticalStores["sources"] });
 }
 
 /**

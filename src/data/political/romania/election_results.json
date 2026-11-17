@@ -1,0 +1,3152 @@
+[
+  {
+    "result_id": "er-ct-ro-cd16-01",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-01",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 3204864,
+    "votes_polling_stations": 3204477,
+    "votes_postal": 387,
+    "published_vote_share": null,
+    "derived_vote_share": 45.47593830561809,
+    "seats": 154,
+    "list_seats": 154,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL SOCIAL DEMOCRAT\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-02",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-02",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 1412377,
+    "votes_polling_stations": 1411475,
+    "votes_postal": 902,
+    "published_vote_share": null,
+    "derived_vote_share": 20.041152858989946,
+    "seats": 69,
+    "list_seats": 69,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL NAȚIONAL LIBERAL\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-03",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-03",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 625154,
+    "votes_polling_stations": 623110,
+    "votes_postal": 2044,
+    "published_vote_share": null,
+    "derived_vote_share": 8.870724229018881,
+    "seats": 30,
+    "list_seats": 30,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA SALVAȚI ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-04",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-04",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 435969,
+    "votes_polling_stations": 435919,
+    "votes_postal": 50,
+    "published_vote_share": null,
+    "derived_vote_share": 6.186252941517022,
+    "seats": 21,
+    "list_seats": 21,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-05",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-05",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 396386,
+    "votes_polling_stations": 396301,
+    "votes_postal": 85,
+    "published_vote_share": null,
+    "derived_vote_share": 5.6245835334075736,
+    "seats": 20,
+    "list_seats": 20,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-06",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-06",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 376891,
+    "votes_polling_stations": 376619,
+    "votes_postal": 272,
+    "published_vote_share": null,
+    "derived_vote_share": 5.347956064264413,
+    "seats": 18,
+    "list_seats": 18,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL MIȘCAREA POPULARĂ\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-07",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-07",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 196397,
+    "votes_polling_stations": 196270,
+    "votes_postal": 127,
+    "published_vote_share": null,
+    "derived_vote_share": 2.7868071329730295,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL ROMÂNIA UNITĂ\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-08",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-08",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 73264,
+    "votes_polling_stations": 73264,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 1.0395914285357517,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL ROMÂNIA MARE\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-09",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-09",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 62414,
+    "votes_polling_stations": 62414,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.8856335911311204,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL ECOLOGIST ROMÂN\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-10",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-10",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 61206,
+    "votes_polling_stations": 61122,
+    "votes_postal": 84,
+    "published_vote_share": null,
+    "derived_vote_share": 0.8684924789113236,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"ALIANȚA NOASTRĂ ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-11",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-11",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 24580,
+    "votes_polling_stations": 24580,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.3487819026180495,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL SOCIALIST ROMÂN\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-12",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-12",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 13126,
+    "votes_polling_stations": 13119,
+    "votes_postal": 7,
+    "published_vote_share": null,
+    "derived_vote_share": 0.18625350910351982,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"ASOCIAȚIA PARTIDA ROMILOR PRO-EUROPA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-13",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-13",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 12375,
+    "votes_polling_stations": 12331,
+    "votes_postal": 44,
+    "published_vote_share": null,
+    "derived_vote_share": 0.17559707261588128,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"FORUMUL DEMOCRAT AL GERMANILOR DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-14",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-14",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 6545,
+    "votes_polling_stations": 6544,
+    "votes_postal": 1,
+    "published_vote_share": null,
+    "derived_vote_share": 0.092871340627955,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA DEMOCRATICĂ A SLOVACILOR ȘI CEHILOR DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-15",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-15",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 6160,
+    "votes_polling_stations": 6152,
+    "votes_postal": 8,
+    "published_vote_share": null,
+    "derived_vote_share": 0.08740832059101647,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"COMUNITATEA RUȘILOR LIPOVENI DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-16",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-16",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 5817,
+    "votes_polling_stations": 5815,
+    "votes_postal": 2,
+    "published_vote_share": null,
+    "derived_vote_share": 0.08254126637628942,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA ELENĂ DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-17",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-17",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 5536,
+    "votes_polling_stations": 5534,
+    "votes_postal": 2,
+    "published_vote_share": null,
+    "derived_vote_share": 0.07855397123244597,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA DEMOCRATĂ TURCĂ DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-18",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-18",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 5513,
+    "votes_polling_stations": 5512,
+    "votes_postal": 1,
+    "published_vote_share": null,
+    "derived_vote_share": 0.07822760899647302,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"ASOCIAȚIA MACEDONENILOR DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-19",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-19",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 5468,
+    "votes_polling_stations": 5465,
+    "votes_postal": 3,
+    "published_vote_share": null,
+    "derived_vote_share": 0.07758907418696072,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA SÂRBILOR DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-20",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-20",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 5069,
+    "votes_polling_stations": 5056,
+    "votes_postal": 13,
+    "published_vote_share": null,
+    "derived_vote_share": 0.07192739887595169,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"FEDERAȚIA COMUNITĂȚILOR EVREIEȘTI DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-21",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-21",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 4868,
+    "votes_polling_stations": 4866,
+    "votes_postal": 2,
+    "published_vote_share": null,
+    "derived_vote_share": 0.06907527672679678,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA ARMENILOR DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-22",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-22",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 4640,
+    "votes_polling_stations": 4639,
+    "votes_postal": 1,
+    "published_vote_share": null,
+    "derived_vote_share": 0.06584003369193447,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"ASOCIAȚIA LIGA ALBANEZILOR DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-23",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-23",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 4542,
+    "votes_polling_stations": 4540,
+    "votes_postal": 2,
+    "published_vote_share": null,
+    "derived_vote_share": 0.06444944677344104,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA BULGARĂ DIN BANAT - ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-24",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-24",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 3532,
+    "votes_polling_stations": 3531,
+    "votes_postal": 1,
+    "published_vote_share": null,
+    "derived_vote_share": 0.05011788771549841,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA CROAȚILOR DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-25",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-25",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 3486,
+    "votes_polling_stations": 3479,
+    "votes_postal": 7,
+    "published_vote_share": null,
+    "derived_vote_share": 0.0494651632435525,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"ASOCIAȚIA ITALIENILOR DIN ROMÂNIA – RO.AS.IT.\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-26",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-26",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 3355,
+    "votes_polling_stations": 3352,
+    "votes_postal": 3,
+    "published_vote_share": null,
+    "derived_vote_share": 0.04760631746475004,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA POLONEZILOR DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-27",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-27",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 2824,
+    "votes_polling_stations": 2822,
+    "votes_postal": 2,
+    "published_vote_share": null,
+    "derived_vote_share": 0.040071606712504954,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA CULTURALĂ A RUTENILOR DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-28",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-28",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 2599,
+    "votes_polling_stations": 2599,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.03687893266494347,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL PUTERII UMANISTE (SOCIAL-LIBERAL)\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-29",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-29",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 1764,
+    "votes_polling_stations": 1764,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.025030564532881987,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL NOUA ROMÂNIE\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-30",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-30",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 1172,
+    "votes_polling_stations": 1172,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.016630284372186898,
+    "seats": 1,
+    "list_seats": 0,
+    "minority_seats": 1,
+    "seat_basis": "one Chamber seat for a national-minority organisation under Art. 56 (at least 5% of the average valid votes per deputy), confirmed by the Chamber’s 2016–2020 composition",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA UCRAINENILOR DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-31",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-31",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 609,
+    "votes_polling_stations": 609,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.008641504422066402,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL PLATFORMA ACȚIUNEA CIVICĂ A TINERILOR\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-32",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-32",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 566,
+    "votes_polling_stations": 566,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.008031348937421318,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL VERDE\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-33",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-33",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 523,
+    "votes_polling_stations": 523,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.007421193452776235,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL ROMILOR DEMOCRAȚI\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-34",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-34",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 518,
+    "votes_polling_stations": 518,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.007350245140608203,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL BLOCUL UNITĂȚII NAȚIONALE\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-35",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-35",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 511,
+    "votes_polling_stations": 511,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.007250917503572957,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (312 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL VRANCEA NOASTRĂ\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-cd16-ind",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_ref": "ct-ro-cd16-ind",
+    "vote_type": "ro_cd_list_vote",
+    "valid_votes": 7047384,
+    "total_seats": 329,
+    "votes": 76764,
+    "published_vote_share": null,
+    "derived_vote_share": 1.0892552470533747,
+    "seats": 0,
+    "seat_basis": "no independent candidate won a seat (AEP mandate file)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "independent columns summed",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-01",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-01",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 3221786,
+    "votes_polling_stations": 3221387,
+    "votes_postal": 399,
+    "published_vote_share": null,
+    "derived_vote_share": 45.67987425432081,
+    "seats": 67,
+    "list_seats": 67,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL SOCIAL DEMOCRAT\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-02",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-02",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 1440193,
+    "votes_polling_stations": 1439249,
+    "votes_postal": 944,
+    "published_vote_share": null,
+    "derived_vote_share": 20.41967875642673,
+    "seats": 30,
+    "list_seats": 30,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL NAȚIONAL LIBERAL\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-03",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-03",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 629375,
+    "votes_polling_stations": 627302,
+    "votes_postal": 2073,
+    "published_vote_share": null,
+    "derived_vote_share": 8.923550744466938,
+    "seats": 13,
+    "list_seats": 13,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"UNIUNEA SALVAȚI ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-04",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-04",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 440409,
+    "votes_polling_stations": 440356,
+    "votes_postal": 53,
+    "published_vote_share": null,
+    "derived_vote_share": 6.244309131789378,
+    "seats": 9,
+    "list_seats": 9,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-05",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-05",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 423728,
+    "votes_polling_stations": 423645,
+    "votes_postal": 83,
+    "published_vote_share": null,
+    "derived_vote_share": 6.007798704828579,
+    "seats": 9,
+    "list_seats": 9,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-06",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-06",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 398791,
+    "votes_polling_stations": 398518,
+    "votes_postal": 273,
+    "published_vote_share": null,
+    "derived_vote_share": 5.654231141905405,
+    "seats": 8,
+    "list_seats": 8,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL MIȘCAREA POPULARĂ\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-07",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-07",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 207977,
+    "votes_polling_stations": 207844,
+    "votes_postal": 133,
+    "published_vote_share": null,
+    "derived_vote_share": 2.9487877865851044,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL ROMÂNIA UNITĂ\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-08",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-08",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 83568,
+    "votes_polling_stations": 83568,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 1.1848632192470514,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL ROMÂNIA MARE\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-09",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-09",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 77218,
+    "votes_polling_stations": 77218,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 1.0948301749930456,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL ECOLOGIST ROMÂN\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-10",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-10",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 66774,
+    "votes_polling_stations": 66680,
+    "votes_postal": 94,
+    "published_vote_share": null,
+    "derived_vote_share": 0.946750629451496,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"ALIANȚA NOASTRĂ ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-11",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-11",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 32808,
+    "votes_polling_stations": 32808,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.4651660025016426,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL SOCIALIST ROMÂN\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-12",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-12",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 3066,
+    "votes_polling_stations": 3066,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.04347107302091063,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL PUTERII UMANISTE (SOCIAL-LIBERAL)\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-13",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-13",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 2349,
+    "votes_polling_stations": 2349,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.03330513715789925,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL NOUA ROMÂNIE\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-14",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-14",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 739,
+    "votes_polling_stations": 739,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.010477861370663066,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL BLOCUL UNITĂȚII NAȚIONALE\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-15",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-15",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 719,
+    "votes_polling_stations": 719,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.010194292727343362,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL VERDE\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-16",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-16",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 719,
+    "votes_polling_stations": 719,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.010194292727343362,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL PLATFORMA ACȚIUNEA CIVICĂ A TINERILOR\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-17",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-17",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 652,
+    "votes_polling_stations": 652,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.009244337772222354,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL VRANCEA NOASTRĂ\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-18",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-18",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 648,
+    "votes_polling_stations": 648,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.009187624043558412,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL ROMILOR DEMOCRAȚI\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-19",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-19",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 52,
+    "votes_polling_stations": 52,
+    "votes_postal": 0,
+    "published_vote_share": null,
+    "derived_vote_share": 0.0007372784726312306,
+    "seats": 0,
+    "list_seats": 0,
+    "minority_seats": 0,
+    "seat_basis": "list seats from the AEP mandate allocation file (136 seats in 43 constituencies)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL REPUBLICAN DIN ROMÂNIA\" (stations + postal)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+        "source_record_id": "mandate allocation file, TOTAL row",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "list_seats"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-ro-s16-ind",
+    "country": "romania",
+    "geography": "national",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_ref": "ct-ro-s16-ind",
+    "vote_type": "ro_s_list_vote",
+    "valid_votes": 7052966,
+    "total_seats": 136,
+    "votes": 21395,
+    "published_vote_share": null,
+    "derived_vote_share": 0.3033475561912534,
+    "seats": 0,
+    "seat_basis": "no independent candidate won a seat (AEP mandate file)",
+    "published_seat_share": null,
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "independent columns summed",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  }
+]

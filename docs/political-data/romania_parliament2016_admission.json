@@ -1,0 +1,89 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "romania-parliament-2016",
+ "country": "romania",
+ "election_ids": [
+  "el-ro-cd-2016-12-11",
+  "el-ro-s-2016-12-11"
+ ],
+ "scope": "Parliament election of 11 December 2016 as two separate elections: Chamber of Deputies (329 seats: 312 list seats in 43 constituencies and 17 national-minority organisation seats) and Senate (136 seats): every list with national votes (polling stations plus postal), independent candidates aggregated without names, list seats from the AEP mandate allocation files, valid votes. Registered voters, voters and turnout, constituency votes, candidate names, party attribution and the 2012, 2020 and 2024 elections are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief \"Complete ten-country parliamentary election coverage\" and answer \"Accept for all four\" (official-texts reading of Law 8/1996 Art. 9)."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner answer \"Open in browser pane once\" for the 2024 BEC files, with data.gov.ro as the fallback; the BEC site showed a browser-verification challenge, so nothing was retrieved there."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner answer \"both\": Romania 2016 and 2012 from data.gov.ro while the owner saves the 2024 files by hand."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner answer \"ii then i\": read the Chamber of Deputies' 2016-2020 composition page once (organisations of national minorities only), then admit 2016 with its limits stated."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/romania/parliament/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "open_licence_ogl_rou_1_0",
+   "evidence_kind": "licence",
+   "basis": "The AEP package on data.gov.ro is published under OGL-ROU-1.0 (package metadata; the portal licence page names OGL-ROU-1.0 and recommends CC BY 4.0 since 2020); the owner also accepted the official-texts reading for Romanian results."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_sums_and_seat_tables",
+   "evidence_kind": "licence",
+   "basis": "National sums of the published polling-station and postal files and the published seat tables, attributed to AEP and data.gov.ro."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The six AEP files are kept in local-evidence/ by checksum; polling-station rows and independent candidates' names are not committed."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "data.gov.ro (registered, manual): robots.txt read, one search page, two dataset pages and one download per file, at least 10 s apart (crawl delay); no API calls. cdep.ro (registered): one reading of the 2016-2020 composition page in the browser pane, approved by the owner. parlamentare2024.bec.ro was not used (browser-verification challenge)."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope_turnout_excluded",
+   "evidence_kind": "evidence_record",
+   "basis": "Polling-station and postal files cover every list and independent candidate; mandate files cover every constituency. Registered voters and voters are excluded because the count columns a-g have no accepted official definition."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "Per chamber: list and independent votes equal valid votes (column e plus postal d1); the lists holding seats are exactly those with at least 5% nationally; mandate files sum to 312 and 136 by constituency; the two-stage allocation reproduces the Senate exactly and the Chamber within one seat (official file used); Art. 56 gives 17 minority organisation seats, equal to the Chamber's 2016-2020 list; Chamber 329."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list_per_chamber",
+   "evidence_kind": "owner_decision",
+   "basis": "Each chamber is its own election with its own contestants; lists keep their printed names; independents are one aggregate row; no list is linked to a party or across elections."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "rules_reproduced_registry_linked",
+   "evidence_kind": "build_check",
+   "basis": "5% threshold, constituency quota and national D'Hondt of remainders, and Art. 56 minority seats checked against the data; the institutional registry (Law 208/2015, partly verified) links both elections to the period it opened."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "aep_centralisation_not_bec_final_act",
+   "evidence_kind": "owner_decision",
+   "basis": "The AEP files are the authority's centralisation (timestamp 14 December 2016), not the Central Electoral Bureau's final act; the owner accepted this limit (answer \"i\"). The minority seats agree with the Chamber's own record of minority organisations."
+  }
+ },
+ "continuity": "None: no party register was reviewed; continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

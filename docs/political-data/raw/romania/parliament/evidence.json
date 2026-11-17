@@ -1,0 +1,2285 @@
+{
+ "schema_version": "romania-parliament-evidence-v1",
+ "country": "romania",
+ "rights": {
+  "licence": "OGL-ROU-1.0 (data.gov.ro package metadata; the portal recommends CC BY 4.0 since 2020)",
+  "licence_url": "https://data.gov.ro/pages/licence",
+  "publisher": "Autoritatea Electorală Permanentă",
+  "also": "owner answer \"Accept for all four\" (official-texts reading, Law 8/1996 Art. 9) and \"ii then i\" (2026-11-18)"
+ },
+ "label_rule": "List names as printed in the AEP files. Independent candidates (columns named after persons) are aggregated into one row per chamber with their count; no name is stored.",
+ "elections": {
+  "2016": {
+   "retrieved_at": "2026-11-18",
+   "dataset_page": "https://data.gov.ro/dataset/alegeri_parlamentare_2016",
+   "chambers": {
+    "CD": {
+     "valid_votes_stations_column_e": 7043334,
+     "valid_votes_postal_column_d1": 4050,
+     "station_rows": 19043,
+     "postal_rows": 1,
+     "protocol_dates": [
+      [
+       "20161211",
+       482
+      ],
+      [
+       "20161212",
+       18489
+      ],
+      [
+       "20161213",
+       60
+      ],
+      [
+       "20161214",
+       12
+      ]
+     ],
+     "lists": [
+      {
+       "name": "PARTIDUL SOCIAL DEMOCRAT",
+       "votes_stations": 3204477,
+       "votes_postal": 387,
+       "votes": 3204864,
+       "list_seats": 154,
+       "kind": "party_or_political_formation",
+       "row": 1
+      },
+      {
+       "name": "PARTIDUL NAȚIONAL LIBERAL",
+       "votes_stations": 1411475,
+       "votes_postal": 902,
+       "votes": 1412377,
+       "list_seats": 69,
+       "kind": "party_or_political_formation",
+       "row": 2
+      },
+      {
+       "name": "UNIUNEA SALVAȚI ROMÂNIA",
+       "votes_stations": 623110,
+       "votes_postal": 2044,
+       "votes": 625154,
+       "list_seats": 30,
+       "kind": "party_or_political_formation",
+       "row": 3
+      },
+      {
+       "name": "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA",
+       "votes_stations": 435919,
+       "votes_postal": 50,
+       "votes": 435969,
+       "list_seats": 21,
+       "kind": "party_or_political_formation",
+       "row": 4
+      },
+      {
+       "name": "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR",
+       "votes_stations": 396301,
+       "votes_postal": 85,
+       "votes": 396386,
+       "list_seats": 20,
+       "kind": "party_or_political_formation",
+       "row": 5
+      },
+      {
+       "name": "PARTIDUL MIȘCAREA POPULARĂ",
+       "votes_stations": 376619,
+       "votes_postal": 272,
+       "votes": 376891,
+       "list_seats": 18,
+       "kind": "party_or_political_formation",
+       "row": 6
+      },
+      {
+       "name": "PARTIDUL ROMÂNIA UNITĂ",
+       "votes_stations": 196270,
+       "votes_postal": 127,
+       "votes": 196397,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 7
+      },
+      {
+       "name": "PARTIDUL ROMÂNIA MARE",
+       "votes_stations": 73264,
+       "votes_postal": 0,
+       "votes": 73264,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 8
+      },
+      {
+       "name": "PARTIDUL ECOLOGIST ROMÂN",
+       "votes_stations": 62414,
+       "votes_postal": 0,
+       "votes": 62414,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 9
+      },
+      {
+       "name": "ALIANȚA NOASTRĂ ROMÂNIA",
+       "votes_stations": 61122,
+       "votes_postal": 84,
+       "votes": 61206,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 10
+      },
+      {
+       "name": "PARTIDUL SOCIALIST ROMÂN",
+       "votes_stations": 24580,
+       "votes_postal": 0,
+       "votes": 24580,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 11
+      },
+      {
+       "name": "ASOCIAȚIA PARTIDA ROMILOR PRO-EUROPA",
+       "votes_stations": 13119,
+       "votes_postal": 7,
+       "votes": 13126,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "Pro Europa",
+       "row": 12
+      },
+      {
+       "name": "FORUMUL DEMOCRAT AL GERMANILOR DIN ROMÂNIA",
+       "votes_stations": 12331,
+       "votes_postal": 44,
+       "votes": 12375,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "FDGR",
+       "row": 13
+      },
+      {
+       "name": "UNIUNEA DEMOCRATICĂ A SLOVACILOR ȘI CEHILOR DIN ROMÂNIA",
+       "votes_stations": 6544,
+       "votes_postal": 1,
+       "votes": 6545,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "UDSCR",
+       "row": 14
+      },
+      {
+       "name": "COMUNITATEA RUȘILOR LIPOVENI DIN ROMÂNIA",
+       "votes_stations": 6152,
+       "votes_postal": 8,
+       "votes": 6160,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "CRLR",
+       "row": 15
+      },
+      {
+       "name": "UNIUNEA ELENĂ DIN ROMÂNIA",
+       "votes_stations": 5815,
+       "votes_postal": 2,
+       "votes": 5817,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "UER",
+       "row": 16
+      },
+      {
+       "name": "UNIUNEA DEMOCRATĂ TURCĂ DIN ROMÂNIA",
+       "votes_stations": 5534,
+       "votes_postal": 2,
+       "votes": 5536,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "UDTR",
+       "row": 17
+      },
+      {
+       "name": "ASOCIAȚIA MACEDONENILOR DIN ROMÂNIA",
+       "votes_stations": 5512,
+       "votes_postal": 1,
+       "votes": 5513,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "AMR",
+       "row": 18
+      },
+      {
+       "name": "UNIUNEA SÂRBILOR DIN ROMÂNIA",
+       "votes_stations": 5465,
+       "votes_postal": 3,
+       "votes": 5468,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "USR",
+       "row": 19
+      },
+      {
+       "name": "FEDERAȚIA COMUNITĂȚILOR EVREIEȘTI DIN ROMÂNIA",
+       "votes_stations": 5056,
+       "votes_postal": 13,
+       "votes": 5069,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "FCER",
+       "row": 20
+      },
+      {
+       "name": "UNIUNEA ARMENILOR DIN ROMÂNIA",
+       "votes_stations": 4866,
+       "votes_postal": 2,
+       "votes": 4868,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "UAR",
+       "row": 21
+      },
+      {
+       "name": "ASOCIAȚIA LIGA ALBANEZILOR DIN ROMÂNIA",
+       "votes_stations": 4639,
+       "votes_postal": 1,
+       "votes": 4640,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "ALAR",
+       "row": 22
+      },
+      {
+       "name": "UNIUNEA BULGARĂ DIN BANAT - ROMÂNIA",
+       "votes_stations": 4540,
+       "votes_postal": 2,
+       "votes": 4542,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "UBBR",
+       "row": 23
+      },
+      {
+       "name": "UNIUNEA CROAȚILOR DIN ROMÂNIA",
+       "votes_stations": 3531,
+       "votes_postal": 1,
+       "votes": 3532,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "UCR",
+       "row": 24
+      },
+      {
+       "name": "ASOCIAȚIA ITALIENILOR DIN ROMÂNIA – RO.AS.IT.",
+       "votes_stations": 3479,
+       "votes_postal": 7,
+       "votes": 3486,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "RO.AS.IT.",
+       "row": 25
+      },
+      {
+       "name": "UNIUNEA POLONEZILOR DIN ROMÂNIA",
+       "votes_stations": 3352,
+       "votes_postal": 3,
+       "votes": 3355,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "UPR",
+       "row": 26
+      },
+      {
+       "name": "UNIUNEA CULTURALĂ A RUTENILOR DIN ROMÂNIA",
+       "votes_stations": 2822,
+       "votes_postal": 2,
+       "votes": 2824,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "UCRR",
+       "row": 27
+      },
+      {
+       "name": "PARTIDUL PUTERII UMANISTE (SOCIAL-LIBERAL)",
+       "votes_stations": 2599,
+       "votes_postal": 0,
+       "votes": 2599,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 28
+      },
+      {
+       "name": "PARTIDUL NOUA ROMÂNIE",
+       "votes_stations": 1764,
+       "votes_postal": 0,
+       "votes": 1764,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 29
+      },
+      {
+       "name": "UNIUNEA UCRAINENILOR DIN ROMÂNIA",
+       "votes_stations": 1172,
+       "votes_postal": 0,
+       "votes": 1172,
+       "list_seats": 0,
+       "kind": "national_minority_organisation",
+       "cdep_abbreviation": "UUR",
+       "row": 30
+      },
+      {
+       "name": "PARTIDUL PLATFORMA ACȚIUNEA CIVICĂ A TINERILOR",
+       "votes_stations": 609,
+       "votes_postal": 0,
+       "votes": 609,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 31
+      },
+      {
+       "name": "PARTIDUL VERDE",
+       "votes_stations": 566,
+       "votes_postal": 0,
+       "votes": 566,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 32
+      },
+      {
+       "name": "PARTIDUL ROMILOR DEMOCRAȚI",
+       "votes_stations": 523,
+       "votes_postal": 0,
+       "votes": 523,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 33
+      },
+      {
+       "name": "PARTIDUL BLOCUL UNITĂȚII NAȚIONALE",
+       "votes_stations": 518,
+       "votes_postal": 0,
+       "votes": 518,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 34
+      },
+      {
+       "name": "PARTIDUL VRANCEA NOASTRĂ",
+       "votes_stations": 511,
+       "votes_postal": 0,
+       "votes": 511,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 35
+      }
+     ],
+     "independents": {
+      "candidates": 39,
+      "votes": 76764,
+      "seats": 0
+     },
+     "qualifying_votes_by_constituency": [
+      {
+       "constituency": 1,
+       "PARTIDUL NAȚIONAL LIBERAL": 44921,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6480,
+       "PARTIDUL SOCIAL DEMOCRAT": 43241,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 4135,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 7314,
+       "UNIUNEA SALVAȚI ROMÂNIA": 7209
+      },
+      {
+       "constituency": 2,
+       "PARTIDUL NAȚIONAL LIBERAL": 45008,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6115,
+       "PARTIDUL SOCIAL DEMOCRAT": 47883,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 10869,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 6130,
+       "UNIUNEA SALVAȚI ROMÂNIA": 9755
+      },
+      {
+       "constituency": 3,
+       "PARTIDUL NAȚIONAL LIBERAL": 25559,
+       "PARTIDUL MIȘCAREA POPULARĂ": 13958,
+       "PARTIDUL SOCIAL DEMOCRAT": 122049,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 265,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 13321,
+       "UNIUNEA SALVAȚI ROMÂNIA": 14035
+      },
+      {
+       "constituency": 4,
+       "PARTIDUL NAȚIONAL LIBERAL": 36369,
+       "PARTIDUL MIȘCAREA POPULARĂ": 11013,
+       "PARTIDUL SOCIAL DEMOCRAT": 108374,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1287,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 16783,
+       "UNIUNEA SALVAȚI ROMÂNIA": 13029
+      },
+      {
+       "constituency": 5,
+       "PARTIDUL NAȚIONAL LIBERAL": 57920,
+       "PARTIDUL MIȘCAREA POPULARĂ": 4387,
+       "PARTIDUL SOCIAL DEMOCRAT": 72537,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 50403,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 8349,
+       "UNIUNEA SALVAȚI ROMÂNIA": 9547
+      },
+      {
+       "constituency": 6,
+       "PARTIDUL NAȚIONAL LIBERAL": 22641,
+       "PARTIDUL MIȘCAREA POPULARĂ": 4363,
+       "PARTIDUL SOCIAL DEMOCRAT": 42301,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 4376,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 8274,
+       "UNIUNEA SALVAȚI ROMÂNIA": 5006
+      },
+      {
+       "constituency": 7,
+       "PARTIDUL NAȚIONAL LIBERAL": 27942,
+       "PARTIDUL MIȘCAREA POPULARĂ": 4591,
+       "PARTIDUL SOCIAL DEMOCRAT": 83206,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 239,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 5448,
+       "UNIUNEA SALVAȚI ROMÂNIA": 3953
+      },
+      {
+       "constituency": 8,
+       "PARTIDUL NAȚIONAL LIBERAL": 40738,
+       "PARTIDUL MIȘCAREA POPULARĂ": 8481,
+       "PARTIDUL SOCIAL DEMOCRAT": 71162,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 11825,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 11507,
+       "UNIUNEA SALVAȚI ROMÂNIA": 27016
+      },
+      {
+       "constituency": 9,
+       "PARTIDUL NAȚIONAL LIBERAL": 18257,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6128,
+       "PARTIDUL SOCIAL DEMOCRAT": 64265,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 289,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 6136,
+       "UNIUNEA SALVAȚI ROMÂNIA": 5330
+      },
+      {
+       "constituency": 10,
+       "PARTIDUL NAȚIONAL LIBERAL": 18584,
+       "PARTIDUL MIȘCAREA POPULARĂ": 11228,
+       "PARTIDUL SOCIAL DEMOCRAT": 101905,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 279,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 6657,
+       "UNIUNEA SALVAȚI ROMÂNIA": 7604
+      },
+      {
+       "constituency": 11,
+       "PARTIDUL NAȚIONAL LIBERAL": 24288,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6911,
+       "PARTIDUL SOCIAL DEMOCRAT": 48247,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 618,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 4798,
+       "UNIUNEA SALVAȚI ROMÂNIA": 3324
+      },
+      {
+       "constituency": 12,
+       "PARTIDUL NAȚIONAL LIBERAL": 27360,
+       "PARTIDUL MIȘCAREA POPULARĂ": 2796,
+       "PARTIDUL SOCIAL DEMOCRAT": 48345,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 128,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 3789,
+       "UNIUNEA SALVAȚI ROMÂNIA": 3232
+      },
+      {
+       "constituency": 13,
+       "PARTIDUL NAȚIONAL LIBERAL": 66001,
+       "PARTIDUL MIȘCAREA POPULARĂ": 7536,
+       "PARTIDUL SOCIAL DEMOCRAT": 61922,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 34634,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 12868,
+       "UNIUNEA SALVAȚI ROMÂNIA": 36429
+      },
+      {
+       "constituency": 14,
+       "PARTIDUL NAȚIONAL LIBERAL": 49889,
+       "PARTIDUL MIȘCAREA POPULARĂ": 21154,
+       "PARTIDUL SOCIAL DEMOCRAT": 110147,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 398,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 15707,
+       "UNIUNEA SALVAȚI ROMÂNIA": 21854
+      },
+      {
+       "constituency": 15,
+       "PARTIDUL NAȚIONAL LIBERAL": 3001,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1967,
+       "PARTIDUL SOCIAL DEMOCRAT": 6811,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 50135,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1966,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1109
+      },
+      {
+       "constituency": 16,
+       "PARTIDUL NAȚIONAL LIBERAL": 34625,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6768,
+       "PARTIDUL SOCIAL DEMOCRAT": 112433,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 200,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 7102,
+       "UNIUNEA SALVAȚI ROMÂNIA": 7389
+      },
+      {
+       "constituency": 17,
+       "PARTIDUL NAȚIONAL LIBERAL": 43687,
+       "PARTIDUL MIȘCAREA POPULARĂ": 12823,
+       "PARTIDUL SOCIAL DEMOCRAT": 153556,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 327,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 13871,
+       "UNIUNEA SALVAȚI ROMÂNIA": 13194
+      },
+      {
+       "constituency": 18,
+       "PARTIDUL NAȚIONAL LIBERAL": 31587,
+       "PARTIDUL MIȘCAREA POPULARĂ": 8922,
+       "PARTIDUL SOCIAL DEMOCRAT": 102233,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 560,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 11548,
+       "UNIUNEA SALVAȚI ROMÂNIA": 15244
+      },
+      {
+       "constituency": 19,
+       "PARTIDUL NAȚIONAL LIBERAL": 10034,
+       "PARTIDUL MIȘCAREA POPULARĂ": 2402,
+       "PARTIDUL SOCIAL DEMOCRAT": 62641,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 146,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 8726,
+       "UNIUNEA SALVAȚI ROMÂNIA": 2575
+      },
+      {
+       "constituency": 20,
+       "PARTIDUL NAȚIONAL LIBERAL": 20497,
+       "PARTIDUL MIȘCAREA POPULARĂ": 7804,
+       "PARTIDUL SOCIAL DEMOCRAT": 65501,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 913,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 7840,
+       "UNIUNEA SALVAȚI ROMÂNIA": 4788
+      },
+      {
+       "constituency": 21,
+       "PARTIDUL NAȚIONAL LIBERAL": 3320,
+       "PARTIDUL MIȘCAREA POPULARĂ": 715,
+       "PARTIDUL SOCIAL DEMOCRAT": 8950,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 99375,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 806,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1304
+      },
+      {
+       "constituency": 22,
+       "PARTIDUL NAȚIONAL LIBERAL": 35033,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6157,
+       "PARTIDUL SOCIAL DEMOCRAT": 85825,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 4714,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 8817,
+       "UNIUNEA SALVAȚI ROMÂNIA": 7805
+      },
+      {
+       "constituency": 23,
+       "PARTIDUL NAȚIONAL LIBERAL": 15307,
+       "PARTIDUL MIȘCAREA POPULARĂ": 3981,
+       "PARTIDUL SOCIAL DEMOCRAT": 47929,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 100,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 4505,
+       "UNIUNEA SALVAȚI ROMÂNIA": 3612
+      },
+      {
+       "constituency": 24,
+       "PARTIDUL NAȚIONAL LIBERAL": 49343,
+       "PARTIDUL MIȘCAREA POPULARĂ": 16179,
+       "PARTIDUL SOCIAL DEMOCRAT": 119253,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 334,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 13368,
+       "UNIUNEA SALVAȚI ROMÂNIA": 23966
+      },
+      {
+       "constituency": 25,
+       "PARTIDUL NAȚIONAL LIBERAL": 39019,
+       "PARTIDUL MIȘCAREA POPULARĂ": 7273,
+       "PARTIDUL SOCIAL DEMOCRAT": 52950,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 176,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 7709,
+       "UNIUNEA SALVAȚI ROMÂNIA": 17944
+      },
+      {
+       "constituency": 26,
+       "PARTIDUL NAȚIONAL LIBERAL": 28255,
+       "PARTIDUL MIȘCAREA POPULARĂ": 10795,
+       "PARTIDUL SOCIAL DEMOCRAT": 54326,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 8780,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 6077,
+       "UNIUNEA SALVAȚI ROMÂNIA": 9624
+      },
+      {
+       "constituency": 27,
+       "PARTIDUL NAȚIONAL LIBERAL": 17642,
+       "PARTIDUL MIȘCAREA POPULARĂ": 3213,
+       "PARTIDUL SOCIAL DEMOCRAT": 61280,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 279,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 7404,
+       "UNIUNEA SALVAȚI ROMÂNIA": 2797
+      },
+      {
+       "constituency": 28,
+       "PARTIDUL NAȚIONAL LIBERAL": 25284,
+       "PARTIDUL MIȘCAREA POPULARĂ": 7272,
+       "PARTIDUL SOCIAL DEMOCRAT": 47267,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 68564,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 5149,
+       "UNIUNEA SALVAȚI ROMÂNIA": 10602
+      },
+      {
+       "constituency": 29,
+       "PARTIDUL NAȚIONAL LIBERAL": 33415,
+       "PARTIDUL MIȘCAREA POPULARĂ": 7466,
+       "PARTIDUL SOCIAL DEMOCRAT": 86910,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 213,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 7904,
+       "UNIUNEA SALVAȚI ROMÂNIA": 7269
+      },
+      {
+       "constituency": 30,
+       "PARTIDUL NAȚIONAL LIBERAL": 28068,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6280,
+       "PARTIDUL SOCIAL DEMOCRAT": 114624,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 189,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 9561,
+       "UNIUNEA SALVAȚI ROMÂNIA": 5137
+      },
+      {
+       "constituency": 31,
+       "PARTIDUL NAȚIONAL LIBERAL": 57003,
+       "PARTIDUL MIȘCAREA POPULARĂ": 14607,
+       "PARTIDUL SOCIAL DEMOCRAT": 111614,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 329,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 25554,
+       "UNIUNEA SALVAȚI ROMÂNIA": 22304
+      },
+      {
+       "constituency": 32,
+       "PARTIDUL NAȚIONAL LIBERAL": 16278,
+       "PARTIDUL MIȘCAREA POPULARĂ": 2979,
+       "PARTIDUL SOCIAL DEMOCRAT": 31087,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 42957,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 5490,
+       "UNIUNEA SALVAȚI ROMÂNIA": 3375
+      },
+      {
+       "constituency": 33,
+       "PARTIDUL NAȚIONAL LIBERAL": 22513,
+       "PARTIDUL MIȘCAREA POPULARĂ": 2987,
+       "PARTIDUL SOCIAL DEMOCRAT": 24254,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 21189,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 4295,
+       "UNIUNEA SALVAȚI ROMÂNIA": 4498
+      },
+      {
+       "constituency": 34,
+       "PARTIDUL NAȚIONAL LIBERAL": 53398,
+       "PARTIDUL MIȘCAREA POPULARĂ": 5527,
+       "PARTIDUL SOCIAL DEMOCRAT": 38100,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2559,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 4998,
+       "UNIUNEA SALVAȚI ROMÂNIA": 19000
+      },
+      {
+       "constituency": 35,
+       "PARTIDUL NAȚIONAL LIBERAL": 55713,
+       "PARTIDUL MIȘCAREA POPULARĂ": 8981,
+       "PARTIDUL SOCIAL DEMOCRAT": 101839,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 477,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 11882,
+       "UNIUNEA SALVAȚI ROMÂNIA": 8502
+      },
+      {
+       "constituency": 36,
+       "PARTIDUL NAȚIONAL LIBERAL": 27924,
+       "PARTIDUL MIȘCAREA POPULARĂ": 5520,
+       "PARTIDUL SOCIAL DEMOCRAT": 88882,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 204,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 8635,
+       "UNIUNEA SALVAȚI ROMÂNIA": 4545
+      },
+      {
+       "constituency": 37,
+       "PARTIDUL NAȚIONAL LIBERAL": 54189,
+       "PARTIDUL MIȘCAREA POPULARĂ": 12060,
+       "PARTIDUL SOCIAL DEMOCRAT": 75077,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 8316,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 12608,
+       "UNIUNEA SALVAȚI ROMÂNIA": 26827
+      },
+      {
+       "constituency": 38,
+       "PARTIDUL NAȚIONAL LIBERAL": 12506,
+       "PARTIDUL MIȘCAREA POPULARĂ": 4810,
+       "PARTIDUL SOCIAL DEMOCRAT": 32918,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 245,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 4038,
+       "UNIUNEA SALVAȚI ROMÂNIA": 3552
+      },
+      {
+       "constituency": 39,
+       "PARTIDUL NAȚIONAL LIBERAL": 24640,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6260,
+       "PARTIDUL SOCIAL DEMOCRAT": 70432,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 380,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 6895,
+       "UNIUNEA SALVAȚI ROMÂNIA": 5262
+      },
+      {
+       "constituency": 40,
+       "PARTIDUL NAȚIONAL LIBERAL": 25057,
+       "PARTIDUL MIȘCAREA POPULARĂ": 5066,
+       "PARTIDUL SOCIAL DEMOCRAT": 71871,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 458,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 8673,
+       "UNIUNEA SALVAȚI ROMÂNIA": 6956
+      },
+      {
+       "constituency": 41,
+       "PARTIDUL NAȚIONAL LIBERAL": 25542,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6259,
+       "PARTIDUL SOCIAL DEMOCRAT": 65423,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 126,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 6346,
+       "UNIUNEA SALVAȚI ROMÂNIA": 6828
+      },
+      {
+       "constituency": 42,
+       "PARTIDUL NAȚIONAL LIBERAL": 85766,
+       "PARTIDUL MIȘCAREA POPULARĂ": 51423,
+       "PARTIDUL SOCIAL DEMOCRAT": 274445,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1437,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 44407,
+       "UNIUNEA SALVAȚI ROMÂNIA": 180362
+      },
+      {
+       "constituency": 43,
+       "PARTIDUL NAȚIONAL LIBERAL": 28254,
+       "PARTIDUL MIȘCAREA POPULARĂ": 25254,
+       "PARTIDUL SOCIAL DEMOCRAT": 10849,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2542,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 3131,
+       "UNIUNEA SALVAȚI ROMÂNIA": 31461
+      }
+     ],
+     "seats_by_constituency": [
+      {
+       "constituency": 1,
+       "name": "ALBA",
+       "PARTIDUL NAȚIONAL LIBERAL": 4,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 2,
+       "name": "ARAD",
+       "PARTIDUL NAȚIONAL LIBERAL": 2,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 3,
+       "name": "ARGEȘ",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 6,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 4,
+       "name": "BACĂU",
+       "PARTIDUL NAȚIONAL LIBERAL": 2,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 6,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 5,
+       "name": "BIHOR",
+       "PARTIDUL NAȚIONAL LIBERAL": 3,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 6,
+       "name": "BISTRIȚA-NĂSĂUD",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 7,
+       "name": "BOTOȘANI",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 5,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 8,
+       "name": "BRAȘOV",
+       "PARTIDUL NAȚIONAL LIBERAL": 2,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 4,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 9,
+       "name": "BRĂILA",
+       "PARTIDUL NAȚIONAL LIBERAL": 2,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 10,
+       "name": "BUZĂU",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 5,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 11,
+       "name": "CARAȘ-SEVERIN",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 12,
+       "name": "CĂLĂRAȘI",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 13,
+       "name": "CLUJ",
+       "PARTIDUL NAȚIONAL LIBERAL": 3,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 2
+      },
+      {
+       "constituency": 14,
+       "name": "CONSTANȚA",
+       "PARTIDUL NAȚIONAL LIBERAL": 2,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 5,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 15,
+       "name": "COVASNA",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 0,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 3,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 16,
+       "name": "DÂMBOVIȚA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 5,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 17,
+       "name": "DOLJ",
+       "PARTIDUL NAȚIONAL LIBERAL": 2,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 6,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 18,
+       "name": "GALAȚI",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 5,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 19,
+       "name": "GIURGIU",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 20,
+       "name": "GORJ",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 4,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 21,
+       "name": "HARGHITA",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 0,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 5,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 22,
+       "name": "HUNEDOARA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 4,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 23,
+       "name": "IALOMIȚA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 24,
+       "name": "IAȘI",
+       "PARTIDUL NAȚIONAL LIBERAL": 3,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 6,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 25,
+       "name": "ILFOV",
+       "PARTIDUL NAȚIONAL LIBERAL": 2,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 26,
+       "name": "MARAMUREȘ",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 27,
+       "name": "MEHEDINȚI",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 28,
+       "name": "MUREȘ",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 3,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 29,
+       "name": "NEAMȚ",
+       "PARTIDUL NAȚIONAL LIBERAL": 2,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 5,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 30,
+       "name": "OLT",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 4,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 31,
+       "name": "PRAHOVA",
+       "PARTIDUL NAȚIONAL LIBERAL": 3,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 5,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 32,
+       "name": "SATU MARE",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 33,
+       "name": "SĂLAJ",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 34,
+       "name": "SIBIU",
+       "PARTIDUL NAȚIONAL LIBERAL": 3,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 35,
+       "name": "SUCEAVA",
+       "PARTIDUL NAȚIONAL LIBERAL": 4,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 5,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 36,
+       "name": "TELEORMAN",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 37,
+       "name": "TIMIȘ",
+       "PARTIDUL NAȚIONAL LIBERAL": 3,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 4,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 38,
+       "name": "TULCEA",
+       "PARTIDUL NAȚIONAL LIBERAL": 2,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 39,
+       "name": "VASLUI",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 4,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 40,
+       "name": "VÂLCEA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 4,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 41,
+       "name": "VRANCEA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 4,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 42,
+       "name": "MUNICIPIUL BUCURESTI",
+       "PARTIDUL NAȚIONAL LIBERAL": 3,
+       "PARTIDUL MIȘCAREA POPULARĂ": 2,
+       "PARTIDUL SOCIAL DEMOCRAT": 12,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 4,
+       "UNIUNEA SALVAȚI ROMÂNIA": 8
+      },
+      {
+       "constituency": 43,
+       "name": "DIASPORA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 2,
+       "PARTIDUL SOCIAL DEMOCRAT": 0,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      }
+     ],
+     "files": {
+      "stations": {
+       "file": "siap2016cd2016121419150015-2.csv",
+       "url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+       "sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      },
+      "postal": {
+       "file": "bvccd-1.csv",
+       "url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/a397ed83-39bf-4369-85cf-8c6b92b4d642/download/bvccd-1.csv",
+       "sha256": "684e8aa737721d65fff9de61ba02c6f174c28c29bfaf314ceb25a1fddc558e1c"
+      },
+      "mandates": {
+       "file": "mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+       "url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/cf4cb1ce-6b00-4f11-8bde-e54d506d1e1e/download/mandate-pe-competitori-pe-circumscripii-cd.xlsx",
+       "sha256": "91f21e8a24d27b600468178fd15f9adf1fdc737f83f8693f1b5f8d670108d5b6"
+      }
+     }
+    },
+    "S": {
+     "valid_votes_stations_column_e": 7048914,
+     "valid_votes_postal_column_d1": 4052,
+     "station_rows": 19043,
+     "postal_rows": 1,
+     "protocol_dates": [
+      [
+       "20161211",
+       482
+      ],
+      [
+       "20161212",
+       18489
+      ],
+      [
+       "20161213",
+       60
+      ],
+      [
+       "20161214",
+       12
+      ]
+     ],
+     "lists": [
+      {
+       "name": "PARTIDUL SOCIAL DEMOCRAT",
+       "votes_stations": 3221387,
+       "votes_postal": 399,
+       "votes": 3221786,
+       "list_seats": 67,
+       "kind": "party_or_political_formation",
+       "row": 1
+      },
+      {
+       "name": "PARTIDUL NAȚIONAL LIBERAL",
+       "votes_stations": 1439249,
+       "votes_postal": 944,
+       "votes": 1440193,
+       "list_seats": 30,
+       "kind": "party_or_political_formation",
+       "row": 2
+      },
+      {
+       "name": "UNIUNEA SALVAȚI ROMÂNIA",
+       "votes_stations": 627302,
+       "votes_postal": 2073,
+       "votes": 629375,
+       "list_seats": 13,
+       "kind": "party_or_political_formation",
+       "row": 3
+      },
+      {
+       "name": "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA",
+       "votes_stations": 440356,
+       "votes_postal": 53,
+       "votes": 440409,
+       "list_seats": 9,
+       "kind": "party_or_political_formation",
+       "row": 4
+      },
+      {
+       "name": "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR",
+       "votes_stations": 423645,
+       "votes_postal": 83,
+       "votes": 423728,
+       "list_seats": 9,
+       "kind": "party_or_political_formation",
+       "row": 5
+      },
+      {
+       "name": "PARTIDUL MIȘCAREA POPULARĂ",
+       "votes_stations": 398518,
+       "votes_postal": 273,
+       "votes": 398791,
+       "list_seats": 8,
+       "kind": "party_or_political_formation",
+       "row": 6
+      },
+      {
+       "name": "PARTIDUL ROMÂNIA UNITĂ",
+       "votes_stations": 207844,
+       "votes_postal": 133,
+       "votes": 207977,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 7
+      },
+      {
+       "name": "PARTIDUL ROMÂNIA MARE",
+       "votes_stations": 83568,
+       "votes_postal": 0,
+       "votes": 83568,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 8
+      },
+      {
+       "name": "PARTIDUL ECOLOGIST ROMÂN",
+       "votes_stations": 77218,
+       "votes_postal": 0,
+       "votes": 77218,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 9
+      },
+      {
+       "name": "ALIANȚA NOASTRĂ ROMÂNIA",
+       "votes_stations": 66680,
+       "votes_postal": 94,
+       "votes": 66774,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 10
+      },
+      {
+       "name": "PARTIDUL SOCIALIST ROMÂN",
+       "votes_stations": 32808,
+       "votes_postal": 0,
+       "votes": 32808,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 11
+      },
+      {
+       "name": "PARTIDUL PUTERII UMANISTE (SOCIAL-LIBERAL)",
+       "votes_stations": 3066,
+       "votes_postal": 0,
+       "votes": 3066,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 12
+      },
+      {
+       "name": "PARTIDUL NOUA ROMÂNIE",
+       "votes_stations": 2349,
+       "votes_postal": 0,
+       "votes": 2349,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 13
+      },
+      {
+       "name": "PARTIDUL BLOCUL UNITĂȚII NAȚIONALE",
+       "votes_stations": 739,
+       "votes_postal": 0,
+       "votes": 739,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 14
+      },
+      {
+       "name": "PARTIDUL VERDE",
+       "votes_stations": 719,
+       "votes_postal": 0,
+       "votes": 719,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 15
+      },
+      {
+       "name": "PARTIDUL PLATFORMA ACȚIUNEA CIVICĂ A TINERILOR",
+       "votes_stations": 719,
+       "votes_postal": 0,
+       "votes": 719,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 16
+      },
+      {
+       "name": "PARTIDUL VRANCEA NOASTRĂ",
+       "votes_stations": 652,
+       "votes_postal": 0,
+       "votes": 652,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 17
+      },
+      {
+       "name": "PARTIDUL ROMILOR DEMOCRAȚI",
+       "votes_stations": 648,
+       "votes_postal": 0,
+       "votes": 648,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 18
+      },
+      {
+       "name": "PARTIDUL REPUBLICAN DIN ROMÂNIA",
+       "votes_stations": 52,
+       "votes_postal": 0,
+       "votes": 52,
+       "list_seats": 0,
+       "kind": "party_or_political_formation",
+       "row": 19
+      }
+     ],
+     "independents": {
+      "candidates": 5,
+      "votes": 21395,
+      "seats": 0
+     },
+     "qualifying_votes_by_constituency": [
+      {
+       "constituency": 1,
+       "PARTIDUL NAȚIONAL LIBERAL": 44728,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6493,
+       "PARTIDUL SOCIAL DEMOCRAT": 44669,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 4249,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 7424,
+       "UNIUNEA SALVAȚI ROMÂNIA": 7098
+      },
+      {
+       "constituency": 2,
+       "PARTIDUL NAȚIONAL LIBERAL": 44698,
+       "PARTIDUL MIȘCAREA POPULARĂ": 7117,
+       "PARTIDUL SOCIAL DEMOCRAT": 48862,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 11070,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 6856,
+       "UNIUNEA SALVAȚI ROMÂNIA": 10339
+      },
+      {
+       "constituency": 3,
+       "PARTIDUL NAȚIONAL LIBERAL": 25910,
+       "PARTIDUL MIȘCAREA POPULARĂ": 15657,
+       "PARTIDUL SOCIAL DEMOCRAT": 121754,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 294,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 14523,
+       "UNIUNEA SALVAȚI ROMÂNIA": 14274
+      },
+      {
+       "constituency": 4,
+       "PARTIDUL NAȚIONAL LIBERAL": 37048,
+       "PARTIDUL MIȘCAREA POPULARĂ": 11172,
+       "PARTIDUL SOCIAL DEMOCRAT": 109281,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1336,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 19139,
+       "UNIUNEA SALVAȚI ROMÂNIA": 13377
+      },
+      {
+       "constituency": 5,
+       "PARTIDUL NAȚIONAL LIBERAL": 59544,
+       "PARTIDUL MIȘCAREA POPULARĂ": 4434,
+       "PARTIDUL SOCIAL DEMOCRAT": 71989,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 51017,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 8818,
+       "UNIUNEA SALVAȚI ROMÂNIA": 9381
+      },
+      {
+       "constituency": 6,
+       "PARTIDUL NAȚIONAL LIBERAL": 23047,
+       "PARTIDUL MIȘCAREA POPULARĂ": 4293,
+       "PARTIDUL SOCIAL DEMOCRAT": 42354,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 4358,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 8260,
+       "UNIUNEA SALVAȚI ROMÂNIA": 4931
+      },
+      {
+       "constituency": 7,
+       "PARTIDUL NAȚIONAL LIBERAL": 28100,
+       "PARTIDUL MIȘCAREA POPULARĂ": 4862,
+       "PARTIDUL SOCIAL DEMOCRAT": 83526,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 283,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 5894,
+       "UNIUNEA SALVAȚI ROMÂNIA": 4092
+      },
+      {
+       "constituency": 8,
+       "PARTIDUL NAȚIONAL LIBERAL": 42342,
+       "PARTIDUL MIȘCAREA POPULARĂ": 9091,
+       "PARTIDUL SOCIAL DEMOCRAT": 72846,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 11983,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 12096,
+       "UNIUNEA SALVAȚI ROMÂNIA": 28664
+      },
+      {
+       "constituency": 9,
+       "PARTIDUL NAȚIONAL LIBERAL": 18373,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6335,
+       "PARTIDUL SOCIAL DEMOCRAT": 65211,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 313,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 6344,
+       "UNIUNEA SALVAȚI ROMÂNIA": 5344
+      },
+      {
+       "constituency": 10,
+       "PARTIDUL NAȚIONAL LIBERAL": 18460,
+       "PARTIDUL MIȘCAREA POPULARĂ": 12201,
+       "PARTIDUL SOCIAL DEMOCRAT": 101977,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 358,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 6980,
+       "UNIUNEA SALVAȚI ROMÂNIA": 7618
+      },
+      {
+       "constituency": 11,
+       "PARTIDUL NAȚIONAL LIBERAL": 27650,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6440,
+       "PARTIDUL SOCIAL DEMOCRAT": 47689,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 663,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 5943,
+       "UNIUNEA SALVAȚI ROMÂNIA": 3330
+      },
+      {
+       "constituency": 12,
+       "PARTIDUL NAȚIONAL LIBERAL": 27189,
+       "PARTIDUL MIȘCAREA POPULARĂ": 3355,
+       "PARTIDUL SOCIAL DEMOCRAT": 48414,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 160,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 4016,
+       "UNIUNEA SALVAȚI ROMÂNIA": 3331
+      },
+      {
+       "constituency": 13,
+       "PARTIDUL NAȚIONAL LIBERAL": 66862,
+       "PARTIDUL MIȘCAREA POPULARĂ": 7863,
+       "PARTIDUL SOCIAL DEMOCRAT": 62505,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 34970,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 12079,
+       "UNIUNEA SALVAȚI ROMÂNIA": 36637
+      },
+      {
+       "constituency": 14,
+       "PARTIDUL NAȚIONAL LIBERAL": 53396,
+       "PARTIDUL MIȘCAREA POPULARĂ": 21115,
+       "PARTIDUL SOCIAL DEMOCRAT": 112104,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 531,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 15531,
+       "UNIUNEA SALVAȚI ROMÂNIA": 21716
+      },
+      {
+       "constituency": 15,
+       "PARTIDUL NAȚIONAL LIBERAL": 2937,
+       "PARTIDUL MIȘCAREA POPULARĂ": 2066,
+       "PARTIDUL SOCIAL DEMOCRAT": 7035,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 50418,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1909,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1220
+      },
+      {
+       "constituency": 16,
+       "PARTIDUL NAȚIONAL LIBERAL": 34767,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6928,
+       "PARTIDUL SOCIAL DEMOCRAT": 111248,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 214,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 7115,
+       "UNIUNEA SALVAȚI ROMÂNIA": 7704
+      },
+      {
+       "constituency": 17,
+       "PARTIDUL NAȚIONAL LIBERAL": 44678,
+       "PARTIDUL MIȘCAREA POPULARĂ": 12293,
+       "PARTIDUL SOCIAL DEMOCRAT": 151461,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 376,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 16001,
+       "UNIUNEA SALVAȚI ROMÂNIA": 13488
+      },
+      {
+       "constituency": 18,
+       "PARTIDUL NAȚIONAL LIBERAL": 33065,
+       "PARTIDUL MIȘCAREA POPULARĂ": 10028,
+       "PARTIDUL SOCIAL DEMOCRAT": 104045,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 645,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 13033,
+       "UNIUNEA SALVAȚI ROMÂNIA": 15132
+      },
+      {
+       "constituency": 19,
+       "PARTIDUL NAȚIONAL LIBERAL": 10505,
+       "PARTIDUL MIȘCAREA POPULARĂ": 2355,
+       "PARTIDUL SOCIAL DEMOCRAT": 62868,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 158,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 8471,
+       "UNIUNEA SALVAȚI ROMÂNIA": 2635
+      },
+      {
+       "constituency": 20,
+       "PARTIDUL NAȚIONAL LIBERAL": 19012,
+       "PARTIDUL MIȘCAREA POPULARĂ": 7326,
+       "PARTIDUL SOCIAL DEMOCRAT": 62277,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 731,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 9284,
+       "UNIUNEA SALVAȚI ROMÂNIA": 4870
+      },
+      {
+       "constituency": 21,
+       "PARTIDUL NAȚIONAL LIBERAL": 3663,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1162,
+       "PARTIDUL SOCIAL DEMOCRAT": 8493,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 99368,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 931,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 22,
+       "PARTIDUL NAȚIONAL LIBERAL": 34159,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6282,
+       "PARTIDUL SOCIAL DEMOCRAT": 85932,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 4932,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 9774,
+       "UNIUNEA SALVAȚI ROMÂNIA": 8123
+      },
+      {
+       "constituency": 23,
+       "PARTIDUL NAȚIONAL LIBERAL": 15322,
+       "PARTIDUL MIȘCAREA POPULARĂ": 4035,
+       "PARTIDUL SOCIAL DEMOCRAT": 47836,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 114,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 4849,
+       "UNIUNEA SALVAȚI ROMÂNIA": 3730
+      },
+      {
+       "constituency": 24,
+       "PARTIDUL NAȚIONAL LIBERAL": 47764,
+       "PARTIDUL MIȘCAREA POPULARĂ": 16044,
+       "PARTIDUL SOCIAL DEMOCRAT": 119217,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 371,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 14731,
+       "UNIUNEA SALVAȚI ROMÂNIA": 26121
+      },
+      {
+       "constituency": 25,
+       "PARTIDUL NAȚIONAL LIBERAL": 39097,
+       "PARTIDUL MIȘCAREA POPULARĂ": 7594,
+       "PARTIDUL SOCIAL DEMOCRAT": 53504,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 243,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 8044,
+       "UNIUNEA SALVAȚI ROMÂNIA": 18144
+      },
+      {
+       "constituency": 26,
+       "PARTIDUL NAȚIONAL LIBERAL": 25382,
+       "PARTIDUL MIȘCAREA POPULARĂ": 10800,
+       "PARTIDUL SOCIAL DEMOCRAT": 57878,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 8995,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 6097,
+       "UNIUNEA SALVAȚI ROMÂNIA": 9957
+      },
+      {
+       "constituency": 27,
+       "PARTIDUL NAȚIONAL LIBERAL": 18631,
+       "PARTIDUL MIȘCAREA POPULARĂ": 3191,
+       "PARTIDUL SOCIAL DEMOCRAT": 60879,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 281,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 7714,
+       "UNIUNEA SALVAȚI ROMÂNIA": 2691
+      },
+      {
+       "constituency": 28,
+       "PARTIDUL NAȚIONAL LIBERAL": 26065,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6804,
+       "PARTIDUL SOCIAL DEMOCRAT": 48171,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 68986,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 5464,
+       "UNIUNEA SALVAȚI ROMÂNIA": 10854
+      },
+      {
+       "constituency": 29,
+       "PARTIDUL NAȚIONAL LIBERAL": 32413,
+       "PARTIDUL MIȘCAREA POPULARĂ": 8252,
+       "PARTIDUL SOCIAL DEMOCRAT": 88513,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 678,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 8690,
+       "UNIUNEA SALVAȚI ROMÂNIA": 7879
+      },
+      {
+       "constituency": 30,
+       "PARTIDUL NAȚIONAL LIBERAL": 28307,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6538,
+       "PARTIDUL SOCIAL DEMOCRAT": 114513,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 207,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 9082,
+       "UNIUNEA SALVAȚI ROMÂNIA": 5158
+      },
+      {
+       "constituency": 31,
+       "PARTIDUL NAȚIONAL LIBERAL": 58699,
+       "PARTIDUL MIȘCAREA POPULARĂ": 14981,
+       "PARTIDUL SOCIAL DEMOCRAT": 112195,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 372,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 25710,
+       "UNIUNEA SALVAȚI ROMÂNIA": 22629
+      },
+      {
+       "constituency": 32,
+       "PARTIDUL NAȚIONAL LIBERAL": 16643,
+       "PARTIDUL MIȘCAREA POPULARĂ": 2868,
+       "PARTIDUL SOCIAL DEMOCRAT": 31382,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 43108,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 5587,
+       "UNIUNEA SALVAȚI ROMÂNIA": 3515
+      },
+      {
+       "constituency": 33,
+       "PARTIDUL NAȚIONAL LIBERAL": 22680,
+       "PARTIDUL MIȘCAREA POPULARĂ": 3042,
+       "PARTIDUL SOCIAL DEMOCRAT": 24934,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 21279,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 4221,
+       "UNIUNEA SALVAȚI ROMÂNIA": 4532
+      },
+      {
+       "constituency": 34,
+       "PARTIDUL NAȚIONAL LIBERAL": 53863,
+       "PARTIDUL MIȘCAREA POPULARĂ": 5870,
+       "PARTIDUL SOCIAL DEMOCRAT": 37409,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2605,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 5647,
+       "UNIUNEA SALVAȚI ROMÂNIA": 19097
+      },
+      {
+       "constituency": 35,
+       "PARTIDUL NAȚIONAL LIBERAL": 57579,
+       "PARTIDUL MIȘCAREA POPULARĂ": 9872,
+       "PARTIDUL SOCIAL DEMOCRAT": 104482,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 553,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 11929,
+       "UNIUNEA SALVAȚI ROMÂNIA": 9316
+      },
+      {
+       "constituency": 36,
+       "PARTIDUL NAȚIONAL LIBERAL": 27982,
+       "PARTIDUL MIȘCAREA POPULARĂ": 5766,
+       "PARTIDUL SOCIAL DEMOCRAT": 89288,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 276,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 9110,
+       "UNIUNEA SALVAȚI ROMÂNIA": 4654
+      },
+      {
+       "constituency": 37,
+       "PARTIDUL NAȚIONAL LIBERAL": 57715,
+       "PARTIDUL MIȘCAREA POPULARĂ": 11919,
+       "PARTIDUL SOCIAL DEMOCRAT": 79499,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 8233,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 12378,
+       "UNIUNEA SALVAȚI ROMÂNIA": 26228
+      },
+      {
+       "constituency": 38,
+       "PARTIDUL NAȚIONAL LIBERAL": 13507,
+       "PARTIDUL MIȘCAREA POPULARĂ": 4930,
+       "PARTIDUL SOCIAL DEMOCRAT": 34647,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 302,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 4149,
+       "UNIUNEA SALVAȚI ROMÂNIA": 4033
+      },
+      {
+       "constituency": 39,
+       "PARTIDUL NAȚIONAL LIBERAL": 25487,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6425,
+       "PARTIDUL SOCIAL DEMOCRAT": 70881,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 488,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 6988,
+       "UNIUNEA SALVAȚI ROMÂNIA": 5914
+      },
+      {
+       "constituency": 40,
+       "PARTIDUL NAȚIONAL LIBERAL": 25737,
+       "PARTIDUL MIȘCAREA POPULARĂ": 5107,
+       "PARTIDUL SOCIAL DEMOCRAT": 72460,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 479,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 9459,
+       "UNIUNEA SALVAȚI ROMÂNIA": 7209
+      },
+      {
+       "constituency": 41,
+       "PARTIDUL NAȚIONAL LIBERAL": 26999,
+       "PARTIDUL MIȘCAREA POPULARĂ": 6563,
+       "PARTIDUL SOCIAL DEMOCRAT": 66316,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 164,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 5717,
+       "UNIUNEA SALVAȚI ROMÂNIA": 6461
+      },
+      {
+       "constituency": 42,
+       "PARTIDUL NAȚIONAL LIBERAL": 91735,
+       "PARTIDUL MIȘCAREA POPULARĂ": 63337,
+       "PARTIDUL SOCIAL DEMOCRAT": 270376,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1671,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 54513,
+       "UNIUNEA SALVAȚI ROMÂNIA": 176118
+      },
+      {
+       "constituency": 43,
+       "PARTIDUL NAȚIONAL LIBERAL": 28453,
+       "PARTIDUL MIȘCAREA POPULARĂ": 25985,
+       "PARTIDUL SOCIAL DEMOCRAT": 10866,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2577,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 3228,
+       "UNIUNEA SALVAȚI ROMÂNIA": 31831
+      }
+     ],
+     "seats_by_constituency": [
+      {
+       "constituency": 1,
+       "name": "ALBA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 2,
+       "name": "ARAD",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 3,
+       "name": "ARGEȘ",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 4,
+       "name": "BACĂU",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 5,
+       "name": "BIHOR",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 6,
+       "name": "BISTRIȚA-NĂSĂUD",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 7,
+       "name": "BOTOȘANI",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 8,
+       "name": "BRAȘOV",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 9,
+       "name": "BRĂILA",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 10,
+       "name": "BUZĂU",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 11,
+       "name": "CARAȘ-SEVERIN",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 12,
+       "name": "CĂLĂRAȘI",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 13,
+       "name": "CLUJ",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 14,
+       "name": "CONSTANȚA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 15,
+       "name": "COVASNA",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 0,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 16,
+       "name": "DÂMBOVIȚA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 17,
+       "name": "DOLJ",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 18,
+       "name": "GALAȚI",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 19,
+       "name": "GIURGIU",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 20,
+       "name": "GORJ",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 21,
+       "name": "HARGHITA",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 0,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 22,
+       "name": "HUNEDOARA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 23,
+       "name": "IALOMIȚA",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 24,
+       "name": "IAȘI",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 3,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 25,
+       "name": "ILFOV",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 26,
+       "name": "MARAMUREȘ",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 2,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 27,
+       "name": "MEHEDINȚI",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 28,
+       "name": "MUREȘ",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 29,
+       "name": "NEAMȚ",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 30,
+       "name": "OLT",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 31,
+       "name": "PRAHOVA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 32,
+       "name": "SATU MARE",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 33,
+       "name": "SĂLAJ",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 34,
+       "name": "SIBIU",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 35,
+       "name": "SUCEAVA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 36,
+       "name": "TELEORMAN",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 37,
+       "name": "TIMIȘ",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      },
+      {
+       "constituency": 38,
+       "name": "TULCEA",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 39,
+       "name": "VASLUI",
+       "PARTIDUL NAȚIONAL LIBERAL": 0,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 2,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 40,
+       "name": "VÂLCEA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 41,
+       "name": "VRANCEA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 1,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 0
+      },
+      {
+       "constituency": 42,
+       "name": "MUNICIPIUL BUCURESTI",
+       "PARTIDUL NAȚIONAL LIBERAL": 2,
+       "PARTIDUL MIȘCAREA POPULARĂ": 1,
+       "PARTIDUL SOCIAL DEMOCRAT": 5,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 1,
+       "UNIUNEA SALVAȚI ROMÂNIA": 4
+      },
+      {
+       "constituency": 43,
+       "name": "DIASPORA",
+       "PARTIDUL NAȚIONAL LIBERAL": 1,
+       "PARTIDUL MIȘCAREA POPULARĂ": 0,
+       "PARTIDUL SOCIAL DEMOCRAT": 0,
+       "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 0,
+       "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR": 0,
+       "UNIUNEA SALVAȚI ROMÂNIA": 1
+      }
+     ],
+     "files": {
+      "stations": {
+       "file": "siap2016s2016121419150015-3.csv",
+       "url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+       "sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      },
+      "postal": {
+       "file": "bvcs-1.csv",
+       "url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/978d9ace-7773-4f27-bbfc-4e97b56e4bbe/download/bvcs-1.csv",
+       "sha256": "dc4c3adb962dc238cfc61132f4342f77b887581b4f01de4fe7b979d3103a1699"
+      },
+      "mandates": {
+       "file": "mandate-pe-competitori-pe-circumscripii-s.xlsx",
+       "url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/8e2b05cd-e996-4d01-bd82-a705ed4b779c/download/mandate-pe-competitori-pe-circumscripii-s.xlsx",
+       "sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+     }
+    }
+   },
+   "minority_cross_check": {
+    "source": "https://www.cdep.ro/ords/pls/parlam/structura.fp?leg=2016&cam=2&idp=&poz=&idl=1",
+    "read_on": "2026-11-18",
+    "how": "read once in the browser pane (owner answer \"ii\"); only the list of organisations of citizens belonging to national minorities represented in the 2016-2020 Chamber",
+    "block_text_sha256": "9cf30fc60cbdfeb17504d61200d24ec8003921534757db91862d357713832afa",
+    "organisations": [
+     "ALAR",
+     "AMR",
+     "CRLR",
+     "FCER",
+     "FDGR",
+     "Pro Europa",
+     "RO.AS.IT.",
+     "UAR",
+     "UBBR",
+     "UCR",
+     "UCRR",
+     "UDSCR",
+     "UDTR",
+     "UER",
+     "UPR",
+     "USR",
+     "UUR"
+    ]
+   }
+  }
+ }
+}

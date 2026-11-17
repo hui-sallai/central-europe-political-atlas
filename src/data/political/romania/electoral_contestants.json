@@ -1,0 +1,2037 @@
+[
+  {
+    "contestant_id": "ct-ro-cd16-01",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 1,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL SOCIAL DEMOCRAT",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL SOCIAL DEMOCRAT\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-02",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 2,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL NAȚIONAL LIBERAL",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL NAȚIONAL LIBERAL\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-03",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 3,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA SALVAȚI ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA SALVAȚI ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-04",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 4,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-05",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 5,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-06",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 6,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL MIȘCAREA POPULARĂ",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL MIȘCAREA POPULARĂ\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-07",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 7,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL ROMÂNIA UNITĂ",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL ROMÂNIA UNITĂ\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-08",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 8,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL ROMÂNIA MARE",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL ROMÂNIA MARE\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-09",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 9,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL ECOLOGIST ROMÂN",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL ECOLOGIST ROMÂN\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-10",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 10,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "ALIANȚA NOASTRĂ ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"ALIANȚA NOASTRĂ ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-11",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 11,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL SOCIALIST ROMÂN",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL SOCIALIST ROMÂN\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-12",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 12,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "ASOCIAȚIA PARTIDA ROMILOR PRO-EUROPA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "Pro Europa",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"ASOCIAȚIA PARTIDA ROMILOR PRO-EUROPA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-13",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 13,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "FORUMUL DEMOCRAT AL GERMANILOR DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "FDGR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"FORUMUL DEMOCRAT AL GERMANILOR DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-14",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 14,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA DEMOCRATICĂ A SLOVACILOR ȘI CEHILOR DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "UDSCR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA DEMOCRATICĂ A SLOVACILOR ȘI CEHILOR DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-15",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 15,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "COMUNITATEA RUȘILOR LIPOVENI DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "CRLR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"COMUNITATEA RUȘILOR LIPOVENI DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-16",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 16,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA ELENĂ DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "UER",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA ELENĂ DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-17",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 17,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA DEMOCRATĂ TURCĂ DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "UDTR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA DEMOCRATĂ TURCĂ DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-18",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 18,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "ASOCIAȚIA MACEDONENILOR DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "AMR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"ASOCIAȚIA MACEDONENILOR DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-19",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 19,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA SÂRBILOR DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "USR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA SÂRBILOR DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-20",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 20,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "FEDERAȚIA COMUNITĂȚILOR EVREIEȘTI DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "FCER",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"FEDERAȚIA COMUNITĂȚILOR EVREIEȘTI DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-21",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 21,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA ARMENILOR DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "UAR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA ARMENILOR DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-22",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 22,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "ASOCIAȚIA LIGA ALBANEZILOR DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "ALAR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"ASOCIAȚIA LIGA ALBANEZILOR DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-23",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 23,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA BULGARĂ DIN BANAT - ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "UBBR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA BULGARĂ DIN BANAT - ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-24",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 24,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA CROAȚILOR DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "UCR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA CROAȚILOR DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-25",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 25,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "ASOCIAȚIA ITALIENILOR DIN ROMÂNIA – RO.AS.IT.",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "RO.AS.IT.",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"ASOCIAȚIA ITALIENILOR DIN ROMÂNIA – RO.AS.IT.\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-26",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 26,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA POLONEZILOR DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "UPR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA POLONEZILOR DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-27",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 27,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA CULTURALĂ A RUTENILOR DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "UCRR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA CULTURALĂ A RUTENILOR DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-28",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 28,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL PUTERII UMANISTE (SOCIAL-LIBERAL)",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL PUTERII UMANISTE (SOCIAL-LIBERAL)\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-29",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 29,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL NOUA ROMÂNIE",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL NOUA ROMÂNIE\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-30",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "national_minority_organisation",
+    "native_list_type": "organizație a cetățenilor aparținând minorităților naționale",
+    "kind_basis": "listed by the Chamber of Deputies among organisations of citizens belonging to national minorities (2016–2020 term)",
+    "list_number": 30,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA UCRAINENILOR DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "abbreviation": "UUR",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"UNIUNEA UCRAINENILOR DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-31",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 31,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL PLATFORMA ACȚIUNEA CIVICĂ A TINERILOR",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL PLATFORMA ACȚIUNEA CIVICĂ A TINERILOR\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-32",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 32,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL VERDE",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL VERDE\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-33",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 33,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL ROMILOR DEMOCRAȚI",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL ROMILOR DEMOCRAȚI\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-34",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 34,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL BLOCUL UNITĂȚII NAȚIONALE",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL BLOCUL UNITĂȚII NAȚIONALE\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-35",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 35,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL VRANCEA NOASTRĂ",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "column \"PARTIDUL VRANCEA NOASTRĂ\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-cd16-ind",
+    "country": "romania",
+    "election_id": "el-ro-cd-2016-12-11",
+    "contestant_kind": "independent_candidates_aggregate",
+    "native_list_type": "candidați independenți",
+    "kind_basis": "39 independent candidates standing in single constituencies, aggregated; names not stored",
+    "list_number": null,
+    "list_number_basis": null,
+    "registered_label_native": null,
+    "historical_display_label": "Candidați independenți (39)",
+    "display_label_rule": "aggregate of independent candidates; individual names are not stored",
+    "label_basis": "aggregate",
+    "independent_candidates": 39,
+    "lead_party_id": null,
+    "party_relation_status": "not_applicable",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "columns \"CANDIDAT INDEPENDENT - …\" summed",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "independent_candidates"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-01",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 1,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL SOCIAL DEMOCRAT",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL SOCIAL DEMOCRAT\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-02",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 2,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL NAȚIONAL LIBERAL",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL NAȚIONAL LIBERAL\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-03",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 3,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA SALVAȚI ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"UNIUNEA SALVAȚI ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-04",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 4,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-05",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 5,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL ALIANȚA LIBERALILOR ȘI DEMOCRAȚILOR\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-06",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 6,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL MIȘCAREA POPULARĂ",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL MIȘCAREA POPULARĂ\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-07",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 7,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL ROMÂNIA UNITĂ",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL ROMÂNIA UNITĂ\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-08",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 8,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL ROMÂNIA MARE",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL ROMÂNIA MARE\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-09",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 9,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL ECOLOGIST ROMÂN",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL ECOLOGIST ROMÂN\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-10",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 10,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "ALIANȚA NOASTRĂ ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"ALIANȚA NOASTRĂ ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-11",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 11,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL SOCIALIST ROMÂN",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL SOCIALIST ROMÂN\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-12",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 12,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL PUTERII UMANISTE (SOCIAL-LIBERAL)",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL PUTERII UMANISTE (SOCIAL-LIBERAL)\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-13",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 13,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL NOUA ROMÂNIE",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL NOUA ROMÂNIE\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-14",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 14,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL BLOCUL UNITĂȚII NAȚIONALE",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL BLOCUL UNITĂȚII NAȚIONALE\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-15",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 15,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL VERDE",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL VERDE\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-16",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 16,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL PLATFORMA ACȚIUNEA CIVICĂ A TINERILOR",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL PLATFORMA ACȚIUNEA CIVICĂ A TINERILOR\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-17",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 17,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL VRANCEA NOASTRĂ",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL VRANCEA NOASTRĂ\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-18",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 18,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL ROMILOR DEMOCRAȚI",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL ROMILOR DEMOCRAȚI\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-19",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "party_or_political_formation_list",
+    "native_list_type": "listă de candidați",
+    "kind_basis": "every other list; party and alliance are not distinguished in the AEP file",
+    "list_number": 19,
+    "list_number_basis": "row ordered by national votes (the AEP file has no ballot order)",
+    "registered_label_native": null,
+    "historical_display_label": "PARTIDUL REPUBLICAN DIN ROMÂNIA",
+    "display_label_rule": "list name as printed in the AEP file",
+    "label_basis": "verbatim",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "column \"PARTIDUL REPUBLICAN DIN ROMÂNIA\"",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "historical_display_label"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-ro-s16-ind",
+    "country": "romania",
+    "election_id": "el-ro-s-2016-12-11",
+    "contestant_kind": "independent_candidates_aggregate",
+    "native_list_type": "candidați independenți",
+    "kind_basis": "5 independent candidates standing in single constituencies, aggregated; names not stored",
+    "list_number": null,
+    "list_number_basis": null,
+    "registered_label_native": null,
+    "historical_display_label": "Candidați independenți (5)",
+    "display_label_rule": "aggregate of independent candidates; individual names are not stored",
+    "label_basis": "aggregate",
+    "independent_candidates": 5,
+    "lead_party_id": null,
+    "party_relation_status": "not_applicable",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "columns \"CANDIDAT INDEPENDENT - …\" summed",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "independent_candidates"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  }
+]

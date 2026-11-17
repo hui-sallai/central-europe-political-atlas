@@ -13,7 +13,7 @@ const read = (rel) => JSON.parse(fs.readFileSync(path.join(root, rel), "utf8"));
 const records = (doc) => (Array.isArray(doc) ? doc : doc.records ?? []);
 export const DIR = "src/lib/institutions";
 export const LINKS_PATH = `${DIR}/election_links.json`;
-export const ADMITTED = ["germany", "czechia", "poland", "slovakia", "hungary", "serbia", "croatia", "slovenia"];
+export const ADMITTED = ["germany", "czechia", "poland", "slovakia", "hungary", "serbia", "croatia", "slovenia", "romania"];
 const STATUSES = new Set(["verified", "partially_verified", "pending", "not_applicable"]);
 const ROLES = new Set(["lower", "upper", "sole", "federal_council", "interest_council"]);
 const DATE = /^\d{4}-\d{2}-\d{2}$/;

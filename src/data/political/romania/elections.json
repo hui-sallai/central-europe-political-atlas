@@ -1,0 +1,76 @@
+[
+  {
+    "election_id": "el-ro-cd-2016-12-11",
+    "country": "romania",
+    "election_type": "national_parliament",
+    "chamber": "Camera Deputaților",
+    "date": "2016-12-11",
+    "date_end": null,
+    "date_basis": "polling day: the earliest transmission date of the polling-station protocols in the AEP file (11 December 2016, evening); protocols are drawn up after the close of polling",
+    "result_coverage": "all_lists_national_independents_aggregated_minority_seats_by_rule",
+    "year": 2016,
+    "legislature_id": "lg-ro-cd-2016",
+    "electoral_system_id": "es-ro-cd-2016",
+    "result_status": "official_final",
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "separate_chamber_note": "The Chamber of Deputies and the Senate are separate elections with separate ballots; their votes and seats are never combined.",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/e863c174-89ea-49be-8865-b32b3cdbc71e/download/siap2016cd2016121419150015-2.csv",
+        "source_record_id": "Data trimiterii Procesului-verbal (earliest)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "date"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "9a2766438e5c52d2d7217c08bb3d15b782c38514e64992352d4af2c3c67fed1b"
+      }
+    ]
+  },
+  {
+    "election_id": "el-ro-s-2016-12-11",
+    "country": "romania",
+    "election_type": "national_parliament",
+    "chamber": "Senat",
+    "date": "2016-12-11",
+    "date_end": null,
+    "date_basis": "polling day: the earliest transmission date of the polling-station protocols in the AEP file (11 December 2016, evening); protocols are drawn up after the close of polling",
+    "result_coverage": "all_lists_national_independents_aggregated",
+    "year": 2016,
+    "legislature_id": "lg-ro-s-2016",
+    "electoral_system_id": "es-ro-s-2016",
+    "result_status": "official_final",
+    "result_vintage": "AEP centralised results published on data.gov.ro (file timestamp 14 December 2016); not the Central Electoral Bureau final act",
+    "separate_chamber_note": "The Chamber of Deputies and the Senate are separate elections with separate ballots; their votes and seats are never combined.",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2016",
+        "source_url": "https://data.gov.ro/dataset/eb0770eb-d78d-4227-9186-74a08f19d068/resource/da9aeace-ed6e-4527-b8b8-52e8d86e92e6/download/siap2016s2016121419150015-3.csv",
+        "source_record_id": "Data trimiterii Procesului-verbal (earliest)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+        },
+        "parser_version": "romania-parliament-v1",
+        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "fields_covered": [
+          "date"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  }
+]

@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Romanian parliamentary election 2016 — 2026-11-18
+
+- Add Romania's 2016 parliamentary election as two separate elections: Chamber of Deputies (329 seats, including 17 seats for national-minority organisations) and Senate (136 seats), from the Permanent Electoral Authority's open-licence files, with independent candidates aggregated without names. Turnout is not published because the files do not define their count columns.
+
 ### v2.0 Croatian and Slovenian parliamentary elections — 2026-11-18
 
 - Add official parliamentary election results for Croatia (2015, 2016, 2020 and 2024, all 151 seats per constituency, including the constituency abroad and the national-minority elections) and Slovenia (2026, all 90 seats including the two national-community deputies), each reconciled with the electoral commission's totals and seat rule and linked to its institutional period. Candidate names are not stored. Romania and Austria are not yet admitted.

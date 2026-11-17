@@ -110,7 +110,9 @@ test("election links: reproducible, complete, and tied to each election's own ru
       for (const id of link.later_changes) assert.ok(changeDate(countries[slug].changes.find((c) => c.change_id === id)) > e.date);
     }
   }
-  assert.equal(links.elections.length, 26);
+  assert.equal(links.elections.length, 28);
+  // Romania 2016: both chambers, each linked to the period opened by Law 208/2015.
+  assert.deepEqual(links.elections.filter((l) => l.country === "romania").map((l) => [l.chamber_id, l.seats, l.institutional_period_id]), [["ro-camera-deputatilor", 329, "romania-period-2015-07-20"], ["ro-senat", 136, "romania-period-2015-07-20"]]);
   // Croatia and Slovenia (admitted 2026-11-18): elections before the 2023 Constituencies Act link to the earlier period.
   const hr2020 = links.elections.find((l) => l.election_id === "el-hr-sabor-2020-07-05"), hr2024 = links.elections.find((l) => l.election_id === "el-hr-sabor-2024-04-17");
   assert.deepEqual(hr2020.later_changes, ["hr-2023-constituencies-act"]);
@@ -128,8 +130,8 @@ test("preservation: election stores and economic data are unchanged by this iter
   const changed = execFileSync("git", ["diff", "--name-only", BASE, "--", "src/data", "public/research-data", "public/data"], { cwd: root, encoding: "utf8" }).trim().split("\n").filter(Boolean);
   // Later owner-admitted countries (Croatia and Slovenia, 2026-11-18) add new political files only, each at the exact hash
   // of its admission record; every other data file stays unchanged.
-  const admitted = new Map(read("docs/legal-security/political_admission_records.json").admissions.filter((a) => a.status === "owner_approved" && ["croatia", "slovenia"].includes(a.country)).flatMap((a) => a.files.map((f) => [f.path, f.sha256])));
+  const admitted = new Map(read("docs/legal-security/political_admission_records.json").admissions.filter((a) => a.status === "owner_approved" && ["croatia", "slovenia", "romania"].includes(a.country)).flatMap((a) => a.files.map((f) => [f.path, f.sha256])));
   const sha = (f) => crypto.createHash("sha256").update(fs.readFileSync(path.join(root, f))).digest("hex");
-  const unexplained = changed.filter((f) => !(/^(src\/data|public\/research-data)\/political\/(croatia|slovenia)\//.test(f) && admitted.get(f) === sha(f)));
+  const unexplained = changed.filter((f) => !(/^(src\/data|public\/research-data)\/political\/(croatia|slovenia|romania)\//.test(f) && admitted.get(f) === sha(f)));
   assert.deepEqual(unexplained, [], `data files changed since ${BASE}`);
 });

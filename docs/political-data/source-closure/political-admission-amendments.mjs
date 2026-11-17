@@ -53,6 +53,12 @@ const SLOVENIAN_PATHS = [
   'public/research-data/political/slovenia/README.md',
   'public/research-data/political/slovenia/manifest.json',
 ];
+const ROMANIAN_PATHS = [
+  ...STORES.map((s) => `src/data/political/romania/${s}.json`),
+  ...STORES.flatMap((s) => [`public/research-data/political/romania/${s}.json`, `public/research-data/political/romania/${s}.csv`]),
+  'public/research-data/political/romania/README.md',
+  'public/research-data/political/romania/manifest.json',
+];
 // Later admissions of a country share its files; each record's gate record stays required, and the last record's hashes apply.
 export const POLITICAL_ADMISSIONS = {
   'czechia-ps-2025': { approved_on: '2026-10-25', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2025_admission.json', paths: CZECH_PATHS },
@@ -74,6 +80,8 @@ export const POLITICAL_ADMISSIONS = {
   'croatia-sabor-2015-2024': { approved_on: '2026-11-18', country: 'croatia', gate_record: 'docs/political-data/croatia_sabor_admission.json', paths: CROATIAN_PATHS },
   // Same brief and answers: Slovenian National Assembly 2026 from the commission's minutes (Uradni list RS 197/2026).
   'slovenia-dz-2026': { approved_on: '2026-11-18', country: 'slovenia', gate_record: 'docs/political-data/slovenia_dz_admission.json', paths: SLOVENIAN_PATHS },
+  // Owner answers "both" and "ii then i", 2026-11-18: Romania 2016, Chamber of Deputies and Senate, from AEP files on data.gov.ro.
+  'romania-parliament-2016': { approved_on: '2026-11-18', country: 'romania', gate_record: 'docs/political-data/romania_parliament2016_admission.json', paths: ROMANIAN_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 const admissiblePath = (file, country) => country !== 'germany' && /^[a-z]+$/.test(country) && (file.startsWith(`src/data/political/${country}/`) || file.startsWith(`public/research-data/political/${country}/`));

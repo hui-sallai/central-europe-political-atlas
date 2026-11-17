@@ -88,6 +88,14 @@
    ],
    "scope": "National Assembly 2026, whole chamber (90 seats): national list results (88) and the Italian and Hungarian national-community elections, from the National Electoral Commission minutes in Uradni list RS 197/2026; candidates without names; earlier elections not admitted",
    "record": "docs/political-data/slovenia_dz_admission.json"
+  },
+  {
+   "country": "romania",
+   "elections": [
+    2016
+   ],
+   "scope": "Parliament 2016 as two separate elections: Chamber of Deputies (329 seats incl. 17 national-minority organisation seats) and Senate (136 seats), national figures from AEP files on data.gov.ro; turnout not published; 2012, 2020 and 2024 not admitted",
+   "record": "docs/political-data/romania_parliament2016_admission.json"
   }
  ],
  "owner_decisions": [
@@ -162,6 +170,12 @@
    "country": "croatia",
    "question": "Admit Croatian, Slovenian, Romanian and Austrian parliamentary elections on the official-texts reading of each copyright act, and register www.izbori.hr and www.dvk-rs.si?",
    "decision": "Owner brief \"Complete ten-country parliamentary election coverage\" and answers \"Accept for all four\", \"Register both\", \"Open in browser pane once\" (Romania) and \"I will download files myself\" (Austria): Croatia 2015–2024 and Slovenia 2026 admitted; Romania 2024 met a browser-verification challenge and was not retrieved; Austria awaits the owner-downloaded files."
+  },
+  {
+   "date": "2026-11-18",
+   "country": "romania",
+   "question": "Admit Romania 2016 from the AEP data.gov.ro files, given that turnout columns are undocumented, the minority seats are derived by rule and the files are not the BEC final act?",
+   "decision": "Owner answer \"ii then i\": read the Chamber of Deputies' 2016-2020 composition page once to confirm the minority organisations, then admit 2016 with these limits stated."
   }
  ],
  "countries": {

@@ -116,9 +116,10 @@ test('Slovenia: list names with persons use the commission short name; minutes a
   }
 });
 
-test('the four countries: hosts registered manual-only; Romania and Austria not admitted', () => {
+test('the four countries: hosts registered manual-only; Austria not admitted; Romania only 2016', () => {
   const hosts = read('docs/legal-security/network_acquisition_registry.json').hosts;
   for (const h of ['www.izbori.hr', 'www.dvk-rs.si']) assert.deepEqual(['status', 'automation_allowed', 'manual_allowed'].map((k) => hosts.find((x) => x.host === h)[k]), ['allowed', false, true], h);
   assert.equal(hosts.find((x) => x.host === 'www.bmi.gv.at').status, 'blocked');
-  assert.ok(!fs.existsSync(path.join(root, 'src/data/political/romania')) && !fs.existsSync(path.join(root, 'src/data/political/austria')));
+  assert.ok(!fs.existsSync(path.join(root, 'src/data/political/austria')));
+  assert.deepEqual(read('src/data/political/romania/elections.json').map((e) => e.election_id), ['el-ro-cd-2016-12-11', 'el-ro-s-2016-12-11']);
 });
