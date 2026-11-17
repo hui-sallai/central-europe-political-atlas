@@ -3,6 +3,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import { execFileSync, spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
@@ -124,6 +125,11 @@ test("election links: reproducible, complete, and tied to each election's own ru
 
 test("preservation: election stores and economic data are unchanged by this iteration", () => {
   const BASE = "46dca48f4d6b85b14b8bda983440f5d44314368b";
-  const changed = execFileSync("git", ["diff", "--name-only", BASE, "--", "src/data", "public/research-data", "public/data"], { cwd: root, encoding: "utf8" }).trim();
-  assert.equal(changed, "", `data files changed since ${BASE}: ${changed}`);
+  const changed = execFileSync("git", ["diff", "--name-only", BASE, "--", "src/data", "public/research-data", "public/data"], { cwd: root, encoding: "utf8" }).trim().split("\n").filter(Boolean);
+  // Later owner-admitted countries (Croatia and Slovenia, 2026-11-18) add new political files only, each at the exact hash
+  // of its admission record; every other data file stays unchanged.
+  const admitted = new Map(read("docs/legal-security/political_admission_records.json").admissions.filter((a) => a.status === "owner_approved" && ["croatia", "slovenia"].includes(a.country)).flatMap((a) => a.files.map((f) => [f.path, f.sha256])));
+  const sha = (f) => crypto.createHash("sha256").update(fs.readFileSync(path.join(root, f))).digest("hex");
+  const unexplained = changed.filter((f) => !(/^(src\/data|public\/research-data)\/political\/(croatia|slovenia)\//.test(f) && admitted.get(f) === sha(f)));
+  assert.deepEqual(unexplained, [], `data files changed since ${BASE}`);
 });
