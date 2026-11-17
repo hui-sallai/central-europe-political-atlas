@@ -83,6 +83,9 @@ test('staged Romania candidate (when present locally) is consistent and stays ou
   assert.deepEqual(validateCandidate(stores).failures, []);
   assert.equal(stores.electoral_contestants.length, 35);
   assert.equal(stores.legislatures[0].seats_allocated_in_constituency_file, 312);
-  assert.equal(fs.existsSync('src/data/political/romania'), false);
-  assert.equal(fs.existsSync('public/research-data/political/romania'), false);
+  // The published Romanian stores come from the separate AEP admission (2026-11-18); the staging candidate is never copied there.
+  for (const name of fs.readdirSync(dir)) {
+    const published = path.join('src/data/political/romania', name);
+    if (fs.existsSync(published)) assert.notEqual(fs.readFileSync(published, 'utf8'), fs.readFileSync(path.join(dir, name), 'utf8'), name);
+  }
 });

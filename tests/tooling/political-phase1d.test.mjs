@@ -102,7 +102,10 @@ test('committed readiness status never grants authorisation and matches the cand
   assert.ok(r.summary.publishable_pending_authorisation.includes('licence_and_attribution'));
   const template = JSON.parse(fs.readFileSync('docs/political-data/romania_evidence_template.json', 'utf8'));
   assert.equal(template.documents_required.length, 7);
-  assert.equal(fs.existsSync('src/data/political/romania'), false);
+  // Production stores now come from the separate AEP admission (romania-parliament-2016, 2026-11-18), never from this staging package.
+  const admission = JSON.parse(fs.readFileSync('docs/legal-security/political_admission_records.json', 'utf8')).admissions.find((x) => x.country === 'romania');
+  assert.equal(admission?.admission_id, 'romania-parliament-2016');
+  assert.ok(fs.readdirSync('src/data/political/romania').every((f) => admission.files.some((x) => x.path === `src/data/political/romania/${f}`)));
 });
 
 test('the candidate stores fit the existing comparison model without placeholders', { skip: !fs.existsSync('.tmp-data-refresh/political-candidate-romania/candidate/stores/elections.json') }, () => {
