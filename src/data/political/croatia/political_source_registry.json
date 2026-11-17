@@ -1,5 +1,163 @@
 [
   {
+    "source_id": "src-hr-dip-final-2011",
+    "country": "croatia",
+    "institution": "Državno izborno povjerenstvo Republike Hrvatske (State Electoral Commission)",
+    "dataset": "Konačni rezultati izbora zastupnika u Hrvatski sabor 2011 — 17 final-results decisions (territorial constituencies I–X, constituency XI abroad, constituency XII national minorities)",
+    "tier": "tier1_official",
+    "url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2011",
+    "licence_status": "official_text_copyright_act_owner_reading_no_licence",
+    "raw_redistribution": "transcribed_figures_and_party_names_only_documents_and_candidate_names_not_redistributed",
+    "licence_url": "https://www.izbori.hr/site/UserDocsImages/5469",
+    "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
+    "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
+    "retrieved_at": "2026-11-18",
+    "raw_sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb",
+    "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
+    "names_source": {
+      "note": "The 2011 decisions have a damaged text layer (split words, wrong glyphs): figures are read from them, list names come from the commission’s open-data workbooks (constituency total rows), matched to the decision rows by votes; ties resolved by the legible decision text; list leaders’ names are dropped (title_sha256 identifies the full workbook label; seats are grouped by party names, or by the full label for independent lists).",
+      "workbooks_zip": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/zip/rezultati.zip"
+    },
+    "documents": [
+      {
+        "unit": "hr-ie-01",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_001_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-01",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "c1903ce3b48c42748fe45276d0f246eb19ab4b87f643a4438b723edd0e88cba4"
+      },
+      {
+        "unit": "hr-ie-02",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_002_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-02",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "7ef81381d6542b92d5cabd59669d0eaf3971d3a29a2f7fefc239535eedda9ce4"
+      },
+      {
+        "unit": "hr-ie-03",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_003_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-03",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "4d981e068db859d550574bf6181ac058507fb85e6326abceb7dc6e8d9b0c96fc"
+      },
+      {
+        "unit": "hr-ie-04",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_004_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-04",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "b6ba05abef8462c192111388c2a0230ea6bb693b1703db2b6e8c36665c9982f1"
+      },
+      {
+        "unit": "hr-ie-05",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_005_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-05",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "6d81fde520d42ff88c4706c2ea96fb77a52f345e88724110acc7fc8f941873c8"
+      },
+      {
+        "unit": "hr-ie-06",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_006_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-06",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "9498ff1442dcc4edd35199cd445ac32ad2901e871dbb08a129d431dd2c8775aa"
+      },
+      {
+        "unit": "hr-ie-07",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_007_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-07",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "e18eece3c66c84cb6bcf7f95f74eeb2a4724ad36880f27c045d0cdfba50cf039"
+      },
+      {
+        "unit": "hr-ie-08",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_008_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-08",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "59387ef1e35ea5e568787474b023d4a3ea3d3c64cec55aa8fdbe1bffb2d72c53"
+      },
+      {
+        "unit": "hr-ie-09",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_009_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-09",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "89aa09810394f7eb800f1b4ebe1518d5df4d82dd3a036322d24ec7e6f131fc16"
+      },
+      {
+        "unit": "hr-ie-10",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_010_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-10",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "11ecf764b65ff9dbbe508962aaa16b7663086636c8a15e476364bf9fb53bc7ea"
+      },
+      {
+        "unit": "hr-ie-11",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_011_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-11",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "2627fc7ac09b8e3fa713333dd7252792a5c48713e44f56eea5d686115fee3f30"
+      },
+      {
+        "unit": "hr-ie-12-srpska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_13_012_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-12",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "687542a3aa2d7080db27d05a88fbe1b1c578e377e0adc4acbcabef65e2836ed1"
+      },
+      {
+        "unit": "hr-ie-12-madjarska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_23_012_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-13",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "cd966f4f74a95ce79353c4cd30537697af844f538f010aeb48e965119f93e2a9"
+      },
+      {
+        "unit": "hr-ie-12-talijanska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_33_012_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-14",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "1a876e936501926bc9337d37807f9c5dff780bb36523bd109801efaf120efa0a"
+      },
+      {
+        "unit": "hr-ie-12-ceska_slovacka",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_43_012_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-15",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "c96ad07dc38804d743e14fe386862ac75377ee04f7c831ccf526c7d726cffa61"
+      },
+      {
+        "unit": "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_53_012_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-16",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "238463097dab7925a2f0a7b7a90962069c26f6eb7d754a3a54a439998361249c"
+      },
+      {
+        "unit": "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_63_012_0000.pdf",
+        "klasa": "013-03/11-15/04",
+        "urbroj": "507-11-17",
+        "decision_date": "2011-12-13",
+        "publisher_file_sha256": "43b6df88f52c1661178315ada9e4fc258eb3cf43ddbddadec687230a1a7394be"
+      }
+    ]
+  },
+  {
     "source_id": "src-hr-dip-final-2015",
     "country": "croatia",
     "institution": "Državno izborno povjerenstvo Republike Hrvatske (State Electoral Commission)",
@@ -12,7 +170,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41",
+    "raw_sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {
@@ -166,7 +324,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41",
+    "raw_sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {
@@ -320,7 +478,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41",
+    "raw_sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {
@@ -474,7 +632,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41",
+    "raw_sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {

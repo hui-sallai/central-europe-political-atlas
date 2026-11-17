@@ -5,7 +5,7 @@
 // Built only from the committed transcription docs/political-data/raw/croatia/sabor/evidence.json (figures, party
 // names and checksums; candidate names are never stored). Fail-closed reconciliation per constituency:
 //   - list votes = valid ballots; valid + invalid = ballots; ballots ≤ voters who turned out ≤ voters on the roll;
-//   - printed list percentages = votes ÷ valid ballots, truncated (2016 onwards) or rounded (2015) to two decimals;
+//   - printed list percentages = votes ÷ valid ballots, truncated (2016 onwards) or rounded (2011, 2015) to two decimals;
 //   - lists at or above 5% of valid ballots = the lists the decision names as taking part (Art. 41);
 //   - D'Hondt over those lists reproduces the printed seats (14 per territorial constituency, 3 abroad);
 //   - national-minority elections: elected candidates = seats by law and are the candidates with most votes;
@@ -26,7 +26,7 @@ const EXPORT_DIR = 'public/research-data/political/croatia';
 export const CROATIAN_STORES = ['elections', 'election_turnout', 'election_results', 'electoral_contestants', 'legislatures', 'electoral_systems', 'political_source_registry'];
 export const LIST_VOTE = 'hr_list_vote';
 export const MINORITY_VOTE = 'hr_minority_candidate_vote';
-export const YEARS = ['2015', '2016', '2020', '2024'];
+export const YEARS = ['2011', '2015', '2016', '2020', '2024'];
 const CHAMBER = 'Hrvatski sabor';
 const SEATS = { territorial: 14, diaspora: 3 };
 const TOTAL = 151;
@@ -82,7 +82,9 @@ export function reconcileUnit(year, u, convention) {
   const won = dhondt(taking.map((x) => x.votes), seats);
   check(won.join() === taking.map((x) => x.seats).join(), `D'Hondt seats ${won} differ from the decision`);
   check(L.filter((x) => !taking.includes(x)).every((x) => x.seats === 0), 'a list below 5% holds seats');
-  check(u.seats_section_iv_in_order.join() === taking.filter((x) => x.seats > 0).map((x) => x.seats).join(), 'section IV seat order mismatch');
+  // Section IV lists the seat-winning lists in order; some 2011 decisions also list a threshold list with 0 seats.
+  const iv = u.seats_section_iv_in_order.join();
+  check(iv === taking.filter((x) => x.seats > 0).map((x) => x.seats).join() || iv === taking.map((x) => x.seats).join(), 'section IV seat order mismatch');
   return { unit: u.unit_key, kind: u.kind, lists: L.length, valid: T.valid, seats, threshold_votes: Math.ceil(0.05 * T.valid), lists_in_allocation: taking.length };
 }
 
@@ -121,12 +123,15 @@ export function buildCroatia() {
       const T = u.totals;
       const minority = u.kind === 'national_minority';
       const noTurnedOut = T.turned_out === null;
-      const definition = noTurnedOut
+      const rollMinority = minority && E.minority_registered_basis === 'minority_electoral_roll';
+      const definition = rollMinority
+        ? `Voters who voted / voters on the electoral roll of the minority (ukupno birača) × 100, as printed in the ${year} decision.`
+        : noTurnedOut
         ? `Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters ${minority ? 'stated' : 'on the roll'} (ukupno birača) × 100, as printed in the decision; the ${year} decisions print no separate count of voters who turned out.`
         : minority
         ? 'Voters who turned out (glasovanju je pristupilo) / voters stated (ukupno birača) × 100, as printed. For a national-minority election the decision states as voters the minority voters who turned out, so the printed turnout is 100% and is not comparable with the territorial constituencies.'
         : 'Voters who turned out (glasovanju je pristupilo) / voters on the roll (ukupno birača) × 100, as printed in the decision; voters who voted by ballot (prema glasačkim listićima) are kept separately.';
-      out.election_turnout.push({ election_id: electionId, country: 'croatia', geography: geoOf(u), vote_type: minority ? MINORITY_VOTE : LIST_VOTE, result_vintage: vintage, eligible_voters: T.registered, voters_turned_out: T.turned_out, voters: T.voted_by_ballots, valid_votes: T.valid, invalid_votes: T.invalid, ballots_cast: T.voted_by_ballots, published_turnout: Number((noTurnedOut ? T.voted_by_ballots_pct : T.turned_out_pct).replace(',', '.')), derived_turnout: ((noTurnedOut ? T.voted_by_ballots : T.turned_out) / T.registered) * 100, turnout_definition: definition, turnout_basis: { numerator: noTurnedOut ? 'voters' : 'voters_turned_out', denominator: minority ? 'voters_stated_in_minority_decision' : 'registered_electorate', definition, sourceIds: [SRC] }, provenance: [prov(`decision ${u.klasa} / ${u.urbroj}, section I`, ['eligible_voters', 'voters_turned_out', 'voters', 'valid_votes', 'invalid_votes', 'published_turnout'], u)] });
+      out.election_turnout.push({ election_id: electionId, country: 'croatia', geography: geoOf(u), vote_type: minority ? MINORITY_VOTE : LIST_VOTE, result_vintage: vintage, eligible_voters: T.registered, voters_turned_out: T.turned_out, voters: T.voted_by_ballots, valid_votes: T.valid, invalid_votes: T.invalid, ballots_cast: T.voted_by_ballots, published_turnout: Number((noTurnedOut ? T.voted_by_ballots_pct : T.turned_out_pct).replace(',', '.')), derived_turnout: ((noTurnedOut ? T.voted_by_ballots : T.turned_out) / T.registered) * 100, turnout_definition: definition, turnout_basis: { numerator: noTurnedOut ? 'voters' : 'voters_turned_out', denominator: minority && !rollMinority ? 'voters_stated_in_minority_decision' : 'registered_electorate', definition, sourceIds: [SRC] }, provenance: [prov(`decision ${u.klasa} / ${u.urbroj}, section I`, ['eligible_voters', 'voters_turned_out', 'voters', 'valid_votes', 'invalid_votes', 'published_turnout'], u)] });
     }
     const tr = sum(terr.map((u) => u.totals), 'registered'), vb = sum(terr.map((u) => u.totals), 'voted_by_ballots');
     const hasTO = terr.every((u) => u.totals.turned_out !== null), to = hasTO ? sum(terr.map((u) => u.totals), 'turned_out') : null;
@@ -153,8 +158,9 @@ export function buildCroatia() {
         const label = l.parties_named.length ? l.parties_named.join(', ') : `Lista, red. br. ${l.row}`;
         out.electoral_contestants.push({ contestant_id: id, country: 'croatia', election_id: electionId, constituency: geo, contestant_kind: 'electoral_list', native_list_type: 'lista', list_composition: l.parties_named_count > 1 ? 'coalition_list_two_or_more_parties_named' : 'single_name_list_kind_not_printed', kind_basis: 'the decision prints each list with the party names under which it stood; a list naming two or more parties is a coalition list; a list naming one party or a citizens’ list title is not further classified', parties_named: l.parties_named, parties_named_count: l.parties_named_count, list_number: l.row, list_number_basis: 'row in the State Electoral Commission decision (ordered by votes; ballot numbers are not printed)', registered_label_native: null, historical_display_label: label, display_label_rule: { verbatim: 'party names as printed', abbreviation_for_personal_name: 'party names as printed; a party name containing a person’s name is shown by the abbreviation printed with it', partial_personal_name_omitted: 'party names as printed; a party name containing a person’s name (no abbreviation printed) is omitted', row_only: 'the only party name contains a person’s name: shown by row number only' }[l.label_basis], label_basis: l.label_basis, title_sha256: l.title_sha256, lead_party_id: null, party_relation_status: 'not_attributed_no_party_register_reviewed', continuous_series_eligible: false, provenance: [prov(`decision ${u.klasa} / ${u.urbroj}, section II list row ${l.row}`, ['list_number', 'parties_named', 'title_sha256'], u)] });
         out.election_results.push({ result_id: `er-${id}`, country: 'croatia', geography: geo, election_id: electionId, contestant_ref: id, vote_type: LIST_VOTE, valid_votes: u.totals.valid, total_seats: unitSeats, votes: l.votes, published_vote_share: Number(l.printed_percent.replace(',', '.')), derived_vote_share: (l.votes / u.totals.valid) * 100, seats: l.seats, seat_basis: `${unitLabel}: D'Hondt over lists with at least 5% of valid ballots, ${unitSeats} seats (decision sections III–IV)`, published_seat_share: null, result_vintage: vintage, provenance: [prov(`decision ${u.klasa} / ${u.urbroj}, sections II–IV list row ${l.row}`, ['votes', 'published_vote_share', 'seats'], u)] });
-        const g = groups.get(l.title_sha256) ?? { label, title_sha256: l.title_sha256, constituencies: [], seats: 0 };
-        g.constituencies.push(geo); g.seats += l.seats; groups.set(l.title_sha256, g);
+        const gk = l.group_sha256 ?? l.title_sha256;
+        const g = groups.get(gk) ?? { label, title_sha256: gk, constituencies: [], seats: 0 };
+        g.constituencies.push(geo); g.seats += l.seats; groups.set(gk, g);
       }
     }
     const seatGroups = [...groups.values()].filter((g) => g.seats > 0).sort((a, b) => b.seats - a.seats || a.label.localeCompare(b.label));
@@ -173,9 +179,10 @@ export function buildCroatia() {
         totalSeatsDefinition: t('151 seats: 140 from ten territorial constituencies, 3 from the constituency abroad and 8 for national minorities.', '151 席：十个地域选区 140 席、境外选区 3 席、少数民族 8 席。'),
         sourceIds: [SRC],
       },
-      notes: t("Votes are shown per constituency. The same party can stand in different coalitions in different constituencies, so constituency list votes are not added into national vote shares. Seats reproduce by D'Hondt with the 5% constituency threshold. A preferential vote decides which candidates of a list are elected; candidate votes are not stored.", '得票按选区列示。同一政党在不同选区可能参加不同联盟，因此不把各选区名单票相加为全国得票率。席位可按 D’Hondt 与选区 5% 门槛复现。优先票决定名单中哪些候选人当选；不存储候选人得票。'),
+      notes: Number(year) >= 2015 ? t("Votes are shown per constituency. The same party can stand in different coalitions in different constituencies, so constituency list votes are not added into national vote shares. Seats reproduce by D'Hondt with the 5% constituency threshold. A preferential vote decides which candidates of a list are elected; candidate votes are not stored.", '得票按选区列示。同一政党在不同选区可能参加不同联盟，因此不把各选区名单票相加为全国得票率。席位可按 D’Hondt 与选区 5% 门槛复现。优先票决定名单中哪些候选人当选；不存储候选人得票。')
+        : t("Votes are shown per constituency. The same party can stand in different coalitions in different constituencies, so constituency list votes are not added into national vote shares. Seats reproduce by D'Hondt with the 5% constituency threshold. There was no preferential vote before the 2015 amendments: candidates were elected in list order. The 2011 decisions have a damaged text layer, so list names come from the commission's open-data workbooks, matched to the decisions by votes; list leaders' names are not stored.", '得票按选区列示。同一政党在不同选区可能参加不同联盟，因此不把各选区名单票相加为全国得票率。席位可按 D’Hondt 与选区 5% 门槛复现。2015 年修正之前没有优先票：候选人按名单顺序当选。2011 年决定的文本层受损，名单名称来自委员会开放数据工作簿，按得票与决定匹配；不存储名单领衔人姓名。'),
       seat_check: checks[year], provenance: [prov('decisions sections III–IV', ['allocation_method', 'thresholds', 'base_seats'])] });
-    out.political_source_registry.push({ source_id: SRC, country: 'croatia', institution: 'Državno izborno povjerenstvo Republike Hrvatske (State Electoral Commission)', dataset: `Konačni rezultati izbora zastupnika u Hrvatski sabor ${year} — 17 final-results decisions (territorial constituencies I–X, constituency XI abroad, constituency XII national minorities)`, tier: 'tier1_official', url: E.archive_page, licence_status: 'official_text_copyright_act_owner_reading_no_licence', raw_redistribution: 'transcribed_figures_and_party_names_only_documents_and_candidate_names_not_redistributed', licence_url: evidence.rights.publisher_reuse_page, rights_basis: evidence.rights.basis, attribution: 'Državno izborno povjerenstvo Republike Hrvatske', retrieved_at: E.retrieved_at, raw_sha256: evidenceSha, raw_path: EVIDENCE, documents: units.map((u) => ({ unit: geoOf(u), url: u.url, klasa: u.klasa, urbroj: u.urbroj, decision_date: u.decision_date, publisher_file_sha256: u.publisher_file_sha256 })) });
+    out.political_source_registry.push({ source_id: SRC, country: 'croatia', institution: 'Državno izborno povjerenstvo Republike Hrvatske (State Electoral Commission)', dataset: `Konačni rezultati izbora zastupnika u Hrvatski sabor ${year} — 17 final-results decisions (territorial constituencies I–X, constituency XI abroad, constituency XII national minorities)`, tier: 'tier1_official', url: E.archive_page, licence_status: 'official_text_copyright_act_owner_reading_no_licence', raw_redistribution: 'transcribed_figures_and_party_names_only_documents_and_candidate_names_not_redistributed', licence_url: evidence.rights.publisher_reuse_page, rights_basis: evidence.rights.basis, attribution: 'Državno izborno povjerenstvo Republike Hrvatske', retrieved_at: E.retrieved_at, raw_sha256: evidenceSha, raw_path: EVIDENCE, ...(E.names_source ? { names_source: E.names_source } : {}), documents: units.map((u) => ({ unit: geoOf(u), url: u.url, klasa: u.klasa, urbroj: u.urbroj, decision_date: u.decision_date, publisher_file_sha256: u.publisher_file_sha256 })) });
   }
   return { ...out, checks };
 }

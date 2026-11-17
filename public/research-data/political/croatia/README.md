@@ -1,6 +1,6 @@
 # Croatia — Croatian Parliament (Hrvatski sabor) elections
 
-Elections: 2015-11-08, 2016-09-11, 2020-07-05, 2024-04-17. Whole chamber (151 seats): ten territorial constituencies (14 seats each), one constituency abroad (3 seats) and six national-minority elections in constituency XII (8 seats). Source: final-results decisions of the State Electoral Commission (Državno izborno povjerenstvo), one per constituency and per minority election, identified by KLASA/URBROJ and file checksum in `political_source_registry`.
+Elections: 2011-12-04, 2015-11-08, 2016-09-11, 2020-07-05, 2024-04-17. Whole chamber (151 seats): ten territorial constituencies (14 seats each), one constituency abroad (3 seats) and six national-minority elections in constituency XII (8 seats). Source: final-results decisions of the State Electoral Commission (Državno izborno povjerenstvo), one per constituency and per minority election, identified by KLASA/URBROJ and file checksum in `political_source_registry`.
 
 Units: results are per constituency (`geography` hr-ie-01 … hr-ie-11, hr-ie-12-<minority>). The same party may stand in different coalitions in different constituencies, so list votes are not added into national vote shares. `legislatures.seats_by_identical_list_title` adds seats only across lists with the same printed title. Turnout is printed per decision; `hr-territorial-i-x` sums constituencies I–X and matches the commission’s archive table.
 

@@ -14,7 +14,7 @@ const hrEvidence = read('docs/political-data/raw/croatia/sabor/evidence.json');
 const siEvidence = read('docs/political-data/raw/slovenia/dz/evidence.json');
 // Names of persons printed in the source documents (party leaders, elected members, committee members) that must never
 // appear in committed data: a sample across both countries and all admitted years.
-const PERSON_NAMES = ['PLENKOVIĆ', 'KELEMINEC', 'PERNARA', 'OREŠKOVIĆ', 'ŠKORE', 'PETRINA', 'BANDIĆ', 'KERUM', 'LACKOVIĆ', 'JOSIPOVIĆA', 'VESELICA', 'PUPOVAC', 'LOTRIČA', 'LOGARJA', 'PREBILIČA', 'RUPARJA', 'ERJAVEC', 'Ziza', 'Horváth', 'Golob', 'Tremul', 'Močnek', 'Kasaš', 'BATTELLI', 'GÖNCZ', 'SOBOČAN', 'Šarca', 'BRATUŠEK', 'PIVEC', 'Popoviča', 'CERARJA'];
+const PERSON_NAMES = ['PLENKOVIĆ', 'KELEMINEC', 'PERNARA', 'OREŠKOVIĆ', 'ŠKORE', 'PETRINA', 'BANDIĆ', 'KERUM', 'LACKOVIĆ', 'JOSIPOVIĆA', 'VESELICA', 'PUPOVAC', 'LOTRIČA', 'LOGARJA', 'PREBILIČA', 'RUPARJA', 'ERJAVEC', 'Ziza', 'Horváth', 'Golob', 'Tremul', 'Močnek', 'Kasaš', 'BATTELLI', 'GÖNCZ', 'SOBOČAN', 'GOLUBIĆ', 'Nositelj', 'Šarca', 'BRATUŠEK', 'PIVEC', 'Popoviča', 'CERARJA'];
 
 test('both builds reproduce the committed stores and exports', () => {
   for (const script of ['scripts/political-data/croatia/build-sabor.mjs', 'scripts/political-data/slovenia/build-dz.mjs']) {
@@ -25,7 +25,7 @@ test('both builds reproduce the committed stores and exports', () => {
 
 test('Croatia: 140 territorial, 3 abroad and 8 national-minority seats stay separate in every election', () => {
   const data = buildCroatia();
-  assert.deepEqual(HR_YEARS, ['2015', '2016', '2020', '2024']);
+  assert.deepEqual(HR_YEARS, ['2011', '2015', '2016', '2020', '2024']);
   for (const leg of data.legislatures) {
     assert.equal(leg.total_seats, 151);
     assert.deepEqual(leg.seats_by_mechanism, { territorial_constituencies: 140, constituency_abroad: 3, national_minorities: 8 });

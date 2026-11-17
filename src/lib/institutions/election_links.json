@@ -1198,6 +1198,42 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-hr-sabor-2011-12-04",
+   "country": "croatia",
+   "date": "2011-12-04",
+   "chamber_id": "hr-sabor",
+   "chamber_official_name": "Hrvatski sabor",
+   "seats": 151,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-hr-sabor-2011",
+   "system_family": "list proportional representation in ten territorial constituencies and one constituency abroad; plurality election of national-minority members",
+   "allocation_method": "D'Hondt within each constituency among lists with at least 5% of valid ballots (Arts. 40–41); national-minority members: candidates with most votes (Art. 46)",
+   "base_seats": 151,
+   "thresholds": [
+    {
+     "applies_to": "electoral list, per constituency",
+     "percent": 5,
+     "description": {
+      "en": "A list needs at least 5% of the valid ballots in the constituency to take part in its seat allocation (Art. 41, as cited in each decision).",
+      "zh": "名单须获得本选区有效票至少 5% 才能参与该选区席位分配（第 41 条，各决定均引用）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the rules applied in the 2011 decisions (Election Act as cited in each decision, 5% constituency threshold and D'Hondt reproduce the printed seats); the institutional registry record hr-es-sabor holds the current statutory text read from the official gazette",
+   "constitution_id": "hr-constitution-1990",
+   "institutional_period_id": "croatia-period-2001-03-28",
+   "changes_in_force": [
+    "hr-1990-constitution",
+    "hr-2000-parliamentary-system",
+    "hr-2001-unicameral"
+   ],
+   "later_changes": [
+    "hr-2015-preferential-vote",
+    "hr-2023-constituencies-act"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-hr-sabor-2015-11-08",
    "country": "croatia",
    "date": "2015-11-08",

@@ -1,0 +1,92 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "croatia-sabor-2011",
+ "country": "croatia",
+ "election_ids": [
+  "el-hr-sabor-2011-12-04",
+  "el-hr-sabor-2015-11-08",
+  "el-hr-sabor-2016-09-11",
+  "el-hr-sabor-2020-07-05",
+  "el-hr-sabor-2024-04-17"
+ ],
+ "scope": "Croatian Parliament election of 4 December 2011 added to 2015, 2016, 2020 and 2024 (unchanged), all 151 seats per constituency: every list in the ten territorial constituencies and the constituency abroad with votes, printed percentages and seats, and every candidate in the six national-minority elections with votes and elected status (without names). The 2011 decisions have a damaged text layer: figures come from the decisions, list names from the commission's 2011 open-data workbooks matched by votes; list leaders' names are dropped. The 2011 minority decisions print the minority electoral roll.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief \"Complete ten-country parliamentary election coverage and historical institutional integration\" (Croatia, Slovenia, Romania, Austria), naming www.izbori.hr and www.dvk-rs.si as official sources."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner answer \"Accept for all four\": publication on the reading of each copyright act's official-texts provision, national and constituency figures only, no candidate names."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner answer \"Register both\": www.dvk-rs.si and www.izbori.hr registered for manual reading only (exact files and pages, one request each, no crawling)."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner reply \"continue\" to the proposal to try another way to read the damaged 2011 decisions (registered www.izbori.hr; same rights basis)."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/croatia/sabor/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "owner_decision",
+   "basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — the owner's reading (answer \"Accept for all four\", 2026-11-18). The statute text was not re-read in this iteration; the commission's page on the right of access to and reuse of information (izbori.hr) was read and is recorded as the licence URL. Weaker than a licence."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "constituency_figures_from_final_results_decisions",
+   "evidence_kind": "owner_decision",
+   "basis": "Constituency figures only (voters, ballots, list votes and seats; minority-candidate votes without names), transcribed from the commission's decisions; no database extraction; attribution to the State Electoral Commission."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The 68 decision PDFs are kept in local-evidence/ by checksum and never committed; candidate and committee names are not transcribed; full list titles are identified by title_sha256, and party names containing a living person's name are replaced by the printed abbreviation or omitted."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "www.izbori.hr registered for manual reading (no robots.txt published). The archive page of each election was opened in the visible browser pane to read the document links; each decision PDF was downloaded once. The 2024 open-data ZIP was downloaded once and not used for published figures. 2011: the 17 decisions (same archive path) and the linked open-data ZIP (arhiva-izbora/data/parlament/2011/zip/rezultati.zip) downloaded once each."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "Each decision prints voters on the roll, voters who voted (and, from 2024, voters who turned out), valid and invalid ballots, every list with votes and percentage, the lists taking part in the allocation and seats per list; minority decisions print every candidate's votes and those elected. All are transcribed. 2011: numbers read from the decisions (list rows, totals, seats); names from the workbook constituency total rows, every decision row matched by votes (one tie resolved by the legible decision text)."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled_per_constituency",
+   "evidence_kind": "build_check",
+   "basis": "Per constituency: list votes equal valid ballots; valid plus invalid equal ballots; printed percentages equal votes ÷ valid ballots (2015 rounded, 2016 onwards truncated); lists at or above 5% equal the lists named; D'Hondt reproduces the seats (14 per territorial constituency, 3 abroad); minority elections elect the candidates with most votes; seats total 151. No national vote share is computed because lists differ between constituencies; 2024 territorial totals equal the archive table. 2011: the workbook constituency totals equal the decisions' valid ballots in all eleven list constituencies; printed percentages are rounded; a 2011 decision may list a threshold list with 0 seats in section IV."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_printed_list_per_constituency",
+   "evidence_kind": "owner_decision",
+   "basis": "Each list keeps its constituency, decision row, printed party names (person-name rule applied) and a title checksum; seats are grouped across constituencies only for identical printed titles. No list is linked to a party or across elections; continuous_series_eligible is false. 2011: list leaders are dropped from labels; title_sha256 identifies the full workbook label; seats are grouped by party names, or by the full label for party-less independent lists."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "rules_cited_in_decisions_reproduced",
+   "evidence_kind": "build_check",
+   "basis": "The decisions cite the Election Act (Arts. 40, 41, 44, 46) and the printed seats reproduce under D'Hondt with the 5% constituency threshold; the institutional registry record hr-es-sabor holds the statute read from the official gazette."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_results_decisions",
+   "evidence_kind": "official_act",
+   "basis": "Each decision is the commission's final determination of the results (2015: 23 November; 2016: 26 September; 2020: 16 July; 2024: 29 April), identified by KLASA and URBROJ. 2011: decisions of 13 December 2011."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a list title repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

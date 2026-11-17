@@ -62,6 +62,10 @@
    {
     "printed_party_sha256": "aad0208a1f3db0e21b843d9cf0ecaaa757d0addd5623c76c79e7f6d621453a1e",
     "shown_as": "HKDU"
+   },
+   {
+    "printed_party_sha256": "5ee6df2ac55f5c0a955fdd456441e9be35e817ae51b5549d7662f19730c0f0c3",
+    "shown_as": null
    }
   ],
   "historical_namesake_kept": "party names honouring historical figures who are not candidates are kept as printed: HRVATSKA STRANKA PRAVA DR. ANTE STARČEVIĆ; HRVATSKA SELJAČKA STRANKA - STJEPAN RADIĆ; HRVATSKA SELJAČKA STRANKA BRAĆE RADIĆ",
@@ -72,6 +76,5009 @@
   ]
  },
  "elections": {
+  "2011": {
+   "polling_day": "2011-12-04",
+   "units": [
+    {
+     "unit_key": "02_001",
+     "document": "i_02_001_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_001_0000.pdf",
+     "publisher_file_sha256": "c1903ce3b48c42748fe45276d0f246eb19ab4b87f643a4438b723edd0e88cba4",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-01",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 358750,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 238830,
+      "voted_by_ballots_pct": "66,57",
+      "valid": 235217,
+      "valid_pct": "98,49",
+      "invalid": 3613,
+      "invalid_pct": "1,51"
+     },
+     "kind": "territorial",
+     "constituency_number": 1,
+     "lists": [
+      {
+       "row": 1,
+       "votes": 107382,
+       "printed_percent": "45,65",
+       "seats": 9,
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "HRVATSKA NARODNA STRANKA - LIBERALNI DEMOKRATI - HNS",
+        "ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "HRVATSKA STRANKA UMIROVLJENIKA - HSU"
+       ],
+       "parties_named_count": 4,
+       "label_basis": "verbatim",
+       "title_sha256": "95a6db94b617e37b1ee0dde40d06b441d8997e2bb3e16073d0d6432037065c33",
+       "group_sha256": "77ae9e1c17ce596587a5a3ccb26d34590b04e5e2b967f1e1f405fd7cd2d44ef8"
+      },
+      {
+       "row": 2,
+       "votes": 43265,
+       "printed_percent": "18,39",
+       "seats": 4,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "78b66038ac782b16ef3170560232699df358c8a7373079a813ec680939e8cece",
+       "group_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 3,
+       "votes": 18059,
+       "printed_percent": "7,68",
+       "seats": 1,
+       "parties_named": [
+        "HRVATSKI LABURISTI-STRANKA RADA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "76a52092243708972ea20427d0c558b1b95f34be4877a49e8c639b458f2f5ed9",
+       "group_sha256": "a9f0f4dcb3105c8d7f90bbc41f8757532bf6b3b29bd97a286a02e772020e54e9"
+      },
+      {
+       "row": 4,
+       "votes": 10457,
+       "printed_percent": "4,45",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SOCIJALNO-LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "3c1b04fdca390f346abc2c1fb06eecb5de5768bd1009eeeac7c6e12c3f5369e2",
+       "group_sha256": "879b6a7e0905d54e2021c70702d980bab335a7513dd19254b3ba7c80872a5d93"
+      },
+      {
+       "row": 5,
+       "votes": 8561,
+       "printed_percent": "3,64",
+       "seats": 0,
+       "parties_named": [
+        "BLOK UMIROVLJENICI ZAJEDNO - BUZ",
+        "PRIMORSKO GORANSKI SAVEZ - PGS",
+        "HRVATSKA RADNIČKA STRANKA - HRS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "90e87a319899b5b3168421978e8840a6b137f2f390d2423162e68bf3c9ea4eac",
+       "group_sha256": "c2949b0773eb730824c4d5084e3f94711b2824af61571658a088f4e428d82167"
+      },
+      {
+       "row": 6,
+       "votes": 6908,
+       "printed_percent": "2,94",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA - HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "ed498a8ca42962a7085348fee8a162345f0a1fab1165b14a6180ae00c6eb9527",
+       "group_sha256": "63b98a9a5ef37406009dd74fc22256aa18a214a8fa97ca2e5790d6747a2ae245"
+      },
+      {
+       "row": 7,
+       "votes": 6737,
+       "printed_percent": "2,86",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA DR.ANTE STARČEVIĆ - HSP DR.ANTE STARČEVIĆ",
+        "HRVATSKA ČISTA STRANKA PRAVA - HČSP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "5ecbac73d3bf44aedbe0a96e7b6cfdc1911c0ee66365df20fcb3289c9c7b86f5",
+       "group_sha256": "4ee0812edebc9748fbbd6d43aaaa09451db1432cbbb1c4e1028a50d95f5b90fc"
+      },
+      {
+       "row": 8,
+       "votes": 5680,
+       "printed_percent": "2,41",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI RAST - HRAST"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "4865e089cee72539a2d2037e720a7ad6eac70d0d758855fb52c32c7fa86d21e9",
+       "group_sha256": "5abe6e1db7a5916387aad7028d668dd339e23f1ab1e843e0674ec99c47ba6a5b"
+      },
+      {
+       "row": 9,
+       "votes": 5643,
+       "printed_percent": "2,40",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "8283f634e507f0086ee06035a7874074b4f8799f9723650fc647f3cb448fcca9",
+       "group_sha256": "8283f634e507f0086ee06035a7874074b4f8799f9723650fc647f3cb448fcca9"
+      },
+      {
+       "row": 10,
+       "votes": 5538,
+       "printed_percent": "2,35",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "7833b86bb6813af2607bb8573e7007387ac6e52fb318618c3ae3cf97a6994797",
+       "group_sha256": "7833b86bb6813af2607bb8573e7007387ac6e52fb318618c3ae3cf97a6994797"
+      },
+      {
+       "row": 11,
+       "votes": 2922,
+       "printed_percent": "1,24",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS",
+        "ZELENA STRANKA - ZS",
+        "STRANKA PENZIONERA - SP"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "6a7e65f30a0440cf5ee9742c6673927662bf0546bd67ca57079875036525b7c1",
+       "group_sha256": "14ef2eb0000723c6c3bd390d61871c14667cd1986b8e106a7540d3f56b6a0075"
+      },
+      {
+       "row": 12,
+       "votes": 1367,
+       "printed_percent": "0,58",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA ZELENIH - EKO SAVEZ - ZELENI"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "e6fda3366a65b9e6ab919d2f7a25aab2bb42467d6e5b94ad60718da2938e50f2",
+       "group_sha256": "513e8c184feb4d02cf59bd98bf32eb8b17f0d2490d45faa8bdb3080d69e8400f"
+      },
+      {
+       "row": 13,
+       "votes": 1354,
+       "printed_percent": "0,58",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA SOCIJALDEMOKRATA HRVATSKE - ASH",
+        "STRANKA UMIROVLJENIKA HRVATSKE-BLOK UMIROVLJENICI ZAJEDNO - SUH",
+        "SPLITSKA STRANKA UMIROVLJENIKA - SSU"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "400eae7d539cbbc1bf43374960f3134179d8b848647d98b1f75d2c7d29fe0604",
+       "group_sha256": "be555f1272db4975441bfc5f76726b17ec23a5d56ea35f0f204996916a19c291"
+      },
+      {
+       "row": 14,
+       "votes": 1286,
+       "printed_percent": "0,55",
+       "seats": 0,
+       "parties_named": [
+        "ZAGREBAČKA NEZAVISNA LISTA - ZNL"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "311f7b062d970f14376f1638af42f8de467af94a2cce8ef2310899a77aabdd0b",
+       "group_sha256": "7e49dff8bdf386ea767f6f010ff20f269c5bd2f9120b6141c63bedbf374a0d8b"
+      },
+      {
+       "row": 15,
+       "votes": 980,
+       "printed_percent": "0,42",
+       "seats": 0,
+       "parties_named": [
+        "SAVEZ ZA PROMJENE - SP",
+        "AUTOHTONA - HRVATSKA SELJAČKA STRANKA - A-HSS"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "bded9db2c681dc78f5b21c6b5adfb3cef8d5c860dfe84282cf8a3edbd8b916cd",
+       "group_sha256": "ec9d4c663ba3811b24c40063ebef225c56e8711c3d1f46558b24f9ab4611c67a"
+      },
+      {
+       "row": 16,
+       "votes": 961,
+       "printed_percent": "0,41",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "10e36d1b4793c2c9f45bfd1b68bf14ae75a7a74e210403c9c696c123c482fba8",
+       "group_sha256": "10e36d1b4793c2c9f45bfd1b68bf14ae75a7a74e210403c9c696c123c482fba8"
+      },
+      {
+       "row": 17,
+       "votes": 888,
+       "printed_percent": "0,38",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "a519d6d955b224817877044a51debcc48ba72f6fbf4b27974f24f4eedd3caa9b",
+       "group_sha256": "2d414c7d3f19a499d343a3a22ce00c1f4b750d13cc10f56bdcf714c252ff0fb7"
+      },
+      {
+       "row": 18,
+       "votes": 855,
+       "printed_percent": "0,36",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA ZA BOLJU HRVATSKU - ABH",
+        "HRVATSKA DEMOKRŠĆANSKA STRANKA - HDS",
+        "JEDINO HRVATSKA - POKRET ZA HRVATSKU - JEDINO HRVATSKA"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "800ea54a2a2b76e50a8590ba731552c7633012fe613324583a155011dcef3912",
+       "group_sha256": "db56e25788ba46ac0dbc02341614ebad02e9891811c466adbac5cbd88b47c1a9"
+      },
+      {
+       "row": 19,
+       "votes": 701,
+       "printed_percent": "0,30",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA ŽENA - DSŽ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "56a6d13980e50ecdca507488e88c0cf4e534d4c2f741a5ddf1d385a76d40d6fc",
+       "group_sha256": "4fa631b7ba542186ea7ea5642c0c622e1bb3eb660eb87be1fb92632535fd0ad9"
+      },
+      {
+       "row": 20,
+       "votes": 603,
+       "printed_percent": "0,26",
+       "seats": 0,
+       "parties_named": [
+        "ZELENI ZAJEDNO"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "ec6fd0a75fd6a1bfa287f41e96df8a59ad7208af3c26b795c8a877933ce14440",
+       "group_sha256": "1fd44cdf4afe8c088c20458deb767418616beb8035d8b3342d0a5bce9b0d45f7"
+      },
+      {
+       "row": 21,
+       "votes": 564,
+       "printed_percent": "0,24",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA MLADIH - AM"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "47b9cb4da990dc469d97bd5d5b5a724f801a7a27279d89c74a8d8ea26e6d21ad",
+       "group_sha256": "81224cecf9547767a3207c119b379f40892c99398c394dc46d9c44d1b4914d65"
+      },
+      {
+       "row": 22,
+       "votes": 443,
+       "printed_percent": "0,19",
+       "seats": 0,
+       "parties_named": [
+        "SOCIJALISTIČKA RADNIČKA PARTIJA HRVATSKE - SRP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "f490c90093089a47014edf12b5feabc6ff961a820ec87575c4e4b8b1e57c99f7",
+       "group_sha256": "f3104f0ef430257b27481b7f1f561ef93e6f3db425183c9ff6b29a3279518d21"
+      },
+      {
+       "row": 23,
+       "votes": 407,
+       "printed_percent": "0,17",
+       "seats": 0,
+       "parties_named": [
+        "VOLIM HRVATSKU - VH"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "dac0dad92400e28109032cd4a00fa4c213722d1639604dd85dd28828505baa0c",
+       "group_sha256": "89f3f5d945e7975f584fbe806c910f8659d8715ea2e6b6e95d39be57c3014cf1"
+      },
+      {
+       "row": 24,
+       "votes": 404,
+       "printed_percent": "0,17",
+       "seats": 0,
+       "parties_named": [
+        "ZAGORSKA STRANKA - ZS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "5d24539bda404709cfb9f132549c0488e1e2ba68cb1eb52b17074ca463b2dae5",
+       "group_sha256": "170b091ef5d0ef56d333d8c8c389051679f6589241441a87ea975b3375d4efca"
+      },
+      {
+       "row": 25,
+       "votes": 396,
+       "printed_percent": "0,17",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA-HRVATSKA STRANKA PRAVA - A-HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "e9dc82ee5bf9b53e6e14442d612f2ebbe28c0e7452d2ac2c2dac1f0cdcc2f788",
+       "group_sha256": "c01ff45e7e44d80970a1a7f2a33a0a07b7e9bc1ab3d253411fcdc5c4ec2512d1"
+      },
+      {
+       "row": 26,
+       "votes": 365,
+       "printed_percent": "0,16",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA 21. STOLJEĆA - HRVATSKA 21."
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "fd68e521308825b08a3bc5dbd5b123c8e3581d44a2e965733121a47cbc0baf6c",
+       "group_sha256": "0385c4188a0d3f783a2e9a933d888847a6dd698380982a2dddb3ee954067fd1c"
+      },
+      {
+       "row": 27,
+       "votes": 356,
+       "printed_percent": "0,15",
+       "seats": 0,
+       "parties_named": [
+        "AGENDA MLADIH DEMOKRATA - AMD",
+        "HRVATSKA STRANKA MLADIH - HSM"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "dd238bbe0adaf160a035e157fea2b8524201018d8e15eaaf39e8ce4aaa0d5bf8",
+       "group_sha256": "6948cde6c91082d1c2b6c61e0d50f66518e8064934695b03e8d3bd671db78454"
+      },
+      {
+       "row": 28,
+       "votes": 304,
+       "printed_percent": "0,13",
+       "seats": 0,
+       "parties_named": [
+        "NACIONALNI DEMOKRATI - ND"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "partial_personal_name_omitted",
+       "title_sha256": "e8a63709ee2c19737b195042b3816d820a0e6c4080b5a8d0b4fffe3f3a9f5ab7",
+       "group_sha256": "eeadf70c092c5240ee3c75627af0eda9c217950c5f3be74d7474c099f38166b7"
+      },
+      {
+       "row": 29,
+       "votes": 285,
+       "printed_percent": "0,12",
+       "seats": 0,
+       "parties_named": [
+        "OBITELJSKA STRANKA - OS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "493cde6e4ef05a9ba4cf4ef9e63ca53391d9d9d7000b7e2b685eb3b3aebfd8d4",
+       "group_sha256": "2e963a79bb13b2424ba897e5cc31d8263a7704bb9ad91e26520a9f0d8cf21403"
+      },
+      {
+       "row": 30,
+       "votes": 268,
+       "printed_percent": "0,11",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA SLAVONSKE RAVNICE - SLAVONSKA RAVNICA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "ae02195259488d6574cb0ef6189bea67f6f300f87e443adf899b65b9230cbcdd",
+       "group_sha256": "951998644206bfb30003600491c1f54f98f9f13f7231a8ae19c573c54479e47d"
+      },
+      {
+       "row": 31,
+       "votes": 237,
+       "printed_percent": "0,10",
+       "seats": 0,
+       "parties_named": [
+        "ZAGORSKA DEMOKRATSKA STRANKA - ZDS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "90dc3e4c214542f23317a354228aa26d8c16116098f87a7a2fb15c9289400fb5",
+       "group_sha256": "b755ef490b80642214d5e175f708c26e745f9c635f06229c01f07349223c5b0e"
+      },
+      {
+       "row": 32,
+       "votes": 206,
+       "printed_percent": "0,09",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "9973d9bcf8e1b4cdc9cd7b78cedd07961dea63cae125bd3d1afdeb87a77b0085",
+       "group_sha256": "9973d9bcf8e1b4cdc9cd7b78cedd07961dea63cae125bd3d1afdeb87a77b0085"
+      },
+      {
+       "row": 33,
+       "votes": 187,
+       "printed_percent": "0,08",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "224b9211af9043b75f9b738051c537d9508791c36d2dceb054dcce9f82a90d80",
+       "group_sha256": "224b9211af9043b75f9b738051c537d9508791c36d2dceb054dcce9f82a90d80"
+      },
+      {
+       "row": 34,
+       "votes": 171,
+       "printed_percent": "0,07",
+       "seats": 0,
+       "parties_named": [
+        "GLAS RAZUMA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "fff4df9acf214c3182f4ed6be9423142f5ccecf74ff526d965523c041f5049d1",
+       "group_sha256": "443aa19303cb2909a623612fd0134dddb13f81db7b65e26a1662f30f75be3879"
+      },
+      {
+       "row": 35,
+       "votes": 138,
+       "printed_percent": "0,06",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA EUROPSKA STRANKA - HES"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "5b40f0fc84772289cc998074ab13f0f7978650d0d22ba898c9ae62ef6666a300",
+       "group_sha256": "dad1309820ff6211d979b57cfde0bcf645123542e4c4c91a30e9a0c55f1c1f36"
+      },
+      {
+       "row": 36,
+       "votes": 119,
+       "printed_percent": "0,05",
+       "seats": 0,
+       "parties_named": [
+        "ABECEDA DEMOKRACIJE - ABECEDA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "10200f639e9a737dc6065c3408bc838146135c91a8e36973e01ffe89b9b8a382",
+       "group_sha256": "5fe9c3e0836d37017b83a5380e6e25561098844342a9bda1612868d79c8d2068"
+      },
+      {
+       "row": 37,
+       "votes": 87,
+       "printed_percent": "0,04",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "41b9f42de3b8d4f83995b981b3ee0c39037d09475fc971865e6b91f4ac1e2d6f",
+       "group_sha256": "41b9f42de3b8d4f83995b981b3ee0c39037d09475fc971865e6b91f4ac1e2d6f"
+      },
+      {
+       "row": 38,
+       "votes": 73,
+       "printed_percent": "0,03",
+       "seats": 0,
+       "parties_named": [
+        "STRANKA HRVATSKOG ZAJEDNIŠTVA - SHZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "ab369db53ffa5e372266d37f68938f167594235de97d965b5c0280fc8339028c",
+       "group_sha256": "c5ac0671fdbae0dbf6b677a42fac419ed563d45b8e3c68c5227154271dfb4802"
+      },
+      {
+       "row": 39,
+       "votes": 60,
+       "printed_percent": "0,03",
+       "seats": 0,
+       "parties_named": [
+        "NOVA HRVATSKA - NH"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "8f716f230d86f61bb4acc6bf2d38d22b7450048065fe992e3c9e1d862808e82f",
+       "group_sha256": "a7eaf6619cf99333b601fc5132e474c00c89f9981914d8fc87349f115c1d4216"
+      }
+     ],
+     "seats_section_iv_in_order": [
+      9,
+      4,
+      1
+     ],
+     "lists_in_allocation_printed": 3
+    },
+    {
+     "unit_key": "02_002",
+     "document": "i_02_002_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_002_0000.pdf",
+     "publisher_file_sha256": "7ef81381d6542b92d5cabd59669d0eaf3971d3a29a2f7fefc239535eedda9ce4",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-02",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 403716,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 249101,
+      "voted_by_ballots_pct": "61,70",
+      "valid": 245143,
+      "valid_pct": "98,41",
+      "invalid": 3958,
+      "invalid_pct": "1,59"
+     },
+     "kind": "territorial",
+     "constituency_number": 2,
+     "lists": [
+      {
+       "row": 1,
+       "votes": 104516,
+       "printed_percent": "42,63",
+       "seats": 8,
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "HRVATSKA NARODNA STRANKA - LIBERALNI DEMOKRATI - HNS",
+        "ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "HRVATSKA STRANKA UMIROVLJENIKA - HSU"
+       ],
+       "parties_named_count": 4,
+       "label_basis": "verbatim",
+       "title_sha256": "814f60fd9e7285674c93785476c78944ba8f1da2cd705879d0708bbb95c85bde",
+       "group_sha256": "77ae9e1c17ce596587a5a3ccb26d34590b04e5e2b967f1e1f405fd7cd2d44ef8"
+      },
+      {
+       "row": 2,
+       "votes": 52652,
+       "printed_percent": "21,48",
+       "seats": 4,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d0bb53289cbf3b9770d55e02508cc0ebdb9f1ef383f5d38b4b5da897eb38436d",
+       "group_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 3,
+       "votes": 14854,
+       "printed_percent": "6,06",
+       "seats": 1,
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "47dc3c79c3f825ed218e3939d0f15ee52ade2536f864c9684da9e450fa10a96c",
+       "group_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 4,
+       "votes": 14161,
+       "printed_percent": "5,78",
+       "seats": 1,
+       "parties_named": [
+        "HRVATSKI LABURISTI-STRANKA RADA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "212dd12a287816585cefa265912fa291e1d99d897c36ddf0313520e2dc80e5ea",
+       "group_sha256": "a9f0f4dcb3105c8d7f90bbc41f8757532bf6b3b29bd97a286a02e772020e54e9"
+      },
+      {
+       "row": 5,
+       "votes": 10614,
+       "printed_percent": "4,33",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SOCIJALNO-LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "3e5424d8568b3ae686e8dd81a06ce35c866119b7ebec79cbdcb03a62271dd87b",
+       "group_sha256": "879b6a7e0905d54e2021c70702d980bab335a7513dd19254b3ba7c80872a5d93"
+      },
+      {
+       "row": 6,
+       "votes": 7328,
+       "printed_percent": "2,99",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA - HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "995fb823bac32695b9154761719dad5bae71f8ef19faecf59ec155907fbd6562",
+       "group_sha256": "63b98a9a5ef37406009dd74fc22256aa18a214a8fa97ca2e5790d6747a2ae245"
+      },
+      {
+       "row": 7,
+       "votes": 7296,
+       "printed_percent": "2,98",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "ff4e43873671e00c97e20543c8e5a151333799eab2c9ecc40622aabeea12cf28",
+       "group_sha256": "ff4e43873671e00c97e20543c8e5a151333799eab2c9ecc40622aabeea12cf28"
+      },
+      {
+       "row": 8,
+       "votes": 6866,
+       "printed_percent": "2,80",
+       "seats": 0,
+       "parties_named": [
+        "BLOK UMIROVLJENICI ZAJEDNO - BUZ",
+        "PRIMORSKO GORANSKI SAVEZ - PGS",
+        "HRVATSKA RADNIČKA STRANKA - HRS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "ba51d6efa972b519797c094f8abe54a96ee9e846783a46c0fe6df31221c50cb5",
+       "group_sha256": "c2949b0773eb730824c4d5084e3f94711b2824af61571658a088f4e428d82167"
+      },
+      {
+       "row": 9,
+       "votes": 5190,
+       "printed_percent": "2,12",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA DR.ANTE STARČEVIĆ - HSP DR.ANTE STARČEVIĆ",
+        "HRVATSKA ČISTA STRANKA PRAVA - HČSP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "e79ce4758261f6268bee06d83023e2a2d1a28ccb024a919fb4575490d4d0ef40",
+       "group_sha256": "4ee0812edebc9748fbbd6d43aaaa09451db1432cbbb1c4e1028a50d95f5b90fc"
+      },
+      {
+       "row": 10,
+       "votes": 2850,
+       "printed_percent": "1,16",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633",
+       "group_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633"
+      },
+      {
+       "row": 11,
+       "votes": 2817,
+       "printed_percent": "1,15",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI RAST - HRAST"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "a45eb06704576bee71f731793da9ff26f2f53b7d5f8999167d51da2f71a83348",
+       "group_sha256": "5abe6e1db7a5916387aad7028d668dd339e23f1ab1e843e0674ec99c47ba6a5b"
+      },
+      {
+       "row": 12,
+       "votes": 1715,
+       "printed_percent": "0,70",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA - HRVATSKA SELJAČKA STRANKA - A-HSS",
+        "SAVEZ ZA PROMJENE - SP",
+        "DEMOKRATSKA PRIGORSKO-ZAGREBAČKA STRANKA - DPS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "6079e3e5bb8a67a5aedcd9025b75417e03e2626fe1142455ec626d0823f444b7",
+       "group_sha256": "abc6b38f75d52cca20b0b5a457d027c9d0c26c8f9afc863c984aad0539b34608"
+      },
+      {
+       "row": 13,
+       "votes": 1683,
+       "printed_percent": "0,69",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA SOCIJALDEMOKRATA HRVATSKE - ASH",
+        "STRANKA UMIROVLJENIKA HRVATSKE-BLOK UMIROVLJENICI ZAJEDNO - SUH",
+        "SPLITSKA STRANKA UMIROVLJENIKA - SSU"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "664128308a1041fe702e0ba727f4299c4e3ed0edf3113f3a3be599fae9e065d5",
+       "group_sha256": "be555f1272db4975441bfc5f76726b17ec23a5d56ea35f0f204996916a19c291"
+      },
+      {
+       "row": 14,
+       "votes": 1578,
+       "printed_percent": "0,64",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA ZA BOLJU HRVATSKU - ABH",
+        "JEDINO HRVATSKA - POKRET ZA HRVATSKU - JEDINO HRVATSKA"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "69710472eeff236269419809627b4b8ec0e08f1433926a2c688429175f03bd21",
+       "group_sha256": "d620a5069e4eb1aef902d7451f5c7a2c63e8e810940da83dd0865f8b65d31ddd"
+      },
+      {
+       "row": 15,
+       "votes": 1323,
+       "printed_percent": "0,54",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "9e50a12f4db9744f043f63ab9ff567cf0734f47ba81c19011e9a5c9e69244730",
+       "group_sha256": "2d414c7d3f19a499d343a3a22ce00c1f4b750d13cc10f56bdcf714c252ff0fb7"
+      },
+      {
+       "row": 16,
+       "votes": 1185,
+       "printed_percent": "0,48",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA SELJAČKA STRANKA - HDSS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "31276ea22fc544dc0398d3430ef144be3779f5cb20f9da75fd56e2c594b83e55",
+       "group_sha256": "d6d9fad372b30d6a9c4c6543734ace79615e931ee1e08f99da6a03da657d4a40"
+      },
+      {
+       "row": 17,
+       "votes": 991,
+       "printed_percent": "0,40",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA DEMOKRŠĆANSKA STRANKA - HDS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "ac7cd1cb4704fe770db717b91fa49e0c4b45f2fba6d29e324c522547e6f68c7d",
+       "group_sha256": "75141d58e2c230cf2ffca6e4f7e8d3b9536114326b43315d714d1cd12806a3bf"
+      },
+      {
+       "row": 18,
+       "votes": 877,
+       "printed_percent": "0,36",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA ŽENA - DSŽ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c44a1ac27ed6250879e7c1a0271d5bf7c850033d0ae3cc679a0fe50c6f43fd58",
+       "group_sha256": "4fa631b7ba542186ea7ea5642c0c622e1bb3eb660eb87be1fb92632535fd0ad9"
+      },
+      {
+       "row": 19,
+       "votes": 830,
+       "printed_percent": "0,34",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA MLADIH - AM"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "ffeadf1d0c1289fea6871e72d6e6300df7be76c5d227a3d00c974d03b827a7f9",
+       "group_sha256": "81224cecf9547767a3207c119b379f40892c99398c394dc46d9c44d1b4914d65"
+      },
+      {
+       "row": 20,
+       "votes": 754,
+       "printed_percent": "0,31",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA-HRVATSKA STRANKA PRAVA - A-HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "dadf2481b5ab34ceef91e8e15d3637f4028ff290a71aaadd5b911a4e1fb34e15",
+       "group_sha256": "c01ff45e7e44d80970a1a7f2a33a0a07b7e9bc1ab3d253411fcdc5c4ec2512d1"
+      },
+      {
+       "row": 21,
+       "votes": 607,
+       "printed_percent": "0,25",
+       "seats": 0,
+       "parties_named": [
+        "AGENDA MLADIH DEMOKRATA - AMD",
+        "HRVATSKA STRANKA MLADIH - HSM"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "7bf170f226430b93b8b46d1dd630cbbc8c201263acb48c002b69187f5999c900",
+       "group_sha256": "6948cde6c91082d1c2b6c61e0d50f66518e8064934695b03e8d3bd671db78454"
+      },
+      {
+       "row": 22,
+       "votes": 525,
+       "printed_percent": "0,21",
+       "seats": 0,
+       "parties_named": [
+        "SOCIJALISTIČKA RADNIČKA PARTIJA HRVATSKE - SRP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "08e556733771632f3e78b2e222451643d69cdd922ea50c201799170b20264d07",
+       "group_sha256": "f3104f0ef430257b27481b7f1f561ef93e6f3db425183c9ff6b29a3279518d21"
+      },
+      {
+       "row": 23,
+       "votes": 506,
+       "printed_percent": "0,21",
+       "seats": 0,
+       "parties_named": [
+        "ZELENI ZAJEDNO"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "e663a455d5b5fa95675dc43294604e9a5c3b855e7e14b2b10db8a3e6748a0c5f",
+       "group_sha256": "1fd44cdf4afe8c088c20458deb767418616beb8035d8b3342d0a5bce9b0d45f7"
+      },
+      {
+       "row": 24,
+       "votes": 431,
+       "printed_percent": "0,18",
+       "seats": 0,
+       "parties_named": [
+        "ZAGREBAČKA NEZAVISNA LISTA - ZNL"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "52823126a80b13d998e1c1d0903b35fd33e65df47a87e41ccda06c02749b0e77",
+       "group_sha256": "7e49dff8bdf386ea767f6f010ff20f269c5bd2f9120b6141c63bedbf374a0d8b"
+      },
+      {
+       "row": 25,
+       "votes": 394,
+       "printed_percent": "0,16",
+       "seats": 0,
+       "parties_named": [
+        "OBITELJSKA STRANKA - OS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "daa9011085062ba3db74651c603dfd5a4f4dccc3c931689cf55966bb5bd81c5c",
+       "group_sha256": "2e963a79bb13b2424ba897e5cc31d8263a7704bb9ad91e26520a9f0d8cf21403"
+      },
+      {
+       "row": 26,
+       "votes": 392,
+       "printed_percent": "0,16",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA SLAVONSKE RAVNICE - SLAVONSKA RAVNICA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "9ed6075a15e4e0c32ef45e350535b969e7a2e77730315be7d02906a7d5544848",
+       "group_sha256": "951998644206bfb30003600491c1f54f98f9f13f7231a8ae19c573c54479e47d"
+      },
+      {
+       "row": 27,
+       "votes": 369,
+       "printed_percent": "0,15",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA STRANKA - ZS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "e4282f8406d2d1b33841271c56d94835f204e2b771c563c9405d06a28c68131e",
+       "group_sha256": "6668a9f5005b76d67a8a5098e35eb3612ddc0a7c972f2d5d15a9fed56d0af39e"
+      },
+      {
+       "row": 28,
+       "votes": 356,
+       "printed_percent": "0,15",
+       "seats": 0,
+       "parties_named": [
+        "VOLIM HRVATSKU - VH"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d30a5add207a49c4c00c7f4cf540357fa10c530c2ce939585501dfe735f2a281",
+       "group_sha256": "89f3f5d945e7975f584fbe806c910f8659d8715ea2e6b6e95d39be57c3014cf1"
+      },
+      {
+       "row": 29,
+       "votes": 338,
+       "printed_percent": "0,14",
+       "seats": 0,
+       "parties_named": [
+        "GLAS RAZUMA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "de71a3fb1f22e63cbc21ff4cff9ec4a17686d4933eb02bce72c985074cc9502b",
+       "group_sha256": "443aa19303cb2909a623612fd0134dddb13f81db7b65e26a1662f30f75be3879"
+      },
+      {
+       "row": 30,
+       "votes": 235,
+       "printed_percent": "0,10",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "b5068dad261a143c1f5a65a46d42aeb0d13db3e170eff64ca21042406262a2af",
+       "group_sha256": "b5068dad261a143c1f5a65a46d42aeb0d13db3e170eff64ca21042406262a2af"
+      },
+      {
+       "row": 31,
+       "votes": 195,
+       "printed_percent": "0,08",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA 21. STOLJEĆA - HRVATSKA 21."
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "a58701c967755bc4647af63a78eb8a6b5a3e4836e6751f9a91a38aaec104c812",
+       "group_sha256": "0385c4188a0d3f783a2e9a933d888847a6dd698380982a2dddb3ee954067fd1c"
+      },
+      {
+       "row": 32,
+       "votes": 188,
+       "printed_percent": "0,08",
+       "seats": 0,
+       "parties_named": [
+        "ABECEDA DEMOKRACIJE - ABECEDA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "9a74fd050cd0817345c1a0b42d1b3ef05440fd21538d0a17ec9cbd5504ff6e2e",
+       "group_sha256": "5fe9c3e0836d37017b83a5380e6e25561098844342a9bda1612868d79c8d2068"
+      },
+      {
+       "row": 33,
+       "votes": 147,
+       "printed_percent": "0,06",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA EUROPSKA STRANKA - HES"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "7fbbdccb04d9b2af5fc1cd1adba2d05cefb25ff02bc7472931acd30d2c8dd164",
+       "group_sha256": "dad1309820ff6211d979b57cfde0bcf645123542e4c4c91a30e9a0c55f1c1f36"
+      },
+      {
+       "row": 34,
+       "votes": 145,
+       "printed_percent": "0,06",
+       "seats": 0,
+       "parties_named": [
+        "NACIONALNI DEMOKRATI - ND"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "7e67cf017862df3b52241ebd3842ad858052371656a18a82a4fc895bb79c2d93",
+       "group_sha256": "0b8b777b74d74851e66abf9ac54563bb3c7fa9489dbbf5eac42d8d3e7b1f77a0"
+      },
+      {
+       "row": 35,
+       "votes": 119,
+       "printed_percent": "0,05",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "02685c4d3484b402fd6338689f14d314a27541d50e9b6da3c293ef8b39b18fb2",
+       "group_sha256": "02685c4d3484b402fd6338689f14d314a27541d50e9b6da3c293ef8b39b18fb2"
+      },
+      {
+       "row": 36,
+       "votes": 116,
+       "printed_percent": "0,05",
+       "seats": 0,
+       "parties_named": [
+        "NOVA HRVATSKA - NH"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "2f5a7e0b6ab5c2cd6bee03e23fe9f73246024c70c7a3b98a2386d7255968891e",
+       "group_sha256": "a7eaf6619cf99333b601fc5132e474c00c89f9981914d8fc87349f115c1d4216"
+      }
+     ],
+     "seats_section_iv_in_order": [
+      8,
+      4,
+      1,
+      1
+     ],
+     "lists_in_allocation_printed": 4
+    },
+    {
+     "unit_key": "02_003",
+     "document": "i_02_003_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_003_0000.pdf",
+     "publisher_file_sha256": "4d981e068db859d550574bf6181ac058507fb85e6326abceb7dc6e8d9b0c96fc",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-03",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 364332,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 233606,
+      "voted_by_ballots_pct": "64,12",
+      "valid": 229310,
+      "valid_pct": "98,16",
+      "invalid": 4296,
+      "invalid_pct": "1,84"
+     },
+     "kind": "territorial",
+     "constituency_number": 3,
+     "lists": [
+      {
+       "row": 1,
+       "votes": 120906,
+       "printed_percent": "52,73",
+       "seats": 10,
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "HRVATSKA NARODNA STRANKA - LIBERALNI DEMOKRATI - HNS",
+        "ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "HRVATSKA STRANKA UMIROVLJENIKA - HSU"
+       ],
+       "parties_named_count": 4,
+       "label_basis": "verbatim",
+       "title_sha256": "d8a1088d4ea6527a0b7d96d5ba19796b0ed39a85686d55fcfa088bf806d38961",
+       "group_sha256": "77ae9e1c17ce596587a5a3ccb26d34590b04e5e2b967f1e1f405fd7cd2d44ef8"
+      },
+      {
+       "row": 2,
+       "votes": 35615,
+       "printed_percent": "15,53",
+       "seats": 3,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d0bb53289cbf3b9770d55e02508cc0ebdb9f1ef383f5d38b4b5da897eb38436d",
+       "group_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 3,
+       "votes": 23200,
+       "printed_percent": "10,12",
+       "seats": 1,
+       "parties_named": [
+        "HRVATSKI LABURISTI-STRANKA RADA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "212dd12a287816585cefa265912fa291e1d99d897c36ddf0313520e2dc80e5ea",
+       "group_sha256": "a9f0f4dcb3105c8d7f90bbc41f8757532bf6b3b29bd97a286a02e772020e54e9"
+      },
+      {
+       "row": 4,
+       "votes": 9070,
+       "printed_percent": "3,96",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "01599e66ec1f3e583aa2fbf3886f4eb84af608926ddda6d807724ad871d309c2",
+       "group_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 5,
+       "votes": 7320,
+       "printed_percent": "3,19",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SOCIJALNO-LIBERALNA STRANKA - HSLS",
+        "ZAGORSKA DEMOKRATSKA STRANKA - ZDS"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "823e2ea4ceff8c7530b1ed8f74e8816542d68a519ab85f182630241916097466",
+       "group_sha256": "1527cc1756210e137e011fdc2d6457a8bc85affc7ac0bb9dc29a2d0e7084e13c"
+      },
+      {
+       "row": 6,
+       "votes": 5076,
+       "printed_percent": "2,21",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI RAST - HRAST"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "5c5e818565500e636568aab3199fc4072cb88e2f4d262bb96b98e63c596cf393",
+       "group_sha256": "5abe6e1db7a5916387aad7028d668dd339e23f1ab1e843e0674ec99c47ba6a5b"
+      },
+      {
+       "row": 7,
+       "votes": 4627,
+       "printed_percent": "2,02",
+       "seats": 0,
+       "parties_named": [
+        "BLOK UMIROVLJENICI ZAJEDNO - BUZ",
+        "PRIMORSKO GORANSKI SAVEZ - PGS",
+        "HRVATSKA RADNIČKA STRANKA - HRS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "ba51d6efa972b519797c094f8abe54a96ee9e846783a46c0fe6df31221c50cb5",
+       "group_sha256": "c2949b0773eb730824c4d5084e3f94711b2824af61571658a088f4e428d82167"
+      },
+      {
+       "row": 8,
+       "votes": 3543,
+       "printed_percent": "1,55",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA - HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "995fb823bac32695b9154761719dad5bae71f8ef19faecf59ec155907fbd6562",
+       "group_sha256": "63b98a9a5ef37406009dd74fc22256aa18a214a8fa97ca2e5790d6747a2ae245"
+      },
+      {
+       "row": 9,
+       "votes": 1773,
+       "printed_percent": "0,77",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA ZA BOLJU HRVATSKU - ABH",
+        "JEDINO HRVATSKA - POKRET ZA HRVATSKU - JEDINO HRVATSKA"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "69710472eeff236269419809627b4b8ec0e08f1433926a2c688429175f03bd21",
+       "group_sha256": "d620a5069e4eb1aef902d7451f5c7a2c63e8e810940da83dd0865f8b65d31ddd"
+      },
+      {
+       "row": 10,
+       "votes": 1699,
+       "printed_percent": "0,74",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA - HRVATSKA SELJAČKA STRANKA - A-HSS",
+        "SAVEZ ZA PROMJENE - SP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "d1411e4ea454a8dbebab2a370faa2ded27ae84ac6a3405a79353f2609ee7fa62",
+       "group_sha256": "bae31b811e6352ddb66b0b87a06fd04dba241c5f414f82c4b61f3a44deef809b"
+      },
+      {
+       "row": 11,
+       "votes": 1667,
+       "printed_percent": "0,73",
+       "seats": 0,
+       "parties_named": [
+        "MEĐIMURSKI DEMOKRATSKI SAVEZ - MDS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "9a3f311e5f2ec4a47bf7ed2d9f5f44dbfba6a32f66bd3f130fdac94bf0752ed2",
+       "group_sha256": "5d267553a0a96d55cbfd429bbf5402abb4a2ded8d029b2f1a920897997552e0d"
+      },
+      {
+       "row": 12,
+       "votes": 1635,
+       "printed_percent": "0,71",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633",
+       "group_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633"
+      },
+      {
+       "row": 13,
+       "votes": 1603,
+       "printed_percent": "0,70",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA SOCIJALDEMOKRATA HRVATSKE - ASH",
+        "STRANKA UMIROVLJENIKA HRVATSKE-BLOK UMIROVLJENICI ZAJEDNO - SUH",
+        "SPLITSKA STRANKA UMIROVLJENIKA - SSU"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "664128308a1041fe702e0ba727f4299c4e3ed0edf3113f3a3be599fae9e065d5",
+       "group_sha256": "be555f1272db4975441bfc5f76726b17ec23a5d56ea35f0f204996916a19c291"
+      },
+      {
+       "row": 14,
+       "votes": 1335,
+       "printed_percent": "0,58",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA DR.ANTE STARČEVIĆ - HSP DR.ANTE STARČEVIĆ",
+        "HRVATSKA ČISTA STRANKA PRAVA - HČSP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "efd66e5ce8dfd8a4e185a3547fa24be7c87722992357cb872b352c19d16ab44d",
+       "group_sha256": "4ee0812edebc9748fbbd6d43aaaa09451db1432cbbb1c4e1028a50d95f5b90fc"
+      },
+      {
+       "row": 15,
+       "votes": 1326,
+       "printed_percent": "0,58",
+       "seats": 0,
+       "parties_named": [
+        "ZAGORSKA STRANKA - ZS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "3266c7a839cf525fd37949d7f6ea35a56e73ee74037612dd644ee0871e8b9a06",
+       "group_sha256": "170b091ef5d0ef56d333d8c8c389051679f6589241441a87ea975b3375d4efca"
+      },
+      {
+       "row": 16,
+       "votes": 1295,
+       "printed_percent": "0,56",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "306b57ce19a9ad2367bd81ba92a3f316b0359264abf31a9f9fb71f3704390a60",
+       "group_sha256": "306b57ce19a9ad2367bd81ba92a3f316b0359264abf31a9f9fb71f3704390a60"
+      },
+      {
+       "row": 17,
+       "votes": 1236,
+       "printed_percent": "0,54",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA SELJAČKA STRANKA - HDSS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "e425240b9daa676be506ecc27e33b2a9b996d5d12cf4b3a7155adc574fc11a6e",
+       "group_sha256": "d6d9fad372b30d6a9c4c6543734ace79615e931ee1e08f99da6a03da657d4a40"
+      },
+      {
+       "row": 18,
+       "votes": 913,
+       "printed_percent": "0,40",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA ŽENA - DSŽ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c44a1ac27ed6250879e7c1a0271d5bf7c850033d0ae3cc679a0fe50c6f43fd58",
+       "group_sha256": "4fa631b7ba542186ea7ea5642c0c622e1bb3eb660eb87be1fb92632535fd0ad9"
+      },
+      {
+       "row": 19,
+       "votes": 846,
+       "printed_percent": "0,37",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA ZELENIH - EKO SAVEZ - ZELENI"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "760516273db2cc42b830386b655b8849141f3908b9183c8157f007ac98c7e51a",
+       "group_sha256": "513e8c184feb4d02cf59bd98bf32eb8b17f0d2490d45faa8bdb3080d69e8400f"
+      },
+      {
+       "row": 20,
+       "votes": 717,
+       "printed_percent": "0,31",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA MLADIH - AM"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "36282d6926b9779722cc113d896cb719b105aae9fc8a609c38bcfa19120e6495",
+       "group_sha256": "81224cecf9547767a3207c119b379f40892c99398c394dc46d9c44d1b4914d65"
+      },
+      {
+       "row": 21,
+       "votes": 585,
+       "printed_percent": "0,26",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "9e720ee14fc4503a8ded3ff308f484bd923acb96a03ef9c412828b9c10e3dd0c",
+       "group_sha256": "b664c41534c428a938e14556771eb298921d77b09ac592bb8830ba3a841ae698"
+      },
+      {
+       "row": 22,
+       "votes": 550,
+       "printed_percent": "0,24",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "9f0b4293d8c68bc9cffbb09b4d75a8cb2b7bd2893a7587e923a440f1efa4ae39",
+       "group_sha256": "2d414c7d3f19a499d343a3a22ce00c1f4b750d13cc10f56bdcf714c252ff0fb7"
+      },
+      {
+       "row": 23,
+       "votes": 473,
+       "printed_percent": "0,21",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA STRANKA - ZS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "17c2d3cfc541c4c9c333eb334dd5848f7bda152a497278686f790b6db7d5fdde",
+       "group_sha256": "6668a9f5005b76d67a8a5098e35eb3612ddc0a7c972f2d5d15a9fed56d0af39e"
+      },
+      {
+       "row": 24,
+       "votes": 443,
+       "printed_percent": "0,19",
+       "seats": 0,
+       "parties_named": [
+        "SOCIJALISTIČKA RADNIČKA PARTIJA HRVATSKE - SRP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "cded9c58a07b1d7671b4fca166ef1a56c8f113eb0a20b034c7ce822a46efb3a0",
+       "group_sha256": "f3104f0ef430257b27481b7f1f561ef93e6f3db425183c9ff6b29a3279518d21"
+      },
+      {
+       "row": 25,
+       "votes": 442,
+       "printed_percent": "0,19",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA-HRVATSKA STRANKA PRAVA - A-HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "fc722b192ab525759273b6b4963e54b52c566c3a62bec70cdbeb5748b4d965f5",
+       "group_sha256": "c01ff45e7e44d80970a1a7f2a33a0a07b7e9bc1ab3d253411fcdc5c4ec2512d1"
+      },
+      {
+       "row": 26,
+       "votes": 394,
+       "printed_percent": "0,17",
+       "seats": 0,
+       "parties_named": [
+        "AGENDA MLADIH DEMOKRATA - AMD",
+        "HRVATSKA STRANKA MLADIH - HSM"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "cbbfbcd06eae7e48640d60ee2720142132bd8f404ef0113989764db87b22b08f",
+       "group_sha256": "6948cde6c91082d1c2b6c61e0d50f66518e8064934695b03e8d3bd671db78454"
+      },
+      {
+       "row": 27,
+       "votes": 247,
+       "printed_percent": "0,11",
+       "seats": 0,
+       "parties_named": [
+        "ABECEDA DEMOKRACIJE - ABECEDA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "3e5618125923cb1551a9a4218ebc1761dff407675cc0d97d363fbda813209026",
+       "group_sha256": "5fe9c3e0836d37017b83a5380e6e25561098844342a9bda1612868d79c8d2068"
+      },
+      {
+       "row": 28,
+       "votes": 245,
+       "printed_percent": "0,11",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA EUROPSKA STRANKA - HES"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "7fbbdccb04d9b2af5fc1cd1adba2d05cefb25ff02bc7472931acd30d2c8dd164",
+       "group_sha256": "dad1309820ff6211d979b57cfde0bcf645123542e4c4c91a30e9a0c55f1c1f36"
+      },
+      {
+       "row": 29,
+       "votes": 233,
+       "printed_percent": "0,10",
+       "seats": 0,
+       "parties_named": [
+        "NOVA HRVATSKA - NH"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "7614a3c40cdd577b95e1bce2b466d23d659bbe0c2bdf7558fe081a3ba0907d65",
+       "group_sha256": "a7eaf6619cf99333b601fc5132e474c00c89f9981914d8fc87349f115c1d4216"
+      },
+      {
+       "row": 30,
+       "votes": 178,
+       "printed_percent": "0,08",
+       "seats": 0,
+       "parties_named": [
+        "NACIONALNI DEMOKRATI - ND"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "e6ed6b5e4b236f0225f3880772fa1e863dcd3bcf74eb56d25fd8c9f21bdd102c",
+       "group_sha256": "0b8b777b74d74851e66abf9ac54563bb3c7fa9489dbbf5eac42d8d3e7b1f77a0"
+      },
+      {
+       "row": 31,
+       "votes": 118,
+       "printed_percent": "0,05",
+       "seats": 0,
+       "parties_named": [
+        "STRANKA HRVATSKOG ZAJEDNIŠTVA - SHZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "5d077c0ab668a5e6a6c269370997977458552970e5725f6d7fd36656e7c8e36b",
+       "group_sha256": "c5ac0671fdbae0dbf6b677a42fac419ed563d45b8e3c68c5227154271dfb4802"
+      }
+     ],
+     "seats_section_iv_in_order": [
+      10,
+      3,
+      1
+     ],
+     "lists_in_allocation_printed": 3
+    },
+    {
+     "unit_key": "02_004",
+     "document": "i_02_004_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_004_0000.pdf",
+     "publisher_file_sha256": "b6ba05abef8462c192111388c2a0230ea6bb693b1703db2b6e8c36665c9982f1",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-04",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 333927,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 209387,
+      "voted_by_ballots_pct": "62,70",
+      "valid": 206278,
+      "valid_pct": "98,52",
+      "invalid": 3109,
+      "invalid_pct": "1,48"
+     },
+     "kind": "territorial",
+     "constituency_number": 4,
+     "lists": [
+      {
+       "row": 1,
+       "votes": 68188,
+       "printed_percent": "33,06",
+       "seats": 6,
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "HRVATSKA NARODNA STRANKA - LIBERALNI DEMOKRATI - HNS",
+        "ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "HRVATSKA STRANKA UMIROVLJENIKA - HSU"
+       ],
+       "parties_named_count": 4,
+       "label_basis": "verbatim",
+       "title_sha256": "814f60fd9e7285674c93785476c78944ba8f1da2cd705879d0708bbb95c85bde",
+       "group_sha256": "77ae9e1c17ce596587a5a3ccb26d34590b04e5e2b967f1e1f405fd7cd2d44ef8"
+      },
+      {
+       "row": 2,
+       "votes": 48377,
+       "printed_percent": "23,45",
+       "seats": 4,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d0bb53289cbf3b9770d55e02508cc0ebdb9f1ef383f5d38b4b5da897eb38436d",
+       "group_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 3,
+       "votes": 44687,
+       "printed_percent": "21,66",
+       "seats": 4,
+       "parties_named": [
+        "HRVATSKI DEMOKRATSKI SAVEZ SLAVONIJE I BARANJE - HDSSB"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "7c136dfb2cbc952b56b16b077b0897cfd7945c1ff3f857d93770d7c833e91654",
+       "group_sha256": "006dd466fd34c12a65d619874068c2f05c8ca4d10a1d9750d2f4d12818583ff6"
+      },
+      {
+       "row": 4,
+       "votes": 9665,
+       "printed_percent": "4,69",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA - HSP",
+        "\"HRVATSKA STRAŽA\" NACIONALNA STRANKA - HS NS"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "1a836dbc593db6de4e138933b2c41da9415d6e99be67f08a90876dc03ca763fb",
+       "group_sha256": "ab705dd66ff7a2c8f9a4f28b621e2897e8fd9e03451857bc52301ff832de1502"
+      },
+      {
+       "row": 5,
+       "votes": 7008,
+       "printed_percent": "3,40",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI LABURISTI-STRANKA RADA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "212dd12a287816585cefa265912fa291e1d99d897c36ddf0313520e2dc80e5ea",
+       "group_sha256": "a9f0f4dcb3105c8d7f90bbc41f8757532bf6b3b29bd97a286a02e772020e54e9"
+      },
+      {
+       "row": 6,
+       "votes": 4867,
+       "printed_percent": "2,36",
+       "seats": 0,
+       "parties_named": [
+        "BLOK UMIROVLJENICI ZAJEDNO - BUZ",
+        "PRIMORSKO GORANSKI SAVEZ - PGS",
+        "HRVATSKA RADNIČKA STRANKA - HRS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "ba51d6efa972b519797c094f8abe54a96ee9e846783a46c0fe6df31221c50cb5",
+       "group_sha256": "c2949b0773eb730824c4d5084e3f94711b2824af61571658a088f4e428d82167"
+      },
+      {
+       "row": 7,
+       "votes": 3505,
+       "printed_percent": "1,70",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "e2c3d5fb4dd59ca8fc12b8dd75851a96bccede40a42fcab9ee9668fa3f97494b",
+       "group_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 8,
+       "votes": 3272,
+       "printed_percent": "1,59",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SOCIJALNO-LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "3e5424d8568b3ae686e8dd81a06ce35c866119b7ebec79cbdcb03a62271dd87b",
+       "group_sha256": "879b6a7e0905d54e2021c70702d980bab335a7513dd19254b3ba7c80872a5d93"
+      },
+      {
+       "row": 9,
+       "votes": 2685,
+       "printed_percent": "1,30",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA DR.ANTE STARČEVIĆ - HSP DR.ANTE STARČEVIĆ",
+        "HRVATSKA ČISTA STRANKA PRAVA - HČSP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "efd66e5ce8dfd8a4e185a3547fa24be7c87722992357cb872b352c19d16ab44d",
+       "group_sha256": "4ee0812edebc9748fbbd6d43aaaa09451db1432cbbb1c4e1028a50d95f5b90fc"
+      },
+      {
+       "row": 10,
+       "votes": 2337,
+       "printed_percent": "1,13",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA SLAVONSKE RAVNICE - SLAVONSKA RAVNICA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "9ed6075a15e4e0c32ef45e350535b969e7a2e77730315be7d02906a7d5544848",
+       "group_sha256": "951998644206bfb30003600491c1f54f98f9f13f7231a8ae19c573c54479e47d"
+      },
+      {
+       "row": 11,
+       "votes": 1962,
+       "printed_percent": "0,95",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633",
+       "group_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633"
+      },
+      {
+       "row": 12,
+       "votes": 1360,
+       "printed_percent": "0,66",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI RAST - HRAST"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "2cc297db1e8506d87fcfab2028b5aa3703da150b02fd6cfa88affcfdc6b0f375",
+       "group_sha256": "5abe6e1db7a5916387aad7028d668dd339e23f1ab1e843e0674ec99c47ba6a5b"
+      },
+      {
+       "row": 13,
+       "votes": 1333,
+       "printed_percent": "0,65",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "a7b45ec4f9c95ae6a869e3bdc463e117fba7f6f9585f0d71205cc1ad12aa231d",
+       "group_sha256": "a7b45ec4f9c95ae6a869e3bdc463e117fba7f6f9585f0d71205cc1ad12aa231d"
+      },
+      {
+       "row": 14,
+       "votes": 1121,
+       "printed_percent": "0,54",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA SOCIJALDEMOKRATA HRVATSKE - ASH",
+        "STRANKA UMIROVLJENIKA HRVATSKE-BLOK UMIROVLJENICI ZAJEDNO - SUH",
+        "SPLITSKA STRANKA UMIROVLJENIKA - SSU"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "664128308a1041fe702e0ba727f4299c4e3ed0edf3113f3a3be599fae9e065d5",
+       "group_sha256": "be555f1272db4975441bfc5f76726b17ec23a5d56ea35f0f204996916a19c291"
+      },
+      {
+       "row": 15,
+       "votes": 836,
+       "printed_percent": "0,41",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA SELJAČKA STRANKA - HDSS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c570e1e52b1e7ca1b31634c5ae1c3e71f40d1ca1760b760e1a0adfb71b11d609",
+       "group_sha256": "d6d9fad372b30d6a9c4c6543734ace79615e931ee1e08f99da6a03da657d4a40"
+      },
+      {
+       "row": 16,
+       "votes": 799,
+       "printed_percent": "0,39",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA ŽENA - DSŽ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c44a1ac27ed6250879e7c1a0271d5bf7c850033d0ae3cc679a0fe50c6f43fd58",
+       "group_sha256": "4fa631b7ba542186ea7ea5642c0c622e1bb3eb660eb87be1fb92632535fd0ad9"
+      },
+      {
+       "row": 17,
+       "votes": 652,
+       "printed_percent": "0,32",
+       "seats": 0,
+       "parties_named": [
+        "SAVEZ ZA PROMJENE - SP",
+        "AUTOHTONA - HRVATSKA SELJAČKA STRANKA - A-HSS"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "0fdca0f94a6308dac57a4e5308896530f0bb739a001bd2e1e3126a955a27919b",
+       "group_sha256": "ec9d4c663ba3811b24c40063ebef225c56e8711c3d1f46558b24f9ab4611c67a"
+      },
+      {
+       "row": 18,
+       "votes": 594,
+       "printed_percent": "0,29",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA-HRVATSKA STRANKA PRAVA - A-HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "4a1fb098d7767a136100f13dde223d588af797eb5132e0202ffbb76d92a47252",
+       "group_sha256": "c01ff45e7e44d80970a1a7f2a33a0a07b7e9bc1ab3d253411fcdc5c4ec2512d1"
+      },
+      {
+       "row": 19,
+       "votes": 529,
+       "printed_percent": "0,26",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA MLADIH - AM"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1ccab957340282356937206bfd62dc2269bab69b8ee9494b8126289d5096ee29",
+       "group_sha256": "81224cecf9547767a3207c119b379f40892c99398c394dc46d9c44d1b4914d65"
+      },
+      {
+       "row": 20,
+       "votes": 477,
+       "printed_percent": "0,23",
+       "seats": 0,
+       "parties_named": [
+        "ZELENI HRVATSKE - ZELENI HR"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "ab1925b78e54cfbeb5cf07e62f2ec80242d670a6cc89b4d2b31e3833f9cdbb69",
+       "group_sha256": "3617e36b91d116e9ccb235249b681f5a9a7b934207c29c5b4153b7c5701c1cd1"
+      },
+      {
+       "row": 21,
+       "votes": 415,
+       "printed_percent": "0,20",
+       "seats": 0,
+       "parties_named": [
+        "SOCIJALISTIČKA RADNIČKA PARTIJA HRVATSKE - SRP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "4cb0655fd88251c51ea0c15c6f68b48d11dab92cac7d53ca33f27da4fc0588fa",
+       "group_sha256": "f3104f0ef430257b27481b7f1f561ef93e6f3db425183c9ff6b29a3279518d21"
+      },
+      {
+       "row": 22,
+       "votes": 351,
+       "printed_percent": "0,17",
+       "seats": 0,
+       "parties_named": [
+        "AGENDA MLADIH DEMOKRATA - AMD",
+        "HRVATSKA STRANKA MLADIH - HSM"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "ce244f3fab1631c07ec85ddd75f74ae7df62e324a3f2ec8150ba8c29a8d3863e",
+       "group_sha256": "6948cde6c91082d1c2b6c61e0d50f66518e8064934695b03e8d3bd671db78454"
+      },
+      {
+       "row": 23,
+       "votes": 335,
+       "printed_percent": "0,16",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "5aacb1c8f5105ad6f5343f25f15ebc4fa47e0a8ec13ee69712068467d43fd20c",
+       "group_sha256": "2d414c7d3f19a499d343a3a22ce00c1f4b750d13cc10f56bdcf714c252ff0fb7"
+      },
+      {
+       "row": 24,
+       "votes": 269,
+       "printed_percent": "0,13",
+       "seats": 0,
+       "parties_named": [
+        "ABECEDA DEMOKRACIJE - ABECEDA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "0ff9806a09c7c0bfc67237e614975712bcb13fb646bffbbaf1083fd2694b84e0",
+       "group_sha256": "5fe9c3e0836d37017b83a5380e6e25561098844342a9bda1612868d79c8d2068"
+      },
+      {
+       "row": 25,
+       "votes": 249,
+       "printed_percent": "0,12",
+       "seats": 0,
+       "parties_named": [
+        "VOLIM HRVATSKU - VH"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d30a5add207a49c4c00c7f4cf540357fa10c530c2ce939585501dfe735f2a281",
+       "group_sha256": "89f3f5d945e7975f584fbe806c910f8659d8715ea2e6b6e95d39be57c3014cf1"
+      },
+      {
+       "row": 26,
+       "votes": 211,
+       "printed_percent": "0,10",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA STRANKA - ZS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "36f76121f7d342e72438e35d136520b355873b7139179dc3883ed4dd3b4799ca",
+       "group_sha256": "6668a9f5005b76d67a8a5098e35eb3612ddc0a7c972f2d5d15a9fed56d0af39e"
+      },
+      {
+       "row": 27,
+       "votes": 106,
+       "printed_percent": "0,05",
+       "seats": 0,
+       "parties_named": [
+        "JEDINO HRVATSKA - POKRET ZA HRVATSKU - JEDINO HRVATSKA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "e2dbf4a76c411971a2058ebb01d73659e638dfb39394518aef939da96683cb54",
+       "group_sha256": "c8cf3b63ea9b445eaac999be2756aaa4adcee2cc1c1d55ee8a1e6215cb954af8"
+      },
+      {
+       "row": 28,
+       "votes": 88,
+       "printed_percent": "0,04",
+       "seats": 0,
+       "parties_named": [
+        "NACIONALNI DEMOKRATI - ND"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1ec79e1567d97921727b85396c761b7c104dafbbe30aa92fd3620e1fea0e76ef",
+       "group_sha256": "0b8b777b74d74851e66abf9ac54563bb3c7fa9489dbbf5eac42d8d3e7b1f77a0"
+      }
+     ],
+     "seats_section_iv_in_order": [
+      6,
+      4,
+      4
+     ],
+     "lists_in_allocation_printed": 3
+    },
+    {
+     "unit_key": "02_005",
+     "document": "i_02_005_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_005_0000.pdf",
+     "publisher_file_sha256": "6d81fde520d42ff88c4706c2ea96fb77a52f345e88724110acc7fc8f941873c8",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-05",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 367654,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 215996,
+      "voted_by_ballots_pct": "58,75",
+      "valid": 212371,
+      "valid_pct": "98,32",
+      "invalid": 3625,
+      "invalid_pct": "1,68"
+     },
+     "kind": "territorial",
+     "constituency_number": 5,
+     "lists": [
+      {
+       "row": 1,
+       "votes": 69929,
+       "printed_percent": "32,93",
+       "seats": 6,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d0bb53289cbf3b9770d55e02508cc0ebdb9f1ef383f5d38b4b5da897eb38436d",
+       "group_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "votes": 68447,
+       "printed_percent": "32,23",
+       "seats": 6,
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "HRVATSKA NARODNA STRANKA - LIBERALNI DEMOKRATI - HNS",
+        "ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "HRVATSKA STRANKA UMIROVLJENIKA - HSU"
+       ],
+       "parties_named_count": 4,
+       "label_basis": "verbatim",
+       "title_sha256": "814f60fd9e7285674c93785476c78944ba8f1da2cd705879d0708bbb95c85bde",
+       "group_sha256": "77ae9e1c17ce596587a5a3ccb26d34590b04e5e2b967f1e1f405fd7cd2d44ef8"
+      },
+      {
+       "row": 3,
+       "votes": 24308,
+       "printed_percent": "11,45",
+       "seats": 2,
+       "parties_named": [
+        "HRVATSKI DEMOKRATSKI SAVEZ SLAVONIJE I BARANJE - HDSSB"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "7c136dfb2cbc952b56b16b077b0897cfd7945c1ff3f857d93770d7c833e91654",
+       "group_sha256": "006dd466fd34c12a65d619874068c2f05c8ca4d10a1d9750d2f4d12818583ff6"
+      },
+      {
+       "row": 4,
+       "votes": 9953,
+       "printed_percent": "4,69",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA - HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "6ca8afcb24587de3603935739c39ae191358ef19350209c6b7165f6b15c8ff22",
+       "group_sha256": "63b98a9a5ef37406009dd74fc22256aa18a214a8fa97ca2e5790d6747a2ae245"
+      },
+      {
+       "row": 5,
+       "votes": 8517,
+       "printed_percent": "4,01",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA DR.ANTE STARČEVIĆ - HSP DR.ANTE STARČEVIĆ",
+        "HRVATSKA ČISTA STRANKA PRAVA - HČSP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "efd66e5ce8dfd8a4e185a3547fa24be7c87722992357cb872b352c19d16ab44d",
+       "group_sha256": "4ee0812edebc9748fbbd6d43aaaa09451db1432cbbb1c4e1028a50d95f5b90fc"
+      },
+      {
+       "row": 6,
+       "votes": 6905,
+       "printed_percent": "3,25",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "58aba9f280a4fe78e3707e11fad5d2b95a188979f48924a3655a2ef734ad5cab",
+       "group_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 7,
+       "votes": 5183,
+       "printed_percent": "2,44",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SOCIJALNO-LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "3e5424d8568b3ae686e8dd81a06ce35c866119b7ebec79cbdcb03a62271dd87b",
+       "group_sha256": "879b6a7e0905d54e2021c70702d980bab335a7513dd19254b3ba7c80872a5d93"
+      },
+      {
+       "row": 8,
+       "votes": 4695,
+       "printed_percent": "2,21",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI LABURISTI-STRANKA RADA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "212dd12a287816585cefa265912fa291e1d99d897c36ddf0313520e2dc80e5ea",
+       "group_sha256": "a9f0f4dcb3105c8d7f90bbc41f8757532bf6b3b29bd97a286a02e772020e54e9"
+      },
+      {
+       "row": 9,
+       "votes": 4429,
+       "printed_percent": "2,09",
+       "seats": 0,
+       "parties_named": [
+        "BLOK UMIROVLJENICI ZAJEDNO - BUZ",
+        "PRIMORSKO GORANSKI SAVEZ - PGS",
+        "HRVATSKA RADNIČKA STRANKA - HRS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "ba51d6efa972b519797c094f8abe54a96ee9e846783a46c0fe6df31221c50cb5",
+       "group_sha256": "c2949b0773eb730824c4d5084e3f94711b2824af61571658a088f4e428d82167"
+      },
+      {
+       "row": 10,
+       "votes": 1243,
+       "printed_percent": "0,59",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI RAST - HRAST"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "a88f137a33a9a14922f5fbd6ac0a184d99a6148b2aa97ada7129b245f7d1638a",
+       "group_sha256": "5abe6e1db7a5916387aad7028d668dd339e23f1ab1e843e0674ec99c47ba6a5b"
+      },
+      {
+       "row": 11,
+       "votes": 1108,
+       "printed_percent": "0,52",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA DEMOKRŠĆANSKA STRANKA - HDS",
+        "JEDINO HRVATSKA - POKRET ZA HRVATSKU - JEDINO HRVATSKA"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "14e85cfecc89618799593dd0fe02667891b55fd1eb648117e533a8db190ba369",
+       "group_sha256": "f0e7ecbb9bfe56f91c950ed9a355e09d1b3ed533d6c9a26eba7104c01c129219"
+      },
+      {
+       "row": 12,
+       "votes": 956,
+       "printed_percent": "0,45",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA SLAVONSKE RAVNICE - SLAVONSKA RAVNICA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "9ed6075a15e4e0c32ef45e350535b969e7a2e77730315be7d02906a7d5544848",
+       "group_sha256": "951998644206bfb30003600491c1f54f98f9f13f7231a8ae19c573c54479e47d"
+      },
+      {
+       "row": 13,
+       "votes": 944,
+       "printed_percent": "0,44",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA ŽENA - DSŽ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c44a1ac27ed6250879e7c1a0271d5bf7c850033d0ae3cc679a0fe50c6f43fd58",
+       "group_sha256": "4fa631b7ba542186ea7ea5642c0c622e1bb3eb660eb87be1fb92632535fd0ad9"
+      },
+      {
+       "row": 14,
+       "votes": 898,
+       "printed_percent": "0,42",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA SOCIJALDEMOKRATA HRVATSKE - ASH",
+        "STRANKA UMIROVLJENIKA HRVATSKE-BLOK UMIROVLJENICI ZAJEDNO - SUH",
+        "SPLITSKA STRANKA UMIROVLJENIKA - SSU"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "fb65f4557dccb44e94415783ba16e92a673ca2ea9e614a21320f26b625a63ba5",
+       "group_sha256": "be555f1272db4975441bfc5f76726b17ec23a5d56ea35f0f204996916a19c291"
+      },
+      {
+       "row": 15,
+       "votes": 725,
+       "printed_percent": "0,34",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA MLADIH - AM"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "2d35a6f124f4cbad3fd70a5a2fb093af9d103724fb251c9ddda627f3eebd017c",
+       "group_sha256": "81224cecf9547767a3207c119b379f40892c99398c394dc46d9c44d1b4914d65"
+      },
+      {
+       "row": 16,
+       "votes": 706,
+       "printed_percent": "0,33",
+       "seats": 0,
+       "parties_named": [
+        "SAVEZ ZA PROMJENE - SP",
+        "AUTOHTONA - HRVATSKA SELJAČKA STRANKA - A-HSS"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "6fd48c736eacdec1db1aee5af98c396bc6df154745bdafe11ce5701f63cf9e80",
+       "group_sha256": "ec9d4c663ba3811b24c40063ebef225c56e8711c3d1f46558b24f9ab4611c67a"
+      },
+      {
+       "row": 17,
+       "votes": 695,
+       "printed_percent": "0,33",
+       "seats": 0,
+       "parties_named": [
+        "NACIONALNI DEMOKRATI - ND"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d7e55fd7ed8522cc7786ac8b45c5b5dd15e518e651b5a6ef6c8b6eb8ef2d5a1a",
+       "group_sha256": "0b8b777b74d74851e66abf9ac54563bb3c7fa9489dbbf5eac42d8d3e7b1f77a0"
+      },
+      {
+       "row": 18,
+       "votes": 588,
+       "printed_percent": "0,28",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA-HRVATSKA STRANKA PRAVA - A-HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "2bf7be0daf50900f2010660dfbf789050ad8483ac5b519c0231d256d14c9ab6f",
+       "group_sha256": "c01ff45e7e44d80970a1a7f2a33a0a07b7e9bc1ab3d253411fcdc5c4ec2512d1"
+      },
+      {
+       "row": 19,
+       "votes": 475,
+       "printed_percent": "0,22",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA STRANKA - ZS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1bf3f365acff646c092d1bbfb32327dafc22505e0f62bd95ddf760fafd36bd94",
+       "group_sha256": "6668a9f5005b76d67a8a5098e35eb3612ddc0a7c972f2d5d15a9fed56d0af39e"
+      },
+      {
+       "row": 20,
+       "votes": 453,
+       "printed_percent": "0,21",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "ed5136fe5d3da38343ec3d525f13eabb9a195f7fa14be82e45fdccc3d0796358",
+       "group_sha256": "2d414c7d3f19a499d343a3a22ce00c1f4b750d13cc10f56bdcf714c252ff0fb7"
+      },
+      {
+       "row": 21,
+       "votes": 420,
+       "printed_percent": "0,20",
+       "seats": 0,
+       "parties_named": [
+        "STRANKA HRVATSKOG ZAJEDNIŠTVA - SHZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "5d077c0ab668a5e6a6c269370997977458552970e5725f6d7fd36656e7c8e36b",
+       "group_sha256": "c5ac0671fdbae0dbf6b677a42fac419ed563d45b8e3c68c5227154271dfb4802"
+      },
+      {
+       "row": 22,
+       "votes": 411,
+       "printed_percent": "0,19",
+       "seats": 0,
+       "parties_named": [
+        "SOCIJALISTIČKA RADNIČKA PARTIJA HRVATSKE - SRP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "a741cfa993753d33cd8bee03557bdba3df8054f38b0a78194674412eab187b1f",
+       "group_sha256": "f3104f0ef430257b27481b7f1f561ef93e6f3db425183c9ff6b29a3279518d21"
+      },
+      {
+       "row": 23,
+       "votes": 383,
+       "printed_percent": "0,18",
+       "seats": 0,
+       "parties_named": [
+        "ABECEDA DEMOKRACIJE - ABECEDA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "50eaba6b5bb9f7b894fac6891759cb325514bd704c1532e08037172ab9e0e9ea",
+       "group_sha256": "5fe9c3e0836d37017b83a5380e6e25561098844342a9bda1612868d79c8d2068"
+      }
+     ],
+     "seats_section_iv_in_order": [
+      6,
+      6,
+      2
+     ],
+     "lists_in_allocation_printed": 3
+    },
+    {
+     "unit_key": "02_006",
+     "document": "i_02_006_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_006_0000.pdf",
+     "publisher_file_sha256": "9498ff1442dcc4edd35199cd445ac32ad2901e871dbb08a129d431dd2c8775aa",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-06",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 352471,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 218179,
+      "voted_by_ballots_pct": "61,90",
+      "valid": 214334,
+      "valid_pct": "98,24",
+      "invalid": 3845,
+      "invalid_pct": "1,76"
+     },
+     "kind": "territorial",
+     "constituency_number": 6,
+     "lists": [
+      {
+       "row": 1,
+       "votes": 90280,
+       "printed_percent": "42,12",
+       "seats": 9,
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "HRVATSKA NARODNA STRANKA - LIBERALNI DEMOKRATI - HNS",
+        "ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "HRVATSKA STRANKA UMIROVLJENIKA - HSU"
+       ],
+       "parties_named_count": 4,
+       "label_basis": "verbatim",
+       "title_sha256": "814f60fd9e7285674c93785476c78944ba8f1da2cd705879d0708bbb95c85bde",
+       "group_sha256": "77ae9e1c17ce596587a5a3ccb26d34590b04e5e2b967f1e1f405fd7cd2d44ef8"
+      },
+      {
+       "row": 2,
+       "votes": 46055,
+       "printed_percent": "21,49",
+       "seats": 4,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+        "DEMOKRATSKI CENTAR - DC"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "d48f753b34aa2d5719185428e62232de4f38f2393dd3f06067da5d455dfdb0d9",
+       "group_sha256": "6c65875ccf784a772bb7bb6baebe15eb7bd4bceb1fc0c9ed9f627033ef348b4d"
+      },
+      {
+       "row": 3,
+       "votes": 12591,
+       "printed_percent": "5,87",
+       "seats": 1,
+       "parties_named": [
+        "HRVATSKI LABURISTI-STRANKA RADA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "212dd12a287816585cefa265912fa291e1d99d897c36ddf0313520e2dc80e5ea",
+       "group_sha256": "a9f0f4dcb3105c8d7f90bbc41f8757532bf6b3b29bd97a286a02e772020e54e9"
+      },
+      {
+       "row": 4,
+       "votes": 9884,
+       "printed_percent": "4,61",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "7ee6d3f225d068a8b5093c4e7848f71e812690eb0d6fa19759cd5911d60e1a8f",
+       "group_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 5,
+       "votes": 9559,
+       "printed_percent": "4,46",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SOCIJALNO-LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "3e5424d8568b3ae686e8dd81a06ce35c866119b7ebec79cbdcb03a62271dd87b",
+       "group_sha256": "879b6a7e0905d54e2021c70702d980bab335a7513dd19254b3ba7c80872a5d93"
+      },
+      {
+       "row": 6,
+       "votes": 9275,
+       "printed_percent": "4,33",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA - HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "465bc6b0d7a1eebe4ed21604c839f20fe38c5395ec8fa200f3498f07feb66de7",
+       "group_sha256": "63b98a9a5ef37406009dd74fc22256aa18a214a8fa97ca2e5790d6747a2ae245"
+      },
+      {
+       "row": 7,
+       "votes": 7287,
+       "printed_percent": "3,40",
+       "seats": 0,
+       "parties_named": [
+        "BLOK UMIROVLJENICI ZAJEDNO - BUZ",
+        "PRIMORSKO GORANSKI SAVEZ - PGS",
+        "HRVATSKA RADNIČKA STRANKA - HRS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "ba51d6efa972b519797c094f8abe54a96ee9e846783a46c0fe6df31221c50cb5",
+       "group_sha256": "c2949b0773eb730824c4d5084e3f94711b2824af61571658a088f4e428d82167"
+      },
+      {
+       "row": 8,
+       "votes": 6242,
+       "printed_percent": "2,91",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1342d97b7a6ee3e92f141cbbabea1f4c4d403ec6caa28456c3fe6d7cc8ba6b1b",
+       "group_sha256": "1342d97b7a6ee3e92f141cbbabea1f4c4d403ec6caa28456c3fe6d7cc8ba6b1b"
+      },
+      {
+       "row": 9,
+       "votes": 5232,
+       "printed_percent": "2,44",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA DR.ANTE STARČEVIĆ - HSP DR.ANTE STARČEVIĆ",
+        "HRVATSKA ČISTA STRANKA PRAVA - HČSP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "efd66e5ce8dfd8a4e185a3547fa24be7c87722992357cb872b352c19d16ab44d",
+       "group_sha256": "4ee0812edebc9748fbbd6d43aaaa09451db1432cbbb1c4e1028a50d95f5b90fc"
+      },
+      {
+       "row": 10,
+       "votes": 3355,
+       "printed_percent": "1,57",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633",
+       "group_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633"
+      },
+      {
+       "row": 11,
+       "votes": 2822,
+       "printed_percent": "1,32",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA - HRVATSKA SELJAČKA STRANKA - A-HSS",
+        "SAVEZ ZA PROMJENE - SP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "5d086d99803dae63aecab15bcf5d224d8fbff6cc4e1d3b72b5bc8a4a4618409b",
+       "group_sha256": "bae31b811e6352ddb66b0b87a06fd04dba241c5f414f82c4b61f3a44deef809b"
+      },
+      {
+       "row": 12,
+       "votes": 2520,
+       "printed_percent": "1,18",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI RAST - HRAST"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d072ead9d16675eb6ef5bdfdca8caa29fab0db060ce9fd1aed86f86b61cfceff",
+       "group_sha256": "5abe6e1db7a5916387aad7028d668dd339e23f1ab1e843e0674ec99c47ba6a5b"
+      },
+      {
+       "row": 13,
+       "votes": 1381,
+       "printed_percent": "0,64",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA SOCIJALDEMOKRATA HRVATSKE - ASH",
+        "STRANKA UMIROVLJENIKA HRVATSKE-BLOK UMIROVLJENICI ZAJEDNO - SUH",
+        "SPLITSKA STRANKA UMIROVLJENIKA - SSU"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "664128308a1041fe702e0ba727f4299c4e3ed0edf3113f3a3be599fae9e065d5",
+       "group_sha256": "be555f1272db4975441bfc5f76726b17ec23a5d56ea35f0f204996916a19c291"
+      },
+      {
+       "row": 14,
+       "votes": 811,
+       "printed_percent": "0,38",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA ŽENA - DSŽ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c44a1ac27ed6250879e7c1a0271d5bf7c850033d0ae3cc679a0fe50c6f43fd58",
+       "group_sha256": "4fa631b7ba542186ea7ea5642c0c622e1bb3eb660eb87be1fb92632535fd0ad9"
+      },
+      {
+       "row": 15,
+       "votes": 806,
+       "printed_percent": "0,38",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA MLADIH - AM"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "aee9a0867a64336776fad38af208a0f79a77c0eaf67f0c095982c473d3817327",
+       "group_sha256": "81224cecf9547767a3207c119b379f40892c99398c394dc46d9c44d1b4914d65"
+      },
+      {
+       "row": 16,
+       "votes": 758,
+       "printed_percent": "0,35",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "10963f41274b9da0d0c4cc9fcff3c0698d2b122c24cb6f3425776274fd81aae2",
+       "group_sha256": "2d414c7d3f19a499d343a3a22ce00c1f4b750d13cc10f56bdcf714c252ff0fb7"
+      },
+      {
+       "row": 17,
+       "votes": 704,
+       "printed_percent": "0,33",
+       "seats": 0,
+       "parties_named": [
+        "ZELENI ZAJEDNO"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "93db3367320325c147fd62dd8db7a7d73bee576d9b741d930b0f752f274cc3ce",
+       "group_sha256": "1fd44cdf4afe8c088c20458deb767418616beb8035d8b3342d0a5bce9b0d45f7"
+      },
+      {
+       "row": 18,
+       "votes": 673,
+       "printed_percent": "0,31",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA-HRVATSKA STRANKA PRAVA - A-HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "09527b14d6909b0b4f4dee446839028e43b723d23e43b01ae3e4c7e31c1b4b3b",
+       "group_sha256": "c01ff45e7e44d80970a1a7f2a33a0a07b7e9bc1ab3d253411fcdc5c4ec2512d1"
+      },
+      {
+       "row": 19,
+       "votes": 634,
+       "printed_percent": "0,30",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA SELJAČKA STRANKA - HDSS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "fccd6736a8ded1b69c5684a802948113ce0681a439b5f91f0f2da60d913072cc",
+       "group_sha256": "d6d9fad372b30d6a9c4c6543734ace79615e931ee1e08f99da6a03da657d4a40"
+      },
+      {
+       "row": 20,
+       "votes": 554,
+       "printed_percent": "0,26",
+       "seats": 0,
+       "parties_named": [
+        "SOCIJALISTIČKA RADNIČKA PARTIJA HRVATSKE - SRP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "941165ecec36be1adc5a62924d27c0c63bfee8487d9945820d9fffe778778581",
+       "group_sha256": "f3104f0ef430257b27481b7f1f561ef93e6f3db425183c9ff6b29a3279518d21"
+      },
+      {
+       "row": 21,
+       "votes": 546,
+       "printed_percent": "0,25",
+       "seats": 0,
+       "parties_named": [
+        "ZAGREBAČKA NEZAVISNA LISTA - ZNL"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "52823126a80b13d998e1c1d0903b35fd33e65df47a87e41ccda06c02749b0e77",
+       "group_sha256": "7e49dff8bdf386ea767f6f010ff20f269c5bd2f9120b6141c63bedbf374a0d8b"
+      },
+      {
+       "row": 22,
+       "votes": 431,
+       "printed_percent": "0,20",
+       "seats": 0,
+       "parties_named": [
+        "AGENDA MLADIH DEMOKRATA - AMD",
+        "HRVATSKA STRANKA MLADIH - HSM"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "175f8c3030dd4c6e7b75b554cf96020700026b3022d5c1c262af7c2cd58b1845",
+       "group_sha256": "6948cde6c91082d1c2b6c61e0d50f66518e8064934695b03e8d3bd671db78454"
+      },
+      {
+       "row": 23,
+       "votes": 377,
+       "printed_percent": "0,18",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA STRANKA - ZS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "36f76121f7d342e72438e35d136520b355873b7139179dc3883ed4dd3b4799ca",
+       "group_sha256": "6668a9f5005b76d67a8a5098e35eb3612ddc0a7c972f2d5d15a9fed56d0af39e"
+      },
+      {
+       "row": 24,
+       "votes": 359,
+       "printed_percent": "0,17",
+       "seats": 0,
+       "parties_named": [
+        "VOLIM HRVATSKU - VH"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d30a5add207a49c4c00c7f4cf540357fa10c530c2ce939585501dfe735f2a281",
+       "group_sha256": "89f3f5d945e7975f584fbe806c910f8659d8715ea2e6b6e95d39be57c3014cf1"
+      },
+      {
+       "row": 25,
+       "votes": 338,
+       "printed_percent": "0,16",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA 21. STOLJEĆA - HRVATSKA 21."
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "0d4fe6397037fc928dd670eee1bbb29d0d53835bc38e4509a11627250b2044ce",
+       "group_sha256": "0385c4188a0d3f783a2e9a933d888847a6dd698380982a2dddb3ee954067fd1c"
+      },
+      {
+       "row": 26,
+       "votes": 325,
+       "printed_percent": "0,15",
+       "seats": 0,
+       "parties_named": [
+        "ABECEDA DEMOKRACIJE - ABECEDA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "226436d85f0ca7e95fac40cf5ebd248a336edc9c9fea96db407d52a86be18aa9",
+       "group_sha256": "5fe9c3e0836d37017b83a5380e6e25561098844342a9bda1612868d79c8d2068"
+      },
+      {
+       "row": 27,
+       "votes": 241,
+       "printed_percent": "0,11",
+       "seats": 0,
+       "parties_named": [
+        "GLAS RAZUMA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "611876caf2c1568e914e8f4851897701a561ef4b1a53c17bc8d151a1db46b52b",
+       "group_sha256": "443aa19303cb2909a623612fd0134dddb13f81db7b65e26a1662f30f75be3879"
+      },
+      {
+       "row": 28,
+       "votes": 151,
+       "printed_percent": "0,07",
+       "seats": 0,
+       "parties_named": [
+        "NACIONALNI DEMOKRATI - ND"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "a7d9fbc639a7468b68f346c8fb411041d1bc9415a1134d715186962b5f5d9a2c",
+       "group_sha256": "0b8b777b74d74851e66abf9ac54563bb3c7fa9489dbbf5eac42d8d3e7b1f77a0"
+      },
+      {
+       "row": 29,
+       "votes": 143,
+       "printed_percent": "0,07",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA EUROPSKA STRANKA - HES"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "7fbbdccb04d9b2af5fc1cd1adba2d05cefb25ff02bc7472931acd30d2c8dd164",
+       "group_sha256": "dad1309820ff6211d979b57cfde0bcf645123542e4c4c91a30e9a0c55f1c1f36"
+      }
+     ],
+     "seats_section_iv_in_order": [
+      9,
+      4,
+      1
+     ],
+     "lists_in_allocation_printed": 3
+    },
+    {
+     "unit_key": "02_007",
+     "document": "i_02_007_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_007_0000.pdf",
+     "publisher_file_sha256": "e18eece3c66c84cb6bcf7f95f74eeb2a4724ad36880f27c045d0cdfba50cf039",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-07",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 413148,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 266352,
+      "voted_by_ballots_pct": "64,47",
+      "valid": 261423,
+      "valid_pct": "98,15",
+      "invalid": 4929,
+      "invalid_pct": "1,85"
+     },
+     "kind": "territorial",
+     "constituency_number": 7,
+     "lists": [
+      {
+       "row": 1,
+       "votes": 110540,
+       "printed_percent": "42,28",
+       "seats": 9,
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "HRVATSKA NARODNA STRANKA - LIBERALNI DEMOKRATI - HNS",
+        "ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "HRVATSKA STRANKA UMIROVLJENIKA - HSU"
+       ],
+       "parties_named_count": 4,
+       "label_basis": "verbatim",
+       "title_sha256": "814f60fd9e7285674c93785476c78944ba8f1da2cd705879d0708bbb95c85bde",
+       "group_sha256": "77ae9e1c17ce596587a5a3ccb26d34590b04e5e2b967f1e1f405fd7cd2d44ef8"
+      },
+      {
+       "row": 2,
+       "votes": 57196,
+       "printed_percent": "21,88",
+       "seats": 4,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d0bb53289cbf3b9770d55e02508cc0ebdb9f1ef383f5d38b4b5da897eb38436d",
+       "group_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 3,
+       "votes": 16315,
+       "printed_percent": "6,24",
+       "seats": 1,
+       "parties_named": [
+        "HRVATSKI LABURISTI-STRANKA RADA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "212dd12a287816585cefa265912fa291e1d99d897c36ddf0313520e2dc80e5ea",
+       "group_sha256": "a9f0f4dcb3105c8d7f90bbc41f8757532bf6b3b29bd97a286a02e772020e54e9"
+      },
+      {
+       "row": 4,
+       "votes": 11939,
+       "printed_percent": "4,57",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS",
+        "ZELENA STRANKA - ZS",
+        "STRANKA PENZIONERA - SP"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "38e15371091c0b7c39d547edfbf77bf54b908252b87faa96188f4b9a59f364a5",
+       "group_sha256": "14ef2eb0000723c6c3bd390d61871c14667cd1986b8e106a7540d3f56b6a0075"
+      },
+      {
+       "row": 5,
+       "votes": 10488,
+       "printed_percent": "4,01",
+       "seats": 0,
+       "parties_named": [
+        "BLOK UMIROVLJENICI ZAJEDNO - BUZ",
+        "PRIMORSKO GORANSKI SAVEZ - PGS",
+        "HRVATSKA RADNIČKA STRANKA - HRS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "ba51d6efa972b519797c094f8abe54a96ee9e846783a46c0fe6df31221c50cb5",
+       "group_sha256": "c2949b0773eb730824c4d5084e3f94711b2824af61571658a088f4e428d82167"
+      },
+      {
+       "row": 6,
+       "votes": 8750,
+       "printed_percent": "3,35",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SOCIJALNO-LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "3e5424d8568b3ae686e8dd81a06ce35c866119b7ebec79cbdcb03a62271dd87b",
+       "group_sha256": "879b6a7e0905d54e2021c70702d980bab335a7513dd19254b3ba7c80872a5d93"
+      },
+      {
+       "row": 7,
+       "votes": 8332,
+       "printed_percent": "3,19",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA - HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "995fb823bac32695b9154761719dad5bae71f8ef19faecf59ec155907fbd6562",
+       "group_sha256": "63b98a9a5ef37406009dd74fc22256aa18a214a8fa97ca2e5790d6747a2ae245"
+      },
+      {
+       "row": 8,
+       "votes": 8031,
+       "printed_percent": "3,07",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA DR.ANTE STARČEVIĆ - HSP DR.ANTE STARČEVIĆ",
+        "HRVATSKA ČISTA STRANKA PRAVA - HČSP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "efd66e5ce8dfd8a4e185a3547fa24be7c87722992357cb872b352c19d16ab44d",
+       "group_sha256": "4ee0812edebc9748fbbd6d43aaaa09451db1432cbbb1c4e1028a50d95f5b90fc"
+      },
+      {
+       "row": 9,
+       "votes": 5635,
+       "printed_percent": "2,16",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1342d97b7a6ee3e92f141cbbabea1f4c4d403ec6caa28456c3fe6d7cc8ba6b1b",
+       "group_sha256": "1342d97b7a6ee3e92f141cbbabea1f4c4d403ec6caa28456c3fe6d7cc8ba6b1b"
+      },
+      {
+       "row": 10,
+       "votes": 4910,
+       "printed_percent": "1,88",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633",
+       "group_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633"
+      },
+      {
+       "row": 11,
+       "votes": 3199,
+       "printed_percent": "1,22",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI RAST - HRAST"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "9bd260e5fc3b4d2803e6129b638cf2b7199b1bda65c3ff63b89fe3a1c99b9cc8",
+       "group_sha256": "5abe6e1db7a5916387aad7028d668dd339e23f1ab1e843e0674ec99c47ba6a5b"
+      },
+      {
+       "row": 12,
+       "votes": 2640,
+       "printed_percent": "1,01",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA ZA BOLJU HRVATSKU - ABH",
+        "JEDINO HRVATSKA - POKRET ZA HRVATSKU - JEDINO HRVATSKA"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "69710472eeff236269419809627b4b8ec0e08f1433926a2c688429175f03bd21",
+       "group_sha256": "d620a5069e4eb1aef902d7451f5c7a2c63e8e810940da83dd0865f8b65d31ddd"
+      },
+      {
+       "row": 13,
+       "votes": 2290,
+       "printed_percent": "0,88",
+       "seats": 0,
+       "parties_named": [
+        "SAVEZ ZA PROMJENE - SP",
+        "AUTOHTONA - HRVATSKA SELJAČKA STRANKA - A-HSS",
+        "DEMOKRATSKA PRIGORSKO-ZAGREBAČKA STRANKA - DPS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "b79bb6c23ecd6993ef928c3b4678adcf6add33e8e66b11275e4b9ab6e25c74e1",
+       "group_sha256": "0de994285441f53d45be17592a5af1a868c9b6b89ebdb4156f370e1f36e1b90e"
+      },
+      {
+       "row": 14,
+       "votes": 1631,
+       "printed_percent": "0,62",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA MLADIH - AM"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "313b92d76754aeebd591587554291642654edca629770921d4a3d24f1c9a86f7",
+       "group_sha256": "81224cecf9547767a3207c119b379f40892c99398c394dc46d9c44d1b4914d65"
+      },
+      {
+       "row": 15,
+       "votes": 1475,
+       "printed_percent": "0,56",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA SOCIJALDEMOKRATA HRVATSKE - ASH",
+        "STRANKA UMIROVLJENIKA HRVATSKE-BLOK UMIROVLJENICI ZAJEDNO - SUH",
+        "SPLITSKA STRANKA UMIROVLJENIKA - SSU",
+        "LISTA ZA RIJEKU - LISTA-RI"
+       ],
+       "parties_named_count": 4,
+       "label_basis": "verbatim",
+       "title_sha256": "a40c13a1c28fcdb8e78892379a4a31df42cc4483949a94beb392c1e81fa9fd2d",
+       "group_sha256": "eeaccc10b8fa35439bef37923a34e9be9b15046099adaa384484c5c9fba9ec6e"
+      },
+      {
+       "row": 16,
+       "votes": 1462,
+       "printed_percent": "0,56",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c3ebb492b4f315e43b38680078d35834b8b1f6f2aec4d0e86cc5448ee6d79bc5",
+       "group_sha256": "2d414c7d3f19a499d343a3a22ce00c1f4b750d13cc10f56bdcf714c252ff0fb7"
+      },
+      {
+       "row": 17,
+       "votes": 1329,
+       "printed_percent": "0,51",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA ŽENA - DSŽ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c44a1ac27ed6250879e7c1a0271d5bf7c850033d0ae3cc679a0fe50c6f43fd58",
+       "group_sha256": "4fa631b7ba542186ea7ea5642c0c622e1bb3eb660eb87be1fb92632535fd0ad9"
+      },
+      {
+       "row": 18,
+       "votes": 1070,
+       "printed_percent": "0,41",
+       "seats": 0,
+       "parties_named": [
+        "ZELENI ZAJEDNO"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "541d5bf2c367926e4eb311fef3ff63989243b496be2cf8944e13db9f86f3c14a",
+       "group_sha256": "1fd44cdf4afe8c088c20458deb767418616beb8035d8b3342d0a5bce9b0d45f7"
+      },
+      {
+       "row": 19,
+       "votes": 793,
+       "printed_percent": "0,30",
+       "seats": 0,
+       "parties_named": [
+        "AGENDA MLADIH DEMOKRATA - AMD",
+        "HRVATSKA STRANKA MLADIH - HSM"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "b7833041c00e20d788c9701933888c3b91818f6a413832f62b2a26d62bebcf4f",
+       "group_sha256": "6948cde6c91082d1c2b6c61e0d50f66518e8064934695b03e8d3bd671db78454"
+      },
+      {
+       "row": 20,
+       "votes": 757,
+       "printed_percent": "0,29",
+       "seats": 0,
+       "parties_named": [
+        "ZAGREBAČKA NEZAVISNA LISTA - ZNL"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "52823126a80b13d998e1c1d0903b35fd33e65df47a87e41ccda06c02749b0e77",
+       "group_sha256": "7e49dff8bdf386ea767f6f010ff20f269c5bd2f9120b6141c63bedbf374a0d8b"
+      },
+      {
+       "row": 21,
+       "votes": 648,
+       "printed_percent": "0,25",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA-HRVATSKA STRANKA PRAVA - A-HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1fb500a0206ffd85aec5c7f64093d9db39a8359cce3e412ab6f9003722ea8cbf",
+       "group_sha256": "c01ff45e7e44d80970a1a7f2a33a0a07b7e9bc1ab3d253411fcdc5c4ec2512d1"
+      },
+      {
+       "row": 22,
+       "votes": 567,
+       "printed_percent": "0,22",
+       "seats": 0,
+       "parties_named": [
+        "SOCIJALISTIČKA RADNIČKA PARTIJA HRVATSKE - SRP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "61b4dd618ed1a5daa166963c16b4c63bb79a3f6609af1df0a06da6a0853c84f0",
+       "group_sha256": "f3104f0ef430257b27481b7f1f561ef93e6f3db425183c9ff6b29a3279518d21"
+      },
+      {
+       "row": 23,
+       "votes": 452,
+       "printed_percent": "0,17",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA 21. STOLJEĆA - HRVATSKA 21."
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "4cb56aa1499db4115c78a5aca3d5723c8878f628626d40a2660c6c3950ca1386",
+       "group_sha256": "0385c4188a0d3f783a2e9a933d888847a6dd698380982a2dddb3ee954067fd1c"
+      },
+      {
+       "row": 24,
+       "votes": 374,
+       "printed_percent": "0,14",
+       "seats": 0,
+       "parties_named": [
+        "ABECEDA DEMOKRACIJE - ABECEDA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "3192aaeeecc904eed1368dc530e22e96e4561443d1aaab396a7134774b4dc13a",
+       "group_sha256": "5fe9c3e0836d37017b83a5380e6e25561098844342a9bda1612868d79c8d2068"
+      },
+      {
+       "row": 25,
+       "votes": 229,
+       "printed_percent": "0,09",
+       "seats": 0,
+       "parties_named": [
+        "STRANKA HRVATSKOG ZAJEDNIŠTVA - SHZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "5d077c0ab668a5e6a6c269370997977458552970e5725f6d7fd36656e7c8e36b",
+       "group_sha256": "c5ac0671fdbae0dbf6b677a42fac419ed563d45b8e3c68c5227154271dfb4802"
+      },
+      {
+       "row": 26,
+       "votes": 205,
+       "printed_percent": "0,08",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA EUROPSKA STRANKA - HES"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "7fbbdccb04d9b2af5fc1cd1adba2d05cefb25ff02bc7472931acd30d2c8dd164",
+       "group_sha256": "dad1309820ff6211d979b57cfde0bcf645123542e4c4c91a30e9a0c55f1c1f36"
+      },
+      {
+       "row": 27,
+       "votes": 166,
+       "printed_percent": "0,06",
+       "seats": 0,
+       "parties_named": [
+        "NACIONALNI DEMOKRATI - ND"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "92edee50310ae6e21910d91ccfebba0a86047b3ddd8488fbff2b7a9ecae9ab78",
+       "group_sha256": "0b8b777b74d74851e66abf9ac54563bb3c7fa9489dbbf5eac42d8d3e7b1f77a0"
+      }
+     ],
+     "seats_section_iv_in_order": [
+      9,
+      4,
+      1
+     ],
+     "lists_in_allocation_printed": 3
+    },
+    {
+     "unit_key": "02_008",
+     "document": "i_02_008_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_008_0000.pdf",
+     "publisher_file_sha256": "59387ef1e35ea5e568787474b023d4a3ea3d3c64cec55aa8fdbe1bffb2d72c53",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-08",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 385376,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 237676,
+      "voted_by_ballots_pct": "61,67",
+      "valid": 233773,
+      "valid_pct": "98,36",
+      "invalid": 3903,
+      "invalid_pct": "1,64"
+     },
+     "kind": "territorial",
+     "constituency_number": 8,
+     "lists": [
+      {
+       "row": 1,
+       "votes": 134211,
+       "printed_percent": "57,41",
+       "seats": 11,
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "HRVATSKA NARODNA STRANKA - LIBERALNI DEMOKRATI - HNS",
+        "ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "HRVATSKA STRANKA UMIROVLJENIKA - HSU"
+       ],
+       "parties_named_count": 4,
+       "label_basis": "verbatim",
+       "title_sha256": "814f60fd9e7285674c93785476c78944ba8f1da2cd705879d0708bbb95c85bde",
+       "group_sha256": "77ae9e1c17ce596587a5a3ccb26d34590b04e5e2b967f1e1f405fd7cd2d44ef8"
+      },
+      {
+       "row": 2,
+       "votes": 28403,
+       "printed_percent": "12,15",
+       "seats": 2,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d0bb53289cbf3b9770d55e02508cc0ebdb9f1ef383f5d38b4b5da897eb38436d",
+       "group_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 3,
+       "votes": 13375,
+       "printed_percent": "5,72",
+       "seats": 1,
+       "parties_named": [
+        "HRVATSKI LABURISTI-STRANKA RADA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "212dd12a287816585cefa265912fa291e1d99d897c36ddf0313520e2dc80e5ea",
+       "group_sha256": "a9f0f4dcb3105c8d7f90bbc41f8757532bf6b3b29bd97a286a02e772020e54e9"
+      },
+      {
+       "row": 4,
+       "votes": 12010,
+       "printed_percent": "5,14",
+       "seats": 0,
+       "parties_named": [
+        "LADONJA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c2ed4059410fd39f565ee0933ae526f32dc20b5c607617af8722eb05edf129c2",
+       "group_sha256": "5add35051e6f44cd66929d3c76f080fb46877f56a7a44817a466490db306c991"
+      },
+      {
+       "row": 5,
+       "votes": 10260,
+       "printed_percent": "4,39",
+       "seats": 0,
+       "parties_named": [
+        "PRIMORSKO GORANSKI SAVEZ - PGS",
+        "BLOK UMIROVLJENICI ZAJEDNO - BUZ",
+        "HRVATSKA RADNIČKA STRANKA - HRS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "c85faaa89ae7579148eed8534700e322b926dc45132a30689a74fb952d0a1500",
+       "group_sha256": "730164ce55a2be2a8c8ce7cd14f25aad64cf36f98f40cdb033975233e5a2108a"
+      },
+      {
+       "row": 6,
+       "votes": 5738,
+       "printed_percent": "2,45",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633",
+       "group_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633"
+      },
+      {
+       "row": 7,
+       "votes": 4175,
+       "printed_percent": "1,79",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA MLADIH - AM",
+        "LISTA ZA RIJEKU - LISTA-RI",
+        "STRANKA UMIROVLJENIKA HRVATSKE-BLOK UMIROVLJENICI ZAJEDNO - SUH"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "f60e80eae33fc6e84b2c8f6432c9cdd8f1a95805e1fd1b58f7e87503a26ea705",
+       "group_sha256": "a88fd55fc490e35557cc64dcb9bc8fccddbe98d571c825d029e62669d06668bd"
+      },
+      {
+       "row": 8,
+       "votes": 3600,
+       "printed_percent": "1,54",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA DR.ANTE STARČEVIĆ - HSP DR.ANTE STARČEVIĆ",
+        "HRVATSKA ČISTA STRANKA PRAVA - HČSP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "35aaf90c9b2fc88d293f6e3df7c597d769959cead408cab50235aa84f003280a",
+       "group_sha256": "4ee0812edebc9748fbbd6d43aaaa09451db1432cbbb1c4e1028a50d95f5b90fc"
+      },
+      {
+       "row": 9,
+       "votes": 3583,
+       "printed_percent": "1,53",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SOCIJALNO-LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "3e5424d8568b3ae686e8dd81a06ce35c866119b7ebec79cbdcb03a62271dd87b",
+       "group_sha256": "879b6a7e0905d54e2021c70702d980bab335a7513dd19254b3ba7c80872a5d93"
+      },
+      {
+       "row": 10,
+       "votes": 2957,
+       "printed_percent": "1,26",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA - HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "995fb823bac32695b9154761719dad5bae71f8ef19faecf59ec155907fbd6562",
+       "group_sha256": "63b98a9a5ef37406009dd74fc22256aa18a214a8fa97ca2e5790d6747a2ae245"
+      },
+      {
+       "row": 11,
+       "votes": 1842,
+       "printed_percent": "0,79",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS",
+        "ZELENA STRANKA - ZS",
+        "STRANKA PENZIONERA - SP"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "cdf98a0a2cce4b131394701d30c30f4a3c8e0b2d77fb5e281c93fb29bc044e50",
+       "group_sha256": "14ef2eb0000723c6c3bd390d61871c14667cd1986b8e106a7540d3f56b6a0075"
+      },
+      {
+       "row": 12,
+       "votes": 1726,
+       "printed_percent": "0,74",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI RAST - HRAST"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "ae037821efa1190444d706291445d188705759c28a2a6b2ef56f638c42a11449",
+       "group_sha256": "5abe6e1db7a5916387aad7028d668dd339e23f1ab1e843e0674ec99c47ba6a5b"
+      },
+      {
+       "row": 13,
+       "votes": 1660,
+       "printed_percent": "0,71",
+       "seats": 0,
+       "parties_named": [
+        "ISTARSKA SOCIJALDEMOKRATSKA NEZAVISNA STRANKA - ISDNS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "bc97e10d2318c0275ccd9121d2a6e7b2eeb4a73e44461b1053853653d60112cb",
+       "group_sha256": "ec1e9d8c2911e07734a6c533071e7efebb8470ee15fb9c642e17d79996448e55"
+      },
+      {
+       "row": 14,
+       "votes": 1517,
+       "printed_percent": "0,65",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA STRANKA-ZELENA ALTERNATIVA - ZELENI"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "915b223d7728be423d2e03d90260070db44b99cc82dce5026660fe4bca40a719",
+       "group_sha256": "fe012674c1cd4bb8d2e2eeff83298c01735188a2fe4865bb83044d205079468e"
+      },
+      {
+       "row": 15,
+       "votes": 1089,
+       "printed_percent": "0,47",
+       "seats": 0,
+       "parties_named": [
+        "AGENDA MLADIH DEMOKRATA - AMD",
+        "HRVATSKA STRANKA MLADIH - HSM"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "c685601e7c2f5573d118fda0f6bb7bf58b25c1733274ba44cdf595f9519f2d32",
+       "group_sha256": "6948cde6c91082d1c2b6c61e0d50f66518e8064934695b03e8d3bd671db78454"
+      },
+      {
+       "row": 16,
+       "votes": 1062,
+       "printed_percent": "0,45",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "31e8beca8e2ad91af982a4e8bcbbe42fd042f78e522c269ec64e7204c25d7165",
+       "group_sha256": "2d414c7d3f19a499d343a3a22ce00c1f4b750d13cc10f56bdcf714c252ff0fb7"
+      },
+      {
+       "row": 17,
+       "votes": 1035,
+       "printed_percent": "0,44",
+       "seats": 0,
+       "parties_named": [
+        "SOCIJALISTIČKA RADNIČKA PARTIJA HRVATSKE - SRP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "13a6674a348f9455bff5969058646d521e3200cec1d3cd886ed0953b75740df8",
+       "group_sha256": "f3104f0ef430257b27481b7f1f561ef93e6f3db425183c9ff6b29a3279518d21"
+      },
+      {
+       "row": 18,
+       "votes": 1003,
+       "printed_percent": "0,43",
+       "seats": 0,
+       "parties_named": [
+        "SAVEZ ZA PROMJENE - SP",
+        "AUTOHTONA - HRVATSKA SELJAČKA STRANKA - A-HSS"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "b419e8ff1045804eccdd90e522a9a56bf0da1f6dc6e85424a48f1f9999035250",
+       "group_sha256": "ec9d4c663ba3811b24c40063ebef225c56e8711c3d1f46558b24f9ab4611c67a"
+      },
+      {
+       "row": 19,
+       "votes": 965,
+       "printed_percent": "0,41",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA 21. STOLJEĆA - HRVATSKA 21."
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1dde39b9ba0b416636e8fab8a7efdb0e3159ef2b1e74b736c6b834a0527194b1",
+       "group_sha256": "0385c4188a0d3f783a2e9a933d888847a6dd698380982a2dddb3ee954067fd1c"
+      },
+      {
+       "row": 20,
+       "votes": 963,
+       "printed_percent": "0,41",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA ZA BOLJU HRVATSKU - ABH",
+        "JEDINO HRVATSKA - POKRET ZA HRVATSKU - JEDINO HRVATSKA"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "69710472eeff236269419809627b4b8ec0e08f1433926a2c688429175f03bd21",
+       "group_sha256": "d620a5069e4eb1aef902d7451f5c7a2c63e8e810940da83dd0865f8b65d31ddd"
+      },
+      {
+       "row": 21,
+       "votes": 951,
+       "printed_percent": "0,41",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA ŽENA - DSŽ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c44a1ac27ed6250879e7c1a0271d5bf7c850033d0ae3cc679a0fe50c6f43fd58",
+       "group_sha256": "4fa631b7ba542186ea7ea5642c0c622e1bb3eb660eb87be1fb92632535fd0ad9"
+      },
+      {
+       "row": 22,
+       "votes": 511,
+       "printed_percent": "0,22",
+       "seats": 0,
+       "parties_named": [
+        "VOLIM HRVATSKU - VH"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "b4987486190e5a00085c9d4978b4d450b66d5d79f721800fcd317346120dcb06",
+       "group_sha256": "89f3f5d945e7975f584fbe806c910f8659d8715ea2e6b6e95d39be57c3014cf1"
+      },
+      {
+       "row": 23,
+       "votes": 503,
+       "printed_percent": "0,22",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA-HRVATSKA STRANKA PRAVA - A-HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d8758a21a578ca525c333d008ce56cd6e600219711fa7bfeaaf330f514d9d9dc",
+       "group_sha256": "c01ff45e7e44d80970a1a7f2a33a0a07b7e9bc1ab3d253411fcdc5c4ec2512d1"
+      },
+      {
+       "row": 24,
+       "votes": 285,
+       "printed_percent": "0,12",
+       "seats": 0,
+       "parties_named": [
+        "ABECEDA DEMOKRACIJE - ABECEDA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "e2acacad9eff2f71c16cd2062794eb6f64bd2867c49d142e4df4248b5562b982",
+       "group_sha256": "5fe9c3e0836d37017b83a5380e6e25561098844342a9bda1612868d79c8d2068"
+      },
+      {
+       "row": 25,
+       "votes": 191,
+       "printed_percent": "0,08",
+       "seats": 0,
+       "parties_named": [
+        "STRANKA HRVATSKOG ZAJEDNIŠTVA - SHZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "5d077c0ab668a5e6a6c269370997977458552970e5725f6d7fd36656e7c8e36b",
+       "group_sha256": "c5ac0671fdbae0dbf6b677a42fac419ed563d45b8e3c68c5227154271dfb4802"
+      },
+      {
+       "row": 26,
+       "votes": 158,
+       "printed_percent": "0,07",
+       "seats": 0,
+       "parties_named": [
+        "NACIONALNI DEMOKRATI - ND"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "91ca29b5798f75d57644931da8467e2ed73dd27ac04675ff0513110c3ab5a5e0",
+       "group_sha256": "0b8b777b74d74851e66abf9ac54563bb3c7fa9489dbbf5eac42d8d3e7b1f77a0"
+      }
+     ],
+     "seats_section_iv_in_order": [
+      11,
+      2,
+      1,
+      0
+     ],
+     "lists_in_allocation_printed": 4
+    },
+    {
+     "unit_key": "02_009",
+     "document": "i_02_009_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_009_0000.pdf",
+     "publisher_file_sha256": "89aa09810394f7eb800f1b4ebe1518d5df4d82dd3a036322d24ec7e6f131fc16",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-09",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 440597,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 250836,
+      "voted_by_ballots_pct": "56,93",
+      "valid": 245868,
+      "valid_pct": "98,02",
+      "invalid": 4968,
+      "invalid_pct": "1,98"
+     },
+     "kind": "territorial",
+     "constituency_number": 9,
+     "lists": [
+      {
+       "row": 1,
+       "votes": 90645,
+       "printed_percent": "36,87",
+       "seats": 8,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+        "HRVATSKA GRAĐANSKA STRANKA - HGS"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "910eb743e7729f72e16358134bad2ad389c05dac575246bad66a09270aeb7c7a",
+       "group_sha256": "7dc06d9df69f00d2257662ab600c3fbb709206b7227727bce85cbe886ebcdc7b"
+      },
+      {
+       "row": 2,
+       "votes": 71220,
+       "printed_percent": "28,97",
+       "seats": 6,
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "HRVATSKA NARODNA STRANKA - LIBERALNI DEMOKRATI - HNS",
+        "ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "HRVATSKA STRANKA UMIROVLJENIKA - HSU"
+       ],
+       "parties_named_count": 4,
+       "label_basis": "verbatim",
+       "title_sha256": "814f60fd9e7285674c93785476c78944ba8f1da2cd705879d0708bbb95c85bde",
+       "group_sha256": "77ae9e1c17ce596587a5a3ccb26d34590b04e5e2b967f1e1f405fd7cd2d44ef8"
+      },
+      {
+       "row": 3,
+       "votes": 11190,
+       "printed_percent": "4,55",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633",
+       "group_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633"
+      },
+      {
+       "row": 4,
+       "votes": 9395,
+       "printed_percent": "3,82",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "02ffd46a6da5f3951caa587e40ff24051f383926c87ad13ef565f0640b4cfb1e",
+       "group_sha256": "02ffd46a6da5f3951caa587e40ff24051f383926c87ad13ef565f0640b4cfb1e"
+      },
+      {
+       "row": 5,
+       "votes": 9282,
+       "printed_percent": "3,78",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA DR.ANTE STARČEVIĆ - HSP DR.ANTE STARČEVIĆ",
+        "HRVATSKA ČISTA STRANKA PRAVA - HČSP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "efd66e5ce8dfd8a4e185a3547fa24be7c87722992357cb872b352c19d16ab44d",
+       "group_sha256": "4ee0812edebc9748fbbd6d43aaaa09451db1432cbbb1c4e1028a50d95f5b90fc"
+      },
+      {
+       "row": 6,
+       "votes": 9223,
+       "printed_percent": "3,75",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SOCIJALNO-LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1c8fc7083a01215dba88da71e764df2f4fd3c1fd158d7c2ee84a25ae1d7fd47a",
+       "group_sha256": "879b6a7e0905d54e2021c70702d980bab335a7513dd19254b3ba7c80872a5d93"
+      },
+      {
+       "row": 7,
+       "votes": 7795,
+       "printed_percent": "3,17",
+       "seats": 0,
+       "parties_named": [
+        "SAMOSTALNA DEMOKRATSKA SRPSKA STRANKA - SDSS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "24761584975b639d0a5afd1adf99d03cbfb4c0aa799fcaba95d015bd475ba04f",
+       "group_sha256": "f94eddf3f695283456f65e14e4bf2ae5f47f9b9c4269956b60bf612db45275a8"
+      },
+      {
+       "row": 8,
+       "votes": 6390,
+       "printed_percent": "2,60",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA - HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "ccd550b4883652594d417dd6ec760a1adf9622751dd16dcf874fb26c169fc008",
+       "group_sha256": "63b98a9a5ef37406009dd74fc22256aa18a214a8fa97ca2e5790d6747a2ae245"
+      },
+      {
+       "row": 9,
+       "votes": 5999,
+       "printed_percent": "2,44",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI LABURISTI-STRANKA RADA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "212dd12a287816585cefa265912fa291e1d99d897c36ddf0313520e2dc80e5ea",
+       "group_sha256": "a9f0f4dcb3105c8d7f90bbc41f8757532bf6b3b29bd97a286a02e772020e54e9"
+      },
+      {
+       "row": 10,
+       "votes": 4505,
+       "printed_percent": "1,83",
+       "seats": 0,
+       "parties_named": [
+        "BLOK UMIROVLJENICI ZAJEDNO - BUZ",
+        "PRIMORSKO GORANSKI SAVEZ - PGS",
+        "HRVATSKA RADNIČKA STRANKA - HRS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "ba51d6efa972b519797c094f8abe54a96ee9e846783a46c0fe6df31221c50cb5",
+       "group_sha256": "c2949b0773eb730824c4d5084e3f94711b2824af61571658a088f4e428d82167"
+      },
+      {
+       "row": 11,
+       "votes": 3434,
+       "printed_percent": "1,40",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "5cc3c14c45d8da4ce6fe0a7846199e7f7667869df3e1e4377c5f686272e1e37b",
+       "group_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 12,
+       "votes": 3046,
+       "printed_percent": "1,24",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "e03aaf6189c8b8b162bcb06f4dc62cc39171d29d74280e7d19546b57c8bbf330",
+       "group_sha256": "e03aaf6189c8b8b162bcb06f4dc62cc39171d29d74280e7d19546b57c8bbf330"
+      },
+      {
+       "row": 13,
+       "votes": 2866,
+       "printed_percent": "1,17",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI RAST - HRAST"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "4ee85df4c953c0e985f9400afc0839f1adebcbcfa4ea352580406f875b8705a8",
+       "group_sha256": "5abe6e1db7a5916387aad7028d668dd339e23f1ab1e843e0674ec99c47ba6a5b"
+      },
+      {
+       "row": 14,
+       "votes": 2085,
+       "printed_percent": "0,85",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA DEMOKRŠĆANSKA STRANKA - HDS",
+        "JEDINO HRVATSKA - POKRET ZA HRVATSKU - JEDINO HRVATSKA"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "14e85cfecc89618799593dd0fe02667891b55fd1eb648117e533a8db190ba369",
+       "group_sha256": "f0e7ecbb9bfe56f91c950ed9a355e09d1b3ed533d6c9a26eba7104c01c129219"
+      },
+      {
+       "row": 15,
+       "votes": 1486,
+       "printed_percent": "0,60",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA MLADIH - AM"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "80c9ca3fa97b27233bc6627fe9e1de792edc8760707b1a9d6cca5fa6ed09a2d3",
+       "group_sha256": "81224cecf9547767a3207c119b379f40892c99398c394dc46d9c44d1b4914d65"
+      },
+      {
+       "row": 16,
+       "votes": 1095,
+       "printed_percent": "0,45",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA ŽENA - DSŽ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c44a1ac27ed6250879e7c1a0271d5bf7c850033d0ae3cc679a0fe50c6f43fd58",
+       "group_sha256": "4fa631b7ba542186ea7ea5642c0c622e1bb3eb660eb87be1fb92632535fd0ad9"
+      },
+      {
+       "row": 17,
+       "votes": 1033,
+       "printed_percent": "0,42",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA SOCIJALDEMOKRATA HRVATSKE - ASH",
+        "SPLITSKA STRANKA UMIROVLJENIKA - SSU",
+        "STRANKA UMIROVLJENIKA HRVATSKE-BLOK UMIROVLJENICI ZAJEDNO - SUH"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "e34cb49c390c30a4e99f87145977c06e998a0bdff420a20940ccb4e1c0b3b69f",
+       "group_sha256": "b5f89f77a56e05debbb73aea754d6db5be3a2f0fbfda61b0794457307464f73e"
+      },
+      {
+       "row": 18,
+       "votes": 863,
+       "printed_percent": "0,35",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA - HRVATSKA SELJAČKA STRANKA - A-HSS",
+        "SAVEZ ZA PROMJENE - SP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "d1411e4ea454a8dbebab2a370faa2ded27ae84ac6a3405a79353f2609ee7fa62",
+       "group_sha256": "bae31b811e6352ddb66b0b87a06fd04dba241c5f414f82c4b61f3a44deef809b"
+      },
+      {
+       "row": 19,
+       "votes": 841,
+       "printed_percent": "0,34",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA ZELENIH - EKO SAVEZ - ZELENI"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "69f67b74344731358e58de6b0e4f13f90073e40349c03b1aab6fc2bd7766d42b",
+       "group_sha256": "513e8c184feb4d02cf59bd98bf32eb8b17f0d2490d45faa8bdb3080d69e8400f"
+      },
+      {
+       "row": 20,
+       "votes": 720,
+       "printed_percent": "0,29",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "8f5b36996a5691ab5a49d73c57b703513e3060ce448e000c73f00e2dfb4041b7",
+       "group_sha256": "2d414c7d3f19a499d343a3a22ce00c1f4b750d13cc10f56bdcf714c252ff0fb7"
+      },
+      {
+       "row": 21,
+       "votes": 637,
+       "printed_percent": "0,26",
+       "seats": 0,
+       "parties_named": [
+        "ABECEDA DEMOKRACIJE - ABECEDA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "ef8cdcedf1b93519cc28247e9547e55139abc8f222dd424d76af48022236775c",
+       "group_sha256": "5fe9c3e0836d37017b83a5380e6e25561098844342a9bda1612868d79c8d2068"
+      },
+      {
+       "row": 22,
+       "votes": 556,
+       "printed_percent": "0,23",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA-HRVATSKA STRANKA PRAVA - A-HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "9fbcb9936f0ccf52bd1601c8f723b012ef728557abdbca5f12168358239442c8",
+       "group_sha256": "c01ff45e7e44d80970a1a7f2a33a0a07b7e9bc1ab3d253411fcdc5c4ec2512d1"
+      },
+      {
+       "row": 23,
+       "votes": 491,
+       "printed_percent": "0,20",
+       "seats": 0,
+       "parties_named": [
+        "OBITELJSKA STRANKA - OS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d62627d2e5266ff94b774af6efa449cfa5940c7f3cee8e702d7137e215b6932d",
+       "group_sha256": "2e963a79bb13b2424ba897e5cc31d8263a7704bb9ad91e26520a9f0d8cf21403"
+      },
+      {
+       "row": 24,
+       "votes": 426,
+       "printed_percent": "0,17",
+       "seats": 0,
+       "parties_named": [
+        "SOCIJALISTIČKA RADNIČKA PARTIJA HRVATSKE - SRP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "59d250f62872fcad8440f063ae04370fc2291e1df17bde4daddffbda6526ab64",
+       "group_sha256": "f3104f0ef430257b27481b7f1f561ef93e6f3db425183c9ff6b29a3279518d21"
+      },
+      {
+       "row": 25,
+       "votes": 387,
+       "printed_percent": "0,16",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA STRANKA - ZS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c33488a862584fd322d4011c63917d18067e7753f3b3f38e83aae9618528a270",
+       "group_sha256": "6668a9f5005b76d67a8a5098e35eb3612ddc0a7c972f2d5d15a9fed56d0af39e"
+      },
+      {
+       "row": 26,
+       "votes": 258,
+       "printed_percent": "0,10",
+       "seats": 0,
+       "parties_named": [
+        "STRANKA HRVATSKOG ZAJEDNIŠTVA - SHZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "5d077c0ab668a5e6a6c269370997977458552970e5725f6d7fd36656e7c8e36b",
+       "group_sha256": "c5ac0671fdbae0dbf6b677a42fac419ed563d45b8e3c68c5227154271dfb4802"
+      }
+     ],
+     "seats_section_iv_in_order": [
+      8,
+      6
+     ],
+     "lists_in_allocation_printed": 2
+    },
+    {
+     "unit_key": "02_010",
+     "document": "i_02_010_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_010_0000.pdf",
+     "publisher_file_sha256": "11ecf764b65ff9dbbe508962aaa16b7663086636c8a15e476364bf9fb53bc7ea",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-10",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 422392,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 253575,
+      "voted_by_ballots_pct": "60,03",
+      "valid": 248887,
+      "valid_pct": "98,15",
+      "invalid": 4688,
+      "invalid_pct": "1,85"
+     },
+     "kind": "territorial",
+     "constituency_number": 10,
+     "lists": [
+      {
+       "row": 1,
+       "votes": 82628,
+       "printed_percent": "33,20",
+       "seats": 6,
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "HRVATSKA NARODNA STRANKA - LIBERALNI DEMOKRATI - HNS",
+        "ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "HRVATSKA STRANKA UMIROVLJENIKA - HSU"
+       ],
+       "parties_named_count": 4,
+       "label_basis": "verbatim",
+       "title_sha256": "814f60fd9e7285674c93785476c78944ba8f1da2cd705879d0708bbb95c85bde",
+       "group_sha256": "77ae9e1c17ce596587a5a3ccb26d34590b04e5e2b967f1e1f405fd7cd2d44ef8"
+      },
+      {
+       "row": 2,
+       "votes": 76062,
+       "printed_percent": "30,56",
+       "seats": 5,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+        "HRVATSKA GRAĐANSKA STRANKA - HGS"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "910eb743e7729f72e16358134bad2ad389c05dac575246bad66a09270aeb7c7a",
+       "group_sha256": "7dc06d9df69f00d2257662ab600c3fbb709206b7227727bce85cbe886ebcdc7b"
+      },
+      {
+       "row": 3,
+       "votes": 29088,
+       "printed_percent": "11,69",
+       "seats": 2,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633",
+       "group_sha256": "1eaf09afecb37785b23d957dc4a40135ecca5b39f73c8fdd3935acb1823a2633"
+      },
+      {
+       "row": 4,
+       "votes": 14938,
+       "printed_percent": "6,00",
+       "seats": 1,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA DR.ANTE STARČEVIĆ - HSP DR.ANTE STARČEVIĆ",
+        "HRVATSKA ČISTA STRANKA PRAVA - HČSP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "efd66e5ce8dfd8a4e185a3547fa24be7c87722992357cb872b352c19d16ab44d",
+       "group_sha256": "4ee0812edebc9748fbbd6d43aaaa09451db1432cbbb1c4e1028a50d95f5b90fc"
+      },
+      {
+       "row": 5,
+       "votes": 7095,
+       "printed_percent": "2,85",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS",
+        "ZELENA STRANKA - ZS",
+        "STRANKA PENZIONERA - SP"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "ee43677678b4e55b9a983d73f6f1b33aafb2afb884be13acd38885253e7c6829",
+       "group_sha256": "14ef2eb0000723c6c3bd390d61871c14667cd1986b8e106a7540d3f56b6a0075"
+      },
+      {
+       "row": 6,
+       "votes": 6382,
+       "printed_percent": "2,56",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI LABURISTI-STRANKA RADA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "212dd12a287816585cefa265912fa291e1d99d897c36ddf0313520e2dc80e5ea",
+       "group_sha256": "a9f0f4dcb3105c8d7f90bbc41f8757532bf6b3b29bd97a286a02e772020e54e9"
+      },
+      {
+       "row": 7,
+       "votes": 5904,
+       "printed_percent": "2,37",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA - HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "995fb823bac32695b9154761719dad5bae71f8ef19faecf59ec155907fbd6562",
+       "group_sha256": "63b98a9a5ef37406009dd74fc22256aa18a214a8fa97ca2e5790d6747a2ae245"
+      },
+      {
+       "row": 8,
+       "votes": 4508,
+       "printed_percent": "1,81",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SOCIJALNO-LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "3e5424d8568b3ae686e8dd81a06ce35c866119b7ebec79cbdcb03a62271dd87b",
+       "group_sha256": "879b6a7e0905d54e2021c70702d980bab335a7513dd19254b3ba7c80872a5d93"
+      },
+      {
+       "row": 9,
+       "votes": 4349,
+       "printed_percent": "1,75",
+       "seats": 0,
+       "parties_named": [
+        "BLOK UMIROVLJENICI ZAJEDNO - BUZ",
+        "PRIMORSKO GORANSKI SAVEZ - PGS",
+        "HRVATSKA RADNIČKA STRANKA - HRS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "ba51d6efa972b519797c094f8abe54a96ee9e846783a46c0fe6df31221c50cb5",
+       "group_sha256": "c2949b0773eb730824c4d5084e3f94711b2824af61571658a088f4e428d82167"
+      },
+      {
+       "row": 10,
+       "votes": 3075,
+       "printed_percent": "1,24",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI RAST - HRAST"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "32bd652b309cbacd8892fd8d6d6e8b3c0018935f96600b5533d22464c9a51ea2",
+       "group_sha256": "5abe6e1db7a5916387aad7028d668dd339e23f1ab1e843e0674ec99c47ba6a5b"
+      },
+      {
+       "row": 11,
+       "votes": 2104,
+       "printed_percent": "0,85",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA DEMOKRŠĆANSKA STRANKA - HDS",
+        "JEDINO HRVATSKA - POKRET ZA HRVATSKU - JEDINO HRVATSKA"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "14e85cfecc89618799593dd0fe02667891b55fd1eb648117e533a8db190ba369",
+       "group_sha256": "f0e7ecbb9bfe56f91c950ed9a355e09d1b3ed533d6c9a26eba7104c01c129219"
+      },
+      {
+       "row": 12,
+       "votes": 2004,
+       "printed_percent": "0,81",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "72e8dde5394a6eb19915b0090e302ebd8ed42534787255c98dae9bcd2042fdb8",
+       "group_sha256": "72e8dde5394a6eb19915b0090e302ebd8ed42534787255c98dae9bcd2042fdb8"
+      },
+      {
+       "row": 13,
+       "votes": 1812,
+       "printed_percent": "0,73",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "e03aaf6189c8b8b162bcb06f4dc62cc39171d29d74280e7d19546b57c8bbf330",
+       "group_sha256": "e03aaf6189c8b8b162bcb06f4dc62cc39171d29d74280e7d19546b57c8bbf330"
+      },
+      {
+       "row": 14,
+       "votes": 1309,
+       "printed_percent": "0,53",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA SOCIJALDEMOKRATA HRVATSKE - ASH",
+        "SPLITSKA STRANKA UMIROVLJENIKA - SSU",
+        "STRANKA UMIROVLJENIKA HRVATSKE-BLOK UMIROVLJENICI ZAJEDNO - SUH"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "48f0300c7a6716f3ffe00163d24e5c82d1cb44a9381277fe0d5744d836c6835e",
+       "group_sha256": "b5f89f77a56e05debbb73aea754d6db5be3a2f0fbfda61b0794457307464f73e"
+      },
+      {
+       "row": 15,
+       "votes": 1024,
+       "printed_percent": "0,41",
+       "seats": 0,
+       "parties_named": [
+        "ZELENA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "97d15e29b26417293a1e0edb67d0a080b36ae635f0a2243f2c9a883a1096cf2c",
+       "group_sha256": "2d414c7d3f19a499d343a3a22ce00c1f4b750d13cc10f56bdcf714c252ff0fb7"
+      },
+      {
+       "row": 16,
+       "votes": 874,
+       "printed_percent": "0,35",
+       "seats": 0,
+       "parties_named": [
+        "AKCIJA MLADIH - AM"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "18ca5af53ea4270a0100fac6d59535fba9da3a75022246bb51606478622faa0a",
+       "group_sha256": "81224cecf9547767a3207c119b379f40892c99398c394dc46d9c44d1b4914d65"
+      },
+      {
+       "row": 17,
+       "votes": 763,
+       "printed_percent": "0,31",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA - HRVATSKA SELJAČKA STRANKA - A-HSS",
+        "SAVEZ ZA PROMJENE - SP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "d1411e4ea454a8dbebab2a370faa2ded27ae84ac6a3405a79353f2609ee7fa62",
+       "group_sha256": "bae31b811e6352ddb66b0b87a06fd04dba241c5f414f82c4b61f3a44deef809b"
+      },
+      {
+       "row": 18,
+       "votes": 688,
+       "printed_percent": "0,28",
+       "seats": 0,
+       "parties_named": [
+        "DEMOKRATSKA STRANKA ŽENA - DSŽ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c44a1ac27ed6250879e7c1a0271d5bf7c850033d0ae3cc679a0fe50c6f43fd58",
+       "group_sha256": "4fa631b7ba542186ea7ea5642c0c622e1bb3eb660eb87be1fb92632535fd0ad9"
+      },
+      {
+       "row": 19,
+       "votes": 502,
+       "printed_percent": "0,20",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA-HRVATSKA STRANKA PRAVA - A-HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "39f46774a4d0cc6c042cca8546155a264bd3a23a84f6891ec35ff910dc4b8f12",
+       "group_sha256": "c01ff45e7e44d80970a1a7f2a33a0a07b7e9bc1ab3d253411fcdc5c4ec2512d1"
+      },
+      {
+       "row": 20,
+       "votes": 489,
+       "printed_percent": "0,20",
+       "seats": 0,
+       "parties_named": [
+        "AGENDA MLADIH DEMOKRATA - AMD",
+        "HRVATSKA STRANKA MLADIH - HSM"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "61b21126dcc3fa5048f0828dbe365e13b1dbd0739eae0f6cdd2ccf07ebdd72a7",
+       "group_sha256": "6948cde6c91082d1c2b6c61e0d50f66518e8064934695b03e8d3bd671db78454"
+      },
+      {
+       "row": 21,
+       "votes": 445,
+       "printed_percent": "0,18",
+       "seats": 0,
+       "parties_named": [
+        "DALMATINSKA LIBERALNA STRANKA - DLS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "c537cbcad53b48ef3a5b02461c4df643ec217f15b6646591ec6450d017393545",
+       "group_sha256": "deed30121eedcff9cfaca009eab20381bc97ebdfdebfd17019b80105e4707d05"
+      },
+      {
+       "row": 22,
+       "votes": 396,
+       "printed_percent": "0,16",
+       "seats": 0,
+       "parties_named": [
+        "OBITELJSKA STRANKA - OS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "4670c654edf375b968bde292b15f6afe1984fce01c97345d77aa955559cc295e",
+       "group_sha256": "2e963a79bb13b2424ba897e5cc31d8263a7704bb9ad91e26520a9f0d8cf21403"
+      },
+      {
+       "row": 23,
+       "votes": 353,
+       "printed_percent": "0,14",
+       "seats": 0,
+       "parties_named": [
+        "SOCIJALISTIČKA RADNIČKA PARTIJA HRVATSKE - SRP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "dab059fb7ceb78a9c66c62642129eae40fe2836cdebadaf07c330405d6c1270e",
+       "group_sha256": "f3104f0ef430257b27481b7f1f561ef93e6f3db425183c9ff6b29a3279518d21"
+      },
+      {
+       "row": 24,
+       "votes": 352,
+       "printed_percent": "0,14",
+       "seats": 0,
+       "parties_named": [
+        "GLAS RAZUMA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "a40240bf89e02bd9690a9343c60608af2fbb3c6c5c7a23da1df0f0e46510d0ae",
+       "group_sha256": "443aa19303cb2909a623612fd0134dddb13f81db7b65e26a1662f30f75be3879"
+      },
+      {
+       "row": 25,
+       "votes": 342,
+       "printed_percent": "0,14",
+       "seats": 0,
+       "parties_named": [
+        "VOLIM HRVATSKU - VH"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d30a5add207a49c4c00c7f4cf540357fa10c530c2ce939585501dfe735f2a281",
+       "group_sha256": "89f3f5d945e7975f584fbe806c910f8659d8715ea2e6b6e95d39be57c3014cf1"
+      },
+      {
+       "row": 26,
+       "votes": 271,
+       "printed_percent": "0,11",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "3ee865d74243a8fa838f0c7ad4993cfc39c3a037fb26518db658ae120744174e",
+       "group_sha256": "3ee865d74243a8fa838f0c7ad4993cfc39c3a037fb26518db658ae120744174e"
+      },
+      {
+       "row": 27,
+       "votes": 271,
+       "printed_percent": "0,11",
+       "seats": 0,
+       "parties_named": [
+        "SOCIJALISTIČKA PARTIJA HRVATSKE - SPH"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "de9474fac0eb17be9bd903dc75e94fd7ed6903215e98df7bd4f915f559c38037",
+       "group_sha256": "53b95ec2f4f921554bb4cd20ccfb5ad4b4f6014518586463415e5c2ea7ac637d"
+      },
+      {
+       "row": 28,
+       "votes": 214,
+       "printed_percent": "0,09",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d26ad4a7d63531ccfe1fb55d779c93c7647a339c82636e338dc2499fef0fa151",
+       "group_sha256": "d26ad4a7d63531ccfe1fb55d779c93c7647a339c82636e338dc2499fef0fa151"
+      },
+      {
+       "row": 29,
+       "votes": 198,
+       "printed_percent": "0,08",
+       "seats": 0,
+       "parties_named": [
+        "ABECEDA DEMOKRACIJE - ABECEDA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "49b4137a5fd1234063fbdbc18165f854bd1f0d81cad3941cb0950f1a125a1997",
+       "group_sha256": "5fe9c3e0836d37017b83a5380e6e25561098844342a9bda1612868d79c8d2068"
+      },
+      {
+       "row": 30,
+       "votes": 137,
+       "printed_percent": "0,06",
+       "seats": 0,
+       "parties_named": [
+        "NEOVISNA LISTA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "06fad0aed352cc91bae0c815b268049e24c0c0945021937875892a1a0d2f0763",
+       "group_sha256": "06fad0aed352cc91bae0c815b268049e24c0c0945021937875892a1a0d2f0763"
+      },
+      {
+       "row": 31,
+       "votes": 133,
+       "printed_percent": "0,05",
+       "seats": 0,
+       "parties_named": [
+        "NACIONALNI DEMOKRATI - ND"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "bcb1d3775507b9239f42d8a4b7e57762905b12a95179e35a298582f07fd26b6a",
+       "group_sha256": "0b8b777b74d74851e66abf9ac54563bb3c7fa9489dbbf5eac42d8d3e7b1f77a0"
+      },
+      {
+       "row": 32,
+       "votes": 91,
+       "printed_percent": "0,04",
+       "seats": 0,
+       "parties_named": [
+        "NOVA HRVATSKA - NH"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "2f5a7e0b6ab5c2cd6bee03e23fe9f73246024c70c7a3b98a2386d7255968891e",
+       "group_sha256": "a7eaf6619cf99333b601fc5132e474c00c89f9981914d8fc87349f115c1d4216"
+      },
+      {
+       "row": 33,
+       "votes": 86,
+       "printed_percent": "0,03",
+       "seats": 0,
+       "parties_named": [
+        "STRANKA HRVATSKOG ZAJEDNIŠTVA - SHZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "5d077c0ab668a5e6a6c269370997977458552970e5725f6d7fd36656e7c8e36b",
+       "group_sha256": "c5ac0671fdbae0dbf6b677a42fac419ed563d45b8e3c68c5227154271dfb4802"
+      }
+     ],
+     "seats_section_iv_in_order": [
+      6,
+      5,
+      2,
+      1
+     ],
+     "lists_in_allocation_printed": 4
+    },
+    {
+     "unit_key": "02_011",
+     "document": "i_02_011_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_02_011_0000.pdf",
+     "publisher_file_sha256": "2627fc7ac09b8e3fa713333dd7252792a5c48713e44f56eea5d686115fee3f30",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-11",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 411758,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 21100,
+      "voted_by_ballots_pct": "5,12",
+      "valid": 20861,
+      "valid_pct": "98,87",
+      "invalid": 239,
+      "invalid_pct": "1,13"
+     },
+     "kind": "diaspora",
+     "constituency_number": 11,
+     "lists": [
+      {
+       "row": 1,
+       "votes": 15016,
+       "printed_percent": "71,98",
+       "seats": 3,
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "d0bb53289cbf3b9770d55e02508cc0ebdb9f1ef383f5d38b4b5da897eb38436d",
+       "group_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "votes": 2105,
+       "printed_percent": "10,09",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA - HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "995fb823bac32695b9154761719dad5bae71f8ef19faecf59ec155907fbd6562",
+       "group_sha256": "63b98a9a5ef37406009dd74fc22256aa18a214a8fa97ca2e5790d6747a2ae245"
+      },
+      {
+       "row": 3,
+       "votes": 718,
+       "printed_percent": "3,44",
+       "seats": 0,
+       "parties_named": [
+        "BLOK UMIROVLJENICI ZAJEDNO - BUZ",
+        "PRIMORSKO GORANSKI SAVEZ - PGS",
+        "HRVATSKA RADNIČKA STRANKA - HRS"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "ba51d6efa972b519797c094f8abe54a96ee9e846783a46c0fe6df31221c50cb5",
+       "group_sha256": "c2949b0773eb730824c4d5084e3f94711b2824af61571658a088f4e428d82167"
+      },
+      {
+       "row": 4,
+       "votes": 603,
+       "printed_percent": "2,89",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA STRANKA PRAVA DR.ANTE STARČEVIĆ - HSP DR.ANTE STARČEVIĆ",
+        "HRVATSKA ČISTA STRANKA PRAVA - HČSP"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "efd66e5ce8dfd8a4e185a3547fa24be7c87722992357cb872b352c19d16ab44d",
+       "group_sha256": "4ee0812edebc9748fbbd6d43aaaa09451db1432cbbb1c4e1028a50d95f5b90fc"
+      },
+      {
+       "row": 5,
+       "votes": 522,
+       "printed_percent": "2,50",
+       "seats": 0,
+       "parties_named": [
+        "STRANKA HRVATSKOG ZAJEDNIŠTVA - SHZ"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "167fca5eeb28aa1f57c5db7068ffb035be9e5b58bd48191ca01fc300a0d3985e",
+       "group_sha256": "c5ac0671fdbae0dbf6b677a42fac419ed563d45b8e3c68c5227154271dfb4802"
+      },
+      {
+       "row": 6,
+       "votes": 519,
+       "printed_percent": "2,49",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA SOCIJALNO-LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "028dfa524be255f2e1a9c4525cb2b237c0355d34cd66e38f48d239b83127fd41",
+       "group_sha256": "879b6a7e0905d54e2021c70702d980bab335a7513dd19254b3ba7c80872a5d93"
+      },
+      {
+       "row": 7,
+       "votes": 235,
+       "printed_percent": "1,13",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKI RAST - HRAST"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "96efdb988f62102e1a8eaefceef884f64319543c6d545e20bf39349ae19c2c04",
+       "group_sha256": "5abe6e1db7a5916387aad7028d668dd339e23f1ab1e843e0674ec99c47ba6a5b"
+      },
+      {
+       "row": 8,
+       "votes": 208,
+       "printed_percent": "1,00",
+       "seats": 0,
+       "parties_named": [
+        "LISTA ZA RIJEKU - LISTA-RI",
+        "AKCIJA SOCIJALDEMOKRATA HRVATSKE - ASH",
+        "STRANKA UMIROVLJENIKA HRVATSKE-BLOK UMIROVLJENICI ZAJEDNO - SUH"
+       ],
+       "parties_named_count": 3,
+       "label_basis": "verbatim",
+       "title_sha256": "4ee6f30599d6195bdccbc89bd4259823dc112ad7736658eb639081e80f1b5004",
+       "group_sha256": "503d072674755992e7f9eb8ad2c1a5e1099dfebc72644a4e8375d126fad2e989"
+      },
+      {
+       "row": 9,
+       "votes": 200,
+       "printed_percent": "0,96",
+       "seats": 0,
+       "parties_named": [
+        "JEDINO HRVATSKA - POKRET ZA HRVATSKU - JEDINO HRVATSKA",
+        "HRVATSKA DEMOKRŠĆANSKA STRANKA - HDS"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "79d8b6e835fec754e5225b9e9a6e00edbc971c5dce9eb8af55c605011a204486",
+       "group_sha256": "6037bb54fc816fb18f55c40a232bff0f49fb5fc6bdfcfd13ae4ab85400f951c4"
+      },
+      {
+       "row": 10,
+       "votes": 167,
+       "printed_percent": "0,80",
+       "seats": 0,
+       "parties_named": [
+        "AGENDA MLADIH DEMOKRATA - AMD",
+        "HRVATSKA STRANKA MLADIH - HSM"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "48d9aaf29a0767139abce827be5e7e93adae728cfeb68bc159217958f3dbc404",
+       "group_sha256": "6948cde6c91082d1c2b6c61e0d50f66518e8064934695b03e8d3bd671db78454"
+      },
+      {
+       "row": 11,
+       "votes": 160,
+       "printed_percent": "0,77",
+       "seats": 0,
+       "parties_named": [
+        "SAVEZ ZA PROMJENE - SP",
+        "AUTOHTONA - HRVATSKA SELJAČKA STRANKA - A-HSS"
+       ],
+       "parties_named_count": 2,
+       "label_basis": "verbatim",
+       "title_sha256": "b419e8ff1045804eccdd90e522a9a56bf0da1f6dc6e85424a48f1f9999035250",
+       "group_sha256": "ec9d4c663ba3811b24c40063ebef225c56e8711c3d1f46558b24f9ab4611c67a"
+      },
+      {
+       "row": 12,
+       "votes": 150,
+       "printed_percent": "0,72",
+       "seats": 0,
+       "parties_named": [
+        "HRVATSKA 21. STOLJEĆA - HRVATSKA 21."
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "4cb56aa1499db4115c78a5aca3d5723c8878f628626d40a2660c6c3950ca1386",
+       "group_sha256": "0385c4188a0d3f783a2e9a933d888847a6dd698380982a2dddb3ee954067fd1c"
+      },
+      {
+       "row": 13,
+       "votes": 118,
+       "printed_percent": "0,57",
+       "seats": 0,
+       "parties_named": [
+        "ABECEDA DEMOKRACIJE - ABECEDA"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "99382b1d46dc399737225b674e1d487ac5c2f64d910d1ccbe937904fdc19e49e",
+       "group_sha256": "5fe9c3e0836d37017b83a5380e6e25561098844342a9bda1612868d79c8d2068"
+      },
+      {
+       "row": 14,
+       "votes": 112,
+       "printed_percent": "0,54",
+       "seats": 0,
+       "parties_named": [
+        "AUTOHTONA-HRVATSKA STRANKA PRAVA - A-HSP"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "88e518169bf95d408de2e52107faead85c7239341cf228475e91f04d07acb3fa",
+       "group_sha256": "c01ff45e7e44d80970a1a7f2a33a0a07b7e9bc1ab3d253411fcdc5c4ec2512d1"
+      },
+      {
+       "row": 15,
+       "votes": 28,
+       "printed_percent": "0,13",
+       "seats": 0,
+       "parties_named": [
+        "NACIONALNI DEMOKRATI - ND"
+       ],
+       "parties_named_count": 1,
+       "label_basis": "verbatim",
+       "title_sha256": "4eaf13b0cedeb4a80a6a6f86072c6855a276753fbb1bcbc1c14a764f33d84b80",
+       "group_sha256": "0b8b777b74d74851e66abf9ac54563bb3c7fa9489dbbf5eac42d8d3e7b1f77a0"
+      }
+     ],
+     "seats_section_iv_in_order": [
+      3,
+      0
+     ],
+     "lists_in_allocation_printed": 2
+    },
+    {
+     "unit_key": "13_012",
+     "document": "i_13_012_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_13_012_0000.pdf",
+     "publisher_file_sha256": "687542a3aa2d7080db27d05a88fbe1b1c578e377e0adc4acbcabef65e2836ed1",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-12",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 183992,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 22933,
+      "voted_by_ballots_pct": "12,46",
+      "valid": 22350,
+      "valid_pct": "97,46",
+      "invalid": 583,
+      "invalid_pct": "2,54"
+     },
+     "kind": "national_minority",
+     "constituency_number": 12,
+     "minority_code": "srpska",
+     "minority_en": "Serbian",
+     "seats_by_law": 3,
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 14541,
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 14188,
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 12249,
+       "elected": true
+      },
+      {
+       "row": 4,
+       "votes": 4813,
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 3579,
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 2119,
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 901,
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 869,
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 619,
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 593,
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 563,
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 478,
+       "elected": false
+      },
+      {
+       "row": 13,
+       "votes": 340,
+       "elected": false
+      }
+     ]
+    },
+    {
+     "unit_key": "23_012",
+     "document": "i_23_012_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_23_012_0000.pdf",
+     "publisher_file_sha256": "cd966f4f74a95ce79353c4cd30537697af844f538f010aeb48e965119f93e2a9",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-13",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 9731,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 4798,
+      "voted_by_ballots_pct": "49,31",
+      "valid": 4737,
+      "valid_pct": "98,73",
+      "invalid": 61,
+      "invalid_pct": "1,27"
+     },
+     "kind": "national_minority",
+     "constituency_number": 12,
+     "minority_code": "madjarska",
+     "minority_en": "Hungarian",
+     "seats_by_law": 1,
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 2441,
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 2296,
+       "elected": false
+      }
+     ]
+    },
+    {
+     "unit_key": "33_012",
+     "document": "i_33_012_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_33_012_0000.pdf",
+     "publisher_file_sha256": "1a876e936501926bc9337d37807f9c5dff780bb36523bd109801efaf120efa0a",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-14",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 10005,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 3157,
+      "voted_by_ballots_pct": "31,55",
+      "valid": 3067,
+      "valid_pct": "97,15",
+      "invalid": 90,
+      "invalid_pct": "2,85"
+     },
+     "kind": "national_minority",
+     "constituency_number": 12,
+     "minority_code": "talijanska",
+     "minority_en": "Italian",
+     "seats_by_law": 1,
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 3067,
+       "elected": true
+      }
+     ]
+    },
+    {
+     "unit_key": "43_012",
+     "document": "i_43_012_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_43_012_0000.pdf",
+     "publisher_file_sha256": "c96ad07dc38804d743e14fe386862ac75377ee04f7c831ccf526c7d726cffa61",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-15",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 6927,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 3360,
+      "voted_by_ballots_pct": "48,51",
+      "valid": 3327,
+      "valid_pct": "99,02",
+      "invalid": 33,
+      "invalid_pct": "0,98"
+     },
+     "kind": "national_minority",
+     "constituency_number": 12,
+     "minority_code": "ceska_slovacka",
+     "minority_en": "Czech and Slovak",
+     "seats_by_law": 1,
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1510,
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 804,
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 763,
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 137,
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 113,
+       "elected": false
+      }
+     ]
+    },
+    {
+     "unit_key": "53_012",
+     "document": "i_53_012_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_53_012_0000.pdf",
+     "publisher_file_sha256": "238463097dab7925a2f0a7b7a90962069c26f6eb7d754a3a54a439998361249c",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-16",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 13163,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 4635,
+      "voted_by_ballots_pct": "35,21",
+      "valid": 4572,
+      "valid_pct": "98,64",
+      "invalid": 63,
+      "invalid_pct": "1,36"
+     },
+     "kind": "national_minority",
+     "constituency_number": 12,
+     "minority_code": "austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+     "minority_en": "Austrian, Bulgarian, German, Polish, Roma, Romanian, Rusyn, Russian, Turkish, Ukrainian, Vlach and Jewish",
+     "seats_by_law": 1,
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 863,
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 839,
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 544,
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 371,
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 303,
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 270,
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 219,
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 177,
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 156,
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 134,
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 132,
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 117,
+       "elected": false
+      },
+      {
+       "row": 13,
+       "votes": 105,
+       "elected": false
+      },
+      {
+       "row": 14,
+       "votes": 64,
+       "elected": false
+      },
+      {
+       "row": 15,
+       "votes": 60,
+       "elected": false
+      },
+      {
+       "row": 16,
+       "votes": 40,
+       "elected": false
+      },
+      {
+       "row": 17,
+       "votes": 33,
+       "elected": false
+      },
+      {
+       "row": 18,
+       "votes": 33,
+       "elected": false
+      },
+      {
+       "row": 19,
+       "votes": 32,
+       "elected": false
+      },
+      {
+       "row": 20,
+       "votes": 32,
+       "elected": false
+      },
+      {
+       "row": 21,
+       "votes": 24,
+       "elected": false
+      },
+      {
+       "row": 22,
+       "votes": 16,
+       "elected": false
+      },
+      {
+       "row": 23,
+       "votes": 8,
+       "elected": false
+      }
+     ]
+    },
+    {
+     "unit_key": "63_012",
+     "document": "i_63_012_0000.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/izabrani/i_63_012_0000.pdf",
+     "publisher_file_sha256": "43b6df88f52c1661178315ada9e4fc258eb3cf43ddbddadec687230a1a7394be",
+     "klasa": "013-03/11-15/04",
+     "urbroj": "507-11-17",
+     "decision_date": "2011-12-13",
+     "polling_days_printed": "3. I 4. PROSINCA 2011.",
+     "totals": {
+      "registered": 26312,
+      "turned_out": null,
+      "turned_out_pct": null,
+      "voted_by_ballots": 6233,
+      "voted_by_ballots_pct": "23,69",
+      "valid": 6142,
+      "valid_pct": "98,54",
+      "invalid": 91,
+      "invalid_pct": "1,46"
+     },
+     "kind": "national_minority",
+     "constituency_number": 12,
+     "minority_code": "albanska_bosnjacka_crnogorska_makedonska_slovenska",
+     "minority_en": "Albanian, Bosniak, Montenegrin, Macedonian and Slovenian",
+     "seats_by_law": 1,
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1628,
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 1554,
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 1077,
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 953,
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 192,
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 181,
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 164,
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 160,
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 80,
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 73,
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 42,
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 38,
+       "elected": false
+      }
+     ]
+    }
+   ],
+   "archive_page": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2011",
+   "retrieved_at": "2026-11-18",
+   "percent_convention": "rounded_two_decimals",
+   "names_source": {
+    "note": "The 2011 decisions have a damaged text layer (split words, wrong glyphs): figures are read from them, list names come from the commission’s open-data workbooks (constituency total rows), matched to the decision rows by votes; ties resolved by the legible decision text; list leaders’ names are dropped (title_sha256 identifies the full workbook label; seats are grouped by party names, or by the full label for independent lists).",
+    "workbooks_zip": "https://www.izbori.hr/arhiva-izbora/data/parlament/2011/zip/rezultati.zip"
+   },
+   "minority_registered_basis": "minority_electoral_roll"
+  },
   "2015": {
    "polling_day": "2015-11-08",
    "units": [
@@ -3144,7 +8151,8 @@
    ],
    "archive_page": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2015",
    "retrieved_at": "2026-11-18",
-   "percent_convention": "rounded_two_decimals"
+   "percent_convention": "rounded_two_decimals",
+   "minority_registered_basis": "voters_stated_equal_to_turnout"
   },
   "2016": {
    "polling_day": "2016-09-11",
@@ -6179,7 +11187,8 @@
    ],
    "archive_page": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2016",
    "retrieved_at": "2026-11-18",
-   "percent_convention": "truncated_two_decimals"
+   "percent_convention": "truncated_two_decimals",
+   "minority_registered_basis": "voters_stated_equal_to_turnout"
   },
   "2020": {
    "polling_day": "2020-07-05",
@@ -9444,7 +14453,8 @@
    ],
    "archive_page": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2020",
    "retrieved_at": "2026-11-18",
-   "percent_convention": "truncated_two_decimals"
+   "percent_convention": "truncated_two_decimals",
+   "minority_registered_basis": "voters_stated_equal_to_turnout"
   },
   "2024": {
    "polling_day": "2024-04-17",
@@ -12282,7 +17292,8 @@
     "read_on": "2026-11-18",
     "how": "read once in the browser pane on the archive page"
    },
-   "percent_convention": "truncated_two_decimals"
+   "percent_convention": "truncated_two_decimals",
+   "minority_registered_basis": "voters_stated_equal_to_turnout"
   }
  }
 }

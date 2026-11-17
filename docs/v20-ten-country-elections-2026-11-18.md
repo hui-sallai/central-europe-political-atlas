@@ -142,3 +142,12 @@ Admission `slovenia-dz-2014-2022` (`docs/political-data/slovenia_dz2014_2022_adm
 - Labels: 2014 and 2018 use the commission's short names (full names not transcribed); 2022 names with a person use the commission's short name (LMŠ, SAB, L'BP, NAŠA DEŽELA).
 - 2011 not admitted: the polling-station file is in the legacy .xls format, so the cross-check could not be run.
 - Institutions: `election_links.json` now holds 31 elections; all four Slovenian elections link to `slovenia-period-2013-05-24`.
+
+## Addendum: Croatia 2011 (owner reply "continue")
+
+Admission `croatia-sabor-2011` (`docs/political-data/croatia_sabor2011_admission.json`); same build, now five elections (`el-hr-sabor-2011-12-04` added).
+
+- The 2011 decisions' text layer is damaged (split words, wrong glyphs for đ), so names cannot be transcribed from them. Their numbers are intact: totals, every list's votes and printed percentage (rounded in 2011), the threshold lists and seats are read from the decisions.
+- List names come from the commission's 2011 open-data workbooks (`arhiva-izbora/data/parlament/2011/zip/rezultati.zip`, constituency total rows), whose totals equal the decisions' valid ballots in all eleven list constituencies; every decision row is matched by votes (one tie in constituency X resolved by the legible decision text). List leaders ("Nositelj liste") are dropped; one list title that was only a person's name is omitted (row number shown).
+- Seats grouped by party names (independent lists by their full label): Kukuriku coalition (SDP, HNS, IDS, HSU) 80, HDZ-led lists 47, HDSSB 6, Laburisti 6, an independent list 2, HSS 1, HSP AS–HČSP 1; minorities 8; total 151. There was no preferential vote in 2011 (the 2015 amendment is a later change in `election_links.json`).
+- 2011 minority decisions print the minority electoral roll (e.g. Serbian minority 183,992), so their turnout is roll-based, unlike 2015–2024.

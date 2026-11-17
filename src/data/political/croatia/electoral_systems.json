@@ -1,5 +1,254 @@
 [
   {
+    "electoral_system_id": "es-hr-sabor-2011",
+    "country": "croatia",
+    "election_id": "el-hr-sabor-2011-12-04",
+    "institutional_rule_id": "hr-es-sabor",
+    "valid_from": "2011-12-04",
+    "valid_to": "2011-12-04",
+    "interval_basis": "election-specific: the rules applied in the 2011 decisions (Election Act as cited in each decision, 5% constituency threshold and D'Hondt reproduce the printed seats); the institutional registry record hr-es-sabor holds the current statutory text read from the official gazette",
+    "system_family": "list proportional representation in ten territorial constituencies and one constituency abroad; plurality election of national-minority members",
+    "vote_type": "hr_list_vote",
+    "allocation_method": "D'Hondt within each constituency among lists with at least 5% of valid ballots (Arts. 40–41); national-minority members: candidates with most votes (Art. 46)",
+    "base_seats": 151,
+    "vote_definitions": [
+      {
+        "id": "hr_list_vote",
+        "kind": "list",
+        "label": {
+          "en": "Constituency list votes",
+          "zh-CN": "选区名单票"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "constituency",
+        "sourceIds": [
+          "src-hr-dip-final-2011"
+        ]
+      },
+      {
+        "id": "hr_minority_candidate_vote",
+        "kind": "candidate",
+        "label": {
+          "en": "National-minority candidate votes",
+          "zh-CN": "少数民族候选人票"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "minority_constituency",
+        "sourceIds": [
+          "src-hr-dip-final-2011"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": null,
+      "districtAllocation": "Ten territorial constituencies with 14 seats each and one constituency abroad with 3 seats; in each, seats are shared by D'Hondt among lists with at least 5% of the constituency's valid ballots.",
+      "thresholds": [
+        {
+          "appliesTo": "electoral list, per constituency",
+          "percent": 5,
+          "description": {
+            "en": "A list needs at least 5% of the valid ballots in the constituency to take part in its seat allocation (Art. 41, as cited in each decision).",
+            "zh-CN": "名单须获得本选区有效票至少 5% 才能参与该选区席位分配（第 41 条，各决定均引用）。"
+          },
+          "sourceIds": [
+            "src-hr-dip-final-2011"
+          ]
+        }
+      ],
+      "minorityRepresentation": {
+        "en": "Eight members for national minorities are elected in a separate constituency (XII) covering the whole country: three for the Serbian minority (each voter may vote for up to three candidates), one each for the Hungarian and Italian minorities, one for the Czech and Slovak minorities, and one each for two groups of other minorities. Each member is elected as an individual candidate with a deputy; candidate names are not stored here.",
+        "zh-CN": "少数民族的 8 名议员在覆盖全国的单独选区（第 XII 选区）选出：塞尔维亚族 3 名（每名选民最多可投 3 名候选人），匈牙利族、意大利族各 1 名，捷克族与斯洛伐克族共 1 名，另两组其他少数民族各 1 名。每名议员以个人候选人身份（另有替补）当选；此处不存储候选人姓名。"
+      },
+      "diasporaRepresentation": {
+        "en": "Three members are elected in the constituency for voters without residence in Croatia (XI), by the same list rules as the territorial constituencies.",
+        "zh-CN": "在克罗地亚无居所的选民所属选区（第 XI 选区）选出 3 名议员，名单规则与地域选区相同。"
+      },
+      "totalSeatsDefinition": {
+        "en": "151 seats: 140 from ten territorial constituencies, 3 from the constituency abroad and 8 for national minorities.",
+        "zh-CN": "151 席：十个地域选区 140 席、境外选区 3 席、少数民族 8 席。"
+      },
+      "sourceIds": [
+        "src-hr-dip-final-2011"
+      ]
+    },
+    "notes": {
+      "en": "Votes are shown per constituency. The same party can stand in different coalitions in different constituencies, so constituency list votes are not added into national vote shares. Seats reproduce by D'Hondt with the 5% constituency threshold. There was no preferential vote before the 2015 amendments: candidates were elected in list order. The 2011 decisions have a damaged text layer, so list names come from the commission's open-data workbooks, matched to the decisions by votes; list leaders' names are not stored.",
+      "zh-CN": "得票按选区列示。同一政党在不同选区可能参加不同联盟，因此不把各选区名单票相加为全国得票率。席位可按 D’Hondt 与选区 5% 门槛复现。2015 年修正之前没有优先票：候选人按名单顺序当选。2011 年决定的文本层受损，名单名称来自委员会开放数据工作簿，按得票与决定匹配；不存储名单领衔人姓名。"
+    },
+    "seat_check": {
+      "units": [
+        {
+          "unit": "02_001",
+          "kind": "territorial",
+          "lists": 39,
+          "valid": 235217,
+          "seats": 14,
+          "threshold_votes": 11761,
+          "lists_in_allocation": 3
+        },
+        {
+          "unit": "02_002",
+          "kind": "territorial",
+          "lists": 36,
+          "valid": 245143,
+          "seats": 14,
+          "threshold_votes": 12258,
+          "lists_in_allocation": 4
+        },
+        {
+          "unit": "02_003",
+          "kind": "territorial",
+          "lists": 31,
+          "valid": 229310,
+          "seats": 14,
+          "threshold_votes": 11466,
+          "lists_in_allocation": 3
+        },
+        {
+          "unit": "02_004",
+          "kind": "territorial",
+          "lists": 28,
+          "valid": 206278,
+          "seats": 14,
+          "threshold_votes": 10314,
+          "lists_in_allocation": 3
+        },
+        {
+          "unit": "02_005",
+          "kind": "territorial",
+          "lists": 23,
+          "valid": 212371,
+          "seats": 14,
+          "threshold_votes": 10619,
+          "lists_in_allocation": 3
+        },
+        {
+          "unit": "02_006",
+          "kind": "territorial",
+          "lists": 29,
+          "valid": 214334,
+          "seats": 14,
+          "threshold_votes": 10717,
+          "lists_in_allocation": 3
+        },
+        {
+          "unit": "02_007",
+          "kind": "territorial",
+          "lists": 27,
+          "valid": 261423,
+          "seats": 14,
+          "threshold_votes": 13072,
+          "lists_in_allocation": 3
+        },
+        {
+          "unit": "02_008",
+          "kind": "territorial",
+          "lists": 26,
+          "valid": 233773,
+          "seats": 14,
+          "threshold_votes": 11689,
+          "lists_in_allocation": 4
+        },
+        {
+          "unit": "02_009",
+          "kind": "territorial",
+          "lists": 26,
+          "valid": 245868,
+          "seats": 14,
+          "threshold_votes": 12294,
+          "lists_in_allocation": 2
+        },
+        {
+          "unit": "02_010",
+          "kind": "territorial",
+          "lists": 33,
+          "valid": 248887,
+          "seats": 14,
+          "threshold_votes": 12445,
+          "lists_in_allocation": 4
+        },
+        {
+          "unit": "02_011",
+          "kind": "diaspora",
+          "lists": 15,
+          "valid": 20861,
+          "seats": 3,
+          "threshold_votes": 1044,
+          "lists_in_allocation": 2
+        },
+        {
+          "unit": "13_012",
+          "kind": "national_minority",
+          "candidates": 13,
+          "seats": 3,
+          "valid": 22350
+        },
+        {
+          "unit": "23_012",
+          "kind": "national_minority",
+          "candidates": 2,
+          "seats": 1,
+          "valid": 4737
+        },
+        {
+          "unit": "33_012",
+          "kind": "national_minority",
+          "candidates": 1,
+          "seats": 1,
+          "valid": 3067
+        },
+        {
+          "unit": "43_012",
+          "kind": "national_minority",
+          "candidates": 5,
+          "seats": 1,
+          "valid": 3327
+        },
+        {
+          "unit": "53_012",
+          "kind": "national_minority",
+          "candidates": 23,
+          "seats": 1,
+          "valid": 4572
+        },
+        {
+          "unit": "63_012",
+          "kind": "national_minority",
+          "candidates": 12,
+          "seats": 1,
+          "valid": 6142
+        }
+      ],
+      "seats": {
+        "territorial": 140,
+        "diaspora": 3,
+        "national_minority": 8,
+        "total": 151
+      },
+      "territorial_turnout_matches_archive_table": "no archive table printed for this election"
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2011",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2011",
+        "source_record_id": "decisions sections III–IV",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "fields_covered": [
+          "allocation_method",
+          "thresholds",
+          "base_seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "electoral_system_id": "es-hr-sabor-2015",
     "country": "croatia",
     "election_id": "el-hr-sabor-2015-11-08",
@@ -235,10 +484,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -484,10 +733,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -733,10 +982,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -982,10 +1231,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "8f0f61fa3b62ec400119b4b17774c48413c87c98bcbfc8c3e4d561028a6e7b41"
+          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "61aa9ca6763e73b66e171ccdb280142a2bab1d7efa116573c070f457446a79ec",
+        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
         "fields_covered": [
           "allocation_method",
           "thresholds",

@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Croatian parliamentary election 2011 — 2026-11-18
+
+- Add Croatia's 2011 parliamentary election (all 151 seats per constituency, including the constituency abroad and the national-minority elections). The commission's 2011 decisions have a damaged text layer, so list names come from its open-data workbooks, matched to the decisions by votes; list leaders' names are not stored.
+
 ### v2.0 Slovenian parliamentary elections 2014–2022 — 2026-11-18
 
 - Add Slovenia's National Assembly elections of 2014, 2018 and 2022 (all 90 seats each, with the Italian and Hungarian national-community deputies), from the electoral commission's own result documents and its final station-level results. The 2014 and 2018 community results are ranking points and are labelled as such.

@@ -73,13 +73,14 @@
   {
    "country": "croatia",
    "elections": [
+    2011,
     2015,
     2016,
     2020,
     2024
    ],
-   "scope": "Croatian Parliament 2015, 2016, 2020 and 2024, whole chamber (151 seats) per constituency: ten territorial constituencies, the constituency abroad and six national-minority elections, from the State Electoral Commission final-results decisions; minority candidates without names; 2011 and earlier not admitted",
-   "record": "docs/political-data/croatia_sabor_admission.json"
+   "scope": "Croatian Parliament 2011, 2015, 2016, 2020 and 2024, whole chamber (151 seats) per constituency: ten territorial constituencies, the constituency abroad and six national-minority elections, from the State Electoral Commission final-results decisions; minority candidates without names; 2007 and earlier not admitted",
+   "record": "docs/political-data/croatia_sabor2011_admission.json"
   },
   {
    "country": "slovenia",
@@ -185,6 +186,12 @@
    "country": "slovenia",
    "question": "Continue with Slovenia's earlier elections from the commission's own documents?",
    "decision": "Owner reply \"continue\": 2014, 2018 and 2022 admitted from the scanned minutes/report and the final results by polling station; 2011 left for an .xls reader."
+  },
+  {
+   "date": "2026-11-18",
+   "country": "croatia",
+   "question": "Read the damaged 2011 Croatian decisions another way?",
+   "decision": "Owner reply \"continue\": 2011 admitted from the decision figures with list names from the commission's open-data workbooks matched by votes."
   }
  ],
  "countries": {

@@ -80,6 +80,8 @@ export const POLITICAL_ADMISSIONS = {
   'croatia-sabor-2015-2024': { approved_on: '2026-11-18', country: 'croatia', gate_record: 'docs/political-data/croatia_sabor_admission.json', paths: CROATIAN_PATHS },
   // Same brief and answers: Slovenian National Assembly 2026 from the commission's minutes (Uradni list RS 197/2026).
   'slovenia-dz-2026': { approved_on: '2026-11-18', country: 'slovenia', gate_record: 'docs/political-data/slovenia_dz_admission.json', paths: SLOVENIAN_PATHS },
+  // Owner reply "continue", 2026-11-18: Croatia 2011 (decision figures, workbook names matched by votes).
+  'croatia-sabor-2011': { approved_on: '2026-11-18', country: 'croatia', gate_record: 'docs/political-data/croatia_sabor2011_admission.json', paths: CROATIAN_PATHS },
   // Owner reply "continue", 2026-11-18: Slovenia 2014, 2018 and 2022 from the commission's own result documents (2026 unchanged).
   'slovenia-dz-2014-2022': { approved_on: '2026-11-18', country: 'slovenia', gate_record: 'docs/political-data/slovenia_dz2014_2022_admission.json', paths: SLOVENIAN_PATHS },
   // Owner answers "both" and "ii then i", 2026-11-18: Romania 2016, Chamber of Deputies and Senate, from AEP files on data.gov.ro.
