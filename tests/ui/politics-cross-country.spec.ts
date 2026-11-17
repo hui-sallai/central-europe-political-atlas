@@ -65,7 +65,8 @@ for (const locale of ["zh-CN", "en"] as const) test(`publication-gate status nam
   await page.goto(locale === "en" ? "/en/politics/?country=germany" : "/politics/?country=germany", { waitUntil: "networkidle" });
   const status = page.locator("[data-politics-explorer] [data-admission-status]");
   await status.locator("summary").click();
-  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(6);
+  await expect(status.locator("[data-admission-state='admitted']")).toHaveCount(8);
+  for (const country of ["croatia", "slovenia"]) await expect(status.locator(`[data-admission='${country}']`)).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='germany']")).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='czechia']")).toHaveAttribute("data-admission-state", "admitted");
   await expect(status.locator("[data-admission='poland']")).toHaveAttribute("data-admission-state", "admitted");

@@ -4183,7 +4183,7 @@
       "amendment_id": "croatia-slovenia-elections-2026-11-18",
       "status": "owner_approved",
       "approved_by": "owner brief 2026-11-18 \"Complete ten-country parliamentary election coverage\" with answers \"Accept for all four\" and \"Register both\": politicalData.ts imports the admitted Croatian and Slovenian stores behind the publication gate (raw constituency stores, no national view and no comparison set changed); politicalAdmission.ts adds the two admitted rows and the pipeline note; institutions registry: store_chamber added for hr-sabor and si-drzavni-zbor and election_links.json regenerated so the new elections link to their institutional periods; no component, page or design change",
-      "baseline": "c6838eb96081455b6d8bae2b4e8275d265dad84d",
+      "baseline": "61643db05494c9ab5c2b39311eb54b72adebb7b6",
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
       "political_data_change_allowed": false,
@@ -4198,7 +4198,7 @@
         },
         {
           "path": "src/lib/politicalAdmission.ts",
-          "sha256": "d2af049781cd2796eed6b9985c5fb56a37e4f46b83f305e1cf4bd873ff7d0b0b",
+          "sha256": "4be6f13c2481507473a602731639dac8b195848ca9b7dabe33c03fd1569be49a",
           "classification": "DATA_PRESENTATION"
         },
         {
