@@ -4226,8 +4226,8 @@
     {
       "amendment_id": "romania-elections-2016-2026-11-18",
       "status": "owner_approved",
-      "approved_by": "owner answer 2026-11-18 \"both\" with the owner-supplied BEC acts RF_2/RF_3 (Romania 2024): politicalAdmission.ts updates the Romanian row text and record, election_links.json is regenerated with the two 2024 elections; before that, owner answers \"both\" and \"ii then i\" (Romania 2016) on top of the ten-country brief: politicalData.ts adds the gated Romanian stores; politicalAdmission.ts makes Romania admitted with politicsRoute false; romania.json gains store_chamber for both chambers and election_links.json is regenerated; earlier in the day: politicalData.ts imports the admitted Croatian and Slovenian stores behind the publication gate (raw constituency stores, no national view and no comparison set changed); politicalAdmission.ts adds the two admitted rows and the pipeline note; institutions registry: store_chamber added for hr-sabor and si-drzavni-zbor and election_links.json regenerated so the new elections link to their institutional periods; pages link only to countries with a politics page (admittedCountrySlugs; Croatia and Slovenia flagged politicsRoute false and left out of countryElectionLinks until Codex adds their pages); no component, page or design change",
-      "baseline": "0a7e87c397fdb5ec578f90c46bbbcde025458692",
+      "approved_by": "owner brief and answers \"Accept for all four\" and \"I'll download files myself\" with the owner-saved BMI files (Austria 2013–2024, 2026-11-18): politicalData.ts adds the gated Austrian stores, politicalAdmission.ts makes Austria admitted with politicsRoute false, austria.json gains store_chamber and election_links.json is regenerated; before that, owner answer 2026-11-18 \"both\" with the owner-supplied BEC acts RF_2/RF_3 (Romania 2024): politicalAdmission.ts updates the Romanian row text and record, election_links.json is regenerated with the two 2024 elections; before that, owner answers \"both\" and \"ii then i\" (Romania 2016) on top of the ten-country brief: politicalData.ts adds the gated Romanian stores; politicalAdmission.ts makes Romania admitted with politicsRoute false; romania.json gains store_chamber for both chambers and election_links.json is regenerated; earlier in the day: politicalData.ts imports the admitted Croatian and Slovenian stores behind the publication gate (raw constituency stores, no national view and no comparison set changed); politicalAdmission.ts adds the two admitted rows and the pipeline note; institutions registry: store_chamber added for hr-sabor and si-drzavni-zbor and election_links.json regenerated so the new elections link to their institutional periods; pages link only to countries with a politics page (admittedCountrySlugs; Croatia and Slovenia flagged politicsRoute false and left out of countryElectionLinks until Codex adds their pages); no component, page or design change",
+      "baseline": "9d46c6ebc57597a9e7a96f642a94ddcdabe7a485",
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
       "political_data_change_allowed": false,
@@ -4237,12 +4237,12 @@
       "files": [
         {
           "path": "src/lib/politicalData.ts",
-          "sha256": "623e964a051d62a2ac993840584ae9e228ad43bc284f0f17b5fcba3680492aee",
+          "sha256": "c9158752aa86459aeb61f86393f9a5f319d0083548a89e6fbe179e61bff72654",
           "classification": "DATA_PRESENTATION"
         },
         {
           "path": "src/lib/politicalAdmission.ts",
-          "sha256": "399b77d8675f5364efe3eb96bcdb822684da8a4dc0599a83cf092da4b7408d50",
+          "sha256": "affb34b6618db0ee5ffb5a6c2d7c0403f037b8ea1cc2263188513d5160441e87",
           "classification": "DATA_PRESENTATION"
         },
         {
@@ -4257,7 +4257,7 @@
         },
         {
           "path": "src/lib/institutions/election_links.json",
-          "sha256": "e64e1d02f7718852402faeeeccc0bc412f63b8a85c96ae5bd51f4beb5051db91",
+          "sha256": "17e63ec55a3b5a3b21ab1633804184c41489311dcefbde0d1fe7127403f4c93e",
           "classification": "DATA_PRESENTATION"
         },
         {
@@ -4268,6 +4268,11 @@
         {
           "path": "src/lib/institutions/countries/romania.json",
           "sha256": "d20ed7858daf68792db01efa50aa6edcca33724a4b04373ace1f5bc46a237c13",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/countries/austria.json",
+          "sha256": "e38b7ca35c6b0fea3ba7090c1d0b2e0a05a1ff71dbabfb2c44f5a3be4019c843",
           "classification": "DATA_PRESENTATION"
         }
       ]

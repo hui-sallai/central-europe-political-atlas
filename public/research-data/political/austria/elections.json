@@ -1,0 +1,146 @@
+[
+  {
+    "election_id": "el-at-nr-2013-09-29",
+    "country": "austria",
+    "election_type": "national_parliament",
+    "chamber": "Nationalrat",
+    "date": "2013-09-29",
+    "date_end": null,
+    "date_basis": "not printed in the supplied announcement; the national election source registry date (verified_harmonized)",
+    "result_coverage": "all_parties_national",
+    "year": 2013,
+    "legislature_id": "lg-at-nr-2013",
+    "electoral_system_id": "es-at-nr-2013",
+    "result_status": "official_final",
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/nrw13_endgueltiges_gesamtergebnis.xlsx",
+        "source_record_id": "nrw13_endgueltiges_gesamtergebnis.xlsx: polling day from the national election source registry",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "date"
+        ],
+        "published_or_derived": "derived_from_evidence_record",
+        "publisher_file_sha256": "df00e652e2c08db7bee4a1fdfd88d952aefb8d375d10d93016a38d54f5350e64"
+      }
+    ]
+  },
+  {
+    "election_id": "el-at-nr-2017-10-15",
+    "country": "austria",
+    "election_type": "national_parliament",
+    "chamber": "Nationalrat",
+    "date": "2017-10-15",
+    "date_end": null,
+    "date_basis": "printed in announcement BMI-WA1210/0256-III/6/2017 (\"Nationalratswahl vom …\")",
+    "result_coverage": "all_parties_national",
+    "year": 2017,
+    "legislature_id": "lg-at-nr-2017",
+    "electoral_system_id": "es-at-nr-2017",
+    "result_status": "official_final",
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: heading",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "date"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "election_id": "el-at-nr-2019-09-29",
+    "country": "austria",
+    "election_type": "national_parliament",
+    "chamber": "Nationalrat",
+    "date": "2019-09-29",
+    "date_end": null,
+    "date_basis": "printed in announcement BMI-WA1210/0195-III/6/2019 (\"Nationalratswahl vom …\")",
+    "result_coverage": "all_parties_national",
+    "year": 2019,
+    "legislature_id": "lg-at-nr-2019",
+    "electoral_system_id": "es-at-nr-2019",
+    "result_status": "official_final",
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: heading",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "date"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      }
+    ]
+  },
+  {
+    "election_id": "el-at-nr-2024-09-29",
+    "country": "austria",
+    "election_type": "national_parliament",
+    "chamber": "Nationalrat",
+    "date": "2024-09-29",
+    "date_end": null,
+    "date_basis": "not printed in the supplied files; the national election source registry date (background_to_verify)",
+    "result_coverage": "all_parties_national",
+    "year": 2024,
+    "legislature_id": "lg-at-nr-2024",
+    "electoral_system_id": "es-at-nr-2024",
+    "result_status": "official_final",
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_16102024.xlsx",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_16102024.xlsx: polling day from the national election source registry",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "date"
+        ],
+        "published_or_derived": "derived_from_evidence_record",
+        "publisher_file_sha256": "e85ce931f8f6e4b2eb19d7e2ee39461662a04cfb34aee308ce861f98cfb181dc"
+      }
+    ]
+  }
+]

@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Austrian parliamentary elections 2013–2024 — 2026-11-18
+
+- Add Austria's Nationalrat elections of 2013, 2017, 2019 and 2024 (all 183 seats each, national level, with seats by tier for 2019 and 2024) from the interior ministry's final results, saved by the owner. National D'Hondt among the parties above 4% reproduces every party's seats. Party names that name a person are shown by their short name or column position; candidate names are not stored.
+
 ### v2.0 Romanian parliamentary election 2024 — 2026-11-18
 
 - Add Romania's 1 December 2024 parliamentary election as two separate elections, from the Central Electoral Bureau's final acts: Chamber of Deputies (331 seats, including 19 seats for national-minority organisations) and Senate (134 senators elected of 136 seats; the act places two national-stage seats in no constituency and gives no reason), with registered voters, voters and valid votes as printed and turnout derived from them. Independent candidates are aggregated without names.

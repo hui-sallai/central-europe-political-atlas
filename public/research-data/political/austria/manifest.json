@@ -1,0 +1,26 @@
+{
+  "schema_version": "austria-political-export-v1",
+  "country": "austria",
+  "elections": [
+    "el-at-nr-2013-09-29",
+    "el-at-nr-2017-10-15",
+    "el-at-nr-2019-09-29",
+    "el-at-nr-2024-09-29"
+  ],
+  "coverage": "Nationalrat 183 of 183 seats per election; national level; seats by tier for 2019 and 2024",
+  "not_included": [
+    "candidate names and preference votes",
+    "municipal, district and Land vote results",
+    "party attribution and cross-election links",
+    "2002, 2006 and 2008 elections (legacy .xls workbooks not read)"
+  ],
+  "stores": [
+    "elections",
+    "election_turnout",
+    "election_results",
+    "electoral_contestants",
+    "legislatures",
+    "electoral_systems",
+    "political_source_registry"
+  ]
+}

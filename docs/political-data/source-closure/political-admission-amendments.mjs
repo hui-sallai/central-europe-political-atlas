@@ -59,6 +59,12 @@ const ROMANIAN_PATHS = [
   'public/research-data/political/romania/README.md',
   'public/research-data/political/romania/manifest.json',
 ];
+const AUSTRIAN_PATHS = [
+  ...STORES.map((s) => `src/data/political/austria/${s}.json`),
+  ...STORES.flatMap((s) => [`public/research-data/political/austria/${s}.json`, `public/research-data/political/austria/${s}.csv`]),
+  'public/research-data/political/austria/README.md',
+  'public/research-data/political/austria/manifest.json',
+];
 // Later admissions of a country share its files; each record's gate record stays required, and the last record's hashes apply.
 export const POLITICAL_ADMISSIONS = {
   'czechia-ps-2025': { approved_on: '2026-10-25', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2025_admission.json', paths: CZECH_PATHS },
@@ -88,6 +94,8 @@ export const POLITICAL_ADMISSIONS = {
   'romania-parliament-2016': { approved_on: '2026-11-18', country: 'romania', gate_record: 'docs/political-data/romania_parliament2016_admission.json', paths: ROMANIAN_PATHS },
   // Owner answer "both" (owner saves the 2024 files) and the supplied RF_2.pdf / RF_3.pdf, 2026-11-18: Romania 2024 from the BEC final acts.
   'romania-parliament-2024': { approved_on: '2026-11-18', country: 'romania', gate_record: 'docs/political-data/romania_parliament2024_admission.json', paths: ROMANIAN_PATHS },
+  // Owner brief and answers "Accept for all four" (UrhG § 7) and "I'll download files myself", 2026-11-18: Austria 2013–2024 from the owner-saved BMI files.
+  'austria-nationalrat-2013-2024': { approved_on: '2026-11-18', country: 'austria', gate_record: 'docs/political-data/austria_nationalrat_admission.json', paths: AUSTRIAN_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 const admissiblePath = (file, country) => country !== 'germany' && /^[a-z]+$/.test(country) && (file.startsWith(`src/data/political/${country}/`) || file.startsWith(`public/research-data/political/${country}/`));

@@ -1,0 +1,2369 @@
+[
+  {
+    "result_id": "er-ct-at-nr13-01",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-01",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 1258605,
+    "published_vote_share": null,
+    "derived_vote_share": 26.81930411150274,
+    "seats": 52,
+    "seat_basis": "section B of the announcement (seats per party after the third Ermittlungsverfahren)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section B",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-02",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-02",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 1125876,
+    "published_vote_share": null,
+    "derived_vote_share": 23.991014524685873,
+    "seats": 47,
+    "seat_basis": "section B of the announcement (seats per party after the third Ermittlungsverfahren)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section B",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-03",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-03",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 962313,
+    "published_vote_share": null,
+    "derived_vote_share": 20.505690822341034,
+    "seats": 40,
+    "seat_basis": "section B of the announcement (seats per party after the third Ermittlungsverfahren)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section B",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-04",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-04",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 165746,
+    "published_vote_share": null,
+    "derived_vote_share": 3.5318407119510358,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-05",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-05",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 582657,
+    "published_vote_share": null,
+    "derived_vote_share": 12.415694579074335,
+    "seats": 24,
+    "seat_basis": "section B of the announcement (seats per party after the third Ermittlungsverfahren)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section B",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-06",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-06",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 268679,
+    "published_vote_share": null,
+    "derived_vote_share": 5.72521466971325,
+    "seats": 11,
+    "seat_basis": "section B of the announcement (seats per party after the third Ermittlungsverfahren)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section B",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-07",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-07",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 232946,
+    "published_vote_share": null,
+    "derived_vote_share": 4.963788969182641,
+    "seats": 9,
+    "seat_basis": "section B of the announcement (seats per party after the third Ermittlungsverfahren)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section B",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-08",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-08",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 48175,
+    "published_vote_share": null,
+    "derived_vote_share": 1.0265492156567346,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-09",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-09",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 36265,
+    "published_vote_share": null,
+    "derived_vote_share": 0.7727619575670261,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-10",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-10",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 6647,
+    "published_vote_share": null,
+    "derived_vote_share": 0.14163928669372736,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-11",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-11",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 3051,
+    "published_vote_share": null,
+    "derived_vote_share": 0.06501300792877421,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-12",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-12",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 490,
+    "published_vote_share": null,
+    "derived_vote_share": 0.01044128937564712,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-13",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-13",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 510,
+    "published_vote_share": null,
+    "derived_vote_share": 0.010867464452204146,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr13-14",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2013-09-29",
+    "contestant_ref": "ct-at-nr13-14",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4692907,
+    "total_seats": 183,
+    "votes": 947,
+    "published_vote_share": null,
+    "derived_vote_share": 0.020179389874975147,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0349-III/6/2013 of 2013-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2013",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bfe892a0bedf2486bb132ad9808029194a8e273e02fd2174470ab8ddd39dccfa"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-01",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-01",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 1361746,
+    "published_vote_share": null,
+    "derived_vote_share": 26.85927159926697,
+    "seats": 52,
+    "seat_basis": "section B of the announcement (seats per party after the third Ermittlungsverfahren)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section B",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-02",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-02",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 1595526,
+    "published_vote_share": null,
+    "derived_vote_share": 31.470381537887416,
+    "seats": 62,
+    "seat_basis": "section B of the announcement (seats per party after the third Ermittlungsverfahren)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section B",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-03",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-03",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 1316442,
+    "published_vote_share": null,
+    "derived_vote_share": 25.96568906586266,
+    "seats": 51,
+    "seat_basis": "section B of the announcement (seats per party after the third Ermittlungsverfahren)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section B",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-04",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-04",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 192638,
+    "published_vote_share": null,
+    "derived_vote_share": 3.799619284609311,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-05",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-05",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 268518,
+    "published_vote_share": null,
+    "derived_vote_share": 5.2962871866647445,
+    "seats": 10,
+    "seat_basis": "section B of the announcement (seats per party after the third Ermittlungsverfahren)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section B",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-06",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-06",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 223543,
+    "published_vote_share": null,
+    "derived_vote_share": 4.409193896009195,
+    "seats": 8,
+    "seat_basis": "section B of the announcement (seats per party after the third Ermittlungsverfahren)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section B",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-07",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-07",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 48234,
+    "published_vote_share": null,
+    "derived_vote_share": 0.9513742697382942,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-08",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-08",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 8889,
+    "published_vote_share": null,
+    "derived_vote_share": 0.17532789906919802,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-09",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-09",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 39689,
+    "published_vote_share": null,
+    "derived_vote_share": 0.7828314755492631,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-10",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-10",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 9167,
+    "published_vote_share": null,
+    "derived_vote_share": 0.1808112105711934,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-11",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-11",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 713,
+    "published_vote_share": null,
+    "derived_vote_share": 0.014063313312671636,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-12",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-12",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 693,
+    "published_vote_share": null,
+    "derived_vote_share": 0.013668830470801464,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-13",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-13",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 221,
+    "published_vote_share": null,
+    "derived_vote_share": 0.004359035402665403,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-14",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-14",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 425,
+    "published_vote_share": null,
+    "derived_vote_share": 0.008382760389741157,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-15",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-15",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 2724,
+    "published_vote_share": null,
+    "derived_vote_share": 0.05372856306271745,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr17-16",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2017-10-15",
+    "contestant_ref": "ct-at-nr17-16",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 5069929,
+    "total_seats": 183,
+    "votes": 761,
+    "published_vote_share": null,
+    "derived_vote_share": 0.01501007213316005,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0256-III/6/2017 of 2017-10-31 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2017",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+        "source_record_id": "verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f198118f97b4c9e24681420cef4613cdccca951c774c6cc01975abe49b1ce396"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-01",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-01",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 1789417,
+    "published_vote_share": null,
+    "derived_vote_share": 37.45708301393732,
+    "seats": 71,
+    "regional_seats": 48,
+    "land_seats": 15,
+    "federal_seats": 8,
+    "seat_basis": "final seat table: 48 in regional constituencies, 15 in the Länder (second stage), 8 federal (third stage)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/mandatsspiegel_17102019.pdf",
+        "source_record_id": "mandatsspiegel_17102019.pdf: Österreich (Bundesgebiet)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "20712b12b13ea12c9bb7789ba2e984d19132412c4f14729e0c16f6506bd86f67"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-02",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-02",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 1011868,
+    "published_vote_share": null,
+    "derived_vote_share": 21.180990051590392,
+    "seats": 40,
+    "regional_seats": 16,
+    "land_seats": 19,
+    "federal_seats": 5,
+    "seat_basis": "final seat table: 16 in regional constituencies, 19 in the Länder (second stage), 5 federal (third stage)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/mandatsspiegel_17102019.pdf",
+        "source_record_id": "mandatsspiegel_17102019.pdf: Österreich (Bundesgebiet)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "20712b12b13ea12c9bb7789ba2e984d19132412c4f14729e0c16f6506bd86f67"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-03",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-03",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 772666,
+    "published_vote_share": null,
+    "derived_vote_share": 16.17387926014277,
+    "seats": 31,
+    "regional_seats": 10,
+    "land_seats": 16,
+    "federal_seats": 5,
+    "seat_basis": "final seat table: 10 in regional constituencies, 16 in the Länder (second stage), 5 federal (third stage)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/mandatsspiegel_17102019.pdf",
+        "source_record_id": "mandatsspiegel_17102019.pdf: Österreich (Bundesgebiet)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "20712b12b13ea12c9bb7789ba2e984d19132412c4f14729e0c16f6506bd86f67"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-04",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-04",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 387124,
+    "published_vote_share": null,
+    "derived_vote_share": 8.103497286930587,
+    "seats": 15,
+    "regional_seats": 0,
+    "land_seats": 10,
+    "federal_seats": 5,
+    "seat_basis": "final seat table: 0 in regional constituencies, 10 in the Länder (second stage), 5 federal (third stage)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/mandatsspiegel_17102019.pdf",
+        "source_record_id": "mandatsspiegel_17102019.pdf: Österreich (Bundesgebiet)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "20712b12b13ea12c9bb7789ba2e984d19132412c4f14729e0c16f6506bd86f67"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-05",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-05",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 89169,
+    "published_vote_share": null,
+    "derived_vote_share": 1.8665356567361193,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-06",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-06",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 664055,
+    "published_vote_share": null,
+    "derived_vote_share": 13.900372725206111,
+    "seats": 26,
+    "regional_seats": 5,
+    "land_seats": 17,
+    "federal_seats": 4,
+    "seat_basis": "final seat table: 5 in regional constituencies, 17 in the Länder (second stage), 4 federal (third stage)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/mandatsspiegel_17102019.pdf",
+        "source_record_id": "mandatsspiegel_17102019.pdf: Österreich (Bundesgebiet)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "20712b12b13ea12c9bb7789ba2e984d19132412c4f14729e0c16f6506bd86f67"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-07",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-07",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 32736,
+    "published_vote_share": null,
+    "derived_vote_share": 0.6852483627596319,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-08",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-08",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 22168,
+    "published_vote_share": null,
+    "derived_vote_share": 0.4640330433057037,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-09",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-09",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 760,
+    "published_vote_share": null,
+    "derived_vote_share": 0.01590874742477151,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-10",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-10",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 4946,
+    "published_vote_share": null,
+    "derived_vote_share": 0.1035324536354209,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-11",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-11",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 260,
+    "published_vote_share": null,
+    "derived_vote_share": 0.005442466224263938,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-12",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-12",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 1767,
+    "published_vote_share": null,
+    "derived_vote_share": 0.03698783776259376,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr19-13",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2019-09-29",
+    "contestant_ref": "ct-at-nr19-13",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4777246,
+    "total_seats": 183,
+    "votes": 310,
+    "published_vote_share": null,
+    "derived_vote_share": 0.006489094344314696,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: announcement of the Bundeswahlbehörde BMI-WA1210/0195-III/6/2019 of 2019-10-16 and the BMI final-result workbook",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2019",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+        "source_record_id": "verlautbarung_endgueltiges_ergebnis.pdf: section A (Parteisummen)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a70796f38e4fa85eb869c789ed842471051a4be34e42a3eaeb35e34ef44e8d4e"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr24-01",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2024-09-29",
+    "contestant_ref": "ct-at-nr24-01",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4882888,
+    "total_seats": 183,
+    "votes": 1282734,
+    "published_vote_share": null,
+    "derived_vote_share": 26.26998612296657,
+    "seats": 51,
+    "regional_seats": 30,
+    "land_seats": 13,
+    "federal_seats": 8,
+    "seat_basis": "final seat table: 30 in regional constituencies, 13 in the Länder (second stage), 8 federal (third stage)",
+    "published_seat_share": null,
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf: row G00000 Österreich",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "97db3bb18780b3c629ab08206bb9d9229ad0fea353ba71631a68a278a204df65"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiger_mandatsspiegel_bf_24102024.pdf",
+        "source_record_id": "endgueltiger_mandatsspiegel_bf_24102024.pdf: Österreich (Bundesgebiet)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "38ffdd6cc1f776cf7d6043d38699ca89c2013b2503f7502977db4fa06ca31d10"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr24-02",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2024-09-29",
+    "contestant_ref": "ct-at-nr24-02",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4882888,
+    "total_seats": 183,
+    "votes": 1032233,
+    "published_vote_share": null,
+    "derived_vote_share": 21.139804967879662,
+    "seats": 41,
+    "regional_seats": 15,
+    "land_seats": 19,
+    "federal_seats": 7,
+    "seat_basis": "final seat table: 15 in regional constituencies, 19 in the Länder (second stage), 7 federal (third stage)",
+    "published_seat_share": null,
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf: row G00000 Österreich",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "97db3bb18780b3c629ab08206bb9d9229ad0fea353ba71631a68a278a204df65"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiger_mandatsspiegel_bf_24102024.pdf",
+        "source_record_id": "endgueltiger_mandatsspiegel_bf_24102024.pdf: Österreich (Bundesgebiet)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "38ffdd6cc1f776cf7d6043d38699ca89c2013b2503f7502977db4fa06ca31d10"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr24-03",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2024-09-29",
+    "contestant_ref": "ct-at-nr24-03",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4882888,
+    "total_seats": 183,
+    "votes": 1408512,
+    "published_vote_share": null,
+    "derived_vote_share": 28.84587973346921,
+    "seats": 57,
+    "regional_seats": 34,
+    "land_seats": 14,
+    "federal_seats": 9,
+    "seat_basis": "final seat table: 34 in regional constituencies, 14 in the Länder (second stage), 9 federal (third stage)",
+    "published_seat_share": null,
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf: row G00000 Österreich",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "97db3bb18780b3c629ab08206bb9d9229ad0fea353ba71631a68a278a204df65"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiger_mandatsspiegel_bf_24102024.pdf",
+        "source_record_id": "endgueltiger_mandatsspiegel_bf_24102024.pdf: Österreich (Bundesgebiet)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "38ffdd6cc1f776cf7d6043d38699ca89c2013b2503f7502977db4fa06ca31d10"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr24-04",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2024-09-29",
+    "contestant_ref": "ct-at-nr24-04",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4882888,
+    "total_seats": 183,
+    "votes": 402109,
+    "published_vote_share": null,
+    "derived_vote_share": 8.235064986131158,
+    "seats": 16,
+    "regional_seats": 1,
+    "land_seats": 10,
+    "federal_seats": 5,
+    "seat_basis": "final seat table: 1 in regional constituencies, 10 in the Länder (second stage), 5 federal (third stage)",
+    "published_seat_share": null,
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf: row G00000 Österreich",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "97db3bb18780b3c629ab08206bb9d9229ad0fea353ba71631a68a278a204df65"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiger_mandatsspiegel_bf_24102024.pdf",
+        "source_record_id": "endgueltiger_mandatsspiegel_bf_24102024.pdf: Österreich (Bundesgebiet)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "38ffdd6cc1f776cf7d6043d38699ca89c2013b2503f7502977db4fa06ca31d10"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr24-05",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2024-09-29",
+    "contestant_ref": "ct-at-nr24-05",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4882888,
+    "total_seats": 183,
+    "votes": 446379,
+    "published_vote_share": null,
+    "derived_vote_share": 9.141700567369147,
+    "seats": 18,
+    "regional_seats": 0,
+    "land_seats": 12,
+    "federal_seats": 6,
+    "seat_basis": "final seat table: 0 in regional constituencies, 12 in the Länder (second stage), 6 federal (third stage)",
+    "published_seat_share": null,
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf: row G00000 Österreich",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "97db3bb18780b3c629ab08206bb9d9229ad0fea353ba71631a68a278a204df65"
+      },
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiger_mandatsspiegel_bf_24102024.pdf",
+        "source_record_id": "endgueltiger_mandatsspiegel_bf_24102024.pdf: Österreich (Bundesgebiet)",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "38ffdd6cc1f776cf7d6043d38699ca89c2013b2503f7502977db4fa06ca31d10"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr24-06",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2024-09-29",
+    "contestant_ref": "ct-at-nr24-06",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4882888,
+    "total_seats": 183,
+    "votes": 98395,
+    "published_vote_share": null,
+    "derived_vote_share": 2.0150984417418543,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf: row G00000 Österreich",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "97db3bb18780b3c629ab08206bb9d9229ad0fea353ba71631a68a278a204df65"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr24-07",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2024-09-29",
+    "contestant_ref": "ct-at-nr24-07",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4882888,
+    "total_seats": 183,
+    "votes": 19785,
+    "published_vote_share": null,
+    "derived_vote_share": 0.405190534781875,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf: row G00000 Österreich",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "97db3bb18780b3c629ab08206bb9d9229ad0fea353ba71631a68a278a204df65"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr24-08",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2024-09-29",
+    "contestant_ref": "ct-at-nr24-08",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4882888,
+    "total_seats": 183,
+    "votes": 156,
+    "published_vote_share": null,
+    "derived_vote_share": 0.0031948306002513266,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf: row G00000 Österreich",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "97db3bb18780b3c629ab08206bb9d9229ad0fea353ba71631a68a278a204df65"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr24-09",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2024-09-29",
+    "contestant_ref": "ct-at-nr24-09",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4882888,
+    "total_seats": 183,
+    "votes": 28488,
+    "published_vote_share": null,
+    "derived_vote_share": 0.583425218845896,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf: row G00000 Österreich",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "97db3bb18780b3c629ab08206bb9d9229ad0fea353ba71631a68a278a204df65"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr24-10",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2024-09-29",
+    "contestant_ref": "ct-at-nr24-10",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4882888,
+    "total_seats": 183,
+    "votes": 19376,
+    "published_vote_share": null,
+    "derived_vote_share": 0.39681434429788276,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf: row G00000 Österreich",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "97db3bb18780b3c629ab08206bb9d9229ad0fea353ba71631a68a278a204df65"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr24-11",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2024-09-29",
+    "contestant_ref": "ct-at-nr24-11",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4882888,
+    "total_seats": 183,
+    "votes": 116891,
+    "published_vote_share": null,
+    "derived_vote_share": 2.393890664704986,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf: row G00000 Österreich",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "97db3bb18780b3c629ab08206bb9d9229ad0fea353ba71631a68a278a204df65"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-at-nr24-12",
+    "country": "austria",
+    "geography": "national",
+    "election_id": "el-at-nr-2024-09-29",
+    "contestant_ref": "ct-at-nr24-12",
+    "vote_type": "at_nr_party_vote",
+    "valid_votes": 4882888,
+    "total_seats": 183,
+    "votes": 27830,
+    "published_vote_share": null,
+    "derived_vote_share": 0.5699495872115027,
+    "seats": 0,
+    "seat_basis": "no seat (below 4% and no regional seat)",
+    "published_seat_share": null,
+    "result_vintage": "final: decision of the Bundeswahlbehörde of 2024-10-16 (signed PDF and workbook) and the final seat table",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2024",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf",
+        "source_record_id": "endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_bf_16102024.pdf: row G00000 Österreich",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "4678071dba92b5426a1569ac000683f595014c884fd98fdbb97dbb071c764db8"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "5faf58f248298f0814719173d54e8463496f11738ca82ecdc1ec72d7a2629b11",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "97db3bb18780b3c629ab08206bb9d9229ad0fea353ba71631a68a278a204df65"
+      }
+    ]
+  }
+]

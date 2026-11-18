@@ -69,6 +69,13 @@ import roContestants from "@/data/political/romania/electoral_contestants.json";
 import roLegislatures from "@/data/political/romania/legislatures.json";
 import roSystems from "@/data/political/romania/electoral_systems.json";
 import roSources from "@/data/political/romania/political_source_registry.json";
+import atElections from "@/data/political/austria/elections.json";
+import atTurnout from "@/data/political/austria/election_turnout.json";
+import atResults from "@/data/political/austria/election_results.json";
+import atContestants from "@/data/political/austria/electoral_contestants.json";
+import atLegislatures from "@/data/political/austria/legislatures.json";
+import atSystems from "@/data/political/austria/electoral_systems.json";
+import atSources from "@/data/political/austria/political_source_registry.json";
 import type { PoliticalCountryView, PoliticalElectionView } from "./politicalExplorer";
 import { electionViewsFromStores, type PoliticalStores } from "./politicalStores";
 import { politicalPublicationProblems } from "./politicalNational";
@@ -177,11 +184,17 @@ export function politicalSlovenianStores(): PoliticalConstituencyStores {
   return gatedStores("slovenia", { elections: siElections, turnout: siTurnout, results: siResults, contestants: siContestants, legislatures: siLegislatures, systems: siSystems, sources: siSources as PoliticalStores["sources"] });
 }
 
-/** Romania's admitted Parliament election of 2016: two separate election records, Chamber of Deputies (329 seats incl.
- * 17 national-minority organisation seats) and Senate (136); national figures from AEP files; turnout not published:
- * docs/political-data/romania_parliament2016_admission.json. The chambers must never be combined. */
+/** Romania's admitted Parliament elections of 2016 and 2024: separate election records per chamber and year (2016 from
+ * AEP files, turnout not published; 2024 from the BEC final acts): docs/political-data/romania_parliament2024_admission.json.
+ * The chambers must never be combined. */
 export function politicalRomanianStores(): PoliticalConstituencyStores {
   return gatedStores("romania", { elections: roElections, turnout: roTurnout, results: roResults, contestants: roContestants, legislatures: roLegislatures, systems: roSystems, sources: roSources as PoliticalStores["sources"] });
+}
+
+/** Austria's admitted Nationalrat elections (2013, 2017, 2019, 2024), whole chamber (183 seats), national level; seats by
+ * tier for 2019 and 2024: docs/political-data/austria_nationalrat_admission.json. */
+export function politicalAustrianStores(): PoliticalConstituencyStores {
+  return gatedStores("austria", { elections: atElections, turnout: atTurnout, results: atResults, contestants: atContestants, legislatures: atLegislatures, systems: atSystems, sources: atSources as PoliticalStores["sources"] });
 }
 
 /**

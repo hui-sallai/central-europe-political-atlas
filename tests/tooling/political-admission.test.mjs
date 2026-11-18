@@ -21,15 +21,15 @@ const replies = read('docs/legal-security/publisher_response_records.json').reco
 test('admitted countries are exactly the countries whose official stores are imported', () => {
   const imported = [...new Set([...fs.readFileSync(path.join(root, 'src/lib/politicalData.ts'), 'utf8').matchAll(/@\/data\/political\/([a-z]+)\//g)].map((m) => m[1]))].sort();
   assert.deepEqual([...admittedDataCountrySlugs].sort(), imported);
-  // Croatia and Slovenia are published as research data before their /politics/ pages exist; pages must not link to them.
-  assert.deepEqual([...admittedCountrySlugs].sort(), imported.filter((c) => !['croatia', 'slovenia', 'romania'].includes(c)));
+  // Croatia, Slovenia, Romania and Austria are published as research data before their /politics/ pages exist; pages must not link to them.
+  assert.deepEqual([...admittedCountrySlugs].sort(), imported.filter((c) => !['croatia', 'slovenia', 'romania', 'austria'].includes(c)));
   assert.deepEqual(fs.readdirSync(path.join(root, 'src/data/political')).filter((d) => fs.statSync(path.join(root, 'src/data/political', d)).isDirectory()).sort(), imported);
-  assert.deepEqual(imported, ['croatia', 'czechia', 'germany', 'hungary', 'poland', 'romania', 'serbia', 'slovakia', 'slovenia']);
+  assert.deepEqual(imported, ['austria', 'croatia', 'czechia', 'germany', 'hungary', 'poland', 'romania', 'serbia', 'slovakia', 'slovenia']);
 });
 
 test('gate-matrix countries stay blocked unless a separate owner-approved admission record exists', () => {
   const admitted = new Set(read('docs/legal-security/political_admission_records.json').admissions.filter((a) => a.status === 'owner_approved').map((a) => a.country));
-  assert.deepEqual([...admitted], ['czechia', 'poland', 'slovakia', 'hungary', 'serbia', 'croatia', 'slovenia', 'romania']);
+  assert.deepEqual([...admitted], ['czechia', 'poland', 'slovakia', 'hungary', 'serbia', 'croatia', 'slovenia', 'romania', 'austria']);
   for (const country of gateMatrix.countries) {
     const row = politicalAdmissions.find((r) => r.slug === country.country);
     assert.ok(row, country.country);

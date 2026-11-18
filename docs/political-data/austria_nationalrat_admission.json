@@ -1,0 +1,88 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "austria-nationalrat-2013-2024",
+ "country": "austria",
+ "election_ids": [
+  "el-at-nr-2013-09-29",
+  "el-at-nr-2017-10-15",
+  "el-at-nr-2019-09-29",
+  "el-at-nr-2024-09-29"
+ ],
+ "scope": "Nationalrat elections of 2013, 2017, 2019 and 2024, whole chamber (183 seats), national level: every party's votes, eligible voters, votes cast, invalid and valid votes, derived turnout and seats per party; seats by tier (regional constituencies, Länder, federal) for 2019 and 2024. Candidate names and preference votes, municipal, district and Land vote results, party attribution and the 2002, 2006 and 2008 elections are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief \"Complete ten-country parliamentary election coverage\" (Austria: Nationalrat only) and answer \"Accept for all four\": publish on the official-texts reading of the copyright act (UrhG § 7 for Austria)."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner answer \"I'll download files myself\": the owner saved the BMI files by hand into local-evidence/austria; the assistant never contacts www.bmi.gv.at (robots.txt disallows AI agents)."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner supplied the final-result workbooks for 2013, 2017, 2019 and 2024, the announcements of 2013, 2017 and 2019, the signed 2024 decision, the 2019 and 2024 final seat tables, and the 2002, 2006 and 2008 workbooks (legacy .xls, not read)."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/austria/nationalrat/evidence.json"
+ ],
+ "supersedes": "docs/political-data/source-closure/austria_source_closure.json (2026-10 audit: reuse gate awaiting a publisher reply) — closed by the owner's decision of 2026-11-18 on the official-works reading; the audit record is kept unchanged",
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "owner_decision",
+   "basis": "Official works — announcements and decisions of the Bundeswahlbehörde and the result tables they adopt — are free of copyright under UrhG § 7, on the owner's reading (answer \"Accept for all four\"); no licence exists and the uncertainty is recorded. The BMI Impressum also permits attributed reuse except for commercial purposes; the Atlas is non-commercial (owner confirmation of non-commercial status)."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_and_seat_tables",
+   "evidence_kind": "owner_decision",
+   "basis": "National counts, party votes and seat tables, attributed to the Bundesministerium für Inneres (Bundeswahlbehörde); no candidate names; printed party names naming a person are not stored."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The thirteen owner-saved files stay in local-evidence/ by SHA-256; none is committed or republished."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_manual_download",
+   "evidence_kind": "owner_decision",
+   "basis": "The owner downloaded every file by hand (answer \"I'll download files myself\"); www.bmi.gv.at stays blocked for the assistant and no request was made."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "Per election: the final-result workbook (national and Land rows), the announcement (2013, 2017, 2019: totals, party sums, seats) or the signed decision (2024), and the final seat table (2019, 2024)."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "Per election: party votes = valid votes; valid + invalid = votes cast ≤ eligible; the nine Länder add up to the national row; the announcement or signed decision equals the workbook; 183 seats; parties holding seats = parties above 4%; national D'Hondt over 183 reproduces every party's seats; 2019 and 2024 seat tables consistent across the three tiers (39 regional constituencies) and with the 2019 announcement."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_party_column",
+   "evidence_kind": "owner_decision",
+   "basis": "Each election has its own contestants, one per workbook column, labelled by the official short name; no party is linked across elections or to a party register."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "rules_reproduced_registry_linked",
+   "evidence_kind": "build_check",
+   "basis": "4% threshold (or a regional seat) and federal D'Hondt over 183 seats (NRWO § 107, cited in the announcements) checked against the data; the institutional registry links all four elections to the period it holds for the NRWO."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_announcements_and_decision",
+   "evidence_kind": "official_act",
+   "basis": "Final results: announcements under NRWO § 108 (6) of 16 October 2013, 31 October 2017 and 16 October 2019, and the decision of 16 October 2024; final seat tables of 17 October 2019 and 24 October 2024. The 2013 and 2024 polling days are not printed in the supplied files and come from the national election source registry (2024: background_to_verify)."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a short name repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

@@ -171,3 +171,24 @@ Admission `romania-parliament-2024` (`docs/political-data/romania_parliament2024
 - Institutions: `election_links.json` now holds 34 elections; both 2024 elections link to `romania-period-2015-07-20`.
 - Codex: no new accessor (`politicalRomanianStores()` already returns all four elections); select by chamber and year, never combine chambers; show the Senate's 134 of 136 with the unfilled-seats note; 2024 turnout is derived (show as derived), 2016 turnout stays "not published".
 - Still missing: Romania 2020 and 2012; Austria (owner files pending in `local-evidence/austria/`).
+
+## Addendum: Austria 2013, 2017, 2019 and 2024 (owner-saved BMI files)
+
+Admission `austria-nationalrat-2013-2024` (`docs/political-data/austria_nationalrat_admission.json`); build `scripts/political-data/austria/build-nationalrat.mjs`; evidence `docs/political-data/raw/austria/nationalrat/evidence.json`; stores `src/data/political/austria/` and exports `public/research-data/political/austria/`.
+
+- Source: 13 files saved by the owner into `local-evidence/austria/` (SHA-256 in the evidence; not committed). `www.bmi.gv.at` stays blocked for the assistant (robots.txt disallows AI agents); no request was made. Rights: official works (UrhG § 7), owner answer "Accept for all four"; the BMI Impressum also permits attributed non-commercial reuse. The 2026-10 source-closure audit (`austria_source_closure.json`, reuse gate awaiting a publisher reply) is kept unchanged and superseded by the owner's decision.
+
+| Election | Parties | Valid votes | Seats (183) | Seat source |
+|---|---|---|---|---|
+| `el-at-nr-2013-09-29` | 14 | 4,692,907 | SPÖ 52, ÖVP 47, FPÖ 40, GRÜNE 24, column 6 11, NEOS 9 | announcement BMI-WA1210/0349-III/6/2013 |
+| `el-at-nr-2017-10-15` | 16 | 5,069,929 | ÖVP 62, SPÖ 52, FPÖ 51, NEOS 10, column 6 8 | announcement BMI-WA1210/0256-III/6/2017 |
+| `el-at-nr-2019-09-29` | 13 | 4,777,246 | ÖVP 71, SPÖ 40, FPÖ 31, GRÜNE 26, NEOS 15 | announcement + final seat table |
+| `el-at-nr-2024-09-29` | 12 | 4,882,888 | FPÖ 57, ÖVP 51, SPÖ 41, NEOS 18, GRÜNE 16 | signed decision + final seat table |
+
+- Reconciliation (fail-closed): party votes = valid votes; valid + invalid = votes cast; the nine Länder add up to the national row; announcement totals and party sums (2013–2019) or the signed decision's national row (2024) equal the workbook; parties holding seats = parties above 4%; national D'Hondt over 183 seats reproduces every party's seats; 2019 and 2024 seat tables consistent across the regional (39), Land and federal tiers (`regional_seats`, `land_seats`, `federal_seats`; `legislatures.seats_by_land`).
+- Labels: official short names. Printed party names naming a person are stored only as SHA-256 (BZÖ 2013, ÖVP 2017/2019, NEOS 2017, GILT 2017, FLÖ 2017, JETZT 2019); the two short names that are a person's name are shown as `Wahlvorschlag, Spalte 6` (2013 and 2017). No candidate names, no preference votes.
+- Dates: 2017 and 2019 printed in the announcements; 2013 and 2024 from the national election source registry (2024 background_to_verify), stated in `date_basis`. Turnout derived (votes cast ÷ eligible voters).
+- Not admitted: 2002, 2006 and 2008 (owner files saved; legacy .xls workbooks, no reader in this environment).
+- Institutions: `austria.json` gains `store_chamber`; `election_links.json` now holds 38 elections; all four link to `austria-period-2008-10-28`.
+- Codex: `politicalAustrianStores()` (gated); `politicsRoute` false until Codex adds the page; national view per election; show tier seats for 2019 and 2024 only; never expand `Wahlvorschlag, Spalte 6`.
+
