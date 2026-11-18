@@ -89,13 +89,14 @@ test('Croatia: the seat rule fails closed on a tampered decision', () => {
 
 test('Slovenia: 88 list seats and two national-community seats in every election; the National Council is excluded', () => {
   const data = buildSlovenia();
-  assert.deepEqual(data.elections.map((e) => e.election_id), ['el-si-dz-2014-07-13', 'el-si-dz-2018-06-03', 'el-si-dz-2022-04-24', 'el-si-dz-2026-03-22']);
+  assert.deepEqual(data.elections.map((e) => e.election_id), ['el-si-dz-2011-12-04', 'el-si-dz-2014-07-13', 'el-si-dz-2018-06-03', 'el-si-dz-2022-04-24', 'el-si-dz-2026-03-22']);
   for (const leg of data.legislatures) {
     assert.equal(leg.total_seats, 90);
     assert.deepEqual(leg.seats_by_mechanism, { general_lists: 88, italian_national_community: 1, hungarian_national_community: 1 });
     assert.match(leg.excluded_bodies[0].body, /Državni svet/);
   }
-  const seats = { 'el-si-dz-2014-07-13': [36, 21, 10, 6, 6, 5, 4], 'el-si-dz-2018-06-03': [25, 13, 10, 10, 9, 7, 5, 5, 4], 'el-si-dz-2022-04-24': [41, 27, 8, 7, 5], 'el-si-dz-2026-03-22': [29, 28, 9, 6, 6, 5, 5] };
+  // 2011 rows follow the report's list numbers (not vote order).
+  const seats = { 'el-si-dz-2011-12-04': [6, 8, 28, 4, 10, 26, 6], 'el-si-dz-2014-07-13': [36, 21, 10, 6, 6, 5, 4], 'el-si-dz-2018-06-03': [25, 13, 10, 10, 9, 7, 5, 5, 4], 'el-si-dz-2022-04-24': [41, 27, 8, 7, 5], 'el-si-dz-2026-03-22': [29, 28, 9, 6, 6, 5, 5] };
   for (const [id, expected] of Object.entries(seats)) {
     const general = data.election_results.filter((r) => r.election_id === id && r.vote_type === 'si_list_vote');
     assert.deepEqual(general.filter((r) => r.seats > 0).map((r) => r.seats), expected, id);
@@ -109,9 +110,12 @@ test('Slovenia: list names with persons use the commission short name; minutes a
   const short = data.electoral_contestants.filter((c) => c.election_id === 'el-si-dz-2026-03-22' && c.label_basis === 'dvk_short_name_for_personal_name').map((c) => c.historical_display_label);
   assert.deepEqual(short.sort(), ['DEMOKRATI.', 'GLAS UPOKOJENCEV', 'NSi, SLS, FOKUS', 'PREROD', 'ZAUPANJE']);
   assert.deepEqual(data.electoral_contestants.filter((c) => c.election_id === 'el-si-dz-2022-04-24' && c.label_basis === 'dvk_short_name_for_personal_name').map((c) => c.historical_display_label).sort(), ["L'BP", 'LMŠ', 'NAŠA DEŽELA', 'SAB']);
-  // 2014 and 2018: ranking points are stored as points, never as votes.
+  // 2011: names containing a person's name are shown without it; stage seats are kept.
+  assert.deepEqual(data.electoral_contestants.filter((c) => c.election_id === 'el-si-dz-2011-12-04' && c.label_basis === 'partial_personal_name_omitted').map((c) => c.historical_display_label).sort(), ['DRŽAVLJANSKA LISTA', 'POZITIVNA SLOVENIJA', 'SLS - SLOVENSKA LJUDSKA STRANKA']);
+  assert.equal(data.election_results.filter((r) => r.election_id === 'el-si-dz-2011-12-04').reduce((n, r) => n + (r.national_stage_seats ?? 0), 0), 27);
+  // 2011, 2014 and 2018: ranking points are stored as points, never as votes.
   const pts = data.election_results.filter((r) => r.vote_type === 'si_national_community_candidate_points');
-  assert.equal(new Set(pts.map((r) => r.election_id)).size, 2);
+  assert.equal(new Set(pts.map((r) => r.election_id)).size, 3);
   assert.ok(pts.every((r) => r.votes === null && Number.isInteger(r.points) && r.derived_vote_share === null));
   const g = siEvidence.elections['2026'].general;
   assert.equal(reconcileSi('2026', siEvidence.elections['2026']).lists_in_allocation, 7);
@@ -129,7 +133,7 @@ test('the four countries: hosts registered manual-only; Austria admitted from ow
   const hosts = read('docs/legal-security/network_acquisition_registry.json').hosts;
   for (const h of ['www.izbori.hr', 'www.dvk-rs.si']) assert.deepEqual(['status', 'automation_allowed', 'manual_allowed'].map((k) => hosts.find((x) => x.host === h)[k]), ['allowed', false, true], h);
   assert.equal(hosts.find((x) => x.host === 'www.bmi.gv.at').status, 'blocked');
-  assert.deepEqual(read('src/data/political/austria/elections.json').map((e) => e.year), [2013, 2017, 2019, 2024]);
+  assert.deepEqual(read('src/data/political/austria/elections.json').map((e) => e.year), [2002, 2013, 2017, 2019, 2024]);
   assert.deepEqual(read('src/data/political/romania/elections.json').map((e) => e.election_id), ['el-ro-cd-2016-12-11', 'el-ro-s-2016-12-11', 'el-ro-cd-2024-12-01', 'el-ro-s-2024-12-01']);
   assert.deepEqual(['status', 'automation_allowed', 'manual_allowed'].map((k) => hosts.find((x) => x.host === 'parlamentare2024.bec.ro')[k]), ['blocked', false, false]);
 });

@@ -1,5 +1,347 @@
 [
   {
+    "contestant_id": "ct-at-nr02-01",
+    "country": "austria",
+    "election_id": "el-at-nr-2002-11-24",
+    "contestant_kind": "party_or_electoral_group",
+    "native_list_type": "wahlwerbende Partei",
+    "kind_basis": "every contestant is a wahlwerbende Partei under the NRWO; party and electoral group are not distinguished",
+    "list_number": 1,
+    "list_number_basis": "column position in the BMI result workbook (ballot order not asserted)",
+    "registered_label_native": null,
+    "printed_party_name": null,
+    "historical_display_label": "SPÖ",
+    "display_label_rule": "official short name (Kurzbezeichnung) as printed in the BMI result workbook",
+    "label_basis": "official_short_name",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2002",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+        "source_record_id": "nrw02_e_dl.zip: column 1",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "fields_covered": [
+          "historical_display_label",
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-at-nr02-02",
+    "country": "austria",
+    "election_id": "el-at-nr-2002-11-24",
+    "contestant_kind": "party_or_electoral_group",
+    "native_list_type": "wahlwerbende Partei",
+    "kind_basis": "every contestant is a wahlwerbende Partei under the NRWO; party and electoral group are not distinguished",
+    "list_number": 2,
+    "list_number_basis": "column position in the BMI result workbook (ballot order not asserted)",
+    "registered_label_native": null,
+    "printed_party_name": null,
+    "historical_display_label": "FPÖ",
+    "display_label_rule": "official short name (Kurzbezeichnung) as printed in the BMI result workbook",
+    "label_basis": "official_short_name",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2002",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+        "source_record_id": "nrw02_e_dl.zip: column 2",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "fields_covered": [
+          "historical_display_label",
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-at-nr02-03",
+    "country": "austria",
+    "election_id": "el-at-nr-2002-11-24",
+    "contestant_kind": "party_or_electoral_group",
+    "native_list_type": "wahlwerbende Partei",
+    "kind_basis": "every contestant is a wahlwerbende Partei under the NRWO; party and electoral group are not distinguished",
+    "list_number": 3,
+    "list_number_basis": "column position in the BMI result workbook (ballot order not asserted)",
+    "registered_label_native": null,
+    "printed_party_name": null,
+    "historical_display_label": "ÖVP",
+    "display_label_rule": "official short name (Kurzbezeichnung) as printed in the BMI result workbook",
+    "label_basis": "official_short_name",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2002",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+        "source_record_id": "nrw02_e_dl.zip: column 3",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "fields_covered": [
+          "historical_display_label",
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-at-nr02-04",
+    "country": "austria",
+    "election_id": "el-at-nr-2002-11-24",
+    "contestant_kind": "party_or_electoral_group",
+    "native_list_type": "wahlwerbende Partei",
+    "kind_basis": "every contestant is a wahlwerbende Partei under the NRWO; party and electoral group are not distinguished",
+    "list_number": 4,
+    "list_number_basis": "column position in the BMI result workbook (ballot order not asserted)",
+    "registered_label_native": null,
+    "printed_party_name": null,
+    "historical_display_label": "GRÜNE",
+    "display_label_rule": "official short name (Kurzbezeichnung) as printed in the BMI result workbook",
+    "label_basis": "official_short_name",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2002",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+        "source_record_id": "nrw02_e_dl.zip: column 4",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "fields_covered": [
+          "historical_display_label",
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-at-nr02-05",
+    "country": "austria",
+    "election_id": "el-at-nr-2002-11-24",
+    "contestant_kind": "party_or_electoral_group",
+    "native_list_type": "wahlwerbende Partei",
+    "kind_basis": "every contestant is a wahlwerbende Partei under the NRWO; party and electoral group are not distinguished",
+    "list_number": 5,
+    "list_number_basis": "column position in the BMI result workbook (ballot order not asserted)",
+    "registered_label_native": null,
+    "printed_party_name": null,
+    "historical_display_label": "KPÖ",
+    "display_label_rule": "official short name (Kurzbezeichnung) as printed in the BMI result workbook",
+    "label_basis": "official_short_name",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2002",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+        "source_record_id": "nrw02_e_dl.zip: column 5",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "fields_covered": [
+          "historical_display_label",
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-at-nr02-06",
+    "country": "austria",
+    "election_id": "el-at-nr-2002-11-24",
+    "contestant_kind": "party_or_electoral_group",
+    "native_list_type": "wahlwerbende Partei",
+    "kind_basis": "every contestant is a wahlwerbende Partei under the NRWO; party and electoral group are not distinguished",
+    "list_number": 6,
+    "list_number_basis": "column position in the BMI result workbook (ballot order not asserted)",
+    "registered_label_native": null,
+    "printed_party_name": null,
+    "historical_display_label": "LIF",
+    "display_label_rule": "official short name (Kurzbezeichnung) as printed in the BMI result workbook",
+    "label_basis": "official_short_name",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2002",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+        "source_record_id": "nrw02_e_dl.zip: column 6",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "fields_covered": [
+          "historical_display_label",
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-at-nr02-07",
+    "country": "austria",
+    "election_id": "el-at-nr-2002-11-24",
+    "contestant_kind": "party_or_electoral_group",
+    "native_list_type": "wahlwerbende Partei",
+    "kind_basis": "every contestant is a wahlwerbende Partei under the NRWO; party and electoral group are not distinguished",
+    "list_number": 7,
+    "list_number_basis": "column position in the BMI result workbook (ballot order not asserted)",
+    "registered_label_native": null,
+    "printed_party_name": null,
+    "historical_display_label": "DEMOKRATEN",
+    "display_label_rule": "official short name (Kurzbezeichnung) as printed in the BMI result workbook",
+    "label_basis": "official_short_name",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2002",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+        "source_record_id": "nrw02_e_dl.zip: column 7",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "fields_covered": [
+          "historical_display_label",
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-at-nr02-08",
+    "country": "austria",
+    "election_id": "el-at-nr-2002-11-24",
+    "contestant_kind": "party_or_electoral_group",
+    "native_list_type": "wahlwerbende Partei",
+    "kind_basis": "every contestant is a wahlwerbende Partei under the NRWO; party and electoral group are not distinguished",
+    "list_number": 8,
+    "list_number_basis": "column position in the BMI result workbook (ballot order not asserted)",
+    "registered_label_native": null,
+    "printed_party_name": null,
+    "historical_display_label": "CWG",
+    "display_label_rule": "official short name (Kurzbezeichnung) as printed in the BMI result workbook",
+    "label_basis": "official_short_name",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2002",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+        "source_record_id": "nrw02_e_dl.zip: column 8",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "fields_covered": [
+          "historical_display_label",
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-at-nr02-09",
+    "country": "austria",
+    "election_id": "el-at-nr-2002-11-24",
+    "contestant_kind": "party_or_electoral_group",
+    "native_list_type": "wahlwerbende Partei",
+    "kind_basis": "every contestant is a wahlwerbende Partei under the NRWO; party and electoral group are not distinguished",
+    "list_number": 9,
+    "list_number_basis": "column position in the BMI result workbook (ballot order not asserted)",
+    "registered_label_native": null,
+    "printed_party_name": null,
+    "historical_display_label": "SLP",
+    "display_label_rule": "official short name (Kurzbezeichnung) as printed in the BMI result workbook",
+    "label_basis": "official_short_name",
+    "lead_party_id": null,
+    "party_relation_status": "not_attributed_no_party_register_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2002",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+        "source_record_id": "nrw02_e_dl.zip: column 9",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "fields_covered": [
+          "historical_display_label",
+          "list_number"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586"
+      }
+    ]
+  },
+  {
     "contestant_id": "ct-at-nr13-01",
     "country": "austria",
     "election_id": "el-at-nr-2013-09-29",
@@ -25,10 +367,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -43,10 +385,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -82,10 +424,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -100,10 +442,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -139,10 +481,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -157,10 +499,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -196,10 +538,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -214,10 +556,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -253,10 +595,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -271,10 +613,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -310,10 +652,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -328,10 +670,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -367,10 +709,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -385,10 +727,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -424,10 +766,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -442,10 +784,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -481,10 +823,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -499,10 +841,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -538,10 +880,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -556,10 +898,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -595,10 +937,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -613,10 +955,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -652,10 +994,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -670,10 +1012,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -709,10 +1051,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -727,10 +1069,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -766,10 +1108,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -784,10 +1126,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -823,10 +1165,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -841,10 +1183,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -880,10 +1222,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -898,10 +1240,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -937,10 +1279,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -955,10 +1297,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -994,10 +1336,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1012,10 +1354,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1051,10 +1393,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1069,10 +1411,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1108,10 +1450,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1126,10 +1468,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1165,10 +1507,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1183,10 +1525,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1222,10 +1564,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1240,10 +1582,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1279,10 +1621,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1297,10 +1639,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1336,10 +1678,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1354,10 +1696,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1393,10 +1735,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1411,10 +1753,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1450,10 +1792,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1468,10 +1810,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1507,10 +1849,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1525,10 +1867,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1564,10 +1906,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1582,10 +1924,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1621,10 +1963,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1639,10 +1981,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1678,10 +2020,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1696,10 +2038,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1735,10 +2077,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1753,10 +2095,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1792,10 +2134,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1810,10 +2152,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1849,10 +2191,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1867,10 +2209,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1906,10 +2248,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1924,10 +2266,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -1963,10 +2305,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -1981,10 +2323,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -2020,10 +2362,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2038,10 +2380,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -2077,10 +2419,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2095,10 +2437,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -2134,10 +2476,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2152,10 +2494,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -2191,10 +2533,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2209,10 +2551,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -2248,10 +2590,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2266,10 +2608,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -2305,10 +2647,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2323,10 +2665,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -2362,10 +2704,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2380,10 +2722,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -2419,10 +2761,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2437,10 +2779,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "printed_party_name",
           "title_sha256"
@@ -2475,10 +2817,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2513,10 +2855,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2551,10 +2893,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2589,10 +2931,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2627,10 +2969,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2665,10 +3007,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2703,10 +3045,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2741,10 +3083,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2779,10 +3121,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2817,10 +3159,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2855,10 +3197,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"
@@ -2893,10 +3235,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "historical_display_label",
           "list_number"

@@ -1,0 +1,80 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "slovenia-dz-2011",
+ "country": "slovenia",
+ "election_ids": [
+  "el-si-dz-2011-12-04"
+ ],
+ "scope": "Early National Assembly election of 4 December 2011, whole chamber (90 seats): national list votes and printed percentages for all 20 lists, seats by stage (61 constituency, 27 national), entitled voters, voters, ballots, invalid and valid ballots and printed turnout, and both national-community elections (ranking points, candidates without names). Constituency results, candidate names and the 2008 and earlier elections are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief and answers \"Accept for all four\" (ZASP Art. 9) and \"Register both\" (www.dvk-rs.si, manual reading); owner reply \"continue\" (2014–2022 admitted; the 2011 report was downloaded once and left for an .xls reader)."
+  },
+  {
+   "date": "2026-11-19",
+   "decision": "Owner brief \"Four-country election completion\": admit Slovenia 2011 and earlier where feasible."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/slovenia/dz/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "statute_art_9_zasp",
+   "basis": "Official texts (ZASP Art. 9), owner reading; same basis as the other Slovenian admissions."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_from_report",
+   "evidence_kind": "statute_art_9_zasp",
+   "basis": "Totals, list votes, percentages and seats transcribed from the commission's report; names containing a person's name shown without it; candidates without names."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The report PDF is kept by SHA-256 only."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "The report was downloaded once from the registered www.dvk-rs.si on 2026-11-18. The polling-station .xls was not retrieved (the single request was refused by this environment's safety layer on 2026-11-19)."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope_no_second_source",
+   "evidence_kind": "evidence_record",
+   "basis": "The report prints totals, every list's votes and percentage, the 4% list set, seats by stage and both national-community results; no second commission file confirms the 2011 figures (stated in the notes)."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "List votes = valid ballots (1,102,256); valid + invalid = ballots cast; printed turnout and all 20 printed percentages recompute; 7 lists at or above 4% = the lists the report names; D'Hondt over 88 seats reproduces the printed seats (28, 26, 10, 8, 6, 6, 4); stage seats 61 + 27; both national-community elections reconcile (points)."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_printed_list",
+   "evidence_kind": "owner_decision",
+   "basis": "Lists as printed (ordered by list number); three names containing a person's name are shown without it (title_sha256 kept); no link across elections."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "rules_printed_in_report_reproduced",
+   "evidence_kind": "official_act",
+   "basis": "ZVDZ Arts. 90–93 as cited in the report; linked to the institutional period from 2000-07-25 (before the 2013 change)."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_report",
+   "evidence_kind": "official_act",
+   "basis": "Report on the result adopted at the commission's 78th session, 16 December 2011."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a name repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

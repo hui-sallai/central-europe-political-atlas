@@ -1,5 +1,108 @@
 [
   {
+    "electoral_system_id": "es-si-dz-2011",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2011-12-04",
+    "institutional_rule_id": "si-es-dz-constitutional",
+    "valid_from": "2011-12-04",
+    "valid_to": "2011-12-04",
+    "interval_basis": "election-specific: rules applied in the 2011 minutes (ZVDZ (Uradni list RS, št. 109/06 – ZVDZ-UPB, 54/07 – odl. US), Arts. 37 and 90–93); the institutional registry record si-es-dz-constitutional holds the statutory text read from PISRS",
+    "system_family": "list proportional representation (eight 11-seat constituencies, seats fixed nationally) plus two national-community deputies elected separately",
+    "vote_type": "si_list_vote",
+    "allocation_method": "D'Hondt over all 88 seats nationally among lists with at least 4% (Art. 92); first distribution in constituencies by the Droop quota (Arts. 90–91), remaining seats to constituencies by largest remainders (Art. 93)",
+    "base_seats": 90,
+    "vote_definitions": [
+      {
+        "id": "si_list_vote",
+        "kind": "list",
+        "label": {
+          "en": "List votes (general election)",
+          "zh-CN": "名单票（一般选举）"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "general_88",
+        "sourceIds": [
+          "src-si-dvk-minutes-2011"
+        ]
+      },
+      {
+        "id": "si_national_community_candidate_points",
+        "kind": "candidate",
+        "label": {
+          "en": "National-community candidate points (ranked ballot)",
+          "zh-CN": "民族共同体候选人得分（排序投票）"
+        },
+        "denominator": null,
+        "seatScope": "national_community_constituency",
+        "sourceIds": [
+          "src-si-dvk-minutes-2011"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "Seats per list are fixed by D'Hondt over all 88 seats among lists with at least 4% of all list votes (Art. 92).",
+      "districtAllocation": "Each of eight constituencies elects 11 deputies: a list first wins seats there by the Droop quota (Arts. 90–91); the remaining seats are assigned to constituencies by largest remainders (Art. 93).",
+      "thresholds": [
+        {
+          "appliesTo": "list of candidates, nationally",
+          "percent": 4,
+          "description": {
+            "en": "A list needs at least 4% of all list votes in the country to take part in the seat allocation (minutes item 7, ZVDZ Art. 90(2) and 92(3)).",
+            "zh-CN": "名单须获得全国全部名单票至少 4% 才能参与席位分配（纪要第 7 项，ZVDZ 第 90 条第 2 款、第 92 条第 3 款）。"
+          },
+          "sourceIds": [
+            "src-si-dvk-minutes-2011"
+          ]
+        }
+      ],
+      "minorityRepresentation": {
+        "en": "The Italian and the Hungarian national communities each elect one deputy in a separate constituency, from individual candidates. In 2011 voters ranked the candidates and the minutes print points (točk); the candidate with most points is elected. Members of these communities also vote in the general election. Candidate names are not stored.",
+        "zh-CN": "意大利族和匈牙利族民族共同体各在单独选区从个人候选人中选出一名议员。2011 年选民对候选人排序，纪要列出得分（točk），得分最多者当选。这些共同体成员也参加一般选举。不存储候选人姓名。"
+      },
+      "totalSeatsDefinition": {
+        "en": "90 seats: 88 from lists of candidates and 2 national-community deputies. The National Council (Državni svet) is a separate, indirectly elected body and is not part of this election.",
+        "zh-CN": "90 席：名单产生 88 席，民族共同体议员 2 席。国民委员会（Državni svet）是另行间接选举的机构，不属于本次选举。"
+      },
+      "sourceIds": [
+        "src-si-dvk-minutes-2011"
+      ]
+    },
+    "notes": {
+      "en": "The commission's report (a scanned document) prints the totals, every list's votes and percentage (ordered by list number), the seats by stage (61 in the constituencies, 27 nationally) and the national-community results; the list votes equal the valid ballots and the seats reproduce by D'Hondt with the 4% threshold. The commission's polling-station file was not retrieved, so no second source confirms the 2011 figures. Names containing a person's name are shown without it. Constituency-level results are not stored in this release.",
+      "zh-CN": "选举委员会的报告（扫描件）列出总数、各名单得票与百分比（按名单编号排列）、分阶段席位（选区 61 席、全国 27 席）及民族共同体结果；名单票之和等于有效票，席位可按 D’Hondt 与 4% 门槛复现。未取得委员会按投票站的结果文件，因此 2011 年数据没有第二来源核对。含人名的名称去除人名后显示。本次未存储选区级结果。"
+    },
+    "seat_check": {
+      "lists": 20,
+      "valid": 1102256,
+      "threshold_votes": 44091,
+      "lists_in_allocation": 7,
+      "general_seats": 88,
+      "national_community_seats": 2,
+      "total_seats": 90
+    },
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.C–Č items 7–9",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "allocation_method",
+          "thresholds",
+          "base_seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
     "electoral_system_id": "es-si-dz-2014",
     "country": "slovenia",
     "election_id": "el-si-dz-2014-07-13",
@@ -89,10 +192,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -193,10 +296,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -297,10 +400,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -401,10 +504,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "allocation_method",
           "thresholds",

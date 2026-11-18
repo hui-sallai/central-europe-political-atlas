@@ -1,5 +1,62 @@
 [
   {
+    "election_id": "el-si-dz-2011-12-04",
+    "country": "slovenia",
+    "election_type": "national_parliament",
+    "chamber": "Državni zbor",
+    "date": "2011-12-04",
+    "date_end": null,
+    "date_basis": "polling day stated in the minutes",
+    "result_coverage": "all_lists_and_both_national_community_elections_candidates_without_names",
+    "year": 2011,
+    "legislature_id": "lg-si-dz-2011",
+    "electoral_system_id": "es-si-dz-2011",
+    "result_status": "official_final",
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "constituency_structure": [
+      {
+        "unit": "general",
+        "constituencies": [
+          "si-national"
+        ],
+        "seats": 88,
+        "vote_type": "si_list_vote",
+        "note": "eight constituencies of 11 seats; list seats are fixed nationally (Art. 92), so national figures are the unit of the result"
+      },
+      {
+        "unit": "national_community",
+        "constituencies": [
+          "si-nc-italijanska",
+          "si-nc-madzarska"
+        ],
+        "seats": 2,
+        "vote_type": "si_national_community_candidate_points"
+      }
+    ],
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "minutes heading and section I.A",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "date",
+          "result_vintage"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
     "election_id": "el-si-dz-2014-07-13",
     "country": "slovenia",
     "election_type": "national_parliament",
@@ -43,10 +100,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -100,10 +157,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -157,10 +214,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -214,10 +271,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "date",
           "result_vintage"

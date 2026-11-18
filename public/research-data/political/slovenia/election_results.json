@@ -1,5 +1,896 @@
 [
   {
+    "result_id": "er-ct-si-dz11-01",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-01",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 212,
+    "published_vote_share": 0.02,
+    "derived_vote_share": 0.019233281560726363,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 1",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-02",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-02",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 7118,
+    "published_vote_share": 0.65,
+    "derived_vote_share": 0.6457665007040106,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 2",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-03",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-03",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 76853,
+    "published_vote_share": 6.97,
+    "derived_vote_share": 6.9723367348419965,
+    "seats": 6,
+    "constituency_stage_seats": 2,
+    "national_stage_seats": 4,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 3",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-04",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-04",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 92282,
+    "published_vote_share": 8.37,
+    "derived_vote_share": 8.372102306542219,
+    "seats": 8,
+    "constituency_stage_seats": 5,
+    "national_stage_seats": 3,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 4",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-05",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-05",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 3339,
+    "published_vote_share": 0.3,
+    "derived_vote_share": 0.3029241845814402,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 5",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-06",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-06",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 16268,
+    "published_vote_share": 1.48,
+    "derived_vote_share": 1.475882190707059,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 6",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-07",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-07",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 314273,
+    "published_vote_share": 28.51,
+    "derived_vote_share": 28.51179762233093,
+    "seats": 28,
+    "constituency_stage_seats": 23,
+    "national_stage_seats": 5,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 7",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-08",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-08",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 1100,
+    "published_vote_share": 0.1,
+    "derived_vote_share": 0.0997953288528255,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 8",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-09",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-09",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 53758,
+    "published_vote_share": 4.88,
+    "derived_vote_share": 4.877088444063811,
+    "seats": 4,
+    "constituency_stage_seats": 0,
+    "national_stage_seats": 4,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 9",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-10",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-10",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 115952,
+    "published_vote_share": 10.52,
+    "derived_vote_share": 10.519516337402564,
+    "seats": 10,
+    "constituency_stage_seats": 9,
+    "national_stage_seats": 1,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 10",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-11",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-11",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 288719,
+    "published_vote_share": 26.19,
+    "derived_vote_share": 26.193461410053565,
+    "seats": 26,
+    "constituency_stage_seats": 21,
+    "national_stage_seats": 5,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 11",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-12",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-12",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 19786,
+    "published_vote_share": 1.8,
+    "derived_vote_share": 1.7950457969836409,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 12",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-13",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-13",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 75311,
+    "published_vote_share": 6.83,
+    "derived_vote_share": 6.832441828395582,
+    "seats": 6,
+    "constituency_stage_seats": 1,
+    "national_stage_seats": 5,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": true,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 13",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-14",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-14",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 9532,
+    "published_vote_share": 0.86,
+    "derived_vote_share": 0.8647718860228477,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 14",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-15",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-15",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 976,
+    "published_vote_share": 0.09,
+    "derived_vote_share": 0.08854567360032514,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 15",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-16",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-16",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 1787,
+    "published_vote_share": 0.16,
+    "derived_vote_share": 0.1621220478727265,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 16",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-17",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-17",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 295,
+    "published_vote_share": 0.03,
+    "derived_vote_share": 0.026763292737803198,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 17",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-18",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-18",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 13477,
+    "published_vote_share": 1.22,
+    "derived_vote_share": 1.2226742244995719,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 18",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-19",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-19",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 7218,
+    "published_vote_share": 0.65,
+    "derived_vote_share": 0.6548388033269948,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 19",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-20",
+    "country": "slovenia",
+    "geography": "national",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-20",
+    "vote_type": "si_list_vote",
+    "valid_votes": 1102256,
+    "total_seats": 88,
+    "votes": 4000,
+    "published_vote_share": 0.36,
+    "derived_vote_share": 0.36289210491936535,
+    "seats": 0,
+    "seat_basis": "D'Hondt over all 88 seats among lists with at least 4% of all list votes nationally (Art. 92; minutes items 7–9)",
+    "in_seat_allocation": false,
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section I.B item 6 and the seat statement, row 20",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "votes",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-nc-ita-01",
+    "country": "slovenia",
+    "geography": "si-nc-italijanska",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-nc-ita-01",
+    "vote_type": "si_national_community_candidate_points",
+    "valid_votes": 1009,
+    "total_seats": 1,
+    "votes": null,
+    "points": 1009,
+    "published_vote_share": null,
+    "derived_vote_share": null,
+    "seats": 1,
+    "elected": true,
+    "seat_basis": "Italian national-community constituency: one deputy, the candidate with most points from ranked ballots (minutes section II prints points, točk)",
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section II (Italian community), row 1",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "points",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-nc-mad-01",
+    "country": "slovenia",
+    "geography": "si-nc-madzarska",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-nc-mad-01",
+    "vote_type": "si_national_community_candidate_points",
+    "valid_votes": 3324,
+    "total_seats": 1,
+    "votes": null,
+    "points": 5135,
+    "published_vote_share": null,
+    "derived_vote_share": null,
+    "seats": 1,
+    "elected": true,
+    "seat_basis": "Hungarian national-community constituency: one deputy, the candidate with most points from ranked ballots (minutes section II prints points, točk)",
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section II (Hungarian community), row 1",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "points",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-si-dz11-nc-mad-02",
+    "country": "slovenia",
+    "geography": "si-nc-madzarska",
+    "election_id": "el-si-dz-2011-12-04",
+    "contestant_ref": "ct-si-dz11-nc-mad-02",
+    "vote_type": "si_national_community_candidate_points",
+    "valid_votes": 3324,
+    "total_seats": 1,
+    "votes": null,
+    "points": 2357,
+    "published_vote_share": null,
+    "derived_vote_share": null,
+    "seats": 0,
+    "elected": false,
+    "seat_basis": "Hungarian national-community constituency: one deputy, the candidate with most points from ranked ballots (minutes section II prints points, točk)",
+    "published_seat_share": null,
+    "result_vintage": "final: National Electoral Commission report on the result, adopted 2011-12-16",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2011",
+        "source_url": "https://www.dvk-rs.si/fileadmin/user_upload/dokumenti/volitve/drzavni_zbor_2011/Porocilo-o-izidu-predcasnih-volitev-v-Drzavni-zbor-Republike-Slovenije----2011.pdf",
+        "source_record_id": "section II (Hungarian community), row 2",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "fields_covered": [
+          "points",
+          "seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982"
+      }
+    ]
+  },
+  {
     "result_id": "er-ct-si-dz14-01",
     "country": "slovenia",
     "geography": "national",
@@ -24,10 +915,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -42,10 +933,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -79,10 +970,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -97,10 +988,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -134,10 +1025,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -152,10 +1043,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -189,10 +1080,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -207,10 +1098,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -244,10 +1135,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -262,10 +1153,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -299,10 +1190,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -317,10 +1208,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -354,10 +1245,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -372,10 +1263,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -409,10 +1300,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -427,10 +1318,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -464,10 +1355,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -482,10 +1373,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -519,10 +1410,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -537,10 +1428,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -574,10 +1465,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -592,10 +1483,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -629,10 +1520,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -647,10 +1538,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -684,10 +1575,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -702,10 +1593,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -739,10 +1630,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -757,10 +1648,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -794,10 +1685,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -812,10 +1703,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -849,10 +1740,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -867,10 +1758,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -904,10 +1795,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -922,10 +1813,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -960,10 +1851,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "points",
           "seats"
@@ -999,10 +1890,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "points",
           "seats"
@@ -1037,10 +1928,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1055,10 +1946,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1092,10 +1983,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1110,10 +2001,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1147,10 +2038,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1165,10 +2056,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1202,10 +2093,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1220,10 +2111,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1257,10 +2148,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1275,10 +2166,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1312,10 +2203,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1330,10 +2221,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1367,10 +2258,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1385,10 +2276,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1422,10 +2313,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1440,10 +2331,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1477,10 +2368,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1495,10 +2386,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1532,10 +2423,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1550,10 +2441,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1587,10 +2478,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1605,10 +2496,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1642,10 +2533,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1660,10 +2551,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1697,10 +2588,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1715,10 +2606,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1752,10 +2643,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1770,10 +2661,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1807,10 +2698,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1825,10 +2716,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1862,10 +2753,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1880,10 +2771,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1917,10 +2808,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1935,10 +2826,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -1972,10 +2863,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -1990,10 +2881,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2027,10 +2918,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2045,10 +2936,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2082,10 +2973,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2100,10 +2991,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2137,10 +3028,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2155,10 +3046,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2192,10 +3083,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2210,10 +3101,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2247,10 +3138,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2265,10 +3156,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2302,10 +3193,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2320,10 +3211,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2357,10 +3248,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2375,10 +3266,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2413,10 +3304,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "points",
           "seats"
@@ -2452,10 +3343,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "points",
           "seats"
@@ -2491,10 +3382,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "points",
           "seats"
@@ -2530,10 +3421,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "points",
           "seats"
@@ -2569,10 +3460,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "points",
           "seats"
@@ -2607,10 +3498,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2625,10 +3516,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2662,10 +3553,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2680,10 +3571,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2717,10 +3608,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2735,10 +3626,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2772,10 +3663,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2790,10 +3681,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2827,10 +3718,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2845,10 +3736,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2882,10 +3773,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2900,10 +3791,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2937,10 +3828,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -2955,10 +3846,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -2992,10 +3883,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3010,10 +3901,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3047,10 +3938,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3065,10 +3956,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3102,10 +3993,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3120,10 +4011,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3157,10 +4048,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3175,10 +4066,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3212,10 +4103,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3230,10 +4121,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3267,10 +4158,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3285,10 +4176,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3322,10 +4213,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3340,10 +4231,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3377,10 +4268,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3395,10 +4286,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3432,10 +4323,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3450,10 +4341,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3487,10 +4378,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3505,10 +4396,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3542,10 +4433,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3560,10 +4451,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3597,10 +4488,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3615,10 +4506,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3652,10 +4543,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3670,10 +4561,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3707,10 +4598,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3725,10 +4616,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -3762,10 +4653,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3800,10 +4691,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3838,10 +4729,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3876,10 +4767,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3914,10 +4805,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3952,10 +4843,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -3970,10 +4861,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4007,10 +4898,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4025,10 +4916,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4062,10 +4953,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4080,10 +4971,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4117,10 +5008,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4135,10 +5026,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4172,10 +5063,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4190,10 +5081,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4227,10 +5118,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4245,10 +5136,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4282,10 +5173,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4300,10 +5191,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4337,10 +5228,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4355,10 +5246,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4392,10 +5283,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4410,10 +5301,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4447,10 +5338,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4465,10 +5356,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4502,10 +5393,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4520,10 +5411,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4557,10 +5448,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4575,10 +5466,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4612,10 +5503,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4630,10 +5521,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4667,10 +5558,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4685,10 +5576,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4722,10 +5613,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4740,10 +5631,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4777,10 +5668,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4795,10 +5686,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4832,10 +5723,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4850,10 +5741,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes"
         ],
@@ -4887,10 +5778,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4925,10 +5816,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -4963,10 +5854,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -5001,10 +5892,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -5039,10 +5930,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"
@@ -5077,10 +5968,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "bc4fe47df8250a1755858ff62fa69553f56e5181985ee059680eac7ec41c5056"
+          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "b87bafc62c1d793e56a8bb8566dcfd19c8f8e6a3f913017a7c9e71a0af4865aa",
+        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
         "fields_covered": [
           "votes",
           "seats"

@@ -1,0 +1,80 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "austria-nationalrat-2002",
+ "country": "austria",
+ "election_ids": [
+  "el-at-nr-2002-11-24"
+ ],
+ "scope": "Nationalrat election of 24 November 2002, whole chamber (183 seats), national level: every party's votes, eligible voters, votes cast, invalid and valid votes (postal ballots included), derived turnout and seats per party. Printed party names, candidate names, Land and municipal results and the 2006 and 2008 elections are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief (Austria: Nationalrat only), answers \"Accept for all four\" (UrhG § 7) and \"I'll download files myself\"; the owner saved nrw02_e_dl.zip with the other BMI files."
+  },
+  {
+   "date": "2026-11-19",
+   "decision": "Owner brief \"Four-country election completion\": extend the historical coverage from admissible official files already supplied."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/austria/nationalrat/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "owner_decision",
+   "basis": "Same basis as austria-nationalrat-2013-2024: official works (UrhG § 7, owner reading) and the BMI Impressum's attributed non-commercial reuse clause."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_and_seats",
+   "evidence_kind": "owner_decision",
+   "basis": "National counts, party votes and seats, attributed to the Bundesministerium für Inneres."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The owner-saved ZIP and the workbook inside it are kept in local-evidence/ by SHA-256 only."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_manual_download",
+   "evidence_kind": "owner_decision",
+   "basis": "Saved by the owner; www.bmi.gv.at stays blocked for the assistant. The legacy .xls workbook was read locally with a standard-library reader."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "The final-result workbook NRW02_E_DL holds the national row, the nine Land rows and a seats row (Mandate)."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "Party votes = valid votes; valid + invalid = votes cast; the nine Land rows add up to the national row for every column; 183 seats; parties holding seats = parties above 4%; national D'Hondt over 183 seats reproduces every party's seats (SPÖ 69, FPÖ 18, ÖVP 79, GRÜNE 17)."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_party_column",
+   "evidence_kind": "owner_decision",
+   "basis": "Official short names from the workbook columns; no person's name among them; no link across elections."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "rules_reproduced_period_not_recorded",
+   "evidence_kind": "build_check",
+   "basis": "4% threshold and federal D'Hondt over 183 seats checked against the data. The institutional registry records Austrian periods only from 28 October 2008 (five-year term), so the 2002 election links to no period and lists that change as later; no later rule is applied retroactively."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_result_workbook",
+   "evidence_kind": "evidence_record",
+   "basis": "The BMI final-result workbook (Endergebnis, file dated 14 July 2003) with its seats row; no announcement was supplied for 2002. Polling day from the national election source registry (verified_harmonized)."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a name repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Austrian 2002 and Slovenian 2011 parliamentary elections — 2026-11-19
+
+- Add Austria's Nationalrat election of 2002 (183 seats, from the interior ministry's final-result workbook with its seats row) and Slovenia's early National Assembly election of 2011 (90 seats, from the electoral commission's report, with both national-community elections). Each reconciles with its totals and seat rule; party names that contain a person's name are shown without it. Candidate names are not stored.
+
 ### v2.0 Austrian parliamentary elections 2013–2024 — 2026-11-18
 
 - Add Austria's Nationalrat elections of 2013, 2017, 2019 and 2024 (all 183 seats each, national level, with seats by tier for 2019 and 2024) from the interior ministry's final results, saved by the owner. National D'Hondt among the parties above 4% reproduces every party's seats. Party names that name a person are shown by their short name or column position; candidate names are not stored.

@@ -1,5 +1,89 @@
 [
   {
+    "electoral_system_id": "es-at-nr-2002",
+    "country": "austria",
+    "election_id": "el-at-nr-2002-11-24",
+    "valid_from": "2002-11-24",
+    "valid_to": "2002-11-24",
+    "interval_basis": "election-specific: Nationalrats-Wahlordnung 1992 as applied (the announcements cite §§ 107–108); the institutional registry holds the statute",
+    "system_family": "list proportional representation in three tiers: 39 regional constituencies, 9 Land constituencies and the federal constituency",
+    "vote_type": "at_nr_party_vote",
+    "allocation_method": "Hare quota (Wahlzahl) in regional and Land constituencies, then federal D’Hondt over all 183 seats",
+    "base_seats": 183,
+    "vote_definitions": [
+      {
+        "id": "at_nr_party_vote",
+        "kind": "list",
+        "label": {
+          "en": "Party votes (Parteistimmen)",
+          "zh-CN": "政党票"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "whole_chamber",
+        "sourceIds": [
+          "src-at-bmi-nr-2002"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "Third Ermittlungsverfahren: D’Hondt over 183 seats among qualifying parties nationally; seats already won in the regional and Land constituencies are deducted.",
+      "districtAllocation": "First and second Ermittlungsverfahren: a party wins as many seats in a regional or Land constituency as its votes contain the Wahlzahl of the Land.",
+      "thresholds": [
+        {
+          "appliesTo": "party",
+          "percent": 4,
+          "description": {
+            "en": "A party takes part in the Land and federal stages with at least 4% of national valid votes or a seat in a regional constituency (Grundmandat). In every admitted election the parties holding seats are exactly those above 4%.",
+            "zh-CN": "政党须获得全国有效票至少 4%，或在某一地区选区获得一席（基础议席），方可参加州级与联邦级分配。在已准入的每次选举中，获得席位的政党恰为超过 4% 者。"
+          },
+          "sourceIds": [
+            "src-at-bmi-nr-2002"
+          ]
+        }
+      ],
+      "minorityRepresentation": null,
+      "totalSeatsDefinition": {
+        "en": "183 members of the Nationalrat (NRWO § 1).",
+        "zh-CN": "国民议会 183 名议员（《国民议会选举法》第 1 条）。"
+      },
+      "sourceIds": [
+        "src-at-bmi-nr-2002"
+      ]
+    },
+    "notes": {
+      "en": "Votes and counts are the national row of the BMI final-result workbook, equal to the sum of the nine Länder rows; seats from the workbook’s seats row. National D’Hondt over 183 seats among parties above 4% reproduces every party’s seats. Turnout is derived. Candidate names are not stored.",
+      "zh-CN": "得票与计数取自内政部最终结果工作簿的全国行，与九个州行之和一致；席位取自工作簿的席位行。对超过 4% 的政党按全国 D’Hondt 分配 183 席，可复现各党席位。投票率为推算值。不存储候选人姓名。"
+    },
+    "seat_check": {
+      "valid": 4909645,
+      "parties": 9,
+      "seat_parties": 4,
+      "total_seats": 183,
+      "threshold_votes": 196386,
+      "dhondt": "national D’Hondt over 183 seats among parties with at least 4% reproduces every party’s seats",
+      "stages": null
+    },
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2002",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+        "source_record_id": "nrw02_e_dl.zip: row Mandate",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "fields_covered": [
+          "base_seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586"
+      }
+    ]
+  },
+  {
     "electoral_system_id": "es-at-nr-2013",
     "country": "austria",
     "election_id": "el-at-nr-2013-09-29",
@@ -71,10 +155,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "base_seats"
         ],
@@ -155,10 +239,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "base_seats"
         ],
@@ -265,10 +349,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "base_seats"
         ],
@@ -375,10 +459,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4677827a0f948e6de7aabc3b704b4695edd92c5a54399d48c30a238e5dc6f6c"
+          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "3e180843d381d2804be4ab6e28083d8a50bc4d2db33137268792d1dc91c5d298",
+        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
         "fields_covered": [
           "base_seats"
         ],

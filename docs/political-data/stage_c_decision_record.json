@@ -85,13 +85,14 @@
   {
    "country": "slovenia",
    "elections": [
+    2011,
     2014,
     2018,
     2022,
     2026
    ],
-   "scope": "National Assembly 2014, 2018, 2022 and 2026, whole chamber (90 seats): national list results (88) and the Italian and Hungarian national-community elections (2014 and 2018 as ranking points); candidates without names; 2011 and earlier not admitted",
-   "record": "docs/political-data/slovenia_dz2014_2022_admission.json"
+   "scope": "National Assembly 2011, 2014, 2018, 2022 and 2026, whole chamber (90 seats): national list results (88) and the Italian and Hungarian national-community elections (2014 and 2018 as ranking points); candidates without names; 2008 and earlier not admitted",
+   "record": "docs/political-data/slovenia_dz2011_admission.json"
   },
   {
    "country": "romania",
@@ -105,12 +106,13 @@
   {
    "country": "austria",
    "elections": [
+    2002,
     2013,
     2017,
     2019,
     2024
    ],
-   "scope": "Nationalrat 2013, 2017, 2019 and 2024, whole chamber (183 seats), national level, seats by tier for 2019 and 2024, from the BMI files saved by the owner; candidate names not stored; 2002, 2006 and 2008 not admitted (legacy .xls)",
+   "scope": "Nationalrat 2002, 2013, 2017, 2019 and 2024, whole chamber (183 seats), national level, seats by tier for 2019 and 2024, from the BMI files saved by the owner; candidate names not stored; 2006 and 2008 not admitted (workbooks carry no seats; seat tables not supplied)",
    "record": "docs/political-data/austria_nationalrat_admission.json"
   }
  ],
@@ -216,6 +218,12 @@
    "country": "austria",
    "question": "Admit the Austrian Nationalrat elections from the BMI files the owner saved by hand, on the official-works reading (UrhG § 7)?",
    "decision": "Owner brief (Austria: Nationalrat only) and answers \"Accept for all four\" and \"I'll download files myself\", then the supplied files: 2013, 2017, 2019 and 2024 admitted; the 2002, 2006 and 2008 workbooks are legacy .xls and were not read."
+  },
+  {
+   "date": "2026-11-19",
+   "country": "austria",
+   "question": "Owner brief \"Four-country election completion\": which further historical elections can be admitted from files already on hand?",
+   "decision": "Austria 2002 admitted from the owner-saved legacy workbook (it carries the seats); Slovenia 2011 admitted from the commission report. Downloads for Romania 2012, Slovenia 2011 (station file) and the commission archives were refused by this environment's safety layer and are listed for the owner."
   }
  ],
  "countries": {

@@ -1003,6 +1003,40 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-si-dz-2011-12-04",
+   "country": "slovenia",
+   "date": "2011-12-04",
+   "chamber_id": "si-drzavni-zbor",
+   "chamber_official_name": "Državni zbor Republike Slovenije",
+   "seats": 90,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-si-dz-2011",
+   "system_family": "list proportional representation (eight 11-seat constituencies, seats fixed nationally) plus two national-community deputies elected separately",
+   "allocation_method": "D'Hondt over all 88 seats nationally among lists with at least 4% (Art. 92); first distribution in constituencies by the Droop quota (Arts. 90–91), remaining seats to constituencies by largest remainders (Art. 93)",
+   "base_seats": 90,
+   "thresholds": [
+    {
+     "applies_to": "list of candidates, nationally",
+     "percent": 4,
+     "description": {
+      "en": "A list needs at least 4% of all list votes in the country to take part in the seat allocation (minutes item 7, ZVDZ Art. 90(2) and 92(3)).",
+      "zh": "名单须获得全国全部名单票至少 4% 才能参与席位分配（纪要第 7 项，ZVDZ 第 90 条第 2 款、第 92 条第 3 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: rules applied in the 2011 minutes (ZVDZ (Uradni list RS, št. 109/06 – ZVDZ-UPB, 54/07 – odl. US), Arts. 37 and 90–93); the institutional registry record si-es-dz-constitutional holds the statutory text read from PISRS",
+   "constitution_id": "si-constitution-1991",
+   "institutional_period_id": "slovenia-period-2000-07-25",
+   "changes_in_force": [
+    "si-1991-constitution",
+    "si-2000-art80"
+   ],
+   "later_changes": [
+    "si-2013-referendum"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-si-dz-2014-07-13",
    "country": "slovenia",
    "date": "2014-07-13",
@@ -1261,6 +1295,37 @@
     "rs-2022-amendments-i-xxix"
    ],
    "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-at-nr-2002-11-24",
+   "country": "austria",
+   "date": "2002-11-24",
+   "chamber_id": "at-nationalrat",
+   "chamber_official_name": "Nationalrat",
+   "seats": 183,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-at-nr-2002",
+   "system_family": "list proportional representation in three tiers: 39 regional constituencies, 9 Land constituencies and the federal constituency",
+   "allocation_method": "Hare quota (Wahlzahl) in regional and Land constituencies, then federal D’Hondt over all 183 seats",
+   "base_seats": 183,
+   "thresholds": [
+    {
+     "applies_to": "party",
+     "percent": 4,
+     "description": {
+      "en": "A party takes part in the Land and federal stages with at least 4% of national valid votes or a seat in a regional constituency (Grundmandat). In every admitted election the parties holding seats are exactly those above 4%.",
+      "zh": "政党须获得全国有效票至少 4%，或在某一地区选区获得一席（基础议席），方可参加州级与联邦级分配。在已准入的每次选举中，获得席位的政党恰为超过 4% 者。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: Nationalrats-Wahlordnung 1992 as applied (the announcements cite §§ 107–108); the institutional registry holds the statute",
+   "constitution_id": "at-b-vg",
+   "institutional_period_id": null,
+   "changes_in_force": [],
+   "later_changes": [
+    "at-2008-five-year-term"
+   ],
    "undated_changes": []
   },
   {

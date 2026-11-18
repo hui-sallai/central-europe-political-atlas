@@ -17,10 +17,300 @@
  "not_used": {
   "nrw_06_endergebnise.xls": "04725514732715b7368fb7f091f984e085cfb5ebedd28b489c15e8d2ab81dc8b",
   "ergebnis_end.zip": "8c4da49b1bb1cf70ba49f402ccd894933039f2187e2b6e5944ac466e1324cd6f",
-  "nrw02_e_dl.zip": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586",
-  "reason": "legacy .xls workbooks (2006, 2008, 2002): no reader for the BIFF format in this environment; kept for a later admission"
+  "reason": "legacy .xls workbooks for 2006 and 2008 carry votes but no seats; the seat tables were not supplied, so these elections wait for them"
  },
  "elections": {
+  "2002": {
+   "workbook": {
+    "file": "nrw02_e_dl.zip",
+    "inner_file": "NRW02_E_DL.xls",
+    "inner_sha256": "80569f7aab8d8d563ff4dcbf2fefb944bbb275d01de3132b9019d25baaf6a73e",
+    "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+    "sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586",
+    "row": "ÖSTERREICH (sheet Gemeinden_NRW02)",
+    "format": "legacy .xls (BIFF8), read with a stdlib reader"
+   },
+   "national": {
+    "eligible": 5912592,
+    "cast": 4982261,
+    "invalid": 72616,
+    "valid": 4909645,
+    "postal_included": {
+     "cast": 223271,
+     "valid": 221584,
+     "invalid": 1687
+    }
+   },
+   "parties": [
+    {
+     "key": "SPÖ",
+     "column": 1,
+     "short_name": "SPÖ",
+     "votes": 1792499,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "FPÖ",
+     "column": 2,
+     "short_name": "FPÖ",
+     "votes": 491328,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "ÖVP",
+     "column": 3,
+     "short_name": "ÖVP",
+     "votes": 2076833,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "GRÜNE",
+     "column": 4,
+     "short_name": "GRÜNE",
+     "votes": 464980,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "KPÖ",
+     "column": 5,
+     "short_name": "KPÖ",
+     "votes": 27568,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "LIF",
+     "column": 6,
+     "short_name": "LIF",
+     "votes": 48083,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "DEMOKRATEN",
+     "column": 7,
+     "short_name": "DEMOKRATEN",
+     "votes": 2439,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "CWG",
+     "column": 8,
+     "short_name": "CWG",
+     "votes": 2009,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "SLP",
+     "column": 9,
+     "short_name": "SLP",
+     "votes": 3906,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    }
+   ],
+   "laender": [
+    {
+     "gkz": "1",
+     "name": "BURGENLAND",
+     "votes": [
+      87660,
+      12163,
+      81127,
+      9009,
+      475,
+      860,
+      0,
+      0,
+      0
+     ],
+     "eligible": 215784,
+     "cast": 194321,
+     "valid": 191294,
+     "invalid": 3027
+    },
+    {
+     "gkz": "2",
+     "name": "KÄRNTEN",
+     "votes": [
+      133131,
+      82002,
+      105894,
+      21495,
+      1824,
+      2940,
+      0,
+      0,
+      0
+     ],
+     "eligible": 423954,
+     "cast": 354735,
+     "valid": 347286,
+     "invalid": 7449
+    },
+    {
+     "gkz": "3",
+     "name": "NIEDERÖSTERREICH",
+     "votes": [
+      373179,
+      70208,
+      485351,
+      73177,
+      4649,
+      8113,
+      0,
+      0,
+      0
+     ],
+     "eligible": 1157547,
+     "cast": 1031236,
+     "valid": 1014677,
+     "invalid": 16559
+    },
+    {
+     "gkz": "4",
+     "name": "OBERÖSTERREICH",
+     "votes": [
+      316009,
+      88790,
+      363497,
+      74043,
+      3979,
+      7247,
+      0,
+      0,
+      0
+     ],
+     "eligible": 1005882,
+     "cast": 868461,
+     "valid": 853565,
+     "invalid": 14896
+    },
+    {
+     "gkz": "5",
+     "name": "SALZBURG",
+     "votes": [
+      91674,
+      31949,
+      138924,
+      30848,
+      1259,
+      3159,
+      0,
+      0,
+      0
+     ],
+     "eligible": 361603,
+     "cast": 302718,
+     "valid": 297813,
+     "invalid": 4905
+    },
+    {
+     "gkz": "6",
+     "name": "STEIERMARK",
+     "votes": [
+      281965,
+      73540,
+      340185,
+      53011,
+      7269,
+      6628,
+      0,
+      0,
+      0
+     ],
+     "eligible": 920100,
+     "cast": 771855,
+     "valid": 762598,
+     "invalid": 9257
+    },
+    {
+     "gkz": "7",
+     "name": "TIROL",
+     "votes": [
+      95855,
+      39059,
+      203228,
+      45585,
+      2199,
+      5884,
+      0,
+      0,
+      0
+     ],
+     "eligible": 480099,
+     "cast": 397552,
+     "valid": 391810,
+     "invalid": 5742
+    },
+    {
+     "gkz": "8",
+     "name": "VORARLBERG",
+     "votes": [
+      39590,
+      25642,
+      97131,
+      28671,
+      717,
+      3191,
+      409,
+      2009,
+      0
+     ],
+     "eligible": 237302,
+     "cast": 199745,
+     "valid": 197360,
+     "invalid": 2385
+    },
+    {
+     "gkz": "9",
+     "name": "WIEN",
+     "votes": [
+      373436,
+      67975,
+      261496,
+      129141,
+      5197,
+      10061,
+      2030,
+      0,
+      3906
+     ],
+     "eligible": 1110321,
+     "cast": 861638,
+     "valid": 853242,
+     "invalid": 8396
+    }
+   ],
+   "polling_day": {
+    "date": "2002-11-24",
+    "basis": "not printed in the supplied workbook; the national election source registry date (verified_harmonized)"
+   },
+   "workbook_seats": {
+    "row": "Mandate",
+    "seats": {
+     "SPÖ": 69,
+     "FPÖ": 18,
+     "ÖVP": 79,
+     "GRÜNE": 17
+    }
+   }
+  },
   "2013": {
    "workbook": {
     "file": "nrw13_endgueltiges_gesamtergebnis.xlsx",

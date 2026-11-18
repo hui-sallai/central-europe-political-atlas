@@ -17,9 +17,9 @@ test('the build reproduces the committed stores and exports', () => {
   assert.equal(run.status, 0, run.stderr);
 });
 
-test('four elections, 183 seats each, seats reproduced by federal D\'Hondt among parties above 4%', () => {
+test('five elections, 183 seats each, seats reproduced by federal D\'Hondt among parties above 4%', () => {
   const data = buildAustria();
-  assert.deepEqual(data.elections.map((e) => e.election_id), ['el-at-nr-2013-09-29', 'el-at-nr-2017-10-15', 'el-at-nr-2019-09-29', 'el-at-nr-2024-09-29']);
+  assert.deepEqual(data.elections.map((e) => e.election_id), ['el-at-nr-2002-11-24', 'el-at-nr-2013-09-29', 'el-at-nr-2017-10-15', 'el-at-nr-2019-09-29', 'el-at-nr-2024-09-29']);
   for (const e of data.elections) {
     const rows = data.election_results.filter((r) => r.election_id === e.election_id);
     assert.equal(rows.reduce((n, r) => n + r.seats, 0), 183, e.election_id);
@@ -72,3 +72,14 @@ test('governance: admitted with a closed gate record; BMI stays blocked and the 
   for (const y of Object.keys(evidence.elections)) assert.match(evidence.elections[y].workbook.sha256, /^[0-9a-f]{64}$/);
   assert.equal(spawnSync('git', ['ls-files', 'docs/political-data/source-closure/local-evidence/austria'], { cwd: root, encoding: 'utf8' }).stdout.trim(), '');
 });
+
+test('2002: seats come from the legacy workbook\'s own seats row and the nine Land rows add up to the national row', () => {
+  const e02 = evidence.elections['2002'];
+  assert.deepEqual(e02.workbook_seats.seats, { SPÖ: 69, FPÖ: 18, ÖVP: 79, GRÜNE: 17 });
+  assert.equal(reconcile('2002', e02).seat_parties, 4);
+  const t = structuredClone(e02); t.laender[0].votes[0] += 1;
+  assert.throws(() => reconcile('2002', t), /Länder/);
+  const t2 = structuredClone(e02); t2.workbook_seats.seats['SPÖ'] += 1; t2.workbook_seats.seats['ÖVP'] -= 1;
+  assert.throws(() => reconcile('2002', t2), /D'Hondt/);
+});
+

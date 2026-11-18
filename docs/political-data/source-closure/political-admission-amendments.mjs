@@ -96,6 +96,9 @@ export const POLITICAL_ADMISSIONS = {
   'romania-parliament-2024': { approved_on: '2026-11-18', country: 'romania', gate_record: 'docs/political-data/romania_parliament2024_admission.json', paths: ROMANIAN_PATHS },
   // Owner brief and answers "Accept for all four" (UrhG § 7) and "I'll download files myself", 2026-11-18: Austria 2013–2024 from the owner-saved BMI files.
   'austria-nationalrat-2013-2024': { approved_on: '2026-11-18', country: 'austria', gate_record: 'docs/political-data/austria_nationalrat_admission.json', paths: AUSTRIAN_PATHS },
+  // Owner brief "Four-country election completion", 2026-11-19: Austria 2002 (owner-saved legacy workbook) and Slovenia 2011 (commission report).
+  'austria-nationalrat-2002': { approved_on: '2026-11-19', country: 'austria', gate_record: 'docs/political-data/austria_nationalrat2002_admission.json', paths: AUSTRIAN_PATHS },
+  'slovenia-dz-2011': { approved_on: '2026-11-19', country: 'slovenia', gate_record: 'docs/political-data/slovenia_dz2011_admission.json', paths: SLOVENIAN_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 const admissiblePath = (file, country) => country !== 'germany' && /^[a-z]+$/.test(country) && (file.startsWith(`src/data/political/${country}/`) || file.startsWith(`public/research-data/political/${country}/`));
