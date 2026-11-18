@@ -99,6 +99,10 @@ export const POLITICAL_ADMISSIONS = {
   // Owner brief "Four-country election completion", 2026-11-19: Austria 2002 (owner-saved legacy workbook) and Slovenia 2011 (commission report).
   'austria-nationalrat-2002': { approved_on: '2026-11-19', country: 'austria', gate_record: 'docs/political-data/austria_nationalrat2002_admission.json', paths: AUSTRIAN_PATHS },
   'slovenia-dz-2011': { approved_on: '2026-11-19', country: 'slovenia', gate_record: 'docs/political-data/slovenia_dz2011_admission.json', paths: SLOVENIAN_PATHS },
+  // Same brief, 2026-11-19: decisions and archive pages the owner saved by hand from the exact links supplied. Croatia
+  // 2000, 2003 and 2007; Slovenia 2004 and 2008 (official result pages) and the 2011 polling-station cross-check.
+  'croatia-sabor-2000-2007': { approved_on: '2026-11-19', country: 'croatia', gate_record: 'docs/political-data/croatia_sabor2000_2007_admission.json', paths: CROATIAN_PATHS },
+  'slovenia-dz-2004-2008': { approved_on: '2026-11-19', country: 'slovenia', gate_record: 'docs/political-data/slovenia_dz2004_2008_admission.json', paths: SLOVENIAN_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 const admissiblePath = (file, country) => country !== 'germany' && /^[a-z]+$/.test(country) && (file.startsWith(`src/data/political/${country}/`) || file.startsWith(`public/research-data/political/${country}/`));

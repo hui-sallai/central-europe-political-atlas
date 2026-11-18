@@ -4226,8 +4226,8 @@
     {
       "amendment_id": "romania-elections-2016-2026-11-18",
       "status": "owner_approved",
-      "approved_by": "owner brief 2026-11-19 \"Four-country election completion\": politicalAdmission.ts updates the Austrian and Slovenian row text (Austria 2002, Slovenia 2011) and election_links.json is regenerated; before that, owner brief and answers \"Accept for all four\" and \"I'll download files myself\" with the owner-saved BMI files (Austria 2013–2024, 2026-11-18): politicalData.ts adds the gated Austrian stores, politicalAdmission.ts makes Austria admitted with politicsRoute false, austria.json gains store_chamber and election_links.json is regenerated; before that, owner answer 2026-11-18 \"both\" with the owner-supplied BEC acts RF_2/RF_3 (Romania 2024): politicalAdmission.ts updates the Romanian row text and record, election_links.json is regenerated with the two 2024 elections; before that, owner answers \"both\" and \"ii then i\" (Romania 2016) on top of the ten-country brief: politicalData.ts adds the gated Romanian stores; politicalAdmission.ts makes Romania admitted with politicsRoute false; romania.json gains store_chamber for both chambers and election_links.json is regenerated; earlier in the day: politicalData.ts imports the admitted Croatian and Slovenian stores behind the publication gate (raw constituency stores, no national view and no comparison set changed); politicalAdmission.ts adds the two admitted rows and the pipeline note; institutions registry: store_chamber added for hr-sabor and si-drzavni-zbor and election_links.json regenerated so the new elections link to their institutional periods; pages link only to countries with a politics page (admittedCountrySlugs; Croatia and Slovenia flagged politicsRoute false and left out of countryElectionLinks until Codex adds their pages); no component, page or design change",
-      "baseline": "3a44f6d853049626d8dbd8cdba748c85f5e2818e",
+      "approved_by": "owner brief 2026-11-19 \"Four-country election completion\" with the owner-saved Croatian decisions and Slovenian archive pages: politicalAdmission.ts updates the Croatian and Slovenian row text and records (Croatia 2000–2007, Slovenia 2004 and 2008) and election_links.json is regenerated with the five elections; before that, the same brief: politicalAdmission.ts updates the Austrian and Slovenian row text (Austria 2002, Slovenia 2011) and election_links.json is regenerated; before that, owner brief and answers \"Accept for all four\" and \"I'll download files myself\" with the owner-saved BMI files (Austria 2013–2024, 2026-11-18): politicalData.ts adds the gated Austrian stores, politicalAdmission.ts makes Austria admitted with politicsRoute false, austria.json gains store_chamber and election_links.json is regenerated; before that, owner answer 2026-11-18 \"both\" with the owner-supplied BEC acts RF_2/RF_3 (Romania 2024): politicalAdmission.ts updates the Romanian row text and record, election_links.json is regenerated with the two 2024 elections; before that, owner answers \"both\" and \"ii then i\" (Romania 2016) on top of the ten-country brief: politicalData.ts adds the gated Romanian stores; politicalAdmission.ts makes Romania admitted with politicsRoute false; romania.json gains store_chamber for both chambers and election_links.json is regenerated; earlier in the day: politicalData.ts imports the admitted Croatian and Slovenian stores behind the publication gate (raw constituency stores, no national view and no comparison set changed); politicalAdmission.ts adds the two admitted rows and the pipeline note; institutions registry: store_chamber added for hr-sabor and si-drzavni-zbor and election_links.json regenerated so the new elections link to their institutional periods; pages link only to countries with a politics page (admittedCountrySlugs; Croatia and Slovenia flagged politicsRoute false and left out of countryElectionLinks until Codex adds their pages); no component, page or design change",
+      "baseline": "4091754f34df0cd59e06f1892ec1b23b55313004",
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
       "political_data_change_allowed": false,
@@ -4242,7 +4242,7 @@
         },
         {
           "path": "src/lib/politicalAdmission.ts",
-          "sha256": "5b6871967b0d6d92591482350f750abaefb165cea733c16c475832b3bd1a1d5b",
+          "sha256": "0273f56efe94a9cd034f02d9997469440bc35ae8ff396abc3c7ca7b1db954c64",
           "classification": "DATA_PRESENTATION"
         },
         {
@@ -4257,7 +4257,7 @@
         },
         {
           "path": "src/lib/institutions/election_links.json",
-          "sha256": "21bc6fdc41934d6c1d25c3ec6ea0ecc7215bdac5f656bd66022e2fb4fac80932",
+          "sha256": "dc77242ea3f5b413ea23efec42fa2012eb43fef44de795e427c029fc51414b0f",
           "classification": "DATA_PRESENTATION"
         },
         {

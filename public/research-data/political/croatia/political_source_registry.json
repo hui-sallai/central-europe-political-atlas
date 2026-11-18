@@ -1,5 +1,483 @@
 [
   {
+    "source_id": "src-hr-dip-final-2000",
+    "country": "croatia",
+    "institution": "Državno izborno povjerenstvo Republike Hrvatske (State Electoral Commission)",
+    "dataset": "Konačni rezultati izbora zastupnika u Hrvatski sabor 2000 — 17 final-results decisions (territorial constituencies I–X, constituency XI abroad, constituency XII national minorities)",
+    "tier": "tier1_official",
+    "url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2000",
+    "licence_status": "official_text_copyright_act_owner_reading_no_licence",
+    "raw_redistribution": "transcribed_figures_and_party_names_only_documents_and_candidate_names_not_redistributed",
+    "licence_url": "https://www.izbori.hr/site/UserDocsImages/5469",
+    "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
+    "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
+    "retrieved_at": "2026-11-19",
+    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
+    "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
+    "acquisition": "saved by the owner by hand on 2026-11-19 from the commission archive (exact file links from the archive page, read once in the browser pane); read locally",
+    "received_not_used": [
+      {
+        "file": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/zip/rezultati.zip",
+        "sha256": "ae24bbc11e21453cf56a695d02e78151a31f2631aa87dced0b0d5423c1e06e90",
+        "reason": "polling-station tables; the decisions reconcile on their own, so the workbooks are not needed (same basis as 2015–2024)"
+      }
+    ],
+    "documents": [
+      {
+        "unit": "hr-ie-01",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_001_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/1",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "a087a8305cebe6c5c864db147b44da20fb4d72a8c51dfb361f926bcc086d496f"
+      },
+      {
+        "unit": "hr-ie-02",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_002_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/2",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "61ab6b56e6255765c7ce2eb991edebd419d319e64cac56a2157b9c735ebd43a6"
+      },
+      {
+        "unit": "hr-ie-03",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_003_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/3",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "21265d048d2a4350b5c9b10195fee8c671fd1cea53ae9d2cb7de3fada5e94aca"
+      },
+      {
+        "unit": "hr-ie-04",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_004_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/4",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "050c98fdc170d53e46cf3f9da629c9a5a723eec71550c34fa39eb6affd1ef5c7"
+      },
+      {
+        "unit": "hr-ie-05",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_005_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/5",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "d42b305c3154c9323cf6032fb9e613db87876883e1ce0887e051f9ddaf881211"
+      },
+      {
+        "unit": "hr-ie-06",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_006_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/6",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "74fec5dcd047ee15534942be5c42a8d4aea4573308569bac463c7bcebbfd5073"
+      },
+      {
+        "unit": "hr-ie-07",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_007_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/7",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "143054bbbca36095ccc6bfd61d64cf493abc16e1bf05028f55da88499b11c126"
+      },
+      {
+        "unit": "hr-ie-08",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_008_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/8",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "538ddcf385084e9632dfe51cf6bb7f1cb08013131a300088eba62e7a765aae51"
+      },
+      {
+        "unit": "hr-ie-09",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_009_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/9",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "8362bac17a1108feaba4490e303d4772513e56db5233adf8513f08520a481c9c"
+      },
+      {
+        "unit": "hr-ie-10",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_010_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/10",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "7544947d2991734a31bc5f9a05feeede92563e14992df3a7ca6178c91cf172a6"
+      },
+      {
+        "unit": "hr-ie-11",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_011_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/11",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "223501f16685302e9c8b1167d087b69eca1282b5e18db0619441c95694c491c9"
+      },
+      {
+        "unit": "hr-ie-12-srpska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_13_012_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/13",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "b3c2e441c783c9af380f13d7661706edba7a37e1c98ef9c56ed15d595e668544"
+      },
+      {
+        "unit": "hr-ie-12-madjarska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_23_012_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/12",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "3812b8525cf839a04f545efaebd3f460529471c9cf7a8a6464a63b5157ad088c"
+      },
+      {
+        "unit": "hr-ie-12-talijanska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_33_012_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/14",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "13169d8c0610c6ed9f51e233c176315d4712d82837308a0c4d62c53692148a39"
+      },
+      {
+        "unit": "hr-ie-12-ceska_slovacka",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_43_012_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/15",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "170a6212e8e8f032b1b684592a61fe75f054a1433a3e39067ad665a61ccf96b0"
+      },
+      {
+        "unit": "hr-ie-12-austrijska_njemacka_rusinska_ukrajinska_zidovska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_53_012_0000.pdf",
+        "klasa": "013-01/2000-09/01",
+        "urbroj": "599-2000-511/16",
+        "decision_date": "2000-01-19",
+        "publisher_file_sha256": "5bbce84341eba09fc087dbf4a9b6f2b1a3f27b192df00f30e5fc0eaecc774811"
+      }
+    ]
+  },
+  {
+    "source_id": "src-hr-dip-final-2003",
+    "country": "croatia",
+    "institution": "Državno izborno povjerenstvo Republike Hrvatske (State Electoral Commission)",
+    "dataset": "Konačni rezultati izbora zastupnika u Hrvatski sabor 2003 — 17 final-results decisions (territorial constituencies I–X, constituency XI abroad, constituency XII national minorities)",
+    "tier": "tier1_official",
+    "url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2003",
+    "licence_status": "official_text_copyright_act_owner_reading_no_licence",
+    "raw_redistribution": "transcribed_figures_and_party_names_only_documents_and_candidate_names_not_redistributed",
+    "licence_url": "https://www.izbori.hr/site/UserDocsImages/5469",
+    "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
+    "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
+    "retrieved_at": "2026-11-19",
+    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
+    "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
+    "acquisition": "saved by the owner by hand on 2026-11-19 from the commission archive (exact file links from the archive page, read once in the browser pane); read locally",
+    "received_not_used": [
+      {
+        "file": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/zip/rezultati.zip",
+        "sha256": "0c44b49f4f2b96d6fccba7baeb55d42a636ec9d60d049b060d8da8d151126b71",
+        "reason": "polling-station tables; the decisions reconcile on their own, so the workbooks are not needed (same basis as 2015–2024)"
+      }
+    ],
+    "documents": [
+      {
+        "unit": "hr-ie-01",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_001_0000.pdf",
+        "klasa": "013-03/03-16/01",
+        "urbroj": "599-03-42",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "cfd9494718e570858aff0616230c961ab7c6e1156eb6b9f95fb5fc5716d65889"
+      },
+      {
+        "unit": "hr-ie-02",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_002_0000.pdf",
+        "klasa": "013-03/03-16/02",
+        "urbroj": "599-03-38",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "131fcf328aeffe9abe73f290275c2da7d78ffaac12ed544913e391eb63ce3cf9"
+      },
+      {
+        "unit": "hr-ie-03",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_003_0000.pdf",
+        "klasa": "013-03/03-16/03",
+        "urbroj": "599-03-33",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "e2be7d48d868052994bb1e4c7180205098435d14f576f796a345418b245bff43"
+      },
+      {
+        "unit": "hr-ie-04",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_004_0000.pdf",
+        "klasa": "013-03/03-16/04",
+        "urbroj": "599-03-32",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "79bf04690b9896d00e97b16d5421b3724350db909fb77417b33a859631be8660"
+      },
+      {
+        "unit": "hr-ie-05",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_005_0000.pdf",
+        "klasa": "013-03/03-16/05",
+        "urbroj": "599-03-36",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "dde8f9d4f792f536a37f17034c1c0cc31cf361afbfc27924b58b38130b619069"
+      },
+      {
+        "unit": "hr-ie-06",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_006_0000.pdf",
+        "klasa": "013-03/03-16/06",
+        "urbroj": "599-03-32",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "c4333fcf736f466059c69ea36db84cfc798a951ac83af2315853b653a0cc11a3"
+      },
+      {
+        "unit": "hr-ie-07",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_007_0000.pdf",
+        "klasa": "013-03/03-16/07",
+        "urbroj": "599-03-35",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "9f64287789b1b67c763505e0a534346d6947ee4f90bacc8bbe5f7788fa59aae8"
+      },
+      {
+        "unit": "hr-ie-08",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_008_0000.pdf",
+        "klasa": "013-03/03-16/08",
+        "urbroj": "599-03-33",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "6f3ab1ff284eb3f68d095518cf3ba5a27c856a0afab51c84c6bb4998253ea8fc"
+      },
+      {
+        "unit": "hr-ie-09",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_009_0000.pdf",
+        "klasa": "013-03/03-16/09",
+        "urbroj": "599-03-38",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "901f6d0774f12177fbaaa85be416d53609deb86a9fd83c05650bdf9259b1f020"
+      },
+      {
+        "unit": "hr-ie-10",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_010_0000.pdf",
+        "klasa": "013-03/03-16/10",
+        "urbroj": "599-03-37",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "a74cb94e69a11ca9f40e2816a7023c8a7bc179191ccc65139640a54dfa4c9e5f"
+      },
+      {
+        "unit": "hr-ie-11",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_011_0000.pdf",
+        "klasa": "013-03/03-16/11",
+        "urbroj": "599-03-25",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "de189e0cea2a05033b54ac621222d82d23819c70d256eaba609079d533c805f4"
+      },
+      {
+        "unit": "hr-ie-12-srpska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_13_012_0000.pdf",
+        "klasa": "013-03/03-16/12",
+        "urbroj": "599-03-01/08",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "49f8f7a0f3de06ab22ced290da3573a1d25a61a71950d491edcb5f4b4e20b15f"
+      },
+      {
+        "unit": "hr-ie-12-madjarska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_23_012_0000.pdf",
+        "klasa": "013-03/03-16/12",
+        "urbroj": "599-03-02/05",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "d971ae64060fa504d2f9ef2eca5f8b7329f4890d7eb07ff4d69f639e8418839c"
+      },
+      {
+        "unit": "hr-ie-12-talijanska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_33_012_0000.pdf",
+        "klasa": "013-03/03-16/12",
+        "urbroj": "599-03-03/06",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "d78632f7152e63a13c72fea2f9262d09fe74ddc595dbd05f59ee2f5a1db39abb"
+      },
+      {
+        "unit": "hr-ie-12-ceska_slovacka",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_43_012_0000.pdf",
+        "klasa": "013-03/03-16/12",
+        "urbroj": "599-03-04/08",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "cebfc7a945fb92e109d3507860d01d545cc8c172656b23430dddb2876ee7ebf1"
+      },
+      {
+        "unit": "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_53_012_0000.pdf",
+        "klasa": "013-03/03-16/12",
+        "urbroj": "599-03-05/13",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "e6c9811aa66a0b4d320e6b89a06dc2cc0b10e1f6f11e1129adae6457cb84ee44"
+      },
+      {
+        "unit": "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_63_012_0000.pdf",
+        "klasa": "013-03/03-16/12",
+        "urbroj": "599-03-06/09",
+        "decision_date": "2003-12-02",
+        "publisher_file_sha256": "b50eb52d8a4dc51ebf3e7654216f22e9b4dc649432afe73ae7c2d821a4817e40"
+      }
+    ]
+  },
+  {
+    "source_id": "src-hr-dip-final-2007",
+    "country": "croatia",
+    "institution": "Državno izborno povjerenstvo Republike Hrvatske (State Electoral Commission)",
+    "dataset": "Konačni rezultati izbora zastupnika u Hrvatski sabor 2007 — 17 final-results decisions (territorial constituencies I–X, constituency XI abroad, constituency XII national minorities)",
+    "tier": "tier1_official",
+    "url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2007",
+    "licence_status": "official_text_copyright_act_owner_reading_no_licence",
+    "raw_redistribution": "transcribed_figures_and_party_names_only_documents_and_candidate_names_not_redistributed",
+    "licence_url": "https://www.izbori.hr/site/UserDocsImages/5469",
+    "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
+    "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
+    "retrieved_at": "2026-11-19",
+    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
+    "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
+    "acquisition": "saved by the owner by hand on 2026-11-19 from the commission archive (exact file links from the archive page, read once in the browser pane); read locally",
+    "received_not_used": [
+      {
+        "file": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/zip/rezultati.zip",
+        "sha256": "92f1588386750fa6eed4f704ad72001612ccffacd7328a845823ed336c252a61",
+        "reason": "polling-station tables; the decisions reconcile on their own, so the workbooks are not needed (same basis as 2015–2024)"
+      }
+    ],
+    "documents": [
+      {
+        "unit": "hr-ie-01",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_001_0000.pdf",
+        "klasa": "013-03/07-16/01",
+        "urbroj": "507-07-29",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "f26f86129da831ad8fedb28df8d4d4daec2be1cb0be333ee5b9b37d01c67508a"
+      },
+      {
+        "unit": "hr-ie-02",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_002_0000.pdf",
+        "klasa": "013-03/07-16/02",
+        "urbroj": "507-07-26",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "9d28d1564c49346ef67e6e42410f249f91117bf93dc614d9ca089626860d7c4a"
+      },
+      {
+        "unit": "hr-ie-03",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_003_0000.pdf",
+        "klasa": "013-03/07-16/03",
+        "urbroj": "507-07-27",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "9e0aee0322786bf879b7d6036b5cbc6cca4966b76a60577cc1aaee2357deb3d8"
+      },
+      {
+        "unit": "hr-ie-04",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_004_0000.pdf",
+        "klasa": "013-03/07-16/04",
+        "urbroj": "507-07-25",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "dd816674874532e3b96cc306889d0f8ca38e9ecb658632ce874bc5c72bf17e92"
+      },
+      {
+        "unit": "hr-ie-05",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_005_0000.pdf",
+        "klasa": "013-03/07-16/05",
+        "urbroj": "507-07-21",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "aa886c5b7fa751a06cfd55b9320d7ed8b0fa6198c60a7326ed6a99e1d36dcdd6"
+      },
+      {
+        "unit": "hr-ie-06",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_006_0000.pdf",
+        "klasa": "013-03/07-16/06",
+        "urbroj": "507-07-25",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "8470ce22aa24e949e3a0318204f8681d55d09ae9367c7bb38fd40f4da28a8524"
+      },
+      {
+        "unit": "hr-ie-07",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_007_0000.pdf",
+        "klasa": "013-03/07-16/07",
+        "urbroj": "507-07-26",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "66d74898685fb147795d3c543e427128cb34f6c710e69df676cb6356ea50300c"
+      },
+      {
+        "unit": "hr-ie-08",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_008_0000.pdf",
+        "klasa": "013-03/07-16/08",
+        "urbroj": "507-07-26",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "c24c38b3bd42d10798ff5b0aeec5fe22bad54ca501e35afae6972486144922bf"
+      },
+      {
+        "unit": "hr-ie-09",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_009_0000.pdf",
+        "klasa": "013-03/07-16/09",
+        "urbroj": "507-07-26",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "898b6e9ed3ad26e8739c6adbcf1418f36738c40b30f743571079a4d00a540c4d"
+      },
+      {
+        "unit": "hr-ie-10",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_010_0000.pdf",
+        "klasa": "013-03/07-16/10",
+        "urbroj": "507-07-27",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "83349f2e86cf23bfdacccc0bcfcf6c4eaa04bdd113931d4bbdda136817ce3289"
+      },
+      {
+        "unit": "hr-ie-11",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_011_0000.pdf",
+        "klasa": "013-03/07-16/11",
+        "urbroj": "507-07-15",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "645ddfc66bbdc993c5889ea1098a9bd92dc29c0bb090acdb01d1c68f5a2e4084"
+      },
+      {
+        "unit": "hr-ie-12-srpska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_13_012_0000.pdf",
+        "klasa": "013-03/07-16/12",
+        "urbroj": "507-07-01/08",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "5025ce178b3ae26ede6631a207a020259f817b5e2545b4b00a1d9b59cd7b2f6b"
+      },
+      {
+        "unit": "hr-ie-12-madjarska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_23_012_0000.pdf",
+        "klasa": "013-03/07-16/12",
+        "urbroj": "507-07-02/06",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "a6fc842bf2925b442e65127717b55478c41e0df32508c3b736f5b29456dda5ba"
+      },
+      {
+        "unit": "hr-ie-12-talijanska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_33_012_0000.pdf",
+        "klasa": "013-03/07-16/12",
+        "urbroj": "507-07-03/04",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "bb1f7bd916a771c8da2ec161e3ce96124ccc0d3a141d6d5dbd441e0494d9df2a"
+      },
+      {
+        "unit": "hr-ie-12-ceska_slovacka",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_43_012_0000.pdf",
+        "klasa": "013-03/07-16/12",
+        "urbroj": "507-07-04/10",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "94592fe32eaa994f8b42f1a5801d8c68b46aafdb2aac9ff4a480d7b378539a2c"
+      },
+      {
+        "unit": "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_53_012_0000.pdf",
+        "klasa": "013-03/07-16/12",
+        "urbroj": "507-07-05/23",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "2c40d92a0085516632ce9b710c16580fd206ffb32d1b02eb25ee464df9065076"
+      },
+      {
+        "unit": "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska",
+        "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_63_012_0000.pdf",
+        "klasa": "013-03/07-16/12",
+        "urbroj": "507-07-06/14",
+        "decision_date": "2007-12-22",
+        "publisher_file_sha256": "e6a8311210415dc294d07811730434cf21f9253956da12b94e2a503b142c98a9"
+      }
+    ]
+  },
+  {
     "source_id": "src-hr-dip-final-2011",
     "country": "croatia",
     "institution": "Državno izborno povjerenstvo Republike Hrvatske (State Electoral Commission)",
@@ -12,7 +490,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb",
+    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "names_source": {
       "note": "The 2011 decisions have a damaged text layer (split words, wrong glyphs): figures are read from them, list names come from the commission’s open-data workbooks (constituency total rows), matched to the decision rows by votes; ties resolved by the legible decision text; list leaders’ names are dropped (title_sha256 identifies the full workbook label; seats are grouped by party names, or by the full label for independent lists).",
@@ -170,7 +648,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb",
+    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {
@@ -324,7 +802,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb",
+    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {
@@ -478,7 +956,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb",
+    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {
@@ -632,7 +1110,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb",
+    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {

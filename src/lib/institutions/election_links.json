@@ -1003,6 +1003,74 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-si-dz-2004-10-03",
+   "country": "slovenia",
+   "date": "2004-10-03",
+   "chamber_id": "si-drzavni-zbor",
+   "chamber_official_name": "Državni zbor Republike Slovenije",
+   "seats": 90,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-si-dz-2004",
+   "system_family": "list proportional representation (eight 11-seat constituencies, seats fixed nationally) plus two national-community deputies elected separately",
+   "allocation_method": "D'Hondt over all 88 seats nationally among lists with at least 4% (reproduces the printed seats); the distribution of each list's seats to constituencies is not stored",
+   "base_seats": 90,
+   "thresholds": [
+    {
+     "applies_to": "list of candidates, nationally",
+     "percent": 4,
+     "description": {
+      "en": "A list needs at least 4% of all list votes in the country to take part in the seat allocation; the result pages state no threshold, and 4% reproduces the printed seats.",
+      "zh": "名单须获得全国全部名单票至少 4% 才能参与席位分配；结果页面未写明门槛，按 4% 可复现所列席位。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the 2004 result pages cite no act; the 4% threshold and D'Hondt over 88 seats reproduce the printed seats; the institutional registry record si-es-dz-constitutional holds the statutory text read from PISRS",
+   "constitution_id": "si-constitution-1991",
+   "institutional_period_id": "slovenia-period-2000-07-25",
+   "changes_in_force": [
+    "si-1991-constitution",
+    "si-2000-art80"
+   ],
+   "later_changes": [
+    "si-2013-referendum"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-si-dz-2008-09-21",
+   "country": "slovenia",
+   "date": "2008-09-21",
+   "chamber_id": "si-drzavni-zbor",
+   "chamber_official_name": "Državni zbor Republike Slovenije",
+   "seats": 90,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-si-dz-2008",
+   "system_family": "list proportional representation (eight 11-seat constituencies, seats fixed nationally) plus two national-community deputies elected separately",
+   "allocation_method": "D'Hondt over all 88 seats nationally among lists with at least 4% (reproduces the printed seats); the distribution of each list's seats to constituencies is not stored",
+   "base_seats": 90,
+   "thresholds": [
+    {
+     "applies_to": "list of candidates, nationally",
+     "percent": 4,
+     "description": {
+      "en": "A list needs at least 4% of all list votes in the country to take part in the seat allocation; the result pages state no threshold, and 4% reproduces the printed seats.",
+      "zh": "名单须获得全国全部名单票至少 4% 才能参与席位分配；结果页面未写明门槛，按 4% 可复现所列席位。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the 2008 result pages cite no act; the 4% threshold and D'Hondt over 88 seats reproduce the printed seats; the institutional registry record si-es-dz-constitutional holds the statutory text read from PISRS",
+   "constitution_id": "si-constitution-1991",
+   "institutional_period_id": "slovenia-period-2000-07-25",
+   "changes_in_force": [
+    "si-1991-constitution",
+    "si-2000-art80"
+   ],
+   "later_changes": [
+    "si-2013-referendum"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-si-dz-2011-12-04",
    "country": "slovenia",
    "date": "2011-12-04",
@@ -1450,6 +1518,114 @@
     "at-2008-five-year-term"
    ],
    "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-hr-sabor-2000-01-03",
+   "country": "croatia",
+   "date": "2000-01-03",
+   "chamber_id": "hr-sabor",
+   "chamber_official_name": "Hrvatski sabor",
+   "seats": 151,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-hr-sabor-2000",
+   "system_family": "list proportional representation in ten territorial constituencies and one constituency abroad; plurality election of national-minority members",
+   "allocation_method": "D'Hondt within each constituency among lists with at least 5% of valid ballots; seats abroad set by the non-fixed quota printed in the decision; national-minority members: candidates with most votes (articles as cited in each decision)",
+   "base_seats": 151,
+   "thresholds": [
+    {
+     "applies_to": "electoral list, per constituency",
+     "percent": 5,
+     "description": {
+      "en": "A list needs at least 5% of the valid ballots in the constituency to take part in its seat allocation (as cited in each decision).",
+      "zh": "名单须获得本选区有效票至少 5% 才能参与该选区席位分配（各决定均引用）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the rules applied in the 2000 decisions (Zakon o izborima zastupnika u Hrvatski državni sabor (Narodne novine 116/99), as cited in the decisions; the 5% constituency threshold, D'Hondt and the non-fixed quota abroad reproduce the printed seats); the institutional registry record hr-es-sabor holds the current statutory text read from the official gazette",
+   "constitution_id": "hr-constitution-1990",
+   "institutional_period_id": "croatia-period-1990-12-22",
+   "changes_in_force": [
+    "hr-1990-constitution"
+   ],
+   "later_changes": [
+    "hr-2000-parliamentary-system",
+    "hr-2001-unicameral",
+    "hr-2015-preferential-vote",
+    "hr-2023-constituencies-act"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-hr-sabor-2003-11-23",
+   "country": "croatia",
+   "date": "2003-11-23",
+   "chamber_id": "hr-sabor",
+   "chamber_official_name": "Hrvatski sabor",
+   "seats": 152,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-hr-sabor-2003",
+   "system_family": "list proportional representation in ten territorial constituencies and one constituency abroad; plurality election of national-minority members",
+   "allocation_method": "D'Hondt within each constituency among lists with at least 5% of valid ballots; seats abroad set by the non-fixed quota printed in the decision; national-minority members: candidates with most votes (articles as cited in each decision)",
+   "base_seats": 152,
+   "thresholds": [
+    {
+     "applies_to": "electoral list, per constituency",
+     "percent": 5,
+     "description": {
+      "en": "A list needs at least 5% of the valid ballots in the constituency to take part in its seat allocation (as cited in each decision).",
+      "zh": "名单须获得本选区有效票至少 5% 才能参与该选区席位分配（各决定均引用）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the rules applied in the 2003 decisions (Zakon o izborima zastupnika u Hrvatski sabor (Narodne novine 69/03, consolidated text), as cited in the decisions; the 5% constituency threshold, D'Hondt and the non-fixed quota abroad reproduce the printed seats); the institutional registry record hr-es-sabor holds the current statutory text read from the official gazette",
+   "constitution_id": "hr-constitution-1990",
+   "institutional_period_id": "croatia-period-2001-03-28",
+   "changes_in_force": [
+    "hr-1990-constitution",
+    "hr-2000-parliamentary-system",
+    "hr-2001-unicameral"
+   ],
+   "later_changes": [
+    "hr-2015-preferential-vote",
+    "hr-2023-constituencies-act"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-hr-sabor-2007-11-25",
+   "country": "croatia",
+   "date": "2007-11-25",
+   "chamber_id": "hr-sabor",
+   "chamber_official_name": "Hrvatski sabor",
+   "seats": 153,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-hr-sabor-2007",
+   "system_family": "list proportional representation in ten territorial constituencies and one constituency abroad; plurality election of national-minority members",
+   "allocation_method": "D'Hondt within each constituency among lists with at least 5% of valid ballots; seats abroad set by the non-fixed quota printed in the decision; national-minority members: candidates with most votes (articles as cited in each decision)",
+   "base_seats": 153,
+   "thresholds": [
+    {
+     "applies_to": "electoral list, per constituency",
+     "percent": 5,
+     "description": {
+      "en": "A list needs at least 5% of the valid ballots in the constituency to take part in its seat allocation (as cited in each decision).",
+      "zh": "名单须获得本选区有效票至少 5% 才能参与该选区席位分配（各决定均引用）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the rules applied in the 2007 decisions (Zakon o izborima zastupnika u Hrvatski sabor (Narodne novine 69/03 consolidated text and 19/07), as cited in the decisions; the 5% constituency threshold, D'Hondt and the non-fixed quota abroad reproduce the printed seats); the institutional registry record hr-es-sabor holds the current statutory text read from the official gazette",
+   "constitution_id": "hr-constitution-1990",
+   "institutional_period_id": "croatia-period-2001-03-28",
+   "changes_in_force": [
+    "hr-1990-constitution",
+    "hr-2000-parliamentary-system",
+    "hr-2001-unicameral"
+   ],
+   "later_changes": [
+    "hr-2015-preferential-vote",
+    "hr-2023-constituencies-act"
+   ],
    "undated_changes": []
   },
   {

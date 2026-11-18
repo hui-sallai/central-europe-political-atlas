@@ -2,13 +2,26 @@
   "schema_version": "croatia-political-export-v1",
   "country": "croatia",
   "elections": [
+    "el-hr-sabor-2000-01-03",
+    "el-hr-sabor-2003-11-23",
+    "el-hr-sabor-2007-11-25",
     "el-hr-sabor-2011-12-04",
     "el-hr-sabor-2015-11-08",
     "el-hr-sabor-2016-09-11",
     "el-hr-sabor-2020-07-05",
     "el-hr-sabor-2024-04-17"
   ],
-  "coverage": "whole_chamber_151_of_151_seats_per_constituency",
+  "coverage": "whole_chamber_all_seats_per_constituency",
+  "seats_by_election": {
+    "el-hr-sabor-2000-01-03": 151,
+    "el-hr-sabor-2003-11-23": 152,
+    "el-hr-sabor-2007-11-25": 153,
+    "el-hr-sabor-2011-12-04": 151,
+    "el-hr-sabor-2015-11-08": 151,
+    "el-hr-sabor-2016-09-11": 151,
+    "el-hr-sabor-2020-07-05": 151,
+    "el-hr-sabor-2024-04-17": 151
+  },
   "units": "constituency (hr-ie-01..11) and national-minority election (hr-ie-12-*)",
   "label_rule": "party names as printed; names of persons replaced by the printed abbreviation or omitted; minority candidates without names",
   "not_included": [

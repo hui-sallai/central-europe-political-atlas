@@ -14,6 +14,10 @@
   {
    "date": "2026-11-19",
    "decision": "Owner brief \"Four-country election completion\": admit Slovenia 2011 and earlier where feasible."
+  },
+  {
+   "date": "2026-11-19",
+   "decision": "Owner supplied the 2011 polling-station workbook (Voltive-DZ2011-koncni-izid-po-voliscih.xls) saved by hand; used as a cross-check only, figures and labels unchanged."
   }
  ],
  "evidence_files": [
@@ -42,13 +46,13 @@
    "status": "closed",
    "value": "owner_authorised_single_reading",
    "evidence_kind": "owner_decision",
-   "basis": "The report was downloaded once from the registered www.dvk-rs.si on 2026-11-18. The polling-station .xls was not retrieved (the single request was refused by this environment's safety layer on 2026-11-19)."
+   "basis": "The report was downloaded once from the registered www.dvk-rs.si on 2026-11-18. The polling-station .xls was not retrieved (the single request was refused by this environment's safety layer on 2026-11-19). Amended 2026-11-19: the owner saved the polling-station .xls by hand; it was read locally."
   },
   "source_files_complete": {
    "status": "closed",
    "value": "complete_for_scope_no_second_source",
    "evidence_kind": "evidence_record",
-   "basis": "The report prints totals, every list's votes and percentage, the 4% list set, seats by stage and both national-community results; no second commission file confirms the 2011 figures (stated in the notes)."
+   "basis": "The report prints totals, every list's votes and percentage, the 4% list set, seats by stage and both national-community results; no second commission file confirms the 2011 figures (stated in the notes). Amended 2026-11-19 (slovenia-dz-2004-2008): the owner-saved final results by polling station now confirm every figure — the 3,914 station rows add up to the workbook total, which equals the report."
   },
   "national_definition_complete": {
    "status": "closed",

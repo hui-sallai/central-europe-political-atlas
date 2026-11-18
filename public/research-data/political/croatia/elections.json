@@ -1,5 +1,238 @@
 [
   {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "election_type": "national_parliament",
+    "chamber": "Hrvatski sabor",
+    "date": "2000-01-03",
+    "date_end": null,
+    "date_basis": "polling day stated in the decisions; the decisions print the polling days as “2. I 3. SIJEČNJA 2000.”",
+    "result_coverage": "all_lists_all_constituencies_minority_candidates_without_names",
+    "year": 2000,
+    "legislature_id": "lg-hr-sabor-2000",
+    "electoral_system_id": "es-hr-sabor-2000",
+    "result_status": "official_final",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "constituency_structure": [
+      {
+        "unit": "territorial",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10"
+        ],
+        "seats_each": 14,
+        "seats": 140,
+        "vote_type": "hr_list_vote"
+      },
+      {
+        "unit": "diaspora",
+        "constituencies": [
+          "hr-ie-11"
+        ],
+        "seats": 6,
+        "seats_basis": "non_fixed_quota_printed_in_decision",
+        "vote_type": "hr_list_vote"
+      },
+      {
+        "unit": "national_minority",
+        "constituencies": [
+          "hr-ie-12-srpska",
+          "hr-ie-12-madjarska",
+          "hr-ie-12-talijanska",
+          "hr-ie-12-ceska_slovacka",
+          "hr-ie-12-austrijska_njemacka_rusinska_ukrajinska_zidovska"
+        ],
+        "seats": 5,
+        "vote_type": "hr_minority_candidate_vote"
+      }
+    ],
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2000",
+        "source_record_id": "decision headings (polling days, decision dates)",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "date",
+          "result_vintage"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "election_type": "national_parliament",
+    "chamber": "Hrvatski sabor",
+    "date": "2003-11-23",
+    "date_end": null,
+    "date_basis": "polling day stated in the decisions; the decisions print the polling days as “22. I 23. STUDENOGA 2003.” and “22., 23. I 30. STUDENOGA 2003.”",
+    "result_coverage": "all_lists_all_constituencies_minority_candidates_without_names",
+    "year": 2003,
+    "legislature_id": "lg-hr-sabor-2003",
+    "electoral_system_id": "es-hr-sabor-2003",
+    "result_status": "official_final",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "later_poll_date": null,
+    "repeat_poll_date": "2003-11-30",
+    "constituency_structure": [
+      {
+        "unit": "territorial",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10"
+        ],
+        "seats_each": 14,
+        "seats": 140,
+        "vote_type": "hr_list_vote"
+      },
+      {
+        "unit": "diaspora",
+        "constituencies": [
+          "hr-ie-11"
+        ],
+        "seats": 4,
+        "seats_basis": "non_fixed_quota_printed_in_decision",
+        "vote_type": "hr_list_vote"
+      },
+      {
+        "unit": "national_minority",
+        "constituencies": [
+          "hr-ie-12-srpska",
+          "hr-ie-12-madjarska",
+          "hr-ie-12-talijanska",
+          "hr-ie-12-ceska_slovacka",
+          "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+          "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska"
+        ],
+        "seats": 8,
+        "vote_type": "hr_minority_candidate_vote"
+      }
+    ],
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2003",
+        "source_record_id": "decision headings (polling days, decision dates)",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "date",
+          "result_vintage"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "election_type": "national_parliament",
+    "chamber": "Hrvatski sabor",
+    "date": "2007-11-25",
+    "date_end": null,
+    "date_basis": "polling day stated in the decisions; the decisions print the polling days as “24. I 25. STUDENOGA 2007.” and “24. I 25. STUDENOGA I 9. PROSINCA 2007.”",
+    "result_coverage": "all_lists_all_constituencies_minority_candidates_without_names",
+    "year": 2007,
+    "legislature_id": "lg-hr-sabor-2007",
+    "electoral_system_id": "es-hr-sabor-2007",
+    "result_status": "official_final",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "later_poll_date": null,
+    "repeat_poll_date": "2007-12-09",
+    "constituency_structure": [
+      {
+        "unit": "territorial",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10"
+        ],
+        "seats_each": 14,
+        "seats": 140,
+        "vote_type": "hr_list_vote"
+      },
+      {
+        "unit": "diaspora",
+        "constituencies": [
+          "hr-ie-11"
+        ],
+        "seats": 5,
+        "seats_basis": "non_fixed_quota_printed_in_decision",
+        "vote_type": "hr_list_vote"
+      },
+      {
+        "unit": "national_minority",
+        "constituencies": [
+          "hr-ie-12-srpska",
+          "hr-ie-12-madjarska",
+          "hr-ie-12-talijanska",
+          "hr-ie-12-ceska_slovacka",
+          "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+          "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska"
+        ],
+        "seats": 8,
+        "vote_type": "hr_minority_candidate_vote"
+      }
+    ],
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2007",
+        "source_record_id": "decision headings (polling days, decision dates)",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "date",
+          "result_vintage"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "election_id": "el-hr-sabor-2011-12-04",
     "country": "croatia",
     "election_type": "national_parliament",
@@ -64,10 +297,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -141,10 +374,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -218,10 +451,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -295,10 +528,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -372,10 +605,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "date",
           "result_vintage"

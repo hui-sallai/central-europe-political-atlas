@@ -23,37 +23,43 @@ Owner brief of 2026-11-19 ("Four-country election completion and ten-country pol
 | `austria-nationalrat-2002` | `el-at-nr-2002-11-24` (Nationalrat, 183) | BMI final-result workbook `NRW02_E_DL.xls` (owner-saved `nrw02_e_dl.zip`), read with a standard-library .xls reader | 9 parties; party votes = valid 4,909,645; valid + invalid = cast; nine Land rows = national row; seats from the workbook's own `Mandate` row (ÖVP 79, SPÖ 69, FPÖ 18, GRÜNE 17); parties with seats = parties ≥ 4%; national D'Hondt over 183 reproduces every party's seats |
 | `slovenia-dz-2011` | `el-si-dz-2011-12-04` (Državni zbor, 90) | DVK report on the result, adopted 16 December 2011 (scan) | 20 lists; list votes = valid 1,102,256; valid + invalid = 1,121,475 ballots; printed turnout 65,60 and all 20 printed percentages recompute; 7 lists ≥ 4% = lists named; D'Hondt over 88 reproduces the printed seats (PS 28, SDS 26, SD 10, DLGV 8, DeSUS 6, SLS 6, NSi 4); stage seats 61 constituency + 27 national; Italian (1,009 valid, one candidate) and Hungarian (3,324 valid, two candidates) community elections reconcile as ranking points |
 
-Labels: Austria 2002 uses the official short names (none names a person). Slovenia 2011 has no commission short names, so the three printed names containing a person's name are shown without it (`DRŽAVLJANSKA LISTA`, `POZITIVNA SLOVENIJA`, `SLS - SLOVENSKA LJUDSKA STRANKA`; `label_basis: partial_personal_name_omitted`, `title_sha256` kept). No candidate names anywhere.
+| `croatia-sabor-2000-2007` (second batch, owner-saved files) | `el-hr-sabor-2000-01-03` (151), `el-hr-sabor-2003-11-23` (152), `el-hr-sabor-2007-11-25` (153) | DIP final-results decisions (16, 17 and 17 PDFs with a text layer, saved by the owner from the exact archive links) | per decision: list votes = valid, valid + invalid = ballots, printed percentages recompute (rounded), lists ≥ 5% = lists named (2003 abroad names only the seat-winning list, recorded), D'Hondt reproduces every constituency; abroad seats by the printed non-fixed quota (valid I–X ÷ 140 = 19,816, 17,209, 17,067; abroad 6, 4, 5); minorities 5 seats in 2000 (Serbian 1), 8 in 2003 and 2007; HDZ 46, 66 and 66 seats by identical title |
+| `slovenia-dz-2004-2008` (second batch) | `el-si-dz-2004-10-03` (90), `el-si-dz-2008-09-21` (90); 2011 cross-check | DVK archived official result pages (URADNI IZID / Uradni izidi), saved by the owner; 2011 polling-station .xls | 23 and 17 lists; list votes = valid (968,772; 1,051,827); printed turnout 60,65 and 63,10 and all printed percentages recompute; 7 lists ≥ 4% = 7 seat-holding lists in the composition table; D'Hondt over 88 reproduces the seats; both community elections reconcile as points. 2011: 3,914 station rows add up to the workbook total, which equals every figure of the report |
+
+Labels: Austria 2002 uses the official short names (none names a person). Slovenia 2011 has no commission short names, so the three printed names containing a person's name are shown without it (`DRŽAVLJANSKA LISTA`, `POZITIVNA SLOVENIJA`, `SLS - SLOVENSKA LJUDSKA STRANKA`; `label_basis: partial_personal_name_omitted`, `title_sha256` kept). No candidate names anywhere. Croatia 2000–2007: independent lists printed as "NEOVISNA LISTA - <leader>" are shown as `NEOVISNA LISTA` (`label_basis: leader_name_omitted`, 74 distinct printed titles, never grouped); one party name containing a person's name is shown by its printed abbreviation (`BV-TREĆI BLOK`). Slovenia 2004: two lists that are a person's name are shown by row number and one as `SAMOSTOJNI KANDIDAT`.
+
+**Not admitted from this batch:** Slovenia 2000 — every saved 2000 page is marked "Neuradni" (unofficial; 99.93% of polling stations counted). It needs the commission's official 2000 report (Poročilo o izidu, published in Uradni list RS). The 2004 turnout page also prints the 2000 turnout (1,116,423 voters, 70,37 %), but no official list votes or seats.
 
 ## 3. Chamber-specific coverage after this iteration
 
 | Country | Elections | Contestants per election | Seats |
 |---|---|---|---|
 | Austria | 2002, 2013, 2017, 2019, 2024 | 9, 14, 16, 13, 12 parties | 183 each |
-| Croatia | 2011, 2015, 2016, 2020, 2024 | 369, 207, 206, 213, 182 (per-constituency lists + minority candidates) | 151 each |
+| Croatia | 2000, 2003, 2007, 2011, 2015, 2016, 2020, 2024 | 312, 412, 323, 369, 207, 206, 213, 182 (per-constituency lists + minority candidates) | 151, 152, 153, then 151 each |
 | Romania — Camera Deputaților | 2016, 2024 | 35 + independents aggregate; 49 + independents aggregate | 329; 331 |
 | Romania — Senat | 2016, 2024 | 19 + aggregate; 30 + aggregate | 136; 134 of 136 |
-| Slovenia | 2011, 2014, 2018, 2022, 2026 | 20, 17, 25, 21, 21 lists (+ community candidates) | 90 each |
+| Slovenia | 2004, 2008, 2011, 2014, 2018, 2022, 2026 | 23, 17, 20, 17, 25, 21, 21 lists (+ community candidates) | 90 each |
 
 ## 4. Historical rules and institutional links
 
-- `src/lib/institutions/election_links.json` now holds 40 elections. Austria 2002 links to **no** institutional period: the registry records Austrian periods only from 28 October 2008 (five-year term, voting age 16), so `institutional_period_id` is `null` and `at-2008-five-year-term` is listed under `later_changes` (no later rule applied retroactively). Slovenia 2011 links to `slovenia-period-2000-07-25` (Art. 80 amendment in force; the 2013 change is later).
+- `src/lib/institutions/election_links.json` now holds 45 elections (second batch: + Croatia 2000, 2003, 2007 and Slovenia 2004, 2008). Croatia 2000 links to `croatia-period-1990-12-22` (before the 2000 and 2001 constitutional changes, which are `later_changes`; the 2000 decisions name the chamber Zastupnički dom Hrvatskoga državnog sabora); 2003 and 2007 link to `croatia-period-2001-03-28`. Slovenia 2004 and 2008 link to `slovenia-period-2000-07-25`. Austria 2002 links to **no** institutional period: the registry records Austrian periods only from 28 October 2008 (five-year term, voting age 16), so `institutional_period_id` is `null` and `at-2008-five-year-term` is listed under `later_changes` (no later rule applied retroactively). Slovenia 2011 links to `slovenia-period-2000-07-25` (Art. 80 amendment in force; the 2013 change is later).
 - Each election keeps its own `electoral_systems` record (thresholds, allocation, special representation) — the link test asserts thresholds come from the election's own record, never the current law.
 
 ## 5. Source limitations still open (exact)
 
 - **Romania 2020** (both chambers): the BEC 2020 final acts are on the BEC site, which this environment cannot use (browser challenge). Needs the owner to save the Senate and Chamber "rezultate finale" PDFs into `local-evidence/romania/`.
 - **Romania 2012** (both chambers; mixed-member system of Law 35/2008, single-member colleges and compensation seats, 412 + 176 seats with overhang): the AEP package on data.gov.ro lists six files (`rezultatenivelsectieparlamentare2012.csv`, `statisticinivelcolegiu.xls`, `rezultate2012nivelcircumscriptie.xls`, `rezultate2012-statisticapelocalitati.xls`, `rezultate2012-statisticastrainatatepetari.xls`, `rezultatecandidati2012.xls`). This environment's safety layer refused file downloads on 2026-11-19; owner download (or an explicit permission) needed. Candidate names in `rezultatecandidati2012.xls` would be counted, never stored.
-- **Slovenia 2011 cross-check**: the commission's polling-station file `Voltive-DZ2011-koncni-izid-po-voliscih.xls` (www.dvk-rs.si) was refused by the safety layer; 2011 rests on the report alone (stated in the notes and the gate record). The .xls reader now exists, so the file can be checked as soon as it is saved locally.
-- **Slovenia 2008, 2004, 2000 and earlier**: the commission archive pages were not read (same refusal); owner download of each year's report and station file needed.
+- ~~Slovenia 2011 cross-check~~ — resolved in the second batch (owner-saved .xls; every figure agrees).
+- **Slovenia 2000**: saved pages are unofficial (see section 2); needs the official 2000 report. **Slovenia 2004 and 2008**: admitted from the official pages alone; the minutes or polling-station files would add a second source. Slovenia 1996 and earlier: not supplied.
 - **Austria 2006 and 2008**: the owner-saved workbooks carry votes but no seats. Needs the seat tables (`nrw_06_mandatsspiegel*.pdf` or the 2006 announcement; the 2008 Mandatsspiegel). Austria before 2002: not supplied.
-- **Croatia 2007, 2003, 2000** (and the bicameral Sabor before 2001): the izbori.hr archive for those years was not read; owner download of the per-constituency final decisions needed.
+- ~~Croatia 2007, 2003, 2000~~ — admitted in the second batch. Croatia before 2000 (1990–1997, including the Chamber of Counties): not supplied. The three results ZIPs were received and not used (polling-station tables; the decisions reconcile on their own).
 - **Polling days to confirm**: Romania 2024 and Austria 2024 (registry `background_to_verify`); Austria 2002 and 2013 come from the registry's harmonised dates.
 
 ## 6. Exports, tests, files
 
 - Research exports regenerated: `public/research-data/political/austria/*` and `public/research-data/political/slovenia/*` (JSON, CSV, README, manifest); the research ZIP is rebuilt by the deploy.
 - Tests: `tests/tooling/political-austria.test.mjs` (2002 seats row, Länder tamper, D'Hondt tamper), `tests/tooling/political-croatia-slovenia.test.mjs` (2011 seats in list order, partial-name labels, stage seats, points elections), `tests/tooling/institutions-registry.test.mjs` (40 links, Austria 2002 without a period). Targeted run: 170 pass, 0 fail.
+- Second batch tests: `political-croatia-slovenia.test.mjs` (seat structure per year 151/152/153, non-fixed quota recomputed and a tampered quotient fails the build, 2003 abroad wording, independent-list labels, 2000 counts-only turnout, repeat-voting dates, Slovenia 2004/2008 page source and D'Hondt tamper, 2011 cross-check source, no 2000 row) and `institutions-registry.test.mjs` (45 links; Croatia 2000 before the 2001 change).
 - Modified: `scripts/political-data/austria/build-nationalrat.mjs`, `scripts/political-data/slovenia/build-dz.mjs`, both evidence files under `docs/political-data/raw/`, two new gate records (`austria_nationalrat2002_admission.json`, `slovenia_dz2011_admission.json`), `political-admission-amendments.mjs`, `political_admission_records.json`, `stage_c_decision_record.json`, `ui_governance_amendments.json`, `src/lib/politicalAdmission.ts`, `src/lib/institutions/election_links.json`, the stores and exports of both countries, the three tests, `CHANGELOG.md`.
 
 ## 7. Production data URLs (after deploy)
@@ -75,9 +81,9 @@ Do not repeat source research. All figures below are admitted, reconciled and ex
 ### A. Election IDs (new countries)
 
 - Austria: `el-at-nr-2002-11-24`, `el-at-nr-2013-09-29`, `el-at-nr-2017-10-15`, `el-at-nr-2019-09-29`, `el-at-nr-2024-09-29`
-- Croatia: `el-hr-sabor-2011-12-04`, `el-hr-sabor-2015-11-08`, `el-hr-sabor-2016-09-11`, `el-hr-sabor-2020-07-05`, `el-hr-sabor-2024-04-17`
+- Croatia: `el-hr-sabor-2000-01-03`, `el-hr-sabor-2003-11-23`, `el-hr-sabor-2007-11-25`, `el-hr-sabor-2011-12-04`, `el-hr-sabor-2015-11-08`, `el-hr-sabor-2016-09-11`, `el-hr-sabor-2020-07-05`, `el-hr-sabor-2024-04-17`
 - Romania: `el-ro-cd-2016-12-11`, `el-ro-s-2016-12-11`, `el-ro-cd-2024-12-01`, `el-ro-s-2024-12-01`
-- Slovenia: `el-si-dz-2011-12-04`, `el-si-dz-2014-07-13`, `el-si-dz-2018-06-03`, `el-si-dz-2022-04-24`, `el-si-dz-2026-03-22`
+- Slovenia: `el-si-dz-2004-10-03`, `el-si-dz-2008-09-21`, `el-si-dz-2011-12-04`, `el-si-dz-2014-07-13`, `el-si-dz-2018-06-03`, `el-si-dz-2022-04-24`, `el-si-dz-2026-03-22`
 
 ### B. Countries and chambers
 
@@ -98,14 +104,14 @@ Nationalrat (AT, 183; the Bundesrat is not elected and must not be attached); Hr
 ### F. Election-specific rules (from each election's `electoral_systems` record)
 
 - AT: 4% nationally or a regional seat; Hare quota in regional and Land constituencies, federal D'Hondt over 183 (`national_rules`).
-- HR: per constituency, 5% of the constituency's votes, D'Hondt (14 seats each in I–X; abroad 3); minorities elected separately (constituency XII, `hr-ie-12-<minority>`); 2015+ preferential vote (`changes_in_force`), 2023 Constituencies Act applies to 2024 only.
+- HR: per constituency, 5% of the constituency's votes, D'Hondt (14 seats each in I–X; abroad 3 from 2011, and in 2000, 2003 and 2007 6, 4 and 5 seats by the non-fixed quota in `seat_check.non_fixed_quota_abroad`); minorities elected separately (constituency XII, `hr-ie-12-<minority>`); 2015+ preferential vote (`changes_in_force`), 2023 Constituencies Act applies to 2024 only.
 - RO: 5% of national valid votes (alliances higher); constituency quota then national D'Hondt over remainders; Chamber minority seats under Law 208/2015 Art. 56 (one seat each for organisations reaching 5% of the average votes per deputy).
-- SI: 4% nationally; Droop quota in eight constituencies, D'Hondt over 88 nationally; two national-community deputies by separate ballots.
+- SI: 4% nationally; Droop quota in eight constituencies, D'Hondt over 88 nationally; two national-community deputies by separate ballots. 2004 and 2008 records come from result pages that cite no act (`interval_basis` says so).
 
 ### G. Special constituency handling
 
-- HR: `geography` `hr-ie-01` … `hr-ie-10` (territorial), `hr-ie-11` (abroad), `hr-ie-12-<minority>` (minority elections; candidates without names). **No national vote share**: lists differ by constituency. Seats per constituency; national seats only via `legislatures.seats_by_identical_list_title`.
-- SI: `geography` `national` (88) and `si-nc-italijanska` / `si-nc-madzarska` (one seat each). 2011, 2014, 2018 communities: `vote_type` `si_national_community_candidate_points` with `points` (ranked ballots) — show as points, never as votes or shares. 2022, 2026: votes.
+- HR: `geography` `hr-ie-01` … `hr-ie-10` (territorial), `hr-ie-11` (abroad), `hr-ie-12-<minority>` (minority elections; candidates without names). 2000 has five minority elections, one of them a different group (`hr-ie-12-austrijska_njemacka_rusinska_ukrajinska_zidovska`), and its Serbian election elects one member; 2000 turnout rows have `published_turnout: null` (counts only). 2003 and 2007 carry `repeat_poll_date`. **No national vote share**: lists differ by constituency. Seats per constituency; national seats only via `legislatures.seats_by_identical_list_title`.
+- SI: `geography` `national` (88) and `si-nc-italijanska` / `si-nc-madzarska` (one seat each). 2004, 2008, 2011, 2014, 2018 communities: `vote_type` `si_national_community_candidate_points` with `points` (ranked ballots) — show as points, never as votes or shares. 2022, 2026: votes.
 - RO: Chamber rows carry `list_seats` and `minority_seats` (show minority seats as a separate mechanism). 2024 rows also carry `first_stage_seats` and `national_stage_seats`; the Senate 2024 POT row carries `national_stage_entitlement` 9 and `undeployed_seats` 2, and `legislatures.lg-ro-s-2024` has `seat_slots` 136, `total_seats` 134 and `unfilled_seats_note` (show "134 of 136", with the note). Independents are one aggregate row per chamber (`contestant_kind: independent_candidates_aggregate`).
 - AT: 2019 and 2024 rows carry `regional_seats`, `land_seats`, `federal_seats`; `legislatures.seats_by_land` lists Länder and 39 regional constituencies. Contestants `label_basis: row_only` (`Wahlvorschlag, Spalte 6`) must never be expanded.
 
@@ -133,4 +139,4 @@ Each row's `provenance[]` names `source_id`; `political_source_registry` gives U
 
 ### M. Remaining data limitations
 
-See section 5. In addition: no constituency-level vote results for AT, RO, SI (national only); no party attribution or cross-election party series for the four countries (`continuous_party_series` 0); RO 2016 is the AEP centralisation, not the BEC act; SI 2011 has no second source; AT 2002 has no institutional period in the registry.
+See section 5. In addition: no constituency-level vote results for AT, RO, SI (national only); no party attribution or cross-election party series for the four countries (`continuous_party_series` 0); RO 2016 is the AEP centralisation, not the BEC act; SI 2004 and 2008 have no second source (2011 is now cross-checked); AT 2002 has no institutional period in the registry; HR 2000's chamber name differs from the registry's chamber label (shown in the 2000 `electoral_systems.notes`).

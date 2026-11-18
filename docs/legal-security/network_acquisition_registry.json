@@ -75,7 +75,8 @@
       "robots_note": "User-agent * disallows only /typo3/ and /typo3_src/; /fileadmin/user_upload/ and /volitve-in-referendumi/ allowed; no AI-agent rule",
       "rate_policy": "exact official result files and pages named or linked by the election commission only, one request each, no crawling",
       "approved_by": "owner (AskUserQuestion answer \"Register both\", ten-country parliamentary election brief, 2026-11-18)",
-      "status": "allowed"
+      "status": "allowed",
+      "owner_download_2026_11_19": "The National Assembly archive pages (2000, 2004, 2008) were read once in the browser pane to give the owner exact links; the owner saved the pages and the 2011 polling-station .xls by hand. The assistant downloaded nothing."
     },
     {
       "host": "www.izbori.hr",
@@ -86,7 +87,8 @@
       "robots_note": "no robots.txt published (https://www.izbori.hr/robots.txt redirects to the site home page)",
       "rate_policy": "exact official result files and pages named or linked by the election commission only, one request each, no crawling",
       "approved_by": "owner (AskUserQuestion answer \"Register both\", ten-country parliamentary election brief, 2026-11-18)",
-      "status": "allowed"
+      "status": "allowed",
+      "owner_download_2026_11_19": "The archive page was read once per year (2000, 2003, 2007) in the browser pane to give the owner exact file links; the owner saved the decisions and results ZIPs by hand. The assistant downloaded nothing."
     },
     {
       "host": "data.bis.org",

@@ -1,5 +1,93 @@
 [
   {
+    "legislature_id": "lg-si-dz-2004",
+    "country": "slovenia",
+    "chamber": "Državni zbor",
+    "official_term": null,
+    "election_id": "el-si-dz-2004-10-03",
+    "total_seats": 90,
+    "seats_by_mechanism": {
+      "general_lists": 88,
+      "italian_national_community": 1,
+      "hungarian_national_community": 1
+    },
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "excluded_bodies": [
+      {
+        "body": "Državni svet (National Council)",
+        "reason": "interest-representation council elected indirectly; not a directly elected chamber and not part of this election"
+      }
+    ],
+    "result_vintage": "final: National Electoral Commission official result pages (Uradni izidi glasovanja; URADNA SESTAVA DRŽAVNEGA ZBORA; URADNI REZULTATI GLASOVANJA ZA SLOVENIJO) in its election archive",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2004",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2004/index.html",
+        "source_record_id": "composition table (seats per list and national communities)",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
+        "fields_covered": [
+          "total_seats",
+          "seats_by_mechanism"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "390ff7786bb46f4b140f4157e1c440141c8622a4116abb73b7639c0884ec0fa9"
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-si-dz-2008",
+    "country": "slovenia",
+    "chamber": "Državni zbor",
+    "official_term": null,
+    "election_id": "el-si-dz-2008-09-21",
+    "total_seats": 90,
+    "seats_by_mechanism": {
+      "general_lists": 88,
+      "italian_national_community": 1,
+      "hungarian_national_community": 1
+    },
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "excluded_bodies": [
+      {
+        "body": "Državni svet (National Council)",
+        "reason": "interest-representation council elected indirectly; not a directly elected chamber and not part of this election"
+      }
+    ],
+    "result_vintage": "final: National Electoral Commission official result pages (URADNI IZID; Prešteti so glasovi na 3.386 voliščih od skupno 3.386 (100,00 %)) in its election archive",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2008",
+        "source_url": "https://www.dvk-rs.si/arhivi/dz2008/index.html",
+        "source_record_id": "composition table (seats per list and national communities)",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
+        "fields_covered": [
+          "total_seats",
+          "seats_by_mechanism"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "fb2e996a86a20cb0d95bcb453688cbdb0476526452252a0fe6d5f19cb3c968e5"
+      }
+    ]
+  },
+  {
     "legislature_id": "lg-si-dz-2011",
     "country": "slovenia",
     "chamber": "Državni zbor",
@@ -30,10 +118,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism"
@@ -74,10 +162,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism"
@@ -118,10 +206,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism"
@@ -162,10 +250,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism"
@@ -206,10 +294,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "ad078ee06f1086c3216c27b2dff2bda313793f5d836d76ed53d320d52ab42d62"
+          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "d3fed105216bc599aaebadc6dd8d04ad4ae7f45aa93fbe7e07be38b014cb5797",
+        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism"

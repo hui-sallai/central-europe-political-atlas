@@ -23,21 +23,71 @@ test('both builds reproduce the committed stores and exports', () => {
   }
 });
 
-test('Croatia: 140 territorial, 3 abroad and 8 national-minority seats stay separate in every election', () => {
+// Seats abroad and for national minorities by election: fixed from 2011; non-fixed quota abroad and 5 minority seats in 2000.
+const HR_STRUCTURE = { 2000: [6, 5, 151], 2003: [4, 8, 152], 2007: [5, 8, 153] };
+const hrStructure = (year) => HR_STRUCTURE[year] ?? [3, 8, 151];
+
+test('Croatia: territorial, abroad and national-minority seats stay separate in every election (151, 152 or 153 seats)', () => {
   const data = buildCroatia();
-  assert.deepEqual(HR_YEARS, ['2011', '2015', '2016', '2020', '2024']);
+  assert.deepEqual(HR_YEARS, ['2000', '2003', '2007', '2011', '2015', '2016', '2020', '2024']);
   for (const leg of data.legislatures) {
-    assert.equal(leg.total_seats, 151);
-    assert.deepEqual(leg.seats_by_mechanism, { territorial_constituencies: 140, constituency_abroad: 3, national_minorities: 8 });
-    assert.equal(leg.seats_by_national_minority.reduce((n, m) => n + m.seats, 0), 8);
-    assert.equal(leg.seats_by_identical_list_title.reduce((n, g) => n + g.seats, 0), 143);
+    const [abroad, minority, total] = hrStructure(Number(leg.election_id.slice(12, 16)));
+    assert.equal(leg.total_seats, total, leg.election_id);
+    assert.deepEqual(leg.seats_by_mechanism, { territorial_constituencies: 140, constituency_abroad: abroad, national_minorities: minority });
+    assert.equal(leg.seats_by_national_minority.reduce((n, m) => n + m.seats, 0), minority);
+    assert.equal(leg.seats_by_identical_list_title.reduce((n, g) => n + g.seats, 0), 140 + abroad);
   }
   for (const e of data.elections) {
+    const [abroad, minority] = hrStructure(e.year);
     const seats = (prefix) => data.election_results.filter((r) => r.election_id === e.election_id && r.geography.startsWith(prefix)).reduce((n, r) => n + r.seats, 0);
     assert.equal(['hr-ie-01', 'hr-ie-02', 'hr-ie-03', 'hr-ie-04', 'hr-ie-05', 'hr-ie-06', 'hr-ie-07', 'hr-ie-08', 'hr-ie-09', 'hr-ie-10'].reduce((n, g) => n + seats(g), 0), 140, e.election_id);
-    assert.equal(seats('hr-ie-11'), 3, e.election_id);
-    assert.equal(seats('hr-ie-12-'), 8, e.election_id);
+    assert.equal(seats('hr-ie-11'), abroad, e.election_id);
+    assert.equal(seats('hr-ie-12-'), minority, e.election_id);
   }
+});
+
+test('Croatia 2000–2007: the seats abroad follow the printed non-fixed quota; the build fails closed when it is tampered', () => {
+  const data = buildCroatia();
+  for (const [year, seats] of [['2000', 6], ['2003', 4], ['2007', 5]]) {
+    const q = data.checks[year].non_fixed_quota_abroad;
+    assert.equal(q.quotient, Math.round(q.valid_votes_i_x / 140), year);
+    assert.equal(Math.floor(q.valid_votes_abroad / q.quotient), seats, year);
+    assert.equal(q.seats_abroad, seats, year);
+  }
+  const E = structuredClone(hrEvidence.elections['2007']);
+  const abroad = E.units.find((u) => u.unit_key === '02_011');
+  abroad.non_fixed_quota.quotient_printed += 1;
+  const evidence = { ...hrEvidence, elections: { ...hrEvidence.elections, 2007: E } };
+  fs.writeFileSync(path.join(root, '.tmp-hr-evidence.json'), JSON.stringify(evidence));
+  try {
+    // The quota check runs over the whole election, so rebuild 2007 from the tampered evidence in a child process.
+    const run = spawnSync(process.execPath, ['--input-type=module', '-e', `import fs from 'node:fs'; const orig = fs.readFileSync; fs.readFileSync = (p, ...a) => (String(p).endsWith('docs/political-data/raw/croatia/sabor/evidence.json') ? orig('${path.join(root, '.tmp-hr-evidence.json')}', ...a) : orig(p, ...a)); const m = await import('${path.join(root, 'scripts/political-data/croatia/build-sabor.mjs')}'); m.buildCroatia();`], { cwd: root, encoding: 'utf8' });
+    assert.notEqual(run.status, 0);
+    assert.match(run.stderr, /printed quotient/);
+  } finally { fs.rmSync(path.join(root, '.tmp-hr-evidence.json'), { force: true }); }
+  // 2003 abroad names only the seat-winning list as taking part; the rule is recorded, not assumed.
+  const u03 = structuredClone(hrEvidence.elections['2003'].units.find((u) => u.unit_key === '02_011'));
+  assert.equal(u03.allocation_wording, 'seat_winning_lists_only');
+  assert.ok(reconcileUnit('2003', u03, 'rounded_two_decimals', { diaspora: 4 }));
+  delete u03.allocation_wording;
+  assert.throws(() => reconcileUnit('2003', u03, 'rounded_two_decimals', { diaspora: 4 }), /lists at or above 5%/);
+});
+
+test('Croatia 2000–2007: independent lists drop their leader\'s name; 2000 prints counts only; repeat voting is dated', () => {
+  const data = buildCroatia();
+  const independent = data.electoral_contestants.filter((c) => c.label_basis === 'leader_name_omitted');
+  assert.ok(independent.length > 50);
+  assert.ok(independent.every((c) => c.historical_display_label === 'NEOVISNA LISTA' && /^[0-9a-f]{64}$/.test(c.title_sha256)));
+  for (const f of ['src/data/political/croatia', 'public/research-data/political/croatia']) {
+    for (const file of fs.readdirSync(path.join(root, f)).filter((x) => /\.(json|csv)$/.test(x))) assert.ok(!/NEOVISNA LISTA - [A-Za-zČĆŽŠĐčćžšđ]/.test(fs.readFileSync(path.join(root, f, file), 'utf8')), `${f}/${file}`);
+  }
+  const t2000 = data.election_turnout.filter((t) => t.election_id === 'el-hr-sabor-2000-01-03' && t.geography !== 'hr-territorial-i-x');
+  assert.equal(t2000.length, 16);
+  assert.ok(t2000.every((t) => t.published_turnout === null && t.derived_turnout > 0));
+  assert.deepEqual(data.elections.filter((e) => e.repeat_poll_date).map((e) => [e.year, e.repeat_poll_date]), [[2003, '2003-11-30'], [2007, '2007-12-09']]);
+  const seatsOf = (id, label) => data.legislatures.find((l) => l.election_id === id).seats_by_identical_list_title.find((g) => g.label === label)?.seats;
+  assert.equal(seatsOf('el-hr-sabor-2000-01-03', 'HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ'), 46);
+  assert.equal(seatsOf('el-hr-sabor-2007-11-25', 'HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ'), 66);
 });
 
 test('Croatia: results are per constituency; no national vote share and no national results row', () => {
@@ -51,15 +101,16 @@ test('Croatia: results are per constituency; no national vote share and no natio
   assert.deepEqual([e2024.eligible_voters, e2024.voters_turned_out, e2024.published_turnout], [3482150, 2140824, 61.48]);
 });
 
-test('Croatia: national-minority candidates are anonymous, elected by most votes, and the Serbian election elects three', () => {
+test('Croatia: national-minority candidates are anonymous, elected by most votes, and the Serbian election elects three (one in 2000)', () => {
   const data = buildCroatia();
   const cands = data.electoral_contestants.filter((c) => c.contestant_kind === 'individual_candidate');
   assert.ok(cands.length > 0);
   assert.ok(cands.every((c) => c.name_stored === false && c.label_basis === 'row_only' && /^Kandidat, red\. br\. \d+$/.test(c.historical_display_label)));
   for (const e of data.elections) {
     const serbian = data.election_results.filter((r) => r.election_id === e.election_id && r.geography === 'hr-ie-12-srpska');
-    assert.equal(serbian.filter((r) => r.elected).length, 3, e.election_id);
-    assert.ok(serbian.every((r) => r.derived_vote_share === null), 'multi-vote ballot: no vote share');
+    const n = e.year === 2000 ? 1 : 3;
+    assert.equal(serbian.filter((r) => r.elected).length, n, e.election_id);
+    if (n === 3) assert.ok(serbian.every((r) => r.derived_vote_share === null), 'multi-vote ballot: no vote share');
   }
 });
 
@@ -89,14 +140,14 @@ test('Croatia: the seat rule fails closed on a tampered decision', () => {
 
 test('Slovenia: 88 list seats and two national-community seats in every election; the National Council is excluded', () => {
   const data = buildSlovenia();
-  assert.deepEqual(data.elections.map((e) => e.election_id), ['el-si-dz-2011-12-04', 'el-si-dz-2014-07-13', 'el-si-dz-2018-06-03', 'el-si-dz-2022-04-24', 'el-si-dz-2026-03-22']);
+  assert.deepEqual(data.elections.map((e) => e.election_id), ['el-si-dz-2004-10-03', 'el-si-dz-2008-09-21', 'el-si-dz-2011-12-04', 'el-si-dz-2014-07-13', 'el-si-dz-2018-06-03', 'el-si-dz-2022-04-24', 'el-si-dz-2026-03-22']);
   for (const leg of data.legislatures) {
     assert.equal(leg.total_seats, 90);
     assert.deepEqual(leg.seats_by_mechanism, { general_lists: 88, italian_national_community: 1, hungarian_national_community: 1 });
     assert.match(leg.excluded_bodies[0].body, /Državni svet/);
   }
   // 2011 rows follow the report's list numbers (not vote order).
-  const seats = { 'el-si-dz-2011-12-04': [6, 8, 28, 4, 10, 26, 6], 'el-si-dz-2014-07-13': [36, 21, 10, 6, 6, 5, 4], 'el-si-dz-2018-06-03': [25, 13, 10, 10, 9, 7, 5, 5, 4], 'el-si-dz-2022-04-24': [41, 27, 8, 7, 5], 'el-si-dz-2026-03-22': [29, 28, 9, 6, 6, 5, 5] };
+  const seats = { 'el-si-dz-2004-10-03': [29, 23, 10, 9, 7, 6, 4], 'el-si-dz-2008-09-21': [29, 28, 9, 7, 5, 5, 5], 'el-si-dz-2011-12-04': [6, 8, 28, 4, 10, 26, 6], 'el-si-dz-2014-07-13': [36, 21, 10, 6, 6, 5, 4], 'el-si-dz-2018-06-03': [25, 13, 10, 10, 9, 7, 5, 5, 4], 'el-si-dz-2022-04-24': [41, 27, 8, 7, 5], 'el-si-dz-2026-03-22': [29, 28, 9, 6, 6, 5, 5] };
   for (const [id, expected] of Object.entries(seats)) {
     const general = data.election_results.filter((r) => r.election_id === id && r.vote_type === 'si_list_vote');
     assert.deepEqual(general.filter((r) => r.seats > 0).map((r) => r.seats), expected, id);
@@ -113,9 +164,9 @@ test('Slovenia: list names with persons use the commission short name; minutes a
   // 2011: names containing a person's name are shown without it; stage seats are kept.
   assert.deepEqual(data.electoral_contestants.filter((c) => c.election_id === 'el-si-dz-2011-12-04' && c.label_basis === 'partial_personal_name_omitted').map((c) => c.historical_display_label).sort(), ['DRŽAVLJANSKA LISTA', 'POZITIVNA SLOVENIJA', 'SLS - SLOVENSKA LJUDSKA STRANKA']);
   assert.equal(data.election_results.filter((r) => r.election_id === 'el-si-dz-2011-12-04').reduce((n, r) => n + (r.national_stage_seats ?? 0), 0), 27);
-  // 2011, 2014 and 2018: ranking points are stored as points, never as votes.
+  // 2004 to 2018: ranking points are stored as points, never as votes.
   const pts = data.election_results.filter((r) => r.vote_type === 'si_national_community_candidate_points');
-  assert.equal(new Set(pts.map((r) => r.election_id)).size, 3);
+  assert.equal(new Set(pts.map((r) => r.election_id)).size, 5);
   assert.ok(pts.every((r) => r.votes === null && Number.isInteger(r.points) && r.derived_vote_share === null));
   const g = siEvidence.elections['2026'].general;
   assert.equal(reconcileSi('2026', siEvidence.elections['2026']).lists_in_allocation, 7);
@@ -127,6 +178,28 @@ test('Slovenia: list names with persons use the commission short name; minutes a
       assert.ok(!/roj\. \d/.test(text), `${f}/${file}: date of birth`);
     }
   }
+});
+
+test('Slovenia 2004 and 2008 come from official archive pages only; 2011 is cross-checked by its polling-station file; 2000 stays out', () => {
+  const data = buildSlovenia();
+  for (const y of ['2004', '2008']) {
+    const E = siEvidence.elections[y];
+    assert.equal(E.minutes.kind, 'results_pages');
+    assert.match(E.minutes.official_marker_printed, /URADN|Uradni/);
+    assert.equal(E.cross_check, null);
+    assert.equal(reconcileSi(y, E).lists_in_allocation, E.general.lists.filter((l) => l.seats > 0).length);
+    const tampered = structuredClone(E); tampered.general.lists[0].seats += 1; tampered.general.lists[1].seats -= 1;
+    assert.throws(() => reconcileSi(y, tampered), /D'Hondt/);
+  }
+  // Lists named after a person: row number or the printed words without the name.
+  const lists04 = data.electoral_contestants.filter((c) => c.election_id === 'el-si-dz-2004-10-03' && c.contestant_kind === 'electoral_list' && c.label_basis !== 'verbatim');
+  assert.deepEqual(lists04.map((c) => [c.list_number, c.label_basis, c.historical_display_label]), [[21, 'row_only', 'Lista kandidatov, vrstica 21'], [22, 'row_only', 'Lista kandidatov, vrstica 22'], [23, 'partial_personal_name_omitted', 'SAMOSTOJNI KANDIDAT']]);
+  const x = siEvidence.elections['2011'].cross_check;
+  assert.match(x.publisher_file_sha256, /^[0-9a-f]{64}$/);
+  assert.equal(x.used_for, 'cross-check only; list labels stay as transcribed from the report');
+  assert.ok(data.political_source_registry.some((r) => r.source_id === 'src-si-dvk-data-2011' && r.role === 'cross_check'));
+  assert.ok(!data.elections.some((e) => e.year === 2000));
+  assert.equal(spawnSync('git', ['ls-files', 'docs/political-data/source-closure/local-evidence'], { cwd: root, encoding: 'utf8' }).stdout.trim(), '');
 });
 
 test('the four countries: hosts registered manual-only; Austria admitted from owner files with BMI still blocked; Romania 2016 and 2024; the BEC host stays blocked', () => {

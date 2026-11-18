@@ -1,0 +1,82 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "slovenia-dz-2004-2008",
+ "country": "slovenia",
+ "election_ids": [
+  "el-si-dz-2004-10-03",
+  "el-si-dz-2008-09-21",
+  "el-si-dz-2011-12-04"
+ ],
+ "scope": "National Assembly elections of 3 October 2004 and 21 September 2008, whole chamber (90 seats): national list votes and printed percentages for all lists (23 and 17), seats per list, entitled voters, voters, ballots, invalid and valid ballots and printed turnout, and both national-community elections (ranking points, candidates without names), from the commission's archived official result pages. Also: the 2011 report is now cross-checked against the commission's final results by polling station (figures unchanged). 2000 is not admitted: the archived 2000 pages are marked unofficial (neuradni, 99.93% of polling stations). Constituency results and candidate names are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief and answers \"Accept for all four\" (ZASP Art. 9) and \"Register both\" (www.dvk-rs.si, manual reading)."
+  },
+  {
+   "date": "2026-11-19",
+   "decision": "Owner brief \"Four-country election completion\": the owner asked for the exact links, then saved the 2000, 2004 and 2008 archive pages and the 2011 polling-station workbook by hand and supplied them."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/slovenia/dz/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "owner_decision",
+   "basis": "Official texts (ZASP Art. 9), owner reading; same basis as the other Slovenian admissions."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_and_list_names",
+   "evidence_kind": "owner_decision",
+   "basis": "Totals, list votes, printed percentages and seats as printed on the official pages; 2004 lists named after persons shown by row number (two) or without the name (one); candidates without names."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The saved pages and the 2011 workbook are kept in local-evidence/ by SHA-256 only."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_manual_download",
+   "evidence_kind": "owner_decision",
+   "basis": "The archive pages were read once in the browser pane to give the owner exact links; the owner saved the pages and the workbook by hand. The assistant downloaded nothing."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope_single_source",
+   "evidence_kind": "evidence_record",
+   "basis": "2004 and 2008: index, results by list, results by constituency, national-community results and turnout pages, each marked official (URADNI IZID; Uradni izidi glasovanja; 2008 counted at 3,386 of 3,386 polling stations). No minutes or polling-station file was read for these years, so there is no second source (stated in the notes). 2011: the workbook's 3,914 station rows add up to its total row, which equals every figure of the report."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "List votes = valid ballots (968,772 and 1,051,827); valid + invalid = ballots cast ≤ voters ≤ entitled; printed turnout (60,65 and 63,10) and every printed percentage recompute; the 7 lists at or above 4% are the 7 lists holding seats in the printed composition table; D'Hondt over 88 reproduces the printed seats; both national-community elections (points) reconcile; 90 seats."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list",
+   "evidence_kind": "owner_decision",
+   "basis": "Lists as printed (ordered by votes); title_sha256 kept; no link across elections."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "rules_reproduced_pages_cite_no_act",
+   "evidence_kind": "build_check",
+   "basis": "The result pages cite no act; the 4% threshold and D'Hondt over 88 seats reproduce the printed seats. Linked to the institutional period from 2000-07-25."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "official_result_pages",
+   "evidence_kind": "evidence_record",
+   "basis": "Pages marked official in the commission's election archive; no adoption date is printed on them. 2004 Hungarian community: the page prints points but no statement of who was elected; the candidate with most points is marked elected, and the composition table prints two national-community seats."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a name repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Croatian 2000–2007 and Slovenian 2004–2008 parliamentary elections — 2026-11-19
+
+- Add Croatia's parliamentary elections of 2000, 2003 and 2007 (every seat per constituency: 151, 152 and 153, because the seats abroad were then set by a quota printed in each decision) and Slovenia's National Assembly elections of 2004 and 2008 (90 seats each, with both national-community elections), from official files the owner saved. Every constituency and national result reconciles with its totals and reproduces its seats. Slovenia 2011 is now confirmed by the commission's polling-station results. Slovenia 2000 is not added: the only pages available are marked unofficial. No candidate or list-leader names are stored.
+
 ### v2.0 Austrian 2002 and Slovenian 2011 parliamentary elections — 2026-11-19
 
 - Add Austria's Nationalrat election of 2002 (183 seats, from the interior ministry's final-result workbook with its seats row) and Slovenia's early National Assembly election of 2011 (90 seats, from the electoral commission's report, with both national-community elections). Each reconciles with its totals and seat rule; party names that contain a person's name are shown without it. Candidate names are not stored.

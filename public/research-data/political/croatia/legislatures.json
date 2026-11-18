@@ -1,5 +1,649 @@
 [
   {
+    "legislature_id": "lg-hr-sabor-2000",
+    "country": "croatia",
+    "chamber": "Hrvatski sabor",
+    "official_term": null,
+    "election_id": "el-hr-sabor-2000-01-03",
+    "total_seats": 151,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "seats_by_mechanism": {
+      "territorial_constituencies": 140,
+      "constituency_abroad": 6,
+      "national_minorities": 5
+    },
+    "seats_by_identical_list_title": [
+      {
+        "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+        "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10",
+          "hr-ie-11"
+        ],
+        "seats": 46
+      },
+      {
+        "label": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP, HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+        "title_sha256": "49254e1e6e06b90f5f9e85f829006cf68ed4563cb56d67a24e8df715e00faee3",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-03",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-09"
+        ],
+        "seats": 42
+      },
+      {
+        "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "title_sha256": "21c8f16915628acc373a599f7af3953941805df5aa9071b8029e7cc0d6a91121",
+        "constituencies": [
+          "hr-ie-02",
+          "hr-ie-10",
+          "hr-ie-11"
+        ],
+        "seats": 15
+      },
+      {
+        "label": "HRVATSKA SELJAČKA STRANKA - HSS, LIBERALNA STRANKA - LS, HRVATSKA NARODNA STRANKA - HNS",
+        "title_sha256": "4dd9864c5697b861b6b30ced370e52f6880a53962335d95997ab8f03d6eac471",
+        "constituencies": [
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-11"
+        ],
+        "seats": 12
+      },
+      {
+        "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP, SLAVONSKO-BARANJSKA HRVATSKA STRANKA - SBHS",
+        "title_sha256": "1d5b29c981ccdb9213d3966c079b9a77710b6c77eb38e409bb652614d5eb6743",
+        "constituencies": [
+          "hr-ie-04"
+        ],
+        "seats": 7
+      },
+      {
+        "label": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP, HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, PRIMORSKO GORANSKI SAVEZ - PGS",
+        "title_sha256": "ac20e392046617211cac8576ff8492eb427007452bea308b7264ec649eaa21ca",
+        "constituencies": [
+          "hr-ie-08"
+        ],
+        "seats": 7
+      },
+      {
+        "label": "HRVATSKA SELJAČKA STRANKA - HSS, LIBERALNA STRANKA - LS, HRVATSKA NARODNA STRANKA - HNS, AKCIJA SOCIJALDEMOKRATA HRVATSKE - ASH",
+        "title_sha256": "4e0a25f5cd309f1d50d02ab0d8a134d10bb80464f9e6ff06a00c2d54fdec23dc",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-09",
+          "hr-ie-10"
+        ],
+        "seats": 5
+      },
+      {
+        "label": "HRVATSKA STRANKA PRAVA - HSP, HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU",
+        "title_sha256": "39cdf4e4849b10f707337a04f6284895a6086a675da63776799cf67e69108543",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10"
+        ],
+        "seats": 5
+      },
+      {
+        "label": "ISTARSKI DEMOKRATSKI SABOR - IDS, HRVATSKA SELJAČKA STRANKA - HSS, LIBERALNA STRANKA - LS, HRVATSKA NARODNA STRANKA - HNS, AKCIJA SOCIJALDEMOKRATA HRVATSKE - ASH",
+        "title_sha256": "27dd94d5465701f238c1cac7abb44f9c2bbf17c3d576eb28cef123eb8b4101cc",
+        "constituencies": [
+          "hr-ie-08"
+        ],
+        "seats": 5
+      },
+      {
+        "label": "HRVATSKA SELJAČKA STRANKA - HSS, LIBERALNA STRANKA - LS, HRVATSKA NARODNA STRANKA - HNS, ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "title_sha256": "eb0f10f0b3d052d2046478389b1714dcbe4d3e8e99f882407becf3fef62b938f",
+        "constituencies": [
+          "hr-ie-07"
+        ],
+        "seats": 2
+      }
+    ],
+    "seats_by_national_minority": [
+      {
+        "constituency": "hr-ie-12-srpska",
+        "minority": "Serbian",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-ie-12-madjarska",
+        "minority": "Hungarian",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-ie-12-talijanska",
+        "minority": "Italian",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-ie-12-ceska_slovacka",
+        "minority": "Czech and Slovak",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-ie-12-austrijska_njemacka_rusinska_ukrajinska_zidovska",
+        "minority": "Austrian, German, Rusyn, Ukrainian and Jewish",
+        "seats": 1
+      }
+    ],
+    "seat_grouping_note": "Seats of lists with an identical printed title are added across constituencies; lists with different titles (different coalition partners) are not combined and no seat is attributed to a party. National-minority seats are listed by community without affiliation.",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2000",
+        "source_record_id": "sum of the 16 decisions",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "total_seats",
+          "seats_by_mechanism",
+          "seats_by_identical_list_title"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-hr-sabor-2003",
+    "country": "croatia",
+    "chamber": "Hrvatski sabor",
+    "official_term": null,
+    "election_id": "el-hr-sabor-2003-11-23",
+    "total_seats": 152,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "seats_by_mechanism": {
+      "territorial_constituencies": 140,
+      "constituency_abroad": 4,
+      "national_minorities": 8
+    },
+    "seats_by_identical_list_title": [
+      {
+        "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+        "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10",
+          "hr-ie-11"
+        ],
+        "seats": 66
+      },
+      {
+        "label": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "title_sha256": "4ea6c68e1d067d1f739a2dbe0db9f53419c11e4607eeccfe3cb21e0032b1e581",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-05",
+          "hr-ie-07",
+          "hr-ie-09"
+        ],
+        "seats": 15
+      },
+      {
+        "label": "HRVATSKA SELJAČKA STRANKA - HSS",
+        "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10",
+          "hr-ie-11"
+        ],
+        "seats": 9
+      },
+      {
+        "label": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP, ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "title_sha256": "4bad722c446f44d3716e9a9b942734c2b93874334e5e5bdcce7e7187840efd77",
+        "constituencies": [
+          "hr-ie-08"
+        ],
+        "seats": 8
+      },
+      {
+        "label": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP, LIBRA-STRANKA LIBERALNIH DEMOKRATA - LIBRA",
+        "title_sha256": "6554c53b3139f8a401aaef468690afcb43aef8b5706eb9779c28936d3a75d62e",
+        "constituencies": [
+          "hr-ie-02",
+          "hr-ie-03"
+        ],
+        "seats": 8
+      },
+      {
+        "label": "HRVATSKA NARODNA STRANKA - HNS",
+        "title_sha256": "d5afc1568d1f45d77cd3be2e479ef649a2e05f3c025e0f27287c60417fc855f3",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-06",
+          "hr-ie-09",
+          "hr-ie-10"
+        ],
+        "seats": 7
+      },
+      {
+        "label": "HRVATSKA STRANKA PRAVA - HSP",
+        "title_sha256": "63b98a9a5ef37406009dd74fc22256aa18a214a8fa97ca2e5790d6747a2ae245",
+        "constituencies": [
+          "hr-ie-02",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10",
+          "hr-ie-11"
+        ],
+        "seats": 7
+      },
+      {
+        "label": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP, LIBERALNA STRANKA - LS",
+        "title_sha256": "b624f216ea1de3a3910cb1df7e9a802b335c1fc0c5c4f40bde87155718f240cd",
+        "constituencies": [
+          "hr-ie-06"
+        ],
+        "seats": 5
+      },
+      {
+        "label": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP, LIBRA-STRANKA LIBERALNIH DEMOKRATA - LIBRA, LIBERALNA STRANKA - LS",
+        "title_sha256": "d6ee39202040bd565e07ad10c7a759d6d74eef4c3ad5c0b1fc06337fa9282579",
+        "constituencies": [
+          "hr-ie-10"
+        ],
+        "seats": 4
+      },
+      {
+        "label": "HRVATSKA NARODNA STRANKA - HNS, PRIMORSKO GORANSKI SAVEZ - PGS",
+        "title_sha256": "89038aae1cb68c9e24bad4f6c4aa3a4425b4747dbcc5205275e1a2e9dd1a4aa4",
+        "constituencies": [
+          "hr-ie-07",
+          "hr-ie-08"
+        ],
+        "seats": 3
+      },
+      {
+        "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, DEMOKRATSKI CENTAR - DC",
+        "title_sha256": "d114cc5a7381a14a281c9690b7fdcf26b4725a86a80865cee7ac08e2ea3b1a22",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10",
+          "hr-ie-11"
+        ],
+        "seats": 3
+      },
+      {
+        "label": "HRVATSKA STRANKA UMIROVLJENIKA - HSU",
+        "title_sha256": "a45a335601e438923cce89ff36a802e2fe2ea958a0c06fa32494d48a9629bc48",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10",
+          "hr-ie-11"
+        ],
+        "seats": 3
+      },
+      {
+        "label": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP, LIBERALNA STRANKA - LS, LIBRA-STRANKA LIBERALNIH DEMOKRATA - LIBRA",
+        "title_sha256": "0512a8b1c431794c609485d76c184de981b8d08be4a9582f26fb28b47be3ea35",
+        "constituencies": [
+          "hr-ie-04"
+        ],
+        "seats": 3
+      },
+      {
+        "label": "HRVATSKA DEMOKRATSKA SELJAČKA STRANKA - HDSS",
+        "title_sha256": "d6d9fad372b30d6a9c4c6543734ace79615e931ee1e08f99da6a03da657d4a40",
+        "constituencies": [
+          "hr-ie-03"
+        ],
+        "seats": 1
+      },
+      {
+        "label": "HRVATSKA NARODNA STRANKA - HNS, SLAVONSKO-BARANJSKA HRVATSKA STRANKA - SBHS",
+        "title_sha256": "6179f20b9684c2060d7a592cba5dcb44b8d88e504a9720a8871843873c3d708a",
+        "constituencies": [
+          "hr-ie-04",
+          "hr-ie-05"
+        ],
+        "seats": 1
+      },
+      {
+        "label": "HRVATSKA STRANKA PRAVA - HSP, ZAGORSKA DEMOKRATSKA STRANKA - ZDS",
+        "title_sha256": "d8f6a33f149e521ea9f32b45daf7f4a8cd65e32648e9c39ee3bafe2b688612d2",
+        "constituencies": [
+          "hr-ie-01"
+        ],
+        "seats": 1
+      }
+    ],
+    "seats_by_national_minority": [
+      {
+        "constituency": "hr-ie-12-srpska",
+        "minority": "Serbian",
+        "seats": 3
+      },
+      {
+        "constituency": "hr-ie-12-madjarska",
+        "minority": "Hungarian",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-ie-12-talijanska",
+        "minority": "Italian",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-ie-12-ceska_slovacka",
+        "minority": "Czech and Slovak",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+        "minority": "Austrian, Bulgarian, German, Polish, Roma, Romanian, Rusyn, Russian, Turkish, Ukrainian, Vlach and Jewish",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska",
+        "minority": "Albanian, Bosniak, Montenegrin, Macedonian and Slovenian",
+        "seats": 1
+      }
+    ],
+    "seat_grouping_note": "Seats of lists with an identical printed title are added across constituencies; lists with different titles (different coalition partners) are not combined and no seat is attributed to a party. National-minority seats are listed by community without affiliation.",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2003",
+        "source_record_id": "sum of the 17 decisions",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "total_seats",
+          "seats_by_mechanism",
+          "seats_by_identical_list_title"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-hr-sabor-2007",
+    "country": "croatia",
+    "chamber": "Hrvatski sabor",
+    "official_term": null,
+    "election_id": "el-hr-sabor-2007-11-25",
+    "total_seats": 153,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "seats_by_mechanism": {
+      "territorial_constituencies": 140,
+      "constituency_abroad": 5,
+      "national_minorities": 8
+    },
+    "seats_by_identical_list_title": [
+      {
+        "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+        "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10",
+          "hr-ie-11"
+        ],
+        "seats": 66
+      },
+      {
+        "label": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - SDP",
+        "title_sha256": "4ea6c68e1d067d1f739a2dbe0db9f53419c11e4607eeccfe3cb21e0032b1e581",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10"
+        ],
+        "seats": 56
+      },
+      {
+        "label": "HRVATSKA NARODNA STRANKA-LIBERALNI DEMOKRATI - HNS",
+        "title_sha256": "3d6e534a1767f4653fc23639f824430700f20c59d29eea3f71de2b8bc904a947",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-10"
+        ],
+        "seats": 7
+      },
+      {
+        "label": "HRVATSKA SELJAČKA STRANKA - HSS, HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+        "title_sha256": "891c5dbb6b24f438b76d62573c379929b70a7009855a3c18e046577262a58739",
+        "constituencies": [
+          "hr-ie-02",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-10"
+        ],
+        "seats": 6
+      },
+      {
+        "label": "HRVATSKI DEMOKRATSKI SAVEZ SLAVONIJE I BARANJE - HDSSB",
+        "title_sha256": "006dd466fd34c12a65d619874068c2f05c8ca4d10a1d9750d2f4d12818583ff6",
+        "constituencies": [
+          "hr-ie-04",
+          "hr-ie-05"
+        ],
+        "seats": 3
+      },
+      {
+        "label": "ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "title_sha256": "86a6e5107dba76f6bad482bf76746fd88a2b076246de67c74ae20200d627dbb1",
+        "constituencies": [
+          "hr-ie-08"
+        ],
+        "seats": 3
+      },
+      {
+        "label": "HRVATSKA SELJAČKA STRANKA - HSS, HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, PRIMORSKO GORANSKI SAVEZ - PGS",
+        "title_sha256": "3fde626c652422d87caf8a4b8bb605c7d8e7455b1f1e46c410b7c95d96e8fc65",
+        "constituencies": [
+          "hr-ie-07"
+        ],
+        "seats": 1
+      },
+      {
+        "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, HRVATSKA SELJAČKA STRANKA - HSS, ZAGORSKA DEMOKRATSKA STRANKA - ZDS",
+        "title_sha256": "70d5141fb87c1bcd15199c674017520d43b0975592b98edda76260e8fafc037b",
+        "constituencies": [
+          "hr-ie-03"
+        ],
+        "seats": 1
+      },
+      {
+        "label": "HRVATSKA STRANKA PRAVA - HSP",
+        "title_sha256": "63b98a9a5ef37406009dd74fc22256aa18a214a8fa97ca2e5790d6747a2ae245",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-06",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10",
+          "hr-ie-11"
+        ],
+        "seats": 1
+      },
+      {
+        "label": "HRVATSKA STRANKA UMIROVLJENIKA - HSU",
+        "title_sha256": "a45a335601e438923cce89ff36a802e2fe2ea958a0c06fa32494d48a9629bc48",
+        "constituencies": [
+          "hr-ie-01",
+          "hr-ie-02",
+          "hr-ie-03",
+          "hr-ie-04",
+          "hr-ie-05",
+          "hr-ie-07",
+          "hr-ie-08",
+          "hr-ie-09",
+          "hr-ie-10"
+        ],
+        "seats": 1
+      }
+    ],
+    "seats_by_national_minority": [
+      {
+        "constituency": "hr-ie-12-srpska",
+        "minority": "Serbian",
+        "seats": 3
+      },
+      {
+        "constituency": "hr-ie-12-madjarska",
+        "minority": "Hungarian",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-ie-12-talijanska",
+        "minority": "Italian",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-ie-12-ceska_slovacka",
+        "minority": "Czech and Slovak",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+        "minority": "Austrian, Bulgarian, German, Polish, Roma, Romanian, Rusyn, Russian, Turkish, Ukrainian, Vlach and Jewish",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska",
+        "minority": "Albanian, Bosniak, Montenegrin, Macedonian and Slovenian",
+        "seats": 1
+      }
+    ],
+    "seat_grouping_note": "Seats of lists with an identical printed title are added across constituencies; lists with different titles (different coalition partners) are not combined and no seat is attributed to a party. National-minority seats are listed by community without affiliation.",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2007",
+        "source_record_id": "sum of the 17 decisions",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "total_seats",
+          "seats_by_mechanism",
+          "seats_by_identical_list_title"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "legislature_id": "lg-hr-sabor-2011",
     "country": "croatia",
     "chamber": "Hrvatski sabor",
@@ -180,10 +824,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -382,10 +1026,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -605,10 +1249,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -857,10 +1501,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -1099,10 +1743,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",

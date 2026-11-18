@@ -73,26 +73,31 @@
   {
    "country": "croatia",
    "elections": [
+    2000,
+    2003,
+    2007,
     2011,
     2015,
     2016,
     2020,
     2024
    ],
-   "scope": "Croatian Parliament 2011, 2015, 2016, 2020 and 2024, whole chamber (151 seats) per constituency: ten territorial constituencies, the constituency abroad and six national-minority elections, from the State Electoral Commission final-results decisions; minority candidates without names; 2007 and earlier not admitted",
-   "record": "docs/political-data/croatia_sabor2011_admission.json"
+   "scope": "Croatian Parliament 2000, 2003, 2007, 2011, 2015, 2016, 2020 and 2024, whole chamber per constituency (151 seats; 152 in 2003 and 153 in 2007, when the seats abroad were set by the non-fixed quota printed in each decision; 5 minority seats in 2000): ten territorial constituencies, the constituency abroad and the national-minority elections, from the State Electoral Commission final-results decisions; minority candidates and list leaders without names; elections before 2000 not admitted",
+   "record": "docs/political-data/croatia_sabor2000_2007_admission.json"
   },
   {
    "country": "slovenia",
    "elections": [
+    2004,
+    2008,
     2011,
     2014,
     2018,
     2022,
     2026
    ],
-   "scope": "National Assembly 2011, 2014, 2018, 2022 and 2026, whole chamber (90 seats): national list results (88) and the Italian and Hungarian national-community elections (2014 and 2018 as ranking points); candidates without names; 2008 and earlier not admitted",
-   "record": "docs/political-data/slovenia_dz2011_admission.json"
+   "scope": "National Assembly 2004, 2008, 2011, 2014, 2018, 2022 and 2026, whole chamber (90 seats): national list results (88) and the Italian and Hungarian national-community elections (2004–2018 as ranking points); 2004 and 2008 from the commission's archived official result pages; 2011 report cross-checked against the polling-station file; candidates without names; 2000 not admitted (archived pages marked unofficial), earlier elections not admitted",
+   "record": "docs/political-data/slovenia_dz2004_2008_admission.json"
   },
   {
    "country": "romania",
@@ -224,6 +229,18 @@
    "country": "austria",
    "question": "Owner brief \"Four-country election completion\": which further historical elections can be admitted from files already on hand?",
    "decision": "Austria 2002 admitted from the owner-saved legacy workbook (it carries the seats); Slovenia 2011 admitted from the commission report. Downloads for Romania 2012, Slovenia 2011 (station file) and the commission archives were refused by this environment's safety layer and are listed for the owner."
+  },
+  {
+   "date": "2026-11-19",
+   "country": "croatia",
+   "question": "Admit the Croatian Parliament elections of 2000, 2003 and 2007 from the decisions the owner saved by hand?",
+   "decision": "Owner brief \"Four-country election completion\": the owner asked for the exact file links, then saved and supplied the decisions and results ZIPs; 2000, 2003 and 2007 admitted from the decisions (ZIPs received, not used)."
+  },
+  {
+   "date": "2026-11-19",
+   "country": "slovenia",
+   "question": "Admit Slovenia 2000, 2004 and 2008 from the archive pages the owner saved by hand, and cross-check 2011 with the polling-station file?",
+   "decision": "Same brief and supplied files: 2004 and 2008 admitted from the archived official result pages; 2011 cross-checked (figures unchanged); 2000 not admitted because every saved 2000 page is marked unofficial (neuradni)."
   }
  ],
  "countries": {

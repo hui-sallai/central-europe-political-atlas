@@ -1,0 +1,82 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "croatia-sabor-2000-2007",
+ "country": "croatia",
+ "election_ids": [
+  "el-hr-sabor-2000-01-03",
+  "el-hr-sabor-2003-11-23",
+  "el-hr-sabor-2007-11-25"
+ ],
+ "scope": "Croatian Parliament elections of 3 January 2000, 23 November 2003 and 25 November 2007 added to 2011–2024 (unchanged), whole chamber per constituency: every list in the ten territorial constituencies and the constituency abroad with votes, printed percentages and seats, and every candidate in the national-minority elections with votes and elected status (without names). 151 seats in 2000 (140 + 6 abroad + 5 minority), 152 in 2003 (140 + 4 + 8) and 153 in 2007 (140 + 5 + 8): the seats abroad were set by the non-fixed quota printed in each decision. The 2000 decisions cover the Chamber of Representatives (Zastupnički dom Hrvatskoga državnog sabora) and print counts without percentages. Candidate names, list leaders' names and polling-station results are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief \"Complete ten-country parliamentary election coverage\" naming www.izbori.hr; answers \"Accept for all four\" (Copyright Act, official texts) and \"Register both\" (manual reading only)."
+  },
+  {
+   "date": "2026-11-19",
+   "decision": "Owner brief \"Four-country election completion\": complete the remaining historical elections from admissible official files; the owner asked for the exact file links, then saved the 2000, 2003 and 2007 decisions and results ZIPs by hand and supplied them."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/croatia/sabor/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "owner_decision",
+   "basis": "Same basis as croatia-sabor-2015-2024: official texts of state bodies are not protected (Croatian Copyright Act), owner reading; not a licence."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "constituency_figures_and_party_names",
+   "evidence_kind": "owner_decision",
+   "basis": "Per-constituency totals, list votes, printed percentages and seats, and party names as printed; party names containing a person's name shortened or omitted; independent lists printed with their leader's name shown as NEOVISNA LISTA; minority candidates without names."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The 50 decisions and three results ZIPs are kept in local-evidence/ by SHA-256 only; the ZIPs were received and not used."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_manual_download",
+   "evidence_kind": "owner_decision",
+   "basis": "The exact file links were read once from the registered archive page in the browser pane (one page per year); the owner saved the files by hand. The assistant downloaded nothing."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "Per year: ten territorial decisions, the decision for the constituency abroad and the national-minority decisions (five in 2000, six in 2003 and 2007), each with KLASA/URBROJ and file checksum."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "Per decision: list votes = valid ballots; valid + invalid = ballots ≤ voters on the roll; printed percentages recompute (rounded); lists at or above 5% = lists named in the decision (2003 abroad names only the seat-winning list, recorded); D'Hondt reproduces every constituency's seats. Abroad: printed valid votes I–X = sum of the ten decisions, quotient = that sum ÷ 140, seats = valid votes abroad ÷ quotient (6, 4 and 5). Minorities: elected = seats by law and the candidates with most votes. Totals 151, 152 and 153."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list_per_constituency",
+   "evidence_kind": "owner_decision",
+   "basis": "Lists as printed per constituency; seats grouped only across identical printed titles; no link across elections."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "election_specific_rules_reproduced",
+   "evidence_kind": "build_check",
+   "basis": "The Election Act as cited in each decision (2000: Narodne novine 116/99; 2003: 69/03; 2007: 69/03 and 19/07); 5% constituency threshold, D'Hondt and the non-fixed quota abroad checked against the printed seats. No later rule is applied retroactively."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_results_decisions",
+   "evidence_kind": "evidence_record",
+   "basis": "Final-results decisions of 19 January 2000, 2 December 2003 and 22 December 2007. Repeat voting printed in the polling days: 30 November 2003 (constituency VI) and 9 December 2007 (constituency IX and three minority elections)."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a name repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

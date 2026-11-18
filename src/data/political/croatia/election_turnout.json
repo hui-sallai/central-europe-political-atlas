@@ -1,5 +1,2521 @@
 [
   {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-01",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 363434,
+    "voters_turned_out": null,
+    "voters": 282254,
+    "valid_votes": 279642,
+    "invalid_votes": 2612,
+    "ballots_cast": 282254,
+    "published_turnout": null,
+    "derived_turnout": 77.66306949817573,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_001_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/1, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a087a8305cebe6c5c864db147b44da20fb4d72a8c51dfb361f926bcc086d496f"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-02",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 385179,
+    "voters_turned_out": null,
+    "voters": 301997,
+    "valid_votes": 296936,
+    "invalid_votes": 5061,
+    "ballots_cast": 301997,
+    "published_turnout": null,
+    "derived_turnout": 78.40432630023962,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_002_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/2, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "61ab6b56e6255765c7ce2eb991edebd419d319e64cac56a2157b9c735ebd43a6"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-03",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 365094,
+    "voters_turned_out": null,
+    "voters": 290648,
+    "valid_votes": 284916,
+    "invalid_votes": 5732,
+    "ballots_cast": 290648,
+    "published_turnout": null,
+    "derived_turnout": 79.60908697486127,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_003_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/3, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "21265d048d2a4350b5c9b10195fee8c671fd1cea53ae9d2cb7de3fada5e94aca"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-04",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 333735,
+    "voters_turned_out": null,
+    "voters": 262552,
+    "valid_votes": 257877,
+    "invalid_votes": 4675,
+    "ballots_cast": 262552,
+    "published_turnout": null,
+    "derived_turnout": 78.67080168397081,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_004_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/4, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "050c98fdc170d53e46cf3f9da629c9a5a723eec71550c34fa39eb6affd1ef5c7"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-05",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 381150,
+    "voters_turned_out": null,
+    "voters": 275172,
+    "valid_votes": 269500,
+    "invalid_votes": 5672,
+    "ballots_cast": 275172,
+    "published_turnout": null,
+    "derived_turnout": 72.19519874065328,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_005_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/5, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d42b305c3154c9323cf6032fb9e613db87876883e1ce0887e051f9ddaf881211"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-06",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 345904,
+    "voters_turned_out": null,
+    "voters": 267795,
+    "valid_votes": 263508,
+    "invalid_votes": 4287,
+    "ballots_cast": 267795,
+    "published_turnout": null,
+    "derived_turnout": 77.41887922660624,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_006_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/6, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "74fec5dcd047ee15534942be5c42a8d4aea4573308569bac463c7bcebbfd5073"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-07",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 372446,
+    "voters_turned_out": null,
+    "voters": 291684,
+    "valid_votes": 286704,
+    "invalid_votes": 4980,
+    "ballots_cast": 291684,
+    "published_turnout": null,
+    "derived_turnout": 78.31578269064508,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_007_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/7, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "143054bbbca36095ccc6bfd61d64cf493abc16e1bf05028f55da88499b11c126"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-08",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 375114,
+    "voters_turned_out": null,
+    "voters": 282139,
+    "valid_votes": 277593,
+    "invalid_votes": 4546,
+    "ballots_cast": 282139,
+    "published_turnout": null,
+    "derived_turnout": 75.21420154939565,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_008_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/8, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "538ddcf385084e9632dfe51cf6bb7f1cb08013131a300088eba62e7a765aae51"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-09",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 372363,
+    "voters_turned_out": null,
+    "voters": 271537,
+    "valid_votes": 266030,
+    "invalid_votes": 5507,
+    "ballots_cast": 271537,
+    "published_turnout": null,
+    "derived_turnout": 72.92265880337197,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_009_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/9, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "8362bac17a1108feaba4490e303d4772513e56db5233adf8513f08520a481c9c"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-10",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 391959,
+    "voters_turned_out": null,
+    "voters": 295242,
+    "valid_votes": 291574,
+    "invalid_votes": 3668,
+    "ballots_cast": 295242,
+    "published_turnout": null,
+    "derived_turnout": 75.32471508499613,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_010_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/10, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "7544947d2991734a31bc5f9a05feeede92563e14992df3a7ca6178c91cf172a6"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-11",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 360110,
+    "voters_turned_out": null,
+    "voters": 126841,
+    "valid_votes": 125655,
+    "invalid_votes": 1186,
+    "ballots_cast": 126841,
+    "published_turnout": null,
+    "derived_turnout": 35.222848574046814,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the roll (birača upisanih u popis birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_02_011_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/11, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "223501f16685302e9c8b1167d087b69eca1282b5e18db0619441c95694c491c9"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-12-srpska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 168606,
+    "voters_turned_out": null,
+    "voters": 27789,
+    "valid_votes": 25978,
+    "invalid_votes": 1811,
+    "ballots_cast": 27789,
+    "published_turnout": null,
+    "derived_turnout": 16.481619871178964,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the electoral roll of the minority (birača upisanih u popise birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the electoral roll of the minority (birača upisanih u popise birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_13_012_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/13, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "b3c2e441c783c9af380f13d7661706edba7a37e1c98ef9c56ed15d595e668544"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-12-madjarska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 9354,
+    "voters_turned_out": null,
+    "voters": 4591,
+    "valid_votes": 4412,
+    "invalid_votes": 179,
+    "ballots_cast": 4591,
+    "published_turnout": null,
+    "derived_turnout": 49.08060722685482,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the electoral roll of the minority (birača upisanih u popise birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the electoral roll of the minority (birača upisanih u popise birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_23_012_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/12, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "3812b8525cf839a04f545efaebd3f460529471c9cf7a8a6464a63b5157ad088c"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-12-talijanska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 10704,
+    "voters_turned_out": null,
+    "voters": 6785,
+    "valid_votes": 6529,
+    "invalid_votes": 256,
+    "ballots_cast": 6785,
+    "published_turnout": null,
+    "derived_turnout": 63.38751868460388,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the electoral roll of the minority (birača upisanih u popise birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the electoral roll of the minority (birača upisanih u popise birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_33_012_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/14, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "13169d8c0610c6ed9f51e233c176315d4712d82837308a0c4d62c53692148a39"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-12-ceska_slovacka",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 6182,
+    "voters_turned_out": null,
+    "voters": 3571,
+    "valid_votes": 3449,
+    "invalid_votes": 122,
+    "ballots_cast": 3571,
+    "published_turnout": null,
+    "derived_turnout": 57.7644775153672,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the electoral roll of the minority (birača upisanih u popise birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the electoral roll of the minority (birača upisanih u popise birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_43_012_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/15, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "170a6212e8e8f032b1b684592a61fe75f054a1433a3e39067ad665a61ccf96b0"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-ie-12-austrijska_njemacka_rusinska_ukrajinska_zidovska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 3224,
+    "voters_turned_out": null,
+    "voters": 1049,
+    "valid_votes": 1003,
+    "invalid_votes": 46,
+    "ballots_cast": 1049,
+    "published_turnout": null,
+    "derived_turnout": 32.53722084367246,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the electoral roll of the minority (birača upisanih u popise birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema listićima) / voters on the electoral roll of the minority (birača upisanih u popise birača) × 100, derived from the counts printed in the 2000 decision, which prints no percentages and no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2000/izabrani/i_53_012_0000.pdf",
+        "source_record_id": "decision 013-01/2000-09/01 / 599-2000-511/16, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "5bbce84341eba09fc087dbf4a9b6f2b1a3f27b192df00f30e5fc0eaecc774811"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2000-01-03",
+    "country": "croatia",
+    "geography": "hr-territorial-i-x",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2000-01-19 (16 decisions: ten territorial constituencies, the constituency abroad and five national-minority elections)",
+    "eligible_voters": 3686378,
+    "voters_turned_out": null,
+    "voters": 2821020,
+    "valid_votes": 2774280,
+    "invalid_votes": 46740,
+    "ballots_cast": 2821020,
+    "published_turnout": null,
+    "derived_turnout": 76.52552179944651,
+    "turnout_definition": "Ten territorial constituencies (I–X) together: sums of the ten decisions. The constituency abroad and the national-minority elections are not included. The decisions print no count of voters who turned out; turnout here is voters who voted by ballot over voters on the roll.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Sum of constituencies I–X; abroad and minority elections excluded.",
+      "sourceIds": [
+        "src-hr-dip-final-2000"
+      ]
+    },
+    "published_or_derived_note": "sums and percentage derived from the decisions",
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2000",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2000",
+        "source_record_id": "sum of decisions I–X, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-01",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 358461,
+    "voters_turned_out": null,
+    "voters": 254138,
+    "valid_votes": 250408,
+    "invalid_votes": 3730,
+    "ballots_cast": 254138,
+    "published_turnout": 70.9,
+    "derived_turnout": 70.8969734503893,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_001_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/01 / 599-03-42, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "cfd9494718e570858aff0616230c961ab7c6e1156eb6b9f95fb5fc5716d65889"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-02",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 388713,
+    "voters_turned_out": null,
+    "voters": 261633,
+    "valid_votes": 255236,
+    "invalid_votes": 6397,
+    "ballots_cast": 261633,
+    "published_turnout": 67.31,
+    "derived_turnout": 67.30749936328345,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_002_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/02 / 599-03-38, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "131fcf328aeffe9abe73f290275c2da7d78ffaac12ed544913e391eb63ce3cf9"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-03",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 365042,
+    "voters_turned_out": null,
+    "voters": 247749,
+    "valid_votes": 240413,
+    "invalid_votes": 7336,
+    "ballots_cast": 247749,
+    "published_turnout": 67.87,
+    "derived_turnout": 67.86862881531441,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_003_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/03 / 599-03-33, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "e2be7d48d868052994bb1e4c7180205098435d14f576f796a345418b245bff43"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-04",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 328076,
+    "voters_turned_out": null,
+    "voters": 214859,
+    "valid_votes": 209670,
+    "invalid_votes": 5189,
+    "ballots_cast": 214859,
+    "published_turnout": 65.49,
+    "derived_turnout": 65.49061802753022,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_004_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/04 / 599-03-32, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "79bf04690b9896d00e97b16d5421b3724350db909fb77417b33a859631be8660"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-05",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 360242,
+    "voters_turned_out": null,
+    "voters": 220421,
+    "valid_votes": 214327,
+    "invalid_votes": 6094,
+    "ballots_cast": 220421,
+    "published_turnout": 61.19,
+    "derived_turnout": 61.18692434530122,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_005_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/05 / 599-03-36, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "dde8f9d4f792f536a37f17034c1c0cc31cf361afbfc27924b58b38130b619069"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-06",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 343857,
+    "voters_turned_out": null,
+    "voters": 234614,
+    "valid_votes": 229359,
+    "invalid_votes": 5255,
+    "ballots_cast": 234614,
+    "published_turnout": 68.23,
+    "derived_turnout": 68.23010728296937,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_006_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/06 / 599-03-32, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "c4333fcf736f466059c69ea36db84cfc798a951ac83af2315853b653a0cc11a3"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-07",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 382084,
+    "voters_turned_out": null,
+    "voters": 263437,
+    "valid_votes": 257539,
+    "invalid_votes": 5898,
+    "ballots_cast": 263437,
+    "published_turnout": 68.95,
+    "derived_turnout": 68.9474042357178,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_007_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/07 / 599-03-35, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "9f64287789b1b67c763505e0a534346d6947ee4f90bacc8bbe5f7788fa59aae8"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-08",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 374678,
+    "voters_turned_out": null,
+    "voters": 239851,
+    "valid_votes": 233670,
+    "invalid_votes": 6181,
+    "ballots_cast": 239851,
+    "published_turnout": 64.02,
+    "derived_turnout": 64.01523441461735,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_008_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/08 / 599-03-33, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "6f3ab1ff284eb3f68d095518cf3ba5a27c856a0afab51c84c6bb4998253ea8fc"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-09",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 388450,
+    "voters_turned_out": null,
+    "voters": 255218,
+    "valid_votes": 249332,
+    "invalid_votes": 5886,
+    "ballots_cast": 255218,
+    "published_turnout": 65.7,
+    "derived_turnout": 65.70163470202085,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_009_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/09 / 599-03-38, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "901f6d0774f12177fbaaa85be416d53609deb86a9fd83c05650bdf9259b1f020"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-10",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 401333,
+    "voters_turned_out": null,
+    "voters": 274561,
+    "valid_votes": 269286,
+    "invalid_votes": 5275,
+    "ballots_cast": 274561,
+    "published_turnout": 68.41,
+    "derived_turnout": 68.41226612314462,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_010_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/10 / 599-03-37, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a74cb94e69a11ca9f40e2816a7023c8a7bc179191ccc65139640a54dfa4c9e5f"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-11",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 396617,
+    "voters_turned_out": null,
+    "voters": 70527,
+    "valid_votes": 69727,
+    "invalid_votes": 800,
+    "ballots_cast": 70527,
+    "published_turnout": 17.78,
+    "derived_turnout": 17.78214246993951,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_02_011_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/11 / 599-03-25, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "de189e0cea2a05033b54ac621222d82d23819c70d256eaba609079d533c805f4"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-12-srpska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 222769,
+    "voters_turned_out": null,
+    "voters": 47610,
+    "valid_votes": 46126,
+    "invalid_votes": 1484,
+    "ballots_cast": 47610,
+    "published_turnout": 21.37,
+    "derived_turnout": 21.371914404607466,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_13_012_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/12 / 599-03-01/08, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "49f8f7a0f3de06ab22ced290da3573a1d25a61a71950d491edcb5f4b4e20b15f"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-12-madjarska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 10366,
+    "voters_turned_out": null,
+    "voters": 4204,
+    "valid_votes": 4080,
+    "invalid_votes": 124,
+    "ballots_cast": 4204,
+    "published_turnout": 40.56,
+    "derived_turnout": 40.5556627435848,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_23_012_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/12 / 599-03-02/05, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d971ae64060fa504d2f9ef2eca5f8b7329f4890d7eb07ff4d69f639e8418839c"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-12-talijanska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 12520,
+    "voters_turned_out": null,
+    "voters": 6051,
+    "valid_votes": 5849,
+    "invalid_votes": 202,
+    "ballots_cast": 6051,
+    "published_turnout": 48.33,
+    "derived_turnout": 48.33067092651757,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_33_012_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/12 / 599-03-03/06, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d78632f7152e63a13c72fea2f9262d09fe74ddc595dbd05f59ee2f5a1db39abb"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-12-ceska_slovacka",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 7386,
+    "voters_turned_out": null,
+    "voters": 3357,
+    "valid_votes": 3257,
+    "invalid_votes": 100,
+    "ballots_cast": 3357,
+    "published_turnout": 45.45,
+    "derived_turnout": 45.450852965069046,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_43_012_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/12 / 599-03-04/08, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "cebfc7a945fb92e109d3507860d01d545cc8c172656b23430dddb2876ee7ebf1"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 8908,
+    "voters_turned_out": null,
+    "voters": 1933,
+    "valid_votes": 1854,
+    "invalid_votes": 79,
+    "ballots_cast": 1933,
+    "published_turnout": 21.7,
+    "derived_turnout": 21.699595868881904,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_53_012_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/12 / 599-03-05/13, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "e6c9811aa66a0b4d320e6b89a06dc2cc0b10e1f6f11e1129adae6457cb84ee44"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 21930,
+    "voters_turned_out": null,
+    "voters": 4726,
+    "valid_votes": 4587,
+    "invalid_votes": 139,
+    "ballots_cast": 4726,
+    "published_turnout": 21.55,
+    "derived_turnout": 21.550387596899228,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2003 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2003/izabrani/i_63_012_0000.pdf",
+        "source_record_id": "decision 013-03/03-16/12 / 599-03-06/09, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "b50eb52d8a4dc51ebf3e7654216f22e9b4dc649432afe73ae7c2d821a4817e40"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2003-11-23",
+    "country": "croatia",
+    "geography": "hr-territorial-i-x",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2003-12-02 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 1 decision include repeat voting on 2003-11-30",
+    "eligible_voters": 3690936,
+    "voters_turned_out": null,
+    "voters": 2466481,
+    "valid_votes": 2409240,
+    "invalid_votes": 57241,
+    "ballots_cast": 2466481,
+    "published_turnout": null,
+    "derived_turnout": 66.82535270186207,
+    "turnout_definition": "Ten territorial constituencies (I–X) together: sums of the ten decisions. The constituency abroad and the national-minority elections are not included. The decisions print no count of voters who turned out; turnout here is voters who voted by ballot over voters on the roll.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Sum of constituencies I–X; abroad and minority elections excluded.",
+      "sourceIds": [
+        "src-hr-dip-final-2003"
+      ]
+    },
+    "published_or_derived_note": "sums and percentage derived from the decisions",
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2003",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2003",
+        "source_record_id": "sum of decisions I–X, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-01",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 361236,
+    "voters_turned_out": null,
+    "voters": 243480,
+    "valid_votes": 240716,
+    "invalid_votes": 2764,
+    "ballots_cast": 243480,
+    "published_turnout": 67.4,
+    "derived_turnout": 67.4019200744112,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_001_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/01 / 507-07-29, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "f26f86129da831ad8fedb28df8d4d4daec2be1cb0be333ee5b9b37d01c67508a"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-02",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 399648,
+    "voters_turned_out": null,
+    "voters": 254268,
+    "valid_votes": 250612,
+    "invalid_votes": 3656,
+    "ballots_cast": 254268,
+    "published_turnout": 63.62,
+    "derived_turnout": 63.62298822964208,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_002_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/02 / 507-07-26, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "9d28d1564c49346ef67e6e42410f249f91117bf93dc614d9ca089626860d7c4a"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-03",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 366005,
+    "voters_turned_out": null,
+    "voters": 249041,
+    "valid_votes": 245064,
+    "invalid_votes": 3977,
+    "ballots_cast": 249041,
+    "published_turnout": 68.04,
+    "derived_turnout": 68.0430595210448,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_003_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/03 / 507-07-27, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "9e0aee0322786bf879b7d6036b5cbc6cca4966b76a60577cc1aaee2357deb3d8"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-04",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 335091,
+    "voters_turned_out": null,
+    "voters": 211426,
+    "valid_votes": 208716,
+    "invalid_votes": 2710,
+    "ballots_cast": 211426,
+    "published_turnout": 63.1,
+    "derived_turnout": 63.09509954012492,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_004_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/04 / 507-07-25, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "dd816674874532e3b96cc306889d0f8ca38e9ecb658632ce874bc5c72bf17e92"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-05",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 372163,
+    "voters_turned_out": null,
+    "voters": 215937,
+    "valid_votes": 212431,
+    "invalid_votes": 3506,
+    "ballots_cast": 215937,
+    "published_turnout": 58.02,
+    "derived_turnout": 58.02215695810706,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_005_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/05 / 507-07-21, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "aa886c5b7fa751a06cfd55b9320d7ed8b0fa6198c60a7326ed6a99e1d36dcdd6"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-06",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 356575,
+    "voters_turned_out": null,
+    "voters": 224554,
+    "valid_votes": 221215,
+    "invalid_votes": 3339,
+    "ballots_cast": 224554,
+    "published_turnout": 62.98,
+    "derived_turnout": 62.975250648531166,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_006_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/06 / 507-07-25, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "8470ce22aa24e949e3a0318204f8681d55d09ae9367c7bb38fd40f4da28a8524"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-07",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 403812,
+    "voters_turned_out": null,
+    "voters": 264232,
+    "valid_votes": 260050,
+    "invalid_votes": 4182,
+    "ballots_cast": 264232,
+    "published_turnout": 65.43,
+    "derived_turnout": 65.4344100720137,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_007_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/07 / 507-07-26, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "66d74898685fb147795d3c543e427128cb34f6c710e69df676cb6356ea50300c"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-08",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 385594,
+    "voters_turned_out": null,
+    "voters": 239998,
+    "valid_votes": 236569,
+    "invalid_votes": 3429,
+    "ballots_cast": 239998,
+    "published_turnout": 62.24,
+    "derived_turnout": 62.24111371027558,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_008_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/08 / 507-07-26, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "c24c38b3bd42d10798ff5b0aeec5fe22bad54ca501e35afae6972486144922bf"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-09",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 428590,
+    "voters_turned_out": null,
+    "voters": 258961,
+    "valid_votes": 254355,
+    "invalid_votes": 4606,
+    "ballots_cast": 258961,
+    "published_turnout": 60.42,
+    "derived_turnout": 60.421615063347254,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_009_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/09 / 507-07-26, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "898b6e9ed3ad26e8739c6adbcf1418f36738c40b30f743571079a4d00a540c4d"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-10",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 416017,
+    "voters_turned_out": null,
+    "voters": 263372,
+    "valid_votes": 259663,
+    "invalid_votes": 3709,
+    "ballots_cast": 263372,
+    "published_turnout": 63.31,
+    "derived_turnout": 63.3079898177238,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_010_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/10 / 507-07-27, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "83349f2e86cf23bfdacccc0bcfcf6c4eaa04bdd113931d4bbdda136817ce3289"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-11",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 404950,
+    "voters_turned_out": null,
+    "voters": 90402,
+    "valid_votes": 89653,
+    "invalid_votes": 749,
+    "ballots_cast": 90402,
+    "published_turnout": 22.32,
+    "derived_turnout": 22.324237560192618,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters on the roll (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_02_011_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/11 / 507-07-15, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "645ddfc66bbdc993c5889ea1098a9bd92dc29c0bb090acdb01d1c68f5a2e4084"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-12-srpska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 190510,
+    "voters_turned_out": null,
+    "voters": 25741,
+    "valid_votes": 25062,
+    "invalid_votes": 679,
+    "ballots_cast": 25741,
+    "published_turnout": 13.51,
+    "derived_turnout": 13.51162668626319,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_13_012_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/12 / 507-07-01/08, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "5025ce178b3ae26ede6631a207a020259f817b5e2545b4b00a1d9b59cd7b2f6b"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-12-madjarska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 9619,
+    "voters_turned_out": null,
+    "voters": 4327,
+    "valid_votes": 4265,
+    "invalid_votes": 62,
+    "ballots_cast": 4327,
+    "published_turnout": 44.98,
+    "derived_turnout": 44.983886058841875,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_23_012_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/12 / 507-07-02/06, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a6fc842bf2925b442e65127717b55478c41e0df32508c3b736f5b29456dda5ba"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-12-talijanska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 11230,
+    "voters_turned_out": null,
+    "voters": 4803,
+    "valid_votes": 4703,
+    "invalid_votes": 100,
+    "ballots_cast": 4803,
+    "published_turnout": 42.77,
+    "derived_turnout": 42.76936776491541,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_33_012_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/12 / 507-07-03/04, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bb1f7bd916a771c8da2ec161e3ce96124ccc0d3a141d6d5dbd441e0494d9df2a"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-12-ceska_slovacka",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 6266,
+    "voters_turned_out": null,
+    "voters": 2663,
+    "valid_votes": 2627,
+    "invalid_votes": 36,
+    "ballots_cast": 2663,
+    "published_turnout": 42.5,
+    "derived_turnout": 42.499202042770506,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_43_012_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/12 / 507-07-04/10, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "94592fe32eaa994f8b42f1a5801d8c68b46aafdb2aac9ff4a480d7b378539a2c"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-12-austrijska_bugarska_njemacka_poljska_romska_rumunjska_rusinska_ruska_turska_ukrajinska_vlaska_zidovska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 9894,
+    "voters_turned_out": null,
+    "voters": 2825,
+    "valid_votes": 2751,
+    "invalid_votes": 74,
+    "ballots_cast": 2825,
+    "published_turnout": 28.55,
+    "derived_turnout": 28.55265817667273,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_53_012_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/12 / 507-07-05/23, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "2c40d92a0085516632ce9b710c16580fd206ffb32d1b02eb25ee464df9065076"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-ie-12-albanska_bosnjacka_crnogorska_makedonska_slovenska",
+    "vote_type": "hr_minority_candidate_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 21380,
+    "voters_turned_out": null,
+    "voters": 4524,
+    "valid_votes": 4370,
+    "invalid_votes": 154,
+    "ballots_cast": 4524,
+    "published_turnout": 21.16,
+    "derived_turnout": 21.1599625818522,
+    "turnout_definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "voters_stated_in_minority_decision",
+      "definition": "Voters who voted by ballot (glasovalo je prema glasačkim listićima) / voters stated (ukupno birača) × 100, as printed in the decision; the 2007 decisions print no separate count of voters who turned out.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/2007/izabrani/i_63_012_0000.pdf",
+        "source_record_id": "decision 013-03/07-16/12 / 507-07-06/14, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "e6a8311210415dc294d07811730434cf21f9253956da12b94e2a503b142c98a9"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-sabor-2007-11-25",
+    "country": "croatia",
+    "geography": "hr-territorial-i-x",
+    "vote_type": "hr_list_vote",
+    "result_vintage": "final: State Electoral Commission final-results decisions of 2007-12-22 (17 decisions: ten territorial constituencies, the constituency abroad and six national-minority elections); the polling days printed in 4 decisions include repeat voting on 2007-12-09",
+    "eligible_voters": 3824731,
+    "voters_turned_out": null,
+    "voters": 2425269,
+    "valid_votes": 2389391,
+    "invalid_votes": 35878,
+    "ballots_cast": 2425269,
+    "published_turnout": null,
+    "derived_turnout": 63.41018492542352,
+    "turnout_definition": "Ten territorial constituencies (I–X) together: sums of the ten decisions. The constituency abroad and the national-minority elections are not included. The decisions print no count of voters who turned out; turnout here is voters who voted by ballot over voters on the roll.",
+    "turnout_basis": {
+      "numerator": "voters",
+      "denominator": "registered_electorate",
+      "definition": "Sum of constituencies I–X; abroad and minority elections excluded.",
+      "sourceIds": [
+        "src-hr-dip-final-2007"
+      ]
+    },
+    "published_or_derived_note": "sums and percentage derived from the decisions",
+    "provenance": [
+      {
+        "source_id": "src-hr-dip-final-2007",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-2007",
+        "source_record_id": "sum of decisions I–X, section I",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "fields_covered": [
+          "eligible_voters",
+          "voters"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "election_id": "el-hr-sabor-2011-12-04",
     "country": "croatia",
     "geography": "hr-ie-01",
@@ -30,10 +2546,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -78,10 +2594,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -126,10 +2642,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -174,10 +2690,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -222,10 +2738,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -270,10 +2786,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -318,10 +2834,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -366,10 +2882,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -414,10 +2930,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -462,10 +2978,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -510,10 +3026,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -558,10 +3074,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -606,10 +3122,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -654,10 +3170,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -702,10 +3218,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -750,10 +3266,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -798,10 +3314,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -847,10 +3363,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters"
@@ -890,10 +3406,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -938,10 +3454,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -986,10 +3502,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1034,10 +3550,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1082,10 +3598,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1130,10 +3646,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1178,10 +3694,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1226,10 +3742,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1274,10 +3790,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1322,10 +3838,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1370,10 +3886,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1418,10 +3934,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1466,10 +3982,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1514,10 +4030,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1562,10 +4078,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1610,10 +4126,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1658,10 +4174,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1707,10 +4223,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters"
@@ -1750,10 +4266,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1798,10 +4314,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1846,10 +4362,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1894,10 +4410,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1942,10 +4458,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -1990,10 +4506,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2038,10 +4554,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2086,10 +4602,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2134,10 +4650,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2182,10 +4698,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2230,10 +4746,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2278,10 +4794,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2326,10 +4842,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2374,10 +4890,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2422,10 +4938,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2470,10 +4986,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2518,10 +5034,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2567,10 +5083,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters"
@@ -2610,10 +5126,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2658,10 +5174,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2706,10 +5222,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2754,10 +5270,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2802,10 +5318,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2850,10 +5366,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2898,10 +5414,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2946,10 +5462,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -2994,10 +5510,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3042,10 +5558,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3090,10 +5606,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3138,10 +5654,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3186,10 +5702,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3234,10 +5750,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3282,10 +5798,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3330,10 +5846,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3378,10 +5894,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3427,10 +5943,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters"
@@ -3470,10 +5986,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3518,10 +6034,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3566,10 +6082,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3614,10 +6130,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3662,10 +6178,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3710,10 +6226,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3758,10 +6274,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3806,10 +6322,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3854,10 +6370,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3902,10 +6418,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3950,10 +6466,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -3998,10 +6514,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -4046,10 +6562,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -4094,10 +6610,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -4142,10 +6658,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -4190,10 +6706,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -4238,10 +6754,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -4287,10 +6803,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "cd2c3b64679fa732e9fd6bec8ea17a447f96b94dc23ccc7a94e67a08684458bb"
+          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4fd8f5e60c67010868287b443c0908177e34cc41304b27e979323f8abf5f5537",
+        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
