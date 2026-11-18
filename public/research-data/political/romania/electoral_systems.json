@@ -75,10 +75,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "parser_sha256": "4088ef491a8ec488a3c350a5f15f5a4d1ffb5181d03ddc77d59af4938a777da6",
         "fields_covered": [
           "base_seats"
         ],
@@ -163,15 +163,246 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "parser_sha256": "4088ef491a8ec488a3c350a5f15f5a4d1ffb5181d03ddc77d59af4938a777da6",
         "fields_covered": [
           "base_seats"
         ],
         "published_or_derived": "derived_sum_of_published_rows",
         "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "electoral_system_id": "es-ro-cd-2024",
+    "country": "romania",
+    "election_id": "el-ro-cd-2024-12-01",
+    "valid_from": "2024-12-01",
+    "valid_to": "2024-12-01",
+    "interval_basis": "election-specific: Law 208/2015 as applied in 2024 (section i cites its Art. 94); the institutional registry holds the statute read from the Chamber of Deputies site (partly verified)",
+    "system_family": "list proportional representation in 43 constituencies (42 counties and Bucharest, plus abroad) with national pooling of remainders; national-minority organisation seats",
+    "vote_type": "ro_cd_list_vote",
+    "allocation_method": "constituency quota (electoral coefficient), then national D’Hondt over pooled remainders",
+    "base_seats": 312,
+    "vote_definitions": [
+      {
+        "id": "ro_cd_list_vote",
+        "kind": "list",
+        "label": {
+          "en": "Chamber of Deputies list votes",
+          "zh-CN": "众议院名单票"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "whole_chamber",
+        "sourceIds": [
+          "src-ro-bec-cd-2024"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "Remaining seats are allocated nationally by D’Hondt over the pooled remainders of lists above the threshold (section i.1), then assigned to constituencies (section j).",
+      "districtAllocation": "In each constituency lists first win as many seats as their votes contain the electoral coefficient (section i.2).",
+      "thresholds": [
+        {
+          "appliesTo": "party list",
+          "percent": 5,
+          "description": {
+            "en": "A list needs at least 5% of national valid votes (Law 208/2015; higher thresholds for alliances; the alternative constituency criterion is not tested here). The seven lists in sections i–k are exactly those above 5%.",
+            "zh-CN": "名单须获得全国有效票至少 5%（第 208/2015 号法律；联盟门槛更高；此处未检验替代的选区条件）。第 i–k 节所列七份名单恰为超过 5% 者。"
+          },
+          "sourceIds": [
+            "src-ro-bec-cd-2024"
+          ]
+        }
+      ],
+      "minorityRepresentation": {
+        "en": "Organisations of national minorities that win no list seat receive one Chamber seat each if they obtain at least 5% of the average valid votes per deputy (Art. 56): the act prints an average of 25396 and a minimum of 1269 votes; nineteen organisations qualified (section m.5).",
+        "zh-CN": "未获名单席位的少数民族组织，若得票达到每名议员平均有效票的 5%，各获众议院一席（第 56 条）：决议载明平均票数 25396、最低票数 1269；共 19 个组织达到（第 m.5 节）。"
+      },
+      "totalSeatsDefinition": {
+        "en": "331 deputies: 312 list seats in 43 constituencies and 19 national-minority organisation seats.",
+        "zh-CN": "331 名众议员：43 个选区名单席位 312 席，少数民族组织 19 席。"
+      },
+      "sourceIds": [
+        "src-ro-bec-cd-2024"
+      ]
+    },
+    "notes": {
+      "en": "Votes, counts and seats are from the Central Electoral Bureau's final act no. 3RF/BEC/SCD2024 of 2024-12-07, transcribed by eye from the scan. National D'Hondt over the remainders reproduces section j exactly. Turnout is derived (b ÷ a). Independent candidates are aggregated without names.",
+      "zh-CN": "得票、计数与席位取自中央选举局 2024-12-07 第 3RF/BEC/SCD2024 号最终决议，依扫描件人工转录。对余票的全国 D’Hondt 分配完全复现第 j 节。投票率为推算值（b ÷ a）。独立候选人合并列示，不存储姓名。"
+    },
+    "seat_check": {
+      "valid": 9243641,
+      "lists": 49,
+      "independents": 52,
+      "seat_slots": 312,
+      "list_seats_filled": 312,
+      "unfilled": [],
+      "undeployed": {},
+      "minority_seats": 19,
+      "total_seats": 331,
+      "threshold_votes": 462183,
+      "first_stage": {
+        "PARTIDUL SOCIAL DEMOCRAT": 64,
+        "ALIANȚA PENTRU UNIREA ROMÂNILOR": 46,
+        "PARTIDUL NAȚIONAL LIBERAL": 29,
+        "UNIUNEA SALVAȚI ROMÂNIA": 24,
+        "PARTIDUL S.O.S. ROMÂNIA": 7,
+        "PARTIDUL OAMENILOR TINERI": 2,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 16
+      },
+      "national_stage": {
+        "PARTIDUL SOCIAL DEMOCRAT": 22,
+        "ALIANȚA PENTRU UNIREA ROMÂNILOR": 17,
+        "PARTIDUL NAȚIONAL LIBERAL": 20,
+        "UNIUNEA SALVAȚI ROMÂNIA": 16,
+        "PARTIDUL S.O.S. ROMÂNIA": 21,
+        "PARTIDUL OAMENILOR TINERI": 22,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 6
+      },
+      "allocation_model": "national D'Hondt over the remainders reproduces section j exactly"
+    },
+    "provenance": [
+      {
+        "source_id": "src-ro-bec-cd-2024",
+        "source_url": "https://parlamentare2024.bec.ro/wp-content/uploads/2024/12/RF_3.pdf",
+        "source_record_id": "act 3RF/BEC/SCD2024, sections i–k",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+        },
+        "parser_version": "romania-parliament-v2",
+        "parser_sha256": "4088ef491a8ec488a3c350a5f15f5a4d1ffb5181d03ddc77d59af4938a777da6",
+        "fields_covered": [
+          "base_seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "27d0dc5be6a04bd3c94f4f94220bea3ffba3cade66e2ec60b94afa7f7c108239"
+      }
+    ]
+  },
+  {
+    "electoral_system_id": "es-ro-s-2024",
+    "country": "romania",
+    "election_id": "el-ro-s-2024-12-01",
+    "valid_from": "2024-12-01",
+    "valid_to": "2024-12-01",
+    "interval_basis": "election-specific: Law 208/2015 as applied in 2024 (section i cites its Art. 94); the institutional registry holds the statute read from the Chamber of Deputies site (partly verified)",
+    "system_family": "list proportional representation in 43 constituencies (42 counties and Bucharest, plus abroad) with national pooling of remainders",
+    "vote_type": "ro_s_list_vote",
+    "allocation_method": "constituency quota (electoral coefficient), then national D’Hondt over pooled remainders",
+    "base_seats": 136,
+    "vote_definitions": [
+      {
+        "id": "ro_s_list_vote",
+        "kind": "list",
+        "label": {
+          "en": "Senate list votes",
+          "zh-CN": "参议院名单票"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "whole_chamber",
+        "sourceIds": [
+          "src-ro-bec-s-2024"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "Remaining seats are allocated nationally by D’Hondt over the pooled remainders of lists above the threshold (section i.1), then assigned to constituencies (section j).",
+      "districtAllocation": "In each constituency lists first win as many seats as their votes contain the electoral coefficient (section i.2).",
+      "thresholds": [
+        {
+          "appliesTo": "party list",
+          "percent": 5,
+          "description": {
+            "en": "A list needs at least 5% of national valid votes (Law 208/2015; higher thresholds for alliances; the alternative constituency criterion is not tested here). The seven lists in sections i–k are exactly those above 5%.",
+            "zh-CN": "名单须获得全国有效票至少 5%（第 208/2015 号法律；联盟门槛更高；此处未检验替代的选区条件）。第 i–k 节所列七份名单恰为超过 5% 者。"
+          },
+          "sourceIds": [
+            "src-ro-bec-s-2024"
+          ]
+        }
+      ],
+      "minorityRepresentation": {
+        "en": "No minority-organisation seats in the Senate.",
+        "zh-CN": "参议院不设少数民族组织席位。"
+      },
+      "totalSeatsDefinition": {
+        "en": "134 senators elected of 136 seats: two national-stage seats were not deployed to a constituency in the act (Giurgiu and Ialomița each keep one slot unfilled).",
+        "zh-CN": "136 个席位中选出 134 名参议员：决议未将两个全国阶段席位分配到选区（久尔久和雅洛米察各有一席空缺）。"
+      },
+      "sourceIds": [
+        "src-ro-bec-s-2024"
+      ]
+    },
+    "notes": {
+      "en": "Votes, counts and seats are from the Central Electoral Bureau's final act no. 2RF/BEC/SCD2024 of 2024-12-07, transcribed by eye from the scan. National D'Hondt over the remainders reproduces section j except 2 seat(s) the act does not deploy. Turnout is derived (b ÷ a). Independent candidates are aggregated without names.",
+      "zh-CN": "得票、计数与席位取自中央选举局 2024-12-07 第 2RF/BEC/SCD2024 号最终决议，依扫描件人工转录。对余票的全国 D’Hondt 分配复现第 j 节，但决议未分配的席位除外。投票率为推算值（b ÷ a）。独立候选人合并列示，不存储姓名。"
+    },
+    "seat_check": {
+      "valid": 9259957,
+      "lists": 30,
+      "independents": 6,
+      "seat_slots": 136,
+      "list_seats_filled": 134,
+      "unfilled": [
+        {
+          "constituency": 19,
+          "name": "GIURGIU",
+          "slots": 1
+        },
+        {
+          "constituency": 23,
+          "name": "IALOMIȚA",
+          "slots": 1
+        }
+      ],
+      "undeployed": {
+        "PARTIDUL OAMENILOR TINERI": 2
+      },
+      "minority_seats": 0,
+      "total_seats": 134,
+      "threshold_votes": 462998,
+      "first_stage": {
+        "PARTIDUL SOCIAL DEMOCRAT": 16,
+        "ALIANȚA PENTRU UNIREA ROMÂNILOR": 5,
+        "PARTIDUL NAȚIONAL LIBERAL": 3,
+        "UNIUNEA SALVAȚI ROMÂNIA": 3,
+        "PARTIDUL S.O.S. ROMÂNIA": 1,
+        "PARTIDUL OAMENILOR TINERI": 0,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 3
+      },
+      "national_stage": {
+        "PARTIDUL SOCIAL DEMOCRAT": 20,
+        "ALIANȚA PENTRU UNIREA ROMÂNILOR": 23,
+        "PARTIDUL NAȚIONAL LIBERAL": 19,
+        "UNIUNEA SALVAȚI ROMÂNIA": 16,
+        "PARTIDUL S.O.S. ROMÂNIA": 11,
+        "PARTIDUL OAMENILOR TINERI": 7,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 7
+      },
+      "allocation_model": "national D'Hondt over the remainders reproduces section j except 2 seat(s) the act does not deploy"
+    },
+    "provenance": [
+      {
+        "source_id": "src-ro-bec-s-2024",
+        "source_url": "https://parlamentare2024.bec.ro/wp-content/uploads/2024/12/RF_2.pdf",
+        "source_record_id": "act 2RF/BEC/SCD2024, sections i–k",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+        },
+        "parser_version": "romania-parliament-v2",
+        "parser_sha256": "4088ef491a8ec488a3c350a5f15f5a4d1ffb5181d03ddc77d59af4938a777da6",
+        "fields_covered": [
+          "base_seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "e87a5c6324192bc414903967b4cb6c616d9bb785edab127fd0b87798ee1c2270"
       }
     ]
   }

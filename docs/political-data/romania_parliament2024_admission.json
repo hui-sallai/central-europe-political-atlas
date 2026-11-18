@@ -1,0 +1,85 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "romania-parliament-2024",
+ "country": "romania",
+ "election_ids": [
+  "el-ro-cd-2024-12-01",
+  "el-ro-s-2024-12-01"
+ ],
+ "scope": "Parliament election of 1 December 2024 as two separate elections: Chamber of Deputies (331 seats: 312 list seats and 19 national-minority organisation seats) and Senate (136 seats, of which 134 senators elected; two national-stage seats were not deployed to a constituency in the act): every list with national votes, independent candidates aggregated without names, registered voters, voters, valid and null votes as printed, derived turnout, first-stage and national-stage seats. Constituency votes, candidate names, party attribution and the 2012 and 2020 elections are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief \"Complete ten-country parliamentary election coverage\" and answer \"Accept for all four\" (official-texts reading of Law 8/1996 Art. 9)."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner answer \"Open in browser pane once\" for the 2024 Central Electoral Bureau files; the site showed a browser-verification challenge and nothing was retrieved by the assistant."
+  },
+  {
+   "date": "2026-11-18",
+   "decision": "Owner answer \"both\": the owner saves the 2024 files by hand. The owner then supplied RF_2.pdf (Senate) and RF_3.pdf (Chamber of Deputies), the Bureau's final acts 2RF and 3RF of 7 December 2024."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/romania/parliament/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "owner_decision",
+   "basis": "The acts are official texts of the Central Electoral Bureau (proces-verbal); the owner accepted the official-texts reading of Law 8/1996 Art. 9 for Romanian results. No licence exists. The uncertainty of this reading is recorded."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_and_seat_tables",
+   "evidence_kind": "owner_decision",
+   "basis": "National counts, list votes and seat tables transcribed from the acts, attributed to the Central Electoral Bureau; no candidate names."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The two PDFs (48 and 122 scanned pages) stay in local-evidence/ by SHA-256; they are not committed or republished."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_manual_download",
+   "evidence_kind": "owner_decision",
+   "basis": "The owner downloaded RF_2.pdf and RF_3.pdf by hand from parlamentare2024.bec.ro; the assistant made no request to that host after the browser-verification challenge. The host is registered as owner-download only."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "Sections a–h (counts), e (every list and independent candidate), i.1 (remainders), i.2 (first stage per constituency), j (national stage per constituency), k (elected, counted per list) and m (minority organisations) were read in full for both chambers."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "Per chamber: list and independent votes equal valid votes (c); a, b, f and g equal their sub-items; the lists over 5% are exactly the lists of sections i–k; remainders sum to the printed totals; i.2 sums to 188 + 124 (Chamber) and 31 + 105 (Senate); national D'Hondt over the remainders reproduces section j (Chamber exactly; Senate except two POT seats the act does not deploy, matching the unfilled slots of Giurgiu and Ialomița); elected minus j gives the first stage; m.2 = 25,396 and m.3 = 1,269 recompute and 19 organisations qualify, equal to section m.5; Chamber 331, Senate 134 of 136."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list_per_chamber",
+   "evidence_kind": "owner_decision",
+   "basis": "Each chamber is its own election with its own contestants; lists keep their printed names; independents are one aggregate row; no list is linked to a party, to the 2016 lists or across chambers."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "rules_reproduced_registry_linked",
+   "evidence_kind": "build_check",
+   "basis": "5% threshold, constituency quota and national D'Hondt of remainders (Art. 94, cited in section i) and Art. 56 minority seats checked against the act; the institutional registry (Law 208/2015, partly verified) links both elections to its period."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "bec_final_act_transcribed_by_eye",
+   "evidence_kind": "official_act",
+   "basis": "The source is the Central Electoral Bureau's final act (7 December 2024), transcribed by eye from the scans with every total cross-checked. The polling day (1 December 2024) is not printed in the result sections and is taken from the source registry's AEP path (background_to_verify); the two unfilled Senate slots are recorded as printed, with no reason given in the act."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a list title repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

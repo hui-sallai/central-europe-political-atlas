@@ -29,10 +29,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "parser_sha256": "4088ef491a8ec488a3c350a5f15f5a4d1ffb5181d03ddc77d59af4938a777da6",
         "fields_covered": [
           "valid_votes"
         ],
@@ -71,15 +71,115 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "9feb255446a768a4b2931d530889f96670451a1993c4ddb40bf964742177790a"
+          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "6dcb375b1109e4ca77d38cc5122a88a9727ba7bd42e94a527f49c7e30482ead9",
+        "parser_sha256": "4088ef491a8ec488a3c350a5f15f5a4d1ffb5181d03ddc77d59af4938a777da6",
         "fields_covered": [
           "valid_votes"
         ],
         "published_or_derived": "derived_sum_of_published_rows",
         "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "election_id": "el-ro-cd-2024-12-01",
+    "country": "romania",
+    "geography": "national",
+    "vote_type": "ro_cd_list_vote",
+    "result_vintage": "final: Central Electoral Bureau act no. 3RF/BEC/SCD2024 of 2024-12-07 (Proces-verbal privind rezultatele finale ale alegerilor pentru Camera Deputaților); scanned PDF saved by the owner, transcribed by eye",
+    "eligible_voters": 19503273,
+    "voters_turned_out": 9454678,
+    "voters": 9454678,
+    "valid_votes": 9243641,
+    "invalid_votes": 171877,
+    "ballots_cast": null,
+    "blank_votes": 38288,
+    "published_turnout": null,
+    "derived_turnout": 48.47739146142291,
+    "turnout_definition": "Registered voters = a (permanent, supplementary, mobile-ballot-box and postal lists); voters = b (persons who voted, from the same lists); valid votes = c; null votes = d. Blank ballots (h) are counted separately in the act. The act prints no turnout percentage; derived turnout = b ÷ a. Both chambers share a and b.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Registered voters = a (permanent, supplementary, mobile-ballot-box and postal lists); voters = b (persons who voted, from the same lists); valid votes = c; null votes = d. Blank ballots (h) are counted separately in the act. The act prints no turnout percentage; derived turnout = b ÷ a. Both chambers share a and b.",
+      "sourceIds": [
+        "src-ro-bec-cd-2024"
+      ]
+    },
+    "published_or_derived_note": "counts printed in the act (sections a–d, h); percentage derived",
+    "provenance": [
+      {
+        "source_id": "src-ro-bec-cd-2024",
+        "source_url": "https://parlamentare2024.bec.ro/wp-content/uploads/2024/12/RF_3.pdf",
+        "source_record_id": "act 3RF/BEC/SCD2024, sections a, b, c, d and h",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+        },
+        "parser_version": "romania-parliament-v2",
+        "parser_sha256": "4088ef491a8ec488a3c350a5f15f5a4d1ffb5181d03ddc77d59af4938a777da6",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "blank_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "27d0dc5be6a04bd3c94f4f94220bea3ffba3cade66e2ec60b94afa7f7c108239"
+      }
+    ]
+  },
+  {
+    "election_id": "el-ro-s-2024-12-01",
+    "country": "romania",
+    "geography": "national",
+    "vote_type": "ro_s_list_vote",
+    "result_vintage": "final: Central Electoral Bureau act no. 2RF/BEC/SCD2024 of 2024-12-07 (Proces-verbal privind rezultatele finale ale alegerilor pentru Senat); scanned PDF saved by the owner, transcribed by eye",
+    "eligible_voters": 19503273,
+    "voters_turned_out": 9454678,
+    "voters": 9454678,
+    "valid_votes": 9259957,
+    "invalid_votes": 149557,
+    "ballots_cast": null,
+    "blank_votes": 44331,
+    "published_turnout": null,
+    "derived_turnout": 48.47739146142291,
+    "turnout_definition": "Registered voters = a (permanent, supplementary, mobile-ballot-box and postal lists); voters = b (persons who voted, from the same lists); valid votes = c; null votes = d. Blank ballots (h) are counted separately in the act. The act prints no turnout percentage; derived turnout = b ÷ a. Both chambers share a and b.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Registered voters = a (permanent, supplementary, mobile-ballot-box and postal lists); voters = b (persons who voted, from the same lists); valid votes = c; null votes = d. Blank ballots (h) are counted separately in the act. The act prints no turnout percentage; derived turnout = b ÷ a. Both chambers share a and b.",
+      "sourceIds": [
+        "src-ro-bec-s-2024"
+      ]
+    },
+    "published_or_derived_note": "counts printed in the act (sections a–d, h); percentage derived",
+    "provenance": [
+      {
+        "source_id": "src-ro-bec-s-2024",
+        "source_url": "https://parlamentare2024.bec.ro/wp-content/uploads/2024/12/RF_2.pdf",
+        "source_record_id": "act 2RF/BEC/SCD2024, sections a, b, c, d and h",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+        },
+        "parser_version": "romania-parliament-v2",
+        "parser_sha256": "4088ef491a8ec488a3c350a5f15f5a4d1ffb5181d03ddc77d59af4938a777da6",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "blank_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "e87a5c6324192bc414903967b4cb6c616d9bb785edab127fd0b87798ee1c2270"
       }
     ]
   }

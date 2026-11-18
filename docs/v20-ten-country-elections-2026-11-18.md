@@ -151,3 +151,23 @@ Admission `croatia-sabor-2011` (`docs/political-data/croatia_sabor2011_admission
 - List names come from the commission's 2011 open-data workbooks (`arhiva-izbora/data/parlament/2011/zip/rezultati.zip`, constituency total rows), whose totals equal the decisions' valid ballots in all eleven list constituencies; every decision row is matched by votes (one tie in constituency X resolved by the legible decision text). List leaders ("Nositelj liste") are dropped; one list title that was only a person's name is omitted (row number shown).
 - Seats grouped by party names (independent lists by their full label): Kukuriku coalition (SDP, HNS, IDS, HSU) 80, HDZ-led lists 47, HDSSB 6, Laburisti 6, an independent list 2, HSS 1, HSP AS–HČSP 1; minorities 8; total 151. There was no preferential vote in 2011 (the 2015 amendment is a later change in `election_links.json`).
 - 2011 minority decisions print the minority electoral roll (e.g. Serbian minority 183,992), so their turnout is roll-based, unlike 2015–2024.
+
+## Addendum: Romania 2024 (owner-supplied BEC final acts)
+
+Admission `romania-parliament-2024` (`docs/political-data/romania_parliament2024_admission.json`); same build (`scripts/political-data/romania/build-parliament.mjs`, new `reconcile2024`), now four elections.
+
+- Source: the Central Electoral Bureau's final acts 2RF (Senate, 48 pages) and 3RF (Chamber of Deputies, 122 pages) of 7 December 2024, saved by the owner (`local-evidence/romania/RF_2.pdf`, `RF_3.pdf`; SHA-256 in the evidence; not committed). `parlamentare2024.bec.ro` is registered as blocked for the assistant (browser-verification challenge); the owner's manual download is the acquisition route.
+- Transcription: scans without a text layer; numbers read by eye from the page images (boxed digits), names and row pairing by local OCR. Candidate names (sections k, l, m.5, m.6) are never transcribed; independent candidates are kept as row numbers and aggregated.
+
+| Election | Lists | Valid votes | Seats |
+|---|---|---|---|
+| `el-ro-cd-2024-12-01` | 49 lists + 52 independents | 9,243,641 | PSD 86, AUR 63, PNL 49, USR 40, SOS 28, POT 24, UDMR 22 = 312; 19 national-minority organisations (Art. 56, section m.5); 331 |
+| `el-ro-s-2024-12-01` | 30 lists + 6 independents | 9,259,957 | PSD 36, AUR 28, PNL 22, USR 19, SOS 12, UDMR 10, POT 7 = 134 of 136 |
+
+- Reconciliation (fail-closed): list + independent votes = c; a, b, f, g = their sub-items; the seven lists over 5% are exactly those of sections i–k; i.1 remainders sum to the printed totals (3,143,837 and 6,440,431); i.2 = 188 + 124 and 31 + 105; national D'Hondt over the remainders reproduces section j for every list; elected (k) − j = first stage, summing to the i.2 total; a list without first-stage seats carries its full vote as remainder (POT, Senate); m.2 = ⌊7,923,563 ÷ 312⌋ = 25,396 and m.3 = 1,269 recompute; the 19 organisations above m.3 without list seats equal section m.5.
+- Senate discrepancy, recorded as printed: D'Hondt entitles POT to 9 national-stage seats, but section j deploys 7, so Giurgiu and Ialomița each keep one of their national-stage slots unfilled (134 senators of 136). The act states no reason. Published as `total_seats` 134 with `seat_slots` 136 and `unfilled_seats_note`; the POT row carries `national_stage_entitlement` 9 and `undeployed_seats` 2.
+- Turnout: a = 19,503,273 registered, b = 9,454,678 voters (identical in both acts); derived turnout b ÷ a (no printed percentage). Null votes d are published; blank ballots h are kept separately.
+- Polling day 1 December 2024 is not printed in the result sections; the date follows the AEP results path recorded in the national election source registry (background_to_verify), stated in `date_basis`.
+- Institutions: `election_links.json` now holds 34 elections; both 2024 elections link to `romania-period-2015-07-20`.
+- Codex: no new accessor (`politicalRomanianStores()` already returns all four elections); select by chamber and year, never combine chambers; show the Senate's 134 of 136 with the unfilled-seats note; 2024 turnout is derived (show as derived), 2016 turnout stays "not published".
+- Still missing: Romania 2020 and 2012; Austria (owner files pending in `local-evidence/austria/`).

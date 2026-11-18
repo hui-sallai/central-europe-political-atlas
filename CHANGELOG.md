@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Romanian parliamentary election 2024 — 2026-11-18
+
+- Add Romania's 1 December 2024 parliamentary election as two separate elections, from the Central Electoral Bureau's final acts: Chamber of Deputies (331 seats, including 19 seats for national-minority organisations) and Senate (134 senators elected of 136 seats; the act places two national-stage seats in no constituency and gives no reason), with registered voters, voters and valid votes as printed and turnout derived from them. Independent candidates are aggregated without names.
+
 ### v2.0 Croatian parliamentary election 2011 — 2026-11-18
 
 - Add Croatia's 2011 parliamentary election (all 151 seats per constituency, including the constituency abroad and the national-minority elections). The commission's 2011 decisions have a damaged text layer, so list names come from its open-data workbooks, matched to the decisions by votes; list leaders' names are not stored.

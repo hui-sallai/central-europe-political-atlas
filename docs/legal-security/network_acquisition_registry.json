@@ -568,6 +568,17 @@
       "robots_note": "robots.txt request timed out; the browser navigation failed",
       "reason": "Unreachable from this environment; not retried. Law 208/2015 stays pending.",
       "status": "blocked"
+    },
+    {
+      "host": "parlamentare2024.bec.ro",
+      "purpose": "Romanian Central Electoral Bureau, 2024 parliamentary elections: final acts 2RF (Senate) and 3RF (Chamber of Deputies) — downloaded by the owner by hand, never by the assistant",
+      "automation_allowed": false,
+      "manual_allowed": false,
+      "robots_checked_at": "2026-11-18",
+      "robots_note": "the single owner-approved browser-pane visit (answer \"Open in browser pane once\") met a browser-verification challenge (\"Verifying your browser…\", HTTP 503); no further request",
+      "reason": "Browser-verification challenge, never bypassed or retried. Owner answer \"both\": the owner saved RF_2.pdf and RF_3.pdf by hand (2026-11-18); they are kept in local-evidence/ by checksum.",
+      "approved_by": "owner (answers \"Open in browser pane once\" and \"both\", 2026-11-18)",
+      "status": "blocked"
     }
   ],
   "reference_hosts": {

@@ -4226,8 +4226,8 @@
     {
       "amendment_id": "romania-elections-2016-2026-11-18",
       "status": "owner_approved",
-      "approved_by": "owner answers 2026-11-18 \"both\" and \"ii then i\" (Romania 2016) on top of the ten-country brief: politicalData.ts adds the gated Romanian stores; politicalAdmission.ts makes Romania admitted with politicsRoute false; romania.json gains store_chamber for both chambers and election_links.json is regenerated; earlier in the day: politicalData.ts imports the admitted Croatian and Slovenian stores behind the publication gate (raw constituency stores, no national view and no comparison set changed); politicalAdmission.ts adds the two admitted rows and the pipeline note; institutions registry: store_chamber added for hr-sabor and si-drzavni-zbor and election_links.json regenerated so the new elections link to their institutional periods; pages link only to countries with a politics page (admittedCountrySlugs; Croatia and Slovenia flagged politicsRoute false and left out of countryElectionLinks until Codex adds their pages); no component, page or design change",
-      "baseline": "59a91f36476addcbb01358e8144d81cc1cbde68a",
+      "approved_by": "owner answer 2026-11-18 \"both\" with the owner-supplied BEC acts RF_2/RF_3 (Romania 2024): politicalAdmission.ts updates the Romanian row text and record, election_links.json is regenerated with the two 2024 elections; before that, owner answers \"both\" and \"ii then i\" (Romania 2016) on top of the ten-country brief: politicalData.ts adds the gated Romanian stores; politicalAdmission.ts makes Romania admitted with politicsRoute false; romania.json gains store_chamber for both chambers and election_links.json is regenerated; earlier in the day: politicalData.ts imports the admitted Croatian and Slovenian stores behind the publication gate (raw constituency stores, no national view and no comparison set changed); politicalAdmission.ts adds the two admitted rows and the pipeline note; institutions registry: store_chamber added for hr-sabor and si-drzavni-zbor and election_links.json regenerated so the new elections link to their institutional periods; pages link only to countries with a politics page (admittedCountrySlugs; Croatia and Slovenia flagged politicsRoute false and left out of countryElectionLinks until Codex adds their pages); no component, page or design change",
+      "baseline": "0a7e87c397fdb5ec578f90c46bbbcde025458692",
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
       "political_data_change_allowed": false,
@@ -4242,7 +4242,7 @@
         },
         {
           "path": "src/lib/politicalAdmission.ts",
-          "sha256": "5f54678b8384a222a120068bd6f61df4581f06b776320e1b3a3f52c0b7bec8d9",
+          "sha256": "399b77d8675f5364efe3eb96bcdb822684da8a4dc0599a83cf092da4b7408d50",
           "classification": "DATA_PRESENTATION"
         },
         {
@@ -4257,7 +4257,7 @@
         },
         {
           "path": "src/lib/institutions/election_links.json",
-          "sha256": "415119099c65d5d7ac87522b2945bccf87d680a19c8059b2efbf5251a1eb66ef",
+          "sha256": "e64e1d02f7718852402faeeeccc0bc412f63b8a85c96ae5bd51f4beb5051db91",
           "classification": "DATA_PRESENTATION"
         },
         {

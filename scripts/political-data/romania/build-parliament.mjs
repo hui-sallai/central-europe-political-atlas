@@ -16,6 +16,20 @@
 // independent candidates' names (aggregated). Source vintage: AEP centralisation (file timestamp 14 December 2016), not
 // the Central Electoral Bureau's final act.
 //
+// 2024 (owner answer "both": the owner saved the Central Electoral Bureau's final acts 2RF and 3RF of 7 December 2024 by
+// hand; transcribed by eye from the scans, candidate names never transcribed). Fail-closed per chamber (reconcile2024):
+//   - list and independent votes = valid votes (c); a = a1+…+a4, b = b1+…+b4, f = f1+f2, g = g1+g2;
+//   - lists with at least 5% of valid votes = the lists in sections i.1, j and k; remainders ≤ votes and sum to the printed
+//     total; i.2 first-stage and unassigned seats sum to the printed totals;
+//   - national D'Hondt over the i.1 remainders for the unassigned seats reproduces section j for every list, except seats
+//     the act does not deploy to a constituency (Senate: two POT seats; Giurgiu and Ialomița keep one slot each unfilled);
+//     j per constituency never exceeds the unassigned slots, and the shortfall equals the undeployed seats;
+//   - elected (k) − j = first-stage seats per list, summing to the i.2 total; a list without first-stage seats has its full
+//     vote as remainder;
+//   - Chamber minority seats (Art. 56): m.2 = ⌊votes of lists over the threshold ÷ 312⌋, m.3 = ⌊5% × m.2⌋; organisations
+//     of national minorities without list seats and with at least m.3 votes = the 19 organisations of section m.5.
+// Turnout 2024 = b ÷ a (derived; the act prints no percentage).
+//
 // Usage: node scripts/political-data/romania/build-parliament.mjs [--write]   (default: check committed files)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -28,8 +42,8 @@ const STORE_DIR = 'src/data/political/romania';
 const EXPORT_DIR = 'public/research-data/political/romania';
 export const ROMANIAN_STORES = ['elections', 'election_turnout', 'election_results', 'electoral_contestants', 'legislatures', 'electoral_systems', 'political_source_registry'];
 const CH = {
-  CD: { code: 'cd', chamber: 'Camera Deputaților', en: 'Chamber of Deputies', zh: '众议院', listSeats: 312, vote: 'ro_cd_list_vote', minority: true },
-  S: { code: 's', chamber: 'Senat', en: 'Senate', zh: '参议院', listSeats: 136, vote: 'ro_s_list_vote', minority: false },
+  CD: { code: 'cd', chamber: 'Camera Deputaților', en: 'Chamber of Deputies', zh: '众议院', listSeats: 312, listSeats2024: 312, vote: 'ro_cd_list_vote', minority: true },
+  S: { code: 's', chamber: 'Senat', en: 'Senate', zh: '参议院', listSeats: 136, listSeats2024: 136, vote: 'ro_s_list_vote', minority: false },
 };
 const sha = (x) => crypto.createHash('sha256').update(x).digest('hex');
 const read = (rel) => fs.readFileSync(path.join(root, rel));
@@ -77,6 +91,58 @@ export function reconcile(ch, c, minorityOrgs) {
     allocation_model: ch === 'S' ? 'reproduced exactly' : `simplified model differs by one seat (${diff.join(' / ')}); mandate file used` };
 }
 
+/** D'Hondt over the pooled remainders (national stage of Law 208/2015 Art. 94 as printed in section j). */
+export function dhondt(votes, seats) {
+  const names = Object.keys(votes), won = Object.fromEntries(names.map((p) => [p, 0]));
+  for (let i = 0; i < seats; i += 1) { const best = names.reduce((b, p) => (votes[p] / (won[p] + 1) > votes[b] / (won[b] + 1) ? p : b)); won[best] += 1; }
+  return won;
+}
+
+/** 2024: reconcile one chamber of the Central Electoral Bureau's final act (sections a–m). */
+export function reconcile2024(ch, c) {
+  const k = CH[ch], check = (ok, what) => { if (!ok) fail(`2024 ${ch}: ${what}`); };
+  const n = c.counts, A = c.act;
+  check(n.a === n.a1 + n.a2 + n.a3 + n.a4 && n.b === n.b1 + n.b2 + n.b3 + n.b4 && n.f === n.f1 + n.f2 && n.g === n.g1 + n.g2, 'a, b, f or g ≠ the sum of its sub-items');
+  check(n.b <= n.a && n.c + n.d <= n.b, 'counts out of order (c + d ≤ b ≤ a)');
+  check(sum(c.lists) + c.independents.votes === n.c, 'list and independent votes ≠ valid votes (c)');
+  const order = [...c.lists.map((l) => [l.row, l.votes]), ...c.independents.ballot_rows.map((r) => [r, null])].sort((x, y) => x[0] - y[0]);
+  check(order.every(([r], i) => r === i + 1) && c.independents.ballot_rows.length === c.independents.candidates, 'rows are not 1…N');
+  check(c.lists.every((l, i) => !i || c.lists[i - 1].votes >= l.votes), 'lists not in descending vote order');
+  const over = c.lists.filter((l) => l.votes * 100 >= 5 * n.c).map((l) => l.name);
+  const same = (x) => JSON.stringify([...over].sort()) === JSON.stringify(Object.keys(x).sort());
+  check(same(c.remainders_i1) && same(c.national_stage_j) && same(c.elected_k), 'lists with ≥ 5% ≠ the lists of sections i.1, j and k');
+  const votesOf = (p) => c.lists.find((l) => l.name === p).votes;
+  check(over.every((p) => c.remainders_i1[p] <= votesOf(p)) && Object.values(c.remainders_i1).reduce((a, b) => a + b, 0) === A.remainders_total_i1, 'i.1 remainders exceed votes or do not sum to the printed total');
+  const fs1 = c.first_stage_by_constituency;
+  check(fs1.length === 43 && fs1.every((r, i) => r.constituency === i + 1), 'i.2 does not list 43 constituencies');
+  check(sum(fs1, 'assigned') === A.first_stage_total && sum(fs1, 'unassigned') === A.unassigned_total, 'i.2 columns ≠ printed totals');
+  const entitled = dhondt(c.remainders_i1, A.unassigned_total);
+  const j = Object.fromEntries(over.map((p) => [p, c.national_stage_j[p].length]));
+  check(over.every((p) => j[p] <= entitled[p]), 'section j gives a list more than its D\'Hondt entitlement');
+  const undeployed = Object.fromEntries(over.filter((p) => entitled[p] > j[p]).map((p) => [p, entitled[p] - j[p]]));
+  const perCons = new Map(); for (const p of over) for (const x of c.national_stage_j[p]) perCons.set(x, (perCons.get(x) ?? 0) + 1);
+  check(fs1.every((r) => (perCons.get(r.constituency) ?? 0) <= r.unassigned), 'section j exceeds the unassigned slots of a constituency');
+  const unfilled = fs1.filter((r) => (perCons.get(r.constituency) ?? 0) < r.unassigned).map((r) => ({ constituency: r.constituency, name: r.name, slots: r.unassigned - (perCons.get(r.constituency) ?? 0) }));
+  const undeployedTotal = Object.values(undeployed).reduce((a, b) => a + b, 0);
+  check(unfilled.reduce((a, r) => a + r.slots, 0) === undeployedTotal, 'unfilled slots ≠ undeployed D\'Hondt seats');
+  const first = Object.fromEntries(over.map((p) => [p, c.elected_k[p] - j[p]]));
+  check(over.every((p) => first[p] >= 0) && Object.values(first).reduce((a, b) => a + b, 0) === A.first_stage_total, 'elected − j ≠ the first-stage seats');
+  check(over.every((p) => first[p] > 0 || c.remainders_i1[p] === votesOf(p)), 'a list without first-stage seats does not carry its full vote as remainder');
+  const filled = Object.values(c.elected_k).reduce((a, b) => a + b, 0);
+  check(filled === A.elected_rows && filled === A.first_stage_total + A.unassigned_total - undeployedTotal && A.first_stage_total + A.unassigned_total === k.listSeats2024, 'elected rows ≠ seats filled');
+  let minority = [];
+  if (k.minority) {
+    const m = c.minority, avg = Math.floor(over.reduce((a, p) => a + votesOf(p), 0) / k.listSeats2024), min = Math.floor(0.05 * avg);
+    check(avg === m.average_votes_per_deputy_m2 && min === m.minimum_votes_m3, 'm.2 or m.3 does not recompute');
+    const orgs = c.lists.filter((l) => l.kind === 'national_minority_organisation');
+    check(JSON.stringify(orgs.map((l) => l.name).sort()) === JSON.stringify([...m.m1_organisations].sort()), 'minority organisations ≠ section m.1');
+    minority = orgs.filter((l) => !over.includes(l.name) && l.votes >= min).map((l) => l.name);
+    check(JSON.stringify([...minority].sort()) === JSON.stringify([...m.entitled_m5].sort()), 'Art. 56 minority seats ≠ section m.5');
+  }
+  return { valid: n.c, lists: c.lists.length, independents: c.independents.candidates, seat_slots: k.listSeats2024, list_seats_filled: filled, unfilled, undeployed, minority_seats: minority.length, total_seats: filled + minority.length, threshold_votes: Math.ceil(0.05 * n.c), first_stage: first, national_stage: j,
+    allocation_model: undeployedTotal ? `national D'Hondt over the remainders reproduces section j except ${undeployedTotal} seat(s) the act does not deploy` : "national D'Hondt over the remainders reproduces section j exactly" };
+}
+
 export function buildRomania() {
   const buf = read(EVIDENCE);
   const ev = JSON.parse(buf), evSha = sha(buf), parserSha = sha(read('scripts/political-data/romania/build-parliament.mjs'));
@@ -119,7 +185,48 @@ export function buildRomania() {
     out.political_source_registry.push({ source_id: SRC, country: 'romania', institution: 'Autoritatea Electorală Permanentă (Permanent Electoral Authority)', dataset: `Alegeri pentru Camera Deputaților și Senat 2016 — ${k.chamber}: centralised polling-station results, postal-vote results and mandate allocation by constituency (data.gov.ro)`, tier: 'tier1_official', url: E.dataset_page, licence_status: 'open_licence_ogl_rou_1_0', raw_redistribution: 'national sums and seat tables only; polling-station files not redistributed', licence_url: ev.rights.licence_url, attribution: 'Autoritatea Electorală Permanentă, data.gov.ro', retrieved_at: E.retrieved_at, raw_sha256: evSha, raw_path: EVIDENCE, files: c.files });
   }
   out.political_source_registry.push({ source_id: 'src-ro-cdep-structure-2016', country: 'romania', institution: 'Camera Deputaților', dataset: 'Formaţiuni politice şi organizaţii reprezentate în Camera Deputaţilor, legislatura 2016–2020 (organisations of national minorities only)', tier: 'tier1_official', url: X.source, role: 'cross_check_minority_seats', licence_status: 'official_text_law_8_1996_art_9_owner_reading', raw_redistribution: 'organisation abbreviations and a text checksum only', licence_url: ev.rights.licence_url, attribution: 'Camera Deputaților', retrieved_at: X.read_on, raw_sha256: evSha, raw_path: EVIDENCE, page_block_sha256: X.block_text_sha256 });
-  return { ...out, checks };
+  const checks2024 = build2024(out, ev, evSha, parserSha);
+  return { ...out, checks: { 2016: checks, 2024: checks2024 } };
+}
+
+function build2024(out, ev, evSha, parserSha) {
+  const E = ev.elections['2024'], date = E.polling_day.date, checks = {};
+  if (date !== '2024-12-01') fail('2024 polling day');
+  for (const ch of ['CD', 'S']) {
+    const k = CH[ch], c = E.chambers[ch], A = c.act, n = c.counts, r = reconcile2024(ch, c);
+    checks[ch] = r;
+    const electionId = `el-ro-${k.code}-${date}`, SRC = `src-ro-bec-${k.code}-2024`;
+    const vintage = `final: Central Electoral Bureau act no. ${A.number} of ${A.date} (${A.title}); scanned PDF saved by the owner, transcribed by eye`;
+    const prov = (record, fields, how = 'published') => ({ source_id: SRC, source_url: A.url, source_record_id: `act ${A.number}, ${record}`, retrieved_at: E.retrieved_at, raw_snapshot: { path: EVIDENCE, sha256: evSha }, parser_version: 'romania-parliament-v2', parser_sha256: parserSha, fields_covered: fields, published_or_derived: how, publisher_file_sha256: A.sha256 });
+    out.elections.push({ election_id: electionId, country: 'romania', election_type: 'national_parliament', chamber: k.chamber, date, date_end: null, date_basis: E.polling_day.basis, result_coverage: ch === 'CD' ? 'all_lists_national_independents_aggregated_minority_seats_by_rule' : 'all_lists_national_independents_aggregated', year: 2024, legislature_id: `lg-ro-${k.code}-2024`, electoral_system_id: `es-ro-${k.code}-2024`, result_status: 'official_final', result_vintage: vintage, separate_chamber_note: 'The Chamber of Deputies and the Senate are separate elections with separate ballots; their votes and seats are never combined.', later_poll_date: null, repeat_poll_date: null, provenance: [prov('act date (polling day not printed in the result sections)', ['date'], 'derived_from_evidence_record')] });
+    const def = 'Registered voters = a (permanent, supplementary, mobile-ballot-box and postal lists); voters = b (persons who voted, from the same lists); valid votes = c; null votes = d. Blank ballots (h) are counted separately in the act. The act prints no turnout percentage; derived turnout = b ÷ a. Both chambers share a and b.';
+    out.election_turnout.push({ election_id: electionId, country: 'romania', geography: 'national', vote_type: k.vote, result_vintage: vintage, eligible_voters: n.a, voters_turned_out: n.b, voters: n.b, valid_votes: n.c, invalid_votes: n.d, ballots_cast: null, blank_votes: n.h, published_turnout: null, derived_turnout: (n.b / n.a) * 100, turnout_definition: def, turnout_basis: { numerator: 'voters_turned_out', denominator: 'registered_electorate', definition: def, sourceIds: [SRC] }, published_or_derived_note: 'counts printed in the act (sections a–d, h); percentage derived', provenance: [prov('sections a, b, c, d and h', ['eligible_voters', 'voters_turned_out', 'voters', 'valid_votes', 'invalid_votes', 'blank_votes'])] });
+    const minority = new Set(ch === 'CD' ? c.minority.entitled_m5 : []);
+    for (const l of c.lists) {
+      const id = `ct-ro-${k.code}24-${String(l.row).padStart(3, '0')}`, mSeat = minority.has(l.name) ? 1 : 0, isMin = l.kind === 'national_minority_organisation';
+      const listSeats = c.elected_k[l.name] ?? 0, firstStage = r.first_stage[l.name] ?? 0, national = r.national_stage[l.name] ?? 0, undeployed = r.undeployed[l.name] ?? 0;
+      out.electoral_contestants.push({ contestant_id: id, country: 'romania', election_id: electionId, contestant_kind: isMin ? 'national_minority_organisation' : 'party_or_political_formation_list', native_list_type: isMin ? 'organizație a cetățenilor aparținând minorităților naționale' : 'listă de candidați', kind_basis: isMin ? 'listed in section m.1 of the act among organisations of citizens belonging to national minorities' : 'every other list; party and alliance are not distinguished in the act', list_number: l.row, list_number_basis: 'row of section e (ordered by national votes)', registered_label_native: null, historical_display_label: l.name, display_label_rule: 'list name as printed in the act', label_basis: 'verbatim', lead_party_id: null, party_relation_status: 'not_attributed_no_party_register_reviewed', continuous_series_eligible: false, provenance: [prov(`section e, row ${l.row}`, ['historical_display_label'])] });
+      out.election_results.push({ result_id: `er-${id}`, country: 'romania', geography: 'national', election_id: electionId, contestant_ref: id, vote_type: k.vote, valid_votes: n.c, total_seats: r.total_seats, votes: l.votes, published_vote_share: null, derived_vote_share: (l.votes / n.c) * 100, seats: listSeats + mSeat, list_seats: listSeats, minority_seats: mSeat, first_stage_seats: firstStage, national_stage_seats: national, ...(undeployed ? { national_stage_entitlement: national + undeployed, undeployed_seats: undeployed } : {}),
+        seat_basis: mSeat ? 'one Chamber seat for a national-minority organisation under Art. 56 (section m.5)' : listSeats ? `elected list members in section k (${firstStage} in the first stage, ${national} in the national stage of section j)${undeployed ? `; ${undeployed} further national-stage seat(s) of its D'Hondt entitlement were not deployed to a constituency in the act` : ''}` : 'no seat', published_seat_share: null, result_vintage: vintage, provenance: [prov(`section e, row ${l.row}`, ['votes']), ...(listSeats ? [prov('sections j and k', ['list_seats', 'national_stage_seats'], 'derived_count_of_published_rows')] : []), ...(mSeat ? [prov('section m.5', ['minority_seats'])] : [])] });
+    }
+    const indId = `ct-ro-${k.code}24-ind`;
+    out.electoral_contestants.push({ contestant_id: indId, country: 'romania', election_id: electionId, contestant_kind: 'independent_candidates_aggregate', native_list_type: 'candidați independenți', kind_basis: `${c.independents.candidates} independent candidates (separate rows of section e), aggregated; names not stored`, list_number: null, list_number_basis: null, registered_label_native: null, historical_display_label: `Candidați independenți (${c.independents.candidates})`, display_label_rule: 'aggregate of independent candidates; individual names are not stored', label_basis: 'aggregate', independent_candidates: c.independents.candidates, lead_party_id: null, party_relation_status: 'not_applicable', continuous_series_eligible: false, provenance: [prov('section e, independent candidates summed', ['independent_candidates'], 'derived_sum_of_published_rows')] });
+    out.election_results.push({ result_id: `er-${indId}`, country: 'romania', geography: 'national', election_id: electionId, contestant_ref: indId, vote_type: k.vote, valid_votes: n.c, total_seats: r.total_seats, votes: c.independents.votes, published_vote_share: null, derived_vote_share: (c.independents.votes / n.c) * 100, seats: 0, seat_basis: 'no independent candidate was elected (section k)', published_seat_share: null, result_vintage: vintage, provenance: [prov('section e, independent candidates summed', ['votes'], 'derived_sum_of_published_rows')] });
+    const unfilledNote = r.unfilled.length ? `${r.seat_slots} seats under the representation norm; ${r.list_seats_filled} filled: the act deploys ${Object.entries(r.undeployed).map(([p, x]) => `${x} of the national-stage seats of ${p}`).join(', ')} to no constituency, so slots stay unfilled in ${r.unfilled.map((u) => `${u.name} (${u.slots})`).join(' and ')}; the act states no reason.` : null;
+    out.legislatures.push({ legislature_id: `lg-ro-${k.code}-2024`, country: 'romania', chamber: k.chamber, official_term: '2024–2028', election_id: electionId, total_seats: r.total_seats, seat_slots: r.seat_slots, seats_by_mechanism: ch === 'CD' ? { list_seats_43_constituencies: r.list_seats_filled, national_minority_organisations: r.minority_seats } : { list_seats_43_constituencies_filled: r.list_seats_filled, unfilled: r.seat_slots - r.list_seats_filled }, ...(unfilledNote ? { unfilled_seats_note: unfilledNote } : {}),
+      seats_by_stage: { first_stage_by_constituency: c.first_stage_by_constituency.map((x) => ({ constituency: x.constituency, name: x.name, first_stage: x.assigned, national_stage_slots: x.unassigned })), national_stage_by_list: Object.fromEntries(Object.entries(c.national_stage_j).map(([p, cs]) => [p, Object.entries(cs.reduce((m, x) => ({ ...m, [x]: (m[x] ?? 0) + 1 }), {})).map(([cons, seats]) => ({ constituency: Number(cons), seats }))])) },
+      seat_count_basis: 'election_result_vintage_not_current_composition', result_vintage: vintage, start_date: null, end_date: null, date_status: 'not_acquired_not_asserted', provenance: [prov('sections i.2, j and k', ['seats_by_stage', 'total_seats'], 'derived_count_of_published_rows'), ...(ch === 'CD' ? [prov('sections m.2–m.5', ['seats_by_mechanism.national_minority_organisations'])] : [])] });
+    out.electoral_systems.push({ electoral_system_id: `es-ro-${k.code}-2024`, country: 'romania', election_id: electionId, valid_from: date, valid_to: date, interval_basis: 'election-specific: Law 208/2015 as applied in 2024 (section i cites its Art. 94); the institutional registry holds the statute read from the Chamber of Deputies site (partly verified)', system_family: `list proportional representation in 43 constituencies (42 counties and Bucharest, plus abroad) with national pooling of remainders${ch === 'CD' ? '; national-minority organisation seats' : ''}`, vote_type: k.vote, allocation_method: 'constituency quota (electoral coefficient), then national D’Hondt over pooled remainders', base_seats: k.listSeats2024,
+      vote_definitions: [{ id: k.vote, kind: 'list', label: t(`${k.en} list votes`, `${k.zh}名单票`), denominator: 'valid_votes', seatScope: 'whole_chamber', sourceIds: [SRC] }],
+      national_rules: { nationalAllocation: 'Remaining seats are allocated nationally by D’Hondt over the pooled remainders of lists above the threshold (section i.1), then assigned to constituencies (section j).', districtAllocation: 'In each constituency lists first win as many seats as their votes contain the electoral coefficient (section i.2).',
+        thresholds: [{ appliesTo: 'party list', percent: 5, description: t(`A list needs at least 5% of national valid votes (Law 208/2015; higher thresholds for alliances; the alternative constituency criterion is not tested here). The seven lists in sections i–k are exactly those above 5%.`, '名单须获得全国有效票至少 5%（第 208/2015 号法律；联盟门槛更高；此处未检验替代的选区条件）。第 i–k 节所列七份名单恰为超过 5% 者。'), sourceIds: [SRC] }],
+        minorityRepresentation: ch === 'CD' ? t(`Organisations of national minorities that win no list seat receive one Chamber seat each if they obtain at least 5% of the average valid votes per deputy (Art. 56): the act prints an average of ${c.minority.average_votes_per_deputy_m2} and a minimum of ${c.minority.minimum_votes_m3} votes; nineteen organisations qualified (section m.5).`, `未获名单席位的少数民族组织，若得票达到每名议员平均有效票的 5%，各获众议院一席（第 56 条）：决议载明平均票数 ${c.minority.average_votes_per_deputy_m2}、最低票数 ${c.minority.minimum_votes_m3}；共 19 个组织达到（第 m.5 节）。`) : t('No minority-organisation seats in the Senate.', '参议院不设少数民族组织席位。'),
+        totalSeatsDefinition: ch === 'CD' ? t(`${r.total_seats} deputies: ${r.list_seats_filled} list seats in 43 constituencies and ${r.minority_seats} national-minority organisation seats.`, `${r.total_seats} 名众议员：43 个选区名单席位 ${r.list_seats_filled} 席，少数民族组织 ${r.minority_seats} 席。`) : t(`${r.list_seats_filled} senators elected of ${r.seat_slots} seats: two national-stage seats were not deployed to a constituency in the act (Giurgiu and Ialomița each keep one slot unfilled).`, `${r.seat_slots} 个席位中选出 ${r.list_seats_filled} 名参议员：决议未将两个全国阶段席位分配到选区（久尔久和雅洛米察各有一席空缺）。`), sourceIds: [SRC] },
+      notes: t(`Votes, counts and seats are from the Central Electoral Bureau's final act no. ${A.number} of ${A.date}, transcribed by eye from the scan. ${r.allocation_model[0].toUpperCase()}${r.allocation_model.slice(1)}. Turnout is derived (b ÷ a). Independent candidates are aggregated without names.`, `得票、计数与席位取自中央选举局 ${A.date} 第 ${A.number} 号最终决议，依扫描件人工转录。${r.undeployed && Object.keys(r.undeployed).length ? '对余票的全国 D’Hondt 分配复现第 j 节，但决议未分配的席位除外。' : '对余票的全国 D’Hondt 分配完全复现第 j 节。'}投票率为推算值（b ÷ a）。独立候选人合并列示，不存储姓名。`),
+      seat_check: r, provenance: [prov('sections i–k', ['base_seats'])] });
+    out.political_source_registry.push({ source_id: SRC, country: 'romania', institution: 'Biroul Electoral Central (Central Electoral Bureau)', dataset: `${A.title} — act no. ${A.number}, ${A.date} (${A.annex}; ${A.pages} pages, scanned)`, tier: 'tier1_official', url: A.url, licence_status: 'official_text_law_8_1996_art_9_owner_reading', raw_redistribution: 'national figures and seat tables only; the act is not redistributed and candidate names are not transcribed', licence_url: null, attribution: 'Biroul Electoral Central', retrieved_at: E.retrieved_at, acquisition: 'owner_manual_download', raw_sha256: evSha, raw_path: EVIDENCE, publisher_file_sha256: A.sha256 });
+  }
+  return checks;
 }
 
 const cell = (v) => { if (v === null || v === undefined) return ''; const s = typeof v === 'object' ? JSON.stringify(v) : String(v); return /[",\r\n]/.test(s) ? `"${s.replaceAll('"', '""')}"` : s; };
@@ -131,8 +238,8 @@ export function romaniaFiles(data) {
     const keys = [...new Set(data[store].flatMap((row) => Object.keys(row)))];
     files[`${EXPORT_DIR}/${store}.csv`] = [keys.map(cell).join(','), ...data[store].map((row) => keys.map((k) => cell(row[k])).join(','))].join('\r\n') + '\r\n';
   }
-  files[`${EXPORT_DIR}/README.md`] = '# Romania — Parliament elections of 11 December 2016 (Chamber of Deputies and Senate)\n\nTwo separate elections, never combined: Chamber of Deputies (329 seats: 312 list seats and 17 national-minority organisation seats) and Senate (136 seats). Votes are national sums of the Permanent Electoral Authority\'s polling-station and postal files on data.gov.ro (OGL-ROU-1.0); list seats come from its mandate allocation files; the 17 minority seats follow Law 208/2015 Art. 56 and match the organisations the Chamber of Deputies lists for its 2016–2020 term.\n\nLimits: registered voters, voters and turnout are not published (the AEP count columns are undocumented); the source is the AEP centralisation, not the Central Electoral Bureau\'s final act; independent candidates are aggregated without names; the Chamber\'s seat allocation reproduces within one seat under a simplified model (the official file is used). No list is linked to a party or across elections.\n';
-  files[`${EXPORT_DIR}/manifest.json`] = `${JSON.stringify({ schema_version: 'romania-political-export-v1', country: 'romania', elections: data.elections.map((e) => e.election_id), coverage: 'Chamber of Deputies 329 of 329 seats; Senate 136 of 136 seats; national level', not_included: ['registered voters, voters and turnout', 'constituency vote results', 'independent candidates’ names', 'party attribution and cross-election links', '2012, 2020 and 2024 elections'], stores: ROMANIAN_STORES }, null, 2)}\n`;
+  files[`${EXPORT_DIR}/README.md`] = '# Romania — Parliament elections of 11 December 2016 and 1 December 2024 (Chamber of Deputies and Senate)\n\nFour separate elections, never combined: each chamber in each year is its own election.\n\n## 2016\n\nChamber of Deputies (329 seats: 312 list seats and 17 national-minority organisation seats) and Senate (136 seats). Votes are national sums of the Permanent Electoral Authority\'s polling-station and postal files on data.gov.ro (OGL-ROU-1.0); list seats come from its mandate allocation files; the 17 minority seats follow Law 208/2015 Art. 56 and match the organisations the Chamber of Deputies lists for its 2016–2020 term.\n\nLimits: registered voters, voters and turnout are not published (the AEP count columns are undocumented); the source is the AEP centralisation, not the Central Electoral Bureau\'s final act; the Chamber\'s seat allocation reproduces within one seat under a simplified model (the official file is used).\n\n## 2024\n\nFrom the Central Electoral Bureau\'s final acts 2RF (Senate) and 3RF (Chamber of Deputies) of 7 December 2024, saved by the owner and transcribed by eye from the scans. Chamber of Deputies: 331 seats (312 list seats and 19 national-minority organisation seats, section m.5). Senate: 134 senators elected of 136 seats; the act deploys two national-stage seats to no constituency, so Giurgiu and Ialomița each keep one slot unfilled, and states no reason. Registered voters, voters, valid and null votes are printed in the act; turnout is derived (b ÷ a). National D\'Hondt over the printed remainders reproduces the national stage (section j).\n\nLimits: the polling day (1 December 2024) is not printed in the result sections; constituency votes are not in the act; candidate names are never transcribed.\n\nBoth years: independent candidates are aggregated without names; no list is linked to a party or across elections.\n';
+  files[`${EXPORT_DIR}/manifest.json`] = `${JSON.stringify({ schema_version: 'romania-political-export-v1', country: 'romania', elections: data.elections.map((e) => e.election_id), coverage: '2016: Chamber of Deputies 329 of 329 seats, Senate 136 of 136 seats; 2024: Chamber of Deputies 331 of 331 seats, Senate 134 senators elected of 136 seats; national level', not_included: ['2016 registered voters, voters and turnout', 'constituency vote results', 'independent candidates’ names', 'candidate names', 'party attribution and cross-election links', '2012 and 2020 elections'], stores: ROMANIAN_STORES }, null, 2)}\n`;
   return files;
 }
 

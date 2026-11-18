@@ -86,6 +86,8 @@ export const POLITICAL_ADMISSIONS = {
   'slovenia-dz-2014-2022': { approved_on: '2026-11-18', country: 'slovenia', gate_record: 'docs/political-data/slovenia_dz2014_2022_admission.json', paths: SLOVENIAN_PATHS },
   // Owner answers "both" and "ii then i", 2026-11-18: Romania 2016, Chamber of Deputies and Senate, from AEP files on data.gov.ro.
   'romania-parliament-2016': { approved_on: '2026-11-18', country: 'romania', gate_record: 'docs/political-data/romania_parliament2016_admission.json', paths: ROMANIAN_PATHS },
+  // Owner answer "both" (owner saves the 2024 files) and the supplied RF_2.pdf / RF_3.pdf, 2026-11-18: Romania 2024 from the BEC final acts.
+  'romania-parliament-2024': { approved_on: '2026-11-18', country: 'romania', gate_record: 'docs/political-data/romania_parliament2024_admission.json', paths: ROMANIAN_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 const admissiblePath = (file, country) => country !== 'germany' && /^[a-z]+$/.test(country) && (file.startsWith(`src/data/political/${country}/`) || file.startsWith(`public/research-data/political/${country}/`));
