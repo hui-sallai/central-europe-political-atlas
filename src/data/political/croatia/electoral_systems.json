@@ -72,8 +72,8 @@
       ]
     },
     "notes": {
-      "en": "Votes are shown per constituency. The same party can stand in different coalitions in different constituencies, so constituency list votes are not added into national vote shares. Seats reproduce by D'Hondt with the 5% constituency threshold. There was no preferential vote before the 2015 amendments: candidates were elected in list order. Independent lists are printed with their leader's name (NEOVISNA LISTA - …); they are shown as NEOVISNA LISTA and the name is not stored. The 2000 decisions name the chamber Zastupnički dom Hrvatskoga državnog sabora (Chamber of Representatives of the Croatian State Parliament); this record covers that chamber only. They print counts without percentages.",
-      "zh-CN": "得票按选区列示。同一政党在不同选区可能参加不同联盟，因此不把各选区名单票相加为全国得票率。席位可按 D’Hondt 与选区 5% 门槛复现。2015 年修正之前没有优先票：候选人按名单顺序当选。独立名单印有领衔人姓名（NEOVISNA LISTA - …），此处显示为 NEOVISNA LISTA，不存储姓名。 2000 年决定所称议院为 Zastupnički dom Hrvatskoga državnog sabora（克罗地亚国家议会代表院）；本记录仅涵盖该议院。决定只印有人数，未印百分比。"
+      "en": "Votes are shown per constituency. The same party can stand in different coalitions in different constituencies, so constituency list votes are not added into national vote shares. Seats reproduce by D'Hondt with the 5% constituency threshold. There was no preferential vote before the 2015 amendments: candidates were elected in list order. Independent lists are printed with their leader's name (NEOVISNA LISTA - …); they are shown as NEOVISNA LISTA and the name is not stored. The 2000 decisions name the chamber Zastupnički dom Hrvatskoga državnog sabora (Chamber of Representatives of the Croatian State Parliament); this record covers that chamber only. Their turnout section prints counts without percentages, so turnout is derived.",
+      "zh-CN": "得票按选区列示。同一政党在不同选区可能参加不同联盟，因此不把各选区名单票相加为全国得票率。席位可按 D’Hondt 与选区 5% 门槛复现。2015 年修正之前没有优先票：候选人按名单顺序当选。独立名单印有领衔人姓名（NEOVISNA LISTA - …），此处显示为 NEOVISNA LISTA，不存储姓名。 2000 年决定所称议院为 Zastupnički dom Hrvatskoga državnog sabora（克罗地亚国家议会代表院）；本记录仅涵盖该议院。决定的投票情况部分只印人数、未印百分比，投票率为推算。"
     },
     "seat_check": {
       "units": [
@@ -239,7 +239,7 @@
           "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -496,7 +496,7 @@
           "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -753,7 +753,7 @@
           "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -1002,7 +1002,7 @@
           "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -1251,7 +1251,7 @@
           "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -1500,7 +1500,7 @@
           "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -1749,7 +1749,7 @@
           "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -1998,7 +1998,7 @@
           "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "95be798241054c41f42bea8ce14438a3d3d55d8310db46a126153bff321a457f",
+        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
         "fields_covered": [
           "allocation_method",
           "thresholds",
