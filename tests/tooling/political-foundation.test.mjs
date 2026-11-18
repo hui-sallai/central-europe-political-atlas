@@ -67,3 +67,11 @@ test('publication gate rejects unapproved countries; Germany regression and loca
  const dir='.tmp-data-refresh/political-candidate-romania/candidate/stores';if(fs.existsSync(dir)){const raw=Object.fromEntries(fs.readdirSync(dir).filter(f=>f.endsWith('.json')).map(f=>[f.slice(0,-5),JSON.parse(fs.readFileSync(`${dir}/${f}`,'utf8'))]));assert.deepEqual(validateCandidate(raw).failures,[]);const [ro]=adapt({elections:raw.elections,turnout:raw.election_turnout,results:raw.election_results,contestants:raw.electoral_contestants,legislatures:raw.legislatures,systems:raw.electoral_systems,sources:raw.political_source_registry},{slug:'romania',name:{en:'Romania','zh-CN':'罗马尼亚'},originalLanguage:'ro',voteLabel:{en:'List votes','zh-CN':'名单票'}});assert.equal(ro.totalSeats,null);assert.equal(ro.publishedTurnout,null);assert.equal(n.voteSeatDifference(ro,ro.results[0]),null);}
  assert.deepEqual(fs.readdirSync('src/data/political'),['austria','croatia','czechia','germany','hungary','poland','romania','serbia','slovakia','slovenia'],'Czechia only under its exact-hash admission record');
 });
+
+test('every admitted raw-store accessor passes the publication gate (source id, checksum, retrieval date and licence URL)',()=>{
+ const d=require('../../src/lib/politicalData.ts');
+ for(const [name,country] of [['politicalCroatianStores','croatia'],['politicalSlovenianStores','slovenia'],['politicalRomanianStores','romania'],['politicalAustrianStores','austria']]){
+  const stores=d[name]();assert.ok(stores.elections.length>0,country);
+  assert.ok(stores.sources.every(s=>s.source_id&&s.raw_sha256&&s.retrieved_at&&s.licence_url),country);
+ }
+});

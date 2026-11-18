@@ -3,7 +3,14 @@
  "country": "austria",
  "rights": {
   "basis": "official works are free of copyright (Austrian Copyright Act, UrhG § 7); owner answer \"Accept for all four\" (official-texts reading, uncertainty recorded); national figures and seat tables only, no candidate names",
-  "publisher": "Bundesministerium für Inneres (Bundeswahlbehörde)"
+  "publisher": "Bundesministerium für Inneres (Bundeswahlbehörde)",
+  "terms_url": "https://www.bmi.gv.at/impressum/",
+  "terms_reading": {
+   "retrieved_on": "2026-10-03",
+   "sha256": "d3f42c254b0f55302833b68754e633912ca8a0d9931097616d1aa4ed4ed4c355",
+   "record": "docs/political-data/source-closure/austria_source_closure.json (rights_gates.reuse_right.evidence)",
+   "clause": "Die Übernahme von Beiträgen ist – unter Quellenangabe – gestattet (außer für kommerzielle Zwecke)."
+  }
  },
  "acquisition": "owner downloaded every file by hand from www.bmi.gv.at (answer \"I'll download files myself\"); the assistant made no request to that host (robots.txt disallows AI agents; host blocked) and kept the files in local-evidence/ by checksum only",
  "label_rule": "Contestants are labelled by the official short name (Kurzbezeichnung) used as the column heading of the BMI result workbook. The printed party name from the announcement is stored only when it contains no person's name; otherwise only its SHA-256. A short name that is itself a person's name is replaced by the column position.",
