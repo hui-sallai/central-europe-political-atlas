@@ -2285,6 +2285,1345 @@
     ]
    }
   },
+  "2020": {
+   "retrieved_at": "2026-11-19",
+   "acquisition": "owner download 2026-11-19 (owner answer \"Accept, record the route\"): Internet Archive captures of the Central Electoral Bureau acts pv_1639.pdf (Chamber of Deputies) and pv_1640.pdf (Senate) and of the results page, saved by the owner; the assistant made no request to parlamentare2020.bec.ro or the archive; files kept in local-evidence/ by checksum only",
+   "transcription": "read by eye from the scanned pages rendered with their page rotation (boxed digits); local OCR (macOS Vision) only to locate sections and rows; candidate names in sections k, l, m.5 and m.6 not transcribed; section k counted by list only",
+   "polling_day": {
+    "date": "2020-12-06",
+    "basis": "printed in the heading of the Central Electoral Bureau results page (\"PENTRU ALEGEREA SENATULUI ȘI A CAMEREI DEPUTAȚILOR DIN 6 DECEMBRIE 2020\"; archived copy saved by the owner); not printed in the result sections of the acts, which are dated 17 December 2020",
+    "page_url": "https://parlamentare2020.bec.ro/rezultate/",
+    "page_archive_copy": "https://web.archive.org/web/20220401074236id_/https://parlamentare2020.bec.ro/rezultate/",
+    "page_sha256": "fc1655241cd89326fcfd9b3ecd67e8b09fed352a560ef62f695d9deda0aafa52"
+   },
+   "chambers": {
+    "S": {
+     "act": {
+      "file": "pv_1640.pdf",
+      "url": "https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1640.pdf",
+      "sha256": "6000d0e3086870eecf097d58c7321309499052e9928dbd5a3e186f7f1a8173e6",
+      "pages": 34,
+      "number": "1640/BEC/SCD/2020",
+      "date": "2020-12-17",
+      "annex": "Anexa nr. 21",
+      "title": "Proces-verbal privind rezultatele finale ale alegerilor pentru Senat",
+      "archive_copy": {
+       "url": "https://web.archive.org/web/20210114220311id_/https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1640.pdf",
+       "captured": "2021-01-14",
+       "kind": "archived original PDF (byte copy of the publisher file as captured)"
+      },
+      "remainders_total_i1": 3178849,
+      "first_stage_total": 53,
+      "unassigned_total": 83,
+      "elected_rows": 136
+     },
+     "counts": {
+      "a": 18964642,
+      "a1": 18170029,
+      "a2": 687314,
+      "a3": 71491,
+      "a4": 35808,
+      "b": 6059113,
+      "b1": 5284068,
+      "b2": 682186,
+      "b3": 70999,
+      "b4": 21860,
+      "c": 5908364,
+      "d": 99051,
+      "f": 22663797,
+      "f1": 22627989,
+      "f2": 35808,
+      "g": 16591993,
+      "g1": 16590341,
+      "g2": 1652,
+      "h": 50345
+     },
+     "lists": [
+      {
+       "row": 1,
+       "name": "PARTIDUL SOCIAL DEMOCRAT",
+       "votes": 1732289,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 2,
+       "name": "PARTIDUL NAȚIONAL LIBERAL",
+       "votes": 1511227,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 3,
+       "name": "ALIANȚA USR PLUS",
+       "votes": 936864,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 4,
+       "name": "ALIANȚA PENTRU UNIREA ROMÂNILOR",
+       "votes": 541938,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 5,
+       "name": "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA",
+       "votes": 348262,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 6,
+       "name": "PARTIDUL MIȘCAREA POPULARĂ",
+       "votes": 291485,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 7,
+       "name": "PARTIDUL PRO ROMÂNIA",
+       "votes": 244227,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 8,
+       "name": "PARTIDUL ECOLOGIST ROMÂN",
+       "votes": 78656,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 9,
+       "name": "PARTIDUL PUTERII UMANISTE (SOCIAL-LIBERAL)",
+       "votes": 70536,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 10,
+       "name": "PARTIDUL ROMÂNIA MARE",
+       "votes": 38475,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 11,
+       "name": "ALIANȚA RENAȘTEREA NAȚIONALĂ",
+       "votes": 23773,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 12,
+       "name": "PARTIDUL SOCIALIST ROMÂN",
+       "votes": 23094,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 13,
+       "name": "PARTIDUL VERDE",
+       "votes": 23085,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 14,
+       "name": "PARTIDUL NOUA ROMÂNIE",
+       "votes": 19520,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 16,
+       "name": "PARTIDUL NOUA DREAPTĂ",
+       "votes": 4347,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 17,
+       "name": "PARTIDUL SOCIAL DEMOCRAT AL MUNCITORILOR",
+       "votes": 3855,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 18,
+       "name": "PARTIDUL NAȚIONAL ȚĂRĂNESC",
+       "votes": 2803,
+       "kind": "party_or_political_formation",
+       "label_basis": "partial_personal_name_omitted",
+       "title_sha256": "cf9027d3af35f67bb4c373d908c6cbe4132226905c676b5294ad13e96cbaac93"
+      },
+      {
+       "row": 19,
+       "name": "ALTERNATIVA DREAPTĂ",
+       "votes": 2233,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 20,
+       "name": "PARTIDUL NAȚIUNEA ROMÂNĂ",
+       "votes": 2061,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 21,
+       "name": "PARTIDUL COMUNIȘTILOR",
+       "votes": 763,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 22,
+       "name": "PARTIDUL RE:START ROMÂNIA",
+       "votes": 753,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 23,
+       "name": "BLOCUL UNITĂȚII NAȚIONALE",
+       "votes": 410,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 24,
+       "name": "PARTIDUL FORȚA NAȚIONALĂ",
+       "votes": 268,
+       "kind": "party_or_political_formation"
+      }
+     ],
+     "independents": {
+      "candidates": 1,
+      "votes": 7440,
+      "seats": 0,
+      "ballot_rows": [
+       15
+      ]
+     },
+     "remainders_i1": {
+      "PARTIDUL SOCIAL DEMOCRAT": 923792,
+      "PARTIDUL NAȚIONAL LIBERAL": 896790,
+      "ALIANȚA USR PLUS": 573962,
+      "ALIANȚA PENTRU UNIREA ROMÂNILOR": 541938,
+      "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 242367
+     },
+     "first_stage_by_constituency": [
+      {
+       "constituency": 1,
+       "name": "ALBA",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 2,
+       "name": "ARAD",
+       "assigned": 0,
+       "unassigned": 3
+      },
+      {
+       "constituency": 3,
+       "name": "ARGEȘ",
+       "assigned": 2,
+       "unassigned": 2
+      },
+      {
+       "constituency": 4,
+       "name": "BACĂU",
+       "assigned": 2,
+       "unassigned": 2
+      },
+      {
+       "constituency": 5,
+       "name": "BIHOR",
+       "assigned": 1,
+       "unassigned": 3
+      },
+      {
+       "constituency": 6,
+       "name": "BISTRIȚA-NĂSĂUD",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 7,
+       "name": "BOTOȘANI",
+       "assigned": 1,
+       "unassigned": 2
+      },
+      {
+       "constituency": 8,
+       "name": "BRAȘOV",
+       "assigned": 2,
+       "unassigned": 2
+      },
+      {
+       "constituency": 9,
+       "name": "BRĂILA",
+       "assigned": 1,
+       "unassigned": 1
+      },
+      {
+       "constituency": 10,
+       "name": "BUZĂU",
+       "assigned": 1,
+       "unassigned": 2
+      },
+      {
+       "constituency": 11,
+       "name": "CARAȘ-SEVERIN",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 12,
+       "name": "CĂLĂRAȘI",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 13,
+       "name": "CLUJ",
+       "assigned": 2,
+       "unassigned": 2
+      },
+      {
+       "constituency": 14,
+       "name": "CONSTANȚA",
+       "assigned": 3,
+       "unassigned": 2
+      },
+      {
+       "constituency": 15,
+       "name": "COVASNA",
+       "assigned": 1,
+       "unassigned": 1
+      },
+      {
+       "constituency": 16,
+       "name": "DÂMBOVIȚA",
+       "assigned": 1,
+       "unassigned": 2
+      },
+      {
+       "constituency": 17,
+       "name": "DOLJ",
+       "assigned": 3,
+       "unassigned": 1
+      },
+      {
+       "constituency": 18,
+       "name": "GALAȚI",
+       "assigned": 2,
+       "unassigned": 2
+      },
+      {
+       "constituency": 19,
+       "name": "GIURGIU",
+       "assigned": 1,
+       "unassigned": 1
+      },
+      {
+       "constituency": 20,
+       "name": "GORJ",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 21,
+       "name": "HARGHITA",
+       "assigned": 1,
+       "unassigned": 1
+      },
+      {
+       "constituency": 22,
+       "name": "HUNEDOARA",
+       "assigned": 1,
+       "unassigned": 2
+      },
+      {
+       "constituency": 23,
+       "name": "IALOMIȚA",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 24,
+       "name": "IAȘI",
+       "assigned": 3,
+       "unassigned": 2
+      },
+      {
+       "constituency": 25,
+       "name": "ILFOV",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 26,
+       "name": "MARAMUREȘ",
+       "assigned": 1,
+       "unassigned": 2
+      },
+      {
+       "constituency": 27,
+       "name": "MEHEDINȚI",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 28,
+       "name": "MUREȘ",
+       "assigned": 1,
+       "unassigned": 3
+      },
+      {
+       "constituency": 29,
+       "name": "NEAMȚ",
+       "assigned": 1,
+       "unassigned": 2
+      },
+      {
+       "constituency": 30,
+       "name": "OLT",
+       "assigned": 1,
+       "unassigned": 2
+      },
+      {
+       "constituency": 31,
+       "name": "PRAHOVA",
+       "assigned": 4,
+       "unassigned": 1
+      },
+      {
+       "constituency": 32,
+       "name": "SATU MARE",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 33,
+       "name": "SĂLAJ",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 34,
+       "name": "SIBIU",
+       "assigned": 1,
+       "unassigned": 2
+      },
+      {
+       "constituency": 35,
+       "name": "SUCEAVA",
+       "assigned": 2,
+       "unassigned": 2
+      },
+      {
+       "constituency": 36,
+       "name": "TELEORMAN",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 37,
+       "name": "TIMIȘ",
+       "assigned": 2,
+       "unassigned": 2
+      },
+      {
+       "constituency": 38,
+       "name": "TULCEA",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 39,
+       "name": "VASLUI",
+       "assigned": 1,
+       "unassigned": 2
+      },
+      {
+       "constituency": 40,
+       "name": "VÂLCEA",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 41,
+       "name": "VRANCEA",
+       "assigned": 0,
+       "unassigned": 2
+      },
+      {
+       "constituency": 42,
+       "name": "MUNICIPIUL BUCUREȘTI",
+       "assigned": 11,
+       "unassigned": 2
+      },
+      {
+       "constituency": 43,
+       "name": "CETĂȚENI ROMÂNI CU DOMICILIUL ÎN AFARA ȚĂRII",
+       "assigned": 0,
+       "unassigned": 2
+      }
+     ],
+     "national_stage_j": {
+      "PARTIDUL NAȚIONAL LIBERAL": [
+       1,
+       2,
+       3,
+       5,
+       6,
+       7,
+       10,
+       11,
+       12,
+       16,
+       20,
+       22,
+       22,
+       25,
+       27,
+       28,
+       29,
+       30,
+       31,
+       36,
+       39,
+       40,
+       41,
+       43
+      ],
+      "PARTIDUL SOCIAL DEMOCRAT": [
+       1,
+       2,
+       4,
+       5,
+       6,
+       8,
+       8,
+       10,
+       11,
+       12,
+       13,
+       18,
+       19,
+       20,
+       25,
+       26,
+       27,
+       28,
+       30,
+       36,
+       37,
+       37,
+       40,
+       41
+      ],
+      "ALIANȚA USR PLUS": [
+       2,
+       3,
+       4,
+       16,
+       17,
+       18,
+       24,
+       26,
+       32,
+       33,
+       34,
+       35,
+       38,
+       42,
+       43
+      ],
+      "ALIANȚA PENTRU UNIREA ROMÂNILOR": [
+       7,
+       9,
+       14,
+       14,
+       15,
+       23,
+       23,
+       24,
+       29,
+       34,
+       35,
+       38,
+       39,
+       42
+      ],
+      "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": [
+       5,
+       13,
+       21,
+       28,
+       32,
+       33
+      ]
+     },
+     "elected_k": {
+      "PARTIDUL SOCIAL DEMOCRAT": 47,
+      "PARTIDUL NAȚIONAL LIBERAL": 41,
+      "ALIANȚA USR PLUS": 25,
+      "ALIANȚA PENTRU UNIREA ROMÂNILOR": 14,
+      "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 9
+     }
+    },
+    "CD": {
+     "act": {
+      "file": "pv_1639.pdf",
+      "url": "https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1639.pdf",
+      "sha256": "b62912ecec728ea0fca4dc8d3801f82edd4f049200b8e791c2a8b879d0405d41",
+      "pages": 78,
+      "number": "1639/BEC/SCD/2020",
+      "date": "2020-12-17",
+      "annex": "Anexa nr. 22",
+      "title": "Proces-verbal privind rezultatele finale ale alegerilor pentru Camera Deputaților",
+      "archive_copy": {
+       "url": "https://web.archive.org/web/20210115175105id_/https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1639.pdf",
+       "captured": "2021-01-15",
+       "kind": "archived original PDF (byte copy of the publisher file as captured)"
+      },
+      "remainders_total_i1": 1446825,
+      "first_stage_total": 219,
+      "unassigned_total": 93,
+      "elected_rows": 312
+     },
+     "counts": {
+      "a": 18964642,
+      "a1": 18170029,
+      "a2": 687314,
+      "a3": 71491,
+      "a4": 35808,
+      "b": 6059113,
+      "b1": 5284068,
+      "b2": 682186,
+      "b3": 70999,
+      "b4": 21860,
+      "c": 5901959,
+      "d": 108862,
+      "f": 22664923,
+      "f1": 22629115,
+      "f2": 35808,
+      "g": 16588152,
+      "g1": 16586500,
+      "g2": 1652,
+      "h": 46953
+     },
+     "lists": [
+      {
+       "row": 1,
+       "name": "PARTIDUL SOCIAL DEMOCRAT",
+       "votes": 1705786,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 2,
+       "name": "PARTIDUL NAȚIONAL LIBERAL",
+       "votes": 1486402,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 3,
+       "name": "ALIANȚA USR PLUS",
+       "votes": 906965,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 4,
+       "name": "ALIANȚA PENTRU UNIREA ROMÂNILOR",
+       "votes": 535831,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 5,
+       "name": "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA",
+       "votes": 339030,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 6,
+       "name": "PARTIDUL MIȘCAREA POPULARĂ",
+       "votes": 284502,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 7,
+       "name": "PARTIDUL PRO ROMÂNIA",
+       "votes": 241272,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 8,
+       "name": "PARTIDUL ECOLOGIST ROMÂN",
+       "votes": 65808,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 9,
+       "name": "PARTIDUL PUTERII UMANISTE (SOCIAL-LIBERAL)",
+       "votes": 59465,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 10,
+       "name": "PARTIDUL ROMÂNIA MARE",
+       "votes": 32655,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 11,
+       "name": "ALIANȚA RENAȘTEREA NAȚIONALĂ",
+       "votes": 21662,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 12,
+       "name": "PARTIDUL VERDE",
+       "votes": 20615,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 13,
+       "name": "PARTIDUL SOCIALIST ROMÂN",
+       "votes": 19695,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 15,
+       "name": "ASOCIAȚIA PARTIDA ROMILOR “PRO-EUROPA”",
+       "votes": 14525,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 16,
+       "name": "PARTIDUL NOUA ROMÂNIE",
+       "votes": 14093,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 17,
+       "name": "ASOCIAȚIA LIGA ALBANEZILOR DIN ROMÂNIA",
+       "votes": 9031,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 18,
+       "name": "FORUMUL DEMOCRAT AL GERMANILOR DIN ROMÂNIA",
+       "votes": 7582,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 19,
+       "name": "ASOCIAȚIA MACEDONENILOR DIN ROMÂNIA",
+       "votes": 7144,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 20,
+       "name": "UNIUNEA ELENĂ DIN ROMÂNIA",
+       "votes": 6096,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 21,
+       "name": "UNIUNEA UCRAINENILOR DIN ROMÂNIA",
+       "votes": 5458,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 22,
+       "name": "UNIUNEA DEMOCRATICĂ A SLOVACILOR ȘI CEHILOR DIN ROMÂNIA",
+       "votes": 5386,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 23,
+       "name": "COMUNITATEA RUȘILOR LIPOVENI DIN ROMÂNIA",
+       "votes": 5146,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 24,
+       "name": "UNIUNEA BULGARĂ DIN BANAT-ROMÂNIA",
+       "votes": 4853,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 25,
+       "name": "UNIUNEA SÂRBILOR DIN ROMÂNIA",
+       "votes": 4692,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 27,
+       "name": "ASOCIAȚIA ITALIENILOR DIN ROMÂNIA – RO.AS.IT.",
+       "votes": 4170,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 28,
+       "name": "UNIUNEA ARMENILOR DIN ROMÂNIA",
+       "votes": 3820,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 29,
+       "name": "UNIUNEA CULTURALĂ A RUTENILOR DIN ROMÂNIA",
+       "votes": 3779,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 30,
+       "name": "UNIUNEA POLONEZILOR DIN ROMÂNIA",
+       "votes": 3751,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 32,
+       "name": "PARTIDUL NOUA DREAPTĂ",
+       "votes": 3552,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 33,
+       "name": "UNIUNEA DEMOCRATĂ TURCĂ DIN ROMÂNIA",
+       "votes": 3540,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 34,
+       "name": "FEDERAȚIA COMUNITĂȚILOR EVREIEȘTI DIN ROMÂNIA",
+       "votes": 3509,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 35,
+       "name": "UNIUNEA CROAȚILOR DIN ROMÂNIA",
+       "votes": 3345,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 36,
+       "name": "UNIUNEA DEMOCRATĂ A TĂTARILOR TURCO-MUSULMANI DIN ROMÂNIA",
+       "votes": 2862,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 38,
+       "name": "PARTIDUL NAȚIONAL ȚĂRĂNESC",
+       "votes": 2727,
+       "kind": "party_or_political_formation",
+       "label_basis": "partial_personal_name_omitted",
+       "title_sha256": "cf9027d3af35f67bb4c373d908c6cbe4132226905c676b5294ad13e96cbaac93"
+      },
+      {
+       "row": 41,
+       "name": "ALTERNATIVA DREAPTĂ",
+       "votes": 2005,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 42,
+       "name": "PARTIDUL SOCIAL DEMOCRAT AL MUNCITORILOR",
+       "votes": 1912,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 44,
+       "name": "PARTIDUL NAȚIUNEA ROMÂNĂ",
+       "votes": 1755,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 65,
+       "name": "PARTIDUL RE:START ROMÂNIA",
+       "votes": 537,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 75,
+       "name": "BLOCUL UNITĂȚII NAȚIONALE",
+       "votes": 293,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 77,
+       "name": "PARTIDUL COMUNIȘTILOR",
+       "votes": 213,
+       "kind": "party_or_political_formation"
+      },
+      {
+       "row": 80,
+       "name": "PARTIDUL FORȚA NAȚIONALĂ",
+       "votes": 148,
+       "kind": "party_or_political_formation"
+      }
+     ],
+     "independents": {
+      "candidates": 41,
+      "votes": 56347,
+      "seats": 0,
+      "ballot_rows": [
+       14,
+       26,
+       31,
+       37,
+       39,
+       40,
+       43,
+       45,
+       46,
+       47,
+       48,
+       49,
+       50,
+       51,
+       52,
+       53,
+       54,
+       55,
+       56,
+       57,
+       58,
+       59,
+       60,
+       61,
+       62,
+       63,
+       64,
+       66,
+       67,
+       68,
+       69,
+       70,
+       71,
+       72,
+       73,
+       74,
+       76,
+       78,
+       79,
+       81,
+       82
+      ]
+     },
+     "remainders_i1": {
+      "PARTIDUL SOCIAL DEMOCRAT": 362382,
+      "ALIANȚA USR PLUS": 348045,
+      "ALIANȚA PENTRU UNIREA ROMÂNILOR": 339732,
+      "PARTIDUL NAȚIONAL LIBERAL": 318233,
+      "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 78433
+     },
+     "first_stage_by_constituency": [
+      {
+       "constituency": 1,
+       "name": "ALBA",
+       "assigned": 3,
+       "unassigned": 2
+      },
+      {
+       "constituency": 2,
+       "name": "ARAD",
+       "assigned": 5,
+       "unassigned": 2
+      },
+      {
+       "constituency": 3,
+       "name": "ARGEȘ",
+       "assigned": 6,
+       "unassigned": 3
+      },
+      {
+       "constituency": 4,
+       "name": "BACĂU",
+       "assigned": 8,
+       "unassigned": 2
+      },
+      {
+       "constituency": 5,
+       "name": "BIHOR",
+       "assigned": 6,
+       "unassigned": 3
+      },
+      {
+       "constituency": 6,
+       "name": "BISTRIȚA-NĂSĂUD",
+       "assigned": 2,
+       "unassigned": 3
+      },
+      {
+       "constituency": 7,
+       "name": "BOTOȘANI",
+       "assigned": 5,
+       "unassigned": 1
+      },
+      {
+       "constituency": 8,
+       "name": "BRAȘOV",
+       "assigned": 6,
+       "unassigned": 3
+      },
+      {
+       "constituency": 9,
+       "name": "BRĂILA",
+       "assigned": 3,
+       "unassigned": 2
+      },
+      {
+       "constituency": 10,
+       "name": "BUZĂU",
+       "assigned": 5,
+       "unassigned": 2
+      },
+      {
+       "constituency": 11,
+       "name": "CARAȘ-SEVERIN",
+       "assigned": 4,
+       "unassigned": 1
+      },
+      {
+       "constituency": 12,
+       "name": "CĂLĂRAȘI",
+       "assigned": 3,
+       "unassigned": 1
+      },
+      {
+       "constituency": 13,
+       "name": "CLUJ",
+       "assigned": 7,
+       "unassigned": 3
+      },
+      {
+       "constituency": 14,
+       "name": "CONSTANȚA",
+       "assigned": 9,
+       "unassigned": 2
+      },
+      {
+       "constituency": 15,
+       "name": "COVASNA",
+       "assigned": 3,
+       "unassigned": 1
+      },
+      {
+       "constituency": 16,
+       "name": "DÂMBOVIȚA",
+       "assigned": 4,
+       "unassigned": 3
+      },
+      {
+       "constituency": 17,
+       "name": "DOLJ",
+       "assigned": 8,
+       "unassigned": 2
+      },
+      {
+       "constituency": 18,
+       "name": "GALAȚI",
+       "assigned": 6,
+       "unassigned": 3
+      },
+      {
+       "constituency": 19,
+       "name": "GIURGIU",
+       "assigned": 3,
+       "unassigned": 1
+      },
+      {
+       "constituency": 20,
+       "name": "GORJ",
+       "assigned": 3,
+       "unassigned": 2
+      },
+      {
+       "constituency": 21,
+       "name": "HARGHITA",
+       "assigned": 4,
+       "unassigned": 1
+      },
+      {
+       "constituency": 22,
+       "name": "HUNEDOARA",
+       "assigned": 3,
+       "unassigned": 3
+      },
+      {
+       "constituency": 23,
+       "name": "IALOMIȚA",
+       "assigned": 2,
+       "unassigned": 2
+      },
+      {
+       "constituency": 24,
+       "name": "IAȘI",
+       "assigned": 9,
+       "unassigned": 3
+      },
+      {
+       "constituency": 25,
+       "name": "ILFOV",
+       "assigned": 3,
+       "unassigned": 2
+      },
+      {
+       "constituency": 26,
+       "name": "MARAMUREȘ",
+       "assigned": 5,
+       "unassigned": 2
+      },
+      {
+       "constituency": 27,
+       "name": "MEHEDINȚI",
+       "assigned": 2,
+       "unassigned": 2
+      },
+      {
+       "constituency": 28,
+       "name": "MUREȘ",
+       "assigned": 5,
+       "unassigned": 3
+      },
+      {
+       "constituency": 29,
+       "name": "NEAMȚ",
+       "assigned": 7,
+       "unassigned": 1
+      },
+      {
+       "constituency": 30,
+       "name": "OLT",
+       "assigned": 4,
+       "unassigned": 2
+      },
+      {
+       "constituency": 31,
+       "name": "PRAHOVA",
+       "assigned": 9,
+       "unassigned": 2
+      },
+      {
+       "constituency": 32,
+       "name": "SATU MARE",
+       "assigned": 3,
+       "unassigned": 2
+      },
+      {
+       "constituency": 33,
+       "name": "SĂLAJ",
+       "assigned": 2,
+       "unassigned": 2
+      },
+      {
+       "constituency": 34,
+       "name": "SIBIU",
+       "assigned": 3,
+       "unassigned": 3
+      },
+      {
+       "constituency": 35,
+       "name": "SUCEAVA",
+       "assigned": 8,
+       "unassigned": 2
+      },
+      {
+       "constituency": 36,
+       "name": "TELEORMAN",
+       "assigned": 4,
+       "unassigned": 1
+      },
+      {
+       "constituency": 37,
+       "name": "TIMIȘ",
+       "assigned": 7,
+       "unassigned": 3
+      },
+      {
+       "constituency": 38,
+       "name": "TULCEA",
+       "assigned": 2,
+       "unassigned": 2
+      },
+      {
+       "constituency": 39,
+       "name": "VASLUI",
+       "assigned": 5,
+       "unassigned": 2
+      },
+      {
+       "constituency": 40,
+       "name": "VÂLCEA",
+       "assigned": 3,
+       "unassigned": 3
+      },
+      {
+       "constituency": 41,
+       "name": "VRANCEA",
+       "assigned": 2,
+       "unassigned": 3
+      },
+      {
+       "constituency": 42,
+       "name": "MUNICIPIUL BUCUREȘTI",
+       "assigned": 25,
+       "unassigned": 4
+      },
+      {
+       "constituency": 43,
+       "name": "CETĂȚENI ROMÂNI CU DOMICILIUL ÎN AFARA ȚĂRII",
+       "assigned": 3,
+       "unassigned": 1
+      }
+     ],
+     "national_stage_j": {
+      "PARTIDUL SOCIAL DEMOCRAT": [
+       2,
+       3,
+       5,
+       6,
+       9,
+       16,
+       18,
+       19,
+       22,
+       23,
+       24,
+       27,
+       28,
+       30,
+       30,
+       31,
+       32,
+       33,
+       34,
+       35,
+       40,
+       41,
+       42
+      ],
+      "ALIANȚA USR PLUS": [
+       1,
+       4,
+       5,
+       6,
+       7,
+       8,
+       10,
+       13,
+       16,
+       20,
+       22,
+       24,
+       28,
+       32,
+       33,
+       38,
+       39,
+       40,
+       42,
+       42,
+       42,
+       43
+      ],
+      "ALIANȚA PENTRU UNIREA ROMÂNILOR": [
+       1,
+       3,
+       5,
+       8,
+       9,
+       10,
+       12,
+       13,
+       14,
+       17,
+       18,
+       18,
+       22,
+       23,
+       24,
+       25,
+       26,
+       28,
+       34,
+       35,
+       37,
+       41
+      ],
+      "PARTIDUL NAȚIONAL LIBERAL": [
+       3,
+       4,
+       6,
+       8,
+       13,
+       14,
+       16,
+       17,
+       20,
+       25,
+       27,
+       29,
+       31,
+       34,
+       36,
+       37,
+       37,
+       38,
+       39,
+       40,
+       41
+      ],
+      "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": [
+       2,
+       11,
+       15,
+       21,
+       26
+      ]
+     },
+     "elected_k": {
+      "PARTIDUL SOCIAL DEMOCRAT": 110,
+      "PARTIDUL NAȚIONAL LIBERAL": 93,
+      "ALIANȚA USR PLUS": 55,
+      "ALIANȚA PENTRU UNIREA ROMÂNILOR": 33,
+      "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 21
+     },
+     "minority": {
+      "m1_organisations": [
+       "ASOCIAȚIA PARTIDA ROMILOR “PRO-EUROPA”",
+       "ASOCIAȚIA LIGA ALBANEZILOR DIN ROMÂNIA",
+       "FORUMUL DEMOCRAT AL GERMANILOR DIN ROMÂNIA",
+       "ASOCIAȚIA MACEDONENILOR DIN ROMÂNIA",
+       "UNIUNEA ELENĂ DIN ROMÂNIA",
+       "UNIUNEA UCRAINENILOR DIN ROMÂNIA",
+       "UNIUNEA DEMOCRATICĂ A SLOVACILOR ȘI CEHILOR DIN ROMÂNIA",
+       "COMUNITATEA RUȘILOR LIPOVENI DIN ROMÂNIA",
+       "UNIUNEA BULGARĂ DIN BANAT-ROMÂNIA",
+       "UNIUNEA SÂRBILOR DIN ROMÂNIA",
+       "ASOCIAȚIA ITALIENILOR DIN ROMÂNIA – RO.AS.IT.",
+       "UNIUNEA ARMENILOR DIN ROMÂNIA",
+       "UNIUNEA CULTURALĂ A RUTENILOR DIN ROMÂNIA",
+       "UNIUNEA POLONEZILOR DIN ROMÂNIA",
+       "UNIUNEA DEMOCRATĂ TURCĂ DIN ROMÂNIA",
+       "FEDERAȚIA COMUNITĂȚILOR EVREIEȘTI DIN ROMÂNIA",
+       "UNIUNEA CROAȚILOR DIN ROMÂNIA",
+       "UNIUNEA DEMOCRATĂ A TĂTARILOR TURCO-MUSULMANI DIN ROMÂNIA"
+      ],
+      "average_votes_per_deputy_m2": 15942,
+      "minimum_votes_m3": 797,
+      "entitled_m5": [
+       "ASOCIAȚIA ITALIENILOR DIN ROMÂNIA – RO.AS.IT.",
+       "ASOCIAȚIA LIGA ALBANEZILOR DIN ROMÂNIA",
+       "ASOCIAȚIA MACEDONENILOR DIN ROMÂNIA",
+       "ASOCIAȚIA PARTIDA ROMILOR “PRO-EUROPA”",
+       "COMUNITATEA RUȘILOR LIPOVENI DIN ROMÂNIA",
+       "FEDERAȚIA COMUNITĂȚILOR EVREIEȘTI DIN ROMÂNIA",
+       "FORUMUL DEMOCRAT AL GERMANILOR DIN ROMÂNIA",
+       "UNIUNEA ARMENILOR DIN ROMÂNIA",
+       "UNIUNEA BULGARĂ DIN BANAT-ROMÂNIA",
+       "UNIUNEA CROAȚILOR DIN ROMÂNIA",
+       "UNIUNEA CULTURALĂ A RUTENILOR DIN ROMÂNIA",
+       "UNIUNEA DEMOCRATICĂ A SLOVACILOR ȘI CEHILOR DIN ROMÂNIA",
+       "UNIUNEA DEMOCRATĂ A TĂTARILOR TURCO-MUSULMANI DIN ROMÂNIA",
+       "UNIUNEA DEMOCRATĂ TURCĂ DIN ROMÂNIA",
+       "UNIUNEA ELENĂ DIN ROMÂNIA",
+       "UNIUNEA POLONEZILOR DIN ROMÂNIA",
+       "UNIUNEA SÂRBILOR DIN ROMÂNIA",
+       "UNIUNEA UCRAINENILOR DIN ROMÂNIA"
+      ],
+      "entitled_m5_note": "section m.5 lists all 18 organisations of section m.1 (names of the persons assigned the seats are not transcribed)"
+     }
+    }
+   }
+  },
   "2024": {
    "retrieved_at": "2026-11-18",
    "acquisition": "owner downloaded both PDFs by hand from the Central Electoral Bureau site (answer \"both\": the owner saves the 2024 files); the assistant did not access parlamentare2024.bec.ro (browser-verification challenge) and kept the files in local-evidence/ by checksum only",

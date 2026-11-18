@@ -541,10 +541,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "f25d3502e57bab5955df36435f9596dadf90963e02b9859d1235e2b6e89e7c54",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
         "fields_covered": [
           "seats_by_constituency",
           "total_seats"
@@ -559,10 +559,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "f25d3502e57bab5955df36435f9596dadf90963e02b9859d1235e2b6e89e7c54",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
         "fields_covered": [
           "seats_by_mechanism.national_minority_organisations"
         ],
@@ -1111,16 +1111,1321 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "f25d3502e57bab5955df36435f9596dadf90963e02b9859d1235e2b6e89e7c54",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
         "fields_covered": [
           "seats_by_constituency",
           "total_seats"
         ],
         "published_or_derived": "derived_sum_of_published_rows",
         "publisher_file_sha256": "d491cef602a3874ecc4384704f1f13822fb6de0c8770f105fb4b6cd6234d3737"
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-ro-cd-2020",
+    "country": "romania",
+    "chamber": "Camera Deputaților",
+    "official_term": "2020–2024",
+    "election_id": "el-ro-cd-2020-12-06",
+    "total_seats": 330,
+    "seat_slots": 312,
+    "seats_by_mechanism": {
+      "list_seats_43_constituencies": 312,
+      "national_minority_organisations": 18
+    },
+    "seats_by_stage": {
+      "first_stage_by_constituency": [
+        {
+          "constituency": 1,
+          "name": "ALBA",
+          "first_stage": 3,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 2,
+          "name": "ARAD",
+          "first_stage": 5,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 3,
+          "name": "ARGEȘ",
+          "first_stage": 6,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 4,
+          "name": "BACĂU",
+          "first_stage": 8,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 5,
+          "name": "BIHOR",
+          "first_stage": 6,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 6,
+          "name": "BISTRIȚA-NĂSĂUD",
+          "first_stage": 2,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 7,
+          "name": "BOTOȘANI",
+          "first_stage": 5,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 8,
+          "name": "BRAȘOV",
+          "first_stage": 6,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 9,
+          "name": "BRĂILA",
+          "first_stage": 3,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 10,
+          "name": "BUZĂU",
+          "first_stage": 5,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 11,
+          "name": "CARAȘ-SEVERIN",
+          "first_stage": 4,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 12,
+          "name": "CĂLĂRAȘI",
+          "first_stage": 3,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 13,
+          "name": "CLUJ",
+          "first_stage": 7,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 14,
+          "name": "CONSTANȚA",
+          "first_stage": 9,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 15,
+          "name": "COVASNA",
+          "first_stage": 3,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 16,
+          "name": "DÂMBOVIȚA",
+          "first_stage": 4,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 17,
+          "name": "DOLJ",
+          "first_stage": 8,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 18,
+          "name": "GALAȚI",
+          "first_stage": 6,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 19,
+          "name": "GIURGIU",
+          "first_stage": 3,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 20,
+          "name": "GORJ",
+          "first_stage": 3,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 21,
+          "name": "HARGHITA",
+          "first_stage": 4,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 22,
+          "name": "HUNEDOARA",
+          "first_stage": 3,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 23,
+          "name": "IALOMIȚA",
+          "first_stage": 2,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 24,
+          "name": "IAȘI",
+          "first_stage": 9,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 25,
+          "name": "ILFOV",
+          "first_stage": 3,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 26,
+          "name": "MARAMUREȘ",
+          "first_stage": 5,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 27,
+          "name": "MEHEDINȚI",
+          "first_stage": 2,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 28,
+          "name": "MUREȘ",
+          "first_stage": 5,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 29,
+          "name": "NEAMȚ",
+          "first_stage": 7,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 30,
+          "name": "OLT",
+          "first_stage": 4,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 31,
+          "name": "PRAHOVA",
+          "first_stage": 9,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 32,
+          "name": "SATU MARE",
+          "first_stage": 3,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 33,
+          "name": "SĂLAJ",
+          "first_stage": 2,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 34,
+          "name": "SIBIU",
+          "first_stage": 3,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 35,
+          "name": "SUCEAVA",
+          "first_stage": 8,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 36,
+          "name": "TELEORMAN",
+          "first_stage": 4,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 37,
+          "name": "TIMIȘ",
+          "first_stage": 7,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 38,
+          "name": "TULCEA",
+          "first_stage": 2,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 39,
+          "name": "VASLUI",
+          "first_stage": 5,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 40,
+          "name": "VÂLCEA",
+          "first_stage": 3,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 41,
+          "name": "VRANCEA",
+          "first_stage": 2,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 42,
+          "name": "MUNICIPIUL BUCUREȘTI",
+          "first_stage": 25,
+          "national_stage_slots": 4
+        },
+        {
+          "constituency": 43,
+          "name": "CETĂȚENI ROMÂNI CU DOMICILIUL ÎN AFARA ȚĂRII",
+          "first_stage": 3,
+          "national_stage_slots": 1
+        }
+      ],
+      "national_stage_by_list": {
+        "PARTIDUL SOCIAL DEMOCRAT": [
+          {
+            "constituency": 2,
+            "seats": 1
+          },
+          {
+            "constituency": 3,
+            "seats": 1
+          },
+          {
+            "constituency": 5,
+            "seats": 1
+          },
+          {
+            "constituency": 6,
+            "seats": 1
+          },
+          {
+            "constituency": 9,
+            "seats": 1
+          },
+          {
+            "constituency": 16,
+            "seats": 1
+          },
+          {
+            "constituency": 18,
+            "seats": 1
+          },
+          {
+            "constituency": 19,
+            "seats": 1
+          },
+          {
+            "constituency": 22,
+            "seats": 1
+          },
+          {
+            "constituency": 23,
+            "seats": 1
+          },
+          {
+            "constituency": 24,
+            "seats": 1
+          },
+          {
+            "constituency": 27,
+            "seats": 1
+          },
+          {
+            "constituency": 28,
+            "seats": 1
+          },
+          {
+            "constituency": 30,
+            "seats": 2
+          },
+          {
+            "constituency": 31,
+            "seats": 1
+          },
+          {
+            "constituency": 32,
+            "seats": 1
+          },
+          {
+            "constituency": 33,
+            "seats": 1
+          },
+          {
+            "constituency": 34,
+            "seats": 1
+          },
+          {
+            "constituency": 35,
+            "seats": 1
+          },
+          {
+            "constituency": 40,
+            "seats": 1
+          },
+          {
+            "constituency": 41,
+            "seats": 1
+          },
+          {
+            "constituency": 42,
+            "seats": 1
+          }
+        ],
+        "ALIANȚA USR PLUS": [
+          {
+            "constituency": 1,
+            "seats": 1
+          },
+          {
+            "constituency": 4,
+            "seats": 1
+          },
+          {
+            "constituency": 5,
+            "seats": 1
+          },
+          {
+            "constituency": 6,
+            "seats": 1
+          },
+          {
+            "constituency": 7,
+            "seats": 1
+          },
+          {
+            "constituency": 8,
+            "seats": 1
+          },
+          {
+            "constituency": 10,
+            "seats": 1
+          },
+          {
+            "constituency": 13,
+            "seats": 1
+          },
+          {
+            "constituency": 16,
+            "seats": 1
+          },
+          {
+            "constituency": 20,
+            "seats": 1
+          },
+          {
+            "constituency": 22,
+            "seats": 1
+          },
+          {
+            "constituency": 24,
+            "seats": 1
+          },
+          {
+            "constituency": 28,
+            "seats": 1
+          },
+          {
+            "constituency": 32,
+            "seats": 1
+          },
+          {
+            "constituency": 33,
+            "seats": 1
+          },
+          {
+            "constituency": 38,
+            "seats": 1
+          },
+          {
+            "constituency": 39,
+            "seats": 1
+          },
+          {
+            "constituency": 40,
+            "seats": 1
+          },
+          {
+            "constituency": 42,
+            "seats": 3
+          },
+          {
+            "constituency": 43,
+            "seats": 1
+          }
+        ],
+        "ALIANȚA PENTRU UNIREA ROMÂNILOR": [
+          {
+            "constituency": 1,
+            "seats": 1
+          },
+          {
+            "constituency": 3,
+            "seats": 1
+          },
+          {
+            "constituency": 5,
+            "seats": 1
+          },
+          {
+            "constituency": 8,
+            "seats": 1
+          },
+          {
+            "constituency": 9,
+            "seats": 1
+          },
+          {
+            "constituency": 10,
+            "seats": 1
+          },
+          {
+            "constituency": 12,
+            "seats": 1
+          },
+          {
+            "constituency": 13,
+            "seats": 1
+          },
+          {
+            "constituency": 14,
+            "seats": 1
+          },
+          {
+            "constituency": 17,
+            "seats": 1
+          },
+          {
+            "constituency": 18,
+            "seats": 2
+          },
+          {
+            "constituency": 22,
+            "seats": 1
+          },
+          {
+            "constituency": 23,
+            "seats": 1
+          },
+          {
+            "constituency": 24,
+            "seats": 1
+          },
+          {
+            "constituency": 25,
+            "seats": 1
+          },
+          {
+            "constituency": 26,
+            "seats": 1
+          },
+          {
+            "constituency": 28,
+            "seats": 1
+          },
+          {
+            "constituency": 34,
+            "seats": 1
+          },
+          {
+            "constituency": 35,
+            "seats": 1
+          },
+          {
+            "constituency": 37,
+            "seats": 1
+          },
+          {
+            "constituency": 41,
+            "seats": 1
+          }
+        ],
+        "PARTIDUL NAȚIONAL LIBERAL": [
+          {
+            "constituency": 3,
+            "seats": 1
+          },
+          {
+            "constituency": 4,
+            "seats": 1
+          },
+          {
+            "constituency": 6,
+            "seats": 1
+          },
+          {
+            "constituency": 8,
+            "seats": 1
+          },
+          {
+            "constituency": 13,
+            "seats": 1
+          },
+          {
+            "constituency": 14,
+            "seats": 1
+          },
+          {
+            "constituency": 16,
+            "seats": 1
+          },
+          {
+            "constituency": 17,
+            "seats": 1
+          },
+          {
+            "constituency": 20,
+            "seats": 1
+          },
+          {
+            "constituency": 25,
+            "seats": 1
+          },
+          {
+            "constituency": 27,
+            "seats": 1
+          },
+          {
+            "constituency": 29,
+            "seats": 1
+          },
+          {
+            "constituency": 31,
+            "seats": 1
+          },
+          {
+            "constituency": 34,
+            "seats": 1
+          },
+          {
+            "constituency": 36,
+            "seats": 1
+          },
+          {
+            "constituency": 37,
+            "seats": 2
+          },
+          {
+            "constituency": 38,
+            "seats": 1
+          },
+          {
+            "constituency": 39,
+            "seats": 1
+          },
+          {
+            "constituency": 40,
+            "seats": 1
+          },
+          {
+            "constituency": 41,
+            "seats": 1
+          }
+        ],
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": [
+          {
+            "constituency": 2,
+            "seats": 1
+          },
+          {
+            "constituency": 11,
+            "seats": 1
+          },
+          {
+            "constituency": 15,
+            "seats": 1
+          },
+          {
+            "constituency": 21,
+            "seats": 1
+          },
+          {
+            "constituency": 26,
+            "seats": 1
+          }
+        ]
+      }
+    },
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final: Central Electoral Bureau act no. 1639/BEC/SCD/2020 of 2020-12-17 (Proces-verbal privind rezultatele finale ale alegerilor pentru Camera Deputaților); scanned PDF from an Internet Archive capture saved by the owner, transcribed by eye",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-ro-bec-cd-2020",
+        "source_url": "https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1639.pdf",
+        "source_record_id": "act 1639/BEC/SCD/2020, sections i.2, j and k",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+        },
+        "parser_version": "romania-parliament-v2",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "fields_covered": [
+          "seats_by_stage",
+          "total_seats"
+        ],
+        "published_or_derived": "derived_count_of_published_rows",
+        "publisher_file_sha256": "b62912ecec728ea0fca4dc8d3801f82edd4f049200b8e791c2a8b879d0405d41"
+      },
+      {
+        "source_id": "src-ro-bec-cd-2020",
+        "source_url": "https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1639.pdf",
+        "source_record_id": "act 1639/BEC/SCD/2020, sections m.2–m.5",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+        },
+        "parser_version": "romania-parliament-v2",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "fields_covered": [
+          "seats_by_mechanism.national_minority_organisations"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "b62912ecec728ea0fca4dc8d3801f82edd4f049200b8e791c2a8b879d0405d41"
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-ro-s-2020",
+    "country": "romania",
+    "chamber": "Senat",
+    "official_term": "2020–2024",
+    "election_id": "el-ro-s-2020-12-06",
+    "total_seats": 136,
+    "seat_slots": 136,
+    "seats_by_mechanism": {
+      "list_seats_43_constituencies_filled": 136,
+      "unfilled": 0
+    },
+    "seats_by_stage": {
+      "first_stage_by_constituency": [
+        {
+          "constituency": 1,
+          "name": "ALBA",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 2,
+          "name": "ARAD",
+          "first_stage": 0,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 3,
+          "name": "ARGEȘ",
+          "first_stage": 2,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 4,
+          "name": "BACĂU",
+          "first_stage": 2,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 5,
+          "name": "BIHOR",
+          "first_stage": 1,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 6,
+          "name": "BISTRIȚA-NĂSĂUD",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 7,
+          "name": "BOTOȘANI",
+          "first_stage": 1,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 8,
+          "name": "BRAȘOV",
+          "first_stage": 2,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 9,
+          "name": "BRĂILA",
+          "first_stage": 1,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 10,
+          "name": "BUZĂU",
+          "first_stage": 1,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 11,
+          "name": "CARAȘ-SEVERIN",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 12,
+          "name": "CĂLĂRAȘI",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 13,
+          "name": "CLUJ",
+          "first_stage": 2,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 14,
+          "name": "CONSTANȚA",
+          "first_stage": 3,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 15,
+          "name": "COVASNA",
+          "first_stage": 1,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 16,
+          "name": "DÂMBOVIȚA",
+          "first_stage": 1,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 17,
+          "name": "DOLJ",
+          "first_stage": 3,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 18,
+          "name": "GALAȚI",
+          "first_stage": 2,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 19,
+          "name": "GIURGIU",
+          "first_stage": 1,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 20,
+          "name": "GORJ",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 21,
+          "name": "HARGHITA",
+          "first_stage": 1,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 22,
+          "name": "HUNEDOARA",
+          "first_stage": 1,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 23,
+          "name": "IALOMIȚA",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 24,
+          "name": "IAȘI",
+          "first_stage": 3,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 25,
+          "name": "ILFOV",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 26,
+          "name": "MARAMUREȘ",
+          "first_stage": 1,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 27,
+          "name": "MEHEDINȚI",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 28,
+          "name": "MUREȘ",
+          "first_stage": 1,
+          "national_stage_slots": 3
+        },
+        {
+          "constituency": 29,
+          "name": "NEAMȚ",
+          "first_stage": 1,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 30,
+          "name": "OLT",
+          "first_stage": 1,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 31,
+          "name": "PRAHOVA",
+          "first_stage": 4,
+          "national_stage_slots": 1
+        },
+        {
+          "constituency": 32,
+          "name": "SATU MARE",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 33,
+          "name": "SĂLAJ",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 34,
+          "name": "SIBIU",
+          "first_stage": 1,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 35,
+          "name": "SUCEAVA",
+          "first_stage": 2,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 36,
+          "name": "TELEORMAN",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 37,
+          "name": "TIMIȘ",
+          "first_stage": 2,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 38,
+          "name": "TULCEA",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 39,
+          "name": "VASLUI",
+          "first_stage": 1,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 40,
+          "name": "VÂLCEA",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 41,
+          "name": "VRANCEA",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 42,
+          "name": "MUNICIPIUL BUCUREȘTI",
+          "first_stage": 11,
+          "national_stage_slots": 2
+        },
+        {
+          "constituency": 43,
+          "name": "CETĂȚENI ROMÂNI CU DOMICILIUL ÎN AFARA ȚĂRII",
+          "first_stage": 0,
+          "national_stage_slots": 2
+        }
+      ],
+      "national_stage_by_list": {
+        "PARTIDUL NAȚIONAL LIBERAL": [
+          {
+            "constituency": 1,
+            "seats": 1
+          },
+          {
+            "constituency": 2,
+            "seats": 1
+          },
+          {
+            "constituency": 3,
+            "seats": 1
+          },
+          {
+            "constituency": 5,
+            "seats": 1
+          },
+          {
+            "constituency": 6,
+            "seats": 1
+          },
+          {
+            "constituency": 7,
+            "seats": 1
+          },
+          {
+            "constituency": 10,
+            "seats": 1
+          },
+          {
+            "constituency": 11,
+            "seats": 1
+          },
+          {
+            "constituency": 12,
+            "seats": 1
+          },
+          {
+            "constituency": 16,
+            "seats": 1
+          },
+          {
+            "constituency": 20,
+            "seats": 1
+          },
+          {
+            "constituency": 22,
+            "seats": 2
+          },
+          {
+            "constituency": 25,
+            "seats": 1
+          },
+          {
+            "constituency": 27,
+            "seats": 1
+          },
+          {
+            "constituency": 28,
+            "seats": 1
+          },
+          {
+            "constituency": 29,
+            "seats": 1
+          },
+          {
+            "constituency": 30,
+            "seats": 1
+          },
+          {
+            "constituency": 31,
+            "seats": 1
+          },
+          {
+            "constituency": 36,
+            "seats": 1
+          },
+          {
+            "constituency": 39,
+            "seats": 1
+          },
+          {
+            "constituency": 40,
+            "seats": 1
+          },
+          {
+            "constituency": 41,
+            "seats": 1
+          },
+          {
+            "constituency": 43,
+            "seats": 1
+          }
+        ],
+        "PARTIDUL SOCIAL DEMOCRAT": [
+          {
+            "constituency": 1,
+            "seats": 1
+          },
+          {
+            "constituency": 2,
+            "seats": 1
+          },
+          {
+            "constituency": 4,
+            "seats": 1
+          },
+          {
+            "constituency": 5,
+            "seats": 1
+          },
+          {
+            "constituency": 6,
+            "seats": 1
+          },
+          {
+            "constituency": 8,
+            "seats": 2
+          },
+          {
+            "constituency": 10,
+            "seats": 1
+          },
+          {
+            "constituency": 11,
+            "seats": 1
+          },
+          {
+            "constituency": 12,
+            "seats": 1
+          },
+          {
+            "constituency": 13,
+            "seats": 1
+          },
+          {
+            "constituency": 18,
+            "seats": 1
+          },
+          {
+            "constituency": 19,
+            "seats": 1
+          },
+          {
+            "constituency": 20,
+            "seats": 1
+          },
+          {
+            "constituency": 25,
+            "seats": 1
+          },
+          {
+            "constituency": 26,
+            "seats": 1
+          },
+          {
+            "constituency": 27,
+            "seats": 1
+          },
+          {
+            "constituency": 28,
+            "seats": 1
+          },
+          {
+            "constituency": 30,
+            "seats": 1
+          },
+          {
+            "constituency": 36,
+            "seats": 1
+          },
+          {
+            "constituency": 37,
+            "seats": 2
+          },
+          {
+            "constituency": 40,
+            "seats": 1
+          },
+          {
+            "constituency": 41,
+            "seats": 1
+          }
+        ],
+        "ALIANȚA USR PLUS": [
+          {
+            "constituency": 2,
+            "seats": 1
+          },
+          {
+            "constituency": 3,
+            "seats": 1
+          },
+          {
+            "constituency": 4,
+            "seats": 1
+          },
+          {
+            "constituency": 16,
+            "seats": 1
+          },
+          {
+            "constituency": 17,
+            "seats": 1
+          },
+          {
+            "constituency": 18,
+            "seats": 1
+          },
+          {
+            "constituency": 24,
+            "seats": 1
+          },
+          {
+            "constituency": 26,
+            "seats": 1
+          },
+          {
+            "constituency": 32,
+            "seats": 1
+          },
+          {
+            "constituency": 33,
+            "seats": 1
+          },
+          {
+            "constituency": 34,
+            "seats": 1
+          },
+          {
+            "constituency": 35,
+            "seats": 1
+          },
+          {
+            "constituency": 38,
+            "seats": 1
+          },
+          {
+            "constituency": 42,
+            "seats": 1
+          },
+          {
+            "constituency": 43,
+            "seats": 1
+          }
+        ],
+        "ALIANȚA PENTRU UNIREA ROMÂNILOR": [
+          {
+            "constituency": 7,
+            "seats": 1
+          },
+          {
+            "constituency": 9,
+            "seats": 1
+          },
+          {
+            "constituency": 14,
+            "seats": 2
+          },
+          {
+            "constituency": 15,
+            "seats": 1
+          },
+          {
+            "constituency": 23,
+            "seats": 2
+          },
+          {
+            "constituency": 24,
+            "seats": 1
+          },
+          {
+            "constituency": 29,
+            "seats": 1
+          },
+          {
+            "constituency": 34,
+            "seats": 1
+          },
+          {
+            "constituency": 35,
+            "seats": 1
+          },
+          {
+            "constituency": 38,
+            "seats": 1
+          },
+          {
+            "constituency": 39,
+            "seats": 1
+          },
+          {
+            "constituency": 42,
+            "seats": 1
+          }
+        ],
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": [
+          {
+            "constituency": 5,
+            "seats": 1
+          },
+          {
+            "constituency": 13,
+            "seats": 1
+          },
+          {
+            "constituency": 21,
+            "seats": 1
+          },
+          {
+            "constituency": 28,
+            "seats": 1
+          },
+          {
+            "constituency": 32,
+            "seats": 1
+          },
+          {
+            "constituency": 33,
+            "seats": 1
+          }
+        ]
+      }
+    },
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final: Central Electoral Bureau act no. 1640/BEC/SCD/2020 of 2020-12-17 (Proces-verbal privind rezultatele finale ale alegerilor pentru Senat); scanned PDF from an Internet Archive capture saved by the owner, transcribed by eye",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-ro-bec-s-2020",
+        "source_url": "https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1640.pdf",
+        "source_record_id": "act 1640/BEC/SCD/2020, sections i.2, j and k",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+        },
+        "parser_version": "romania-parliament-v2",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "fields_covered": [
+          "seats_by_stage",
+          "total_seats"
+        ],
+        "published_or_derived": "derived_count_of_published_rows",
+        "publisher_file_sha256": "6000d0e3086870eecf097d58c7321309499052e9928dbd5a3e186f7f1a8173e6"
       }
     ]
   },
@@ -1891,10 +3196,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "f25d3502e57bab5955df36435f9596dadf90963e02b9859d1235e2b6e89e7c54",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
         "fields_covered": [
           "seats_by_stage",
           "total_seats"
@@ -1909,10 +3214,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "f25d3502e57bab5955df36435f9596dadf90963e02b9859d1235e2b6e89e7c54",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
         "fields_covered": [
           "seats_by_mechanism.national_minority_organisations"
         ],
@@ -2621,10 +3926,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "f25d3502e57bab5955df36435f9596dadf90963e02b9859d1235e2b6e89e7c54",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
         "fields_covered": [
           "seats_by_stage",
           "total_seats"

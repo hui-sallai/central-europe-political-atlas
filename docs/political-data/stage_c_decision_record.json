@@ -104,10 +104,11 @@
    "country": "romania",
    "elections": [
     2016,
+    2020,
     2024
    ],
-   "scope": "Parliament 2016 and 2024, each as two separate elections: 2016 Chamber of Deputies (329 seats incl. 17 national-minority organisation seats) and Senate (136 seats) from AEP files on data.gov.ro, turnout not published; 2024 Chamber of Deputies (331 seats incl. 19 national-minority organisation seats) and Senate (134 senators elected of 136 seats) from the Central Electoral Bureau final acts saved by the owner, with printed counts and derived turnout; 2012 and 2020 not admitted",
-   "record": "docs/political-data/romania_parliament2024_admission.json"
+   "scope": "Parliament 2016, 2020 and 2024, each as two separate elections: 2016 Chamber of Deputies (329 seats incl. 17 national-minority organisation seats) and Senate (136 seats) from AEP files on data.gov.ro, turnout not published; 2020 Chamber of Deputies (330 seats incl. 18 national-minority organisation seats) and Senate (136 seats) from the Central Electoral Bureau final acts (Internet Archive captures saved by the owner); 2024 Chamber of Deputies (331 seats incl. 19 national-minority organisation seats) and Senate (134 senators elected of 136 seats) from the Central Electoral Bureau final acts saved by the owner; 2020 and 2024 with printed counts and derived turnout; 2012 not admitted",
+   "record": "docs/political-data/romania_parliament2020_admission.json"
   },
   {
    "country": "austria",
@@ -248,6 +249,12 @@
    "country": "slovenia",
    "question": "Romania 2020 and Slovenia 2000 in the owner's files were fetched from web.archive.org copies, not from the official sites; how should they be treated?",
    "decision": "\"Accept, record the route\": Slovenia 2000 admitted from the gazette report (Uradni list RS 98/2000) read from a page extract of an Internet Archive copy; the route, capture date and original URL are recorded."
+  },
+  {
+   "date": "2026-11-19",
+   "country": "romania",
+   "question": "Romania 2020 and Slovenia 2000 in the owner's files were fetched from web.archive.org copies, not from the official sites; how should they be treated?",
+   "decision": "\"Accept, record the route\": Romania 2020 admitted from Internet Archive captures of the Central Electoral Bureau final acts 1639 and 1640 (17 December 2020); the route, capture dates and original URLs are recorded."
   }
  ],
  "countries": {

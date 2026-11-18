@@ -104,6 +104,7 @@ export const POLITICAL_ADMISSIONS = {
   'croatia-sabor-2000-2007': { approved_on: '2026-11-19', country: 'croatia', gate_record: 'docs/political-data/croatia_sabor2000_2007_admission.json', paths: CROATIAN_PATHS },
   'slovenia-dz-2004-2008': { approved_on: '2026-11-19', country: 'slovenia', gate_record: 'docs/political-data/slovenia_dz2004_2008_admission.json', paths: SLOVENIAN_PATHS },
   'slovenia-dz-2000': { approved_on: '2026-11-19', country: 'slovenia', gate_record: 'docs/political-data/slovenia_dz2000_admission.json', paths: SLOVENIAN_PATHS },
+  'romania-parliament-2020': { approved_on: '2026-11-19', country: 'romania', gate_record: 'docs/political-data/romania_parliament2020_admission.json', paths: ROMANIAN_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
 const admissiblePath = (file, country) => country !== 'germany' && /^[a-z]+$/.test(country) && (file.startsWith(`src/data/political/${country}/`) || file.startsWith(`public/research-data/political/${country}/`));

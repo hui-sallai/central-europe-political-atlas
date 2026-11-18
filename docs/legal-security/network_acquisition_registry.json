@@ -604,6 +604,17 @@
       "reason": "Not registered for the assistant (unknown host = block). Owner answer \"Accept, record the route\" (2026-11-19): copies the owner saved from the archive are admissible when the numbers reconcile, with the archive URL, capture date and original URL recorded.",
       "approved_by": "owner (AskUserQuestion answer \"Accept, record the route\", 2026-11-19)",
       "status": "blocked"
+    },
+    {
+      "host": "parlamentare2020.bec.ro",
+      "purpose": "Romanian Central Electoral Bureau, 2020 parliamentary elections: final acts 1640 (Senate) and 1639 (Chamber of Deputies) and the results page — saved by the owner from Internet Archive captures, never requested by the assistant",
+      "automation_allowed": false,
+      "manual_allowed": false,
+      "robots_checked_at": null,
+      "robots_note": "not checked: the assistant made no request to this host",
+      "reason": "Not registered for the assistant (unknown host = block). Owner answer \"Accept, record the route\" (2026-11-19): the owner supplied archived captures of the acts; they are kept in local-evidence/ by checksum.",
+      "approved_by": "owner (AskUserQuestion answer \"Accept, record the route\", 2026-11-19)",
+      "status": "blocked"
     }
   ],
   "reference_hosts": {

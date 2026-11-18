@@ -24,10 +24,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "f25d3502e57bab5955df36435f9596dadf90963e02b9859d1235e2b6e89e7c54",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
         "fields_covered": [
           "date"
         ],
@@ -61,15 +61,89 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "f25d3502e57bab5955df36435f9596dadf90963e02b9859d1235e2b6e89e7c54",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
         "fields_covered": [
           "date"
         ],
         "published_or_derived": "derived_sum_of_published_rows",
         "publisher_file_sha256": "7abdc82528045f95d8140b93e0d984f8d2f4ef9fbca2bbef3229f4f1b49b5921"
+      }
+    ]
+  },
+  {
+    "election_id": "el-ro-cd-2020-12-06",
+    "country": "romania",
+    "election_type": "national_parliament",
+    "chamber": "Camera Deputaților",
+    "date": "2020-12-06",
+    "date_end": null,
+    "date_basis": "printed in the heading of the Central Electoral Bureau results page (\"PENTRU ALEGEREA SENATULUI ȘI A CAMEREI DEPUTAȚILOR DIN 6 DECEMBRIE 2020\"; archived copy saved by the owner); not printed in the result sections of the acts, which are dated 17 December 2020",
+    "result_coverage": "all_lists_national_independents_aggregated_minority_seats_by_rule",
+    "year": 2020,
+    "legislature_id": "lg-ro-cd-2020",
+    "electoral_system_id": "es-ro-cd-2020",
+    "result_status": "official_final",
+    "result_vintage": "final: Central Electoral Bureau act no. 1639/BEC/SCD/2020 of 2020-12-17 (Proces-verbal privind rezultatele finale ale alegerilor pentru Camera Deputaților); scanned PDF from an Internet Archive capture saved by the owner, transcribed by eye",
+    "separate_chamber_note": "The Chamber of Deputies and the Senate are separate elections with separate ballots; their votes and seats are never combined.",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-ro-bec-cd-2020",
+        "source_url": "https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1639.pdf",
+        "source_record_id": "act 1639/BEC/SCD/2020, act date; polling day printed on the results page (polling day not printed in the result sections)",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+        },
+        "parser_version": "romania-parliament-v2",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "fields_covered": [
+          "date"
+        ],
+        "published_or_derived": "derived_from_evidence_record",
+        "publisher_file_sha256": "b62912ecec728ea0fca4dc8d3801f82edd4f049200b8e791c2a8b879d0405d41"
+      }
+    ]
+  },
+  {
+    "election_id": "el-ro-s-2020-12-06",
+    "country": "romania",
+    "election_type": "national_parliament",
+    "chamber": "Senat",
+    "date": "2020-12-06",
+    "date_end": null,
+    "date_basis": "printed in the heading of the Central Electoral Bureau results page (\"PENTRU ALEGEREA SENATULUI ȘI A CAMEREI DEPUTAȚILOR DIN 6 DECEMBRIE 2020\"; archived copy saved by the owner); not printed in the result sections of the acts, which are dated 17 December 2020",
+    "result_coverage": "all_lists_national_independents_aggregated",
+    "year": 2020,
+    "legislature_id": "lg-ro-s-2020",
+    "electoral_system_id": "es-ro-s-2020",
+    "result_status": "official_final",
+    "result_vintage": "final: Central Electoral Bureau act no. 1640/BEC/SCD/2020 of 2020-12-17 (Proces-verbal privind rezultatele finale ale alegerilor pentru Senat); scanned PDF from an Internet Archive capture saved by the owner, transcribed by eye",
+    "separate_chamber_note": "The Chamber of Deputies and the Senate are separate elections with separate ballots; their votes and seats are never combined.",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-ro-bec-s-2020",
+        "source_url": "https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1640.pdf",
+        "source_record_id": "act 1640/BEC/SCD/2020, act date; polling day printed on the results page (polling day not printed in the result sections)",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+        },
+        "parser_version": "romania-parliament-v2",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "fields_covered": [
+          "date"
+        ],
+        "published_or_derived": "derived_from_evidence_record",
+        "publisher_file_sha256": "6000d0e3086870eecf097d58c7321309499052e9928dbd5a3e186f7f1a8173e6"
       }
     ]
   },
@@ -98,10 +172,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "f25d3502e57bab5955df36435f9596dadf90963e02b9859d1235e2b6e89e7c54",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
         "fields_covered": [
           "date"
         ],
@@ -135,10 +209,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97"
+          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "f25d3502e57bab5955df36435f9596dadf90963e02b9859d1235e2b6e89e7c54",
+        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
         "fields_covered": [
           "date"
         ],

@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Slovenian 2000 and Romanian 2020 parliamentary elections — 2026-11-19
+
+- Add Slovenia's National Assembly election of 2000 (90 seats, with both national-community elections) from the electoral commission's report in the official gazette, and Romania's parliamentary election of 6 December 2020 as two separate elections — Chamber of Deputies (330 seats, including 18 national-minority organisation seats) and Senate (136 seats) — from the Central Electoral Bureau's final acts. Both came from archived copies the owner saved; the archive route is recorded on every source. Every total and seat reconciles; in Slovenia 2000 the printed turnout and one list's printed share are each a hundredth off their own counts and are kept as printed text only. List names containing persons' names are shown without them; candidate names are not stored.
+
 ### v2.0 Croatian 2000–2007 and Slovenian 2004–2008 parliamentary elections — 2026-11-19
 
 - Add Croatia's parliamentary elections of 2000, 2003 and 2007 (every seat per constituency: 151, 152 and 153, because the seats abroad were then set by a quota printed in each decision) and Slovenia's National Assembly elections of 2004 and 2008 (90 seats each, with both national-community elections), from official files the owner saved. Every constituency and national result reconciles with its totals and reproduces its seats. Slovenia 2011 is now confirmed by the commission's polling-station results. Slovenia 2000 is not added: the only pages available are marked unofficial. No candidate or list-leader names are stored.

@@ -11,7 +11,7 @@
     "licence_url": "https://data.gov.ro/pages/licence",
     "attribution": "Autoritatea Electorală Permanentă, data.gov.ro",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97",
+    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "files": {
       "stations": {
@@ -43,7 +43,7 @@
     "licence_url": "https://data.gov.ro/pages/licence",
     "attribution": "Autoritatea Electorală Permanentă, data.gov.ro",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97",
+    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "files": {
       "stations": {
@@ -76,9 +76,55 @@
     "licence_url": "https://data.gov.ro/pages/licence",
     "attribution": "Camera Deputaților",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97",
+    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "page_block_sha256": "9cf30fc60cbdfeb17504d61200d24ec8003921534757db91862d357713832afa"
+  },
+  {
+    "source_id": "src-ro-bec-cd-2020",
+    "country": "romania",
+    "institution": "Biroul Electoral Central (Central Electoral Bureau)",
+    "dataset": "Proces-verbal privind rezultatele finale ale alegerilor pentru Camera Deputaților — act no. 1639/BEC/SCD/2020, 2020-12-17 (Anexa nr. 22; 78 pages, scanned)",
+    "tier": "tier1_official",
+    "url": "https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1639.pdf",
+    "licence_status": "official_text_law_8_1996_art_9_owner_reading",
+    "raw_redistribution": "national figures and seat tables only; the act is not redistributed and candidate names are not transcribed",
+    "licence_url": "https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1639.pdf",
+    "licence_url_basis": "the act itself: an official text, reused on the owner’s reading of Law 8/1996 Art. 9 (no licence exists)",
+    "attribution": "Biroul Electoral Central",
+    "retrieved_at": "2026-11-19",
+    "acquisition": "owner_download_internet_archive_copy",
+    "archive_copy": {
+      "url": "https://web.archive.org/web/20210115175105id_/https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1639.pdf",
+      "captured": "2021-01-15",
+      "kind": "archived original PDF (byte copy of the publisher file as captured)"
+    },
+    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
+    "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
+    "publisher_file_sha256": "b62912ecec728ea0fca4dc8d3801f82edd4f049200b8e791c2a8b879d0405d41"
+  },
+  {
+    "source_id": "src-ro-bec-s-2020",
+    "country": "romania",
+    "institution": "Biroul Electoral Central (Central Electoral Bureau)",
+    "dataset": "Proces-verbal privind rezultatele finale ale alegerilor pentru Senat — act no. 1640/BEC/SCD/2020, 2020-12-17 (Anexa nr. 21; 34 pages, scanned)",
+    "tier": "tier1_official",
+    "url": "https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1640.pdf",
+    "licence_status": "official_text_law_8_1996_art_9_owner_reading",
+    "raw_redistribution": "national figures and seat tables only; the act is not redistributed and candidate names are not transcribed",
+    "licence_url": "https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1640.pdf",
+    "licence_url_basis": "the act itself: an official text, reused on the owner’s reading of Law 8/1996 Art. 9 (no licence exists)",
+    "attribution": "Biroul Electoral Central",
+    "retrieved_at": "2026-11-19",
+    "acquisition": "owner_download_internet_archive_copy",
+    "archive_copy": {
+      "url": "https://web.archive.org/web/20210114220311id_/https://parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1640.pdf",
+      "captured": "2021-01-14",
+      "kind": "archived original PDF (byte copy of the publisher file as captured)"
+    },
+    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
+    "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
+    "publisher_file_sha256": "6000d0e3086870eecf097d58c7321309499052e9928dbd5a3e186f7f1a8173e6"
   },
   {
     "source_id": "src-ro-bec-cd-2024",
@@ -94,7 +140,7 @@
     "attribution": "Biroul Electoral Central",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97",
+    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "publisher_file_sha256": "27d0dc5be6a04bd3c94f4f94220bea3ffba3cade66e2ec60b94afa7f7c108239"
   },
@@ -112,7 +158,7 @@
     "attribution": "Biroul Electoral Central",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "89d63904b928707ce2b85aa86fe1241797b988949afee91ddcf0b877bf7f1e97",
+    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "publisher_file_sha256": "e87a5c6324192bc414903967b4cb6c616d9bb785edab127fd0b87798ee1c2270"
   }

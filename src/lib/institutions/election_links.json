@@ -937,6 +937,72 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-ro-cd-2020-12-06",
+   "country": "romania",
+   "date": "2020-12-06",
+   "chamber_id": "ro-camera-deputatilor",
+   "chamber_official_name": "Camera Deputaților",
+   "seats": 330,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-ro-cd-2020",
+   "system_family": "list proportional representation in 43 constituencies (42 counties and Bucharest, plus abroad) with national pooling of remainders; national-minority organisation seats",
+   "allocation_method": "constituency quota (electoral coefficient), then national D’Hondt over pooled remainders",
+   "base_seats": 312,
+   "thresholds": [
+    {
+     "applies_to": "party list",
+     "percent": 5,
+     "description": {
+      "en": "A list needs at least 5% of national valid votes (Law 208/2015; higher thresholds for alliances; the alternative constituency criterion is not tested here). The five lists in sections i–k are exactly those above 5%.",
+      "zh": "名单须获得全国有效票至少 5%（第 208/2015 号法律；联盟门槛更高；此处未检验替代的选区条件）。第 i–k 节所列五份名单恰为超过 5% 者。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: Law 208/2015 as applied in 2020 (section i cites its Art. 94); the institutional registry holds the statute read from the Chamber of Deputies site (partly verified)",
+   "constitution_id": "ro-constitution-1991",
+   "institutional_period_id": "romania-period-2015-07-20",
+   "changes_in_force": [
+    "ro-1991-constitution",
+    "ro-2003-revision",
+    "ro-2015-electoral-law"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-ro-s-2020-12-06",
+   "country": "romania",
+   "date": "2020-12-06",
+   "chamber_id": "ro-senat",
+   "chamber_official_name": "Senatul",
+   "seats": 136,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-ro-s-2020",
+   "system_family": "list proportional representation in 43 constituencies (42 counties and Bucharest, plus abroad) with national pooling of remainders",
+   "allocation_method": "constituency quota (electoral coefficient), then national D’Hondt over pooled remainders",
+   "base_seats": 136,
+   "thresholds": [
+    {
+     "applies_to": "party list",
+     "percent": 5,
+     "description": {
+      "en": "A list needs at least 5% of national valid votes (Law 208/2015; higher thresholds for alliances; the alternative constituency criterion is not tested here). The five lists in sections i–k are exactly those above 5%.",
+      "zh": "名单须获得全国有效票至少 5%（第 208/2015 号法律；联盟门槛更高；此处未检验替代的选区条件）。第 i–k 节所列五份名单恰为超过 5% 者。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: Law 208/2015 as applied in 2020 (section i cites its Art. 94); the institutional registry holds the statute read from the Chamber of Deputies site (partly verified)",
+   "constitution_id": "ro-constitution-1991",
+   "institutional_period_id": "romania-period-2015-07-20",
+   "changes_in_force": [
+    "ro-1991-constitution",
+    "ro-2003-revision",
+    "ro-2015-electoral-law"
+   ],
+   "later_changes": [],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-ro-cd-2024-12-01",
    "country": "romania",
    "date": "2024-12-01",

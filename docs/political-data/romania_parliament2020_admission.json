@@ -1,0 +1,81 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "romania-parliament-2020",
+ "country": "romania",
+ "election_ids": [
+  "el-ro-cd-2020-12-06",
+  "el-ro-s-2020-12-06"
+ ],
+ "scope": "Parliament election of 6 December 2020 as two separate elections: Chamber of Deputies (330 seats: 312 list seats and 18 national-minority organisation seats) and Senate (136 seats): every list with national votes, independent candidates aggregated without names, registered voters, voters, valid and null votes as printed, derived turnout, first-stage and national-stage seats. Constituency votes, candidate names, party attribution and the 2012 election are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief \"Complete ten-country parliamentary election coverage\" and answer \"Accept for all four\" (official-texts reading of Law 8/1996 Art. 9)."
+  },
+  {
+   "date": "2026-11-19",
+   "decision": "Owner supplied Internet Archive captures of the Central Electoral Bureau final acts pv_1639.pdf (Chamber of Deputies) and pv_1640.pdf (Senate) of 17 December 2020 and of its results page; asked how to treat archived copies, the owner answered \"Accept, record the route\"."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/romania/parliament/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "owner_decision",
+   "basis": "The acts are official texts of the Central Electoral Bureau (proces-verbal); the owner accepted the official-texts reading of Law 8/1996 Art. 9 for Romanian results. No licence exists. The uncertainty of this reading is recorded."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_and_seat_tables",
+   "evidence_kind": "owner_decision",
+   "basis": "National counts, list votes and seat tables transcribed from the acts, attributed to the Central Electoral Bureau; no candidate names."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The two PDFs (78 and 34 scanned pages) and the archived results page stay in local-evidence/ by SHA-256; they are not committed or republished."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_download_internet_archive_copy",
+   "evidence_kind": "owner_decision",
+   "basis": "The owner saved Internet Archive captures of the publisher PDFs (web.archive.org, 14–15 January 2021 captures of parlamentare2020.bec.ro/wp-content/uploads/2020/12/pv_1639.pdf and pv_1640.pdf) and of the results page (1 April 2022 capture); owner answer \"Accept, record the route\". The assistant made no request to parlamentare2020.bec.ro or the archive. Both hosts are registered as owner-download only."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "Sections a–h (counts), e (every list and independent candidate), i.1 (remainders), i.2 (first stage per constituency), j (national stage per constituency), k (elected, counted per list) and m.1–m.5 (minority organisations) were read in full for both chambers."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "Per chamber: list and independent votes equal valid votes (c); a, b and f equal their sub-items; the five lists over 5% are exactly the lists of sections i–k; remainders sum to the printed totals; i.2 sums to 219 + 93 (Chamber) and 53 + 83 (Senate); national D'Hondt over the remainders reproduces section j exactly in both chambers, and j fills every constituency's unassigned slots; elected minus j gives the first stage; m.2 = 15,942 and m.3 = 797 recompute and all 18 organisations of m.1 qualify, equal to section m.5; Chamber 330, Senate 136."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list_per_chamber",
+   "evidence_kind": "owner_decision",
+   "basis": "Each chamber is its own election with its own contestants; lists keep their printed names; independents are one aggregate row; no list is linked to a party, to the 2016 lists or across chambers."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "rules_reproduced_registry_linked",
+   "evidence_kind": "build_check",
+   "basis": "5% threshold, constituency quota and national D'Hondt of remainders (Art. 94, cited in section i) and Art. 56 minority seats checked against the act; the institutional registry (Law 208/2015, partly verified) links both elections to its period."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "bec_final_act_transcribed_by_eye",
+   "evidence_kind": "official_act",
+   "basis": "The source is the Central Electoral Bureau's final acts 1639 and 1640 (17 December 2020), transcribed by eye from the scans with every total cross-checked. The polling day (6 December 2020) is printed in the heading of the bureau's results page (archived copy), not in the result sections of the acts. One list name containing two persons' surnames is shown without them."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a list title repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

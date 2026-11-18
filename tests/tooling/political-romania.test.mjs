@@ -20,15 +20,15 @@ test('the build reproduces the committed stores and exports', () => {
 
 test('Chamber of Deputies and Senate are separate elections and never combined', () => {
   const data = buildRomania();
-  assert.deepEqual(data.elections.map((e) => [e.election_id, e.chamber]), [['el-ro-cd-2016-12-11', 'Camera Deputaților'], ['el-ro-s-2016-12-11', 'Senat'], ['el-ro-cd-2024-12-01', 'Camera Deputaților'], ['el-ro-s-2024-12-01', 'Senat']]);
-  assert.deepEqual(data.legislatures.map((l) => l.total_seats), [329, 136, 331, 134]);
+  assert.deepEqual(data.elections.map((e) => [e.election_id, e.chamber]), [['el-ro-cd-2016-12-11', 'Camera Deputaților'], ['el-ro-s-2016-12-11', 'Senat'], ['el-ro-cd-2020-12-06', 'Camera Deputaților'], ['el-ro-s-2020-12-06', 'Senat'], ['el-ro-cd-2024-12-01', 'Camera Deputaților'], ['el-ro-s-2024-12-01', 'Senat']]);
+  assert.deepEqual(data.legislatures.map((l) => l.total_seats), [329, 136, 330, 136, 331, 134]);
   for (const e of data.elections) {
     const rows = data.election_results.filter((r) => r.election_id === e.election_id);
     assert.equal(new Set(rows.map((r) => r.vote_type)).size, 1);
     assert.equal(rows.reduce((n, r) => n + r.seats, 0), data.legislatures.find((l) => l.election_id === e.election_id).total_seats);
     assert.ok(rows.every((r) => r.valid_votes === rows[0].valid_votes));
   }
-  for (const year of [2016, 2024]) {
+  for (const year of [2016, 2020, 2024]) {
     const [cd, s] = of(data, year).elections.map((e) => data.election_results.find((r) => r.election_id === e.election_id).valid_votes);
     assert.notEqual(cd, s, String(year));
   }
@@ -66,6 +66,34 @@ test('2024 Chamber: 312 list seats plus the 19 organisations of section m.5; nat
   assert.throws(() => reconcile2024('CD', t2), /m\.3/);
 });
 
+test('2020: both acts reconcile exactly (Chamber 312 + 18 minority seats, Senate 136); a list naming persons is shown without them; archived copies recorded', () => {
+  const cd = evidence.elections['2020'].chambers.CD, s = evidence.elections['2020'].chambers.S;
+  const rc = reconcile2024('CD', cd, '2020'), rs = reconcile2024('S', s, '2020');
+  assert.deepEqual([rc.list_seats_filled, rc.minority_seats, rc.total_seats, rc.unfilled.length], [312, 18, 330, 0]);
+  assert.deepEqual([rs.list_seats_filled, rs.total_seats, rs.unfilled.length], [136, 136, 0]);
+  for (const r of [rc, rs]) assert.equal(r.allocation_model, "national D'Hondt over the remainders reproduces section j exactly");
+  assert.deepEqual(Object.values(rc.first_stage).reduce((a, b) => a + b, 0), 219);
+  assert.equal(rs.first_stage['ALIANȚA PENTRU UNIREA ROMÂNILOR'], 0);
+  // Fail closed: a moved national-stage seat, a changed remainder, a dropped minority organisation.
+  const t1 = structuredClone(s); t1.national_stage_j['PARTIDUL SOCIAL DEMOCRAT'].push(1);
+  assert.throws(() => reconcile2024('S', t1, '2020'), /2020 S/);
+  const t2 = structuredClone(cd); t2.remainders_i1['ALIANȚA USR PLUS'] += 1;
+  assert.throws(() => reconcile2024('CD', t2, '2020'), /remainders/);
+  const t3 = structuredClone(cd); t3.minority.entitled_m5 = t3.minority.entitled_m5.slice(1);
+  assert.throws(() => reconcile2024('CD', t3, '2020'), /m\.5/);
+  const data = buildRomania();
+  const named = data.electoral_contestants.filter((c) => c.election_id.includes('2020-12-06') && c.label_basis === 'partial_personal_name_omitted');
+  assert.deepEqual(named.map((c) => c.historical_display_label), ['PARTIDUL NAȚIONAL ȚĂRĂNESC', 'PARTIDUL NAȚIONAL ȚĂRĂNESC']);
+  assert.ok(named.every((c) => /^[0-9a-f]{64}$/.test(c.title_sha256)));
+  for (const dir of ['src/data/political/romania', 'public/research-data/political/romania', 'docs/political-data/raw/romania']) for (const file of fs.readdirSync(path.join(root, dir), { recursive: true }).map(String).filter((x) => /\.(json|csv|md)$/.test(x))) assert.ok(!fs.readFileSync(path.join(root, dir, file), 'utf8').includes('MIHALACHE'), `${dir}/${file}`);
+  const reg = data.political_source_registry.filter((r) => /bec-(cd|s)-2020/.test(r.source_id));
+  assert.ok(reg.length === 2 && reg.every((r) => r.acquisition === 'owner_download_internet_archive_copy' && /^https:\/\/web\.archive\.org\/web\/\d{14}id_\/https:\/\/parlamentare2020\.bec\.ro\//.test(r.archive_copy.url)));
+  const t20 = data.election_turnout.filter((t) => t.election_id.includes('2020'));
+  assert.deepEqual(t20.map((t) => [t.eligible_voters, t.voters_turned_out, t.valid_votes, t.invalid_votes]), [[18964642, 6059113, 5901959, 108862], [18964642, 6059113, 5908364, 99051]]);
+  const host = JSON.parse(fs.readFileSync(path.join(root, 'docs/legal-security/network_acquisition_registry.json'), 'utf8')).hosts.find((h) => h.host === 'parlamentare2020.bec.ro');
+  assert.deepEqual([host.status, host.automation_allowed, host.manual_allowed], ['blocked', false, false]);
+});
+
 test('2024 Senate: 134 of 136 seats filled; the two undeployed seats are exactly the unfilled Giurgiu and Ialomița slots', () => {
   const c = evidence.elections['2024'].chambers.S, r = reconcile2024('S', c);
   assert.deepEqual([r.seat_slots, r.list_seats_filled, r.total_seats], [136, 134, 134]);
@@ -93,16 +121,16 @@ test('turnout: none invented for 2016; 2024 counts as printed with turnout deriv
 test('no candidate is named: independents are aggregated and section k/m.5 names are never stored', () => {
   const data = buildRomania();
   const ind = data.electoral_contestants.filter((c) => c.contestant_kind === 'independent_candidates_aggregate');
-  assert.deepEqual(ind.map((c) => c.independent_candidates), [39, 5, 52, 6]);
+  assert.deepEqual(ind.map((c) => c.independent_candidates), [39, 5, 41, 1, 52, 6]);
   for (const dir of ['src/data/political/romania', 'public/research-data/political/romania', 'docs/political-data/raw/romania']) {
     for (const file of fs.readdirSync(path.join(root, dir), { recursive: true }).map(String).filter((x) => /\.(json|csv|md)$/.test(x))) {
       const text = fs.readFileSync(path.join(root, dir, file), 'utf8');
       assert.doesNotMatch(text, /CANDIDAT INDEPENDENT - [A-ZĂÂÎȘȚŞŢ]/, `${dir}/${file}`);
     }
   }
-  // 2024: section e rows of independent candidates are kept only as row numbers; every stored label is a list or organisation.
-  for (const ch of ['CD', 'S']) {
-    const c = evidence.elections['2024'].chambers[ch];
+  // 2020 and 2024: section e rows of independent candidates are kept only as row numbers; every stored label is a list or organisation.
+  for (const [year, ch] of [['2020', 'CD'], ['2020', 'S'], ['2024', 'CD'], ['2024', 'S']]) {
+    const c = evidence.elections[year].chambers[ch];
     assert.equal(c.independents.ballot_rows.length, c.independents.candidates);
     assert.ok(c.lists.every((l) => !c.independents.ballot_rows.includes(l.row)));
     assert.ok(!('names' in c.independents) && !('elected_names' in c) && !('substitutes' in c));
