@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Croatian parliamentary election 1995 — 2026-11-19
+
+- Add the election of Croatia's Chamber of Representatives of 29 October 1995 (all 127 seats): 80 seats from national lists, 28 single-member constituencies, 12 seats from special lists for voters abroad and 7 national-minority seats, read by eye from the electoral commission's scanned decisions. Every count, printed percentage and seat reconciles. Single-member candidates are shown by the parties that nominated them and their row number; no candidate name is stored. Earlier Croatian elections stay unchanged.
+
 ### v2.0 Slovenian 2000 and Romanian 2020 parliamentary elections — 2026-11-19
 
 - Add Slovenia's National Assembly election of 2000 (90 seats, with both national-community elections) from the electoral commission's report in the official gazette, and Romania's parliamentary election of 6 December 2020 as two separate elections — Chamber of Deputies (330 seats, including 18 national-minority organisation seats) and Senate (136 seats) — from the Central Electoral Bureau's final acts. Both came from archived copies the owner saved; the archive route is recorded on every source. Every total and seat reconciles; in Slovenia 2000 the printed turnout and one list's printed share are each a hundredth off their own counts and are kept as printed text only. List names containing persons' names are shown without them; candidate names are not stored.

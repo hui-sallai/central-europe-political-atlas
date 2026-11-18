@@ -1,5 +1,145 @@
 [
   {
+    "electoral_system_id": "es-hr-sabor-1995",
+    "country": "croatia",
+    "election_id": "el-hr-sabor-1995-10-29",
+    "institutional_rule_id": "hr-es-sabor",
+    "valid_from": "1995-10-29",
+    "valid_to": "1995-10-29",
+    "interval_basis": "election-specific: the rules applied in the 1995 decisions (Zakon o izborima zastupnika u Sabor Republike Hrvatske (Narodne novine 22/92, 27/92, 1/93, 11/94 i 68/95), Arts. 23, 24, 24a, 31, 50, 51 and 58a); the 5% threshold and D'Hondt reproduce the printed list seats; the institutional registry record hr-es-sabor holds the current statutory text",
+    "system_family": "mixed: national lists (proportional) and single-member constituencies (plurality), special lists for voters abroad, national-minority constituencies",
+    "vote_type": "hr_list_vote",
+    "allocation_method": "National lists: D'Hondt over 80 seats among lists with at least 5% of valid ballots (Art. 24). Single-member constituencies: most votes (Art. 23). Special lists abroad: D'Hondt over 12 seats among lists with at least 5% (Art. 24a). Minority constituencies: most votes (one seat each; three seats in constituency 5, Art. 58a).",
+    "base_seats": 127,
+    "vote_definitions": [
+      {
+        "id": "hr_list_vote",
+        "kind": "list",
+        "label": {
+          "en": "List votes (national lists and special lists abroad)",
+          "zh-CN": "名单票（全国名单与境外特别名单）"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "national_list_or_special_list",
+        "sourceIds": [
+          "src-hr-izbori-final-1995"
+        ]
+      },
+      {
+        "id": "hr_single_member_candidate_vote",
+        "kind": "candidate",
+        "label": {
+          "en": "Single-member constituency candidate votes",
+          "zh-CN": "单一选区候选人票"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "single_member_constituency",
+        "sourceIds": [
+          "src-hr-izbori-final-1995"
+        ]
+      },
+      {
+        "id": "hr_minority_candidate_vote",
+        "kind": "candidate",
+        "label": {
+          "en": "National-minority candidate votes",
+          "zh-CN": "少数民族候选人票"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "minority_constituency",
+        "sourceIds": [
+          "src-hr-izbori-final-1995"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "80 seats by D'Hondt among national lists with at least 5% of valid ballots; the five lists named in the decision are exactly those above 5%. Thresholds for coalition lists are not printed in the decisions and are not tested.",
+      "districtAllocation": "28 single-member constituencies: the candidate with most votes is elected.",
+      "thresholds": [
+        {
+          "appliesTo": "national list and special list",
+          "percent": 5,
+          "description": {
+            "en": "A list needs at least 5% of valid ballots to take part in the seat allocation; this reproduces the printed seats (coalition thresholds are not printed and not tested).",
+            "zh-CN": "名单须获得有效票至少 5% 才能参与席位分配；按此可复现所列席位（联盟门槛未印出，未检验）。"
+          },
+          "sourceIds": [
+            "src-hr-izbori-final-1995"
+          ]
+        }
+      ],
+      "minorityRepresentation": {
+        "en": "Seven members for national minorities were elected in five special constituencies: one each in constituencies 1–4 (the decisions name them by seat: Buje, Osijek, Daruvar, Osijek, and print no minority name) and three in constituency 5, where voters could vote for more than one candidate. Candidate names are not stored.",
+        "zh-CN": "少数民族的 7 名议员在五个特别选区选出：第 1–4 特别选区各 1 名（决定按所在地命名：布耶、奥西耶克、达鲁瓦尔、奥西耶克，未印少数民族名称），第 5 特别选区 3 名，选民可选多名候选人。不存储候选人姓名。"
+      },
+      "diasporaRepresentation": {
+        "en": "Twelve members were elected from special lists by voters without residence in Croatia; only one list passed 5% and won all twelve seats.",
+        "zh-CN": "在克罗地亚无居所的选民按特别名单选出 12 名议员；只有一份名单超过 5%，获得全部 12 席。"
+      },
+      "totalSeatsDefinition": {
+        "en": "127 seats in the Chamber of Representatives: 80 national-list seats, 28 single-member seats, 12 seats from special lists abroad and 7 national-minority seats.",
+        "zh-CN": "代表院 127 席：全国名单 80 席、单一选区 28 席、境外特别名单 12 席、少数民族 7 席。"
+      },
+      "sourceIds": [
+        "src-hr-izbori-final-1995"
+      ]
+    },
+    "notes": {
+      "en": "Read by eye from the commission's scanned 1995 results document (35 decisions). Every count, printed percentage and seat reproduces: list votes and candidate votes equal the valid ballots (voters minus invalid ballots), printed turnout and invalid shares recompute, D'Hondt with the 5% threshold reproduces the list seats, and each elected candidate has most votes. Candidates in single-member constituencies are shown by their nominating parties as printed (or as independent) and row number; no candidate name is stored. This election covers the Chamber of Representatives only.",
+      "zh-CN": "依委员会 1995 年扫描结果文件（35 份决定）人工读取。所有计数、所列百分比和席位均可复现：名单票与候选人票等于有效票（投票人数减无效票），所列投票率与无效票比例可重算，按 5% 门槛的 D’Hondt 复现名单席位，每名当选者得票最多。单一选区候选人按所印提名政党（或独立候选人）及行号显示，不存储候选人姓名。本次选举仅涵盖代表院。"
+    },
+    "seat_check": {
+      "national_lists": {
+        "lists": 14,
+        "valid": 2417374,
+        "seats": 80,
+        "threshold_votes": 120869,
+        "lists_in_allocation": 5
+      },
+      "special_lists_abroad": {
+        "lists": 7,
+        "valid": 107772,
+        "seats": 12,
+        "threshold_votes": 5389,
+        "lists_in_allocation": 1
+      },
+      "single_member": 28,
+      "single_member_seats_by_nominator": {
+        "HDZ": 21,
+        "IDS,HSS,HNS,HSLS,HND,SDP": 1,
+        "SDP": 1,
+        "HSLS": 1,
+        "IDS": 1,
+        "HSLS,HSS,SDP,HNS,HND,HSP-1861": 1,
+        "HND,HNS,HSS,HSLS,HSP-1861,IDS,SDP": 1,
+        "SDP,HSLS,HSS,HNS,HND": 1
+      },
+      "national_minorities": 7,
+      "total": 127
+    },
+    "provenance": [
+      {
+        "source_id": "src-hr-izbori-final-1995",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1995/rezultati/1995_Rezultati_Sabor_zastupnicki_dom.pdf",
+        "source_record_id": "decisions (allocation sections)",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "fields_covered": [
+          "allocation_method",
+          "thresholds",
+          "base_seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "20399b64606d931185f5142b073de3789f339f06068132ddf39eecd4f3271f84"
+      }
+    ]
+  },
+  {
     "electoral_system_id": "es-hr-sabor-2000",
     "country": "croatia",
     "election_id": "el-hr-sabor-2000-01-03",
@@ -236,10 +376,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
+        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -493,10 +633,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
+        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -750,10 +890,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
+        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -999,10 +1139,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
+        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -1248,10 +1388,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
+        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -1497,10 +1637,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
+        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -1746,10 +1886,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
+        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -1995,10 +2135,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467"
+          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "faeea0e0f3732b1d4c4afa6f45034ad4fd65600b94e2daffd616b68ea2bbd266",
+        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
         "fields_covered": [
           "allocation_method",
           "thresholds",

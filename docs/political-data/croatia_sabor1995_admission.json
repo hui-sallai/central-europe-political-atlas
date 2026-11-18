@@ -1,0 +1,80 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "croatia-sabor-1995",
+ "country": "croatia",
+ "election_ids": [
+  "el-hr-sabor-1995-10-29"
+ ],
+ "scope": "Election of the Chamber of Representatives (Zastupnički dom Sabora Republike Hrvatske) of 29 October 1995, all 127 seats in every tier: national lists (14 lists, votes, printed percentages, 80 seats), 28 single-member constituencies (every candidate's votes, printed percentage and elected status, shown by nominating parties and row number), special lists for voters abroad (7 lists, 12 seats) and five national-minority special constituencies (7 seats; candidates without names), with registered voters, voters, invalid ballots and printed turnout per decision. The Chamber of Counties (Županijski dom), candidate names, list members and polling-station results are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief \"Complete ten-country parliamentary election coverage\" naming www.izbori.hr; answers \"Accept for all four\" (Copyright Act, official texts) and \"Register both\" (manual reading only)."
+  },
+  {
+   "date": "2026-11-19",
+   "decision": "Owner supplied the 1990–1995 results documents from the izbori.hr archive; asked which pre-2000 elections to attempt, the owner answered \"1992, 1993 and 1995 only\" (1990 out of scope)."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/croatia/sabor/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "owner_decision",
+   "basis": "Same basis as the other Croatian admissions: official texts of state bodies are not protected (Croatian Copyright Act), owner reading; not a licence."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "tier_figures_party_names_and_nominators",
+   "evidence_kind": "owner_decision",
+   "basis": "Per-tier and per-constituency counts, list votes, printed percentages and seats; list names as printed (no person named); single-member candidates shown only by the nominating parties printed with them (abbreviations) or \"Nezavisni kandidat\" and the row number; minority candidates by row number only."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The 41-page scanned results document stays in local-evidence/ by SHA-256 only."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_manual_download",
+   "evidence_kind": "owner_decision",
+   "basis": "Saved by the owner from the registered www.izbori.hr archive (results file of the 1995 parliamentary election); the assistant made no request."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "All 35 decisions of 14 November 1995 (KLASA 013-01/95-01/01, URBROJ 56605-95-470 to -504, consecutive): national lists, special lists, single-member constituencies I–XXVIII and special constituencies 1–5."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "Per decision: list or candidate votes = voters − invalid ballots (constituency 5: several votes per voter, total within 3 × valid); printed turnout and invalid shares recompute (rounded; the special-list header truncated, recorded); every printed percentage recomputes; lists at or above 5% = the five lists named; D'Hondt reproduces 42/16/10/8/4 of 80 and 12 of 12; each elected candidate has most votes (printed elected names compared with the rows, not stored); 80 + 28 + 12 + 4 + 3 = 127."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list_or_candidate_per_unit",
+   "evidence_kind": "owner_decision",
+   "basis": "Lists and candidates per tier and unit as printed; no link across tiers or elections; single-member winners grouped only by identical printed nominator string."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "election_specific_rules_reproduced",
+   "evidence_kind": "build_check",
+   "basis": "The Election Act as cited in the decisions (Narodne novine 22/92, 27/92, 1/93, 11/94 and 68/95; Arts. 23, 24, 24a, 58a): 5% threshold and D'Hondt for lists, plurality in single-member and minority constituencies, three seats in special constituency 5. Coalition thresholds are not printed and not tested."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_results_decisions_transcribed_by_eye",
+   "evidence_kind": "evidence_record",
+   "basis": "Final decisions of the Electoral Commission of the Republic of Croatia of 14 November 1995 in the scanned results document of the commission archive, transcribed by eye with every total cross-checked; OCR used only to locate sections."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a name repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

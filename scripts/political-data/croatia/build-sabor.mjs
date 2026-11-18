@@ -13,6 +13,7 @@
 //     the seats abroad were not fixed: the decision prints the valid votes in I–X, the quotient (÷ 140) and the seats
 //     abroad (valid votes abroad ÷ quotient), all checked here; minority seats were 5 in 2000 and 8 in 2003 and 2007,
 //     so the chamber had 151, 152 and 153 seats.
+//   - 1995 (mixed system, Chamber of Representatives only, 127 seats): see reconcile1995 below.
 // Votes are kept per constituency: lists differ between constituencies, so no national vote share is computed.
 // Seats are also grouped by identical printed list title (a factual grouping, not a party attribution).
 //
@@ -118,6 +119,143 @@ export function historicalTexts(year, st, q, E, units) {
   const repeatZh = rp ? ` ${rp.units.length} 份决定所印投票日包括 ${rp.date} 的重新投票，其数字已包含在内。` : '';
   const notes = t(`Votes are shown per constituency. The same party can stand in different coalitions in different constituencies, so constituency list votes are not added into national vote shares. Seats reproduce by D'Hondt with the 5% constituency threshold. There was no preferential vote before the 2015 amendments: candidates were elected in list order. Independent lists are printed with their leader's name (NEOVISNA LISTA - …); they are shown as NEOVISNA LISTA and the name is not stored.${chamberEn}${repeatEn}`, `得票按选区列示。同一政党在不同选区可能参加不同联盟，因此不把各选区名单票相加为全国得票率。席位可按 D’Hondt 与选区 5% 门槛复现。2015 年修正之前没有优先票：候选人按名单顺序当选。独立名单印有领衔人姓名（NEOVISNA LISTA - …），此处显示为 NEOVISNA LISTA，不存储姓名。${chamberZh}${repeatZh}`);
   return { minority, diaspora, total, notes };
+}
+
+// ── 1995 (added 2026-11-19; owner answer "1992, 1993 and 1995 only") ──────────────────────────────────────────────
+// Chamber of Representatives (Zastupnički dom), 29 October 1995, from the Electoral Commission's scanned results
+// document (35 decisions of 14 November 1995, URBROJ 470–504), read by eye. Mixed system, 127 seats: 80 national-list
+// seats (D'Hondt among lists with at least 5%), 28 single-member constituencies (most votes), 12 seats from special lists
+// for voters abroad, 4 single-seat national-minority constituencies and one three-seat constituency (each voter several
+// votes; percentages printed on all candidate votes). Every printed count, percentage and seat is checked.
+export const SMD_VOTE = 'hr_single_member_candidate_vote';
+const r2 = (num, den, conv = 'rounded_two_decimals') => ((conv === 'truncated_two_decimals' ? Math.floor((num * 10000) / den) : Math.round((num * 10000) / den)) / 100).toFixed(2);
+const pnorm = (s) => s.replace(',', '.');
+
+export function reconcile1995(E) {
+  const check = (ok, what) => { if (!ok) fail(`1995: ${what}`); };
+  const S = E.seat_structure;
+  check(S.national_lists + S.single_member + S.special_lists_abroad + S.minority_single_seat + S.minority_multi_seat === S.total, 'seat structure does not add up');
+  const head = (x, label) => {
+    const valid = x.voted - x.invalid;
+    check(valid > 0 && x.voted <= x.registered, `${label}: counts out of order`);
+    // Rounded everywhere in 1995 except the special-list header, which prints truncated values (recorded in the evidence).
+    const conv = x.header_percent_convention ?? 'rounded_two_decimals';
+    check(r2(x.voted, x.registered, conv) === pnorm(x.voted_printed_percent), `${label}: printed turnout ≠ voted ÷ registered (${conv})`);
+    check(r2(x.invalid, x.voted, conv) === pnorm(x.invalid_printed_percent), `${label}: printed invalid share ≠ invalid ÷ voted (${conv})`);
+    return valid;
+  };
+  const listTier = (x, label, seats) => {
+    const valid = head(x, label), L = x.lists;
+    check(L.every((l, i) => l.row === i + 1), `${label}: rows not consecutive`);
+    check(sum(L) === valid, `${label}: list votes ≠ voters − invalid ballots`);
+    check(L.every((l) => r2(l.votes, valid) === pnorm(l.printed_percent)), `${label}: printed percentage ≠ votes ÷ valid ballots`);
+    const taking = L.filter((l) => l.votes * 100 >= 5 * valid);
+    if (x.lists_in_allocation_printed !== undefined) check(taking.length === x.lists_in_allocation_printed, `${label}: lists at or above 5% (${taking.length}) ≠ lists named (${x.lists_in_allocation_printed})`);
+    const won = dhondt(taking.map((l) => l.votes), seats);
+    check(won.join() === taking.map((l) => l.seats).join(), `${label}: D'Hondt ${won} ≠ printed seats`);
+    check(L.filter((l) => !taking.includes(l)).every((l) => l.seats === 0) && sum(L, 'seats') === seats, `${label}: seats ≠ ${seats}`);
+    return { lists: L.length, valid, seats, threshold_votes: Math.ceil(0.05 * valid), lists_in_allocation: taking.length };
+  };
+  const nat = listTier(E.national_list, 'national lists', S.national_lists);
+  const abroad = listTier(E.special_list, 'special lists', S.special_lists_abroad);
+  check(E.single_member.length === S.single_member && E.single_member.every((u, i) => u.number === i + 1), `single-member constituencies ≠ ${S.single_member}`);
+  const byNominator = {};
+  for (const u of E.single_member) {
+    const valid = head(u, `constituency ${u.unit}`), C = u.candidates;
+    check(C.every((c, i) => c.row === i + 1) && sum(C) === valid, `constituency ${u.unit}: candidate votes ≠ valid ballots`);
+    check(C.every((c) => r2(c.votes, valid) === pnorm(c.printed_percent)), `constituency ${u.unit}: printed percentage ≠ votes ÷ valid ballots`);
+    const top = Math.max(...C.map((c) => c.votes)), el = C.filter((c) => c.elected);
+    check(C.filter((c) => c.votes === top).length === 1 && el.length === 1 && el[0].votes === top, `constituency ${u.unit}: the elected candidate does not have most votes`);
+    byNominator[el[0].nominated_by] = (byNominator[el[0].nominated_by] ?? 0) + 1;
+  }
+  let minority = 0;
+  for (const u of E.special_constituencies) {
+    const valid = head(u, `special constituency ${u.unit}`), C = u.candidates, all = sum(C);
+    if (u.seats === 1) check(all === valid && u.percent_base === 'valid_ballots', `special constituency ${u.unit}: candidate votes ≠ valid ballots`);
+    else check(all > valid && all <= u.seats * valid && u.percent_base === 'all_candidate_votes', `special constituency ${u.unit}: several-vote total out of range`);
+    check(C.every((c) => r2(c.votes, u.seats === 1 ? valid : all) === pnorm(c.printed_percent)), `special constituency ${u.unit}: printed percentage ≠ votes ÷ ${u.percent_base}`);
+    const top = [...C].sort((a, b) => b.votes - a.votes);
+    check(top[u.seats - 1].votes > (top[u.seats]?.votes ?? -1), `special constituency ${u.unit}: tie for the last seat`);
+    check(C.filter((c) => c.elected).length === u.seats && top.slice(0, u.seats).every((c) => c.elected), `special constituency ${u.unit}: elected ≠ candidates with most votes`);
+    minority += u.seats;
+  }
+  const single = E.special_constituencies.filter((u) => u.seats === 1);
+  check(single.length === S.minority_single_seat && minority - single.length === S.minority_multi_seat, 'minority seats ≠ seat structure');
+  const total = nat.seats + abroad.seats + E.single_member.length + minority;
+  check(total === S.total, `seats ${total} ≠ ${S.total}`);
+  return { national_lists: nat, special_lists_abroad: abroad, single_member: E.single_member.length, single_member_seats_by_nominator: byNominator, national_minorities: minority, total };
+}
+
+function build1995(evidence, evidenceSha, parserSha) {
+  const E = evidence.elections['1995'], D = E.document, out = Object.fromEntries(CROATIAN_STORES.map((s) => [s, []]));
+  const check = reconcile1995(E), S = E.seat_structure;
+  const electionId = `el-hr-sabor-${E.polling_day}`, SRC = 'src-hr-izbori-final-1995', vintage = `final: Electoral Commission of the Republic of Croatia decisions of ${E.decision_date} (KLASA ${E.klasa}, 35 decisions, URBROJ 56605-95-470 to -504) in the scanned results document, transcribed by eye`;
+  const prov = (record, fields, how = 'published') => ({ source_id: SRC, source_url: D.url, source_record_id: record, retrieved_at: E.retrieved_at, raw_snapshot: { path: EVIDENCE, sha256: evidenceSha }, parser_version: 'croatia-sabor-v1', parser_sha256: parserSha, fields_covered: fields, published_or_derived: how, publisher_file_sha256: D.publisher_file_sha256 });
+  const NAT = 'hr-national-list', ABR = 'hr-special-list-abroad', smdGeo = (u) => `hr-smd-${String(u.number).padStart(2, '0')}`, spGeo = (u) => `hr-special-${u.unit}`;
+  const nameSp = (u) => `${u.unit}. posebna izborna jedinica${u.seat_printed ? ` (${u.seat_printed[0]}${u.seat_printed.slice(1).toLowerCase()})` : ''}`;
+  out.elections.push({ election_id: electionId, country: 'croatia', election_type: 'national_parliament', chamber: CHAMBER, chamber_printed: E.chamber_printed, chamber_scope: 'Zastupnički dom (Chamber of Representatives) only; the Županijski dom (Chamber of Counties) was elected separately and is not part of this election', date: E.polling_day, date_end: null, date_basis: 'polling day stated in each decision (“na dan 29. listopada 1995.”)', result_coverage: 'all_tiers_lists_and_single_member_candidates_minority_candidates_without_names', year: 1995, legislature_id: 'lg-hr-sabor-1995', electoral_system_id: 'es-hr-sabor-1995', result_status: 'official_final', result_vintage: vintage, later_poll_date: null, repeat_poll_date: null,
+    constituency_structure: [
+      { unit: 'national_list', constituencies: [NAT], seats: S.national_lists, vote_type: LIST_VOTE },
+      { unit: 'single_member', constituencies: E.single_member.map(smdGeo), seats_each: 1, seats: S.single_member, vote_type: SMD_VOTE },
+      { unit: 'special_list_abroad', constituencies: [ABR], seats: S.special_lists_abroad, vote_type: LIST_VOTE },
+      { unit: 'national_minority', constituencies: E.special_constituencies.map(spGeo), seats: S.minority_single_seat + S.minority_multi_seat, vote_type: MINORITY_VOTE },
+    ],
+    provenance: [prov('decision headings (polling day, decision date)', ['date', 'result_vintage'])] });
+  const turnout = (x, geo, vt, label, record) => {
+    const def = `Voters who voted (glasovalo je) / voters on the roll (birača upisanih u popise birača) × 100, as printed in the decision for ${label}.`;
+    out.election_turnout.push({ election_id: electionId, country: 'croatia', geography: geo, vote_type: vt, result_vintage: vintage, eligible_voters: x.registered, voters_turned_out: null, voters: x.voted, valid_votes: x.voted - x.invalid, invalid_votes: x.invalid, ballots_cast: x.voted, published_turnout: Number(pnorm(x.voted_printed_percent)), derived_turnout: (x.voted / x.registered) * 100, valid_votes_basis: 'voters who voted minus invalid ballots (the decisions print no separate count of valid ballots)', turnout_definition: def, turnout_basis: { numerator: 'voters', denominator: 'registered_electorate', definition: def, sourceIds: [SRC] }, provenance: [prov(`${record}, section I`, ['eligible_voters', 'voters', 'invalid_votes', 'published_turnout'])] });
+  };
+  turnout(E.national_list, NAT, LIST_VOTE, 'the national lists (all voters in Croatia)', `decision URBROJ ${E.national_list.urbroj}`);
+  turnout(E.special_list, ABR, LIST_VOTE, 'the special lists (voters without residence in Croatia)', `decision URBROJ ${E.special_list.urbroj}`);
+  for (const u of E.single_member) turnout(u, smdGeo(u), SMD_VOTE, `single-member constituency ${u.unit}`, `decision URBROJ ${u.urbroj}`);
+  for (const u of E.special_constituencies) turnout(u, spGeo(u), MINORITY_VOTE, nameSp(u), `decision URBROJ ${u.urbroj}`);
+  const listRows = (x, geo, tag, seats, record, art) => {
+    const valid = x.voted - x.invalid;
+    for (const l of x.lists) {
+      const id = `ct-hr-sabor95-${tag}-${String(l.row).padStart(2, '0')}`, coalition = l.parties_named_count > 1;
+      out.electoral_contestants.push({ contestant_id: id, country: 'croatia', election_id: electionId, constituency: geo, contestant_kind: 'electoral_list', native_list_type: tag === 'dl' ? 'državna lista' : 'posebna lista', list_composition: coalition ? 'coalition_list_two_or_more_parties_named' : 'single_name_list_kind_not_printed', kind_basis: 'the decision prints each list with the names of the parties that submitted it', parties_named: l.parties_named, parties_named_count: l.parties_named_count, list_number: l.row, list_number_basis: 'row in the decision (lists in the order printed)', registered_label_native: null, historical_display_label: l.name, display_label_rule: 'list name as printed', label_basis: 'verbatim', title_sha256: l.title_sha256, lead_party_id: null, party_relation_status: 'not_attributed_no_party_register_reviewed', continuous_series_eligible: false, provenance: [prov(`${record}, list row ${l.row}`, ['list_number', 'historical_display_label'])] });
+      out.election_results.push({ result_id: `er-${id}`, country: 'croatia', geography: geo, election_id: electionId, contestant_ref: id, vote_type: LIST_VOTE, valid_votes: valid, total_seats: seats, votes: l.votes, published_vote_share: Number(pnorm(l.printed_percent)), derived_vote_share: (l.votes / valid) * 100, seats: l.seats, seat_basis: `${tag === 'dl' ? 'national lists' : 'special lists for voters abroad'}: D'Hondt over ${seats} seats among lists with at least 5% of valid ballots (${art}); reproduces the printed seats`, published_seat_share: null, result_vintage: vintage, provenance: [prov(`${record}, list row ${l.row}`, ['votes', 'published_vote_share', 'seats'])] });
+    }
+  };
+  listRows(E.national_list, NAT, 'dl', S.national_lists, `decision URBROJ ${E.national_list.urbroj}`, E.national_list.allocation_article);
+  listRows(E.special_list, ABR, 'pl', S.special_lists_abroad, `decision URBROJ ${E.special_list.urbroj}`, E.special_list.allocation_article);
+  for (const u of E.single_member) {
+    const valid = u.voted - u.invalid;
+    for (const c of u.candidates) {
+      const id = `ct-hr-sabor95-smd${String(u.number).padStart(2, '0')}-${String(c.row).padStart(2, '0')}`, independent = c.nominated_by === 'Nezavisni kandidat';
+      out.electoral_contestants.push({ contestant_id: id, country: 'croatia', election_id: electionId, constituency: smdGeo(u), contestant_kind: 'individual_candidate', native_list_type: 'kandidat', kind_basis: 'single-member constituency: individual candidates, each printed with the parties that nominated them or as an independent candidate', list_number: c.row, list_number_basis: 'row in the decision (candidates in alphabetical order)', registered_label_native: null, historical_display_label: `${independent ? 'Nezavisni kandidat' : c.nominated_by}, red. br. ${c.row}`, nominated_by: independent ? null : c.nominated_by.split(','), independent, display_label_rule: 'candidate names are not stored: the nominating parties as printed (abbreviations) or "Nezavisni kandidat", with the row number', label_basis: 'nominator_and_row', name_stored: false, lead_party_id: null, party_relation_status: 'not_attributed_candidate_contest', continuous_series_eligible: false, provenance: [prov(`decision URBROJ ${u.urbroj}, candidate row ${c.row}`, ['list_number', 'nominated_by'])] });
+      out.election_results.push({ result_id: `er-${id}`, country: 'croatia', geography: smdGeo(u), election_id: electionId, contestant_ref: id, vote_type: SMD_VOTE, valid_votes: valid, total_seats: 1, votes: c.votes, published_vote_share: Number(pnorm(c.printed_percent)), derived_vote_share: (c.votes / valid) * 100, seats: c.elected ? 1 : 0, elected: c.elected, seat_basis: `single-member constituency ${u.unit}: the candidate with most votes is elected (Art. 23)`, published_seat_share: null, result_vintage: vintage, provenance: [prov(`decision URBROJ ${u.urbroj}, candidate row ${c.row} and the elected candidate`, ['votes', 'published_vote_share', 'seats'])] });
+    }
+  }
+  for (const u of E.special_constituencies) {
+    const valid = u.voted - u.invalid;
+    for (const c of u.candidates) {
+      const id = `ct-hr-sabor95-pj${u.unit}-${String(c.row).padStart(2, '0')}`;
+      out.electoral_contestants.push({ contestant_id: id, country: 'croatia', election_id: electionId, constituency: spGeo(u), contestant_kind: 'individual_candidate', native_list_type: 'kandidat', kind_basis: 'national-minority special constituency: individual candidates', list_number: c.row, list_number_basis: 'row in the decision', registered_label_native: null, historical_display_label: `Kandidat, red. br. ${c.row}`, display_label_rule: 'candidate names and nominators are not stored; the row number in the decision identifies the candidate', label_basis: 'row_only', name_stored: false, lead_party_id: null, party_relation_status: 'not_attributed_candidate_contest', continuous_series_eligible: false, provenance: [prov(`decision URBROJ ${u.urbroj}, candidate row ${c.row}`, ['list_number'])] });
+      out.election_results.push({ result_id: `er-${id}`, country: 'croatia', geography: spGeo(u), election_id: electionId, contestant_ref: id, vote_type: MINORITY_VOTE, valid_votes: valid, total_seats: u.seats, votes: c.votes, published_vote_share: u.seats === 1 ? Number(pnorm(c.printed_percent)) : null, ...(u.seats > 1 ? { printed_share_of_all_candidate_votes: Number(pnorm(c.printed_percent)) } : {}), derived_vote_share: u.seats === 1 ? (c.votes / valid) * 100 : null, seats: c.elected ? 1 : 0, elected: c.elected, seat_basis: u.seats === 1 ? `${nameSp(u)}: one member, the candidate with most votes (Art. 23)` : `${nameSp(u)}: three members, the three candidates with most votes (Art. 58a); voters could vote for more than one candidate, so the candidates' votes exceed the valid ballots and the printed percentages are shares of all candidate votes`, published_seat_share: null, result_vintage: vintage, provenance: [prov(`decision URBROJ ${u.urbroj}, candidate row ${c.row} and the elected candidates`, ['votes', 'seats'])] });
+    }
+  }
+  const bySeats = (x) => x.lists.filter((l) => l.seats > 0).map((l) => ({ label: l.name, title_sha256: l.title_sha256, seats: l.seats }));
+  out.legislatures.push({ legislature_id: 'lg-hr-sabor-1995', country: 'croatia', chamber: CHAMBER, chamber_printed: E.chamber_printed, official_term: null, election_id: electionId, total_seats: S.total, seat_count_basis: 'election_result_vintage_not_current_composition', seats_by_mechanism: { national_lists: S.national_lists, single_member_constituencies: S.single_member, special_lists_abroad: S.special_lists_abroad, national_minorities: S.minority_single_seat + S.minority_multi_seat }, seats_by_national_list: bySeats(E.national_list), seats_by_special_list: bySeats(E.special_list), single_member_seats_by_nominator: Object.entries(check.single_member_seats_by_nominator).sort((a, b) => b[1] - a[1]).map(([nominated_by, seats]) => ({ nominated_by, seats })), seats_by_national_minority_constituency: E.special_constituencies.map((u) => ({ constituency: spGeo(u), seat_printed: u.seat_printed, seats: u.seats })), seat_grouping_note: 'Seats are listed per tier as printed; nominators of single-member winners are grouped by the identical printed nominator string. No seat is attributed to a party across tiers.', result_vintage: vintage, start_date: null, end_date: null, date_status: 'not_acquired_not_asserted', provenance: [prov('sum of the 35 decisions', ['total_seats', 'seats_by_mechanism'], 'derived_count_of_published_rows')] });
+  out.electoral_systems.push({ electoral_system_id: 'es-hr-sabor-1995', country: 'croatia', election_id: electionId, institutional_rule_id: 'hr-es-sabor', valid_from: E.polling_day, valid_to: E.polling_day, interval_basis: `election-specific: the rules applied in the 1995 decisions (${E.act_cited}); the 5% threshold and D'Hondt reproduce the printed list seats; the institutional registry record hr-es-sabor holds the current statutory text`, system_family: 'mixed: national lists (proportional) and single-member constituencies (plurality), special lists for voters abroad, national-minority constituencies', vote_type: LIST_VOTE, allocation_method: "National lists: D'Hondt over 80 seats among lists with at least 5% of valid ballots (Art. 24). Single-member constituencies: most votes (Art. 23). Special lists abroad: D'Hondt over 12 seats among lists with at least 5% (Art. 24a). Minority constituencies: most votes (one seat each; three seats in constituency 5, Art. 58a).", base_seats: S.total,
+    vote_definitions: [
+      { id: LIST_VOTE, kind: 'list', label: t('List votes (national lists and special lists abroad)', '名单票（全国名单与境外特别名单）'), denominator: 'valid_votes', seatScope: 'national_list_or_special_list', sourceIds: [SRC] },
+      { id: SMD_VOTE, kind: 'candidate', label: t('Single-member constituency candidate votes', '单一选区候选人票'), denominator: 'valid_votes', seatScope: 'single_member_constituency', sourceIds: [SRC] },
+      { id: MINORITY_VOTE, kind: 'candidate', label: t('National-minority candidate votes', '少数民族候选人票'), denominator: 'valid_votes', seatScope: 'minority_constituency', sourceIds: [SRC] },
+    ],
+    national_rules: {
+      nationalAllocation: "80 seats by D'Hondt among national lists with at least 5% of valid ballots; the five lists named in the decision are exactly those above 5%. Thresholds for coalition lists are not printed in the decisions and are not tested.",
+      districtAllocation: '28 single-member constituencies: the candidate with most votes is elected.',
+      thresholds: [{ appliesTo: 'national list and special list', percent: 5, description: t('A list needs at least 5% of valid ballots to take part in the seat allocation; this reproduces the printed seats (coalition thresholds are not printed and not tested).', '名单须获得有效票至少 5% 才能参与席位分配；按此可复现所列席位（联盟门槛未印出，未检验）。'), sourceIds: [SRC] }],
+      minorityRepresentation: t('Seven members for national minorities were elected in five special constituencies: one each in constituencies 1–4 (the decisions name them by seat: Buje, Osijek, Daruvar, Osijek, and print no minority name) and three in constituency 5, where voters could vote for more than one candidate. Candidate names are not stored.', '少数民族的 7 名议员在五个特别选区选出：第 1–4 特别选区各 1 名（决定按所在地命名：布耶、奥西耶克、达鲁瓦尔、奥西耶克，未印少数民族名称），第 5 特别选区 3 名，选民可选多名候选人。不存储候选人姓名。'),
+      diasporaRepresentation: t('Twelve members were elected from special lists by voters without residence in Croatia; only one list passed 5% and won all twelve seats.', '在克罗地亚无居所的选民按特别名单选出 12 名议员；只有一份名单超过 5%，获得全部 12 席。'),
+      totalSeatsDefinition: t('127 seats in the Chamber of Representatives: 80 national-list seats, 28 single-member seats, 12 seats from special lists abroad and 7 national-minority seats.', '代表院 127 席：全国名单 80 席、单一选区 28 席、境外特别名单 12 席、少数民族 7 席。'),
+      sourceIds: [SRC],
+    },
+    notes: t("Read by eye from the commission's scanned 1995 results document (35 decisions). Every count, printed percentage and seat reproduces: list votes and candidate votes equal the valid ballots (voters minus invalid ballots), printed turnout and invalid shares recompute, D'Hondt with the 5% threshold reproduces the list seats, and each elected candidate has most votes. Candidates in single-member constituencies are shown by their nominating parties as printed (or as independent) and row number; no candidate name is stored. This election covers the Chamber of Representatives only.", '依委员会 1995 年扫描结果文件（35 份决定）人工读取。所有计数、所列百分比和席位均可复现：名单票与候选人票等于有效票（投票人数减无效票），所列投票率与无效票比例可重算，按 5% 门槛的 D’Hondt 复现名单席位，每名当选者得票最多。单一选区候选人按所印提名政党（或独立候选人）及行号显示，不存储候选人姓名。本次选举仅涵盖代表院。'),
+    seat_check: check, provenance: [prov('decisions (allocation sections)', ['allocation_method', 'thresholds', 'base_seats'])] });
+  out.political_source_registry.push({ source_id: SRC, country: 'croatia', institution: `${E.issuer}; archive of the State Electoral Commission (Državno izborno povjerenstvo)`, dataset: `${D.title} — ${D.pages} scanned pages, 35 decisions of ${E.decision_date} (KLASA ${E.klasa})`, tier: 'tier1_official', url: D.url, archive_page: D.archive_page, licence_status: 'official_text_copyright_act_owner_reading_no_licence', raw_redistribution: 'transcribed_figures_and_party_names_only_documents_and_candidate_names_not_redistributed', licence_url: evidence.rights.publisher_reuse_page, rights_basis: evidence.rights.basis, attribution: 'Izborna komisija Republike Hrvatske; Državno izborno povjerenstvo Republike Hrvatske', retrieved_at: E.retrieved_at, acquisition: E.acquisition, raw_sha256: evidenceSha, raw_path: EVIDENCE, publisher_file_sha256: D.publisher_file_sha256, transcription: D.kind });
+  return { out, check };
 }
 
 export function buildCroatia() {
@@ -235,7 +373,10 @@ export function buildCroatia() {
       seat_check: checks[year], provenance: [prov('decisions sections III–IV', ['allocation_method', 'thresholds', 'base_seats'])] });
     out.political_source_registry.push({ source_id: SRC, country: 'croatia', institution: 'Državno izborno povjerenstvo Republike Hrvatske (State Electoral Commission)', dataset: `Konačni rezultati izbora zastupnika u Hrvatski sabor ${year} — 17 final-results decisions (territorial constituencies I–X, constituency XI abroad, constituency XII national minorities)`, tier: 'tier1_official', url: E.archive_page, licence_status: 'official_text_copyright_act_owner_reading_no_licence', raw_redistribution: 'transcribed_figures_and_party_names_only_documents_and_candidate_names_not_redistributed', licence_url: evidence.rights.publisher_reuse_page, rights_basis: evidence.rights.basis, attribution: 'Državno izborno povjerenstvo Republike Hrvatske', retrieved_at: E.retrieved_at, raw_sha256: evidenceSha, raw_path: EVIDENCE, ...(E.names_source ? { names_source: E.names_source } : {}), ...(historical ? { acquisition: E.acquisition, received_not_used: [E.open_data_zip_received_not_used] } : {}), documents: units.map((u) => ({ unit: geoOf(u), url: u.url, klasa: u.klasa, urbroj: u.urbroj, decision_date: u.decision_date, publisher_file_sha256: u.publisher_file_sha256 })) });
   }
-  return { ...out, checks };
+  // 1995 rows come first (chronological order); the 2000–2024 rows are unchanged.
+  const { out: o95, check: c95 } = build1995(evidence, evidenceSha, parserSha);
+  for (const s of CROATIAN_STORES) out[s] = [...o95[s], ...out[s]];
+  return { ...out, checks: { 1995: c95, ...checks } };
 }
 
 const cell = (v) => { if (v === null || v === undefined) return ''; const s = typeof v === 'object' ? JSON.stringify(v) : String(v); return /[",\r\n]/.test(s) ? `"${s.replaceAll('"', '""')}"` : s; };
@@ -247,8 +388,8 @@ export function croatiaFiles(data) {
     const keys = [...new Set(data[store].flatMap((row) => Object.keys(row)))];
     files[`${EXPORT_DIR}/${store}.csv`] = [keys.map(cell).join(','), ...data[store].map((row) => keys.map((k) => cell(row[k])).join(','))].join('\r\n') + '\r\n';
   }
-  files[`${EXPORT_DIR}/README.md`] = `# Croatia — Croatian Parliament (Hrvatski sabor) elections\n\nElections: ${data.elections.map((e) => e.date).join(', ')}. Whole chamber in every election (${data.legislatures.map((l) => `${l.election_id.slice(-10, -6)}: ${l.total_seats}`).join(', ')} seats): ten territorial constituencies (14 seats each), one constituency abroad (3 seats from 2011; in 2000, 2003 and 2007 the number was set by a non-fixed quota printed in the decision: ${data.legislatures.filter((l) => l.seats_by_mechanism.constituency_abroad !== 3).map((l) => l.seats_by_mechanism.constituency_abroad).join(', ')} seats) and the national-minority elections in constituency XII (8 seats; 5 in 2000). Source: final-results decisions of the State Electoral Commission (Državno izborno povjerenstvo), one per constituency and per minority election, identified by KLASA/URBROJ and file checksum in \`political_source_registry\`.\n\nUnits: results are per constituency (\`geography\` hr-ie-01 … hr-ie-11, hr-ie-12-<minority>). The same party may stand in different coalitions in different constituencies, so list votes are not added into national vote shares. \`legislatures.seats_by_identical_list_title\` adds seats only across lists with the same printed title. Turnout is printed per decision (the 2000 decisions print turnout counts without percentages, so 2000 turnout is derived); \`hr-territorial-i-x\` sums constituencies I–X and, for 2024, matches the commission’s archive table.\n\nLabels: lists are stored with the party names printed in the decision. Party names containing a living person’s name are shown by the abbreviation printed with them, or omitted (row number only when nothing remains); independent lists printed with their leader’s name (2000–2007) are shown as NEOVISNA LISTA; \`title_sha256\` identifies the full printed title. National-minority candidates are stored without names or nominators (row number, votes, elected). No list is linked to a party or across elections.\n\nReuse basis: official texts of state bodies are not protected by copyright (Croatian Copyright Act), recorded as the owner’s reading of the statute, not a licence.\n`;
-  files[`${EXPORT_DIR}/manifest.json`] = `${JSON.stringify({ schema_version: 'croatia-political-export-v1', country: 'croatia', elections: data.elections.map((e) => e.election_id), coverage: 'whole_chamber_all_seats_per_constituency', seats_by_election: Object.fromEntries(data.legislatures.map((l) => [l.election_id, l.total_seats])), units: 'constituency (hr-ie-01..11) and national-minority election (hr-ie-12-*)', label_rule: 'party names as printed; names of persons replaced by the printed abbreviation or omitted; minority candidates without names', not_included: ['candidate names and preferential votes', 'polling-station results', 'party attribution and cross-election links', 'national vote shares (lists differ between constituencies)'], stores: CROATIAN_STORES }, null, 2)}\n`;
+  files[`${EXPORT_DIR}/README.md`] = `# Croatia — Croatian Parliament (Hrvatski sabor) elections\n\nElections: ${data.elections.map((e) => e.date).join(', ')}. Whole chamber in every election (${data.legislatures.map((l) => `${l.election_id.slice(-10, -6)}: ${l.total_seats}`).join(', ')} seats): ten territorial constituencies (14 seats each), one constituency abroad (3 seats from 2011; in 2000, 2003 and 2007 the number was set by a non-fixed quota printed in the decision: ${data.legislatures.filter((l) => l.seats_by_mechanism.constituency_abroad !== undefined && l.seats_by_mechanism.constituency_abroad !== 3).map((l) => l.seats_by_mechanism.constituency_abroad).join(', ')} seats) and the national-minority elections in constituency XII (8 seats; 5 in 2000). 1995 (Chamber of Representatives only, 127 seats) used a mixed system: 80 seats from national lists (D'Hondt, 5%), 28 single-member constituencies (most votes), 12 seats from special lists for voters abroad and 7 national-minority seats in five special constituencies (\`geography\` hr-national-list, hr-smd-01 … hr-smd-28, hr-special-list-abroad, hr-special-1 … hr-special-5); single-member candidates are shown by their nominating parties and row number, never by name. Source: final-results decisions of the State Electoral Commission (Državno izborno povjerenstvo), one per constituency and per minority election, identified by KLASA/URBROJ and file checksum in \`political_source_registry\`.\n\nUnits: results are per constituency (\`geography\` hr-ie-01 … hr-ie-11, hr-ie-12-<minority>). The same party may stand in different coalitions in different constituencies, so list votes are not added into national vote shares. \`legislatures.seats_by_identical_list_title\` adds seats only across lists with the same printed title. Turnout is printed per decision (the 2000 decisions print turnout counts without percentages, so 2000 turnout is derived); \`hr-territorial-i-x\` sums constituencies I–X and, for 2024, matches the commission’s archive table.\n\nLabels: lists are stored with the party names printed in the decision. Party names containing a living person’s name are shown by the abbreviation printed with them, or omitted (row number only when nothing remains); independent lists printed with their leader’s name (2000–2007) are shown as NEOVISNA LISTA; \`title_sha256\` identifies the full printed title. National-minority candidates are stored without names or nominators (row number, votes, elected). No list is linked to a party or across elections.\n\nReuse basis: official texts of state bodies are not protected by copyright (Croatian Copyright Act), recorded as the owner’s reading of the statute, not a licence.\n`;
+  files[`${EXPORT_DIR}/manifest.json`] = `${JSON.stringify({ schema_version: 'croatia-political-export-v1', country: 'croatia', elections: data.elections.map((e) => e.election_id), coverage: 'whole_chamber_all_seats_per_constituency', seats_by_election: Object.fromEntries(data.legislatures.map((l) => [l.election_id, l.total_seats])), units: 'constituency (hr-ie-01..11) and national-minority election (hr-ie-12-*); 1995: hr-national-list, hr-smd-01..28, hr-special-list-abroad, hr-special-1..5', label_rule: 'party names as printed; names of persons replaced by the printed abbreviation or omitted; minority candidates without names', not_included: ['candidate names and preferential votes', 'polling-station results', 'party attribution and cross-election links', 'national vote shares (lists differ between constituencies)'], stores: CROATIAN_STORES }, null, 2)}\n`;
   return files;
 }
 
@@ -257,5 +398,5 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const files = croatiaFiles(data);
   if (process.argv.includes('--write')) for (const [rel, content] of Object.entries(files)) { fs.mkdirSync(path.dirname(path.join(root, rel)), { recursive: true }); fs.writeFileSync(path.join(root, rel), content); }
   else { const stale = Object.entries(files).filter(([rel, c]) => !fs.existsSync(path.join(root, rel)) || fs.readFileSync(path.join(root, rel), 'utf8') !== c).map(([rel]) => rel); if (stale.length) { console.error(`Croatia stores or exports out of date: ${stale.join(', ')}`); process.exit(1); } }
-  console.log(JSON.stringify({ status: 'pass', checks: Object.fromEntries(Object.entries(data.checks).map(([y, c]) => [y, { seats: c.seats, units: c.units.length }])), files: Object.keys(files).length }));
+  console.log(JSON.stringify({ status: 'pass', checks: Object.fromEntries(Object.entries(data.checks).map(([y, c]) => [y, c.units ? { seats: c.seats, units: c.units.length } : { total: c.total, single_member_seats_by_nominator: c.single_member_seats_by_nominator }])), files: Object.keys(files).length }));
 }

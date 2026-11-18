@@ -1,5 +1,25 @@
 [
   {
+    "source_id": "src-hr-izbori-final-1995",
+    "country": "croatia",
+    "institution": "Izborna komisija Republike Hrvatske (Electoral Commission of the Republic of Croatia); archive of the State Electoral Commission (Državno izborno povjerenstvo)",
+    "dataset": "Ukupni rezultati (izbori za Zastupnički dom Sabora Republike Hrvatske 1995) — 41 scanned pages, 35 decisions of 1995-11-14 (KLASA 013-01/95-01/01)",
+    "tier": "tier1_official",
+    "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1995/rezultati/1995_Rezultati_Sabor_zastupnicki_dom.pdf",
+    "archive_page": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-1995",
+    "licence_status": "official_text_copyright_act_owner_reading_no_licence",
+    "raw_redistribution": "transcribed_figures_and_party_names_only_documents_and_candidate_names_not_redistributed",
+    "licence_url": "https://www.izbori.hr/site/UserDocsImages/5469",
+    "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
+    "attribution": "Izborna komisija Republike Hrvatske; Državno izborno povjerenstvo Republike Hrvatske",
+    "retrieved_at": "2026-11-19",
+    "acquisition": "owner download 2026-11-19 (owner answer \"1992, 1993 and 1995 only\"): saved by the owner from the registered www.izbori.hr archive; the assistant made no request; kept in local-evidence/ by checksum",
+    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
+    "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
+    "publisher_file_sha256": "20399b64606d931185f5142b073de3789f339f06068132ddf39eecd4f3271f84",
+    "transcription": "scanned typescript (no text layer); read by eye from page images, OCR used only to locate sections"
+  },
+  {
     "source_id": "src-hr-dip-final-2000",
     "country": "croatia",
     "institution": "Državno izborno povjerenstvo Republike Hrvatske (State Electoral Commission)",
@@ -12,7 +32,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-19",
-    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
+    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "acquisition": "saved by the owner by hand on 2026-11-19 from the commission archive (exact file links from the archive page, read once in the browser pane); read locally",
     "received_not_used": [
@@ -166,7 +186,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-19",
-    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
+    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "acquisition": "saved by the owner by hand on 2026-11-19 from the commission archive (exact file links from the archive page, read once in the browser pane); read locally",
     "received_not_used": [
@@ -328,7 +348,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-19",
-    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
+    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "acquisition": "saved by the owner by hand on 2026-11-19 from the commission archive (exact file links from the archive page, read once in the browser pane); read locally",
     "received_not_used": [
@@ -490,7 +510,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
+    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "names_source": {
       "note": "The 2011 decisions have a damaged text layer (split words, wrong glyphs): figures are read from them, list names come from the commission’s open-data workbooks (constituency total rows), matched to the decision rows by votes; ties resolved by the legible decision text; list leaders’ names are dropped (title_sha256 identifies the full workbook label; seats are grouped by party names, or by the full label for independent lists).",
@@ -648,7 +668,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
+    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {
@@ -802,7 +822,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
+    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {
@@ -956,7 +976,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
+    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {
@@ -1110,7 +1130,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "f97fb9dfd74dcca10ed7b7ed13c72397756bb9799291d74248938dc749869467",
+    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {

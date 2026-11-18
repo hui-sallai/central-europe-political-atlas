@@ -1621,6 +1621,42 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-hr-sabor-1995-10-29",
+   "country": "croatia",
+   "date": "1995-10-29",
+   "chamber_id": "hr-sabor",
+   "chamber_official_name": "Hrvatski sabor",
+   "seats": 127,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-hr-sabor-1995",
+   "system_family": "mixed: national lists (proportional) and single-member constituencies (plurality), special lists for voters abroad, national-minority constituencies",
+   "allocation_method": "National lists: D'Hondt over 80 seats among lists with at least 5% of valid ballots (Art. 24). Single-member constituencies: most votes (Art. 23). Special lists abroad: D'Hondt over 12 seats among lists with at least 5% (Art. 24a). Minority constituencies: most votes (one seat each; three seats in constituency 5, Art. 58a).",
+   "base_seats": 127,
+   "thresholds": [
+    {
+     "applies_to": "national list and special list",
+     "percent": 5,
+     "description": {
+      "en": "A list needs at least 5% of valid ballots to take part in the seat allocation; this reproduces the printed seats (coalition thresholds are not printed and not tested).",
+      "zh": "名单须获得有效票至少 5% 才能参与席位分配；按此可复现所列席位（联盟门槛未印出，未检验）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the rules applied in the 1995 decisions (Zakon o izborima zastupnika u Sabor Republike Hrvatske (Narodne novine 22/92, 27/92, 1/93, 11/94 i 68/95), Arts. 23, 24, 24a, 31, 50, 51 and 58a); the 5% threshold and D'Hondt reproduce the printed list seats; the institutional registry record hr-es-sabor holds the current statutory text",
+   "constitution_id": "hr-constitution-1990",
+   "institutional_period_id": "croatia-period-1990-12-22",
+   "changes_in_force": [
+    "hr-1990-constitution"
+   ],
+   "later_changes": [
+    "hr-2000-parliamentary-system",
+    "hr-2001-unicameral",
+    "hr-2015-preferential-vote",
+    "hr-2023-constituencies-act"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-hr-sabor-2000-01-03",
    "country": "croatia",
    "date": "2000-01-03",

@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { buildCroatia, reconcileUnit, YEARS as HR_YEARS } from '../../scripts/political-data/croatia/build-sabor.mjs';
+import { buildCroatia, reconcileUnit, reconcile1995, YEARS as HR_YEARS } from '../../scripts/political-data/croatia/build-sabor.mjs';
 import { buildSlovenia, reconcile as reconcileSi } from '../../scripts/political-data/slovenia/build-dz.mjs';
 
 const root = path.resolve(import.meta.dirname, '..', '..');
@@ -26,18 +26,19 @@ test('both builds reproduce the committed stores and exports', () => {
 // Seats abroad and for national minorities by election: fixed from 2011; non-fixed quota abroad and 5 minority seats in 2000.
 const HR_STRUCTURE = { 2000: [6, 5, 151], 2003: [4, 8, 152], 2007: [5, 8, 153] };
 const hrStructure = (year) => HR_STRUCTURE[year] ?? [3, 8, 151];
+const HR95 = 'el-hr-sabor-1995-10-29';
 
 test('Croatia: territorial, abroad and national-minority seats stay separate in every election (151, 152 or 153 seats)', () => {
   const data = buildCroatia();
   assert.deepEqual(HR_YEARS, ['2000', '2003', '2007', '2011', '2015', '2016', '2020', '2024']);
-  for (const leg of data.legislatures) {
+  for (const leg of data.legislatures.filter((l) => l.election_id !== HR95)) {
     const [abroad, minority, total] = hrStructure(Number(leg.election_id.slice(12, 16)));
     assert.equal(leg.total_seats, total, leg.election_id);
     assert.deepEqual(leg.seats_by_mechanism, { territorial_constituencies: 140, constituency_abroad: abroad, national_minorities: minority });
     assert.equal(leg.seats_by_national_minority.reduce((n, m) => n + m.seats, 0), minority);
     assert.equal(leg.seats_by_identical_list_title.reduce((n, g) => n + g.seats, 0), 140 + abroad);
   }
-  for (const e of data.elections) {
+  for (const e of data.elections.filter((x) => x.election_id !== HR95)) {
     const [abroad, minority] = hrStructure(e.year);
     const seats = (prefix) => data.election_results.filter((r) => r.election_id === e.election_id && r.geography.startsWith(prefix)).reduce((n, r) => n + r.seats, 0);
     assert.equal(['hr-ie-01', 'hr-ie-02', 'hr-ie-03', 'hr-ie-04', 'hr-ie-05', 'hr-ie-06', 'hr-ie-07', 'hr-ie-08', 'hr-ie-09', 'hr-ie-10'].reduce((n, g) => n + seats(g), 0), 140, e.election_id);
@@ -90,9 +91,11 @@ test('Croatia 2000–2007: independent lists drop their leader\'s name; 2000 pri
   assert.equal(seatsOf('el-hr-sabor-2007-11-25', 'HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ'), 66);
 });
 
-test('Croatia: results are per constituency; no national vote share and no national results row', () => {
+test('Croatia: results are per constituency; no national vote share and no national results row (2000 onwards)', () => {
   const data = buildCroatia();
-  assert.ok(data.election_results.every((r) => /^hr-ie-(0[1-9]|1[01]|12-[a-z_]+)$/.test(r.geography)));
+  assert.ok(data.election_results.filter((r) => r.election_id !== HR95).every((r) => /^hr-ie-(0[1-9]|1[01]|12-[a-z_]+)$/.test(r.geography)));
+  // 1995 had a national-list tier, so it has its own geographies (one national list unit, never a sum of constituencies).
+  assert.ok(data.election_results.filter((r) => r.election_id === HR95).every((r) => /^hr-(national-list|special-list-abroad|smd-(0[1-9]|1\d|2[0-8])|special-[1-5])$/.test(r.geography)));
   assert.ok(data.election_results.every((r) => r.geography !== 'national'));
   // The I–X turnout aggregate is the only cross-constituency figure, and it excludes abroad and minority elections.
   const agg = data.election_turnout.filter((t) => t.geography === 'hr-territorial-i-x');
@@ -103,15 +106,42 @@ test('Croatia: results are per constituency; no national vote share and no natio
 
 test('Croatia: national-minority candidates are anonymous, elected by most votes, and the Serbian election elects three (one in 2000)', () => {
   const data = buildCroatia();
-  const cands = data.electoral_contestants.filter((c) => c.contestant_kind === 'individual_candidate');
+  const cands = data.electoral_contestants.filter((c) => c.contestant_kind === 'individual_candidate' && !/^hr-smd-/.test(c.constituency));
   assert.ok(cands.length > 0);
   assert.ok(cands.every((c) => c.name_stored === false && c.label_basis === 'row_only' && /^Kandidat, red\. br\. \d+$/.test(c.historical_display_label)));
-  for (const e of data.elections) {
+  for (const e of data.elections.filter((x) => x.election_id !== HR95)) {
     const serbian = data.election_results.filter((r) => r.election_id === e.election_id && r.geography === 'hr-ie-12-srpska');
     const n = e.year === 2000 ? 1 : 3;
     assert.equal(serbian.filter((r) => r.elected).length, n, e.election_id);
     if (n === 3) assert.ok(serbian.every((r) => r.derived_vote_share === null), 'multi-vote ballot: no vote share');
   }
+});
+
+test('Croatia 1995: mixed system, 127 seats in four tiers; every tier reconciles and fails closed; candidates never named', () => {
+  const E = hrEvidence.elections['1995'], c = reconcile1995(E);
+  assert.deepEqual([c.national_lists.seats, c.single_member, c.special_lists_abroad.seats, c.national_minorities, c.total], [80, 28, 12, 7, 127]);
+  assert.equal(c.single_member_seats_by_nominator.HDZ, 21);
+  const data = buildCroatia();
+  const leg = data.legislatures.find((l) => l.election_id === HR95);
+  assert.deepEqual(leg.seats_by_mechanism, { national_lists: 80, single_member_constituencies: 28, special_lists_abroad: 12, national_minorities: 7 });
+  assert.deepEqual(leg.seats_by_national_list.map((g) => g.seats), [42, 16, 10, 4, 8]);
+  // HDZ: 42 national-list + 21 single-member + 12 special-list seats.
+  assert.equal(leg.seats_by_national_list[0].seats + leg.single_member_seats_by_nominator.find((x) => x.nominated_by === 'HDZ').seats + leg.seats_by_special_list[0].seats, 75);
+  const smd = data.electoral_contestants.filter((x) => x.election_id === HR95 && /^hr-smd-/.test(x.constituency));
+  assert.ok(smd.length === 175 && smd.every((x) => x.name_stored === false && x.label_basis === 'nominator_and_row' && /, red\. br\. \d+$/.test(x.historical_display_label)));
+  assert.ok(smd.every((x) => x.independent ? x.nominated_by === null : x.nominated_by.length >= 1));
+  const r5 = data.election_results.filter((r) => r.election_id === HR95 && r.geography === 'hr-special-5');
+  assert.ok(r5.filter((r) => r.elected).length === 3 && r5.every((r) => r.published_vote_share === null && r.printed_share_of_all_candidate_votes > 0));
+  // Fail closed: a changed vote, a moved seat, a wrong elected candidate, a tampered percentage or header.
+  const tampers = [
+    (x) => { x.national_list.lists[2].votes += 1; },
+    (x) => { x.national_list.lists[2].seats -= 1; x.national_list.lists[6].seats += 1; },
+    (x) => { const u = x.single_member[0]; u.candidates.forEach((k) => { k.elected = !k.elected && k.row === 1; }); },
+    (x) => { x.single_member[5].candidates[0].printed_percent = '46.48'; },
+    (x) => { x.special_list.header_percent_convention = 'rounded_two_decimals'; },
+    (x) => { x.special_constituencies[4].candidates[1].elected = true; },
+  ];
+  for (const tamper of tampers) { const t = structuredClone(E); tamper(t); assert.throws(() => reconcile1995(t), /1995/); }
 });
 
 test('Croatia: coalition lists keep their printed parties; person-named parties are shortened; no person names anywhere', () => {
