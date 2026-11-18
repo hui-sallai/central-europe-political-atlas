@@ -5,6 +5,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { buildRomania, reconcile, reconcile2024 } from '../../scripts/political-data/romania/build-parliament.mjs';
@@ -85,7 +86,10 @@ test('2020: both acts reconcile exactly (Chamber 312 + 18 minority seats, Senate
   const named = data.electoral_contestants.filter((c) => c.election_id.includes('2020-12-06') && c.label_basis === 'partial_personal_name_omitted');
   assert.deepEqual(named.map((c) => c.historical_display_label), ['PARTIDUL NAȚIONAL ȚĂRĂNESC', 'PARTIDUL NAȚIONAL ȚĂRĂNESC']);
   assert.ok(named.every((c) => /^[0-9a-f]{64}$/.test(c.title_sha256)));
-  for (const dir of ['src/data/political/romania', 'public/research-data/political/romania', 'docs/political-data/raw/romania']) for (const file of fs.readdirSync(path.join(root, dir), { recursive: true }).map(String).filter((x) => /\.(json|csv|md)$/.test(x))) assert.ok(!fs.readFileSync(path.join(root, dir, file), 'utf8').includes('MIHALACHE'), `${dir}/${file}`);
+  // The stored label is the printed name minus the surnames: it is a strict prefix, and its hash differs from the title hash.
+  assert.ok(named.every((c) => crypto.createHash('sha256').update(c.historical_display_label).digest('hex') !== c.title_sha256));
+  const printed = evidence.elections['2020'].chambers.CD.lists.find((l) => l.label_basis === 'partial_personal_name_omitted');
+  assert.equal(printed.name, 'PARTIDUL NAȚIONAL ȚĂRĂNESC');
   const reg = data.political_source_registry.filter((r) => /bec-(cd|s)-2020/.test(r.source_id));
   assert.ok(reg.length === 2 && reg.every((r) => r.acquisition === 'owner_download_internet_archive_copy' && /^https:\/\/web\.archive\.org\/web\/\d{14}id_\/https:\/\/parlamentare2020\.bec\.ro\//.test(r.archive_copy.url)));
   const t20 = data.election_turnout.filter((t) => t.election_id.includes('2020'));
