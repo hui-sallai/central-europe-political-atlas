@@ -88,6 +88,7 @@
   {
    "country": "slovenia",
    "elections": [
+    2000,
     2004,
     2008,
     2011,
@@ -96,8 +97,8 @@
     2022,
     2026
    ],
-   "scope": "National Assembly 2004, 2008, 2011, 2014, 2018, 2022 and 2026, whole chamber (90 seats): national list results (88) and the Italian and Hungarian national-community elections (2004–2018 as ranking points); 2004 and 2008 from the commission's archived official result pages; 2011 report cross-checked against the polling-station file; candidates without names; 2000 not admitted (archived pages marked unofficial), earlier elections not admitted",
-   "record": "docs/political-data/slovenia_dz2004_2008_admission.json"
+   "scope": "National Assembly 2000, 2004, 2008, 2011, 2014, 2018, 2022 and 2026, whole chamber (90 seats): national list results (88) and the Italian and Hungarian national-community elections (2000–2018 as ranking points); 2000 from the Republic Electoral Commission's gazette report (Internet Archive copy saved by the owner; two printed percentages kept as text only); 2004 and 2008 from the commission's archived official result pages; 2011 report cross-checked against the polling-station file; candidates without names; elections before 2000 not admitted",
+   "record": "docs/political-data/slovenia_dz2000_admission.json"
   },
   {
    "country": "romania",
@@ -241,6 +242,12 @@
    "country": "slovenia",
    "question": "Admit Slovenia 2000, 2004 and 2008 from the archive pages the owner saved by hand, and cross-check 2011 with the polling-station file?",
    "decision": "Same brief and supplied files: 2004 and 2008 admitted from the archived official result pages; 2011 cross-checked (figures unchanged); 2000 not admitted because every saved 2000 page is marked unofficial (neuradni)."
+  },
+  {
+   "date": "2026-11-19",
+   "country": "slovenia",
+   "question": "Romania 2020 and Slovenia 2000 in the owner's files were fetched from web.archive.org copies, not from the official sites; how should they be treated?",
+   "decision": "\"Accept, record the route\": Slovenia 2000 admitted from the gazette report (Uradni list RS 98/2000) read from a page extract of an Internet Archive copy; the route, capture date and original URL are recorded."
   }
  ],
  "countries": {

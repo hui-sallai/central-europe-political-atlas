@@ -140,14 +140,15 @@ test('Croatia: the seat rule fails closed on a tampered decision', () => {
 
 test('Slovenia: 88 list seats and two national-community seats in every election; the National Council is excluded', () => {
   const data = buildSlovenia();
-  assert.deepEqual(data.elections.map((e) => e.election_id), ['el-si-dz-2004-10-03', 'el-si-dz-2008-09-21', 'el-si-dz-2011-12-04', 'el-si-dz-2014-07-13', 'el-si-dz-2018-06-03', 'el-si-dz-2022-04-24', 'el-si-dz-2026-03-22']);
+  assert.deepEqual(data.elections.map((e) => e.election_id), ['el-si-dz-2000-10-15', 'el-si-dz-2004-10-03', 'el-si-dz-2008-09-21', 'el-si-dz-2011-12-04', 'el-si-dz-2014-07-13', 'el-si-dz-2018-06-03', 'el-si-dz-2022-04-24', 'el-si-dz-2026-03-22']);
   for (const leg of data.legislatures) {
     assert.equal(leg.total_seats, 90);
     assert.deepEqual(leg.seats_by_mechanism, { general_lists: 88, italian_national_community: 1, hungarian_national_community: 1 });
     assert.match(leg.excluded_bodies[0].body, /Državni svet/);
   }
   // 2011 rows follow the report's list numbers (not vote order).
-  const seats = { 'el-si-dz-2004-10-03': [29, 23, 10, 9, 7, 6, 4], 'el-si-dz-2008-09-21': [29, 28, 9, 7, 5, 5, 5], 'el-si-dz-2011-12-04': [6, 8, 28, 4, 10, 26, 6], 'el-si-dz-2014-07-13': [36, 21, 10, 6, 6, 5, 4], 'el-si-dz-2018-06-03': [25, 13, 10, 10, 9, 7, 5, 5, 4], 'el-si-dz-2022-04-24': [41, 27, 8, 7, 5], 'el-si-dz-2026-03-22': [29, 28, 9, 6, 6, 5, 5] };
+  // 2000 and 2011 rows follow the printed table order (not vote order).
+  const seats = { 'el-si-dz-2000-10-15': [4, 34, 8, 4, 9, 4, 14, 11], 'el-si-dz-2004-10-03': [29, 23, 10, 9, 7, 6, 4], 'el-si-dz-2008-09-21': [29, 28, 9, 7, 5, 5, 5], 'el-si-dz-2011-12-04': [6, 8, 28, 4, 10, 26, 6], 'el-si-dz-2014-07-13': [36, 21, 10, 6, 6, 5, 4], 'el-si-dz-2018-06-03': [25, 13, 10, 10, 9, 7, 5, 5, 4], 'el-si-dz-2022-04-24': [41, 27, 8, 7, 5], 'el-si-dz-2026-03-22': [29, 28, 9, 6, 6, 5, 5] };
   for (const [id, expected] of Object.entries(seats)) {
     const general = data.election_results.filter((r) => r.election_id === id && r.vote_type === 'si_list_vote');
     assert.deepEqual(general.filter((r) => r.seats > 0).map((r) => r.seats), expected, id);
@@ -164,9 +165,9 @@ test('Slovenia: list names with persons use the commission short name; minutes a
   // 2011: names containing a person's name are shown without it; stage seats are kept.
   assert.deepEqual(data.electoral_contestants.filter((c) => c.election_id === 'el-si-dz-2011-12-04' && c.label_basis === 'partial_personal_name_omitted').map((c) => c.historical_display_label).sort(), ['DRŽAVLJANSKA LISTA', 'POZITIVNA SLOVENIJA', 'SLS - SLOVENSKA LJUDSKA STRANKA']);
   assert.equal(data.election_results.filter((r) => r.election_id === 'el-si-dz-2011-12-04').reduce((n, r) => n + (r.national_stage_seats ?? 0), 0), 27);
-  // 2004 to 2018: ranking points are stored as points, never as votes.
+  // 2000 to 2018: ranking points are stored as points, never as votes.
   const pts = data.election_results.filter((r) => r.vote_type === 'si_national_community_candidate_points');
-  assert.equal(new Set(pts.map((r) => r.election_id)).size, 5);
+  assert.equal(new Set(pts.map((r) => r.election_id)).size, 6);
   assert.ok(pts.every((r) => r.votes === null && Number.isInteger(r.points) && r.derived_vote_share === null));
   const g = siEvidence.elections['2026'].general;
   assert.equal(reconcileSi('2026', siEvidence.elections['2026']).lists_in_allocation, 7);
@@ -180,7 +181,7 @@ test('Slovenia: list names with persons use the commission short name; minutes a
   }
 });
 
-test('Slovenia 2004 and 2008 come from official archive pages only; 2011 is cross-checked by its polling-station file; 2000 stays out', () => {
+test('Slovenia 2004 and 2008 come from official archive pages only; 2011 is cross-checked by its polling-station file', () => {
   const data = buildSlovenia();
   for (const y of ['2004', '2008']) {
     const E = siEvidence.elections[y];
@@ -198,8 +199,41 @@ test('Slovenia 2004 and 2008 come from official archive pages only; 2011 is cros
   assert.match(x.publisher_file_sha256, /^[0-9a-f]{64}$/);
   assert.equal(x.used_for, 'cross-check only; list labels stay as transcribed from the report');
   assert.ok(data.political_source_registry.some((r) => r.source_id === 'src-si-dvk-data-2011' && r.role === 'cross_check'));
-  assert.ok(!data.elections.some((e) => e.year === 2000));
   assert.equal(spawnSync('git', ['ls-files', 'docs/political-data/source-closure/local-evidence'], { cwd: root, encoding: 'utf8' }).stdout.trim(), '');
+});
+
+test('Slovenia 2000: gazette report from an archived copy; printed figures the counts do not reproduce stay text only and fail closed', () => {
+  const data = buildSlovenia(), E = siEvidence.elections['2000'];
+  assert.equal(E.minutes.kind, 'report');
+  assert.match(E.minutes.gazette, /98\/2000/);
+  assert.match(E.minutes.archive_copy.url, /^https:\/\/web\.archive\.org\/web\/\d{14}id_\/https:\/\/www\.uradni-list\.si\//);
+  assert.match(E.minutes.correction.effect, /no figure is changed/);
+  const check = reconcileSi('2000', E);
+  assert.deepEqual([check.lists, check.lists_in_allocation, check.total_seats], [23, 8, 90]);
+  // Turnout: 70,37 printed, 70,36 from the counts; stored as derived only, the printed text kept separately.
+  const turnout = data.election_turnout.find((t) => t.election_id === 'el-si-dz-2000-10-15' && t.geography === 'national');
+  assert.deepEqual([turnout.published_turnout, turnout.printed_turnout_not_reproduced, turnout.derived_turnout.toFixed(2)], [null, 70.37, '70.36']);
+  const odd = data.election_results.filter((r) => r.election_id === 'el-si-dz-2000-10-15' && r.printed_vote_share_not_reproduced !== undefined);
+  assert.deepEqual(odd.map((r) => [r.contestant_ref, r.published_vote_share, r.printed_vote_share_not_reproduced, r.derived_vote_share.toFixed(2)]), [['ct-si-dz00-09', null, 8.76, '8.77']]);
+  // Fail closed: a not-reproduced value must be exactly one hundredth off, and a printed value must recompute.
+  for (const tamper of [(x) => { x.general.voted_printed_percent_not_reproduced = '70,38'; }, (x) => { x.general.lists[8].printed_percent_not_reproduced = '8,75'; }, (x) => { x.general.lists[0].printed_percent = '5,17'; }, (x) => { x.general.lists[5].national_stage_seats -= 1; x.general.lists[5].constituency_stage_seats += 1; }]) {
+    const t = structuredClone(E); tamper(t);
+    assert.throws(() => reconcileSi('2000', t), /Slovenia build failed/);
+  }
+  // Stage seats: 60 in the constituencies, 28 nationally.
+  const r00 = data.election_results.filter((r) => r.election_id === 'el-si-dz-2000-10-15' && r.vote_type === 'si_list_vote');
+  assert.deepEqual([r00.reduce((n, r) => n + (r.constituency_stage_seats ?? 0), 0), r00.reduce((n, r) => n + (r.national_stage_seats ?? 0), 0)], [60, 28]);
+  // Lists named after persons: row number, or the printed words without the name.
+  const named = data.electoral_contestants.filter((c) => c.election_id === 'el-si-dz-2000-10-15' && c.contestant_kind === 'electoral_list' && c.label_basis !== 'verbatim');
+  assert.deepEqual(named.map((c) => c.historical_display_label), [17, 18, 19, 20].map((n) => `Lista kandidatov, vrstica ${n}`).concat(['NEODVISNI KANDIDAT', 'Lista kandidatov, vrstica 22', 'Lista kandidatov, vrstica 23']));
+  // Hungarian community: five candidates ranked by points; the Italian candidate's points equal the valid ballots.
+  const nc = data.election_results.filter((r) => r.election_id === 'el-si-dz-2000-10-15' && r.vote_type === 'si_national_community_candidate_points');
+  assert.deepEqual([nc.filter((r) => r.geography === 'si-nc-madzarska').length, nc.find((r) => r.geography === 'si-nc-italijanska').points], [5, 1302]);
+  const reg = data.political_source_registry.find((r) => r.source_id === 'src-si-dvk-minutes-2000');
+  assert.match(reg.institution, /Republiška volilna komisija/);
+  assert.equal(reg.archive_copy.captured, '2026-07-13');
+  const hosts = read('docs/legal-security/network_acquisition_registry.json').hosts;
+  for (const h of ['web.archive.org', 'www.uradni-list.si']) assert.deepEqual(['status', 'automation_allowed', 'manual_allowed'].map((k) => hosts.find((x) => x.host === h)[k]), ['blocked', false, false], h);
 });
 
 test('the four countries: hosts registered manual-only; Austria admitted from owner files with BMI still blocked; Romania 2016 and 2024; the BEC host stays blocked', () => {

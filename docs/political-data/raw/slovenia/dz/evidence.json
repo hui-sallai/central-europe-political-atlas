@@ -13,6 +13,395 @@
   "how": "read once in the browser pane (PISRS)"
  },
  "elections": {
+  "2000": {
+   "election_id": "el-si-dz-2000-10-15",
+   "polling_day": "2000-10-15",
+   "minutes": {
+    "title": "Poročilo o izidu rednih volitev poslancev v Državni zbor",
+    "kind": "report",
+    "dvk_number": "RVK 1-1/96-1/00",
+    "adopted": "2000-10-24",
+    "session": "47th session of the Republic Electoral Commission (Republiška volilna komisija, RVK)",
+    "url": "https://www.uradni-list.si/_pdf/2000/Ur/u2000098.pdf",
+    "publisher_file_sha256": "9dba8c066180a7e5a7eb0a2ed93eb042f358260d9df1661f6ec1e93e6240bef3",
+    "publisher_file_note": "checksum of the page extract the owner supplied (printed pages 10592–10598 of the issue, cut from an Internet Archive copy of the gazette PDF); not the checksum of the publisher’s full issue file",
+    "bytes": 78376,
+    "gazette": "Uradni list RS, št. 98/2000, 24. 10. 2000, item 4130, pp. 10592–10598",
+    "archive_copy": {
+     "url": "https://web.archive.org/web/20260713090028id_/https://www.uradni-list.si/_pdf/2000/Ur/u2000098.pdf",
+     "captured": "2026-07-13",
+     "full_issue_sha256_reported_by_owner_download_record": "a20d2f7484dd7a06525651c8f5319296d9d9fff4c8b9451596a64b51584ad53a"
+    },
+    "correction": {
+     "gazette": "Uradni list RS, št. 102/2000, 10. 11. 2000, p. 10921",
+     "url": "https://www.uradni-list.si/_pdf/2000/Ur/u2000102.pdf",
+     "archive_copy": "https://web.archive.org/web/20240615133211id_/https://www.uradni-list.si/_pdf/2000/Ur/u2000102.pdf",
+     "file_sha256": "d1bc47bf7ea717353fb41c5741b8c65b33b48a19649bd996e9548cfa74646f3a",
+     "effect": "corrects one elected member’s surname and another’s date of birth in part three (personal data, not stored); no figure is changed"
+    },
+    "how": "owner download 2026-11-19 (owner answer “Accept, record the route”): page extract of an Internet Archive copy of the gazette issue, saved by the owner; text layer read locally and every figure checked against the rendered page; part three (the 90 elected members’ names, dates of birth and addresses) and candidate names not transcribed",
+    "act_cited": "ZVDZ (Uradni list RS, št. 44/92, 60/95, 67/97 – odločba US in 70/00), Arts. 37 and 90–93; ustavni zakon o dopolnitvi 80. člena ustave (UZ80, Uradni list RS, št. 66/00)",
+    "sections": {
+     "turnout": "part one, sections I–II",
+     "lists": "part one, section III",
+     "seats": "part one, sections IV–VI",
+     "communities": "part two",
+     "threshold": "part one, section IV, under the constitutional act UZ80",
+     "threshold_zh": "报告第一部分第 IV 节，依据宪法性法律 UZ80"
+    }
+   },
+   "cross_check": null,
+   "general": {
+    "entitled": 1586695,
+    "entitled_on_roll": null,
+    "entitled_with_certificate": null,
+    "voted": 1116423,
+    "voted_printed_percent": null,
+    "voted_printed_percent_not_reproduced": "70,37",
+    "voted_note": "359 of the voters voted with a certificate; 4,186 voted by post. The commission’s official 2004 turnout page prints the same 2000 figures (1,116,423 voters; 70,37 %).",
+    "postal_votes": 4186,
+    "ballots_cast": 1116218,
+    "invalid": 36938,
+    "valid": 1079280,
+    "threshold_percent": 4,
+    "lists_in_allocation_printed": 8,
+    "table_order": "as_printed",
+    "constituency_stage_seats_printed": 60,
+    "lists": [
+     {
+      "row": 1,
+      "votes": 55696,
+      "printed_percent": "5,16",
+      "seats": 4,
+      "constituency_stage_seats": 0,
+      "national_stage_seats": 4,
+      "dvk_list_id": null,
+      "display_label": "DEMOKRATIČNA STRANKA UPOKOJENCEV SLOVENIJE – DeSUS",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "abff469aed4bbd6a0e23d7d9bdd2e38de5612fad032c8f64980ba6d31dd2b123"
+     },
+     {
+      "row": 2,
+      "votes": 8102,
+      "printed_percent": "0,75",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "DEMOKRATSKA STRANKA SLOVENIJE; DEMOKRATI SLOVENIJE-DS",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "cee86d81ed3685bc9396c87e61de09bd24f97973383fbba1159396f77719482f"
+     },
+     {
+      "row": 3,
+      "votes": 729,
+      "printed_percent": "0,07",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "DEŽELNA STRANKA ŠTAJERSKE",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "4f6ec875857ad7d25d7aaa4d4fc6144461e3a6b9fe2410b1bb343a84e0620234"
+     },
+     {
+      "row": 4,
+      "votes": 4752,
+      "printed_percent": "0,44",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "GLAS ŽENSK SLOVENIJE",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "68389101a1c1aa0394ccfeda59697464801fdc78e2d2d43a7be06de4707a530a"
+     },
+     {
+      "row": 5,
+      "votes": 1949,
+      "printed_percent": "0,18",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "KOMUNISTIČNA PARTIJA SLOVENIJE",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "664b0a15dc2c88c98f443ac07e9a69c597a20d8d635107122eaaa61ed3af7a9c"
+     },
+     {
+      "row": 6,
+      "votes": 390797,
+      "printed_percent": "36,21",
+      "seats": 34,
+      "constituency_stage_seats": 30,
+      "national_stage_seats": 4,
+      "dvk_list_id": null,
+      "display_label": "LDS LIBERALNA DEMOKRACIJA SLOVENIJE",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "4f7c12ed26dcd5ec1c708acd65ab6afab8304bb888fa7836697b1da7ca470242"
+     },
+     {
+      "row": 7,
+      "votes": 3313,
+      "printed_percent": "0,31",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "NAPREJ SLOVENIJA – NPS",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "178bf2c8c299063215b909d8f9c79a486a000beba5fe89111b9ae21ffdcb4bc3"
+     },
+     {
+      "row": 8,
+      "votes": 6349,
+      "printed_percent": "0,59",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "NOVA STRANKA",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "169ad1143483c0a1bc0825c2857ef88438a657e5d372b802181b9eb2894481af"
+     },
+     {
+      "row": 9,
+      "votes": 94661,
+      "printed_percent_not_reproduced": "8,76",
+      "seats": 8,
+      "constituency_stage_seats": 4,
+      "national_stage_seats": 4,
+      "dvk_list_id": null,
+      "display_label": "NSI-NOVA SLOVENIJA-KRŠČANSKA LJUDSKA STRANKA",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "2b2c173a585fdf9947430d25e8fc447058736484865bd54dc916886c9ed09caf"
+     },
+     {
+      "row": 10,
+      "votes": 47251,
+      "printed_percent": "4,38",
+      "seats": 4,
+      "constituency_stage_seats": 0,
+      "national_stage_seats": 4,
+      "dvk_list_id": null,
+      "display_label": "SLOVENSKA NACIONALNA STRANKA –SNS",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "57d7496905092c5f2e5185b06e1e86704ae34c0c06d2868f1f3f1fcb5d79d7e4"
+     },
+     {
+      "row": 11,
+      "votes": 102817,
+      "printed_percent": "9,53",
+      "seats": 9,
+      "constituency_stage_seats": 6,
+      "national_stage_seats": 3,
+      "dvk_list_id": null,
+      "display_label": "SLS+SKD SLOVENSKA LJUDSKA STRANKA",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "98cb8f326e014cdd2d43614582b382a4e37a73f1d1b6c24f21b753a3c872eb31"
+     },
+     {
+      "row": 12,
+      "votes": 46719,
+      "printed_percent": "4,33",
+      "seats": 4,
+      "constituency_stage_seats": 0,
+      "national_stage_seats": 4,
+      "dvk_list_id": null,
+      "display_label": "SMS-STRANKA MLADIH SLOVENIJE",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "1cbfb6041f0afa524fefa55d7c01308b42a5b0ebbfa2247ae50cb3d85f7e8d00"
+     },
+     {
+      "row": 13,
+      "votes": 170541,
+      "printed_percent": "15,80",
+      "seats": 14,
+      "constituency_stage_seats": 11,
+      "national_stage_seats": 3,
+      "dvk_list_id": null,
+      "display_label": "SOCIALDEMOKRATSKA STRANKA SLOVENIJE",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "5ce477e8ec041ea6f6485bba09aa3afe7fd4d36b275f30fc14c85d60f74c1e21"
+     },
+     {
+      "row": 14,
+      "votes": 3212,
+      "printed_percent": "0,30",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "STRANKA DEMOKRATSKE AKCIJE SLOVENIJE",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "fedf5091af4709d4faa7c7a12100483aa64479b725508c4bf983d660cb74f550"
+     },
+     {
+      "row": 15,
+      "votes": 9712,
+      "printed_percent": "0,90",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "ZDRUŽENI ZELENI-ZELENI SLOVENIJE IN ZELENA ALTERNATIVA",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "d4ab9be02efa86959ea2b7aa7bce95f5df3d49e143f6b5a62d3c02f55fe2948e"
+     },
+     {
+      "row": 16,
+      "votes": 130268,
+      "printed_percent": "12,07",
+      "seats": 11,
+      "constituency_stage_seats": 9,
+      "national_stage_seats": 2,
+      "dvk_list_id": null,
+      "display_label": "ZLSD-ZDRUŽENA LISTA SOCIALNIH DEMOKRATOV",
+      "label_basis": "verbatim",
+      "dvk_short_name": null,
+      "title_sha256": "539abd4d0dc1858c9d3b52b96f5f52da8efb6a637f1d2a586315c06f6924fa3a"
+     },
+     {
+      "row": 17,
+      "votes": 75,
+      "printed_percent": "0,01",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "Lista kandidatov, vrstica 17",
+      "label_basis": "row_only",
+      "dvk_short_name": null,
+      "title_sha256": "17cbf693a9301c07f4b610f00df557bea36eae639701c93cda33551ffca4ef89"
+     },
+     {
+      "row": 18,
+      "votes": 261,
+      "printed_percent": "0,02",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "Lista kandidatov, vrstica 18",
+      "label_basis": "row_only",
+      "dvk_short_name": null,
+      "title_sha256": "a0df66c4251159b545801ab2d1245f800927b5b313d920bb519f6260c154e804"
+     },
+     {
+      "row": 19,
+      "votes": 405,
+      "printed_percent": "0,04",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "Lista kandidatov, vrstica 19",
+      "label_basis": "row_only",
+      "dvk_short_name": null,
+      "title_sha256": "731d52febbd75b12ab960465c36b97e101a29c1bcd8d5e2f48a659c9290a19f5"
+     },
+     {
+      "row": 20,
+      "votes": 697,
+      "printed_percent": "0,06",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "Lista kandidatov, vrstica 20",
+      "label_basis": "row_only",
+      "dvk_short_name": null,
+      "title_sha256": "956f105cce86fba59ea6abcb1eab314e5606391157126fd5cfd8ef4b94db5dc1"
+     },
+     {
+      "row": 21,
+      "votes": 519,
+      "printed_percent": "0,05",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "NEODVISNI KANDIDAT",
+      "label_basis": "partial_personal_name_omitted",
+      "dvk_short_name": null,
+      "title_sha256": "73b10a887bfa6a9e0ff881b343ee3a50724c4add5ecc9ce451124b988081d3ca"
+     },
+     {
+      "row": 22,
+      "votes": 276,
+      "printed_percent": "0,03",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "Lista kandidatov, vrstica 22",
+      "label_basis": "row_only",
+      "dvk_short_name": null,
+      "title_sha256": "748bd6e9a3ce04f30cf9561b967d3f40af40e77867370a676e71274bac83d4dd"
+     },
+     {
+      "row": 23,
+      "votes": 179,
+      "printed_percent": "0,02",
+      "seats": 0,
+      "dvk_list_id": null,
+      "display_label": "Lista kandidatov, vrstica 23",
+      "label_basis": "row_only",
+      "dvk_short_name": null,
+      "title_sha256": "00d595cdd5e2977f38f091d43561b960de53dfc8d257c818d8907704dcb04bc5"
+     }
+    ]
+   },
+   "national_communities": [
+    {
+     "community": "italijanska",
+     "community_en": "Italian",
+     "on_roll": 2750,
+     "with_certificate": 3,
+     "entitled": 2753,
+     "voted": 1500,
+     "ballots_cast": 1500,
+     "invalid": 198,
+     "valid": 1302,
+     "method": "points",
+     "candidates": [
+      {
+       "row": 1,
+       "points": 1302,
+       "elected": true
+      }
+     ]
+    },
+    {
+     "community": "madzarska",
+     "community_en": "Hungarian",
+     "on_roll": 7181,
+     "with_certificate": 22,
+     "entitled": 7203,
+     "entitled_basis": "roll (7,181) plus voters who voted with a certificate (22), both printed; the report prints no total",
+     "voted": 4622,
+     "ballots_cast": 4622,
+     "invalid": 225,
+     "valid": 4397,
+     "method": "points",
+     "candidates": [
+      {
+       "row": 1,
+       "points": 12830,
+       "elected": true
+      },
+      {
+       "row": 2,
+       "points": 10614,
+       "elected": false
+      },
+      {
+       "row": 3,
+       "points": 5213,
+       "elected": false
+      },
+      {
+       "row": 4,
+       "points": 5086,
+       "elected": false
+      },
+      {
+       "row": 5,
+       "points": 4262,
+       "elected": false
+      }
+     ]
+    }
+   ],
+   "retrieved_at": "2026-11-19"
+  },
   "2004": {
    "election_id": "el-si-dz-2004-10-03",
    "polling_day": "2004-10-03",

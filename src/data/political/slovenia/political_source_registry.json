@@ -1,5 +1,35 @@
 [
   {
+    "source_id": "src-si-dvk-minutes-2000",
+    "country": "slovenia",
+    "institution": "Republiška volilna komisija (Republic Electoral Commission; since 2007 Državna volilna komisija)",
+    "dataset": "Poročilo o izidu rednih volitev poslancev v Državni zbor (Uradni list RS, št. 98/2000, 24. 10. 2000, item 4130, pp. 10592–10598; DVK RVK 1-1/96-1/00)",
+    "tier": "tier1_official",
+    "url": "https://www.uradni-list.si/_pdf/2000/Ur/u2000098.pdf",
+    "licence_status": "official_text_zasp_art_9_owner_reading_no_licence",
+    "raw_redistribution": "transcribed_figures_and_list_names_only_document_and_personal_data_not_redistributed",
+    "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
+    "attribution": "Republiška volilna komisija; Uradni list Republike Slovenije",
+    "retrieved_at": "2026-11-19",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
+    "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
+    "publisher_file_sha256": "9dba8c066180a7e5a7eb0a2ed93eb042f358260d9df1661f6ec1e93e6240bef3",
+    "acquisition": "owner download 2026-11-19 (owner answer “Accept, record the route”): page extract of an Internet Archive copy of the gazette issue, saved by the owner; text layer read locally and every figure checked against the rendered page; part three (the 90 elected members’ names, dates of birth and addresses) and candidate names not transcribed",
+    "publisher_file_note": "checksum of the page extract the owner supplied (printed pages 10592–10598 of the issue, cut from an Internet Archive copy of the gazette PDF); not the checksum of the publisher’s full issue file",
+    "archive_copy": {
+      "url": "https://web.archive.org/web/20260713090028id_/https://www.uradni-list.si/_pdf/2000/Ur/u2000098.pdf",
+      "captured": "2026-07-13",
+      "full_issue_sha256_reported_by_owner_download_record": "a20d2f7484dd7a06525651c8f5319296d9d9fff4c8b9451596a64b51584ad53a"
+    },
+    "correction": {
+      "gazette": "Uradni list RS, št. 102/2000, 10. 11. 2000, p. 10921",
+      "url": "https://www.uradni-list.si/_pdf/2000/Ur/u2000102.pdf",
+      "archive_copy": "https://web.archive.org/web/20240615133211id_/https://www.uradni-list.si/_pdf/2000/Ur/u2000102.pdf",
+      "file_sha256": "d1bc47bf7ea717353fb41c5741b8c65b33b48a19649bd996e9548cfa74646f3a",
+      "effect": "corrects one elected member’s surname and another’s date of birth in part three (personal data, not stored); no figure is changed"
+    }
+  },
+  {
     "source_id": "src-si-dvk-minutes-2004",
     "country": "slovenia",
     "institution": "Državna volilna komisija (National Electoral Commission)",
@@ -11,7 +41,7 @@
     "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
     "attribution": "Državna volilna komisija",
     "retrieved_at": "2026-11-19",
-    "raw_sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
     "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
     "publisher_file_sha256": "390ff7786bb46f4b140f4157e1c440141c8622a4116abb73b7639c0884ec0fa9",
     "acquisition": "archived result pages saved by the owner by hand on 2026-11-19 (exact page links read once in the browser pane from the commission’s archive); read locally; candidate names not transcribed",
@@ -56,7 +86,7 @@
     "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
     "attribution": "Državna volilna komisija",
     "retrieved_at": "2026-11-19",
-    "raw_sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
     "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
     "publisher_file_sha256": "fb2e996a86a20cb0d95bcb453688cbdb0476526452252a0fe6d5f19cb3c968e5",
     "acquisition": "archived result pages saved by the owner by hand on 2026-11-19 (exact page links read once in the browser pane from the commission’s archive); read locally; candidate names not transcribed",
@@ -106,7 +136,7 @@
     "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
     "attribution": "Državna volilna komisija",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
     "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
     "publisher_file_sha256": "0247557ba78ba4291e33c79e966b6a5ac69c1f137de7fa2a551417da6239b982",
     "acquisition": "scanned document (image only) downloaded once from www.dvk-rs.si (2026-11-18, owner reply \"continue\"); totals, list votes, printed percentages, seats by stage and national-community figures read from the page images (one figure from the background layer); elected members’ names not transcribed"
@@ -124,7 +154,7 @@
     "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
     "attribution": "Državna volilna komisija",
     "retrieved_at": "2026-11-19",
-    "raw_sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
     "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
     "publisher_file_sha256": "699f5b0173e2f265603d433077545b001180f273493528595b4259a3436f7890",
     "checked": "the 3914 polling-station rows of sheet Celota add up to its SKUPAJ row for every column, and the SKUPAJ row equals the report: voters on the roll, with a certificate, entitled, voted, ballots, invalid, valid and all 20 list votes",
@@ -142,7 +172,7 @@
     "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
     "attribution": "Državna volilna komisija",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
     "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
     "publisher_file_sha256": "8e8d82f7334c8c7a3f5a6c9bfb4533eb8b7019bb9f1d1e8dfe19c227c6a747a3",
     "acquisition": "scanned document (image only) downloaded once from www.dvk-rs.si; totals, seats and national-community figures read from the page images and checked against the station file; elected members’ names not transcribed"
@@ -160,7 +190,7 @@
     "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
     "attribution": "Državna volilna komisija",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
     "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
     "publisher_file_sha256": "0123aaddbfd52246cc8af340a3e301458fa6dc042fcb811e8eccc48d0bb76ab2"
   },
@@ -176,7 +206,7 @@
     "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
     "attribution": "Državna volilna komisija",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
     "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
     "publisher_file_sha256": "101d9f1e8424a78cecf424d12d799a3449adb93ae5b8dde89bf9146d672bed0e",
     "acquisition": "scanned document (image only) downloaded once from www.dvk-rs.si; totals, seats and national-community figures read from the page images and checked against the station file; elected members’ names not transcribed"
@@ -194,7 +224,7 @@
     "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
     "attribution": "Državna volilna komisija",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
     "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
     "publisher_file_sha256": "e6c649098470f7f72cf099ea013f218e259872007fa81bc203a7cc987788006b"
   },
@@ -210,7 +240,7 @@
     "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
     "attribution": "Državna volilna komisija",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
     "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
     "publisher_file_sha256": "50d12bcd6629e7c968a02566ab1d20cdf49eeda5864532e1899ff5c3096f129c",
     "acquisition": "scanned document (image only) downloaded once from www.dvk-rs.si; totals, seats and national-community figures read from the page images and checked against the station file; elected members’ names not transcribed"
@@ -228,7 +258,7 @@
     "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
     "attribution": "Državna volilna komisija",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
     "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
     "publisher_file_sha256": "5409375c6cbe4b2831f33b7dd31dc2d79a2f5925dc8977dc4bba7b115576ea66",
     "data_file": "https://www.dvk-rs.si/arhivi/dz2022/data/rezultati.json",
@@ -246,7 +276,7 @@
     "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
     "attribution": "Državna volilna komisija; Uradni list Republike Slovenije",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
     "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
     "publisher_file_sha256": "1f446ca2fbf33a424b8fdb43ea2a8960d67e79b4602671ba29b309acd9a51f1d",
     "acquisition": "read once in the browser pane (curl receives HTTP 407); figures transcribed, the 90 elected members’ names, dates of birth and addresses (section III) not transcribed"
@@ -264,7 +294,7 @@
     "licence_url": "https://pisrs.si/pregledPredpisa?id=ZAKO403",
     "attribution": "Državna volilna komisija",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70",
+    "raw_sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86",
     "raw_path": "docs/political-data/raw/slovenia/dz/evidence.json",
     "publisher_file_sha256": "175ed0c963270bc11c3709033098a900f9144a03da54bc6f06b640731cc2928e",
     "turnout_file_sha256": "67c483efebc24427dc9d464d7e4743e622e5fbf9a7f0e4829829576fbf9ae427"

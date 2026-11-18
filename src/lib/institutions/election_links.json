@@ -1003,6 +1003,40 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-si-dz-2000-10-15",
+   "country": "slovenia",
+   "date": "2000-10-15",
+   "chamber_id": "si-drzavni-zbor",
+   "chamber_official_name": "Državni zbor Republike Slovenije",
+   "seats": 90,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-si-dz-2000",
+   "system_family": "list proportional representation (eight 11-seat constituencies, seats fixed nationally) plus two national-community deputies elected separately",
+   "allocation_method": "D'Hondt over all 88 seats nationally among lists with at least 4% (Art. 92); first distribution in constituencies by the Droop quota (Arts. 90–91), remaining seats to constituencies by largest remainders (Art. 93)",
+   "base_seats": 90,
+   "thresholds": [
+    {
+     "applies_to": "list of candidates, nationally",
+     "percent": 4,
+     "description": {
+      "en": "A list needs at least 4% of all list votes in the country to take part in the seat allocation (report part one, section IV, under the constitutional act UZ80).",
+      "zh": "名单须获得全国全部名单票至少 4% 才能参与席位分配（报告第一部分第 IV 节，依据宪法性法律 UZ80）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: rules applied in the 2000 report (ZVDZ (Uradni list RS, št. 44/92, 60/95, 67/97 – odločba US in 70/00), Arts. 37 and 90–93; ustavni zakon o dopolnitvi 80. člena ustave (UZ80, Uradni list RS, št. 66/00)); the institutional registry record si-es-dz-constitutional holds the statutory text read from PISRS",
+   "constitution_id": "si-constitution-1991",
+   "institutional_period_id": "slovenia-period-2000-07-25",
+   "changes_in_force": [
+    "si-1991-constitution",
+    "si-2000-art80"
+   ],
+   "later_changes": [
+    "si-2013-referendum"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-si-dz-2004-10-03",
    "country": "slovenia",
    "date": "2004-10-03",

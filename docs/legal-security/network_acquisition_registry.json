@@ -582,6 +582,28 @@
       "reason": "Browser-verification challenge, never bypassed or retried. Owner answer \"both\": the owner saved RF_2.pdf and RF_3.pdf by hand (2026-11-18); they are kept in local-evidence/ by checksum.",
       "approved_by": "owner (answers \"Open in browser pane once\" and \"both\", 2026-11-18)",
       "status": "blocked"
+    },
+    {
+      "host": "www.uradni-list.si",
+      "purpose": "Official gazette of the Republic of Slovenia (Uradni list RS) — the 2000 National Assembly election report (98/2000, item 4130) and its correction (102/2000), saved by the owner as page extracts of Internet Archive copies; never requested by the assistant",
+      "automation_allowed": false,
+      "manual_allowed": false,
+      "robots_checked_at": null,
+      "robots_note": "not checked: the assistant made no request to this host",
+      "reason": "Not registered for the assistant (unknown host = block). Owner answer \"Accept, record the route\" (2026-11-19): the owner supplied page extracts of archived copies; they are kept in local-evidence/ by checksum.",
+      "approved_by": "owner (AskUserQuestion answer \"Accept, record the route\", 2026-11-19)",
+      "status": "blocked"
+    },
+    {
+      "host": "web.archive.org",
+      "purpose": "Internet Archive Wayback Machine — archived copies of official election documents (Slovenia 2000 gazette issues; Romania 2020 Central Electoral Bureau acts) saved by the owner; never requested by the assistant",
+      "automation_allowed": false,
+      "manual_allowed": false,
+      "robots_checked_at": null,
+      "robots_note": "not checked: the assistant made no request to this host",
+      "reason": "Not registered for the assistant (unknown host = block). Owner answer \"Accept, record the route\" (2026-11-19): copies the owner saved from the archive are admissible when the numbers reconcile, with the archive URL, capture date and original URL recorded.",
+      "approved_by": "owner (AskUserQuestion answer \"Accept, record the route\", 2026-11-19)",
+      "status": "blocked"
     }
   ],
   "reference_hosts": {

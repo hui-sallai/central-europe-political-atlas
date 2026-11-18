@@ -1,5 +1,108 @@
 [
   {
+    "electoral_system_id": "es-si-dz-2000",
+    "country": "slovenia",
+    "election_id": "el-si-dz-2000-10-15",
+    "institutional_rule_id": "si-es-dz-constitutional",
+    "valid_from": "2000-10-15",
+    "valid_to": "2000-10-15",
+    "interval_basis": "election-specific: rules applied in the 2000 report (ZVDZ (Uradni list RS, št. 44/92, 60/95, 67/97 – odločba US in 70/00), Arts. 37 and 90–93; ustavni zakon o dopolnitvi 80. člena ustave (UZ80, Uradni list RS, št. 66/00)); the institutional registry record si-es-dz-constitutional holds the statutory text read from PISRS",
+    "system_family": "list proportional representation (eight 11-seat constituencies, seats fixed nationally) plus two national-community deputies elected separately",
+    "vote_type": "si_list_vote",
+    "allocation_method": "D'Hondt over all 88 seats nationally among lists with at least 4% (Art. 92); first distribution in constituencies by the Droop quota (Arts. 90–91), remaining seats to constituencies by largest remainders (Art. 93)",
+    "base_seats": 90,
+    "vote_definitions": [
+      {
+        "id": "si_list_vote",
+        "kind": "list",
+        "label": {
+          "en": "List votes (general election)",
+          "zh-CN": "名单票（一般选举）"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "general_88",
+        "sourceIds": [
+          "src-si-dvk-minutes-2000"
+        ]
+      },
+      {
+        "id": "si_national_community_candidate_points",
+        "kind": "candidate",
+        "label": {
+          "en": "National-community candidate points (ranked ballot)",
+          "zh-CN": "民族共同体候选人得分（排序投票）"
+        },
+        "denominator": null,
+        "seatScope": "national_community_constituency",
+        "sourceIds": [
+          "src-si-dvk-minutes-2000"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "Seats per list are fixed by D'Hondt over all 88 seats among lists with at least 4% of all list votes (Art. 92).",
+      "districtAllocation": "Each of eight constituencies elects 11 deputies: a list first wins seats there by the Droop quota (Arts. 90–91); the remaining seats are assigned to constituencies by largest remainders (Art. 93).",
+      "thresholds": [
+        {
+          "appliesTo": "list of candidates, nationally",
+          "percent": 4,
+          "description": {
+            "en": "A list needs at least 4% of all list votes in the country to take part in the seat allocation (report part one, section IV, under the constitutional act UZ80).",
+            "zh-CN": "名单须获得全国全部名单票至少 4% 才能参与席位分配（报告第一部分第 IV 节，依据宪法性法律 UZ80）。"
+          },
+          "sourceIds": [
+            "src-si-dvk-minutes-2000"
+          ]
+        }
+      ],
+      "minorityRepresentation": {
+        "en": "The Italian and the Hungarian national communities each elect one deputy in a separate constituency, from individual candidates. In 2000 voters ranked the candidates and the minutes print points (točk); the candidate with most points is elected. Members of these communities also vote in the general election. Candidate names are not stored.",
+        "zh-CN": "意大利族和匈牙利族民族共同体各在单独选区从个人候选人中选出一名议员。2000 年选民对候选人排序，纪要列出得分（točk），得分最多者当选。这些共同体成员也参加一般选举。不存储候选人姓名。"
+      },
+      "totalSeatsDefinition": {
+        "en": "90 seats: 88 from lists of candidates and 2 national-community deputies. The National Council (Državni svet) is a separate, indirectly elected body and is not part of this election.",
+        "zh-CN": "90 席：名单产生 88 席，民族共同体议员 2 席。国民委员会（Državni svet）是另行间接选举的机构，不属于本次选举。"
+      },
+      "sourceIds": [
+        "src-si-dvk-minutes-2000"
+      ]
+    },
+    "notes": {
+      "en": "The Republic Electoral Commission's report, published in the official gazette (Uradni list RS, št. 98/2000, 24. 10. 2000, item 4130, pp. 10592–10598), prints the totals, every list's votes and percentage, the seats by stage (60 in the constituencies, 28 nationally) and the national-community points; the list votes equal the valid ballots and the seats reproduce by D'Hondt with the 4% threshold. It was read from a page extract of an Internet Archive copy of the gazette issue, saved by the owner. The printed turnout (70,37 %) is not reproduced by the printed counts (70,36 %); the commission's official 2004 turnout page prints the same 2000 voters and turnout. One list’s printed percentage (8,76) is not reproduced by the votes (8,77); it is kept as printed text only and vote shares are computed. A later correction in the gazette changes only personal data of two elected members. No polling-station file was read, so no second source confirms the list votes. 7 lists are named after persons and are shown without the name (row number, or the printed words without the name). Constituency-level results are not stored in this release.",
+      "zh-CN": "共和国选举委员会的报告刊于官方公报（Uradni list RS, št. 98/2000, 24. 10. 2000, item 4130, pp. 10592–10598），列出总数、各名单得票与百分比、分阶段席位（选区 60 席、全国 28 席）及民族共同体得分；名单票之和等于有效票，席位可按 D’Hondt 与 4% 门槛复现。读取的是所有者保存的互联网档案馆公报副本的页面摘录。所列投票率（70,37 %）无法由所列人数复现（70,36 %）；委员会 2004 年正式投票率页面所列 2000 年投票人数与投票率相同。1 个名单所列百分比（8,76）无法由得票复现（8,77），仅作为印刷文字保留，得票率另行计算。公报随后的更正只涉及两名当选议员的个人信息。未读取按投票站的文件，因此名单得票没有第二来源核对。7 个名单以人名命名，显示时不含人名（显示行号，或去掉人名后的印刷文字）。本次未存储选区级结果。"
+    },
+    "seat_check": {
+      "lists": 23,
+      "valid": 1079280,
+      "threshold_votes": 43172,
+      "lists_in_allocation": 8,
+      "general_seats": 88,
+      "national_community_seats": 2,
+      "total_seats": 90
+    },
+    "provenance": [
+      {
+        "source_id": "src-si-dvk-minutes-2000",
+        "source_url": "https://www.uradni-list.si/_pdf/2000/Ur/u2000098.pdf",
+        "source_record_id": "part one, sections IV–VI",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/slovenia/dz/evidence.json",
+          "sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86"
+        },
+        "parser_version": "slovenia-dz-v1",
+        "parser_sha256": "00f20992673783e54da07e8082bfb93c3c29e7a206b72ac1cb11f7ea760b7522",
+        "fields_covered": [
+          "allocation_method",
+          "thresholds",
+          "base_seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "9dba8c066180a7e5a7eb0a2ed93eb042f358260d9df1661f6ec1e93e6240bef3"
+      }
+    ]
+  },
+  {
     "electoral_system_id": "es-si-dz-2004",
     "country": "slovenia",
     "election_id": "el-si-dz-2004-10-03",
@@ -88,10 +191,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
+          "sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
+        "parser_sha256": "00f20992673783e54da07e8082bfb93c3c29e7a206b72ac1cb11f7ea760b7522",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -191,10 +294,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
+          "sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
+        "parser_sha256": "00f20992673783e54da07e8082bfb93c3c29e7a206b72ac1cb11f7ea760b7522",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -295,10 +398,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
+          "sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
+        "parser_sha256": "00f20992673783e54da07e8082bfb93c3c29e7a206b72ac1cb11f7ea760b7522",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -399,10 +502,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
+          "sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
+        "parser_sha256": "00f20992673783e54da07e8082bfb93c3c29e7a206b72ac1cb11f7ea760b7522",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -503,10 +606,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
+          "sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
+        "parser_sha256": "00f20992673783e54da07e8082bfb93c3c29e7a206b72ac1cb11f7ea760b7522",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -607,10 +710,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
+          "sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
+        "parser_sha256": "00f20992673783e54da07e8082bfb93c3c29e7a206b72ac1cb11f7ea760b7522",
         "fields_covered": [
           "allocation_method",
           "thresholds",
@@ -711,10 +814,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/slovenia/dz/evidence.json",
-          "sha256": "96f030da31b1ee44aa4ae19a59d2ad0ee337cd0d4c681d7b19f1c3867bdc7a70"
+          "sha256": "f958d29ad2312e894c83ba6d0bcbbdf1ab1579f6a0e0506ad0fe00faf33eea86"
         },
         "parser_version": "slovenia-dz-v1",
-        "parser_sha256": "5592af417a27239f869a5aa32fe58e5589c6dd72616145660adec7fe22a7f9ed",
+        "parser_sha256": "00f20992673783e54da07e8082bfb93c3c29e7a206b72ac1cb11f7ea760b7522",
         "fields_covered": [
           "allocation_method",
           "thresholds",

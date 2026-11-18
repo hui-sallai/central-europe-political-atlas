@@ -1,0 +1,80 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "slovenia-dz-2000",
+ "country": "slovenia",
+ "election_ids": [
+  "el-si-dz-2000-10-15"
+ ],
+ "scope": "National Assembly election of 15 October 2000, whole chamber (90 seats): national list votes for all 23 lists, the printed percentages that the votes reproduce, seats per list by stage (60 in the constituencies, 28 nationally), entitled voters, voters, ballots, invalid and valid ballots, and both national-community elections (ranking points, candidates without names), from the Republic Electoral Commission's report in Uradni list RS 98/2000. Two printed percentages that the printed counts do not reproduce (turnout 70,37; one list 8,76) are kept as printed text only. Constituency results, candidate names and the elected members' personal data are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief and answers \"Accept for all four\" (ZASP Art. 9) and \"Register both\" (www.dvk-rs.si, manual reading)."
+  },
+  {
+   "date": "2026-11-19",
+   "decision": "Owner supplied the gazette report (Uradni list RS 98/2000, item 4130) and its correction (102/2000) as page extracts of Internet Archive copies; asked how to treat archived copies, the owner answered \"Accept, record the route\"."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/slovenia/dz/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "owner_decision",
+   "basis": "Official texts (ZASP Art. 9), owner reading; same basis as the other Slovenian admissions."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_and_list_names",
+   "evidence_kind": "owner_decision",
+   "basis": "Totals, list votes, reproducible printed percentages and seats as printed; six lists named after persons shown by row number and one without the name; candidates and elected members without names or personal data."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The page extracts of the report and the correction are kept in local-evidence/ by SHA-256 only."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_download_internet_archive_copy",
+   "evidence_kind": "owner_decision",
+   "basis": "The owner saved page extracts of Internet Archive copies of the gazette issues (captures of 13 July 2026 and 15 June 2024 of www.uradni-list.si/_pdf/2000/Ur/u2000098.pdf and u2000102.pdf); owner answer \"Accept, record the route\". The assistant made no request to the gazette or the archive. The extract checksum is recorded; the checksum of the full issue is recorded as reported by the owner's download record and was not verified."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope_single_source",
+   "evidence_kind": "evidence_record",
+   "basis": "The full report (printed pages 10592–10598: part one sections I–VII, part two, part three) and the correction (page 10921). No polling-station file was read; the commission's official 2004 turnout page prints the same 2000 voters and turnout."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled_two_printed_percentages_not_reproduced",
+   "evidence_kind": "build_check",
+   "basis": "List votes = valid ballots (1,079,280); valid + invalid = ballots cast (1,116,218) ≤ voters (1,116,423) ≤ entitled (1,586,695); 22 of 23 printed list percentages recompute; the 8 lists at or above 4% = the 8 lists named in section IV; D'Hondt over 88 reproduces the printed seats (section VI), and the constituency stage (60) equals the per-constituency seats printed in section V; both national-community elections (points) reconcile; 90 seats. The printed turnout 70,37 (counts give 70,36) and one list's 8,76 (votes give 8,77) are stored as printed text only; the build fails unless each is exactly one hundredth off."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list",
+   "evidence_kind": "owner_decision",
+   "basis": "Lists as printed (order as printed); title_sha256 kept; no link across elections."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "election_specific_rules_reproduced",
+   "evidence_kind": "build_check",
+   "basis": "ZVDZ (Uradni list RS 44/92, 60/95, 67/97 and 70/00) and the constitutional act amending Art. 80 (UZ80, Uradni list RS 66/00), as cited in the report: 4% threshold and D'Hondt over 88 seats reproduce the printed seats. Linked to the institutional period from 2000-07-25."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_report_published_in_gazette",
+   "evidence_kind": "evidence_record",
+   "basis": "Report adopted at the 47th session of the Republic Electoral Commission on 24 October 2000 (RVK 1-1/96-1/00), published the same day; the correction of 10 November 2000 changes only personal data of two elected members."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a name repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

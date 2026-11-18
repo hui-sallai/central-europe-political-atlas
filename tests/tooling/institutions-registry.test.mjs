@@ -110,13 +110,13 @@ test("election links: reproducible, complete, and tied to each election's own ru
       for (const id of link.later_changes) assert.ok(changeDate(countries[slug].changes.find((c) => c.change_id === id)) > e.date);
     }
   }
-  assert.equal(links.elections.length, 45);
+  assert.equal(links.elections.length, 46);
   // Croatia 2000 falls before the 2000 and 2001 constitutional changes; 2003 and 2007 after the unicameral change.
   const hr2000 = links.elections.find((l) => l.election_id === "el-hr-sabor-2000-01-03"), hr2007 = links.elections.find((l) => l.election_id === "el-hr-sabor-2007-11-25");
   assert.deepEqual([hr2000.institutional_period_id, hr2000.seats], ["croatia-period-1990-12-22", 151]);
   assert.ok(hr2000.later_changes.includes("hr-2001-unicameral") && hr2007.changes_in_force.includes("hr-2001-unicameral"));
   assert.equal(hr2007.seats, 153);
-  assert.equal(links.elections.find((l) => l.election_id === "el-si-dz-2004-10-03").institutional_period_id, "slovenia-period-2000-07-25");
+  for (const id of ["el-si-dz-2000-10-15", "el-si-dz-2004-10-03"]) assert.equal(links.elections.find((l) => l.election_id === id).institutional_period_id, "slovenia-period-2000-07-25");
   assert.deepEqual(links.elections.filter((l) => l.country === "austria").map((l) => [l.chamber_id, l.seats]), [["at-nationalrat", 183], ["at-nationalrat", 183], ["at-nationalrat", 183], ["at-nationalrat", 183], ["at-nationalrat", 183]]);
   // Austria 2002 predates the earliest Austrian period the registry records (opened by the 2008 five-year term): no period is
   // attached rather than a later one, and the 2008 change is listed as later.
@@ -124,7 +124,7 @@ test("election links: reproducible, complete, and tied to each election's own ru
   assert.equal(at2002.institutional_period_id, null);
   assert.ok(at2002.later_changes.includes("at-2008-five-year-term"));
   assert.ok(!links.elections.find((l) => l.election_id === "el-hr-sabor-2011-12-04").changes_in_force.includes("hr-2015-preferential-vote"));
-  assert.deepEqual(links.elections.filter((l) => l.country === "slovenia").map((l) => l.date), ["2004-10-03", "2008-09-21", "2011-12-04", "2014-07-13", "2018-06-03", "2022-04-24", "2026-03-22"]);
+  assert.deepEqual(links.elections.filter((l) => l.country === "slovenia").map((l) => l.date), ["2000-10-15", "2004-10-03", "2008-09-21", "2011-12-04", "2014-07-13", "2018-06-03", "2022-04-24", "2026-03-22"]);
   // Romania 2016: both chambers, each linked to the period opened by Law 208/2015.
   assert.deepEqual(links.elections.filter((l) => l.country === "romania").map((l) => [l.chamber_id, l.seats, l.institutional_period_id]), [["ro-camera-deputatilor", 329, "romania-period-2015-07-20"], ["ro-senat", 136, "romania-period-2015-07-20"], ["ro-camera-deputatilor", 331, "romania-period-2015-07-20"], ["ro-senat", 134, "romania-period-2015-07-20"]]);
   // Croatia and Slovenia (admitted 2026-11-18): elections before the 2023 Constituencies Act link to the earlier period.
