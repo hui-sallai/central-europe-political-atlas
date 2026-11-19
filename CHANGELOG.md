@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Croatian Chamber of Counties election 1993 — 2026-11-19
+
+- Add the election of Croatia's Chamber of Counties of 7 February 1993: the 63 members elected in 21 counties (3 each by D'Hondt among county lists), read by eye from the electoral commission's scanned report. Every count, printed percentage, whole-percent turnout and seat reconciles. The Chamber of Counties is stored as a separate house and is never added to the Chamber of Representatives; list leaders, members and deputies are not stored.
+
 ### v2.0 Croatian parliamentary election 1992 — 2026-11-19
 
 - Add the election of Croatia's Chamber of Representatives of 2 August 1992 (all 138 seats): 60 seats from national lists, 60 single-member constituencies, 4 national-minority seats, and 14 members declared elected from national lists (13 for the Serbian community, 1 for minorities under 8%), read from the electoral commission's scanned decisions with every unit reconciled and checked by eye where needed. Every count, printed percentage and seat reconciles; 1992 percentages are printed on all voters, invalid ballots included, and are stored on that base. Single-member candidates are shown by their nominators and row number; no candidate name is stored. Later Croatian elections stay unchanged.

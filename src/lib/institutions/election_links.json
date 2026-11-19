@@ -1719,6 +1719,33 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-hr-zupanijski-dom-1993-02-07",
+   "country": "croatia",
+   "date": "1993-02-07",
+   "chamber_id": "hr-sabor",
+   "chamber_official_name": "Hrvatski sabor",
+   "seats": 63,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-hr-zupanijski-dom-1993",
+   "system_family": "proportional: county lists, 3 seats per county (Chamber of Counties)",
+   "allocation_method": "D'Hondt over 3 seats in each of 21 counties (Art. 27); no threshold printed and none needed to reproduce the seats.",
+   "base_seats": 63,
+   "thresholds": [],
+   "rule_basis": "election-specific: the rules applied in the 1993 decisions (Zakon o izborima zastupnika u Sabor Republike Hrvatske (Narodne novine 22/92, 27/92 i 1/93), Arts. 27, 31 and 50; election called by Narodne novine 1/93); D'Hondt over 3 seats per county reproduces the printed seats; the institutional registry record hr-es-sabor holds the current statutory text of the (now unicameral) Sabor",
+   "constitution_id": "hr-constitution-1990",
+   "institutional_period_id": "croatia-period-1990-12-22",
+   "changes_in_force": [
+    "hr-1990-constitution"
+   ],
+   "later_changes": [
+    "hr-2000-parliamentary-system",
+    "hr-2001-unicameral",
+    "hr-2015-preferential-vote",
+    "hr-2023-constituencies-act"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-hr-sabor-1995-10-29",
    "country": "croatia",
    "date": "1995-10-29",

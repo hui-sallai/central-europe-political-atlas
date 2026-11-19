@@ -135,10 +135,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism"
@@ -153,15 +153,435 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "single_member_seats_by_nominator"
         ],
         "published_or_derived": "derived_count_of_published_rows",
         "publisher_file_sha256": "a3bf66b2e220024592715229248d8f5c2a2b407cbfd7bf6d571c3853ab0a471b"
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-hr-zupanijski-dom-1993",
+    "country": "croatia",
+    "chamber": "Hrvatski sabor",
+    "chamber_printed": "Županijski dom Sabora Republike Hrvatske",
+    "official_term": null,
+    "election_id": "el-hr-zupanijski-dom-1993-02-07",
+    "total_seats": 63,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "seat_scope": "members elected in the 21 counties; members of the Chamber of Counties not elected in this election are not covered",
+    "seats_by_mechanism": {
+      "counties": 63
+    },
+    "seats_by_county": [
+      {
+        "constituency": "hr-zupanija-01",
+        "county": "I. Zagrebačka županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SELJAČKA STRANKA - HSS",
+            "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-02",
+        "county": "II. Krapinsko-zagorska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, HRVATSKA NARODNA STRANKA - HNS, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+            "title_sha256": "357d59d773e4e66fee0f90e4106e4c682f8f25f4f46e3f3044679ec5dbb962d1",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-03",
+        "county": "III. Sisačko-moslavačka županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+            "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-04",
+        "county": "IV. Karlovačka županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, HRVATSKA NARODNA STRANKA - HNS",
+            "title_sha256": "afcce8c62e9ab530ec1d52da85d8065f219eab21d3223785eb34168f8cbcb288",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-05",
+        "county": "V. Varaždinska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 1
+          },
+          {
+            "label": "HRVATSKA SELJAČKA STRANKA - HSS",
+            "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf",
+            "seats": 1
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, HRVATSKA NARODNA STRANKA - HNS, HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+            "title_sha256": "80eeec03c88190bd5994654b4502b44d0ca736117de973e4b22125db64a76917",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-06",
+        "county": "VI. Koprivničko-križevačka županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 1
+          },
+          {
+            "label": "HRVATSKA SELJAČKA STRANKA - HSS",
+            "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf",
+            "seats": 1
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP, HRVATSKA NARODNA STRANKA - HNS",
+            "title_sha256": "46ab0ef223f6ed48b32fc2ef47df17f6b3f8a960dbef8e453abb16db43e9a705",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-07",
+        "county": "VII. Bjelovarsko-bilogorska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 1
+          },
+          {
+            "label": "HRVATSKA SELJAČKA STRANKA - HSS",
+            "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf",
+            "seats": 1
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+            "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-08",
+        "county": "VIII. Primorsko-goranska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+            "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-09",
+        "county": "IX. Ličko-senjska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 3
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-10",
+        "county": "X. Virovitičko-podravska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SELJAČKA STRANKA - HSS",
+            "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-11",
+        "county": "XI. Požeško-slavonska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+            "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-12",
+        "county": "XII. Brodsko-posavska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+            "title_sha256": "548f7dae7625ab7dedc2eda73505560768dd20996c03c2a4646e6580c9915584",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-13",
+        "county": "XIII. Zadarsko-kninska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+            "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-14",
+        "county": "XIV. Osječko-baranjska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+            "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-15",
+        "county": "XV. Šibenska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+            "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-16",
+        "county": "XVI. Vukovarsko-srijemska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+            "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-17",
+        "county": "XVII. Splitsko-dalmatinska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+            "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-18",
+        "county": "XVIII. Istarska županija",
+        "seats": [
+          {
+            "label": "ISTARSKI DEMOKRATSKI SABOR - IDS",
+            "title_sha256": "86a6e5107dba76f6bad482bf76746fd88a2b076246de67c74ae20200d627dbb1",
+            "seats": 3
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-19",
+        "county": "XIX. Dubrovačko-neretvanska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+            "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f",
+            "seats": 1
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-20",
+        "county": "XX. Međimurska županija",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 1
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, HRVATSKA NARODNA STRANKA - HNS",
+            "title_sha256": "afcce8c62e9ab530ec1d52da85d8065f219eab21d3223785eb34168f8cbcb288",
+            "seats": 2
+          }
+        ]
+      },
+      {
+        "constituency": "hr-zupanija-21",
+        "county": "XXI. Grad Zagreb",
+        "seats": [
+          {
+            "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+            "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f",
+            "seats": 2
+          },
+          {
+            "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+            "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f",
+            "seats": 1
+          }
+        ]
+      }
+    ],
+    "seats_by_identical_list_title": [
+      {
+        "label": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+        "seats": 37
+      },
+      {
+        "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+        "seats": 11
+      },
+      {
+        "label": "HRVATSKA SELJAČKA STRANKA - HSS",
+        "seats": 5
+      },
+      {
+        "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, HRVATSKA NARODNA STRANKA - HNS",
+        "seats": 3
+      },
+      {
+        "label": "ISTARSKI DEMOKRATSKI SABOR - IDS",
+        "seats": 3
+      },
+      {
+        "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, HRVATSKA NARODNA STRANKA - HNS, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+        "seats": 1
+      },
+      {
+        "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, HRVATSKA NARODNA STRANKA - HNS, HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+        "seats": 1
+      },
+      {
+        "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP, HRVATSKA NARODNA STRANKA - HNS",
+        "seats": 1
+      },
+      {
+        "label": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+        "seats": 1
+      }
+    ],
+    "seat_grouping_note": "Seats are listed per county as printed and grouped only across lists with the identical printed title; lists with different party combinations are not merged. No seat is attributed to a party, and the Chamber of Counties is never added to the Chamber of Representatives.",
+    "result_vintage": "final: Electoral Commission of the Republic of Croatia decisions (KLASA 013-91/92-01/08, URBROJ 56605/93-317-1 to -21) of 11 February 1993 (24 February for the four counties with repeat voting) in its report on the Chamber of Counties election, scanned, transcribed by eye",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-hr-izbori-final-1993",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1993/rezultati/1993_2_Rezultati_Sabor_zupanijski_dom.pdf",
+        "source_record_id": "sum of the 21 county decisions",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
+        "fields_covered": [
+          "total_seats",
+          "seats_by_county"
+        ],
+        "published_or_derived": "derived_count_of_published_rows",
+        "publisher_file_sha256": "002c41d5538d83ebfcaa479ab1679532aef50c77557ca77e78b6d739626eda33"
       }
     ]
   },
@@ -288,10 +708,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism"
@@ -469,10 +889,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -729,10 +1149,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -932,10 +1352,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -1126,10 +1546,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -1328,10 +1748,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -1551,10 +1971,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -1803,10 +2223,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -2045,10 +2465,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",

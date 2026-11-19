@@ -6039,6 +6039,2005 @@
     "note": "Pages (= decision order; page n is constituency n for n ≤ 60, special constituency n − 60 above) whose OCR failed a reconciliation check or gave a non-standard label; the values stored are those printed, read from the page image."
    }
   },
+  "1993": {
+   "polling_day": "1993-02-07",
+   "repeat_poll": {
+    "date": "1993-02-21",
+    "counties": [
+     "II",
+     "III",
+     "XIII",
+     "XVIII"
+    ],
+    "basis": "Report section II lists the polling stations where voting was repeated on 21 February 1993 (in counties XIII, II, III and XVIII); the decisions for those four counties are dated 24 February 1993 and state the results of the elections \"provedenih dana 21. veljače 1993.\", i.e. including the repeat voting."
+   },
+   "shape": "county_lists_1993",
+   "chamber_printed": "Županijski dom Sabora Republike Hrvatske",
+   "document": {
+    "file": "1993_2_Rezultati_Sabor_zupanijski_dom.pdf",
+    "title": "Izvješće o provedenim izborima za zastupnike u Županijski dom Sabora Republike Hrvatske (veljača 1993.)",
+    "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1993/rezultati/1993_2_Rezultati_Sabor_zupanijski_dom.pdf",
+    "archive_page": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-1993",
+    "publisher_file_sha256": "002c41d5538d83ebfcaa479ab1679532aef50c77557ca77e78b6d739626eda33",
+    "pages": 44,
+    "kind": "scanned typescript (no text layer); every list row, percentage and seat statement read by eye from the page images; OCR (macOS Vision) used for the decision headers (counts, URBROJ, dates), each reconciled"
+   },
+   "issuer": "Izborna komisija Republike Hrvatske (Electoral Commission of the Republic of Croatia)",
+   "report_basis": "Report of the commission to the President of the Republic under Art. 31 of the Election Act, covering the 21 county decisions",
+   "klasa": "013-91/92-01/08",
+   "act_cited": "Zakon o izborima zastupnika u Sabor Republike Hrvatske (Narodne novine 22/92, 27/92 i 1/93), Arts. 27, 31 and 50; election called by Narodne novine 1/93",
+   "acquisition": "owner download 2026-11-19 (owner answer \"1992, 1993 and 1995 only\"): saved by the owner from the registered www.izbori.hr archive; the assistant made no request; kept in local-evidence/ by checksum",
+   "retrieved_at": "2026-11-19",
+   "percent_convention": "rounded_two_decimals",
+   "percent_base": "valid_ballots",
+   "turnout_printed_convention": "rounded_whole_percent",
+   "turnout_note": "The decisions print turnout as a whole percentage (e.g. \"odnosno 78%\"); it equals voted ÷ registered rounded to a whole number. Invalid shares are printed to two decimals of the voters; list percentages to two decimals of valid ballots (voters − invalid).",
+   "seat_structure": {
+    "counties": 21,
+    "seats_each": 3,
+    "total_elected": 63
+   },
+   "scope_note": "The 63 members elected in the 21 counties (3 each, the City of Zagreb counted as a county). Members of the Chamber of Counties not elected in this election are outside its results and not covered.",
+   "threshold_note": "The decisions print no threshold. D'Hondt over 3 seats among all lists reproduces every county's printed seats, and no list below 5% would have won a seat, so no threshold is tested.",
+   "counties": [
+    {
+     "number": 1,
+     "unit": "I",
+     "name": "Zagrebačka",
+     "urbroj": "56605/93-317-1",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 129913,
+     "voted": 101758,
+     "voted_printed_percent": "78",
+     "invalid": 3469,
+     "invalid_printed_percent": "3.41",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 47280,
+       "printed_percent": "48.10",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 29009,
+       "printed_percent": "29.51",
+       "seats": 1,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 18697,
+       "printed_percent": "19.02",
+       "seats": 0,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA STRANKA NARAVNOG ZAKONA",
+       "parties_named": [
+        "HRVATSKA STRANKA NARAVNOG ZAKONA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 366,
+       "printed_percent": "0.37",
+       "seats": 0,
+       "title_sha256": "f05b31a727529daee30bb34c1a3184b5233fed7458fc4f58c9421fa51c4be9f8"
+      },
+      {
+       "row": 5,
+       "name": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 2174,
+       "printed_percent": "2.21",
+       "seats": 0,
+       "title_sha256": "43631bf26f2e34cdd160fbdb7f9b691b3a1709289e71e16e8f1cbca26d0af9b3"
+      },
+      {
+       "row": 6,
+       "name": "SOCIJALNO-DEMOKRATSKA UNIJA HRVATSKE - SDU",
+       "parties_named": [
+        "SOCIJALNO-DEMOKRATSKA UNIJA HRVATSKE - SDU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 763,
+       "printed_percent": "0.78",
+       "seats": 0,
+       "title_sha256": "6c08dd7f1e4624a466ba8d6b5b9630b1cfbe3459ac752513292c2cf32ecbf89c"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 2,
+     "unit": "II",
+     "name": "Krapinsko-zagorska",
+     "urbroj": "56605/93-317-2",
+     "decision_date": "1993-02-24",
+     "results_date_stated": "1993-02-21",
+     "registered": 116256,
+     "voted": 80525,
+     "voted_printed_percent": "69",
+     "invalid": 2977,
+     "invalid_printed_percent": "3.70",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 45385,
+       "printed_percent": "58.53",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 15206,
+       "printed_percent": "19.61",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, HRVATSKA NARODNA STRANKA - HNS, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+        "HRVATSKA NARODNA STRANKA - HNS",
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP"
+       ],
+       "parties_named_count": 3,
+       "independent_county_list": false,
+       "votes": 16957,
+       "printed_percent": "21.87",
+       "seats": 1,
+       "title_sha256": "357d59d773e4e66fee0f90e4106e4c682f8f25f4f46e3f3044679ec5dbb962d1"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 3,
+     "unit": "III",
+     "name": "Sisačko-moslavačka",
+     "urbroj": "56605/93-317-3",
+     "decision_date": "1993-02-24",
+     "results_date_stated": "1993-02-21",
+     "registered": 205189,
+     "voted": 104405,
+     "voted_printed_percent": "51",
+     "invalid": 3422,
+     "invalid_printed_percent": "3.28",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 55883,
+       "printed_percent": "55.34",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 13406,
+       "printed_percent": "13.28",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 30342,
+       "printed_percent": "30.05",
+       "seats": 1,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA STRANKA NARAVNOG ZAKONA",
+       "parties_named": [
+        "HRVATSKA STRANKA NARAVNOG ZAKONA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1352,
+       "printed_percent": "1.34",
+       "seats": 0,
+       "title_sha256": "f05b31a727529daee30bb34c1a3184b5233fed7458fc4f58c9421fa51c4be9f8"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 4,
+     "unit": "IV",
+     "name": "Karlovačka",
+     "urbroj": "56605/93-317-4",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 130210,
+     "voted": 72749,
+     "voted_printed_percent": "56",
+     "invalid": 2313,
+     "invalid_printed_percent": "3.18",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 42562,
+       "printed_percent": "60.43",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 4717,
+       "printed_percent": "6.70",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, HRVATSKA NARODNA STRANKA - HNS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+        "HRVATSKA NARODNA STRANKA - HNS"
+       ],
+       "parties_named_count": 2,
+       "independent_county_list": false,
+       "votes": 19401,
+       "printed_percent": "27.54",
+       "seats": 1,
+       "title_sha256": "afcce8c62e9ab530ec1d52da85d8065f219eab21d3223785eb34168f8cbcb288"
+      },
+      {
+       "row": 4,
+       "name": "SOCIJALNO-DEMOKRATSKA UNIJA HRVATSKE - SDU",
+       "parties_named": [
+        "SOCIJALNO-DEMOKRATSKA UNIJA HRVATSKE - SDU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 3756,
+       "printed_percent": "5.33",
+       "seats": 0,
+       "title_sha256": "6c08dd7f1e4624a466ba8d6b5b9630b1cfbe3459ac752513292c2cf32ecbf89c"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 5,
+     "unit": "V",
+     "name": "Varaždinska",
+     "urbroj": "56605/93-317-5",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 144529,
+     "voted": 102917,
+     "voted_printed_percent": "71",
+     "invalid": 3623,
+     "invalid_printed_percent": "3.52",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 39013,
+       "printed_percent": "39.29",
+       "seats": 1,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 25955,
+       "printed_percent": "26.14",
+       "seats": 1,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, HRVATSKA NARODNA STRANKA - HNS, HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+        "HRVATSKA NARODNA STRANKA - HNS",
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU",
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP"
+       ],
+       "parties_named_count": 4,
+       "independent_county_list": false,
+       "votes": 33246,
+       "printed_percent": "33.48",
+       "seats": 1,
+       "title_sha256": "80eeec03c88190bd5994654b4502b44d0ca736117de973e4b22125db64a76917"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA STRANKA NARAVNOG ZAKONA",
+       "parties_named": [
+        "HRVATSKA STRANKA NARAVNOG ZAKONA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1080,
+       "printed_percent": "1.09",
+       "seats": 0,
+       "title_sha256": "f05b31a727529daee30bb34c1a3184b5233fed7458fc4f58c9421fa51c4be9f8"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 6,
+     "unit": "VI",
+     "name": "Koprivničko-križevačka",
+     "urbroj": "56605/93-317-6",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 100425,
+     "voted": 74063,
+     "voted_printed_percent": "74",
+     "invalid": 2474,
+     "invalid_printed_percent": "3.34",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 28324,
+       "printed_percent": "39.56",
+       "seats": 1,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA KRŠĆANSKA DEMOKRATSKA STRANKA - HKDS",
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA STRANKA - HKDS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1632,
+       "printed_percent": "2.28",
+       "seats": 0,
+       "title_sha256": "36214e1c51bced225bbeb45f15ce997a151937b52d92cd42362c25282b047bd5"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 22653,
+       "printed_percent": "31.64",
+       "seats": 1,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP, HRVATSKA NARODNA STRANKA - HNS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+        "HRVATSKA NARODNA STRANKA - HNS"
+       ],
+       "parties_named_count": 3,
+       "independent_county_list": false,
+       "votes": 18980,
+       "printed_percent": "26.51",
+       "seats": 1,
+       "title_sha256": "46ab0ef223f6ed48b32fc2ef47df17f6b3f8a960dbef8e453abb16db43e9a705"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 7,
+     "unit": "VII",
+     "name": "Bjelovarsko-bilogorska",
+     "urbroj": "56605/93-317-7",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 99828,
+     "voted": 80057,
+     "voted_printed_percent": "80",
+     "invalid": 3171,
+     "invalid_printed_percent": "3.96",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 33873,
+       "printed_percent": "44.06",
+       "seats": 1,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU",
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 2407,
+       "printed_percent": "3.13",
+       "seats": 0,
+       "title_sha256": "b664c41534c428a938e14556771eb298921d77b09ac592bb8830ba3a841ae698"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 20422,
+       "printed_percent": "26.56",
+       "seats": 1,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 20184,
+       "printed_percent": "26.25",
+       "seats": 1,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 8,
+     "unit": "VIII",
+     "name": "Primorsko-goranska",
+     "urbroj": "56605/93-317-8",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 261158,
+     "voted": 174335,
+     "voted_printed_percent": "67",
+     "invalid": 5596,
+     "invalid_printed_percent": "3.21",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 59735,
+       "printed_percent": "35.40",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU",
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 3856,
+       "printed_percent": "2.29",
+       "seats": 0,
+       "title_sha256": "b664c41534c428a938e14556771eb298921d77b09ac592bb8830ba3a841ae698"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA NARODNA STRANKA - HNS",
+       "parties_named": [
+        "HRVATSKA NARODNA STRANKA - HNS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 4037,
+       "printed_percent": "2.39",
+       "seats": 0,
+       "title_sha256": "d5afc1568d1f45d77cd3be2e479ef649a2e05f3c025e0f27287c60417fc855f3"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 3967,
+       "printed_percent": "2.35",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 5,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 49209,
+       "printed_percent": "29.16",
+       "seats": 1,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      },
+      {
+       "row": 6,
+       "name": "RIJEČKI DEMOKRATSKI SAVEZ - RiDS, ISTARSKI DEMOKRATSKI SABOR - IDS",
+       "parties_named": [
+        "RIJEČKI DEMOKRATSKI SAVEZ - RiDS",
+        "ISTARSKI DEMOKRATSKI SABOR - IDS"
+       ],
+       "parties_named_count": 2,
+       "independent_county_list": false,
+       "votes": 22801,
+       "printed_percent": "13.51",
+       "seats": 0,
+       "title_sha256": "b34f68e17a13d5577ac1d02e729b95f26bd9aa48df366da503e56ccdab8cd50c"
+      },
+      {
+       "row": 7,
+       "name": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 20700,
+       "printed_percent": "12.27",
+       "seats": 0,
+       "title_sha256": "43631bf26f2e34cdd160fbdb7f9b691b3a1709289e71e16e8f1cbca26d0af9b3"
+      },
+      {
+       "row": 8,
+       "name": "SOCIJALNO-DEMOKRATSKA UNIJA HRVATSKE - SDU",
+       "parties_named": [
+        "SOCIJALNO-DEMOKRATSKA UNIJA HRVATSKE - SDU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1921,
+       "printed_percent": "1.14",
+       "seats": 0,
+       "title_sha256": "6c08dd7f1e4624a466ba8d6b5b9630b1cfbe3459ac752513292c2cf32ecbf89c"
+      },
+      {
+       "row": 9,
+       "name": "SRPSKA NARODNA STRANKA",
+       "parties_named": [
+        "SRPSKA NARODNA STRANKA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 2513,
+       "printed_percent": "1.49",
+       "seats": 0,
+       "title_sha256": "1b4e5d293f4e1d32bdd5270baeb17edd79139a20896f4a7ab6557d7c228dcaf5"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 9,
+     "unit": "IX",
+     "name": "Ličko-senjska",
+     "urbroj": "56605/93-317-9",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 47761,
+     "voted": 31302,
+     "voted_printed_percent": "66",
+     "invalid": 1124,
+     "invalid_printed_percent": "3.59",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 22541,
+       "printed_percent": "74.69",
+       "seats": 3,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1952,
+       "printed_percent": "6.47",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 5685,
+       "printed_percent": "18.84",
+       "seats": 0,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 10,
+     "unit": "X",
+     "name": "Virovitičko-podravska",
+     "urbroj": "56605/93-317-10",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 70945,
+     "voted": 57283,
+     "voted_printed_percent": "81",
+     "invalid": 2642,
+     "invalid_printed_percent": "4.61",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 26965,
+       "printed_percent": "49.35",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 15076,
+       "printed_percent": "27.59",
+       "seats": 1,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 12600,
+       "printed_percent": "23.06",
+       "seats": 0,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 11,
+     "unit": "XI",
+     "name": "Požeško-slavonska",
+     "urbroj": "56605/93-317-11",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 86946,
+     "voted": 66131,
+     "voted_printed_percent": "76",
+     "invalid": 2102,
+     "invalid_printed_percent": "3.18",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 34921,
+       "printed_percent": "54.54",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU",
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 4188,
+       "printed_percent": "6.54",
+       "seats": 0,
+       "title_sha256": "b664c41534c428a938e14556771eb298921d77b09ac592bb8830ba3a841ae698"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA NARODNA STRANKA - HNS",
+       "parties_named": [
+        "HRVATSKA NARODNA STRANKA - HNS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 2241,
+       "printed_percent": "3.50",
+       "seats": 0,
+       "title_sha256": "d5afc1568d1f45d77cd3be2e479ef649a2e05f3c025e0f27287c60417fc855f3"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 5504,
+       "printed_percent": "8.60",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 5,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 15712,
+       "printed_percent": "24.54",
+       "seats": 1,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      },
+      {
+       "row": 6,
+       "name": "SRPSKA NARODNA STRANKA",
+       "parties_named": [
+        "SRPSKA NARODNA STRANKA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1463,
+       "printed_percent": "2.28",
+       "seats": 0,
+       "title_sha256": "1b4e5d293f4e1d32bdd5270baeb17edd79139a20896f4a7ab6557d7c228dcaf5"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 12,
+     "unit": "XII",
+     "name": "Brodsko-posavska",
+     "urbroj": "56605/93-317-12",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 120804,
+     "voted": 83876,
+     "voted_printed_percent": "69",
+     "invalid": 3322,
+     "invalid_printed_percent": "3.96",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 40865,
+       "printed_percent": "50.73",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA KRŠĆANSKA DEMOKRATSKA STRANKA - HKDS, HRVATSKA NARODNA STRANKA - HNS",
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA STRANKA - HKDS",
+        "HRVATSKA NARODNA STRANKA - HNS"
+       ],
+       "parties_named_count": 2,
+       "independent_county_list": false,
+       "votes": 2895,
+       "printed_percent": "3.59",
+       "seats": 0,
+       "title_sha256": "30fa10bbb0d364f63337b33944e87a585a67edc8e7d930bde28a13985dced24e"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 6970,
+       "printed_percent": "8.65",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP"
+       ],
+       "parties_named_count": 2,
+       "independent_county_list": false,
+       "votes": 21478,
+       "printed_percent": "26.66",
+       "seats": 1,
+       "title_sha256": "548f7dae7625ab7dedc2eda73505560768dd20996c03c2a4646e6580c9915584"
+      },
+      {
+       "row": 5,
+       "name": "NEZAVISNA ŽUPANIJSKA LISTA",
+       "parties_named": [
+        "NEZAVISNA ŽUPANIJSKA LISTA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": true,
+       "votes": 8346,
+       "printed_percent": "10.36",
+       "seats": 0,
+       "title_sha256": "2c7a8e416167469ac26d983bbaaa2de1e5c956867dae39c8d3fe74f0c3d4c1f6"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 13,
+     "unit": "XIII",
+     "name": "Zadarsko-kninska",
+     "urbroj": "56605/93-317-13",
+     "decision_date": "1993-02-24",
+     "results_date_stated": "1993-02-21",
+     "registered": 197369,
+     "voted": 61716,
+     "voted_printed_percent": "31",
+     "invalid": 1912,
+     "invalid_printed_percent": "3.10",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 36850,
+       "printed_percent": "61.62",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU",
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 791,
+       "printed_percent": "1.32",
+       "seats": 0,
+       "title_sha256": "b664c41534c428a938e14556771eb298921d77b09ac592bb8830ba3a841ae698"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA NARODNA STRANKA - HNS",
+       "parties_named": [
+        "HRVATSKA NARODNA STRANKA - HNS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 4552,
+       "printed_percent": "7.61",
+       "seats": 0,
+       "title_sha256": "d5afc1568d1f45d77cd3be2e479ef649a2e05f3c025e0f27287c60417fc855f3"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 14050,
+       "printed_percent": "23.49",
+       "seats": 1,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      },
+      {
+       "row": 5,
+       "name": "NEZAVISNA ŽUPANIJSKA LISTA",
+       "parties_named": [
+        "NEZAVISNA ŽUPANIJSKA LISTA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": true,
+       "votes": 1443,
+       "printed_percent": "2.41",
+       "seats": 0,
+       "title_sha256": "2c7a8e416167469ac26d983bbaaa2de1e5c956867dae39c8d3fe74f0c3d4c1f6"
+      },
+      {
+       "row": 6,
+       "name": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP, SOCIJALISTIČKA STRANKA HRVATSKE - SSH",
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+        "SOCIJALISTIČKA STRANKA HRVATSKE - SSH"
+       ],
+       "parties_named_count": 2,
+       "independent_county_list": false,
+       "votes": 1829,
+       "printed_percent": "3.06",
+       "seats": 0,
+       "title_sha256": "0d363e7542215aa7c1371f081f85879d470f6a1a96c9f8648252df6f1b339ced"
+      },
+      {
+       "row": 7,
+       "name": "STRANKA DEMOKRATSKE AKCIJE - OGRANAK ZA HRVATSKU",
+       "parties_named": [
+        "STRANKA DEMOKRATSKE AKCIJE - OGRANAK ZA HRVATSKU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 289,
+       "printed_percent": "0.48",
+       "seats": 0,
+       "title_sha256": "3051fd660a939385587fb5e3a6321de1b0bccd7c7c868c7ba6ecfdf5692e7553"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 14,
+     "unit": "XIV",
+     "name": "Osječko-baranjska",
+     "urbroj": "56605/93-317-14",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 256075,
+     "voted": 140604,
+     "voted_printed_percent": "55",
+     "invalid": 4613,
+     "invalid_printed_percent": "3.28",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 69897,
+       "printed_percent": "51.40",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU",
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 2081,
+       "printed_percent": "1.53",
+       "seats": 0,
+       "title_sha256": "b664c41534c428a938e14556771eb298921d77b09ac592bb8830ba3a841ae698"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA NARODNA STRANKA - HNS",
+       "parties_named": [
+        "HRVATSKA NARODNA STRANKA - HNS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 4533,
+       "printed_percent": "3.33",
+       "seats": 0,
+       "title_sha256": "d5afc1568d1f45d77cd3be2e479ef649a2e05f3c025e0f27287c60417fc855f3"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 7756,
+       "printed_percent": "5.70",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 5,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 48157,
+       "printed_percent": "35.41",
+       "seats": 1,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      },
+      {
+       "row": 6,
+       "name": "SRPSKA NARODNA STRANKA",
+       "parties_named": [
+        "SRPSKA NARODNA STRANKA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 2880,
+       "printed_percent": "2.12",
+       "seats": 0,
+       "title_sha256": "1b4e5d293f4e1d32bdd5270baeb17edd79139a20896f4a7ab6557d7c228dcaf5"
+      },
+      {
+       "row": 7,
+       "name": "STRANKA SREDNJOEUROPSKE AKCIJE - SEA",
+       "parties_named": [
+        "STRANKA SREDNJOEUROPSKE AKCIJE - SEA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 687,
+       "printed_percent": "0.51",
+       "seats": 0,
+       "title_sha256": "afdce2650babc057f33d187f2b799979fda28b4043a6ba8fdcb27dff129beddd"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 15,
+     "unit": "XV",
+     "name": "Šibenska",
+     "urbroj": "56605/93-317-15",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 79954,
+     "voted": 47082,
+     "voted_printed_percent": "59",
+     "invalid": 1970,
+     "invalid_printed_percent": "4.18",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 23727,
+       "printed_percent": "52.60",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA KRŠĆANSKA DEMOKRATSKA STRANKA - HKDS, HRVATSKA DEMOKRATSKA STRANKA - HDS, KRŠĆANSKA NARODNA STRANKA - KNS",
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA STRANKA - HKDS",
+        "HRVATSKA DEMOKRATSKA STRANKA - HDS",
+        "KRŠĆANSKA NARODNA STRANKA - KNS"
+       ],
+       "parties_named_count": 3,
+       "independent_county_list": false,
+       "votes": 1414,
+       "printed_percent": "3.13",
+       "seats": 0,
+       "title_sha256": "f39b3fc197f106bd8502ae147b3d8582f4fe0118c4c53c8ea3d1b2468902ca89"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA NARODNA STRANKA - HNS, SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+       "parties_named": [
+        "HRVATSKA NARODNA STRANKA - HNS",
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP"
+       ],
+       "parties_named_count": 2,
+       "independent_county_list": false,
+       "votes": 4660,
+       "printed_percent": "10.33",
+       "seats": 0,
+       "title_sha256": "64a229d669a0095167b132f862f4dce44e3ada90f731509bd49f0cf7d84349d8"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1716,
+       "printed_percent": "3.80",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 5,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 13595,
+       "printed_percent": "30.14",
+       "seats": 1,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 16,
+     "unit": "XVI",
+     "name": "Vukovarsko-srijemska",
+     "urbroj": "56605/93-317-16",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 110743,
+     "voted": 67021,
+     "voted_printed_percent": "61",
+     "invalid": 2129,
+     "invalid_printed_percent": "3.18",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 40585,
+       "printed_percent": "62.54",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 6519,
+       "printed_percent": "10.05",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 16514,
+       "printed_percent": "25.45",
+       "seats": 1,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      },
+      {
+       "row": 4,
+       "name": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1274,
+       "printed_percent": "1.96",
+       "seats": 0,
+       "title_sha256": "43631bf26f2e34cdd160fbdb7f9b691b3a1709289e71e16e8f1cbca26d0af9b3"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 17,
+     "unit": "XVII",
+     "name": "Splitsko-dalmatinska",
+     "urbroj": "56605/93-317-17",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 360752,
+     "voted": 225806,
+     "voted_printed_percent": "63",
+     "invalid": 8294,
+     "invalid_printed_percent": "3.67",
+     "lists": [
+      {
+       "row": 1,
+       "name": "DALMATINSKA AKCIJA",
+       "parties_named": [
+        "DALMATINSKA AKCIJA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 22175,
+       "printed_percent": "10.19",
+       "seats": 0,
+       "title_sha256": "438c3b5d2944e8d3cbe79c5c0d0de6bee07c90797b259f3581b886f3a715a43e"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 96062,
+       "printed_percent": "44.16",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU, HRVATSKA REPUBLIKANSKA ZAJEDNICA - HRZ, KRŠĆANSKA NARODNA STRANKA - KNS",
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU",
+        "HRVATSKA REPUBLIKANSKA ZAJEDNICA - HRZ",
+        "KRŠĆANSKA NARODNA STRANKA - KNS"
+       ],
+       "parties_named_count": 3,
+       "independent_county_list": false,
+       "votes": 4220,
+       "printed_percent": "1.94",
+       "seats": 0,
+       "title_sha256": "c99595aec1c7ae323f7665a293decd77dc98b09f28810a6de2e3196b08d8446b"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 13954,
+       "printed_percent": "6.42",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 5,
+       "name": "HRVATSKA STRANKA",
+       "parties_named": [
+        "HRVATSKA STRANKA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1409,
+       "printed_percent": "0.65",
+       "seats": 0,
+       "title_sha256": "aa41ccf812e4a11574f573e73be939136c979fe303522a80dbf1f47d67c6502b"
+      },
+      {
+       "row": 6,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 62090,
+       "printed_percent": "28.55",
+       "seats": 1,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      },
+      {
+       "row": 7,
+       "name": "HRVATSKA STRANKA NARAVNOG ZAKONA",
+       "parties_named": [
+        "HRVATSKA STRANKA NARAVNOG ZAKONA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1119,
+       "printed_percent": "0.51",
+       "seats": 0,
+       "title_sha256": "f05b31a727529daee30bb34c1a3184b5233fed7458fc4f58c9421fa51c4be9f8"
+      },
+      {
+       "row": 8,
+       "name": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP, SOCIJALISTIČKA STRANKA HRVATSKE - SSH",
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+        "SOCIJALISTIČKA STRANKA HRVATSKE - SSH"
+       ],
+       "parties_named_count": 2,
+       "independent_county_list": false,
+       "votes": 16483,
+       "printed_percent": "7.58",
+       "seats": 0,
+       "title_sha256": "0d363e7542215aa7c1371f081f85879d470f6a1a96c9f8648252df6f1b339ced"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 18,
+     "unit": "XVIII",
+     "name": "Istarska",
+     "urbroj": "56605/93-317-18",
+     "decision_date": "1993-02-24",
+     "results_date_stated": "1993-02-21",
+     "registered": 159502,
+     "voted": 118823,
+     "voted_printed_percent": "74",
+     "invalid": 3980,
+     "invalid_printed_percent": "3.35",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 18782,
+       "printed_percent": "16.35",
+       "seats": 0,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1396,
+       "printed_percent": "1.22",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 11658,
+       "printed_percent": "10.15",
+       "seats": 0,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA STRANKA NARAVNOG ZAKONA",
+       "parties_named": [
+        "HRVATSKA STRANKA NARAVNOG ZAKONA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 554,
+       "printed_percent": "0.48",
+       "seats": 0,
+       "title_sha256": "f05b31a727529daee30bb34c1a3184b5233fed7458fc4f58c9421fa51c4be9f8"
+      },
+      {
+       "row": 5,
+       "name": "ISTARSKI DEMOKRATSKI SABOR - IDS",
+       "parties_named": [
+        "ISTARSKI DEMOKRATSKI SABOR - IDS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 76273,
+       "printed_percent": "66.42",
+       "seats": 3,
+       "title_sha256": "86a6e5107dba76f6bad482bf76746fd88a2b076246de67c74ae20200d627dbb1"
+      },
+      {
+       "row": 6,
+       "name": "ISTARSKA LIBERALNA STRANKA",
+       "parties_named": [
+        "ISTARSKA LIBERALNA STRANKA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 2296,
+       "printed_percent": "2.00",
+       "seats": 0,
+       "title_sha256": "9707d0702281d211efab838ddd4ea796401d7f4c27d0174228c00c09febb629d"
+      },
+      {
+       "row": 7,
+       "name": "ISTARSKA PUČKA STRANKA, ISTARSKA NEZAVISNA STRANKA, KRŠĆANSKA NARODNA STRANKA - KNS",
+       "parties_named": [
+        "ISTARSKA PUČKA STRANKA",
+        "ISTARSKA NEZAVISNA STRANKA",
+        "KRŠĆANSKA NARODNA STRANKA - KNS"
+       ],
+       "parties_named_count": 3,
+       "independent_county_list": false,
+       "votes": 1690,
+       "printed_percent": "1.47",
+       "seats": 0,
+       "title_sha256": "e2f0ac68bcfac81b3da2a7a4832419fcb866661f97930cc37ed3c4fff0ce4518"
+      },
+      {
+       "row": 8,
+       "name": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP, SOCIJALISTIČKA STRANKA HRVATSKE - SSH, SOCIJALDEMOKRATSKA STRANKA HRVATSKE - SDH",
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+        "SOCIJALISTIČKA STRANKA HRVATSKE - SSH",
+        "SOCIJALDEMOKRATSKA STRANKA HRVATSKE - SDH"
+       ],
+       "parties_named_count": 3,
+       "independent_county_list": false,
+       "votes": 2194,
+       "printed_percent": "1.91",
+       "seats": 0,
+       "title_sha256": "a91f231d0bd6abbc3d94634f916428ecfd01f63d755b5d6aa5d7cce6684c1d5f"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 19,
+     "unit": "XIX",
+     "name": "Dubrovačko-neretvanska",
+     "urbroj": "56605/93-317-19",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 96387,
+     "voted": 64423,
+     "voted_printed_percent": "67",
+     "invalid": 2307,
+     "invalid_printed_percent": "3.58",
+     "lists": [
+      {
+       "row": 1,
+       "name": "DALMATINSKA AKCIJA",
+       "parties_named": [
+        "DALMATINSKA AKCIJA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 4128,
+       "printed_percent": "6.65",
+       "seats": 0,
+       "title_sha256": "438c3b5d2944e8d3cbe79c5c0d0de6bee07c90797b259f3581b886f3a715a43e"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 28585,
+       "printed_percent": "46.02",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU, HRVATSKA KRŠĆANSKA DEMOKRATSKA STRANKA - HKDS, HRVATSKA DEMOKRATSKA STRANKA - HDS",
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU",
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA STRANKA - HKDS",
+        "HRVATSKA DEMOKRATSKA STRANKA - HDS"
+       ],
+       "parties_named_count": 3,
+       "independent_county_list": false,
+       "votes": 3511,
+       "printed_percent": "5.65",
+       "seats": 0,
+       "title_sha256": "f370bae716a9a18fab45183b67c75f46f44893543532310e3d3750a5fbd50a37"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 3565,
+       "printed_percent": "5.74",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 5,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 15913,
+       "printed_percent": "25.62",
+       "seats": 1,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      },
+      {
+       "row": 6,
+       "name": "NEZAVISNA ŽUPANIJSKA LISTA",
+       "parties_named": [
+        "NEZAVISNA ŽUPANIJSKA LISTA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": true,
+       "votes": 2207,
+       "printed_percent": "3.55",
+       "seats": 0,
+       "title_sha256": "2c7a8e416167469ac26d983bbaaa2de1e5c956867dae39c8d3fe74f0c3d4c1f6"
+      },
+      {
+       "row": 7,
+       "name": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 4207,
+       "printed_percent": "6.77",
+       "seats": 0,
+       "title_sha256": "43631bf26f2e34cdd160fbdb7f9b691b3a1709289e71e16e8f1cbca26d0af9b3"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 20,
+     "unit": "XX",
+     "name": "Međimurska",
+     "urbroj": "56605/93-317-20",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 89878,
+     "voted": 64590,
+     "voted_printed_percent": "72",
+     "invalid": 2321,
+     "invalid_printed_percent": "3.59",
+     "lists": [
+      {
+       "row": 1,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 20591,
+       "printed_percent": "33.07",
+       "seats": 1,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU",
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1956,
+       "printed_percent": "3.14",
+       "seats": 0,
+       "title_sha256": "b664c41534c428a938e14556771eb298921d77b09ac592bb8830ba3a841ae698"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 10594,
+       "printed_percent": "17.01",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS, HRVATSKA NARODNA STRANKA - HNS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+        "HRVATSKA NARODNA STRANKA - HNS"
+       ],
+       "parties_named_count": 2,
+       "independent_county_list": false,
+       "votes": 26256,
+       "printed_percent": "42.17",
+       "seats": 2,
+       "title_sha256": "afcce8c62e9ab530ec1d52da85d8065f219eab21d3223785eb34168f8cbcb288"
+      },
+      {
+       "row": 5,
+       "name": "KRŠĆANSKA NARODNA STRANKA - KNS",
+       "parties_named": [
+        "KRŠĆANSKA NARODNA STRANKA - KNS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 2872,
+       "printed_percent": "4.61",
+       "seats": 0,
+       "title_sha256": "6029f77697cc7f3f64892a2b92a8ecdd7d541e583333822fdc206097ed01d5ee"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    },
+    {
+     "number": 21,
+     "unit": "XXI",
+     "name": "Grad Zagreb",
+     "urbroj": "56605/93-317-21",
+     "decision_date": "1993-02-11",
+     "results_date_stated": "1993-02-07",
+     "registered": 715772,
+     "voted": 484316,
+     "voted_printed_percent": "68",
+     "invalid": 12258,
+     "invalid_printed_percent": "2.53",
+     "lists": [
+      {
+       "row": 1,
+       "name": "DOMOVINSKA GRAĐANSKA STRANKA",
+       "parties_named": [
+        "DOMOVINSKA GRAĐANSKA STRANKA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 3105,
+       "printed_percent": "0.66",
+       "seats": 0,
+       "title_sha256": "fe4264e027d47f41e51f6b2ca8bf9e78b4b75efc3e8a1f0564e5258e6f7f5742"
+      },
+      {
+       "row": 2,
+       "name": "HRVATSKA DEMOKRATSKA STRANKA PRAVA - HDSP",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA STRANKA PRAVA - HDSP"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 6973,
+       "printed_percent": "1.48",
+       "seats": 0,
+       "title_sha256": "4ca32f983111025505f1cd00e929d300ae43f8ea8d417030bdee085ce2240edf"
+      },
+      {
+       "row": 3,
+       "name": "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ",
+       "parties_named": [
+        "HRVATSKA DEMOKRATSKA ZAJEDNICA - HDZ"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 200939,
+       "printed_percent": "42.57",
+       "seats": 2,
+       "title_sha256": "51c7e0c6539716d648e309f04cd97304b3f7f50820e3d50bf867b7267160489f"
+      },
+      {
+       "row": 4,
+       "name": "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU",
+       "parties_named": [
+        "HRVATSKA KRŠĆANSKA DEMOKRATSKA UNIJA - HKDU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 12305,
+       "printed_percent": "2.61",
+       "seats": 0,
+       "title_sha256": "b664c41534c428a938e14556771eb298921d77b09ac592bb8830ba3a841ae698"
+      },
+      {
+       "row": 5,
+       "name": "HRVATSKA SELJAČKA STRANKA - HSS",
+       "parties_named": [
+        "HRVATSKA SELJAČKA STRANKA - HSS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 48616,
+       "printed_percent": "10.30",
+       "seats": 0,
+       "title_sha256": "4b4e5e2cba13ce4001cb426f4c57c17618ea1a1602fb2cabf29b95757b49decf"
+      },
+      {
+       "row": 6,
+       "name": "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS",
+       "parties_named": [
+        "HRVATSKA SOCIJALNO LIBERALNA STRANKA - HSLS"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 151804,
+       "printed_percent": "32.16",
+       "seats": 1,
+       "title_sha256": "6acfa454b3c874bea58220e911f8c072fb89817f112f1962b71eb3c3a766561f"
+      },
+      {
+       "row": 7,
+       "name": "HRVATSKA STRANKA",
+       "parties_named": [
+        "HRVATSKA STRANKA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1269,
+       "printed_percent": "0.27",
+       "seats": 0,
+       "title_sha256": "aa41ccf812e4a11574f573e73be939136c979fe303522a80dbf1f47d67c6502b"
+      },
+      {
+       "row": 8,
+       "name": "HRVATSKA STRANKA NARAVNOG ZAKONA",
+       "parties_named": [
+        "HRVATSKA STRANKA NARAVNOG ZAKONA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 2555,
+       "printed_percent": "0.54",
+       "seats": 0,
+       "title_sha256": "f05b31a727529daee30bb34c1a3184b5233fed7458fc4f58c9421fa51c4be9f8"
+      },
+      {
+       "row": 9,
+       "name": "NEZAVISNA ŽUPANIJSKA LISTA",
+       "parties_named": [
+        "NEZAVISNA ŽUPANIJSKA LISTA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": true,
+       "votes": 7270,
+       "printed_percent": "1.54",
+       "seats": 0,
+       "title_sha256": "2c7a8e416167469ac26d983bbaaa2de1e5c956867dae39c8d3fe74f0c3d4c1f6"
+      },
+      {
+       "row": 10,
+       "name": "NEZAVISNA ŽUPANIJSKA LISTA",
+       "parties_named": [
+        "NEZAVISNA ŽUPANIJSKA LISTA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": true,
+       "votes": 1786,
+       "printed_percent": "0.38",
+       "seats": 0,
+       "title_sha256": "2c7a8e416167469ac26d983bbaaa2de1e5c956867dae39c8d3fe74f0c3d4c1f6"
+      },
+      {
+       "row": 11,
+       "name": "NEZAVISNA ŽUPANIJSKA LISTA",
+       "parties_named": [
+        "NEZAVISNA ŽUPANIJSKA LISTA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": true,
+       "votes": 1510,
+       "printed_percent": "0.32",
+       "seats": 0,
+       "title_sha256": "2c7a8e416167469ac26d983bbaaa2de1e5c956867dae39c8d3fe74f0c3d4c1f6"
+      },
+      {
+       "row": 12,
+       "name": "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP",
+       "parties_named": [
+        "SOCIJALDEMOKRATSKA PARTIJA HRVATSKE - STRANKA DEMOKRATSKIH PROMJENA - SDP"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 13600,
+       "printed_percent": "2.88",
+       "seats": 0,
+       "title_sha256": "43631bf26f2e34cdd160fbdb7f9b691b3a1709289e71e16e8f1cbca26d0af9b3"
+      },
+      {
+       "row": 13,
+       "name": "SOCIJALNO-DEMOKRATSKA UNIJA HRVATSKE - SDU",
+       "parties_named": [
+        "SOCIJALNO-DEMOKRATSKA UNIJA HRVATSKE - SDU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 10973,
+       "printed_percent": "2.32",
+       "seats": 0,
+       "title_sha256": "6c08dd7f1e4624a466ba8d6b5b9630b1cfbe3459ac752513292c2cf32ecbf89c"
+      },
+      {
+       "row": 14,
+       "name": "SRPSKA NARODNA STRANKA",
+       "parties_named": [
+        "SRPSKA NARODNA STRANKA"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 7383,
+       "printed_percent": "1.56",
+       "seats": 0,
+       "title_sha256": "1b4e5d293f4e1d32bdd5270baeb17edd79139a20896f4a7ab6557d7c228dcaf5"
+      },
+      {
+       "row": 15,
+       "name": "STRANKA DEMOKRATSKE AKCIJE - OGRANAK ZA HRVATSKU",
+       "parties_named": [
+        "STRANKA DEMOKRATSKE AKCIJE - OGRANAK ZA HRVATSKU"
+       ],
+       "parties_named_count": 1,
+       "independent_county_list": false,
+       "votes": 1970,
+       "printed_percent": "0.42",
+       "seats": 0,
+       "title_sha256": "3051fd660a939385587fb5e3a6321de1b0bccd7c7c868c7ba6ecfdf5692e7553"
+      }
+     ],
+     "seats": 3,
+     "seats_section": "Art. 27: seats and the members elected per list (names of members, deputies and list leaders not stored)"
+    }
+   ],
+   "label_rule_1993": "Lists are stored with the party names printed (one line per party, joined by \", \"); the list leader printed under each list is never stored. Independent county lists (\"NEZAVISNA ŽUPANIJSKA LISTA\") are shown under that title only; title_sha256 identifies the stored title, not the leader."
+  },
   "1995": {
    "polling_day": "1995-10-29",
    "shape": "mixed_1995",

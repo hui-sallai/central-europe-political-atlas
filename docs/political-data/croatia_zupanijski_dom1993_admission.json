@@ -1,0 +1,80 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "croatia-zupanijski-dom-1993",
+ "country": "croatia",
+ "election_ids": [
+  "el-hr-zupanijski-dom-1993-02-07"
+ ],
+ "scope": "Election of the Chamber of Counties (Županijski dom Sabora Republike Hrvatske) of 7 February 1993 (repeat voting at some polling stations of four counties on 21 February): the 63 members elected in 21 counties (3 each), with every county list's votes, printed percentage and seats, and registered voters, voters, invalid ballots and printed turnout per county decision. List leaders, elected members and deputies (all printed by name), members not elected in this election, and polling-station results are not covered; the Chamber of Representatives is a separate house (1992, 1995).",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief \"Complete ten-country parliamentary election coverage\" naming www.izbori.hr; answers \"Accept for all four\" (Copyright Act, official texts) and \"Register both\" (manual reading only)."
+  },
+  {
+   "date": "2026-11-19",
+   "decision": "Owner supplied the 1990–1995 results documents from the izbori.hr archive (the 1993 Chamber of Counties report); asked which pre-2000 elections to attempt, the owner answered \"1992, 1993 and 1995 only\" (1990 out of scope)."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/croatia/sabor/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "owner_decision",
+   "basis": "Same basis as the other Croatian admissions: official texts of state bodies are not protected (Croatian Copyright Act), owner reading; not a licence."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "county_figures_and_party_names",
+   "evidence_kind": "owner_decision",
+   "basis": "Per-county counts, list votes, printed percentages and seats; list titles as the party names printed (no person named); independent county lists as NEZAVISNA ŽUPANIJSKA LISTA without their leader."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The 44-page scanned report stays in local-evidence/ by SHA-256 only."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_manual_download",
+   "evidence_kind": "owner_decision",
+   "basis": "Saved by the owner from the registered www.izbori.hr archive (results file of the 1993 Chamber of Counties election); the assistant made no request."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "The commission's report with all 21 county decisions (KLASA 013-91/92-01/08, URBROJ 56605/93-317-1 to -21, consecutive), dated 11 February 1993 or, for the four counties with repeat voting, 24 February 1993."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "Per county: list votes = voters − invalid ballots; printed list percentages (of valid ballots), invalid shares (of voters) and whole-percent turnout recompute; D'Hondt over 3 seats reproduces the printed seats; no list below 5% holds a seat; decision dates match the report's repeat-voting record; 21 × 3 = 63. List rows and seat statements read by eye; OCR header counts reconciled."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list_per_county",
+   "evidence_kind": "owner_decision",
+   "basis": "Lists per county as printed; no link across counties, houses or elections; seats grouped only by identical printed title. The Chamber of Counties is stored as its own election, legislature and electoral system and is never added to the Chamber of Representatives."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "election_specific_rules_reproduced",
+   "evidence_kind": "build_check",
+   "basis": "The Election Act as cited in the decisions (Narodne novine 22/92, 27/92 and 1/93; Arts. 27, 31, 50): D'Hondt over 3 seats per county. No threshold is printed, and none is needed to reproduce the seats."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_results_decisions_transcribed_by_eye",
+   "evidence_kind": "evidence_record",
+   "basis": "Final county decisions of the Electoral Commission of the Republic of Croatia of 11 and 24 February 1993 in its scanned report on the Chamber of Counties election; list rows and seat statements transcribed by eye, header counts by OCR, every figure reconciled."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a name repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

@@ -123,10 +123,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -141,15 +141,92 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "date"
         ],
         "published_or_derived": "published",
         "publisher_file_sha256": "a3bf66b2e220024592715229248d8f5c2a2b407cbfd7bf6d571c3853ab0a471b"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hr-zupanijski-dom-1993-02-07",
+    "country": "croatia",
+    "election_type": "national_parliament",
+    "chamber": "Hrvatski sabor",
+    "chamber_printed": "Županijski dom Sabora Republike Hrvatske",
+    "chamber_scope": "Županijski dom (Chamber of Counties) only: 63 members elected in 21 counties. The Zastupnički dom (Chamber of Representatives) was elected separately in 1992 and 1995; seats of the two houses are never added together.",
+    "date": "1993-02-07",
+    "date_end": null,
+    "date_basis": "polling day stated in the report and the decisions (“provedeni su 7. veljače 1993.”); repeat voting at some polling stations of four counties on 21 February 1993 (repeat_poll_date)",
+    "result_coverage": "all_elected_seats_county_lists",
+    "year": 1993,
+    "legislature_id": "lg-hr-zupanijski-dom-1993",
+    "electoral_system_id": "es-hr-zupanijski-dom-1993",
+    "result_status": "official_final",
+    "result_vintage": "final: Electoral Commission of the Republic of Croatia decisions (KLASA 013-91/92-01/08, URBROJ 56605/93-317-1 to -21) of 11 February 1993 (24 February for the four counties with repeat voting) in its report on the Chamber of Counties election, scanned, transcribed by eye",
+    "later_poll_date": null,
+    "repeat_poll_date": "1993-02-21",
+    "repeat_poll_counties": [
+      "II",
+      "III",
+      "XIII",
+      "XVIII"
+    ],
+    "constituency_structure": [
+      {
+        "unit": "county",
+        "constituencies": [
+          "hr-zupanija-01",
+          "hr-zupanija-02",
+          "hr-zupanija-03",
+          "hr-zupanija-04",
+          "hr-zupanija-05",
+          "hr-zupanija-06",
+          "hr-zupanija-07",
+          "hr-zupanija-08",
+          "hr-zupanija-09",
+          "hr-zupanija-10",
+          "hr-zupanija-11",
+          "hr-zupanija-12",
+          "hr-zupanija-13",
+          "hr-zupanija-14",
+          "hr-zupanija-15",
+          "hr-zupanija-16",
+          "hr-zupanija-17",
+          "hr-zupanija-18",
+          "hr-zupanija-19",
+          "hr-zupanija-20",
+          "hr-zupanija-21"
+        ],
+        "seats_each": 3,
+        "seats": 63,
+        "vote_type": "hr_list_vote"
+      }
+    ],
+    "provenance": [
+      {
+        "source_id": "src-hr-izbori-final-1993",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1993/rezultati/1993_2_Rezultati_Sabor_zupanijski_dom.pdf",
+        "source_record_id": "report sections I–II and decision headings (polling day, repeat voting, decision dates)",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
+        "fields_covered": [
+          "date",
+          "repeat_poll_date",
+          "result_vintage"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "002c41d5538d83ebfcaa479ab1679532aef50c77557ca77e78b6d739626eda33"
       }
     ]
   },
@@ -245,10 +322,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -323,10 +400,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -401,10 +478,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -479,10 +556,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -556,10 +633,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -633,10 +710,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -710,10 +787,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -787,10 +864,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -864,10 +941,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+          "sha256": "1d93ed8f0909833a8964159606b683a20eea9f80f626c7e26b397b4bc216b5eb"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "parser_sha256": "3a33298f7ff2ac31aacdbb4b7e01cd12b8b2b298558af4b3549434e1e1541589",
         "fields_covered": [
           "date",
           "result_vintage"
