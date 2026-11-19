@@ -1,0 +1,81 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "austria-nationalrat-2006-2008",
+ "country": "austria",
+ "election_ids": [
+  "el-at-nr-2006-10-01",
+  "el-at-nr-2008-09-28"
+ ],
+ "scope": "Nationalrat elections of 1 October 2006 and 28 September 2008, whole chamber (183 seats each), national level: every party's votes (12 and 15 parties), eligible voters, votes cast, invalid and valid votes, derived turnout, seats per party and seats by tier (43 regional constituencies, nine Länder, federal stage). Printed party names, candidate names and Land and municipal vote results are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief (Austria: Nationalrat only), answers \"Accept for all four\" (UrhG § 7) and \"I'll download files myself\"; the owner saved nrw02_e_dl.zip with the other BMI files."
+  },
+  {
+   "date": "2026-11-19",
+   "decision": "The owner asked for the exact seat-table links (read from the BMI pages the owner had saved) and saved nrw_06_mandatsspiegelv.pdf, nrw_06_mandate_3.pdf, nrw_06_mandatsverteilung.pdf and nrw_08_mandatsspiegel.pdf by hand; the 2006 and 2008 workbooks were already supplied."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/austria/nationalrat/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "owner_decision",
+   "basis": "Same basis as austria-nationalrat-2013-2024: official works (UrhG § 7, owner reading) and the BMI Impressum's attributed non-commercial reuse clause."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_and_seats",
+   "evidence_kind": "owner_decision",
+   "basis": "National counts, party votes and seats by tier, attributed to the Bundesministerium für Inneres; short names that are a person's name (MATIN, STARK; FRITZ, [KHK], STARK) are shown by column position."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The owner-saved workbooks, seat tables and result pages are kept in local-evidence/ by SHA-256 only."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_manual_download",
+   "evidence_kind": "owner_decision",
+   "basis": "Saved by the owner; www.bmi.gv.at stays blocked for the assistant (the seat-table links were read from the owner-saved pages). The legacy .xls workbooks were read locally with a standard-library reader; the seat tables have a text layer."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "Per year: the final-result workbook (national row and nine Land rows) and the final seat table (Mandatsspiegel: federal total, third stage, nine Länder with second stage and 43 regional constituencies); 2006 also the third-stage table (Mandatsvergabe im 3. Ermittlungsverfahren). The 2006 historical seat table is not used (its text layer does not extract in aligned columns)."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "Per year: party votes = valid votes; valid + invalid = votes cast ≤ eligible; the nine Land rows add up to the national party votes; 183 seats; parties holding seats = parties above 4% (BZÖ 4.11% in 2006); national D'Hondt over 183 reproduces every party's seats (2006: ÖVP 66, SPÖ 68, FPÖ 21, GRÜNE 21, BZÖ 7; 2008: SPÖ 57, ÖVP 51, FPÖ 34, BZÖ 21, GRÜNE 20); seat table: federal total = third stage + Länder, each Land = second stage + its regional constituencies, 43 regional constituencies; 2006 third-stage table equal to the seat table."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_party_column",
+   "evidence_kind": "owner_decision",
+   "basis": "Official short names from the workbook columns (person-named short names by column position); no link across elections."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "rules_reproduced_period_not_recorded",
+   "evidence_kind": "build_check",
+   "basis": "4% threshold, Hare quota tiers and federal D'Hondt over 183 seats checked against the data. Both elections predate the earliest Austrian period the institutional registry records (28 October 2008), so they link to no period; no later rule is applied retroactively."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_results_workbook_and_seat_table",
+   "evidence_kind": "evidence_record",
+   "basis": "Final results established by the Bundeswahlbehörde on 20 October 2006 and 17 October 2008 (as stated on the BMI result pages saved by the owner, which also print the polling days); the 2008 seat table is the final one in the results brochure, not the provisional table of election night."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a name repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

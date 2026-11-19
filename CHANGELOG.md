@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Austrian parliamentary elections 2006 and 2008 — 2026-11-19
+
+- Add Austria's Nationalrat elections of 1 October 2006 and 28 September 2008 (all 183 seats each, with seats by tier across 43 regional constituencies, the nine Länder and the federal stage), from the interior ministry's final-result workbooks and final seat tables saved by the owner. National D'Hondt among the parties above 4% reproduces every party's seats. Party short names formed from a person's name are shown by column position.
+
 ### v2.0 Croatian parliamentary election 1995 — 2026-11-19
 
 - Add the election of Croatia's Chamber of Representatives of 29 October 1995 (all 127 seats): 80 seats from national lists, 28 single-member constituencies, 12 seats from special lists for voters abroad and 7 national-minority seats, read by eye from the electoral commission's scanned decisions. Every count, printed percentage and seat reconciles. Single-member candidates are shown by the parties that nominated them and their row number; no candidate name is stored. Earlier Croatian elections stay unchanged.

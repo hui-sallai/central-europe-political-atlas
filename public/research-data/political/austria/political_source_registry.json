@@ -14,13 +14,78 @@
     "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea",
+    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
     "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
     "files": {
       "workbook": {
         "file": "nrw02_e_dl.zip",
         "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
         "sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586"
+      }
+    }
+  },
+  {
+    "source_id": "src-at-bmi-nr-2006",
+    "country": "austria",
+    "institution": "Bundesministerium für Inneres — Bundeswahlbehörde",
+    "dataset": "Nationalratswahl 2006: final result (nrw_06_endergebnise.xls, nrw_06_mandatsspiegelv.pdf, nrw_06_mandate_3.pdf)",
+    "tier": "tier1_official",
+    "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_endergebnise.xls",
+    "licence_status": "official_work_urhg_7_owner_reading",
+    "reuse_terms_note": "BMI Impressum permits attributed reuse except for commercial purposes; the Atlas is non-commercial",
+    "raw_redistribution": "national figures and seat tables only; the files are not redistributed and candidate names are not stored",
+    "licence_url": "https://www.bmi.gv.at/impressum/",
+    "licence_url_basis": "BMI Impressum reuse clause (read 2026-10-03, SHA-256 in the evidence); the reuse basis is the official-works reading of UrhG § 7",
+    "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
+    "retrieved_at": "2026-11-18",
+    "acquisition": "owner_manual_download",
+    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
+    "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+    "files": {
+      "workbook": {
+        "file": "nrw_06_endergebnise.xls",
+        "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_endergebnise.xls",
+        "sha256": "04725514732715b7368fb7f091f984e085cfb5ebedd28b489c15e8d2ab81dc8b"
+      },
+      "seat_table": {
+        "file": "nrw_06_mandatsspiegelv.pdf",
+        "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_mandatsspiegelv.pdf",
+        "sha256": "bdf2c6e26451af90a49091b95929ee4efe8bc2d898c0196b17ad89214e37716d"
+      },
+      "seat_cross_check": {
+        "file": "nrw_06_mandate_3.pdf",
+        "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_mandate_3.pdf",
+        "sha256": "dd66c2353acfc00cc6edaa5a5ae81bb5321afea11f08c694b7c5883eb0ed1984"
+      }
+    }
+  },
+  {
+    "source_id": "src-at-bmi-nr-2008",
+    "country": "austria",
+    "institution": "Bundesministerium für Inneres — Bundeswahlbehörde",
+    "dataset": "Nationalratswahl 2008: final result (ergebnis_end.zip, nrw_08_mandatsspiegel.pdf)",
+    "tier": "tier1_official",
+    "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/ergebnis_end.zip",
+    "licence_status": "official_work_urhg_7_owner_reading",
+    "reuse_terms_note": "BMI Impressum permits attributed reuse except for commercial purposes; the Atlas is non-commercial",
+    "raw_redistribution": "national figures and seat tables only; the files are not redistributed and candidate names are not stored",
+    "licence_url": "https://www.bmi.gv.at/impressum/",
+    "licence_url_basis": "BMI Impressum reuse clause (read 2026-10-03, SHA-256 in the evidence); the reuse basis is the official-works reading of UrhG § 7",
+    "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
+    "retrieved_at": "2026-11-18",
+    "acquisition": "owner_manual_download",
+    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
+    "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+    "files": {
+      "workbook": {
+        "file": "ergebnis_end.zip",
+        "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/ergebnis_end.zip",
+        "sha256": "8c4da49b1bb1cf70ba49f402ccd894933039f2187e2b6e5944ac466e1324cd6f"
+      },
+      "seat_table": {
+        "file": "nrw_08_mandatsspiegel.pdf",
+        "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/broschuere/nrw_08_mandatsspiegel.pdf",
+        "sha256": "9a66ac799ad7af14e57af6ec2677c51eadd3ce45ebd8955e163f86ad97377bab"
       }
     }
   },
@@ -39,7 +104,7 @@
     "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea",
+    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
     "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
     "files": {
       "workbook": {
@@ -69,7 +134,7 @@
     "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea",
+    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
     "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
     "files": {
       "workbook": {
@@ -99,7 +164,7 @@
     "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea",
+    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
     "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
     "files": {
       "workbook": {
@@ -134,7 +199,7 @@
     "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea",
+    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
     "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
     "files": {
       "workbook": {

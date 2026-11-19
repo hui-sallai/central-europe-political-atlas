@@ -41,13 +41,15 @@ Labels: Austria 2002 uses the official short names (none names a person). Sloven
 
 Labels: Slovenia 2000 — six lists that are persons' names are shown by row number and one as `NEODVISNI KANDIDAT`. Romania 2020 — one party name that contains two persons' surnames is shown as `PARTIDUL NAȚIONAL ȚĂRĂNESC` (`partial_personal_name_omitted`, `title_sha256` kept).
 
-**Not admitted from the third batch:** Austria 2006 and 2008 — the supplied workbooks are the ones already held (votes, no seats) and the 2008 brochure is municipal results; the seat tables are linked on the saved pages but not included (`files/nrw_06_mandatsspiegelv.pdf` or `nrw_06_mandate_3.pdf`; `files/broschuere/nrw_08_mandatsspiegel.pdf`). Croatia 1992 and 1993 and Romania 2012 are received and pending (new seat models). Croatia 1995 was admitted (above). Croatia 1990 is out of scope by owner answer.
+| `austria-nationalrat-2006-2008` | `el-at-nr-2006-10-01`, `el-at-nr-2008-09-28` (Nationalrat, 183 each) | BMI final-result workbooks (already held) and the final seat tables the owner saved afterwards (`nrw_06_mandatsspiegelv.pdf`, `nrw_08_mandatsspiegel.pdf`; 2006 also `nrw_06_mandate_3.pdf`) | party votes = valid (4,708,281; 4,887,309); nine Länder = national row; seat parties = parties ≥ 4% (BZÖ 4.11% in 2006); national D'Hondt over 183 → 2006 ÖVP 66, SPÖ 68, FPÖ 21, GRÜNE 21, BZÖ 7; 2008 SPÖ 57, ÖVP 51, FPÖ 34, BZÖ 21, GRÜNE 20; seat tables consistent across tiers (43 regional constituencies before the 2013 reform); 2006 third-stage table = seat table. Person-named short names (MATIN, STARK; FRITZ, [KHK], STARK) shown by column only |
+
+**Not admitted from the third batch:** none outstanding for Austria (2006 and 2008 admitted once the owner saved the seat tables). Croatia 1992 and 1993 and Romania 2012 are received and pending (new seat models). Croatia 1995 was admitted (above). Croatia 1990 is out of scope by owner answer.
 
 ## 3. Chamber-specific coverage after this iteration
 
 | Country | Elections | Contestants per election | Seats |
 |---|---|---|---|
-| Austria | 2002, 2013, 2017, 2019, 2024 | 9, 14, 16, 13, 12 parties | 183 each |
+| Austria | 2002, 2006, 2008, 2013, 2017, 2019, 2024 | 9, 12, 15, 14, 16, 13, 12 parties | 183 each |
 | Croatia | 1995, 2000, 2003, 2007, 2011, 2015, 2016, 2020, 2024 | 1995: 14 national + 7 special lists, 175 single-member and 20 minority candidates; then 312, 412, 323, 369, 207, 206, 213, 182 (per-constituency lists + minority candidates) | 127 (1995, Chamber of Representatives), 151, 152, 153, then 151 each |
 | Romania — Camera Deputaților | 2016, 2020, 2024 | 35, 41, 49 lists + independents aggregate | 329; 330; 331 |
 | Romania — Senat | 2016, 2020, 2024 | 19, 23, 30 + aggregate | 136; 136; 134 of 136 |
@@ -55,7 +57,7 @@ Labels: Slovenia 2000 — six lists that are persons' names are shown by row num
 
 ## 4. Historical rules and institutional links
 
-- `src/lib/institutions/election_links.json` now holds 49 elections (second batch: + Croatia 2000, 2003, 2007 and Slovenia 2004, 2008; third batch: + Slovenia 2000 → `slovenia-period-2000-07-25`, Romania 2020 Chamber and Senate → `romania-period-2015-07-20`; Croatia 1995 → `croatia-period-1990-12-22`, with the 2000 and 2001 changes as later changes). Croatia 2000 links to `croatia-period-1990-12-22` (before the 2000 and 2001 constitutional changes, which are `later_changes`; the 2000 decisions name the chamber Zastupnički dom Hrvatskoga državnog sabora); 2003 and 2007 link to `croatia-period-2001-03-28`. Slovenia 2004 and 2008 link to `slovenia-period-2000-07-25`. Austria 2002 links to **no** institutional period: the registry records Austrian periods only from 28 October 2008 (five-year term, voting age 16), so `institutional_period_id` is `null` and `at-2008-five-year-term` is listed under `later_changes` (no later rule applied retroactively). Slovenia 2011 links to `slovenia-period-2000-07-25` (Art. 80 amendment in force; the 2013 change is later).
+- `src/lib/institutions/election_links.json` now holds 51 elections (second batch: + Croatia 2000, 2003, 2007 and Slovenia 2004, 2008; third batch: + Slovenia 2000 → `slovenia-period-2000-07-25`, Romania 2020 Chamber and Senate → `romania-period-2015-07-20`; Croatia 1995 → `croatia-period-1990-12-22`, with the 2000 and 2001 changes as later changes). Croatia 2000 links to `croatia-period-1990-12-22` (before the 2000 and 2001 constitutional changes, which are `later_changes`; the 2000 decisions name the chamber Zastupnički dom Hrvatskoga državnog sabora); 2003 and 2007 link to `croatia-period-2001-03-28`. Slovenia 2004 and 2008 link to `slovenia-period-2000-07-25`. Austria 2002 links to **no** institutional period: the registry records Austrian periods only from 28 October 2008 (five-year term, voting age 16), so `institutional_period_id` is `null` and `at-2008-five-year-term` is listed under `later_changes` (no later rule applied retroactively). Slovenia 2011 links to `slovenia-period-2000-07-25` (Art. 80 amendment in force; the 2013 change is later).
 - Each election keeps its own `electoral_systems` record (thresholds, allocation, special representation) — the link test asserts thresholds come from the election's own record, never the current law.
 
 ## 5. Source limitations still open (exact)
@@ -64,7 +66,7 @@ Labels: Slovenia 2000 — six lists that are persons' names are shown by row num
 - **Romania 2012** (both chambers; mixed-member system of Law 35/2008, single-member colleges and compensation seats, 412 + 176 seats with overhang): the AEP package on data.gov.ro lists six files (`rezultatenivelsectieparlamentare2012.csv`, `statisticinivelcolegiu.xls`, `rezultate2012nivelcircumscriptie.xls`, `rezultate2012-statisticapelocalitati.xls`, `rezultate2012-statisticastrainatatepetari.xls`, `rezultatecandidati2012.xls`). The owner supplied all six files in the third batch (data.gov.ro); not yet built (mixed-member seat model). Candidate names in `rezultatecandidati2012.xls` would be counted, never stored.
 - ~~Slovenia 2011 cross-check~~ — resolved in the second batch (owner-saved .xls; every figure agrees).
 - ~~Slovenia 2000~~ — admitted in the third batch from the gazette report; the archived 2000 pages stay unused (unofficial). **Slovenia 2004 and 2008**: admitted from the official pages alone; the minutes or polling-station files would add a second source. Slovenia 1996 and earlier: not supplied.
-- **Austria 2006 and 2008**: the owner-saved workbooks carry votes but no seats. Needs the seat tables (`nrw_06_mandatsspiegel*.pdf` or the 2006 announcement; the 2008 Mandatsspiegel). Austria before 2002: not supplied.
+- ~~Austria 2006 and 2008~~ — admitted (seat tables saved by the owner). Austria before 2002: not supplied.
 - ~~Croatia 2007, 2003, 2000~~ — admitted in the second batch. Croatia before 2000: 1990 (out of scope, owner answer), 1995 (Chamber of Representatives) admitted in the third batch; 1992 (Chamber of Representatives) and 1993 (Chamber of Counties) supplied, pending. The three results ZIPs were received and not used (polling-station tables; the decisions reconcile on their own).
 - **Polling days to confirm**: Romania 2024 and Austria 2024 (registry `background_to_verify`); Austria 2002 and 2013 come from the registry's harmonised dates.
 
@@ -93,7 +95,7 @@ Do not repeat source research. All figures below are admitted, reconciled and ex
 
 ### A. Election IDs (new countries)
 
-- Austria: `el-at-nr-2002-11-24`, `el-at-nr-2013-09-29`, `el-at-nr-2017-10-15`, `el-at-nr-2019-09-29`, `el-at-nr-2024-09-29`
+- Austria: `el-at-nr-2002-11-24`, `el-at-nr-2006-10-01`, `el-at-nr-2008-09-28`, `el-at-nr-2013-09-29`, `el-at-nr-2017-10-15`, `el-at-nr-2019-09-29`, `el-at-nr-2024-09-29`
 - Croatia: `el-hr-sabor-1995-10-29`, `el-hr-sabor-2000-01-03`, `el-hr-sabor-2003-11-23`, `el-hr-sabor-2007-11-25`, `el-hr-sabor-2011-12-04`, `el-hr-sabor-2015-11-08`, `el-hr-sabor-2016-09-11`, `el-hr-sabor-2020-07-05`, `el-hr-sabor-2024-04-17`
 - Romania: `el-ro-cd-2016-12-11`, `el-ro-s-2016-12-11`, `el-ro-cd-2020-12-06`, `el-ro-s-2020-12-06`, `el-ro-cd-2024-12-01`, `el-ro-s-2024-12-01`
 - Slovenia: `el-si-dz-2000-10-15`, `el-si-dz-2004-10-03`, `el-si-dz-2008-09-21`, `el-si-dz-2011-12-04`, `el-si-dz-2014-07-13`, `el-si-dz-2018-06-03`, `el-si-dz-2022-04-24`, `el-si-dz-2026-03-22`
@@ -127,7 +129,7 @@ Nationalrat (AT, 183; the Bundesrat is not elected and must not be attached); Hr
 - HR: `geography` `hr-ie-01` … `hr-ie-10` (territorial), `hr-ie-11` (abroad), `hr-ie-12-<minority>` (minority elections; candidates without names). 2000 has five minority elections, one of them a different group (`hr-ie-12-austrijska_njemacka_rusinska_ukrajinska_zidovska`), and its Serbian election elects one member; 2000 turnout rows have `published_turnout: null` (turnout printed as counts only; list percentages are printed). 2003 and 2007 carry `repeat_poll_date`. **No national vote share**: lists differ by constituency. Seats per constituency; national seats only via `legislatures.seats_by_identical_list_title`.
 - SI: `geography` `national` (88) and `si-nc-italijanska` / `si-nc-madzarska` (one seat each). 2000: national turnout row has `published_turnout: null` and `printed_turnout_not_reproduced: 70.37`; one list row has `published_vote_share: null` and `printed_vote_share_not_reproduced: 8.76` — show derived values, and the printed text only as a footnote. 2000, 2004, 2008, 2011, 2014, 2018 communities: `vote_type` `si_national_community_candidate_points` with `points` (ranked ballots) — show as points, never as votes or shares. 2022, 2026: votes.
 - RO: Chamber rows carry `list_seats` and `minority_seats` (show minority seats as a separate mechanism). 2020 and 2024 rows also carry `first_stage_seats` and `national_stage_seats`; the Senate 2024 POT row carries `national_stage_entitlement` 9 and `undeployed_seats` 2, and `legislatures.lg-ro-s-2024` has `seat_slots` 136, `total_seats` 134 and `unfilled_seats_note` (show "134 of 136", with the note). Independents are one aggregate row per chamber (`contestant_kind: independent_candidates_aggregate`).
-- AT: 2019 and 2024 rows carry `regional_seats`, `land_seats`, `federal_seats`; `legislatures.seats_by_land` lists Länder and 39 regional constituencies. Contestants `label_basis: row_only` (`Wahlvorschlag, Spalte 6`) must never be expanded.
+- AT: 2006, 2008, 2019 and 2024 rows carry `regional_seats`, `land_seats`, `federal_seats`; `legislatures.seats_by_land` lists Länder and the regional constituencies (43 in 2006/2008, 39 from 2013). 2006 and 2008 link to no institutional period (they predate 28 October 2008). Contestants `label_basis: row_only` (`Wahlvorschlag, Spalte 6`) must never be expanded.
 
 ### H. Sources
 

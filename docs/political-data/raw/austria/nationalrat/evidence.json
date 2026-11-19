@@ -15,9 +15,11 @@
  "acquisition": "owner downloaded every file by hand from www.bmi.gv.at (answer \"I'll download files myself\"); the assistant made no request to that host (robots.txt disallows AI agents; host blocked) and kept the files in local-evidence/ by checksum only",
  "label_rule": "Contestants are labelled by the official short name (Kurzbezeichnung) used as the column heading of the BMI result workbook. The printed party name from the announcement is stored only when it contains no person's name; otherwise only its SHA-256. A short name that is itself a person's name is replaced by the column position.",
  "not_used": {
-  "nrw_06_endergebnise.xls": "04725514732715b7368fb7f091f984e085cfb5ebedd28b489c15e8d2ab81dc8b",
-  "ergebnis_end.zip": "8c4da49b1bb1cf70ba49f402ccd894933039f2187e2b6e5944ac466e1324cd6f",
-  "reason": "legacy .xls workbooks for 2006 and 2008 carry votes but no seats; the seat tables were not supplied, so these elections wait for them"
+  "nrw_06_mandatsverteilung.pdf": {
+   "sha256": "ce388970a4c130c532768e690baea50f669d8a8d87cc41b69ad990934a3a3b28",
+   "reason": "historical seat table since 1945; its text layer does not extract in aligned columns, so it is not used"
+  },
+  "ergebnis_end.pdf (2008 brochure)": "municipal results only; no seats"
  },
  "elections": {
   "2002": {
@@ -309,6 +311,2265 @@
      "ÖVP": 79,
      "GRÜNE": 17
     }
+   }
+  },
+  "2006": {
+   "workbook": {
+    "file": "nrw_06_endergebnise.xls",
+    "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_endergebnise.xls",
+    "sha256": "04725514732715b7368fb7f091f984e085cfb5ebedd28b489c15e8d2ab81dc8b",
+    "row": "OESTERREICH (sheet LWK)",
+    "format": "legacy .xls (BIFF8), read with a stdlib reader"
+   },
+   "national": {
+    "eligible": 6107892,
+    "cast": 4793780,
+    "invalid": 85499,
+    "valid": 4708281
+   },
+   "parties": [
+    {
+     "key": "ÖVP",
+     "column": 1,
+     "short_name": "ÖVP",
+     "votes": 1616493,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "SPÖ",
+     "column": 2,
+     "short_name": "SPÖ",
+     "votes": 1663986,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "FPÖ",
+     "column": 3,
+     "short_name": "FPÖ",
+     "votes": 519598,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "GRÜNE",
+     "column": 4,
+     "short_name": "GRÜNE",
+     "votes": 520130,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "BZÖ",
+     "column": 5,
+     "short_name": "BZÖ",
+     "votes": 193539,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "KPÖ",
+     "column": 6,
+     "short_name": "KPÖ",
+     "votes": 47578,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "column 7",
+     "column": 7,
+     "short_name": null,
+     "votes": 131688,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": "in_short_name"
+    },
+    {
+     "key": "NFÖ",
+     "column": 8,
+     "short_name": "NFÖ",
+     "votes": 10594,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "IVE",
+     "column": 9,
+     "short_name": "IVE",
+     "votes": 592,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "column 10",
+     "column": 10,
+     "short_name": null,
+     "votes": 312,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": "in_short_name"
+    },
+    {
+     "key": "SAU",
+     "column": 11,
+     "short_name": "SAU",
+     "votes": 1514,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "SLP",
+     "column": 12,
+     "short_name": "SLP",
+     "votes": 2257,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    }
+   ],
+   "laender": [
+    {
+     "gkz": "1",
+     "name": "BURGENLAND",
+     "votes": [
+      68078,
+      84953,
+      16336,
+      10972,
+      3247,
+      962,
+      3683,
+      0,
+      592,
+      0,
+      0,
+      0
+     ],
+     "eligible": 222281,
+     "cast": 193047,
+     "valid": 188823,
+     "invalid": 4224
+    },
+    {
+     "gkz": "2",
+     "name": "KAERNTEN",
+     "votes": [
+      69566,
+      115994,
+      23737,
+      24611,
+      81574,
+      2908,
+      6224,
+      1104,
+      0,
+      312,
+      1514,
+      0
+     ],
+     "eligible": 433920,
+     "cast": 335333,
+     "valid": 327544,
+     "invalid": 7789
+    },
+    {
+     "gkz": "3",
+     "name": "NIEDEROESTERREICH",
+     "votes": [
+      394149,
+      363379,
+      96915,
+      90383,
+      22698,
+      7546,
+      29831,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "eligible": 1204859,
+     "cast": 1025942,
+     "valid": 1004901,
+     "invalid": 21041
+    },
+    {
+     "gkz": "4",
+     "name": "OBEROESTERREICH",
+     "votes": [
+      292998,
+      300790,
+      101743,
+      85232,
+      21840,
+      6793,
+      23056,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "eligible": 1046347,
+     "cast": 851676,
+     "valid": 832452,
+     "invalid": 19224
+    },
+    {
+     "gkz": "5",
+     "name": "SALZBURG",
+     "votes": [
+      110727,
+      80400,
+      34596,
+      35239,
+      8826,
+      2125,
+      8890,
+      1612,
+      0,
+      0,
+      0,
+      0
+     ],
+     "eligible": 375938,
+     "cast": 289096,
+     "valid": 282415,
+     "invalid": 6681
+    },
+    {
+     "gkz": "6",
+     "name": "STEIERMARK",
+     "votes": [
+      272767,
+      270596,
+      75988,
+      57641,
+      23216,
+      13744,
+      13877,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "eligible": 940100,
+     "cast": 738790,
+     "valid": 727829,
+     "invalid": 10961
+    },
+    {
+     "gkz": "7",
+     "name": "TIROL",
+     "votes": [
+      158608,
+      83842,
+      39187,
+      46935,
+      11837,
+      2702,
+      14927,
+      3745,
+      0,
+      0,
+      0,
+      0
+     ],
+     "eligible": 503580,
+     "cast": 366646,
+     "valid": 361783,
+     "invalid": 4863
+    },
+    {
+     "gkz": "8",
+     "name": "VORARLBERG",
+     "votes": [
+      73076,
+      32204,
+      18998,
+      28609,
+      5592,
+      957,
+      13412,
+      1115,
+      0,
+      0,
+      0,
+      0
+     ],
+     "eligible": 250521,
+     "cast": 175458,
+     "valid": 173963,
+     "invalid": 1495
+    },
+    {
+     "gkz": "9",
+     "name": "WIEN",
+     "votes": [
+      176524,
+      331828,
+      112098,
+      140508,
+      14709,
+      9841,
+      17788,
+      3018,
+      0,
+      0,
+      0,
+      2257
+     ],
+     "eligible": 1130346,
+     "cast": 817792,
+     "valid": 808571,
+     "invalid": 9221
+    }
+   ],
+   "polling_day": {
+    "date": "2006-10-01",
+    "basis": "printed on the BMI result page saved by the owner (“Wahltag: 1. Oktober 2006”; the final result was established by the Bundeswahlbehörde on 20 October 2006)",
+    "page_sha256": "011858cd70bd05fa625b638153b9e56dd7a6f4c0d24822f681081a4ec671c91a"
+   },
+   "seat_table": {
+    "file": "nrw_06_mandatsspiegelv.pdf",
+    "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_mandatsspiegelv.pdf",
+    "sha256": "bdf2c6e26451af90a49091b95929ee4efe8bc2d898c0196b17ad89214e37716d",
+    "parties": [
+     "ÖVP",
+     "SPÖ",
+     "FPÖ",
+     "GRÜNE",
+     "BZÖ"
+    ],
+    "regional_constituencies": 43,
+    "national": {
+     "total": {
+      "ÖVP": 66,
+      "SPÖ": 68,
+      "FPÖ": 21,
+      "GRÜNE": 21,
+      "BZÖ": 7
+     },
+     "third": {
+      "ÖVP": 7,
+      "SPÖ": 7,
+      "FPÖ": 7,
+      "GRÜNE": 5,
+      "BZÖ": 4
+     },
+     "laender": {
+      "ÖVP": 59,
+      "SPÖ": 61,
+      "FPÖ": 14,
+      "GRÜNE": 16,
+      "BZÖ": 3
+     }
+    },
+    "laender": [
+     {
+      "nr": 1,
+      "name": "BURGENLAND",
+      "total": {
+       "ÖVP": 2,
+       "SPÖ": 3,
+       "FPÖ": 0,
+       "GRÜNE": 0,
+       "BZÖ": 0
+      },
+      "rwk": [
+       {
+        "code": "1A",
+        "name": "BURGENLAND NORD",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "1B",
+        "name": "BURGENLAND SÜD",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "ÖVP": 0,
+       "SPÖ": 1,
+       "FPÖ": 0,
+       "GRÜNE": 0,
+       "BZÖ": 0
+      },
+      "rwk_sum": {
+       "ÖVP": 2,
+       "SPÖ": 2,
+       "FPÖ": 0,
+       "GRÜNE": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 2,
+      "name": "KÄRNTEN",
+      "total": {
+       "ÖVP": 2,
+       "SPÖ": 4,
+       "FPÖ": 0,
+       "GRÜNE": 0,
+       "BZÖ": 3
+      },
+      "rwk": [
+       {
+        "code": "2A",
+        "name": "KLAGENFURT",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "2B",
+        "name": "VILLACH",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "2C",
+        "name": "KÄRNTEN WEST",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 0,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "2D",
+        "name": "KÄRNTEN OST",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "ÖVP": 2,
+       "SPÖ": 1,
+       "FPÖ": 0,
+       "GRÜNE": 0,
+       "BZÖ": 3
+      },
+      "rwk_sum": {
+       "ÖVP": 0,
+       "SPÖ": 3,
+       "FPÖ": 0,
+       "GRÜNE": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 3,
+      "name": "NIEDERÖSTERREICH",
+      "total": {
+       "ÖVP": 14,
+       "SPÖ": 13,
+       "FPÖ": 3,
+       "GRÜNE": 3,
+       "BZÖ": 0
+      },
+      "rwk": [
+       {
+        "code": "3A",
+        "name": "WEINVIERTEL",
+        "seats": {
+         "ÖVP": 2,
+         "SPÖ": 2,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "3B",
+        "name": "WALDVIERTEL",
+        "seats": {
+         "ÖVP": 2,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "3C",
+        "name": "MOSTVIERTEL",
+        "seats": {
+         "ÖVP": 2,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "3D",
+        "name": "NIEDERÖSTERREICH - MITTE",
+        "seats": {
+         "ÖVP": 2,
+         "SPÖ": 2,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "3E",
+        "name": "NIEDERÖSTERREICH - SÜD",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "3F",
+        "name": "WIEN UMGEBUNG",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "3G",
+        "name": "NIEDERÖSTERREICH - SÜD-OST",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "ÖVP": 3,
+       "SPÖ": 4,
+       "FPÖ": 3,
+       "GRÜNE": 3,
+       "BZÖ": 0
+      },
+      "rwk_sum": {
+       "ÖVP": 11,
+       "SPÖ": 9,
+       "FPÖ": 0,
+       "GRÜNE": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 4,
+      "name": "OBERÖSTERREICH",
+      "total": {
+       "ÖVP": 11,
+       "SPÖ": 11,
+       "FPÖ": 3,
+       "GRÜNE": 3,
+       "BZÖ": 0
+      },
+      "rwk": [
+       {
+        "code": "4A",
+        "name": "LINZ UND UMGEBUNG",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 3,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "4B",
+        "name": "INNVIERTEL",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "4C",
+        "name": "HAUSRUCKVIERTEL",
+        "seats": {
+         "ÖVP": 2,
+         "SPÖ": 2,
+         "FPÖ": 1,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "4D",
+        "name": "TRAUNVIERTEL",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 2,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "4E",
+        "name": "MÜHLVIERTEL",
+        "seats": {
+         "ÖVP": 2,
+         "SPÖ": 2,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "ÖVP": 4,
+       "SPÖ": 1,
+       "FPÖ": 2,
+       "GRÜNE": 3,
+       "BZÖ": 0
+      },
+      "rwk_sum": {
+       "ÖVP": 7,
+       "SPÖ": 10,
+       "FPÖ": 1,
+       "GRÜNE": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 5,
+      "name": "SALZBURG",
+      "total": {
+       "ÖVP": 4,
+       "SPÖ": 3,
+       "FPÖ": 1,
+       "GRÜNE": 1,
+       "BZÖ": 0
+      },
+      "rwk": [
+       {
+        "code": "5A",
+        "name": "SALZBURG STADT",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 0,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "5B",
+        "name": "FLACHGAU/TENNENGAU",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "5C",
+        "name": "LUNGAU/PINZGAU/PONGAU",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "ÖVP": 2,
+       "SPÖ": 1,
+       "FPÖ": 1,
+       "GRÜNE": 1,
+       "BZÖ": 0
+      },
+      "rwk_sum": {
+       "ÖVP": 2,
+       "SPÖ": 2,
+       "FPÖ": 0,
+       "GRÜNE": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 6,
+      "name": "STEIERMARK",
+      "total": {
+       "ÖVP": 10,
+       "SPÖ": 10,
+       "FPÖ": 2,
+       "GRÜNE": 2,
+       "BZÖ": 0
+      },
+      "rwk": [
+       {
+        "code": "6A",
+        "name": "GRAZ",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6B",
+        "name": "STEIERMARK MITTE",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6C",
+        "name": "STEIERMARK SÜD",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6D",
+        "name": "STEIERMARK SÜD-OST",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 0,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6E",
+        "name": "STEIERMARK OST",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6F",
+        "name": "STEIERMARK NORD",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6G",
+        "name": "STEIERMARK NORD-WEST",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6H",
+        "name": "STEIERMARK WEST",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "ÖVP": 4,
+       "SPÖ": 3,
+       "FPÖ": 2,
+       "GRÜNE": 2,
+       "BZÖ": 0
+      },
+      "rwk_sum": {
+       "ÖVP": 6,
+       "SPÖ": 7,
+       "FPÖ": 0,
+       "GRÜNE": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 7,
+      "name": "TIROL",
+      "total": {
+       "ÖVP": 6,
+       "SPÖ": 3,
+       "FPÖ": 1,
+       "GRÜNE": 1,
+       "BZÖ": 0
+      },
+      "rwk": [
+       {
+        "code": "7A",
+        "name": "INNSBRUCK",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 0,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "7B",
+        "name": "INNSBRUCK-LAND",
+        "seats": {
+         "ÖVP": 2,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "7C",
+        "name": "UNTERLAND",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 0,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "7D",
+        "name": "OBERLAND",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 0,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "7E",
+        "name": "OSTTIROL",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 0,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "ÖVP": 2,
+       "SPÖ": 2,
+       "FPÖ": 1,
+       "GRÜNE": 1,
+       "BZÖ": 0
+      },
+      "rwk_sum": {
+       "ÖVP": 4,
+       "SPÖ": 1,
+       "FPÖ": 0,
+       "GRÜNE": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 8,
+      "name": "VORARLBERG",
+      "total": {
+       "ÖVP": 3,
+       "SPÖ": 1,
+       "FPÖ": 0,
+       "GRÜNE": 1,
+       "BZÖ": 0
+      },
+      "rwk": [
+       {
+        "code": "8A",
+        "name": "VORARLBERG NORD",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 0,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "8B",
+        "name": "VORARLBERG SÜD",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 0,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "ÖVP": 1,
+       "SPÖ": 1,
+       "FPÖ": 0,
+       "GRÜNE": 1,
+       "BZÖ": 0
+      },
+      "rwk_sum": {
+       "ÖVP": 2,
+       "SPÖ": 0,
+       "FPÖ": 0,
+       "GRÜNE": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 9,
+      "name": "WIEN",
+      "total": {
+       "ÖVP": 7,
+       "SPÖ": 13,
+       "FPÖ": 4,
+       "GRÜNE": 5,
+       "BZÖ": 0
+      },
+      "rwk": [
+       {
+        "code": "9A",
+        "name": "WIEN INNEN-SÜD",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "9B",
+        "name": "WIEN INNEN-WEST",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 0,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "9C",
+        "name": "WIEN INNEN-OST",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "9D",
+        "name": "WIEN SÜD",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 3,
+         "FPÖ": 1,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "9E",
+        "name": "WIEN SÜD-WEST",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 2,
+         "FPÖ": 0,
+         "GRÜNE": 1,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "9F",
+        "name": "WIEN NORD-WEST",
+        "seats": {
+         "ÖVP": 1,
+         "SPÖ": 1,
+         "FPÖ": 0,
+         "GRÜNE": 1,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "9G",
+        "name": "WIEN NORD",
+        "seats": {
+         "ÖVP": 0,
+         "SPÖ": 2,
+         "FPÖ": 0,
+         "GRÜNE": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "ÖVP": 5,
+       "SPÖ": 3,
+       "FPÖ": 3,
+       "GRÜNE": 3,
+       "BZÖ": 0
+      },
+      "rwk_sum": {
+       "ÖVP": 2,
+       "SPÖ": 10,
+       "FPÖ": 1,
+       "GRÜNE": 2,
+       "BZÖ": 0
+      }
+     }
+    ]
+   },
+   "seat_cross_check": {
+    "file": "nrw_06_mandate_3.pdf",
+    "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_mandate_3.pdf",
+    "sha256": "dd66c2353acfc00cc6edaa5a5ae81bb5321afea11f08c694b7c5883eb0ed1984",
+    "title": "Mandatsvergabe im 3. Ermittlungsverfahren",
+    "wahlzahl": 24470,
+    "seats_after_third_stage": {
+     "ÖVP": 66,
+     "SPÖ": 68,
+     "FPÖ": 21,
+     "GRÜNE": 21,
+     "BZÖ": 7
+    },
+    "third_stage": {
+     "ÖVP": 7,
+     "SPÖ": 7,
+     "FPÖ": 7,
+     "GRÜNE": 5,
+     "BZÖ": 4
+    },
+    "first_stage": {
+     "ÖVP": 36,
+     "SPÖ": 44,
+     "FPÖ": 2,
+     "GRÜNE": 2,
+     "BZÖ": 0
+    },
+    "first_and_second_stage": {
+     "ÖVP": 59,
+     "SPÖ": 61,
+     "FPÖ": 14,
+     "GRÜNE": 16,
+     "BZÖ": 3
+    }
+   }
+  },
+  "2008": {
+   "workbook": {
+    "file": "ergebnis_end.zip",
+    "inner_file": "Ergebnis_end.xls",
+    "inner_sha256": "1fd21f318b7f894990c6762d83680990471cb5193fcc99dd9ad041094140d8c4",
+    "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/ergebnis_end.zip",
+    "sha256": "8c4da49b1bb1cf70ba49f402ccd894933039f2187e2b6e5944ac466e1324cd6f",
+    "row": "Österrreich (sheet Ländererg)",
+    "format": "legacy .xls (BIFF8), read with a stdlib reader"
+   },
+   "national": {
+    "eligible": 6333109,
+    "cast": 4990952,
+    "invalid": 103643,
+    "valid": 4887309
+   },
+   "parties": [
+    {
+     "key": "SPÖ",
+     "column": 1,
+     "short_name": "SPÖ",
+     "votes": 1430206,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "ÖVP",
+     "column": 2,
+     "short_name": "ÖVP",
+     "votes": 1269656,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "GRÜNE",
+     "column": 3,
+     "short_name": "GRÜNE",
+     "votes": 509936,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "FPÖ",
+     "column": 4,
+     "short_name": "FPÖ",
+     "votes": 857029,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "BZÖ",
+     "column": 5,
+     "short_name": "BZÖ",
+     "votes": 522933,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "column 6",
+     "column": 6,
+     "short_name": null,
+     "votes": 86194,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": "in_short_name"
+    },
+    {
+     "key": "DC",
+     "column": 7,
+     "short_name": "DC",
+     "votes": 31080,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "KPÖ",
+     "column": 8,
+     "short_name": "KPÖ",
+     "votes": 37362,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "LIF",
+     "column": 9,
+     "short_name": "LIF",
+     "votes": 102249,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "RETTÖ",
+     "column": 10,
+     "short_name": "RETTÖ",
+     "votes": 35718,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "LINKE Tirol",
+     "column": 11,
+     "short_name": "LINKE Tirol",
+     "votes": 349,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "column 12",
+     "column": 12,
+     "short_name": null,
+     "votes": 347,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": "in_short_name"
+    },
+    {
+     "key": "LINKE",
+     "column": 13,
+     "short_name": "LINKE",
+     "votes": 1789,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    },
+    {
+     "key": "column 14",
+     "column": 14,
+     "short_name": null,
+     "votes": 237,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": "in_short_name"
+    },
+    {
+     "key": "TRP",
+     "column": 15,
+     "short_name": "TRP",
+     "votes": 2224,
+     "printed_name": null,
+     "printed_name_sha256": null,
+     "person_name": null
+    }
+   ],
+   "laender": [
+    {
+     "gkz": "1",
+     "name": "Burgenland",
+     "votes": [
+      77627,
+      56304,
+      11020,
+      31326,
+      10276,
+      2443,
+      793,
+      749,
+      2068,
+      1034,
+      null,
+      null,
+      125,
+      null,
+      null
+     ],
+     "eligible": 230138,
+     "cast": 198814,
+     "valid": 193765,
+     "invalid": 5049
+    },
+    {
+     "gkz": "2",
+     "name": "Kärnten",
+     "votes": [
+      96702,
+      50206,
+      23759,
+      26091,
+      132711,
+      3215,
+      1757,
+      1861,
+      5297,
+      2358,
+      null,
+      347,
+      null,
+      237,
+      null
+     ],
+     "eligible": 448634,
+     "cast": 352353,
+     "valid": 344541,
+     "invalid": 7812
+    },
+    {
+     "gkz": "3",
+     "name": "Niederösterreich",
+     "votes": [
+      314978,
+      334358,
+      83679,
+      187542,
+      65851,
+      11828,
+      5275,
+      6501,
+      18656,
+      8389,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "eligible": 1258033,
+     "cast": 1062403,
+     "valid": 1037057,
+     "invalid": 25346
+    },
+    {
+     "gkz": "4",
+     "name": "Oberösterreich",
+     "votes": [
+      264315,
+      232153,
+      85970,
+      165139,
+      78901,
+      8595,
+      7361,
+      5386,
+      11437,
+      8162,
+      null,
+      null,
+      359,
+      null,
+      null
+     ],
+     "eligible": 1088438,
+     "cast": 892455,
+     "valid": 867778,
+     "invalid": 24677
+    },
+    {
+     "gkz": "5",
+     "name": "Salzburg",
+     "votes": [
+      71223,
+      86899,
+      35228,
+      52795,
+      36584,
+      4840,
+      2493,
+      1603,
+      4697,
+      2398,
+      null,
+      null,
+      254,
+      null,
+      null
+     ],
+     "eligible": 390145,
+     "cast": 306593,
+     "valid": 299014,
+     "invalid": 7579
+    },
+    {
+     "gkz": "6",
+     "name": "Steiermark",
+     "votes": [
+      220856,
+      197395,
+      63894,
+      130511,
+      99663,
+      10488,
+      4627,
+      9353,
+      11813,
+      5337,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "eligible": 970930,
+     "cast": 767019,
+     "valid": 753937,
+     "invalid": 13082
+    },
+    {
+     "gkz": "7",
+     "name": "Tirol",
+     "votes": [
+      65982,
+      113790,
+      40497,
+      62146,
+      35473,
+      31749,
+      3165,
+      1851,
+      8541,
+      2247,
+      349,
+      null,
+      null,
+      null,
+      null
+     ],
+     "eligible": 525960,
+     "cast": 371151,
+     "valid": 365790,
+     "invalid": 5361
+    },
+    {
+     "gkz": "8",
+     "name": "Vorarlberg",
+     "votes": [
+      26152,
+      58021,
+      31793,
+      29821,
+      23611,
+      6357,
+      2754,
+      1001,
+      4860,
+      740,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "eligible": 262709,
+     "cast": 187626,
+     "valid": 185110,
+     "invalid": 2516
+    },
+    {
+     "gkz": "9",
+     "name": "Wien",
+     "votes": [
+      292371,
+      140530,
+      134096,
+      171658,
+      39863,
+      6679,
+      2855,
+      9057,
+      34880,
+      5053,
+      null,
+      null,
+      1051,
+      null,
+      2224
+     ],
+     "eligible": 1158122,
+     "cast": 852538,
+     "valid": 840317,
+     "invalid": 12221
+    }
+   ],
+   "polling_day": {
+    "date": "2008-09-28",
+    "basis": "printed on the BMI result page saved by the owner (“Wahltag: 28.September 2008”; the final result was established by the Bundeswahlbehörde on 17 October 2008)",
+    "page_sha256": "04c6de2a3dd1d65db781723d395e2daf56316f28b4237567c25ac63cf2cff5d6"
+   },
+   "seat_table": {
+    "file": "nrw_08_mandatsspiegel.pdf",
+    "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/broschuere/nrw_08_mandatsspiegel.pdf",
+    "sha256": "9a66ac799ad7af14e57af6ec2677c51eadd3ce45ebd8955e163f86ad97377bab",
+    "parties": [
+     "SPÖ",
+     "ÖVP",
+     "GRÜNE",
+     "FPÖ",
+     "BZÖ"
+    ],
+    "regional_constituencies": 43,
+    "national": {
+     "total": {
+      "SPÖ": 57,
+      "ÖVP": 51,
+      "GRÜNE": 20,
+      "FPÖ": 34,
+      "BZÖ": 21
+     },
+     "third": {
+      "SPÖ": 9,
+      "ÖVP": 8,
+      "GRÜNE": 5,
+      "FPÖ": 7,
+      "BZÖ": 5
+     },
+     "laender": {
+      "SPÖ": 48,
+      "ÖVP": 43,
+      "GRÜNE": 15,
+      "FPÖ": 27,
+      "BZÖ": 16
+     }
+    },
+    "laender": [
+     {
+      "nr": 1,
+      "name": "BURGENLAND",
+      "total": {
+       "SPÖ": 2,
+       "ÖVP": 2,
+       "GRÜNE": 0,
+       "FPÖ": 1,
+       "BZÖ": 0
+      },
+      "rwk": [
+       {
+        "code": "1A",
+        "name": "BURGENLAND NORD",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "1B",
+        "name": "BURGENLAND SÜD",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "SPÖ": 0,
+       "ÖVP": 1,
+       "GRÜNE": 0,
+       "FPÖ": 1,
+       "BZÖ": 0
+      },
+      "rwk_sum": {
+       "SPÖ": 2,
+       "ÖVP": 1,
+       "GRÜNE": 0,
+       "FPÖ": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 2,
+      "name": "KÄRNTEN",
+      "total": {
+       "SPÖ": 3,
+       "ÖVP": 1,
+       "GRÜNE": 0,
+       "FPÖ": 0,
+       "BZÖ": 5
+      },
+      "rwk": [
+       {
+        "code": "2A",
+        "name": "KLAGENFURT",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 1
+        }
+       },
+       {
+        "code": "2B",
+        "name": "VILLACH",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 1
+        }
+       },
+       {
+        "code": "2C",
+        "name": "KÄRNTEN WEST",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 1
+        }
+       },
+       {
+        "code": "2D",
+        "name": "KÄRNTEN OST",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 1
+        }
+       }
+      ],
+      "second": {
+       "SPÖ": 2,
+       "ÖVP": 1,
+       "GRÜNE": 0,
+       "FPÖ": 0,
+       "BZÖ": 1
+      },
+      "rwk_sum": {
+       "SPÖ": 1,
+       "ÖVP": 0,
+       "GRÜNE": 0,
+       "FPÖ": 0,
+       "BZÖ": 4
+      }
+     },
+     {
+      "nr": 3,
+      "name": "NIEDERÖSTERREICH",
+      "total": {
+       "SPÖ": 10,
+       "ÖVP": 11,
+       "GRÜNE": 2,
+       "FPÖ": 6,
+       "BZÖ": 2
+      },
+      "rwk": [
+       {
+        "code": "3A",
+        "name": "WEINVIERTEL",
+        "seats": {
+         "SPÖ": 2,
+         "ÖVP": 2,
+         "GRÜNE": 0,
+         "FPÖ": 1,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "3B",
+        "name": "WALDVIERTEL",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 2,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "3C",
+        "name": "MOSTVIERTEL",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 2,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "3D",
+        "name": "NIEDERÖSTERREICH - MITTE",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "3E",
+        "name": "NIEDERÖSTERREICH - SÜD",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "3F",
+        "name": "WIEN UMGEBUNG",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "3G",
+        "name": "NIEDERÖSTERREICH - SÜD-OST",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "SPÖ": 2,
+       "ÖVP": 2,
+       "GRÜNE": 2,
+       "FPÖ": 5,
+       "BZÖ": 2
+      },
+      "rwk_sum": {
+       "SPÖ": 8,
+       "ÖVP": 9,
+       "GRÜNE": 0,
+       "FPÖ": 1,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 4,
+      "name": "OBERÖSTERREICH",
+      "total": {
+       "SPÖ": 9,
+       "ÖVP": 8,
+       "GRÜNE": 3,
+       "FPÖ": 6,
+       "BZÖ": 2
+      },
+      "rwk": [
+       {
+        "code": "4A",
+        "name": "LINZ UND UMGEBUNG",
+        "seats": {
+         "SPÖ": 2,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 1,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "4B",
+        "name": "INNVIERTEL",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 1,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "4C",
+        "name": "HAUSRUCKVIERTEL",
+        "seats": {
+         "SPÖ": 2,
+         "ÖVP": 2,
+         "GRÜNE": 0,
+         "FPÖ": 1,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "4D",
+        "name": "TRAUNVIERTEL",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "4E",
+        "name": "MÜHLVIERTEL",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 2,
+         "GRÜNE": 0,
+         "FPÖ": 1,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "SPÖ": 2,
+       "ÖVP": 1,
+       "GRÜNE": 3,
+       "FPÖ": 2,
+       "BZÖ": 2
+      },
+      "rwk_sum": {
+       "SPÖ": 7,
+       "ÖVP": 7,
+       "GRÜNE": 0,
+       "FPÖ": 4,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 5,
+      "name": "SALZBURG",
+      "total": {
+       "SPÖ": 2,
+       "ÖVP": 3,
+       "GRÜNE": 1,
+       "FPÖ": 1,
+       "BZÖ": 1
+      },
+      "rwk": [
+       {
+        "code": "5A",
+        "name": "SALZBURG STADT",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "5B",
+        "name": "FLACHGAU/TENNENGAU",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "5C",
+        "name": "LUNGAU/PINZGAU/PONGAU",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "SPÖ": 1,
+       "ÖVP": 1,
+       "GRÜNE": 1,
+       "FPÖ": 1,
+       "BZÖ": 1
+      },
+      "rwk_sum": {
+       "SPÖ": 1,
+       "ÖVP": 2,
+       "GRÜNE": 0,
+       "FPÖ": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 6,
+      "name": "STEIERMARK",
+      "total": {
+       "SPÖ": 8,
+       "ÖVP": 7,
+       "GRÜNE": 2,
+       "FPÖ": 4,
+       "BZÖ": 3
+      },
+      "rwk": [
+       {
+        "code": "6A",
+        "name": "GRAZ",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6B",
+        "name": "STEIERMARK MITTE",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6C",
+        "name": "STEIERMARK SÜD",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6D",
+        "name": "STEIERMARK SÜD-OST",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6E",
+        "name": "STEIERMARK OST",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6F",
+        "name": "STEIERMARK NORD",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6G",
+        "name": "STEIERMARK NORD-WEST",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "6H",
+        "name": "STEIERMARK WEST",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "SPÖ": 4,
+       "ÖVP": 3,
+       "GRÜNE": 2,
+       "FPÖ": 4,
+       "BZÖ": 3
+      },
+      "rwk_sum": {
+       "SPÖ": 4,
+       "ÖVP": 4,
+       "GRÜNE": 0,
+       "FPÖ": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 7,
+      "name": "TIROL",
+      "total": {
+       "SPÖ": 2,
+       "ÖVP": 4,
+       "GRÜNE": 1,
+       "FPÖ": 2,
+       "BZÖ": 1
+      },
+      "rwk": [
+       {
+        "code": "7A",
+        "name": "INNSBRUCK",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "7B",
+        "name": "INNSBRUCK-LAND",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "7C",
+        "name": "UNTERLAND",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "7D",
+        "name": "OBERLAND",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "7E",
+        "name": "OSTTIROL",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "SPÖ": 2,
+       "ÖVP": 2,
+       "GRÜNE": 1,
+       "FPÖ": 2,
+       "BZÖ": 1
+      },
+      "rwk_sum": {
+       "SPÖ": 0,
+       "ÖVP": 2,
+       "GRÜNE": 0,
+       "FPÖ": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 8,
+      "name": "VORARLBERG",
+      "total": {
+       "SPÖ": 1,
+       "ÖVP": 2,
+       "GRÜNE": 1,
+       "FPÖ": 1,
+       "BZÖ": 1
+      },
+      "rwk": [
+       {
+        "code": "8A",
+        "name": "VORARLBERG NORD",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "8B",
+        "name": "VORARLBERG SÜD",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "SPÖ": 1,
+       "ÖVP": 0,
+       "GRÜNE": 1,
+       "FPÖ": 1,
+       "BZÖ": 1
+      },
+      "rwk_sum": {
+       "SPÖ": 0,
+       "ÖVP": 2,
+       "GRÜNE": 0,
+       "FPÖ": 0,
+       "BZÖ": 0
+      }
+     },
+     {
+      "nr": 9,
+      "name": "WIEN",
+      "total": {
+       "SPÖ": 11,
+       "ÖVP": 5,
+       "GRÜNE": 5,
+       "FPÖ": 6,
+       "BZÖ": 1
+      },
+      "rwk": [
+       {
+        "code": "9A",
+        "name": "WIEN INNEN-SÜD",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "9B",
+        "name": "WIEN INNEN-WEST",
+        "seats": {
+         "SPÖ": 0,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "9C",
+        "name": "WIEN INNEN-OST",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "9D",
+        "name": "WIEN SÜD",
+        "seats": {
+         "SPÖ": 2,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 1,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "9E",
+        "name": "WIEN SÜD-WEST",
+        "seats": {
+         "SPÖ": 2,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 1,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "9F",
+        "name": "WIEN NORD-WEST",
+        "seats": {
+         "SPÖ": 1,
+         "ÖVP": 1,
+         "GRÜNE": 0,
+         "FPÖ": 0,
+         "BZÖ": 0
+        }
+       },
+       {
+        "code": "9G",
+        "name": "WIEN NORD",
+        "seats": {
+         "SPÖ": 2,
+         "ÖVP": 0,
+         "GRÜNE": 0,
+         "FPÖ": 1,
+         "BZÖ": 0
+        }
+       }
+      ],
+      "second": {
+       "SPÖ": 3,
+       "ÖVP": 3,
+       "GRÜNE": 5,
+       "FPÖ": 3,
+       "BZÖ": 1
+      },
+      "rwk_sum": {
+       "SPÖ": 8,
+       "ÖVP": 2,
+       "GRÜNE": 0,
+       "FPÖ": 3,
+       "BZÖ": 0
+      }
+     }
+    ]
    }
   },
   "2013": {

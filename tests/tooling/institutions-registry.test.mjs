@@ -110,7 +110,7 @@ test("election links: reproducible, complete, and tied to each election's own ru
       for (const id of link.later_changes) assert.ok(changeDate(countries[slug].changes.find((c) => c.change_id === id)) > e.date);
     }
   }
-  assert.equal(links.elections.length, 49);
+  assert.equal(links.elections.length, 51);
   const hr1995 = links.elections.find((l) => l.election_id === "el-hr-sabor-1995-10-29");
   assert.deepEqual([hr1995.institutional_period_id, hr1995.seats], ["croatia-period-1990-12-22", 127]);
   // Croatia 2000 falls before the 2000 and 2001 constitutional changes; 2003 and 2007 after the unicameral change.
@@ -119,7 +119,8 @@ test("election links: reproducible, complete, and tied to each election's own ru
   assert.ok(hr2000.later_changes.includes("hr-2001-unicameral") && hr2007.changes_in_force.includes("hr-2001-unicameral"));
   assert.equal(hr2007.seats, 153);
   for (const id of ["el-si-dz-2000-10-15", "el-si-dz-2004-10-03"]) assert.equal(links.elections.find((l) => l.election_id === id).institutional_period_id, "slovenia-period-2000-07-25");
-  assert.deepEqual(links.elections.filter((l) => l.country === "austria").map((l) => [l.chamber_id, l.seats]), [["at-nationalrat", 183], ["at-nationalrat", 183], ["at-nationalrat", 183], ["at-nationalrat", 183], ["at-nationalrat", 183]]);
+  assert.deepEqual(links.elections.filter((l) => l.country === "austria").map((l) => [l.chamber_id, l.seats]), Array.from({ length: 7 }, () => ["at-nationalrat", 183]));
+  for (const id of ["el-at-nr-2006-10-01", "el-at-nr-2008-09-28"]) assert.equal(links.elections.find((l) => l.election_id === id).institutional_period_id, null);
   // Austria 2002 predates the earliest Austrian period the registry records (opened by the 2008 five-year term): no period is
   // attached rather than a later one, and the 2008 change is listed as later.
   const at2002 = links.elections.find((l) => l.election_id === "el-at-nr-2002-11-24");

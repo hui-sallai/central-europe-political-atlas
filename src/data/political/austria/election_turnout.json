@@ -31,10 +31,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+          "sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "parser_sha256": "796bcb48085d960887c9ab2bb748f6e2ba0a5de244d423f906829a68a61336ef",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -43,6 +43,100 @@
         ],
         "published_or_derived": "published",
         "publisher_file_sha256": "d0b6de18d7cffa96f09be62591cd6c5008a4561395889845e5c88909b5340586"
+      }
+    ]
+  },
+  {
+    "election_id": "el-at-nr-2006-10-01",
+    "country": "austria",
+    "geography": "national",
+    "vote_type": "at_nr_party_vote",
+    "result_vintage": "final: BMI final-result workbook nrw_06_endergebnise.xls (endgültiges Ergebnis) and the final seat table nrw_06_mandatsspiegelv.pdf",
+    "eligible_voters": 6107892,
+    "voters_turned_out": 4793780,
+    "voters": 4793780,
+    "valid_votes": 4708281,
+    "invalid_votes": 85499,
+    "ballots_cast": 4793780,
+    "published_turnout": null,
+    "derived_turnout": 78.48501577958484,
+    "turnout_definition": "Eligible voters (Wahlberechtigte), votes cast (abgegebene Stimmen, including postal ballots), invalid and valid votes as printed; derived turnout = votes cast ÷ eligible voters.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Eligible voters (Wahlberechtigte), votes cast (abgegebene Stimmen, including postal ballots), invalid and valid votes as printed; derived turnout = votes cast ÷ eligible voters.",
+      "sourceIds": [
+        "src-at-bmi-nr-2006"
+      ]
+    },
+    "published_or_derived_note": "counts printed; percentage derived",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2006",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_endergebnise.xls",
+        "source_record_id": "nrw_06_endergebnise.xls: row ÖSTERREICH",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "796bcb48085d960887c9ab2bb748f6e2ba0a5de244d423f906829a68a61336ef",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "04725514732715b7368fb7f091f984e085cfb5ebedd28b489c15e8d2ab81dc8b"
+      }
+    ]
+  },
+  {
+    "election_id": "el-at-nr-2008-09-28",
+    "country": "austria",
+    "geography": "national",
+    "vote_type": "at_nr_party_vote",
+    "result_vintage": "final: BMI final-result workbook Ergebnis_end.xls (endgültiges Ergebnis) and the final seat table nrw_08_mandatsspiegel.pdf",
+    "eligible_voters": 6333109,
+    "voters_turned_out": 4990952,
+    "voters": 4990952,
+    "valid_votes": 4887309,
+    "invalid_votes": 103643,
+    "ballots_cast": 4990952,
+    "published_turnout": null,
+    "derived_turnout": 78.80729670056208,
+    "turnout_definition": "Eligible voters (Wahlberechtigte), votes cast (abgegebene Stimmen, including postal ballots), invalid and valid votes as printed; derived turnout = votes cast ÷ eligible voters.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Eligible voters (Wahlberechtigte), votes cast (abgegebene Stimmen, including postal ballots), invalid and valid votes as printed; derived turnout = votes cast ÷ eligible voters.",
+      "sourceIds": [
+        "src-at-bmi-nr-2008"
+      ]
+    },
+    "published_or_derived_note": "counts printed; percentage derived",
+    "provenance": [
+      {
+        "source_id": "src-at-bmi-nr-2008",
+        "source_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/ergebnis_end.zip",
+        "source_record_id": "ergebnis_end.zip: row ÖSTERREICH",
+        "retrieved_at": "2026-11-18",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+          "sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e"
+        },
+        "parser_version": "austria-nationalrat-v1",
+        "parser_sha256": "796bcb48085d960887c9ab2bb748f6e2ba0a5de244d423f906829a68a61336ef",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "valid_votes",
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "8c4da49b1bb1cf70ba49f402ccd894933039f2187e2b6e5944ac466e1324cd6f"
       }
     ]
   },
@@ -78,10 +172,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+          "sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "parser_sha256": "796bcb48085d960887c9ab2bb748f6e2ba0a5de244d423f906829a68a61336ef",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -125,10 +219,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+          "sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "parser_sha256": "796bcb48085d960887c9ab2bb748f6e2ba0a5de244d423f906829a68a61336ef",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -172,10 +266,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+          "sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "parser_sha256": "796bcb48085d960887c9ab2bb748f6e2ba0a5de244d423f906829a68a61336ef",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -219,10 +313,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/austria/nationalrat/evidence.json",
-          "sha256": "f4b682cc2d63382f9cc178d9e44c4b4b8582505474dd0a9ab72c40d689bb13ea"
+          "sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e"
         },
         "parser_version": "austria-nationalrat-v1",
-        "parser_sha256": "315ef1268f5ac2456b718f68db47adea109b5d9e703600d1d5ae5d57c7b78162",
+        "parser_sha256": "796bcb48085d960887c9ab2bb748f6e2ba0a5de244d423f906829a68a61336ef",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",

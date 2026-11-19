@@ -17,9 +17,9 @@ test('the build reproduces the committed stores and exports', () => {
   assert.equal(run.status, 0, run.stderr);
 });
 
-test('five elections, 183 seats each, seats reproduced by federal D\'Hondt among parties above 4%', () => {
+test('seven elections, 183 seats each, seats reproduced by federal D\'Hondt among parties above 4%', () => {
   const data = buildAustria();
-  assert.deepEqual(data.elections.map((e) => e.election_id), ['el-at-nr-2002-11-24', 'el-at-nr-2013-09-29', 'el-at-nr-2017-10-15', 'el-at-nr-2019-09-29', 'el-at-nr-2024-09-29']);
+  assert.deepEqual(data.elections.map((e) => e.election_id), ['el-at-nr-2002-11-24', 'el-at-nr-2006-10-01', 'el-at-nr-2008-09-28', 'el-at-nr-2013-09-29', 'el-at-nr-2017-10-15', 'el-at-nr-2019-09-29', 'el-at-nr-2024-09-29']);
   for (const e of data.elections) {
     const rows = data.election_results.filter((r) => r.election_id === e.election_id);
     assert.equal(rows.reduce((n, r) => n + r.seats, 0), 183, e.election_id);
@@ -56,7 +56,7 @@ test('2019 and 2024: seats by tier add up to the federal totals', () => {
 test('labels: printed names naming a person are hashed, short names that are a person\'s name use the column', () => {
   const data = buildAustria();
   const rowOnly = data.electoral_contestants.filter((c) => c.label_basis === 'row_only');
-  assert.deepEqual(rowOnly.map((c) => [c.election_id, c.historical_display_label]), [['el-at-nr-2013-09-29', 'Wahlvorschlag, Spalte 6'], ['el-at-nr-2017-10-15', 'Wahlvorschlag, Spalte 6']]);
+  assert.deepEqual(rowOnly.map((c) => [c.election_id, c.historical_display_label]), [['el-at-nr-2006-10-01', 'Wahlvorschlag, Spalte 7'], ['el-at-nr-2006-10-01', 'Wahlvorschlag, Spalte 10'], ['el-at-nr-2008-09-28', 'Wahlvorschlag, Spalte 6'], ['el-at-nr-2008-09-28', 'Wahlvorschlag, Spalte 12'], ['el-at-nr-2008-09-28', 'Wahlvorschlag, Spalte 14'], ['el-at-nr-2013-09-29', 'Wahlvorschlag, Spalte 6'], ['el-at-nr-2017-10-15', 'Wahlvorschlag, Spalte 6']]);
   for (const c of data.electoral_contestants.filter((x) => x.label_basis !== 'official_short_name')) assert.equal(c.printed_party_name, null);
   for (const y of Object.keys(evidence.elections)) for (const p of evidence.elections[y].parties) {
     if (p.person_name) assert.equal(p.printed_name, null);
@@ -83,3 +83,19 @@ test('2002: seats come from the legacy workbook\'s own seats row and the nine La
   assert.throws(() => reconcile('2002', t2), /D'Hondt/);
 });
 
+test('2006 and 2008: seat tables by tier with 43 regional constituencies; the 2006 third-stage table agrees; tampering fails', () => {
+  const ev = JSON.parse(fs.readFileSync(path.join(root, 'docs/political-data/raw/austria/nationalrat/evidence.json'), 'utf8'));
+  for (const [y, seats] of [['2006', { ÖVP: 66, SPÖ: 68, FPÖ: 21, GRÜNE: 21, BZÖ: 7 }], ['2008', { SPÖ: 57, ÖVP: 51, GRÜNE: 20, FPÖ: 34, BZÖ: 21 }]]) {
+    const E = ev.elections[y];
+    assert.equal(E.seat_table.regional_constituencies, 43);
+    assert.deepEqual(E.seat_table.national.total, seats);
+    const r = reconcile(y, E);
+    assert.equal(r.seat_parties, 5);
+    const t1 = structuredClone(E); t1.seat_table.laender[0].rwk[0].seats[t1.seat_table.parties[0]] += 1;
+    assert.throws(() => reconcile(y, t1), /seat table/);
+    const t2 = structuredClone(E); t2.laender[3].votes[0] += 1;
+    assert.throws(() => reconcile(y, t2), /Länder/);
+  }
+  const t3 = structuredClone(ev.elections['2006']); t3.seat_cross_check.third_stage.BZÖ = 5;
+  assert.throws(() => reconcile('2006', t3), /third-stage table/);
+});

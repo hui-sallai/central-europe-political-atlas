@@ -115,13 +115,15 @@
    "country": "austria",
    "elections": [
     2002,
+    2006,
+    2008,
     2013,
     2017,
     2019,
     2024
    ],
-   "scope": "Nationalrat 2002, 2013, 2017, 2019 and 2024, whole chamber (183 seats), national level, seats by tier for 2019 and 2024, from the BMI files saved by the owner; candidate names not stored; 2006 and 2008 not admitted (workbooks carry no seats; seat tables not supplied)",
-   "record": "docs/political-data/austria_nationalrat_admission.json"
+   "scope": "Nationalrat 2002, 2006, 2008, 2013, 2017, 2019 and 2024, whole chamber (183 seats), national level, seats by tier for 2006, 2008, 2019 and 2024, from the BMI files saved by the owner; candidate names not stored",
+   "record": "docs/political-data/austria_nationalrat2006_2008_admission.json"
   }
  ],
  "owner_decisions": [
@@ -262,6 +264,12 @@
    "country": "croatia",
    "question": "Croatia before 2000 is a different system in each year (1990 three-chamber Sabor; 1992 and 1995 Chamber of Representatives, mixed; 1993 Chamber of Counties). Which should be attempted?",
    "decision": "\"1992, 1993 and 1995 only\": 1995 admitted (all 127 seats, every tier reconciled); 1992 and 1993 pending; 1990 out of scope."
+  },
+  {
+   "date": "2026-11-19",
+   "country": "austria",
+   "question": "Admit the Nationalrat elections of 2006 and 2008 once the owner supplies their seat tables?",
+   "decision": "The owner asked for the exact links and saved the 2006 and 2008 seat tables (and the 2006 third-stage table) by hand; both admitted: the seat tables reconcile and national D'Hondt over 183 reproduces every party's seats."
   }
  ],
  "countries": {
