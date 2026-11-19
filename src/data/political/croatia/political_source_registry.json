@@ -1,5 +1,79 @@
 [
   {
+    "source_id": "src-hr-izbori-final-1992-lists",
+    "country": "croatia",
+    "institution": "Izborna komisija Republike Hrvatske (Electoral Commission of the Republic of Croatia); archive of the State Electoral Commission (Državno izborno povjerenstvo)",
+    "dataset": "1992_2_2_Rezultati_Sabor_zastupnicki_dom_po_listama.pdf — 6 scanned pages: decision on the national lists (URBROJ 56605-92-527): votes, seats, the 13 Serbian seats and the fifth minority seat from national lists",
+    "tier": "tier1_official",
+    "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1992/rezultati/1992_2_2_Rezultati_Sabor_zastupnicki_dom_po_listama.pdf",
+    "archive_page": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-1992",
+    "licence_status": "official_text_copyright_act_owner_reading_no_licence",
+    "raw_redistribution": "transcribed_figures_and_party_names_only_documents_and_candidate_names_not_redistributed",
+    "licence_url": "https://www.izbori.hr/site/UserDocsImages/5469",
+    "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
+    "attribution": "Izborna komisija Republike Hrvatske; Državno izborno povjerenstvo Republike Hrvatske",
+    "retrieved_at": "2026-11-19",
+    "acquisition": "owner download 2026-11-19 (owner answer \"1992, 1993 and 1995 only\"): saved by the owner from the registered www.izbori.hr archive; the assistant made no request; kept in local-evidence/ by checksum",
+    "raw_sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52",
+    "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
+    "publisher_file_sha256": "00ca21dd37e4175101d8b1a4f10e628c14d3d9924a98ccf4d6d0d6fb66af4e38",
+    "transcription": "scanned typescript (no text layer); OCR (macOS Vision) with every unit reconciled arithmetically; units whose OCR failed a check, and every non-standard nominator label, read by eye from the page images",
+    "received_not_used": [
+      {
+        "file": "1992_2_3_Rezultati_Sabor_zastupnicki_dom_Sabor_liste_redovita_BM.pdf",
+        "publisher_file_sha256": "63a0a2062fac48909089e97d26b530176536b25f551965b9ea38704495cf4c0e",
+        "role": "national-list votes of the regular electorate per constituency (analytical tables of 12 August 1992)"
+      },
+      {
+        "file": "1992_2_4_Rezultati_Sabor_zastupnicki_dom_analitika.pdf",
+        "publisher_file_sha256": "e27b5d54d48cb154e024c934d5d3012f0616b83ffa057d162fc15e589c7a1560",
+        "role": "analytical national-list results per constituency and abroad"
+      },
+      {
+        "file": "1992_2_5_Rezultati_Sabor_zastupnicki_dom_izracun_broja_zastupnickih_mjesta.pdf",
+        "publisher_file_sha256": "e703ba53d5451ad0cea4b743507556c7e68ab99ae2f7d2107dba456bb8773f17",
+        "role": "D'Hondt quotient table for the national lists (with candidate names)"
+      }
+    ]
+  },
+  {
+    "source_id": "src-hr-izbori-final-1992-constituencies",
+    "country": "croatia",
+    "institution": "Izborna komisija Republike Hrvatske (Electoral Commission of the Republic of Croatia); archive of the State Electoral Commission (Državno izborno povjerenstvo)",
+    "dataset": "1992_2_1_Rezultati_Sabor_zastupnicki_dom_po_IJ.pdf — 65 scanned pages: 64 decisions: single-member constituencies I–LX (URBROJ 56605-92-463 to -522) and special constituencies 1–4 (-523 to -526)",
+    "tier": "tier1_official",
+    "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1992/rezultati/1992_2_1_Rezultati_Sabor_zastupnicki_dom_po_IJ.pdf",
+    "archive_page": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-1992",
+    "licence_status": "official_text_copyright_act_owner_reading_no_licence",
+    "raw_redistribution": "transcribed_figures_and_party_names_only_documents_and_candidate_names_not_redistributed",
+    "licence_url": "https://www.izbori.hr/site/UserDocsImages/5469",
+    "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
+    "attribution": "Izborna komisija Republike Hrvatske; Državno izborno povjerenstvo Republike Hrvatske",
+    "retrieved_at": "2026-11-19",
+    "acquisition": "owner download 2026-11-19 (owner answer \"1992, 1993 and 1995 only\"): saved by the owner from the registered www.izbori.hr archive; the assistant made no request; kept in local-evidence/ by checksum",
+    "raw_sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52",
+    "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
+    "publisher_file_sha256": "a3bf66b2e220024592715229248d8f5c2a2b407cbfd7bf6d571c3853ab0a471b",
+    "transcription": "scanned typescript (no text layer); OCR (macOS Vision) with every unit reconciled arithmetically; units whose OCR failed a check, and every non-standard nominator label, read by eye from the page images",
+    "received_not_used": [
+      {
+        "file": "1992_2_3_Rezultati_Sabor_zastupnicki_dom_Sabor_liste_redovita_BM.pdf",
+        "publisher_file_sha256": "63a0a2062fac48909089e97d26b530176536b25f551965b9ea38704495cf4c0e",
+        "role": "national-list votes of the regular electorate per constituency (analytical tables of 12 August 1992)"
+      },
+      {
+        "file": "1992_2_4_Rezultati_Sabor_zastupnicki_dom_analitika.pdf",
+        "publisher_file_sha256": "e27b5d54d48cb154e024c934d5d3012f0616b83ffa057d162fc15e589c7a1560",
+        "role": "analytical national-list results per constituency and abroad"
+      },
+      {
+        "file": "1992_2_5_Rezultati_Sabor_zastupnicki_dom_izracun_broja_zastupnickih_mjesta.pdf",
+        "publisher_file_sha256": "e703ba53d5451ad0cea4b743507556c7e68ab99ae2f7d2107dba456bb8773f17",
+        "role": "D'Hondt quotient table for the national lists (with candidate names)"
+      }
+    ]
+  },
+  {
     "source_id": "src-hr-izbori-final-1995",
     "country": "croatia",
     "institution": "Izborna komisija Republike Hrvatske (Electoral Commission of the Republic of Croatia); archive of the State Electoral Commission (Državno izborno povjerenstvo)",
@@ -14,7 +88,7 @@
     "attribution": "Izborna komisija Republike Hrvatske; Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-19",
     "acquisition": "owner download 2026-11-19 (owner answer \"1992, 1993 and 1995 only\"): saved by the owner from the registered www.izbori.hr archive; the assistant made no request; kept in local-evidence/ by checksum",
-    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
+    "raw_sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "publisher_file_sha256": "20399b64606d931185f5142b073de3789f339f06068132ddf39eecd4f3271f84",
     "transcription": "scanned typescript (no text layer); read by eye from page images, OCR used only to locate sections"
@@ -32,7 +106,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-19",
-    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
+    "raw_sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "acquisition": "saved by the owner by hand on 2026-11-19 from the commission archive (exact file links from the archive page, read once in the browser pane); read locally",
     "received_not_used": [
@@ -186,7 +260,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-19",
-    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
+    "raw_sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "acquisition": "saved by the owner by hand on 2026-11-19 from the commission archive (exact file links from the archive page, read once in the browser pane); read locally",
     "received_not_used": [
@@ -348,7 +422,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-19",
-    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
+    "raw_sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "acquisition": "saved by the owner by hand on 2026-11-19 from the commission archive (exact file links from the archive page, read once in the browser pane); read locally",
     "received_not_used": [
@@ -510,7 +584,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
+    "raw_sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "names_source": {
       "note": "The 2011 decisions have a damaged text layer (split words, wrong glyphs): figures are read from them, list names come from the commission’s open-data workbooks (constituency total rows), matched to the decision rows by votes; ties resolved by the legible decision text; list leaders’ names are dropped (title_sha256 identifies the full workbook label; seats are grouped by party names, or by the full label for independent lists).",
@@ -668,7 +742,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
+    "raw_sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {
@@ -822,7 +896,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
+    "raw_sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {
@@ -976,7 +1050,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
+    "raw_sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {
@@ -1130,7 +1204,7 @@
     "rights_basis": "Croatian Copyright and Related Rights Act: official texts of state bodies are not protected — owner reading 2026-11-18 (answer “Accept for all four”); the statute text was not re-read in this iteration; not a licence",
     "attribution": "Državno izborno povjerenstvo Republike Hrvatske",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314",
+    "raw_sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52",
     "raw_path": "docs/political-data/raw/croatia/sabor/evidence.json",
     "documents": [
       {

@@ -1,5 +1,159 @@
 [
   {
+    "election_id": "el-hr-sabor-1992-08-02",
+    "country": "croatia",
+    "election_type": "national_parliament",
+    "chamber": "Hrvatski sabor",
+    "chamber_printed": "Zastupnički dom Sabora Republike Hrvatske",
+    "chamber_scope": "Zastupnički dom (Chamber of Representatives) only; the Županijski dom (Chamber of Counties) was elected separately in 1993 and is not part of this election",
+    "date": "1992-08-02",
+    "date_end": null,
+    "date_basis": "polling day stated in each decision (“na dan 2. kolovoza 1992.”)",
+    "result_coverage": "all_tiers_lists_and_single_member_candidates_minority_candidates_without_names",
+    "year": 1992,
+    "legislature_id": "lg-hr-sabor-1992",
+    "electoral_system_id": "es-hr-sabor-1992",
+    "result_status": "official_final",
+    "result_vintage": "final: Electoral Commission of the Republic of Croatia decisions (KLASA 013-03/92-01/05): national lists of 1992-08-10 (URBROJ 56605-92-527) and 64 constituency decisions of 1992-08-11 (URBROJ 56605-92-463 to -526), scanned; read by OCR with every unit reconciled and checked by eye where needed",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "constituency_structure": [
+      {
+        "unit": "national_list",
+        "constituencies": [
+          "hr-national-list"
+        ],
+        "seats": 60,
+        "vote_type": "hr_list_vote"
+      },
+      {
+        "unit": "single_member",
+        "constituencies": [
+          "hr-smd-01",
+          "hr-smd-02",
+          "hr-smd-03",
+          "hr-smd-04",
+          "hr-smd-05",
+          "hr-smd-06",
+          "hr-smd-07",
+          "hr-smd-08",
+          "hr-smd-09",
+          "hr-smd-10",
+          "hr-smd-11",
+          "hr-smd-12",
+          "hr-smd-13",
+          "hr-smd-14",
+          "hr-smd-15",
+          "hr-smd-16",
+          "hr-smd-17",
+          "hr-smd-18",
+          "hr-smd-19",
+          "hr-smd-20",
+          "hr-smd-21",
+          "hr-smd-22",
+          "hr-smd-23",
+          "hr-smd-24",
+          "hr-smd-25",
+          "hr-smd-26",
+          "hr-smd-27",
+          "hr-smd-28",
+          "hr-smd-29",
+          "hr-smd-30",
+          "hr-smd-31",
+          "hr-smd-32",
+          "hr-smd-33",
+          "hr-smd-34",
+          "hr-smd-35",
+          "hr-smd-36",
+          "hr-smd-37",
+          "hr-smd-38",
+          "hr-smd-39",
+          "hr-smd-40",
+          "hr-smd-41",
+          "hr-smd-42",
+          "hr-smd-43",
+          "hr-smd-44",
+          "hr-smd-45",
+          "hr-smd-46",
+          "hr-smd-47",
+          "hr-smd-48",
+          "hr-smd-49",
+          "hr-smd-50",
+          "hr-smd-51",
+          "hr-smd-52",
+          "hr-smd-53",
+          "hr-smd-54",
+          "hr-smd-55",
+          "hr-smd-56",
+          "hr-smd-57",
+          "hr-smd-58",
+          "hr-smd-59",
+          "hr-smd-60"
+        ],
+        "seats_each": 1,
+        "seats": 60,
+        "vote_type": "hr_single_member_candidate_vote"
+      },
+      {
+        "unit": "national_minority",
+        "constituencies": [
+          "hr-special-1",
+          "hr-special-2",
+          "hr-special-3",
+          "hr-special-4"
+        ],
+        "seats": 4,
+        "vote_type": "hr_minority_candidate_vote"
+      },
+      {
+        "unit": "members_declared_elected_from_national_lists",
+        "constituencies": [
+          "hr-national-list"
+        ],
+        "seats": 14,
+        "vote_type": null,
+        "basis": "Arts. 10 and 26(1): 13 seats for the Serbian community and one for minorities under 8%, filled from candidates on national lists"
+      }
+    ],
+    "provenance": [
+      {
+        "source_id": "src-hr-izbori-final-1992-lists",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1992/rezultati/1992_2_2_Rezultati_Sabor_zastupnicki_dom_po_listama.pdf",
+        "source_record_id": "decision URBROJ 56605-92-527 heading (polling day, decision date)",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "fields_covered": [
+          "date",
+          "result_vintage"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "00ca21dd37e4175101d8b1a4f10e628c14d3d9924a98ccf4d6d0d6fb66af4e38"
+      },
+      {
+        "source_id": "src-hr-izbori-final-1992-constituencies",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1992/rezultati/1992_2_1_Rezultati_Sabor_zastupnicki_dom_po_IJ.pdf",
+        "source_record_id": "constituency decision headings",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "fields_covered": [
+          "date"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "a3bf66b2e220024592715229248d8f5c2a2b407cbfd7bf6d571c3853ab0a471b"
+      }
+    ]
+  },
+  {
     "election_id": "el-hr-sabor-1995-10-29",
     "country": "croatia",
     "election_type": "national_parliament",
@@ -91,10 +245,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -169,10 +323,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -247,10 +401,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -325,10 +479,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -402,10 +556,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -479,10 +633,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -556,10 +710,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -633,10 +787,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "date",
           "result_vintage"
@@ -710,10 +864,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "date",
           "result_vintage"

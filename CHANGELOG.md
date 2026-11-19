@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Croatian parliamentary election 1992 — 2026-11-19
+
+- Add the election of Croatia's Chamber of Representatives of 2 August 1992 (all 138 seats): 60 seats from national lists, 60 single-member constituencies, 4 national-minority seats, and 14 members declared elected from national lists (13 for the Serbian community, 1 for minorities under 8%), read from the electoral commission's scanned decisions with every unit reconciled and checked by eye where needed. Every count, printed percentage and seat reconciles; 1992 percentages are printed on all voters, invalid ballots included, and are stored on that base. Single-member candidates are shown by their nominators and row number; no candidate name is stored. Later Croatian elections stay unchanged.
+
 ### v2.0 Austrian parliamentary elections 2006 and 2008 — 2026-11-19
 
 - Add Austria's Nationalrat elections of 1 October 2006 and 28 September 2008 (all 183 seats each, with seats by tier across 43 regional constituencies, the nine Länder and the federal stage), from the interior ministry's final-result workbooks and final seat tables saved by the owner. National D'Hondt among the parties above 4% reproduces every party's seats. Party short names formed from a person's name are shown by column position.

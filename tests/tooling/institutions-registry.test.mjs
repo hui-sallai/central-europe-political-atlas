@@ -110,7 +110,9 @@ test("election links: reproducible, complete, and tied to each election's own ru
       for (const id of link.later_changes) assert.ok(changeDate(countries[slug].changes.find((c) => c.change_id === id)) > e.date);
     }
   }
-  assert.equal(links.elections.length, 51);
+  assert.equal(links.elections.length, 52);
+  const hr1992 = links.elections.find((l) => l.election_id === "el-hr-sabor-1992-08-02");
+  assert.deepEqual([hr1992.institutional_period_id, hr1992.seats], ["croatia-period-1990-12-22", 138]);
   const hr1995 = links.elections.find((l) => l.election_id === "el-hr-sabor-1995-10-29");
   assert.deepEqual([hr1995.institutional_period_id, hr1995.seats], ["croatia-period-1990-12-22", 127]);
   // Croatia 2000 falls before the 2000 and 2001 constitutional changes; 2003 and 2007 after the unicameral change.

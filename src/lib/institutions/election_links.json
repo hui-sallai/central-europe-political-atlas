@@ -1683,6 +1683,42 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-hr-sabor-1992-08-02",
+   "country": "croatia",
+   "date": "1992-08-02",
+   "chamber_id": "hr-sabor",
+   "chamber_official_name": "Hrvatski sabor",
+   "seats": 138,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-hr-sabor-1992",
+   "system_family": "mixed: national lists (proportional) and single-member constituencies (plurality), national-minority special constituencies, and members for national communities declared elected from national lists",
+   "allocation_method": "National lists: D'Hondt over 60 seats; a 3% threshold reproduces the printed seats (the decision prints neither the threshold nor the lists taking part). Single-member constituencies and special constituencies: most votes. 13 members for the Serbian community and one more for minorities under 8% are declared elected from candidates on national lists (Arts. 10 and 26(1)).",
+   "base_seats": 138,
+   "thresholds": [
+    {
+     "applies_to": "national list",
+     "percent": 3,
+     "description": {
+      "en": "Not printed in the decision; a 3% threshold reproduces the printed seats (the same seven lists pass on voters or on valid ballots). The statute text was not read in this iteration.",
+      "zh": "决定未印门槛；3% 门槛可复现所列席位（按投票人数或有效票计算，通过的均为同样七份名单）。本轮未阅读法律原文。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: the rules applied in the 1992 decisions (Zakon o izborima zastupnika u Sabor Republike Hrvatske (Narodne novine 22/92 i 27/92), Arts. 10, 24, 26, 31, 50 and 51; Zakon o izbornim jedinicama za Zastupnički dom Sabora Republike Hrvatske (Narodne novine 33/92), Art. 5); a 3% threshold and D'Hondt reproduce the printed list seats; the institutional registry record hr-es-sabor holds the current statutory text",
+   "constitution_id": "hr-constitution-1990",
+   "institutional_period_id": "croatia-period-1990-12-22",
+   "changes_in_force": [
+    "hr-1990-constitution"
+   ],
+   "later_changes": [
+    "hr-2000-parliamentary-system",
+    "hr-2001-unicameral",
+    "hr-2015-preferential-vote",
+    "hr-2023-constituencies-act"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-hr-sabor-1995-10-29",
    "country": "croatia",
    "date": "1995-10-29",

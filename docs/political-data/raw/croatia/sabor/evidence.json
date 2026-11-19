@@ -381,6 +381,5664 @@
   ]
  },
  "elections": {
+  "1992": {
+   "polling_day": "1992-08-02",
+   "shape": "mixed_1992",
+   "chamber_printed": "Zastupnički dom Sabora Republike Hrvatske",
+   "documents": {
+    "constituencies": {
+     "file": "1992_2_1_Rezultati_Sabor_zastupnicki_dom_po_IJ.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1992/rezultati/1992_2_1_Rezultati_Sabor_zastupnicki_dom_po_IJ.pdf",
+     "publisher_file_sha256": "a3bf66b2e220024592715229248d8f5c2a2b407cbfd7bf6d571c3853ab0a471b",
+     "pages": 65,
+     "role": "64 decisions: single-member constituencies I–LX (URBROJ 56605-92-463 to -522) and special constituencies 1–4 (-523 to -526)",
+     "used": true
+    },
+    "national_lists": {
+     "file": "1992_2_2_Rezultati_Sabor_zastupnicki_dom_po_listama.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1992/rezultati/1992_2_2_Rezultati_Sabor_zastupnicki_dom_po_listama.pdf",
+     "publisher_file_sha256": "00ca21dd37e4175101d8b1a4f10e628c14d3d9924a98ccf4d6d0d6fb66af4e38",
+     "pages": 6,
+     "role": "decision on the national lists (URBROJ 56605-92-527): votes, seats, the 13 Serbian seats and the fifth minority seat from national lists",
+     "used": true
+    },
+    "lists_by_constituency": {
+     "file": "1992_2_3_Rezultati_Sabor_zastupnicki_dom_Sabor_liste_redovita_BM.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1992/rezultati/1992_2_3_Rezultati_Sabor_zastupnicki_dom_Sabor_liste_redovita_BM.pdf",
+     "publisher_file_sha256": "63a0a2062fac48909089e97d26b530176536b25f551965b9ea38704495cf4c0e",
+     "pages": 18,
+     "role": "national-list votes of the regular electorate per constituency (analytical tables of 12 August 1992)",
+     "used": false
+    },
+    "analytics": {
+     "file": "1992_2_4_Rezultati_Sabor_zastupnicki_dom_analitika.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1992/rezultati/1992_2_4_Rezultati_Sabor_zastupnicki_dom_analitika.pdf",
+     "publisher_file_sha256": "e27b5d54d48cb154e024c934d5d3012f0616b83ffa057d162fc15e589c7a1560",
+     "pages": 33,
+     "role": "analytical national-list results per constituency and abroad",
+     "used": false
+    },
+    "seat_calculation": {
+     "file": "1992_2_5_Rezultati_Sabor_zastupnicki_dom_izracun_broja_zastupnickih_mjesta.pdf",
+     "url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1992/rezultati/1992_2_5_Rezultati_Sabor_zastupnicki_dom_izracun_broja_zastupnickih_mjesta.pdf",
+     "publisher_file_sha256": "e703ba53d5451ad0cea4b743507556c7e68ab99ae2f7d2107dba456bb8773f17",
+     "pages": 10,
+     "role": "D'Hondt quotient table for the national lists (with candidate names)",
+     "used": false
+    }
+   },
+   "documents_not_used_note": "Files 3 and 4 (national-list votes per constituency) are analytical tables, not decisions, and are not transcribed. File 5 (quotient table) prints candidate names next to each quotient; it is not transcribed — D'Hondt is recomputed from the decision's votes instead (the recomputed 60th quotient, HSP 186,000 ÷ 5 = 37,200, also appears in the OCR of that table).",
+   "archive_page": "https://www.izbori.hr/arhiva-izbora/index.html#/app/parlament-1992",
+   "kind": "scanned typescript (no text layer); OCR (macOS Vision) with every unit reconciled arithmetically; units whose OCR failed a check, and every non-standard nominator label, read by eye from the page images",
+   "issuer": "Izborna komisija Republike Hrvatske (Electoral Commission of the Republic of Croatia)",
+   "klasa": "013-03/92-01/05",
+   "decision_dates": {
+    "national_lists": "1992-08-10",
+    "constituencies": "1992-08-11"
+   },
+   "act_cited": "Zakon o izborima zastupnika u Sabor Republike Hrvatske (Narodne novine 22/92 i 27/92), Arts. 10, 24, 26, 31, 50 and 51; Zakon o izbornim jedinicama za Zastupnički dom Sabora Republike Hrvatske (Narodne novine 33/92), Art. 5",
+   "acquisition": "owner download 2026-11-19 (owner answer \"1992, 1993 and 1995 only\"): saved by the owner from the registered www.izbori.hr archive; the assistant made no request; kept in local-evidence/ by checksum",
+   "retrieved_at": "2026-11-19",
+   "percent_convention": "rounded_two_decimals",
+   "percent_base": "voters_who_voted",
+   "percent_base_note": "Every 1992 decision prints shares of the voters who voted (glasovalo je), invalid ballots included: list and candidate votes plus invalid ballots add up to the voters, and each printed percentage is votes ÷ voters.",
+   "seat_structure": {
+    "national_lists": 60,
+    "single_member": 60,
+    "minority_special_constituencies": 4,
+    "serb_seats_from_national_lists": 13,
+    "minority_seats_from_national_lists": 1,
+    "total": 138
+   },
+   "national_list": {
+    "urbroj": "56605-92-527",
+    "registered": 3558913,
+    "voted": 2690873,
+    "voted_printed_percent": "75.61",
+    "invalid": 59338,
+    "invalid_printed_percent": "2.21",
+    "lists": [
+     {
+      "row": 1,
+      "name": "Dalmatinska akcija, Istarski demokratski sabor - IDS i Riječki demokratski savez",
+      "votes": 83623,
+      "printed_percent": "3.11",
+      "seats": 2,
+      "parties_named": [
+       "Dalmatinska akcija",
+       "Istarski demokratski sabor - IDS",
+       "Riječki demokratski savez"
+      ],
+      "parties_named_count": 3,
+      "title_sha256": "b5184585b81ae49ed4dc01082c41d739b1804e8b0c07b0811ecb2da85527d2ef"
+     },
+     {
+      "row": 2,
+      "name": "Hrvatska demokratska stranka - HDS",
+      "votes": 72303,
+      "printed_percent": "2.69",
+      "seats": 0,
+      "parties_named": [
+       "Hrvatska demokratska stranka - HDS"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "7a06cf79b571575e18a83ab13b2de28909cdf16deec68938f703bd274d216ab8"
+     },
+     {
+      "row": 3,
+      "name": "Hrvatska demokratska zajednica - HDZ",
+      "votes": 1176437,
+      "printed_percent": "43.72",
+      "seats": 31,
+      "parties_named": [
+       "Hrvatska demokratska zajednica - HDZ"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "2e5f05ecc1919803ab342c9bcaf7de6c50334788ebbf9841058d532add2d3f18"
+     },
+     {
+      "row": 4,
+      "name": "Hrvatska kršćanska demokratska stranka - HKDS",
+      "votes": 70715,
+      "printed_percent": "2.63",
+      "seats": 0,
+      "parties_named": [
+       "Hrvatska kršćanska demokratska stranka - HKDS"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "6ac3c6da3ed16884c89c9af25bdc31081974096631854df95f4f994a61bff8c6"
+     },
+     {
+      "row": 5,
+      "name": "Hrvatska narodna stranka - HNS",
+      "votes": 176214,
+      "printed_percent": "6.55",
+      "seats": 4,
+      "parties_named": [
+       "Hrvatska narodna stranka - HNS"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "8f74bb6358234b1ae284e66de03faa03babefef1866a396634be718255d2cab3"
+     },
+     {
+      "row": 6,
+      "name": "Hrvatska republikanska stranka",
+      "votes": 7683,
+      "printed_percent": "0.29",
+      "seats": 0,
+      "parties_named": [
+       "Hrvatska republikanska stranka"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "ad7c54d92a4d890ae99d90edfced0dfcdfc755c8ea02e92d2609624d48fcabbe"
+     },
+     {
+      "row": 7,
+      "name": "Hrvatska seljačka stranka - HSS",
+      "votes": 111869,
+      "printed_percent": "4.16",
+      "seats": 3,
+      "parties_named": [
+       "Hrvatska seljačka stranka - HSS"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "4ef6f22e30549730a93428706c754400ba04e12006304e1d4ff00cf6169bcc1a"
+     },
+     {
+      "row": 8,
+      "name": "Hrvatska socijalno liberalna stranka - HSLS",
+      "votes": 466356,
+      "printed_percent": "17.33",
+      "seats": 12,
+      "parties_named": [
+       "Hrvatska socijalno liberalna stranka - HSLS"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "ead59e5270c8a618a80c5eeae635a214f90ea0bce82340352253e0397e726d38"
+     },
+     {
+      "row": 9,
+      "name": "Hrvatska stranka naravnog zakona",
+      "votes": 7611,
+      "printed_percent": "0.28",
+      "seats": 0,
+      "parties_named": [
+       "Hrvatska stranka naravnog zakona"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "aac3c9c2231ea13943e676cbafce72a9e2d4ad30706f9148faca24cd2430e57f"
+     },
+     {
+      "row": 10,
+      "name": "Hrvatska stranka prava - HSP",
+      "votes": 186000,
+      "printed_percent": "6.91",
+      "seats": 5,
+      "parties_named": [
+       "Hrvatska stranka prava - HSP"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "d81f738a5154db12c6c01a9e2eea27f279b46088381bfd328e42e492e6a69bc3"
+     },
+     {
+      "row": 11,
+      "name": "Hrvatski državotvorni pokret - HDP",
+      "votes": 6907,
+      "printed_percent": "0.26",
+      "seats": 0,
+      "parties_named": [
+       "Hrvatski državotvorni pokret - HDP"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "98e93a67f1e1aa19000fe6ebc9172f230eb50d9a3be8ebb92b38b4063700ed9e"
+     },
+     {
+      "row": 12,
+      "name": "Kršćanska narodna stranka - KNS",
+      "votes": 11930,
+      "printed_percent": "0.44",
+      "seats": 0,
+      "parties_named": [
+       "Kršćanska narodna stranka - KNS"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "52a09dcf6cfb8c0171e35230cee6ada9ab094e519da424379e7c5de2b33b7b26"
+     },
+     {
+      "row": 13,
+      "name": "Socijaldemokratska partija Hrvatske - Stranka demokratskih promjena - SDP",
+      "votes": 145419,
+      "printed_percent": "5.40",
+      "seats": 3,
+      "parties_named": [
+       "Socijaldemokratska partija Hrvatske - Stranka demokratskih promjena - SDP"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "31c0adc86433aebb173f1a1f71a3ac1aeec1300ce7dee76eceb2ebb31be9e3d1"
+     },
+     {
+      "row": 14,
+      "name": "Socijaldemokratska stranka Hrvatske - SDH",
+      "votes": 15798,
+      "printed_percent": "0.59",
+      "seats": 0,
+      "parties_named": [
+       "Socijaldemokratska stranka Hrvatske - SDH"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "c65d98926119d9041943449dae2eb78a579608d2e085eeeb2e3c76d94a18cc09"
+     },
+     {
+      "row": 15,
+      "name": "Socijalistička stranka Hrvatske - SSH",
+      "votes": 31575,
+      "printed_percent": "1.17",
+      "seats": 0,
+      "parties_named": [
+       "Socijalistička stranka Hrvatske - SSH"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "3a275efcb700d5fccdfdf67b10c9058974afa6692e70e57dca9ce14a36f0ea72"
+     },
+     {
+      "row": 16,
+      "name": "Socijalno-demokratska unija Hrvatske - SDU",
+      "votes": 32475,
+      "printed_percent": "1.21",
+      "seats": 0,
+      "parties_named": [
+       "Socijalno-demokratska unija Hrvatske - SDU"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "0c3215b4a64c434b7ebc0f6e3d4dc7d8b8ed332778fcb99a3b5afe409f5a895f"
+     },
+     {
+      "row": 17,
+      "name": "Srpska narodna stranka",
+      "votes": 28620,
+      "printed_percent": "1.06",
+      "seats": 0,
+      "parties_named": [
+       "Srpska narodna stranka"
+      ],
+      "parties_named_count": 1,
+      "title_sha256": "a40596814d9830cd1fc47575184722892ff22852e050fe437cc0109d9a7e07ca"
+     }
+    ],
+    "threshold_percent": 3,
+    "threshold_note": "The decision does not print the threshold or name the lists taking part. A 3% threshold reproduces the printed seats and gives the same seven lists whether taken of voters or of valid ballots; the statute text was not read in this iteration, so the threshold is a reproduction, not a citation.",
+    "seats": 60,
+    "allocation_article": "Art. 24"
+   },
+   "national_minority_seats_from_lists": {
+    "serbian": {
+     "article": "Art. 10(1) and Art. 26(1)",
+     "census_1981_population": 4601469,
+     "census_1981_serbs": 531502,
+     "census_share_printed": "11.5",
+     "seats": 13,
+     "seats_by_list": [
+      {
+       "row": 5,
+       "seats": 2
+      },
+      {
+       "row": 13,
+       "seats": 8
+      },
+      {
+       "row": 17,
+       "seats": 3
+      }
+     ],
+     "note": "Section II: Serbs as a national community are entitled to representation in proportion to their 1981 census share (printed 11.5%), which the decision states as 13 members; the 13 candidates of Serbian nationality on national lists are declared elected in addition to the 60 list seats. Names are not stored."
+    },
+    "minorities_under_8_percent": {
+     "article": "Art. 10(2) and Art. 26(1)",
+     "minimum_seats": 5,
+     "elected_in_special_constituencies": 4,
+     "seats": 1,
+     "seats_by_list": [
+      {
+       "row": 8,
+       "seats": 1
+      }
+     ],
+     "note": "Section III: minorities under 8% of the population elected 4 members in the special constituencies; as they are entitled to at least 5, one candidate from a national list is declared elected. The decision names the person and their community; neither is stored."
+    }
+   },
+   "single_member": [
+    {
+     "unit": "I",
+     "number": 1,
+     "urbroj": "56605-92-463",
+     "registered": 30872,
+     "voted": 28303,
+     "voted_printed_percent": "91.68",
+     "invalid": 676,
+     "invalid_printed_percent": "2.39",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 5509,
+       "printed_percent": "19.46",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 4253,
+       "printed_percent": "15.03",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 588,
+       "printed_percent": "2.08",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 2440,
+       "printed_percent": "8.62",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 2060,
+       "printed_percent": "7.28",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 628,
+       "printed_percent": "2.22",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 10158,
+       "printed_percent": "35.89",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 8,
+       "votes": 1216,
+       "printed_percent": "4.30",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 775,
+       "printed_percent": "2.74",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "II",
+     "number": 2,
+     "urbroj": "56605-92-464",
+     "registered": 65490,
+     "voted": 47369,
+     "voted_printed_percent": "72.33",
+     "invalid": 1568,
+     "invalid_printed_percent": "3.31",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1951,
+       "printed_percent": "4.12",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 2441,
+       "printed_percent": "5.15",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 1282,
+       "printed_percent": "2.71",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 3444,
+       "printed_percent": "7.27",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 16080,
+       "printed_percent": "33.95",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 6,
+       "votes": 1002,
+       "printed_percent": "2.12",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 5105,
+       "printed_percent": "10.78",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 2023,
+       "printed_percent": "4.27",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 755,
+       "printed_percent": "1.59",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 11718,
+       "printed_percent": "24.74",
+       "nominated_by": "HSLS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "III",
+     "number": 3,
+     "urbroj": "56605-92-465",
+     "registered": 66235,
+     "voted": 37243,
+     "voted_printed_percent": "56.23",
+     "invalid": 1168,
+     "invalid_printed_percent": "3.14",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 2072,
+       "printed_percent": "5.56",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 5399,
+       "printed_percent": "14.50",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 3512,
+       "printed_percent": "9.43",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1040,
+       "printed_percent": "2.79",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 934,
+       "printed_percent": "2.51",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 8517,
+       "printed_percent": "22.87",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 9991,
+       "printed_percent": "26.83",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 8,
+       "votes": 1193,
+       "printed_percent": "3.20",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 635,
+       "printed_percent": "1.71",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 2782,
+       "printed_percent": "7.47",
+       "nominated_by": "HNS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "IV",
+     "number": 4,
+     "urbroj": "56605-92-466",
+     "registered": 36941,
+     "voted": 16418,
+     "voted_printed_percent": "44.44",
+     "invalid": 292,
+     "invalid_printed_percent": "1.78",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 7241,
+       "printed_percent": "44.10",
+       "nominated_by": "NK",
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 1163,
+       "printed_percent": "7.08",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 314,
+       "printed_percent": "1.91",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 349,
+       "printed_percent": "2.13",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 5934,
+       "printed_percent": "36.14",
+       "nominated_by": "HDZ",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 125,
+       "printed_percent": "0.76",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 347,
+       "printed_percent": "2.11",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 653,
+       "printed_percent": "3.98",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "V",
+     "number": 5,
+     "urbroj": "56605-92-467",
+     "registered": 49367,
+     "voted": 38750,
+     "voted_printed_percent": "78.49",
+     "invalid": 1179,
+     "invalid_printed_percent": "3.04",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1716,
+       "printed_percent": "4.43",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 3747,
+       "printed_percent": "9.67",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 3622,
+       "printed_percent": "9.35",
+       "nominated_by": "KNS - HSS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1347,
+       "printed_percent": "3.48",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 4488,
+       "printed_percent": "11.58",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 3864,
+       "printed_percent": "9.97",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 662,
+       "printed_percent": "1.71",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 17207,
+       "printed_percent": "44.41",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 9,
+       "votes": 524,
+       "printed_percent": "1.35",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 394,
+       "printed_percent": "1.02",
+       "nominated_by": "NK",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "VI",
+     "number": 6,
+     "urbroj": "56605-92-468",
+     "registered": 62168,
+     "voted": 44955,
+     "voted_printed_percent": "72.31",
+     "invalid": 1412,
+     "invalid_printed_percent": "3.14",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1082,
+       "printed_percent": "2.41",
+       "nominated_by": "HMDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 4897,
+       "printed_percent": "10.89",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 4893,
+       "printed_percent": "10.88",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1254,
+       "printed_percent": "2.79",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 19259,
+       "printed_percent": "42.84",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 6,
+       "votes": 1172,
+       "printed_percent": "2.61",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 5966,
+       "printed_percent": "13.27",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1816,
+       "printed_percent": "4.04",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 3204,
+       "printed_percent": "7.13",
+       "nominated_by": "NK",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "VII",
+     "number": 7,
+     "urbroj": "56605-92-469",
+     "registered": 63080,
+     "voted": 49025,
+     "voted_printed_percent": "77.72",
+     "invalid": 1141,
+     "invalid_printed_percent": "2.33",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 3882,
+       "printed_percent": "7.92",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 3382,
+       "printed_percent": "6.90",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 5977,
+       "printed_percent": "12.19",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 5669,
+       "printed_percent": "11.56",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 21037,
+       "printed_percent": "42.91",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 6,
+       "votes": 3270,
+       "printed_percent": "6.67",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 4667,
+       "printed_percent": "9.52",
+       "nominated_by": "HSLS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "VIII",
+     "number": 8,
+     "urbroj": "56605-92-470",
+     "registered": 56971,
+     "voted": 47630,
+     "voted_printed_percent": "83.60",
+     "invalid": 1173,
+     "invalid_printed_percent": "2.46",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 2051,
+       "printed_percent": "4.31",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 4062,
+       "printed_percent": "8.53",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 6063,
+       "printed_percent": "12.73",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 19648,
+       "printed_percent": "41.25",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 5,
+       "votes": 1685,
+       "printed_percent": "3.54",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 444,
+       "printed_percent": "0.93",
+       "nominated_by": "HSNZ",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 6676,
+       "printed_percent": "14.02",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 2542,
+       "printed_percent": "5.34",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 3286,
+       "printed_percent": "6.90",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "IX",
+     "number": 9,
+     "urbroj": "56605-92-471",
+     "registered": 52351,
+     "voted": 47729,
+     "voted_printed_percent": "91.17",
+     "invalid": 1556,
+     "invalid_printed_percent": "3.26",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 2564,
+       "printed_percent": "5.37",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 693,
+       "printed_percent": "1.45",
+       "nominated_by": "HRZ",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 5826,
+       "printed_percent": "12.21",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1282,
+       "printed_percent": "2.69",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 2014,
+       "printed_percent": "4.22",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 3381,
+       "printed_percent": "7.08",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 26083,
+       "printed_percent": "54.65",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 8,
+       "votes": 1585,
+       "printed_percent": "3.32",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 2745,
+       "printed_percent": "5.75",
+       "nominated_by": "HNS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "X",
+     "number": 10,
+     "urbroj": "56605-92-472",
+     "registered": 50378,
+     "voted": 43253,
+     "voted_printed_percent": "85.86",
+     "invalid": 792,
+     "invalid_printed_percent": "1.83",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 19063,
+       "printed_percent": "44.07",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 3013,
+       "printed_percent": "6.97",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 6656,
+       "printed_percent": "15.39",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1819,
+       "printed_percent": "4.21",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 3138,
+       "printed_percent": "7.25",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 2567,
+       "printed_percent": "5.93",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 3518,
+       "printed_percent": "8.13",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 2687,
+       "printed_percent": "6.21",
+       "nominated_by": "SDP",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XI",
+     "number": 11,
+     "urbroj": "56605-92-473",
+     "registered": 54324,
+     "voted": 40901,
+     "voted_printed_percent": "75.29",
+     "invalid": 917,
+     "invalid_printed_percent": "2.24",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 23999,
+       "printed_percent": "58.68",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 1299,
+       "printed_percent": "3.18",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 1896,
+       "printed_percent": "4.64",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1468,
+       "printed_percent": "3.59",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1462,
+       "printed_percent": "3.57",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 2561,
+       "printed_percent": "6.26",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 3055,
+       "printed_percent": "7.47",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 2186,
+       "printed_percent": "5.34",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 2058,
+       "printed_percent": "5.03",
+       "nominated_by": "HNS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XII",
+     "number": 12,
+     "urbroj": "56605-92-474",
+     "registered": 32171,
+     "voted": 24754,
+     "voted_printed_percent": "76.95",
+     "invalid": 922,
+     "invalid_printed_percent": "3.72",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1969,
+       "printed_percent": "7.95",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 2888,
+       "printed_percent": "11.67",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 3585,
+       "printed_percent": "14.48",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1249,
+       "printed_percent": "5.05",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 8465,
+       "printed_percent": "34.20",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 6,
+       "votes": 3373,
+       "printed_percent": "13.63",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 2097,
+       "printed_percent": "8.47",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 206,
+       "printed_percent": "0.83",
+       "nominated_by": "HKDS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XIII",
+     "number": 13,
+     "urbroj": "56605-92-475",
+     "registered": 57871,
+     "voted": 49229,
+     "voted_printed_percent": "85.07",
+     "invalid": 1122,
+     "invalid_printed_percent": "2.28",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 19382,
+       "printed_percent": "39.37",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 568,
+       "printed_percent": "1.15",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 2812,
+       "printed_percent": "5.71",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1787,
+       "printed_percent": "3.63",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 2676,
+       "printed_percent": "5.44",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 1920,
+       "printed_percent": "3.90",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 16332,
+       "printed_percent": "33.18",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1567,
+       "printed_percent": "3.18",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 608,
+       "printed_percent": "1.24",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 455,
+       "printed_percent": "0.92",
+       "nominated_by": "KNS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XIV",
+     "number": 14,
+     "urbroj": "56605-92-476",
+     "registered": 61196,
+     "voted": 53050,
+     "voted_printed_percent": "86.69",
+     "invalid": 1532,
+     "invalid_printed_percent": "2.89",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 5654,
+       "printed_percent": "10.66",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 1503,
+       "printed_percent": "2.83",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 1411,
+       "printed_percent": "2.66",
+       "nominated_by": "SRH",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 898,
+       "printed_percent": "1.69",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 2920,
+       "printed_percent": "5.50",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 4945,
+       "printed_percent": "9.32",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 3137,
+       "printed_percent": "5.91",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1326,
+       "printed_percent": "2.50",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 4875,
+       "printed_percent": "9.19",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 4654,
+       "printed_percent": "8.77",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 20195,
+       "printed_percent": "38.07",
+       "nominated_by": "HDZ",
+       "elected": true
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XV",
+     "number": 15,
+     "urbroj": "56605-92-477",
+     "registered": 55249,
+     "voted": 43483,
+     "voted_printed_percent": "78.70",
+     "invalid": 1156,
+     "invalid_printed_percent": "2.66",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 4865,
+       "printed_percent": "11.19",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 3514,
+       "printed_percent": "8.08",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 5828,
+       "printed_percent": "13.40",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 239,
+       "printed_percent": "0.55",
+       "nominated_by": "SDA",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1968,
+       "printed_percent": "4.53",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 679,
+       "printed_percent": "1.56",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 15647,
+       "printed_percent": "35.98",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 8,
+       "votes": 3491,
+       "printed_percent": "8.03",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 529,
+       "printed_percent": "1.22",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 5567,
+       "printed_percent": "12.80",
+       "nominated_by": "SDP",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XVI",
+     "number": 16,
+     "urbroj": "56605-92-478",
+     "registered": 52358,
+     "voted": 43312,
+     "voted_printed_percent": "82.72",
+     "invalid": 1149,
+     "invalid_printed_percent": "2.65",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 2856,
+       "printed_percent": "6.59",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 730,
+       "printed_percent": "1.69",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 10728,
+       "printed_percent": "24.77",
+       "nominated_by": "HSLS",
+       "elected": true
+      },
+      {
+       "row": 4,
+       "votes": 2613,
+       "printed_percent": "6.03",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 624,
+       "printed_percent": "1.44",
+       "nominated_by": "SRH",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 3115,
+       "printed_percent": "7.19",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 9307,
+       "printed_percent": "21.49",
+       "nominated_by": "HDZ",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 2804,
+       "printed_percent": "6.47",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 4015,
+       "printed_percent": "9.27",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 1656,
+       "printed_percent": "3.82",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 3715,
+       "printed_percent": "8.58",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XVII",
+     "number": 17,
+     "urbroj": "56605-92-479",
+     "registered": 53586,
+     "voted": 45217,
+     "voted_printed_percent": "84.38",
+     "invalid": 1714,
+     "invalid_printed_percent": "3.79",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 776,
+       "printed_percent": "1.72",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 5545,
+       "printed_percent": "12.26",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 15239,
+       "printed_percent": "33.70",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 4,
+       "votes": 598,
+       "printed_percent": "1.32",
+       "nominated_by": "SRH",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 374,
+       "printed_percent": "0.83",
+       "nominated_by": "HSNZ",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 3325,
+       "printed_percent": "7.35",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 4623,
+       "printed_percent": "10.22",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1580,
+       "printed_percent": "3.49",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 4916,
+       "printed_percent": "10.87",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 3934,
+       "printed_percent": "8.70",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 2593,
+       "printed_percent": "5.73",
+       "nominated_by": "HSP",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XVIII",
+     "number": 18,
+     "urbroj": "56605-92-480",
+     "registered": 63176,
+     "voted": 51624,
+     "voted_printed_percent": "81.71",
+     "invalid": 1186,
+     "invalid_printed_percent": "2.30",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 2083,
+       "printed_percent": "4.03",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 12115,
+       "printed_percent": "23.47",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 14420,
+       "printed_percent": "27.93",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 4,
+       "votes": 2924,
+       "printed_percent": "5.66",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 5563,
+       "printed_percent": "10.78",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 3141,
+       "printed_percent": "6.08",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 306,
+       "printed_percent": "0.59",
+       "nominated_by": "HSNZ",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 4645,
+       "printed_percent": "9.00",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 5241,
+       "printed_percent": "10.15",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XIX",
+     "number": 19,
+     "urbroj": "56605-92-481",
+     "registered": 61789,
+     "voted": 53814,
+     "voted_printed_percent": "87.09",
+     "invalid": 1310,
+     "invalid_printed_percent": "2.43",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 26881,
+       "printed_percent": "49.95",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 1247,
+       "printed_percent": "2.32",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 5449,
+       "printed_percent": "10.13",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 3829,
+       "printed_percent": "7.12",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 636,
+       "printed_percent": "1.18",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 3623,
+       "printed_percent": "6.73",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 3487,
+       "printed_percent": "6.48",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1144,
+       "printed_percent": "2.13",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 2155,
+       "printed_percent": "4.00",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 4053,
+       "printed_percent": "7.53",
+       "nominated_by": "HSLS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XX",
+     "number": 20,
+     "urbroj": "56605-92-482",
+     "registered": 49758,
+     "voted": 47569,
+     "voted_printed_percent": "95.60",
+     "invalid": 1285,
+     "invalid_printed_percent": "2.70",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 820,
+       "printed_percent": "1.72",
+       "nominated_by": "HSNZ",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 30780,
+       "printed_percent": "64.71",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 2189,
+       "printed_percent": "4.60",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 2025,
+       "printed_percent": "4.26",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 4428,
+       "printed_percent": "9.31",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 1323,
+       "printed_percent": "2.78",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 1890,
+       "printed_percent": "3.97",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 2829,
+       "printed_percent": "5.95",
+       "nominated_by": "HSLS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXI",
+     "number": 21,
+     "urbroj": "56605-92-483",
+     "registered": 60847,
+     "voted": 52122,
+     "voted_printed_percent": "85.66",
+     "invalid": 1364,
+     "invalid_printed_percent": "2.62",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 6020,
+       "printed_percent": "11.55",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 1558,
+       "printed_percent": "2.99",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 2313,
+       "printed_percent": "4.44",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 2629,
+       "printed_percent": "5.04",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 3046,
+       "printed_percent": "5.84",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 31758,
+       "printed_percent": "60.93",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 7,
+       "votes": 3434,
+       "printed_percent": "6.59",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXII",
+     "number": 22,
+     "urbroj": "56605-92-484",
+     "registered": 51407,
+     "voted": 47221,
+     "voted_printed_percent": "91.86",
+     "invalid": 1164,
+     "invalid_printed_percent": "2.47",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 24677,
+       "printed_percent": "52.26",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 5813,
+       "printed_percent": "12.31",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 7050,
+       "printed_percent": "14.93",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 4667,
+       "printed_percent": "9.88",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1812,
+       "printed_percent": "3.84",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 539,
+       "printed_percent": "1.14",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 1499,
+       "printed_percent": "3.17",
+       "nominated_by": "HDS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXIII",
+     "number": 23,
+     "urbroj": "56605-92-485",
+     "registered": 61591,
+     "voted": 55363,
+     "voted_printed_percent": "89.89",
+     "invalid": 1401,
+     "invalid_printed_percent": "2.53",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1045,
+       "printed_percent": "1.89",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 4925,
+       "printed_percent": "8.90",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 946,
+       "printed_percent": "1.71",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 3916,
+       "printed_percent": "7.07",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 4158,
+       "printed_percent": "7.51",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 5950,
+       "printed_percent": "10.75",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 1301,
+       "printed_percent": "2.35",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 4934,
+       "printed_percent": "8.91",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 19928,
+       "printed_percent": "36.00",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 10,
+       "votes": 6859,
+       "printed_percent": "12.39",
+       "nominated_by": "HSLS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXIV",
+     "number": 24,
+     "urbroj": "56605-92-486",
+     "registered": 63178,
+     "voted": 45781,
+     "voted_printed_percent": "72.46",
+     "invalid": 1084,
+     "invalid_printed_percent": "2.37",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 5140,
+       "printed_percent": "11.23",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 21842,
+       "printed_percent": "47.71",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 846,
+       "printed_percent": "1.85",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 2381,
+       "printed_percent": "5.20",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 391,
+       "printed_percent": "0.85",
+       "nominated_by": "HSNZ",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 3609,
+       "printed_percent": "7.88",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 1680,
+       "printed_percent": "3.67",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1151,
+       "printed_percent": "2.51",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 4517,
+       "printed_percent": "9.87",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 2710,
+       "printed_percent": "5.92",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 430,
+       "printed_percent": "0.94",
+       "nominated_by": "SDH",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXV",
+     "number": 25,
+     "urbroj": "56605-92-487",
+     "registered": 61377,
+     "voted": 15571,
+     "voted_printed_percent": "25.37",
+     "invalid": 397,
+     "invalid_printed_percent": "2.55",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1053,
+       "printed_percent": "6.76",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 1836,
+       "printed_percent": "11.79",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 7609,
+       "printed_percent": "48.87",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 4,
+       "votes": 1797,
+       "printed_percent": "11.54",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 295,
+       "printed_percent": "1.89",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 551,
+       "printed_percent": "3.54",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 178,
+       "printed_percent": "1.14",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1855,
+       "printed_percent": "11.91",
+       "nominated_by": "NK",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXVI",
+     "number": 26,
+     "urbroj": "56605-92-488",
+     "registered": 66457,
+     "voted": 39188,
+     "voted_printed_percent": "58.97",
+     "invalid": 987,
+     "invalid_printed_percent": "2.52",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 15567,
+       "printed_percent": "39.72",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 1224,
+       "printed_percent": "3.12",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 2428,
+       "printed_percent": "6.20",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 619,
+       "printed_percent": "1.58",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 5016,
+       "printed_percent": "12.80",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 3601,
+       "printed_percent": "9.19",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 1196,
+       "printed_percent": "3.05",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 2890,
+       "printed_percent": "7.37",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 3662,
+       "printed_percent": "9.34",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 993,
+       "printed_percent": "2.53",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 345,
+       "printed_percent": "0.88",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 660,
+       "printed_percent": "1.68",
+       "nominated_by": "SDH",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXVII",
+     "number": 27,
+     "urbroj": "56605-92-489",
+     "registered": 56314,
+     "voted": 49802,
+     "voted_printed_percent": "88.44",
+     "invalid": 940,
+     "invalid_printed_percent": "1.89",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 4745,
+       "printed_percent": "9.53",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 6564,
+       "printed_percent": "13.18",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 1188,
+       "printed_percent": "2.39",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 774,
+       "printed_percent": "1.55",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 3021,
+       "printed_percent": "6.07",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 27751,
+       "printed_percent": "55.72",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 7,
+       "votes": 1596,
+       "printed_percent": "3.20",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 3223,
+       "printed_percent": "6.47",
+       "nominated_by": "HSP",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXVIII",
+     "number": 28,
+     "urbroj": "56605-92-490",
+     "registered": 51578,
+     "voted": 21192,
+     "voted_printed_percent": "41.09",
+     "invalid": 1049,
+     "invalid_printed_percent": "4.95",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 2765,
+       "printed_percent": "13.05",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 10003,
+       "printed_percent": "47.20",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 994,
+       "printed_percent": "4.69",
+       "nominated_by": "HKDS - HDS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 2763,
+       "printed_percent": "13.04",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1974,
+       "printed_percent": "9.31",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 1644,
+       "printed_percent": "7.76",
+       "nominated_by": "HNS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXIX",
+     "number": 29,
+     "urbroj": "56605-92-491",
+     "registered": 67050,
+     "voted": 46790,
+     "voted_printed_percent": "69.78",
+     "invalid": 1162,
+     "invalid_printed_percent": "2.48",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 10446,
+       "printed_percent": "22.33",
+       "nominated_by": "RDS",
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 1402,
+       "printed_percent": "3.00",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 6439,
+       "printed_percent": "13.76",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 5176,
+       "printed_percent": "11.06",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 10390,
+       "printed_percent": "22.21",
+       "nominated_by": "HDZ",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 1151,
+       "printed_percent": "2.46",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 4814,
+       "printed_percent": "10.29",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1559,
+       "printed_percent": "3.33",
+       "nominated_by": "SND",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 1026,
+       "printed_percent": "2.19",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 3225,
+       "printed_percent": "6.89",
+       "nominated_by": "HNS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXX",
+     "number": 30,
+     "urbroj": "56605-92-492",
+     "registered": 66478,
+     "voted": 47401,
+     "voted_printed_percent": "71.30",
+     "invalid": 1180,
+     "invalid_printed_percent": "2.49",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1416,
+       "printed_percent": "2.99",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 4799,
+       "printed_percent": "10.12",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 7522,
+       "printed_percent": "15.87",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 4942,
+       "printed_percent": "10.43",
+       "nominated_by": "RDS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 5115,
+       "printed_percent": "10.79",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 963,
+       "printed_percent": "2.03",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 568,
+       "printed_percent": "1.20",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 841,
+       "printed_percent": "1.77",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 166,
+       "printed_percent": "0.35",
+       "nominated_by": "SND",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 5955,
+       "printed_percent": "12.56",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 4099,
+       "printed_percent": "8.65",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 861,
+       "printed_percent": "1.82",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 13,
+       "votes": 8974,
+       "printed_percent": "18.93",
+       "nominated_by": "HDZ",
+       "elected": true
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXXI",
+     "number": 31,
+     "urbroj": "56605-92-493",
+     "registered": 69366,
+     "voted": 55461,
+     "voted_printed_percent": "79.95",
+     "invalid": 1581,
+     "invalid_printed_percent": "2.85",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1939,
+       "printed_percent": "3.50",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 4808,
+       "printed_percent": "8.67",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 12645,
+       "printed_percent": "22.80",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 5173,
+       "printed_percent": "9.33",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 16923,
+       "printed_percent": "30.51",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 6,
+       "votes": 6311,
+       "printed_percent": "11.38",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 2112,
+       "printed_percent": "3.81",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 3969,
+       "printed_percent": "7.16",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXXII",
+     "number": 32,
+     "urbroj": "56605-92-494",
+     "registered": 61102,
+     "voted": 49835,
+     "voted_printed_percent": "81.56",
+     "invalid": 1579,
+     "invalid_printed_percent": "3.17",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 6003,
+       "printed_percent": "12.05",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 7356,
+       "printed_percent": "14.76",
+       "nominated_by": "HDZ",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 25079,
+       "printed_percent": "50.32",
+       "nominated_by": "IDS",
+       "elected": true
+      },
+      {
+       "row": 4,
+       "votes": 2342,
+       "printed_percent": "4.70",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 2720,
+       "printed_percent": "5.46",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 4756,
+       "printed_percent": "9.54",
+       "nominated_by": "HSLS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXXIII",
+     "number": 33,
+     "urbroj": "56605-92-495",
+     "registered": 55992,
+     "voted": 39431,
+     "voted_printed_percent": "70.42",
+     "invalid": 1415,
+     "invalid_printed_percent": "3.59",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 4212,
+       "printed_percent": "10.68",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 22202,
+       "printed_percent": "56.31",
+       "nominated_by": "IDS",
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 1074,
+       "printed_percent": "2.72",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 5151,
+       "printed_percent": "13.06",
+       "nominated_by": "HDZ",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1753,
+       "printed_percent": "4.45",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 2844,
+       "printed_percent": "7.21",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 780,
+       "printed_percent": "1.98",
+       "nominated_by": "HNS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXXIV",
+     "number": 34,
+     "urbroj": "56605-92-496",
+     "registered": 67254,
+     "voted": 49830,
+     "voted_printed_percent": "74.09",
+     "invalid": 1076,
+     "invalid_printed_percent": "2.16",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1906,
+       "printed_percent": "3.83",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 2219,
+       "printed_percent": "4.45",
+       "nominated_by": "IPS HDS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 2467,
+       "printed_percent": "4.95",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 2493,
+       "printed_percent": "5.00",
+       "nominated_by": "ILS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 21012,
+       "printed_percent": "42.17",
+       "nominated_by": "IDS",
+       "elected": true
+      },
+      {
+       "row": 6,
+       "votes": 826,
+       "printed_percent": "1.66",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 396,
+       "printed_percent": "0.79",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 6392,
+       "printed_percent": "12.83",
+       "nominated_by": "SDP - SSH",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 4879,
+       "printed_percent": "9.79",
+       "nominated_by": "HDZ",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 1201,
+       "printed_percent": "2.41",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 4963,
+       "printed_percent": "9.96",
+       "nominated_by": "HSLS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXXV",
+     "number": 35,
+     "urbroj": "56605-92-497",
+     "registered": 34994,
+     "voted": 28533,
+     "voted_printed_percent": "81.54",
+     "invalid": 985,
+     "invalid_printed_percent": "3.45",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 3531,
+       "printed_percent": "12.38",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 8520,
+       "printed_percent": "29.86",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 1986,
+       "printed_percent": "6.96",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 2863,
+       "printed_percent": "10.03",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1809,
+       "printed_percent": "6.34",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 2859,
+       "printed_percent": "10.02",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 3518,
+       "printed_percent": "12.33",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 784,
+       "printed_percent": "2.75",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 1678,
+       "printed_percent": "5.88",
+       "nominated_by": "SDP",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXXVI",
+     "number": 36,
+     "urbroj": "56605-92-498",
+     "registered": 72218,
+     "voted": 33112,
+     "voted_printed_percent": "45.85",
+     "invalid": 624,
+     "invalid_printed_percent": "1.88",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 821,
+       "printed_percent": "2.48",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 1232,
+       "printed_percent": "3.72",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 1045,
+       "printed_percent": "3.16",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 787,
+       "printed_percent": "2.38",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1084,
+       "printed_percent": "3.27",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 3262,
+       "printed_percent": "9.85",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 1939,
+       "printed_percent": "5.86",
+       "nominated_by": "HDP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 20373,
+       "printed_percent": "61.53",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 9,
+       "votes": 1456,
+       "printed_percent": "4.40",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 489,
+       "printed_percent": "1.48",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXXVII",
+     "number": 37,
+     "urbroj": "56605-92-499",
+     "registered": 59413,
+     "voted": 38117,
+     "voted_printed_percent": "64.16",
+     "invalid": 977,
+     "invalid_printed_percent": "2.56",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1483,
+       "printed_percent": "3.89",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 6948,
+       "printed_percent": "18.23",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 425,
+       "printed_percent": "1.11",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1025,
+       "printed_percent": "2.69",
+       "nominated_by": "HDP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 3493,
+       "printed_percent": "9.16",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 1188,
+       "printed_percent": "3.12",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 2380,
+       "printed_percent": "6.24",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 7275,
+       "printed_percent": "19.09",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 1545,
+       "printed_percent": "4.05",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 11378,
+       "printed_percent": "29.85",
+       "nominated_by": "HDZ",
+       "elected": true
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXXVIII",
+     "number": 38,
+     "urbroj": "56605-92-500",
+     "registered": 51122,
+     "voted": 29491,
+     "voted_printed_percent": "57.69",
+     "invalid": 657,
+     "invalid_printed_percent": "2.23",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 2594,
+       "printed_percent": "8.80",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 506,
+       "printed_percent": "1.72",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 1518,
+       "printed_percent": "5.15",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 4205,
+       "printed_percent": "14.26",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 692,
+       "printed_percent": "2.35",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 505,
+       "printed_percent": "1.71",
+       "nominated_by": "DA",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 735,
+       "printed_percent": "2.49",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 526,
+       "printed_percent": "1.78",
+       "nominated_by": "HDP",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 14052,
+       "printed_percent": "47.65",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 10,
+       "votes": 3501,
+       "printed_percent": "11.87",
+       "nominated_by": "HSLS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XXXIX",
+     "number": 39,
+     "urbroj": "56605-92-501",
+     "registered": 35897,
+     "voted": 15582,
+     "voted_printed_percent": "43.41",
+     "invalid": 550,
+     "invalid_printed_percent": "3.53",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 734,
+       "printed_percent": "4.71",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 7194,
+       "printed_percent": "46.17",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 2514,
+       "printed_percent": "16.13",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1327,
+       "printed_percent": "8.52",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 683,
+       "printed_percent": "4.38",
+       "nominated_by": "HDP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 610,
+       "printed_percent": "3.91",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 1970,
+       "printed_percent": "12.64",
+       "nominated_by": "HNS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XL",
+     "number": 40,
+     "urbroj": "56605-92-502",
+     "registered": 69336,
+     "voted": 48081,
+     "voted_printed_percent": "69.34",
+     "invalid": 1249,
+     "invalid_printed_percent": "2.60",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1725,
+       "printed_percent": "3.59",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 19263,
+       "printed_percent": "40.06",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 843,
+       "printed_percent": "1.75",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 2897,
+       "printed_percent": "6.03",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1348,
+       "printed_percent": "2.80",
+       "nominated_by": "HDP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 3855,
+       "printed_percent": "8.02",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 630,
+       "printed_percent": "1.31",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 5405,
+       "printed_percent": "11.24",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 2953,
+       "printed_percent": "6.14",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 711,
+       "printed_percent": "1.48",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 7202,
+       "printed_percent": "14.98",
+       "nominated_by": "HSLS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XLI",
+     "number": 41,
+     "urbroj": "56605-92-503",
+     "registered": 46166,
+     "voted": 26811,
+     "voted_printed_percent": "58.08",
+     "invalid": 546,
+     "invalid_printed_percent": "2.04",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 3845,
+       "printed_percent": "14.34",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 1574,
+       "printed_percent": "5.87",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 3010,
+       "printed_percent": "11.23",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1721,
+       "printed_percent": "6.42",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 2350,
+       "printed_percent": "8.77",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 3058,
+       "printed_percent": "11.41",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 9123,
+       "printed_percent": "34.03",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 8,
+       "votes": 1584,
+       "printed_percent": "5.91",
+       "nominated_by": "HDS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XLII",
+     "number": 42,
+     "urbroj": "56605-92-504",
+     "registered": 63766,
+     "voted": 51120,
+     "voted_printed_percent": "80.17",
+     "invalid": 1259,
+     "invalid_printed_percent": "2.46",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 3630,
+       "printed_percent": "7.10",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 6019,
+       "printed_percent": "11.77",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 3237,
+       "printed_percent": "6.33",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 876,
+       "printed_percent": "1.71",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1367,
+       "printed_percent": "2.67",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 20370,
+       "printed_percent": "39.85",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 7,
+       "votes": 1902,
+       "printed_percent": "3.72",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1132,
+       "printed_percent": "2.21",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 1141,
+       "printed_percent": "2.23",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 6514,
+       "printed_percent": "12.74",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 1496,
+       "printed_percent": "2.93",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 2177,
+       "printed_percent": "4.26",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XLIII",
+     "number": 43,
+     "urbroj": "56605-92-505",
+     "registered": 51406,
+     "voted": 36761,
+     "voted_printed_percent": "71.51",
+     "invalid": 681,
+     "invalid_printed_percent": "1.85",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 754,
+       "printed_percent": "2.05",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 272,
+       "printed_percent": "0.74",
+       "nominated_by": "HRZ",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 330,
+       "printed_percent": "0.90",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 8709,
+       "printed_percent": "23.69",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 5,
+       "votes": 6886,
+       "printed_percent": "18.73",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 5990,
+       "printed_percent": "16.29",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 505,
+       "printed_percent": "1.37",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1209,
+       "printed_percent": "3.29",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 916,
+       "printed_percent": "2.49",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 6910,
+       "printed_percent": "18.80",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 2476,
+       "printed_percent": "6.74",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 1123,
+       "printed_percent": "3.05",
+       "nominated_by": "SSH",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XLIV",
+     "number": 44,
+     "urbroj": "56605-92-506",
+     "registered": 109697,
+     "voted": 81869,
+     "voted_printed_percent": "74.63",
+     "invalid": 1670,
+     "invalid_printed_percent": "2.04",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 975,
+       "printed_percent": "1.19",
+       "nominated_by": "HRZ",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 23537,
+       "printed_percent": "28.75",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 605,
+       "printed_percent": "0.74",
+       "nominated_by": "HSNZ",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1057,
+       "printed_percent": "1.29",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 934,
+       "printed_percent": "1.14",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 1050,
+       "printed_percent": "1.28",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 1492,
+       "printed_percent": "1.82",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 10179,
+       "printed_percent": "12.43",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 14085,
+       "printed_percent": "17.20",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 1215,
+       "printed_percent": "1.48",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 9619,
+       "printed_percent": "11.75",
+       "nominated_by": "HDS - HSP",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 9539,
+       "printed_percent": "11.65",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 13,
+       "votes": 2392,
+       "printed_percent": "2.92",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 14,
+       "votes": 3520,
+       "printed_percent": "4.30",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XLV",
+     "number": 45,
+     "urbroj": "56605-92-507",
+     "registered": 43522,
+     "voted": 37052,
+     "voted_printed_percent": "85.13",
+     "invalid": 1416,
+     "invalid_printed_percent": "3.82",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 2253,
+       "printed_percent": "6.08",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 3202,
+       "printed_percent": "8.64",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 891,
+       "printed_percent": "2.40",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 12485,
+       "printed_percent": "33.70",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 5,
+       "votes": 2232,
+       "printed_percent": "6.02",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 590,
+       "printed_percent": "1.59",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 1388,
+       "printed_percent": "3.75",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1305,
+       "printed_percent": "3.52",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 8092,
+       "printed_percent": "21.84",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 3198,
+       "printed_percent": "8.63",
+       "nominated_by": "HSLS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XLVI",
+     "number": 46,
+     "urbroj": "56605-92-508",
+     "registered": 57442,
+     "voted": 48419,
+     "voted_printed_percent": "84.29",
+     "invalid": 723,
+     "invalid_printed_percent": "1.49",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1218,
+       "printed_percent": "2.52",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 1492,
+       "printed_percent": "3.08",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 27913,
+       "printed_percent": "57.65",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 4,
+       "votes": 4951,
+       "printed_percent": "10.23",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1821,
+       "printed_percent": "3.76",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 1726,
+       "printed_percent": "3.56",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 598,
+       "printed_percent": "1.24",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1733,
+       "printed_percent": "3.58",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 4883,
+       "printed_percent": "10.08",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 1361,
+       "printed_percent": "2.81",
+       "nominated_by": "HDP",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XLVII",
+     "number": 47,
+     "urbroj": "56605-92-509",
+     "registered": 51717,
+     "voted": 43049,
+     "voted_printed_percent": "83.24",
+     "invalid": 1130,
+     "invalid_printed_percent": "2.62",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 3439,
+       "printed_percent": "7.99",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 21699,
+       "printed_percent": "50.41",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 746,
+       "printed_percent": "1.73",
+       "nominated_by": "DA - IDS - RDS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 787,
+       "printed_percent": "1.83",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 5458,
+       "printed_percent": "12.68",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 1706,
+       "printed_percent": "3.96",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 2134,
+       "printed_percent": "4.96",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 3636,
+       "printed_percent": "8.45",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 2314,
+       "printed_percent": "5.38",
+       "nominated_by": "HSP",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XLVIII",
+     "number": 48,
+     "urbroj": "56605-92-510",
+     "registered": 56932,
+     "voted": 32810,
+     "voted_printed_percent": "57.63",
+     "invalid": 795,
+     "invalid_printed_percent": "2.42",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 4686,
+       "printed_percent": "14.28",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 4369,
+       "printed_percent": "13.32",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 8638,
+       "printed_percent": "26.33",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 4,
+       "votes": 1296,
+       "printed_percent": "3.95",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 4205,
+       "printed_percent": "12.82",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 6332,
+       "printed_percent": "19.30",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 2489,
+       "printed_percent": "7.59",
+       "nominated_by": "HSP",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "XLIX",
+     "number": 49,
+     "urbroj": "56605-92-511",
+     "registered": 80041,
+     "voted": 65134,
+     "voted_printed_percent": "81.38",
+     "invalid": 1717,
+     "invalid_printed_percent": "2.64",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1238,
+       "printed_percent": "1.90",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 5819,
+       "printed_percent": "8.93",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 2357,
+       "printed_percent": "3.62",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 4485,
+       "printed_percent": "6.89",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 5917,
+       "printed_percent": "9.08",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 25622,
+       "printed_percent": "39.34",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 7,
+       "votes": 9442,
+       "printed_percent": "14.50",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 788,
+       "printed_percent": "1.21",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 507,
+       "printed_percent": "0.78",
+       "nominated_by": "HRZ",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 2161,
+       "printed_percent": "3.32",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 813,
+       "printed_percent": "1.25",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 4268,
+       "printed_percent": "6.55",
+       "nominated_by": "HSP",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "L",
+     "number": 50,
+     "urbroj": "56605-92-512",
+     "registered": 57831,
+     "voted": 43878,
+     "voted_printed_percent": "75.87",
+     "invalid": 927,
+     "invalid_printed_percent": "2.11",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 863,
+       "printed_percent": "1.97",
+       "nominated_by": "HRZ",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 477,
+       "printed_percent": "1.09",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 3315,
+       "printed_percent": "7.56",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 1329,
+       "printed_percent": "3.03",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 3538,
+       "printed_percent": "8.06",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 1890,
+       "printed_percent": "4.31",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 2290,
+       "printed_percent": "5.22",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 16571,
+       "printed_percent": "37.77",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 9,
+       "votes": 1401,
+       "printed_percent": "3.19",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 2898,
+       "printed_percent": "6.60",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 6994,
+       "printed_percent": "15.94",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 1385,
+       "printed_percent": "3.16",
+       "nominated_by": "NK",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "LI",
+     "number": 51,
+     "urbroj": "56605-92-513",
+     "registered": 60630,
+     "voted": 44596,
+     "voted_printed_percent": "73.55",
+     "invalid": 733,
+     "invalid_printed_percent": "1.64",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 350,
+       "printed_percent": "0.78",
+       "nominated_by": "HSNZ",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 7865,
+       "printed_percent": "17.64",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 14582,
+       "printed_percent": "32.70",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 4,
+       "votes": 724,
+       "printed_percent": "1.62",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 534,
+       "printed_percent": "1.20",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 5648,
+       "printed_percent": "12.66",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 1611,
+       "printed_percent": "3.61",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 939,
+       "printed_percent": "2.11",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 676,
+       "printed_percent": "1.52",
+       "nominated_by": "HDP",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 281,
+       "printed_percent": "0.63",
+       "nominated_by": "HRZ",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 1088,
+       "printed_percent": "2.44",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 1297,
+       "printed_percent": "2.91",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 13,
+       "votes": 1206,
+       "printed_percent": "2.70",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 14,
+       "votes": 2158,
+       "printed_percent": "4.84",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 15,
+       "votes": 3786,
+       "printed_percent": "8.49",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 16,
+       "votes": 1118,
+       "printed_percent": "2.51",
+       "nominated_by": "NK",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "LII",
+     "number": 52,
+     "urbroj": "56605-92-514",
+     "registered": 78375,
+     "voted": 55684,
+     "voted_printed_percent": "71.05",
+     "invalid": 918,
+     "invalid_printed_percent": "1.65",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 14988,
+       "printed_percent": "26.92",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 808,
+       "printed_percent": "1.45",
+       "nominated_by": "HRZ",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 751,
+       "printed_percent": "1.35",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 134,
+       "printed_percent": "0.24",
+       "nominated_by": "DGS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 359,
+       "printed_percent": "0.64",
+       "nominated_by": "HS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 1372,
+       "printed_percent": "2.46",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 7665,
+       "printed_percent": "13.77",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 4657,
+       "printed_percent": "8.36",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 15565,
+       "printed_percent": "27.95",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 10,
+       "votes": 1071,
+       "printed_percent": "1.92",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 1126,
+       "printed_percent": "2.02",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 1142,
+       "printed_percent": "2.05",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 13,
+       "votes": 1974,
+       "printed_percent": "3.55",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 14,
+       "votes": 2607,
+       "printed_percent": "4.68",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 15,
+       "votes": 547,
+       "printed_percent": "0.98",
+       "nominated_by": "KNS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "LIII",
+     "number": 53,
+     "urbroj": "56605-92-515",
+     "registered": 59549,
+     "voted": 43821,
+     "voted_printed_percent": "73.59",
+     "invalid": 932,
+     "invalid_printed_percent": "2.13",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 3206,
+       "printed_percent": "7.32",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 579,
+       "printed_percent": "1.32",
+       "nominated_by": "HDP",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 7372,
+       "printed_percent": "16.82",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 270,
+       "printed_percent": "0.62",
+       "nominated_by": "HSNZ",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1039,
+       "printed_percent": "2.37",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 628,
+       "printed_percent": "1.43",
+       "nominated_by": "HRZ",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 2106,
+       "printed_percent": "4.81",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 6816,
+       "printed_percent": "15.55",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 647,
+       "printed_percent": "1.48",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 363,
+       "printed_percent": "0.83",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 977,
+       "printed_percent": "2.23",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 1371,
+       "printed_percent": "3.13",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 13,
+       "votes": 15572,
+       "printed_percent": "35.54",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 14,
+       "votes": 1943,
+       "printed_percent": "4.43",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "LIV",
+     "number": 54,
+     "urbroj": "56605-92-516",
+     "registered": 61199,
+     "voted": 47873,
+     "voted_printed_percent": "78.23",
+     "invalid": 1061,
+     "invalid_printed_percent": "2.22",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 816,
+       "printed_percent": "1.70",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 1107,
+       "printed_percent": "2.31",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 4166,
+       "printed_percent": "8.70",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 3257,
+       "printed_percent": "6.80",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 2982,
+       "printed_percent": "6.23",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 8951,
+       "printed_percent": "18.70",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 579,
+       "printed_percent": "1.21",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 4207,
+       "printed_percent": "8.79",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 1207,
+       "printed_percent": "2.52",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 1095,
+       "printed_percent": "2.29",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 1362,
+       "printed_percent": "2.85",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 16483,
+       "printed_percent": "34.43",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 13,
+       "votes": 233,
+       "printed_percent": "0.49",
+       "nominated_by": "DGS",
+       "elected": false
+      },
+      {
+       "row": 14,
+       "votes": 367,
+       "printed_percent": "0.77",
+       "nominated_by": "HS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "LV",
+     "number": 55,
+     "urbroj": "56605-92-517",
+     "registered": 67278,
+     "voted": 48983,
+     "voted_printed_percent": "72.81",
+     "invalid": 1109,
+     "invalid_printed_percent": "2.26",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1624,
+       "printed_percent": "3.32",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 666,
+       "printed_percent": "1.36",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 6095,
+       "printed_percent": "12.44",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 689,
+       "printed_percent": "1.41",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 2775,
+       "printed_percent": "5.67",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 9802,
+       "printed_percent": "20.01",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 4222,
+       "printed_percent": "8.62",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 242,
+       "printed_percent": "0.49",
+       "nominated_by": "DGS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 1719,
+       "printed_percent": "3.51",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 3302,
+       "printed_percent": "6.74",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 12872,
+       "printed_percent": "26.28",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 12,
+       "votes": 521,
+       "printed_percent": "1.06",
+       "nominated_by": "HS",
+       "elected": false
+      },
+      {
+       "row": 13,
+       "votes": 725,
+       "printed_percent": "1.48",
+       "nominated_by": "HDP",
+       "elected": false
+      },
+      {
+       "row": 14,
+       "votes": 828,
+       "printed_percent": "1.69",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 15,
+       "votes": 1792,
+       "printed_percent": "3.66",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "LVI",
+     "number": 56,
+     "urbroj": "56605-92-518",
+     "registered": 75248,
+     "voted": 55133,
+     "voted_printed_percent": "73.27",
+     "invalid": 1077,
+     "invalid_printed_percent": "1.95",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 2556,
+       "printed_percent": "4.64",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 714,
+       "printed_percent": "1.30",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 2168,
+       "printed_percent": "3.93",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 816,
+       "printed_percent": "1.48",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1559,
+       "printed_percent": "2.83",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 5352,
+       "printed_percent": "9.71",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 388,
+       "printed_percent": "0.70",
+       "nominated_by": "HSNZ",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 1346,
+       "printed_percent": "2.44",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 907,
+       "printed_percent": "1.65",
+       "nominated_by": "HS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 11227,
+       "printed_percent": "20.36",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 187,
+       "printed_percent": "0.34",
+       "nominated_by": "DGS",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 3320,
+       "printed_percent": "6.02",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 13,
+       "votes": 2044,
+       "printed_percent": "3.71",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 14,
+       "votes": 923,
+       "printed_percent": "1.67",
+       "nominated_by": "HDP",
+       "elected": false
+      },
+      {
+       "row": 15,
+       "votes": 16397,
+       "printed_percent": "29.74",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 16,
+       "votes": 4152,
+       "printed_percent": "7.53",
+       "nominated_by": "HSP",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "LVII",
+     "number": 57,
+     "urbroj": "56605-92-519",
+     "registered": 60452,
+     "voted": 41352,
+     "voted_printed_percent": "68.40",
+     "invalid": 1179,
+     "invalid_printed_percent": "2.85",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1706,
+       "printed_percent": "4.13",
+       "nominated_by": "HDS - SDA",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 424,
+       "printed_percent": "1.03",
+       "nominated_by": "HRZ",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 5595,
+       "printed_percent": "13.53",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 3038,
+       "printed_percent": "7.35",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 1146,
+       "printed_percent": "2.77",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 1585,
+       "printed_percent": "3.83",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 530,
+       "printed_percent": "1.28",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 2837,
+       "printed_percent": "6.86",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 13448,
+       "printed_percent": "32.52",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 10,
+       "votes": 665,
+       "printed_percent": "1.61",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 570,
+       "printed_percent": "1.38",
+       "nominated_by": "HMDS",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 177,
+       "printed_percent": "0.43",
+       "nominated_by": "HSNZ",
+       "elected": false
+      },
+      {
+       "row": 13,
+       "votes": 6208,
+       "printed_percent": "15.01",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 14,
+       "votes": 1818,
+       "printed_percent": "4.40",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 15,
+       "votes": 426,
+       "printed_percent": "1.03",
+       "nominated_by": "KNS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "LVIII",
+     "number": 58,
+     "urbroj": "56605-92-520",
+     "registered": 68786,
+     "voted": 54665,
+     "voted_printed_percent": "79.47",
+     "invalid": 1137,
+     "invalid_printed_percent": "2.08",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 10874,
+       "printed_percent": "19.89",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 2994,
+       "printed_percent": "5.48",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 432,
+       "printed_percent": "0.79",
+       "nominated_by": "HSNZ",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 4360,
+       "printed_percent": "7.98",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 17420,
+       "printed_percent": "31.87",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 6,
+       "votes": 668,
+       "printed_percent": "1.22",
+       "nominated_by": "HDP",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 811,
+       "printed_percent": "1.48",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 4477,
+       "printed_percent": "8.19",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 353,
+       "printed_percent": "0.65",
+       "nominated_by": "HRZ",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 2186,
+       "printed_percent": "4.00",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 3840,
+       "printed_percent": "7.02",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 894,
+       "printed_percent": "1.64",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 13,
+       "votes": 806,
+       "printed_percent": "1.47",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 14,
+       "votes": 1058,
+       "printed_percent": "1.94",
+       "nominated_by": "SSH",
+       "elected": false
+      },
+      {
+       "row": 15,
+       "votes": 2355,
+       "printed_percent": "4.31",
+       "nominated_by": "HSS",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "LIX",
+     "number": 59,
+     "urbroj": "56605-92-521",
+     "registered": 51940,
+     "voted": 42258,
+     "voted_printed_percent": "81.36",
+     "invalid": 856,
+     "invalid_printed_percent": "2.03",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 323,
+       "printed_percent": "0.76",
+       "nominated_by": "HRZ",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 11693,
+       "printed_percent": "27.67",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 1128,
+       "printed_percent": "2.67",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 4,
+       "votes": 7104,
+       "printed_percent": "16.81",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 2529,
+       "printed_percent": "5.98",
+       "nominated_by": "HSS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 2197,
+       "printed_percent": "5.20",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 1426,
+       "printed_percent": "3.37",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 7894,
+       "printed_percent": "18.68",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 1136,
+       "printed_percent": "2.69",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 350,
+       "printed_percent": "0.83",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 2771,
+       "printed_percent": "6.56",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 2851,
+       "printed_percent": "6.75",
+       "nominated_by": "HSP",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    },
+    {
+     "unit": "LX",
+     "number": 60,
+     "urbroj": "56605-92-522",
+     "registered": 68568,
+     "voted": 58694,
+     "voted_printed_percent": "85.60",
+     "invalid": 1427,
+     "invalid_printed_percent": "2.43",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 2805,
+       "printed_percent": "4.78",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 596,
+       "printed_percent": "1.02",
+       "nominated_by": "SDH",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 27476,
+       "printed_percent": "46.81",
+       "nominated_by": "HDZ",
+       "elected": true
+      },
+      {
+       "row": 4,
+       "votes": 869,
+       "printed_percent": "1.48",
+       "nominated_by": "KNS",
+       "elected": false
+      },
+      {
+       "row": 5,
+       "votes": 2553,
+       "printed_percent": "4.35",
+       "nominated_by": "HKDS",
+       "elected": false
+      },
+      {
+       "row": 6,
+       "votes": 896,
+       "printed_percent": "1.53",
+       "nominated_by": "HSNZ",
+       "elected": false
+      },
+      {
+       "row": 7,
+       "votes": 5154,
+       "printed_percent": "8.78",
+       "nominated_by": "HNS",
+       "elected": false
+      },
+      {
+       "row": 8,
+       "votes": 7675,
+       "printed_percent": "13.08",
+       "nominated_by": "HSLS",
+       "elected": false
+      },
+      {
+       "row": 9,
+       "votes": 3672,
+       "printed_percent": "6.26",
+       "nominated_by": "HSP",
+       "elected": false
+      },
+      {
+       "row": 10,
+       "votes": 2411,
+       "printed_percent": "4.11",
+       "nominated_by": "NK",
+       "elected": false
+      },
+      {
+       "row": 11,
+       "votes": 1112,
+       "printed_percent": "1.89",
+       "nominated_by": "HDS",
+       "elected": false
+      },
+      {
+       "row": 12,
+       "votes": 1512,
+       "printed_percent": "2.58",
+       "nominated_by": "SDP",
+       "elected": false
+      },
+      {
+       "row": 13,
+       "votes": 536,
+       "printed_percent": "0.91",
+       "nominated_by": "SSH",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true,
+     "elected_check": "printed elected candidate compared with the candidate rows by OCR and, where OCR was unclear, by eye (names compared in memory, not stored)"
+    }
+   ],
+   "nominator_rule": "Nominators as printed in the decision (party abbreviations; coalitions joined by \" - \"); NK = nezavisni kandidat (independent candidate). Labels the OCR could not read cleanly were read by eye: in XXXIV the decision prints \"IPS HDS\" and \"ILS\" (kept verbatim).",
+   "special_constituencies": [
+    {
+     "unit": 1,
+     "seat_printed": "BUJE",
+     "urbroj": "56605-92-523",
+     "registered": 9590,
+     "voted": 7273,
+     "voted_printed_percent": "75.84",
+     "invalid": 165,
+     "invalid_printed_percent": "2.27",
+     "seats": 1,
+     "percent_base": "voters_who_voted",
+     "allocation_article": "Art. 23",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 749,
+       "printed_percent": "10.30",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 4024,
+       "printed_percent": "55.33",
+       "elected": true
+      },
+      {
+       "row": 3,
+       "votes": 2335,
+       "printed_percent": "32.11",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true
+    },
+    {
+     "unit": 2,
+     "seat_printed": "OSIJEK",
+     "urbroj": "56605-92-524",
+     "registered": 6319,
+     "voted": 2434,
+     "voted_printed_percent": "38.52",
+     "invalid": 44,
+     "invalid_printed_percent": "1.81",
+     "seats": 1,
+     "percent_base": "voters_who_voted",
+     "allocation_article": "Art. 23",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1105,
+       "printed_percent": "45.40",
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 524,
+       "printed_percent": "21.53",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 761,
+       "printed_percent": "31.27",
+       "elected": false
+      }
+     ],
+     "read_by_eye": false
+    },
+    {
+     "unit": 3,
+     "seat_printed": "DARUVAR",
+     "urbroj": "56605-92-525",
+     "registered": 8258,
+     "voted": 5898,
+     "voted_printed_percent": "71.42",
+     "invalid": 122,
+     "invalid_printed_percent": "2.07",
+     "seats": 1,
+     "percent_base": "voters_who_voted",
+     "allocation_article": "Art. 23",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 1199,
+       "printed_percent": "20.33",
+       "elected": false
+      },
+      {
+       "row": 2,
+       "votes": 1783,
+       "printed_percent": "30.23",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 2794,
+       "printed_percent": "47.37",
+       "elected": true
+      }
+     ],
+     "read_by_eye": false
+    },
+    {
+     "unit": 4,
+     "seat_printed": "OSIJEK",
+     "urbroj": "56605-92-526",
+     "registered": 985,
+     "voted": 358,
+     "voted_printed_percent": "36.35",
+     "invalid": 0,
+     "invalid_printed_percent": "0.00",
+     "seats": 1,
+     "percent_base": "voters_who_voted",
+     "allocation_article": "Art. 23",
+     "candidates": [
+      {
+       "row": 1,
+       "votes": 181,
+       "printed_percent": "50.56",
+       "elected": true
+      },
+      {
+       "row": 2,
+       "votes": 71,
+       "printed_percent": "19.83",
+       "elected": false
+      },
+      {
+       "row": 3,
+       "votes": 106,
+       "printed_percent": "29.61",
+       "elected": false
+      }
+     ],
+     "read_by_eye": true
+    }
+   ],
+   "special_constituencies_note": "Special constituencies 1–4 (Narodne novine 33/92, Art. 5) elect members of national minorities under 8% of the population; the decisions name them by seat (Buje, Osijek, Daruvar, Osijek) and print no minority name. Candidates and their nominators are not stored.",
+   "ocr_corrections": {
+    "pages_read_by_eye": [
+     8,
+     14,
+     15,
+     17,
+     18,
+     24,
+     25,
+     29,
+     30,
+     32,
+     33,
+     35,
+     50,
+     52,
+     59,
+     60,
+     61,
+     64
+    ],
+    "note": "Pages (= decision order; page n is constituency n for n ≤ 60, special constituency n − 60 above) whose OCR failed a reconciliation check or gave a non-standard label; the values stored are those printed, read from the page image."
+   }
+  },
   "1995": {
    "polling_day": "1995-10-29",
    "shape": "mixed_1995",

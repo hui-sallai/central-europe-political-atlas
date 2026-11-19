@@ -1,5 +1,171 @@
 [
   {
+    "legislature_id": "lg-hr-sabor-1992",
+    "country": "croatia",
+    "chamber": "Hrvatski sabor",
+    "chamber_printed": "Zastupnički dom Sabora Republike Hrvatske",
+    "official_term": null,
+    "election_id": "el-hr-sabor-1992-08-02",
+    "total_seats": 138,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "seats_by_mechanism": {
+      "national_lists": 60,
+      "single_member_constituencies": 60,
+      "national_minorities_special_constituencies": 4,
+      "serbian_community_from_national_lists": 13,
+      "minorities_under_8_percent_from_national_lists": 1
+    },
+    "seats_by_national_list": [
+      {
+        "label": "Dalmatinska akcija, Istarski demokratski sabor - IDS i Riječki demokratski savez",
+        "title_sha256": "b5184585b81ae49ed4dc01082c41d739b1804e8b0c07b0811ecb2da85527d2ef",
+        "seats": 2
+      },
+      {
+        "label": "Hrvatska demokratska zajednica - HDZ",
+        "title_sha256": "2e5f05ecc1919803ab342c9bcaf7de6c50334788ebbf9841058d532add2d3f18",
+        "seats": 31
+      },
+      {
+        "label": "Hrvatska narodna stranka - HNS",
+        "title_sha256": "8f74bb6358234b1ae284e66de03faa03babefef1866a396634be718255d2cab3",
+        "seats": 4
+      },
+      {
+        "label": "Hrvatska seljačka stranka - HSS",
+        "title_sha256": "4ef6f22e30549730a93428706c754400ba04e12006304e1d4ff00cf6169bcc1a",
+        "seats": 3
+      },
+      {
+        "label": "Hrvatska socijalno liberalna stranka - HSLS",
+        "title_sha256": "ead59e5270c8a618a80c5eeae635a214f90ea0bce82340352253e0397e726d38",
+        "seats": 12
+      },
+      {
+        "label": "Hrvatska stranka prava - HSP",
+        "title_sha256": "d81f738a5154db12c6c01a9e2eea27f279b46088381bfd328e42e492e6a69bc3",
+        "seats": 5
+      },
+      {
+        "label": "Socijaldemokratska partija Hrvatske - Stranka demokratskih promjena - SDP",
+        "title_sha256": "31c0adc86433aebb173f1a1f71a3ac1aeec1300ce7dee76eceb2ebb31be9e3d1",
+        "seats": 3
+      }
+    ],
+    "members_declared_elected_from_national_lists": {
+      "serbian_community": [
+        {
+          "label": "Hrvatska narodna stranka - HNS",
+          "title_sha256": "8f74bb6358234b1ae284e66de03faa03babefef1866a396634be718255d2cab3",
+          "seats": 2
+        },
+        {
+          "label": "Socijaldemokratska partija Hrvatske - Stranka demokratskih promjena - SDP",
+          "title_sha256": "31c0adc86433aebb173f1a1f71a3ac1aeec1300ce7dee76eceb2ebb31be9e3d1",
+          "seats": 8
+        },
+        {
+          "label": "Srpska narodna stranka",
+          "title_sha256": "a40596814d9830cd1fc47575184722892ff22852e050fe437cc0109d9a7e07ca",
+          "seats": 3
+        }
+      ],
+      "minorities_under_8_percent": [
+        {
+          "label": "Hrvatska socijalno liberalna stranka - HSLS",
+          "title_sha256": "ead59e5270c8a618a80c5eeae635a214f90ea0bce82340352253e0397e726d38",
+          "seats": 1
+        }
+      ]
+    },
+    "single_member_seats_by_nominator": [
+      {
+        "nominated_by": "HDZ",
+        "seats": 54
+      },
+      {
+        "nominated_by": "IDS",
+        "seats": 3
+      },
+      {
+        "nominated_by": "NK",
+        "seats": 1
+      },
+      {
+        "nominated_by": "HSLS",
+        "seats": 1
+      },
+      {
+        "nominated_by": "RDS",
+        "seats": 1
+      }
+    ],
+    "seats_by_national_minority_constituency": [
+      {
+        "constituency": "hr-special-1",
+        "seat_printed": "BUJE",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-special-2",
+        "seat_printed": "OSIJEK",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-special-3",
+        "seat_printed": "DARUVAR",
+        "seats": 1
+      },
+      {
+        "constituency": "hr-special-4",
+        "seat_printed": "OSIJEK",
+        "seats": 1
+      }
+    ],
+    "seat_grouping_note": "Seats are listed per tier as printed; nominators of single-member winners are grouped by the identical printed nominator string. Members declared elected from national lists (Arts. 10 and 26(1)) are counted per list and kept apart from the 60 D’Hondt seats. No seat is attributed to a party across tiers.",
+    "result_vintage": "final: Electoral Commission of the Republic of Croatia decisions (KLASA 013-03/92-01/05): national lists of 1992-08-10 (URBROJ 56605-92-527) and 64 constituency decisions of 1992-08-11 (URBROJ 56605-92-463 to -526), scanned; read by OCR with every unit reconciled and checked by eye where needed",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-hr-izbori-final-1992-lists",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1992/rezultati/1992_2_2_Rezultati_Sabor_zastupnicki_dom_po_listama.pdf",
+        "source_record_id": "decision URBROJ 56605-92-527 sections I–III",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "fields_covered": [
+          "total_seats",
+          "seats_by_mechanism"
+        ],
+        "published_or_derived": "derived_count_of_published_rows",
+        "publisher_file_sha256": "00ca21dd37e4175101d8b1a4f10e628c14d3d9924a98ccf4d6d0d6fb66af4e38"
+      },
+      {
+        "source_id": "src-hr-izbori-final-1992-constituencies",
+        "source_url": "https://www.izbori.hr/arhiva-izbora/data/parlament/1992/rezultati/1992_2_1_Rezultati_Sabor_zastupnicki_dom_po_IJ.pdf",
+        "source_record_id": "sum of the 64 constituency decisions",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/croatia/sabor/evidence.json",
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
+        },
+        "parser_version": "croatia-sabor-v1",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
+        "fields_covered": [
+          "single_member_seats_by_nominator"
+        ],
+        "published_or_derived": "derived_count_of_published_rows",
+        "publisher_file_sha256": "a3bf66b2e220024592715229248d8f5c2a2b407cbfd7bf6d571c3853ab0a471b"
+      }
+    ]
+  },
+  {
     "legislature_id": "lg-hr-sabor-1995",
     "country": "croatia",
     "chamber": "Hrvatski sabor",
@@ -122,10 +288,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism"
@@ -303,10 +469,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -563,10 +729,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -766,10 +932,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -960,10 +1126,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -1162,10 +1328,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -1385,10 +1551,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -1637,10 +1803,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",
@@ -1879,10 +2045,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/croatia/sabor/evidence.json",
-          "sha256": "f9035675b56d69144b4ac001c81e2d71f425d8fe8ef1206628d4721bd0a44314"
+          "sha256": "1fcf5eba990f11651bb58fb122ded9ead688a5464bf479af501168b458dbfe52"
         },
         "parser_version": "croatia-sabor-v1",
-        "parser_sha256": "ee842c620a90981dd85f2dbf1101008ce35b3d2a8a152a831a9ac7a1653586ba",
+        "parser_sha256": "4a3c172141c0868f127a35617a1c3c397dc02c08902e3da7655290d53ccfb3da",
         "fields_covered": [
           "total_seats",
           "seats_by_mechanism",

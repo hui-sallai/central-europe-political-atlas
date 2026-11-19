@@ -106,6 +106,7 @@ export const POLITICAL_ADMISSIONS = {
   'slovenia-dz-2000': { approved_on: '2026-11-19', country: 'slovenia', gate_record: 'docs/political-data/slovenia_dz2000_admission.json', paths: SLOVENIAN_PATHS },
   'romania-parliament-2020': { approved_on: '2026-11-19', country: 'romania', gate_record: 'docs/political-data/romania_parliament2020_admission.json', paths: ROMANIAN_PATHS },
   'croatia-sabor-1995': { approved_on: '2026-11-19', country: 'croatia', gate_record: 'docs/political-data/croatia_sabor1995_admission.json', paths: CROATIAN_PATHS },
+  'croatia-sabor-1992': { approved_on: '2026-11-19', country: 'croatia', gate_record: 'docs/political-data/croatia_sabor1992_admission.json', paths: CROATIAN_PATHS },
   'austria-nationalrat-2006-2008': { approved_on: '2026-11-19', country: 'austria', gate_record: 'docs/political-data/austria_nationalrat2006_2008_admission.json', paths: AUSTRIAN_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];
