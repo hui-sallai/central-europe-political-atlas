@@ -1,5 +1,103 @@
 [
   {
+    "election_id": "el-ro-cd-2012-12-09",
+    "country": "romania",
+    "geography": "national",
+    "vote_type": "ro_cd_list_vote",
+    "result_vintage": "AEP centralised results published on data.gov.ro (files saved by the owner 2026-11-19); seats as the mandates printed in the AEP candidate file; not the Central Electoral Bureau final act",
+    "eligible_voters": 18423066,
+    "voters_turned_out": 7694180,
+    "voters": 7694180,
+    "valid_votes": 7409626,
+    "invalid_votes": 212289,
+    "ballots_cast": null,
+    "blank_votes": 71364,
+    "published_turnout": null,
+    "derived_turnout": 41.76384104578467,
+    "turnout_definition": "Registered voters = voters on the permanent, supplementary and special lists; voters = persons present at the polls; valid, null and blank votes as counted per chamber (summed over the 43 constituencies; the same totals at polling-station and college level). No turnout percentage is printed; derived turnout = voters ÷ registered. Both chambers share registered voters and voters.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Registered voters = voters on the permanent, supplementary and special lists; voters = persons present at the polls; valid, null and blank votes as counted per chamber (summed over the 43 constituencies; the same totals at polling-station and college level). No turnout percentage is printed; derived turnout = voters ÷ registered. Both chambers share registered voters and voters.",
+      "sourceIds": [
+        "src-ro-aep-cd-2012"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2012",
+        "source_url": "https://data.gov.ro/dataset/alegeri-pentru-camera-deputatilor-si-senat-2012",
+        "source_record_id": "rezultate2012nivelcircumscriptie.xls: Numar Alegatori Liste / Prezenti la Urne / Voturi Valabil Exprimate / Nule / Albe, summed over constituencies",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
+        },
+        "parser_version": "romania-parliament-v3",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "blank_votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d524336c7ce18cc217c6824118c451286c346522e4be4b34615fe857610ea416"
+      }
+    ]
+  },
+  {
+    "election_id": "el-ro-s-2012-12-09",
+    "country": "romania",
+    "geography": "national",
+    "vote_type": "ro_s_list_vote",
+    "result_vintage": "AEP centralised results published on data.gov.ro (files saved by the owner 2026-11-19); seats as the mandates printed in the AEP candidate file; not the Central Electoral Bureau final act",
+    "eligible_voters": 18423066,
+    "voters_turned_out": 7694180,
+    "voters": 7694180,
+    "valid_votes": 7416628,
+    "invalid_votes": 185980,
+    "ballots_cast": null,
+    "blank_votes": 90968,
+    "published_turnout": null,
+    "derived_turnout": 41.76384104578467,
+    "turnout_definition": "Registered voters = voters on the permanent, supplementary and special lists; voters = persons present at the polls; valid, null and blank votes as counted per chamber (summed over the 43 constituencies; the same totals at polling-station and college level). No turnout percentage is printed; derived turnout = voters ÷ registered. Both chambers share registered voters and voters.",
+    "turnout_basis": {
+      "numerator": "voters_turned_out",
+      "denominator": "registered_electorate",
+      "definition": "Registered voters = voters on the permanent, supplementary and special lists; voters = persons present at the polls; valid, null and blank votes as counted per chamber (summed over the 43 constituencies; the same totals at polling-station and college level). No turnout percentage is printed; derived turnout = voters ÷ registered. Both chambers share registered voters and voters.",
+      "sourceIds": [
+        "src-ro-aep-s-2012"
+      ]
+    },
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2012",
+        "source_url": "https://data.gov.ro/dataset/alegeri-pentru-camera-deputatilor-si-senat-2012",
+        "source_record_id": "rezultate2012nivelcircumscriptie.xls: Numar Alegatori Liste / Prezenti la Urne / Voturi Valabil Exprimate / Nule / Albe, summed over constituencies",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
+        },
+        "parser_version": "romania-parliament-v3",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
+        "fields_covered": [
+          "eligible_voters",
+          "voters_turned_out",
+          "voters",
+          "valid_votes",
+          "invalid_votes",
+          "blank_votes"
+        ],
+        "published_or_derived": "derived_sum_of_published_rows",
+        "publisher_file_sha256": "d524336c7ce18cc217c6824118c451286c346522e4be4b34615fe857610ea416"
+      }
+    ]
+  },
+  {
     "election_id": "el-ro-cd-2016-12-11",
     "country": "romania",
     "geography": "national",
@@ -29,10 +127,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
         "fields_covered": [
           "valid_votes"
         ],
@@ -71,10 +169,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
         "fields_covered": [
           "valid_votes"
         ],
@@ -116,10 +214,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -166,10 +264,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -216,10 +314,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",
@@ -266,10 +364,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
         "fields_covered": [
           "eligible_voters",
           "voters_turned_out",

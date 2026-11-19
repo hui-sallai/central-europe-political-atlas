@@ -2,6 +2,8 @@
   "schema_version": "romania-political-export-v1",
   "country": "romania",
   "elections": [
+    "el-ro-cd-2012-12-09",
+    "el-ro-s-2012-12-09",
     "el-ro-cd-2016-12-11",
     "el-ro-s-2016-12-11",
     "el-ro-cd-2020-12-06",
@@ -9,14 +11,14 @@
     "el-ro-cd-2024-12-01",
     "el-ro-s-2024-12-01"
   ],
-  "coverage": "2016: Chamber of Deputies 329 of 329 seats, Senate 136 of 136 seats; 2020: Chamber of Deputies 330 of 330 seats, Senate 136 of 136 seats; 2024: Chamber of Deputies 331 of 331 seats, Senate 134 senators elected of 136 seats; national level",
+  "coverage": "2012: Chamber of Deputies 412 of 412 seats, Senate 176 of 176 seats (seats as published, not recomputed); 2016: Chamber of Deputies 329 of 329 seats, Senate 136 of 136 seats; 2020: Chamber of Deputies 330 of 330 seats, Senate 136 of 136 seats; 2024: Chamber of Deputies 331 of 331 seats, Senate 134 senators elected of 136 seats; national level",
   "not_included": [
     "2016 registered voters, voters and turnout",
     "constituency vote results",
     "independent candidates’ names",
     "candidate names",
     "party attribution and cross-election links",
-    "2012 elections"
+    "2012 college-level results and seat recomputation"
   ],
   "stores": [
     "elections",

@@ -1,0 +1,81 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "romania-parliament-2012",
+ "country": "romania",
+ "election_ids": [
+  "el-ro-cd-2012-12-09",
+  "el-ro-s-2012-12-09"
+ ],
+ "scope": "Parliament election of 9 December 2012 (Law 35/2008) as two separate elections: Chamber of Deputies (412 seats: 315 single-member colleges, 79 additional seats, 18 national-minority organisation seats) and Senate (176 seats: 137 colleges, 39 additional seats): every competitor with national votes, independent candidates aggregated without names, registered voters, voters, valid, null and blank votes, derived turnout, seats per competitor and per constituency as published in the AEP candidate file (not recomputed). College-level results, candidate names, party attribution and a recomputation of the Law 35/2008 allocation are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-18",
+   "decision": "Owner brief \"Complete ten-country parliamentary election coverage\" and answers for Romania (\"both\"); the AEP open data on data.gov.ro is used under OGL-ROU-1.0 as for 2016."
+  },
+  {
+   "date": "2026-11-19",
+   "decision": "Owner saved the six AEP 2012 files from data.gov.ro. Told that the Law 35/2008 seat allocation cannot be recomputed without the statute (legislatie.just.ro blocked), the owner answered \"Admit, seats as published\": seats are the mandates printed in the AEP candidate file, checked against the threshold, the minority rule and the absolute-majority winners, and marked as not recomputed."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/romania/parliament/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "open_licence_ogl_rou_1_0",
+   "evidence_kind": "licence",
+   "basis": "AEP open data on data.gov.ro under the Open Government Licence Romania 1.0 (OGL-ROU-1.0), as for the 2016 admission."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_and_seat_tables",
+   "evidence_kind": "owner_decision",
+   "basis": "National counts, competitor votes and seat tables (per competitor and per constituency) summed from the AEP files, attributed to the AEP and data.gov.ro; no candidate names."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The six AEP files (including the 82 MB polling-station file) stay in local-evidence/ by SHA-256; they are not committed or republished."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_manual_download",
+   "evidence_kind": "owner_decision",
+   "basis": "Saved by the owner from data.gov.ro (dataset alegeri-pentru-camera-deputatilor-si-senat-2012); the assistant made no request."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "The county, college, candidate and polling-station files were read in full for both chambers; the two locality/abroad statistics files are recorded as received and not used."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled_seats_as_published",
+   "evidence_kind": "build_check",
+   "basis": "Per chamber: competitor and independent votes = valid votes; registered voters, voters, valid, null and blank votes are identical when summed from the polling-station (18,762 records), college and county files; competitor votes agree between files (independents named in one, blank in the other, same total); the candidate file matches the college file row for row. Seats are the mandates printed in the candidate file: they sum to 412 and 176, equal the per-county table, are held only by the four competitors over 5% of valid votes plus (Chamber) 18 minority organisations below 5% with one seat each, and every absolute-majority college winner holds one. The Law 35/2008 allocation is not recomputed (owner decision)."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list_per_chamber",
+   "evidence_kind": "owner_decision",
+   "basis": "Each chamber is its own election with its own contestants; competitors keep their printed names (one shown without a person's name); independents are one aggregate row; no competitor is linked to a party, to later lists or across chambers."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "seats_as_published_rules_not_recomputed",
+   "evidence_kind": "build_check",
+   "basis": "Law 35/2008 as applied in 2012 (statute text not read; legislatie.just.ro is blocked): single-member colleges, national threshold, county-level allocation and additional seats. Recorded checks: seat holders = competitors over 5% plus Chamber minority organisations; every absolute-majority college winner seated; seats − colleges − minority seats = additional seats (79 and 39). Alliance thresholds and the alternative college criterion are not tested."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "aep_centralisation_not_bec_final_act",
+   "evidence_kind": "official_act",
+   "basis": "AEP centralised results on data.gov.ro, not the Central Electoral Bureau final act; the polling day (9 December 2012) is not printed in the files and is taken from the repository's national election source registry (verified_harmonized)."
+  }
+ },
+ "continuity": "None: no party register was reviewed, so no link is made between elections, even where a list title repeats. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}

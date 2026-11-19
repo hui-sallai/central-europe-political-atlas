@@ -106,12 +106,13 @@
   {
    "country": "romania",
    "elections": [
+    2012,
     2016,
     2020,
     2024
    ],
-   "scope": "Parliament 2016, 2020 and 2024, each as two separate elections: 2016 Chamber of Deputies (329 seats incl. 17 national-minority organisation seats) and Senate (136 seats) from AEP files on data.gov.ro, turnout not published; 2020 Chamber of Deputies (330 seats incl. 18 national-minority organisation seats) and Senate (136 seats) from the Central Electoral Bureau final acts (Internet Archive captures saved by the owner); 2024 Chamber of Deputies (331 seats incl. 19 national-minority organisation seats) and Senate (134 senators elected of 136 seats) from the Central Electoral Bureau final acts saved by the owner; 2020 and 2024 with printed counts and derived turnout; 2012 not admitted",
-   "record": "docs/political-data/romania_parliament2020_admission.json"
+   "scope": "Parliament 2016, 2020 and 2024, each as two separate elections: 2016 Chamber of Deputies (329 seats incl. 17 national-minority organisation seats) and Senate (136 seats) from AEP files on data.gov.ro, turnout not published; 2020 Chamber of Deputies (330 seats incl. 18 national-minority organisation seats) and Senate (136 seats) from the Central Electoral Bureau final acts (Internet Archive captures saved by the owner); 2024 Chamber of Deputies (331 seats incl. 19 national-minority organisation seats) and Senate (134 senators elected of 136 seats) from the Central Electoral Bureau final acts saved by the owner; 2020 and 2024 with printed counts and derived turnout; 2012 Chamber of Deputies (412 seats incl. 79 additional and 18 national-minority organisation seats) and Senate (176 seats incl. 39 additional) from AEP files on data.gov.ro under Law 35/2008, seats as published in the AEP candidate file (not recomputed; owner answer \"Admit, seats as published\")",
+   "record": "docs/political-data/romania_parliament2012_admission.json"
   },
   {
    "country": "austria",
@@ -272,6 +273,12 @@
    "country": "austria",
    "question": "Admit the Nationalrat elections of 2006 and 2008 once the owner supplies their seat tables?",
    "decision": "The owner asked for the exact links and saved the 2006 and 2008 seat tables (and the 2006 third-stage table) by hand; both admitted: the seat tables reconcile and national D'Hondt over 183 reproduces every party's seats."
+  },
+  {
+   "date": "2026-11-19",
+   "country": "romania",
+   "question": "Romania 2012 used the Law 35/2008 mixed-member system with additional seats; its allocation cannot be recomputed without the statute (legislatie.just.ro blocked). How should it be admitted?",
+   "decision": "\"Admit, seats as published\": seats are the mandates printed in the AEP candidate file, checked against the 5% threshold, the minority rule and the absolute-majority college winners, and marked as not recomputed."
   }
  ],
  "countries": {

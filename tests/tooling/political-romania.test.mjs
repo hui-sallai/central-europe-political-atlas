@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { buildRomania, reconcile, reconcile2024 } from '../../scripts/political-data/romania/build-parliament.mjs';
+import { buildRomania, reconcile, reconcile2024, reconcile2012 } from '../../scripts/political-data/romania/build-parliament.mjs';
 
 const root = path.resolve(import.meta.dirname, '..', '..');
 const evidence = JSON.parse(fs.readFileSync(path.join(root, 'docs/political-data/raw/romania/parliament/evidence.json'), 'utf8'));
@@ -21,15 +21,15 @@ test('the build reproduces the committed stores and exports', () => {
 
 test('Chamber of Deputies and Senate are separate elections and never combined', () => {
   const data = buildRomania();
-  assert.deepEqual(data.elections.map((e) => [e.election_id, e.chamber]), [['el-ro-cd-2016-12-11', 'Camera Deputaților'], ['el-ro-s-2016-12-11', 'Senat'], ['el-ro-cd-2020-12-06', 'Camera Deputaților'], ['el-ro-s-2020-12-06', 'Senat'], ['el-ro-cd-2024-12-01', 'Camera Deputaților'], ['el-ro-s-2024-12-01', 'Senat']]);
-  assert.deepEqual(data.legislatures.map((l) => l.total_seats), [329, 136, 330, 136, 331, 134]);
+  assert.deepEqual(data.elections.map((e) => [e.election_id, e.chamber]), [['el-ro-cd-2012-12-09', 'Camera Deputaților'], ['el-ro-s-2012-12-09', 'Senat'], ['el-ro-cd-2016-12-11', 'Camera Deputaților'], ['el-ro-s-2016-12-11', 'Senat'], ['el-ro-cd-2020-12-06', 'Camera Deputaților'], ['el-ro-s-2020-12-06', 'Senat'], ['el-ro-cd-2024-12-01', 'Camera Deputaților'], ['el-ro-s-2024-12-01', 'Senat']]);
+  assert.deepEqual(data.legislatures.map((l) => l.total_seats), [412, 176, 329, 136, 330, 136, 331, 134]);
   for (const e of data.elections) {
     const rows = data.election_results.filter((r) => r.election_id === e.election_id);
     assert.equal(new Set(rows.map((r) => r.vote_type)).size, 1);
     assert.equal(rows.reduce((n, r) => n + r.seats, 0), data.legislatures.find((l) => l.election_id === e.election_id).total_seats);
     assert.ok(rows.every((r) => r.valid_votes === rows[0].valid_votes));
   }
-  for (const year of [2016, 2020, 2024]) {
+  for (const year of [2012, 2016, 2020, 2024]) {
     const [cd, s] = of(data, year).elections.map((e) => data.election_results.find((r) => r.election_id === e.election_id).valid_votes);
     assert.notEqual(cd, s, String(year));
   }
@@ -113,6 +113,32 @@ test('2024 Senate: 134 of 136 seats filled; the two undeployed seats are exactly
   assert.throws(() => reconcile2024('S', t3), /valid votes/);
 });
 
+test('2012: counts agree across polling-station, college and county files; seats as published and checked, never recomputed', () => {
+  const data = buildRomania();
+  assert.deepEqual(data.checks[2012].CD.total_seats, 412);
+  assert.deepEqual([data.checks[2012].CD.colleges, data.checks[2012].CD.additional_seats, data.checks[2012].CD.minority_seats], [315, 79, 18]);
+  assert.deepEqual([data.checks[2012].S.colleges, data.checks[2012].S.additional_seats, data.checks[2012].S.total_seats], [137, 39, 176]);
+  const seats = (id) => Object.fromEntries(data.election_results.filter((r) => r.election_id === id && r.seats > 0 && r.contestant_ref.match(/-0[1-4]$/)).map((r) => [data.electoral_contestants.find((c) => c.contestant_id === r.contestant_ref).historical_display_label, r.seats]));
+  assert.deepEqual(seats('el-ro-cd-2012-12-09'), { 'UNIUNEA SOCIAL LIBERALĂ': 273, 'ALIANŢA ROMÂNIA DREAPTĂ': 56, 'PARTIDUL POPORULUI': 47, 'UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA': 18 });
+  assert.deepEqual(seats('el-ro-s-2012-12-09'), { 'UNIUNEA SOCIAL LIBERALĂ': 122, 'ALIANŢA ROMÂNIA DREAPTĂ': 24, 'PARTIDUL POPORULUI': 21, 'UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA': 9 });
+  const pp = data.electoral_contestants.filter((c) => c.election_id.includes('2012') && c.label_basis === 'partial_personal_name_omitted');
+  assert.ok(pp.length === 2 && pp.every((c) => c.historical_display_label === 'PARTIDUL POPORULUI' && /^[0-9a-f]{64}$/.test(c.title_sha256)));
+  assert.ok(data.legislatures.filter((l) => l.election_id.includes('2012')).every((l) => /published_not_recomputed/.test(l.seat_source)));
+  const t12 = data.election_turnout.filter((x) => x.election_id.includes('2012'));
+  assert.ok(t12.every((x) => x.eligible_voters === 18423066 && x.voters === 7694180 && x.published_turnout === null));
+  const c = evidence.elections['2012'].chambers.CD;
+  const tampers = [
+    (x) => { x.lists[0].votes += 1; },
+    (x) => { x.cross_check.counts_by_polling_stations[1] += 1; },
+    (x) => { x.lists[4].seats += 1; x.seats_by_constituency[0].seats[x.lists[4].name] = (x.seats_by_constituency[0].seats[x.lists[4].name] ?? 0) + 1; x.mandates_per_college['1'] += 1; x.colleges += 1; },
+    (x) => { x.lists[0].absolute_majority_college_wins = x.lists[0].seats + 1; },
+    (x) => { x.independents.seats = 1; },
+  ];
+  for (const tamper of tampers) { const t = structuredClone(c); tamper(t); assert.throws(() => reconcile2012('CD', t), /2012/); }
+  // Candidate names are never written: no evidence or store field carries one.
+  for (const ch of ['CD', 'S']) assert.ok(!JSON.stringify(evidence.elections['2012'].chambers[ch]).includes('NUME'));
+});
+
 test('turnout: none invented for 2016; 2024 counts as printed with turnout derived as b ÷ a', () => {
   const data = buildRomania();
   const t16 = data.election_turnout.filter((t) => t.election_id.includes('2016'));
@@ -125,7 +151,7 @@ test('turnout: none invented for 2016; 2024 counts as printed with turnout deriv
 test('no candidate is named: independents are aggregated and section k/m.5 names are never stored', () => {
   const data = buildRomania();
   const ind = data.electoral_contestants.filter((c) => c.contestant_kind === 'independent_candidates_aggregate');
-  assert.deepEqual(ind.map((c) => c.independent_candidates), [39, 5, 41, 1, 52, 6]);
+  assert.deepEqual(ind.map((c) => c.independent_candidates), [11, 1, 39, 5, 41, 1, 52, 6]);
   for (const dir of ['src/data/political/romania', 'public/research-data/political/romania', 'docs/political-data/raw/romania']) {
     for (const file of fs.readdirSync(path.join(root, dir), { recursive: true }).map(String).filter((x) => /\.(json|csv|md)$/.test(x))) {
       const text = fs.readFileSync(path.join(root, dir, file), 'utf8');

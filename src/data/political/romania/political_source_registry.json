@@ -1,5 +1,101 @@
 [
   {
+    "source_id": "src-ro-aep-cd-2012",
+    "country": "romania",
+    "institution": "Autoritatea Electorală Permanentă (Permanent Electoral Authority)",
+    "dataset": "Alegeri pentru Camera Deputaților și Senat 2012 — Camera Deputaților: results per constituency, college and polling station, and candidate mandates (data.gov.ro)",
+    "tier": "tier1_official",
+    "url": "https://data.gov.ro/dataset/alegeri-pentru-camera-deputatilor-si-senat-2012",
+    "licence_status": "open_licence_ogl_rou_1_0",
+    "raw_redistribution": "national sums and seat tables only; polling-station and candidate files not redistributed; candidate names never stored",
+    "licence_url": "https://data.gov.ro/pages/licence",
+    "attribution": "Autoritatea Electorală Permanentă, data.gov.ro",
+    "retrieved_at": "2026-11-19",
+    "acquisition": "owner download 2026-11-19 from data.gov.ro (six AEP files); the assistant made no request; kept in local-evidence/ by checksum",
+    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
+    "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
+    "files": {
+      "rezultate2012nivelcircumscriptie.xls": {
+        "sha256": "d524336c7ce18cc217c6824118c451286c346522e4be4b34615fe857610ea416",
+        "role": "competitor votes and counts per constituency (county) and chamber",
+        "used": true
+      },
+      "statisticinivelcolegiu.xls": {
+        "sha256": "2aa700168a2c8c48d5952a04e6379345443dc2ee3992b90dc355c1ac4183cc1e",
+        "role": "candidate votes and counts per single-member college",
+        "used": true
+      },
+      "rezultatecandidati2012.xls": {
+        "sha256": "6aed0fe45c7bc0c95516e877c86f1779d43bec69a260b3477fe8f63ad55d0609",
+        "role": "candidate votes per college with the mandate assigned (Mandat Atribuit)",
+        "used": true
+      },
+      "rezultatenivelsectieparlamentare2012.csv": {
+        "sha256": "7bdc6245a7a74ddf19cc83b73e6a1e0df04961bcc5825b03e0121e9fa556e940",
+        "role": "candidate votes and counts per polling station (cross-check only)",
+        "used": true
+      },
+      "rezultate2012-statisticapelocalitati.xls": {
+        "sha256": "b7d2b4e665e5e066789c24f4c7ad060a0a7e90de76421d014ebee6cb8a22725b",
+        "role": "statistics per locality (not used)",
+        "used": false
+      },
+      "rezultate2012-statisticastrainatatepetari.xls": {
+        "sha256": "414424e94a06508d5260da8b485b0e5720353aa0c9d9d805f82103e4371b60de",
+        "role": "statistics abroad per country (not used)",
+        "used": false
+      }
+    }
+  },
+  {
+    "source_id": "src-ro-aep-s-2012",
+    "country": "romania",
+    "institution": "Autoritatea Electorală Permanentă (Permanent Electoral Authority)",
+    "dataset": "Alegeri pentru Camera Deputaților și Senat 2012 — Senat: results per constituency, college and polling station, and candidate mandates (data.gov.ro)",
+    "tier": "tier1_official",
+    "url": "https://data.gov.ro/dataset/alegeri-pentru-camera-deputatilor-si-senat-2012",
+    "licence_status": "open_licence_ogl_rou_1_0",
+    "raw_redistribution": "national sums and seat tables only; polling-station and candidate files not redistributed; candidate names never stored",
+    "licence_url": "https://data.gov.ro/pages/licence",
+    "attribution": "Autoritatea Electorală Permanentă, data.gov.ro",
+    "retrieved_at": "2026-11-19",
+    "acquisition": "owner download 2026-11-19 from data.gov.ro (six AEP files); the assistant made no request; kept in local-evidence/ by checksum",
+    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
+    "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
+    "files": {
+      "rezultate2012nivelcircumscriptie.xls": {
+        "sha256": "d524336c7ce18cc217c6824118c451286c346522e4be4b34615fe857610ea416",
+        "role": "competitor votes and counts per constituency (county) and chamber",
+        "used": true
+      },
+      "statisticinivelcolegiu.xls": {
+        "sha256": "2aa700168a2c8c48d5952a04e6379345443dc2ee3992b90dc355c1ac4183cc1e",
+        "role": "candidate votes and counts per single-member college",
+        "used": true
+      },
+      "rezultatecandidati2012.xls": {
+        "sha256": "6aed0fe45c7bc0c95516e877c86f1779d43bec69a260b3477fe8f63ad55d0609",
+        "role": "candidate votes per college with the mandate assigned (Mandat Atribuit)",
+        "used": true
+      },
+      "rezultatenivelsectieparlamentare2012.csv": {
+        "sha256": "7bdc6245a7a74ddf19cc83b73e6a1e0df04961bcc5825b03e0121e9fa556e940",
+        "role": "candidate votes and counts per polling station (cross-check only)",
+        "used": true
+      },
+      "rezultate2012-statisticapelocalitati.xls": {
+        "sha256": "b7d2b4e665e5e066789c24f4c7ad060a0a7e90de76421d014ebee6cb8a22725b",
+        "role": "statistics per locality (not used)",
+        "used": false
+      },
+      "rezultate2012-statisticastrainatatepetari.xls": {
+        "sha256": "414424e94a06508d5260da8b485b0e5720353aa0c9d9d805f82103e4371b60de",
+        "role": "statistics abroad per country (not used)",
+        "used": false
+      }
+    }
+  },
+  {
     "source_id": "src-ro-aep-cd-2016",
     "country": "romania",
     "institution": "Autoritatea Electorală Permanentă (Permanent Electoral Authority)",
@@ -11,7 +107,7 @@
     "licence_url": "https://data.gov.ro/pages/licence",
     "attribution": "Autoritatea Electorală Permanentă, data.gov.ro",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
+    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "files": {
       "stations": {
@@ -43,7 +139,7 @@
     "licence_url": "https://data.gov.ro/pages/licence",
     "attribution": "Autoritatea Electorală Permanentă, data.gov.ro",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
+    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "files": {
       "stations": {
@@ -76,7 +172,7 @@
     "licence_url": "https://data.gov.ro/pages/licence",
     "attribution": "Camera Deputaților",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
+    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "page_block_sha256": "9cf30fc60cbdfeb17504d61200d24ec8003921534757db91862d357713832afa"
   },
@@ -99,7 +195,7 @@
       "captured": "2021-01-15",
       "kind": "archived original PDF (byte copy of the publisher file as captured)"
     },
-    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
+    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "publisher_file_sha256": "b62912ecec728ea0fca4dc8d3801f82edd4f049200b8e791c2a8b879d0405d41"
   },
@@ -122,7 +218,7 @@
       "captured": "2021-01-14",
       "kind": "archived original PDF (byte copy of the publisher file as captured)"
     },
-    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
+    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "publisher_file_sha256": "6000d0e3086870eecf097d58c7321309499052e9928dbd5a3e186f7f1a8173e6"
   },
@@ -140,7 +236,7 @@
     "attribution": "Biroul Electoral Central",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
+    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "publisher_file_sha256": "27d0dc5be6a04bd3c94f4f94220bea3ffba3cade66e2ec60b94afa7f7c108239"
   },
@@ -158,7 +254,7 @@
     "attribution": "Biroul Electoral Central",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964",
+    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "publisher_file_sha256": "e87a5c6324192bc414903967b4cb6c616d9bb785edab127fd0b87798ee1c2270"
   }

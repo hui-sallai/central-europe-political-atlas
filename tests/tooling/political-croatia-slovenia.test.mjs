@@ -336,11 +336,11 @@ test('Slovenia 2000: gazette report from an archived copy; printed figures the c
   for (const h of ['web.archive.org', 'www.uradni-list.si']) assert.deepEqual(['status', 'automation_allowed', 'manual_allowed'].map((k) => hosts.find((x) => x.host === h)[k]), ['blocked', false, false], h);
 });
 
-test('the four countries: hosts registered manual-only; Austria admitted from owner files with BMI still blocked; Romania 2016, 2020 and 2024; the BEC hosts stay blocked', () => {
+test('the four countries: hosts registered manual-only; Austria admitted from owner files with BMI still blocked; Romania 2012, 2016, 2020 and 2024; the BEC hosts stay blocked', () => {
   const hosts = read('docs/legal-security/network_acquisition_registry.json').hosts;
   for (const h of ['www.izbori.hr', 'www.dvk-rs.si']) assert.deepEqual(['status', 'automation_allowed', 'manual_allowed'].map((k) => hosts.find((x) => x.host === h)[k]), ['allowed', false, true], h);
   assert.equal(hosts.find((x) => x.host === 'www.bmi.gv.at').status, 'blocked');
   assert.deepEqual(read('src/data/political/austria/elections.json').map((e) => e.year), [2002, 2006, 2008, 2013, 2017, 2019, 2024]);
-  assert.deepEqual(read('src/data/political/romania/elections.json').map((e) => e.election_id), ['el-ro-cd-2016-12-11', 'el-ro-s-2016-12-11', 'el-ro-cd-2020-12-06', 'el-ro-s-2020-12-06', 'el-ro-cd-2024-12-01', 'el-ro-s-2024-12-01']);
+  assert.deepEqual(read('src/data/political/romania/elections.json').map((e) => e.election_id), ['el-ro-cd-2012-12-09', 'el-ro-s-2012-12-09', 'el-ro-cd-2016-12-11', 'el-ro-s-2016-12-11', 'el-ro-cd-2020-12-06', 'el-ro-s-2020-12-06', 'el-ro-cd-2024-12-01', 'el-ro-s-2024-12-01']);
   assert.deepEqual(['status', 'automation_allowed', 'manual_allowed'].map((k) => hosts.find((x) => x.host === 'parlamentare2024.bec.ro')[k]), ['blocked', false, false]);
 });

@@ -1,6 +1,10 @@
-# Romania — Parliament elections of 11 December 2016, 6 December 2020 and 1 December 2024 (Chamber of Deputies and Senate)
+# Romania — Parliament elections of 9 December 2012, 11 December 2016, 6 December 2020 and 1 December 2024 (Chamber of Deputies and Senate)
 
-Six separate elections, never combined: each chamber in each year is its own election.
+Eight separate elections, never combined: each chamber in each year is its own election.
+
+## 2012
+
+Chamber of Deputies (412 seats: 315 single-member colleges, 79 additional seats and 18 national-minority organisation seats) and Senate (176 seats: 137 colleges and 39 additional seats), under Law 35/2008. Votes and counts are national sums of the Permanent Electoral Authority's files on data.gov.ro (OGL-ROU-1.0); the polling-station, college and county files agree exactly. Seats are the mandates printed in the AEP candidate file and are not recomputed (owner decision; the statute text was not read): seat holders are exactly the competitors above 5% of valid votes plus the Chamber's minority organisations, and every absolute-majority college winner holds a mandate. Turnout is derived. One competitor name containing a person's name is shown without it (title_sha256 kept).
 
 ## 2016
 

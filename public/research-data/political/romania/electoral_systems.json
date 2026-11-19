@@ -1,5 +1,195 @@
 [
   {
+    "electoral_system_id": "es-ro-cd-2012",
+    "country": "romania",
+    "election_id": "el-ro-cd-2012-12-09",
+    "valid_from": "2012-12-09",
+    "valid_to": "2012-12-09",
+    "interval_basis": "election-specific: Law 35/2008 as applied in 2012 (statute text not read; legislatie.just.ro blocked); the institutional registry holds the later statute",
+    "system_family": "mixed-member proportional: 315 single-member colleges in 43 constituencies with a national threshold, county-level proportional allocation and additional seats where absolute-majority college winners exceed a competitor's share; national-minority organisation seats",
+    "vote_type": "ro_cd_list_vote",
+    "allocation_method": "seats as published in the AEP candidate file; the Law 35/2008 allocation is not recomputed",
+    "base_seats": 315,
+    "vote_definitions": [
+      {
+        "id": "ro_cd_list_vote",
+        "kind": "list",
+        "label": {
+          "en": "Chamber of Deputies competitor votes (college candidates summed)",
+          "zh-CN": "众议院竞选者得票（各选区候选人合计）"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "whole_chamber",
+        "sourceIds": [
+          "src-ro-aep-cd-2012"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "Not recomputed: seats are the mandates printed in the AEP candidate file. Checked: seat holders are exactly the competitors above 5% of valid votes (plus Chamber minority organisations), and every absolute-majority college winner holds a mandate.",
+      "districtAllocation": "Single-member colleges (315); a candidate with an absolute majority in the college is elected; 79 additional seats arise where a competitor's absolute-majority winners exceed its share.",
+      "thresholds": [
+        {
+          "appliesTo": "competitor (party or alliance)",
+          "percent": 5,
+          "description": {
+            "en": "The 4 competitors holding seats (other than minority organisations) are exactly those with at least 5% of valid votes; alliance thresholds and the alternative college criterion are not tested (statute not read).",
+            "zh-CN": "获得席位的4个竞选者（少数民族组织除外）恰为得票达到有效票 5% 者；未检验联盟门槛与替代的选区条件（未阅读法律原文）。"
+          },
+          "sourceIds": [
+            "src-ro-aep-cd-2012"
+          ]
+        }
+      ],
+      "minorityRepresentation": {
+        "en": "18 organisations of national minorities below 5% hold one Chamber seat each in the AEP candidate file; the rule's vote minimum is not tested (statute not read).",
+        "zh-CN": "18 个得票低于 5% 的少数民族组织在 AEP 候选人文件中各获众议院一席；未检验该规则的最低票数（未阅读法律原文）。"
+      },
+      "totalSeatsDefinition": {
+        "en": "412 deputies: 315 single-member colleges, 79 additional seats and 18 national-minority organisation seats.",
+        "zh-CN": "412 名众议员：单一选区 315 个、增补席位 79 席、少数民族组织 18 席。"
+      },
+      "sourceIds": [
+        "src-ro-aep-cd-2012"
+      ]
+    },
+    "notes": {
+      "en": "Votes and counts are national sums of the AEP files on data.gov.ro; the polling-station, college and county files agree exactly. Seats are the mandates printed in the AEP candidate file and are not recomputed (owner decision; the Law 35/2008 text was not read). Turnout is derived. Independent candidates are aggregated without names; one competitor name containing a person’s name is shown without it.",
+      "zh-CN": "得票与计数为 data.gov.ro 上 AEP 文件的全国合计；投票站、选区与郡级文件完全一致。席位为 AEP 候选人文件所载席位，未重新计算（负责人决定；未阅读第 35/2008 号法律原文）。投票率为推算值。独立候选人合并列示，不存储姓名；一个含人名的竞选者名称去除人名后显示。"
+    },
+    "seat_check": {
+      "valid": 7409626,
+      "lists": 30,
+      "independents": 11,
+      "colleges": 315,
+      "minority_seats": 18,
+      "additional_seats": 79,
+      "total_seats": 412,
+      "competitors_over_5_percent": [
+        "UNIUNEA SOCIAL LIBERALĂ",
+        "ALIANŢA ROMÂNIA DREAPTĂ",
+        "PARTIDUL POPORULUI",
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA"
+      ],
+      "absolute_majority_college_wins": 279,
+      "allocation_model": "seats as published in the AEP candidate file (not recomputed); checked against the threshold, the minority rule and the absolute-majority winners"
+    },
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-cd-2012",
+        "source_url": "https://data.gov.ro/dataset/alegeri-pentru-camera-deputatilor-si-senat-2012",
+        "source_record_id": "rezultatecandidati2012.xls: mandates",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
+        },
+        "parser_version": "romania-parliament-v3",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
+        "fields_covered": [
+          "base_seats"
+        ],
+        "published_or_derived": "derived_count_of_published_rows",
+        "publisher_file_sha256": "6aed0fe45c7bc0c95516e877c86f1779d43bec69a260b3477fe8f63ad55d0609"
+      }
+    ]
+  },
+  {
+    "electoral_system_id": "es-ro-s-2012",
+    "country": "romania",
+    "election_id": "el-ro-s-2012-12-09",
+    "valid_from": "2012-12-09",
+    "valid_to": "2012-12-09",
+    "interval_basis": "election-specific: Law 35/2008 as applied in 2012 (statute text not read; legislatie.just.ro blocked); the institutional registry holds the later statute",
+    "system_family": "mixed-member proportional: 137 single-member colleges in 43 constituencies with a national threshold, county-level proportional allocation and additional seats where absolute-majority college winners exceed a competitor's share",
+    "vote_type": "ro_s_list_vote",
+    "allocation_method": "seats as published in the AEP candidate file; the Law 35/2008 allocation is not recomputed",
+    "base_seats": 137,
+    "vote_definitions": [
+      {
+        "id": "ro_s_list_vote",
+        "kind": "list",
+        "label": {
+          "en": "Senate competitor votes (college candidates summed)",
+          "zh-CN": "参议院竞选者得票（各选区候选人合计）"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "whole_chamber",
+        "sourceIds": [
+          "src-ro-aep-s-2012"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "Not recomputed: seats are the mandates printed in the AEP candidate file. Checked: seat holders are exactly the competitors above 5% of valid votes (plus Chamber minority organisations), and every absolute-majority college winner holds a mandate.",
+      "districtAllocation": "Single-member colleges (137); a candidate with an absolute majority in the college is elected; 39 additional seats arise where a competitor's absolute-majority winners exceed its share.",
+      "thresholds": [
+        {
+          "appliesTo": "competitor (party or alliance)",
+          "percent": 5,
+          "description": {
+            "en": "The 4 competitors holding seats (other than minority organisations) are exactly those with at least 5% of valid votes; alliance thresholds and the alternative college criterion are not tested (statute not read).",
+            "zh-CN": "获得席位的4个竞选者（少数民族组织除外）恰为得票达到有效票 5% 者；未检验联盟门槛与替代的选区条件（未阅读法律原文）。"
+          },
+          "sourceIds": [
+            "src-ro-aep-s-2012"
+          ]
+        }
+      ],
+      "minorityRepresentation": {
+        "en": "No minority-organisation seats in the Senate.",
+        "zh-CN": "参议院不设少数民族组织席位。"
+      },
+      "totalSeatsDefinition": {
+        "en": "176 senators: 137 single-member colleges and 39 additional seats.",
+        "zh-CN": "176 名参议员：单一选区 137 个、增补席位 39 席。"
+      },
+      "sourceIds": [
+        "src-ro-aep-s-2012"
+      ]
+    },
+    "notes": {
+      "en": "Votes and counts are national sums of the AEP files on data.gov.ro; the polling-station, college and county files agree exactly. Seats are the mandates printed in the AEP candidate file and are not recomputed (owner decision; the Law 35/2008 text was not read). Turnout is derived. Independent candidates are aggregated without names; one competitor name containing a person’s name is shown without it.",
+      "zh-CN": "得票与计数为 data.gov.ro 上 AEP 文件的全国合计；投票站、选区与郡级文件完全一致。席位为 AEP 候选人文件所载席位，未重新计算（负责人决定；未阅读第 35/2008 号法律原文）。投票率为推算值。独立候选人合并列示，不存储姓名；一个含人名的竞选者名称去除人名后显示。"
+    },
+    "seat_check": {
+      "valid": 7416628,
+      "lists": 12,
+      "independents": 1,
+      "colleges": 137,
+      "minority_seats": 0,
+      "additional_seats": 39,
+      "total_seats": 176,
+      "competitors_over_5_percent": [
+        "UNIUNEA SOCIAL LIBERALĂ",
+        "ALIANŢA ROMÂNIA DREAPTĂ",
+        "PARTIDUL POPORULUI",
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA"
+      ],
+      "absolute_majority_college_wins": 123,
+      "allocation_model": "seats as published in the AEP candidate file (not recomputed); checked against the threshold, the minority rule and the absolute-majority winners"
+    },
+    "provenance": [
+      {
+        "source_id": "src-ro-aep-s-2012",
+        "source_url": "https://data.gov.ro/dataset/alegeri-pentru-camera-deputatilor-si-senat-2012",
+        "source_record_id": "rezultatecandidati2012.xls: mandates",
+        "retrieved_at": "2026-11-19",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/romania/parliament/evidence.json",
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
+        },
+        "parser_version": "romania-parliament-v3",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
+        "fields_covered": [
+          "base_seats"
+        ],
+        "published_or_derived": "derived_count_of_published_rows",
+        "publisher_file_sha256": "6aed0fe45c7bc0c95516e877c86f1779d43bec69a260b3477fe8f63ad55d0609"
+      }
+    ]
+  },
+  {
     "electoral_system_id": "es-ro-cd-2016",
     "country": "romania",
     "election_id": "el-ro-cd-2016-12-11",
@@ -75,10 +265,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
         "fields_covered": [
           "base_seats"
         ],
@@ -163,10 +353,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
         },
         "parser_version": "romania-parliament-v1",
-        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
         "fields_covered": [
           "base_seats"
         ],
@@ -268,10 +458,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
         "fields_covered": [
           "base_seats"
         ],
@@ -373,10 +563,10 @@
         "retrieved_at": "2026-11-19",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
         "fields_covered": [
           "base_seats"
         ],
@@ -482,10 +672,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
         "fields_covered": [
           "base_seats"
         ],
@@ -604,10 +794,10 @@
         "retrieved_at": "2026-11-18",
         "raw_snapshot": {
           "path": "docs/political-data/raw/romania/parliament/evidence.json",
-          "sha256": "796945b6a2c436b5ce787843924a21528212a4782e20fd28b499cf3554c1c964"
+          "sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf"
         },
         "parser_version": "romania-parliament-v2",
-        "parser_sha256": "c2e98ef75740a2f515228cf27f95e58aca930f97d0e65423fae252d472870cb4",
+        "parser_sha256": "f0a2381a25dcc32c0f6cf9f8356d811887ae11e17325e25e1da7c3b1bf6175c4",
         "fields_covered": [
           "base_seats"
         ],

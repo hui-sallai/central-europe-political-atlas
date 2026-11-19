@@ -13,6 +13,1342 @@
  },
  "label_rule": "List names as printed in the AEP files. Independent candidates (columns named after persons) are aggregated into one row per chamber with their count; no name is stored. 2024: list names as printed in the Central Electoral Bureau acts; independent candidates are aggregated the same way.",
  "elections": {
+  "2012": {
+   "polling_day": {
+    "date": "2012-12-09",
+    "basis": "Not printed in the AEP files; the polling day recorded (verified_harmonized) in the repository's national election source registry for Romania"
+   },
+   "dataset_page": "https://data.gov.ro/dataset/alegeri-pentru-camera-deputatilor-si-senat-2012",
+   "retrieved_at": "2026-11-19",
+   "acquisition": "owner download 2026-11-19 from data.gov.ro (six AEP files); the assistant made no request; kept in local-evidence/ by checksum",
+   "files": {
+    "rezultate2012nivelcircumscriptie.xls": {
+     "sha256": "d524336c7ce18cc217c6824118c451286c346522e4be4b34615fe857610ea416",
+     "role": "competitor votes and counts per constituency (county) and chamber",
+     "used": true
+    },
+    "statisticinivelcolegiu.xls": {
+     "sha256": "2aa700168a2c8c48d5952a04e6379345443dc2ee3992b90dc355c1ac4183cc1e",
+     "role": "candidate votes and counts per single-member college",
+     "used": true
+    },
+    "rezultatecandidati2012.xls": {
+     "sha256": "6aed0fe45c7bc0c95516e877c86f1779d43bec69a260b3477fe8f63ad55d0609",
+     "role": "candidate votes per college with the mandate assigned (Mandat Atribuit)",
+     "used": true
+    },
+    "rezultatenivelsectieparlamentare2012.csv": {
+     "sha256": "7bdc6245a7a74ddf19cc83b73e6a1e0df04961bcc5825b03e0121e9fa556e940",
+     "role": "candidate votes and counts per polling station (cross-check only)",
+     "used": true
+    },
+    "rezultate2012-statisticapelocalitati.xls": {
+     "sha256": "b7d2b4e665e5e066789c24f4c7ad060a0a7e90de76421d014ebee6cb8a22725b",
+     "role": "statistics per locality (not used)",
+     "used": false
+    },
+    "rezultate2012-statisticastrainatatepetari.xls": {
+     "sha256": "414424e94a06508d5260da8b485b0e5720353aa0c9d9d805f82103e4371b60de",
+     "role": "statistics abroad per country (not used)",
+     "used": false
+    }
+   },
+   "seat_source": "published_not_recomputed: seats are the mandates printed in the AEP candidate file (owner answer 2026-11-19 \"Admit, seats as published\"); the Law 35/2008 allocation (national threshold, county quotas, overhang for absolute-majority college winners) is not recomputed because its text was not read (legislatie.just.ro is blocked)",
+   "label_rule_2012": "Lists as printed in the AEP files; one list name contains a person's name and is shown without it (title_sha256 kept); independent candidates aggregated, names never stored; candidate names read only to match rows between files.",
+   "chambers": {
+    "CD": {
+     "counts": {
+      "registered": 18423066,
+      "voters": 7694180,
+      "valid": 7409626,
+      "null": 212289,
+      "blank": 71364,
+      "ballots_received": 20599450,
+      "ballots_annulled": 12905166
+     },
+     "cross_check": {
+      "valid_by_polling_stations": 7409626,
+      "counts_by_polling_stations": [
+       18423066,
+       7694180,
+       7409626,
+       212289,
+       71364
+      ],
+      "polling_station_records": 18762,
+      "counts_by_colleges": [
+       18423066,
+       7694180,
+       7409626,
+       212289,
+       71364
+      ],
+      "valid_by_colleges": 7409626,
+      "candidate_file_rows": 7360,
+      "candidate_file_matches_college_file": true,
+      "independent_votes_by_colleges": 12389
+     },
+     "colleges": 315,
+     "mandates_per_college": {
+      "1": 225,
+      "2": 83,
+      "3": 7
+     },
+     "lists": [
+      {
+       "row": 1,
+       "name": "UNIUNEA SOCIAL LIBERALĂ",
+       "label_basis": "verbatim",
+       "competitor_code": 40,
+       "votes": 4344288,
+       "seats": 273,
+       "absolute_majority_college_wins": 265,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 2,
+       "name": "ALIANŢA ROMÂNIA DREAPTĂ",
+       "label_basis": "verbatim",
+       "competitor_code": 33,
+       "votes": 1223189,
+       "seats": 56,
+       "absolute_majority_college_wins": 2,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 3,
+       "name": "PARTIDUL POPORULUI",
+       "label_basis": "partial_personal_name_omitted",
+       "title_sha256": "9688fad79c980cff579bbd14d1fdbc20d64bd88ea0013c07f6d61ee76da978d2",
+       "competitor_code": 39,
+       "votes": 1036730,
+       "seats": 47,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 4,
+       "name": "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 23,
+       "votes": 380656,
+       "seats": 18,
+       "absolute_majority_college_wins": 12,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 5,
+       "name": "PARTIDUL ROMÂNIA MARE",
+       "label_basis": "verbatim",
+       "competitor_code": 18,
+       "votes": 92382,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 6,
+       "name": "PARTIDUL ECOLOGIST ROMÂN",
+       "label_basis": "verbatim",
+       "competitor_code": 10,
+       "votes": 58178,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 7,
+       "name": "ERDÉLYI MAGYAR NÉPPÁRT - PARTIDUL POPULAR MAGHIAR DIN TRANSILVANIA",
+       "label_basis": "verbatim",
+       "competitor_code": 38,
+       "votes": 47955,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 8,
+       "name": "FORUMUL DEMOCRAT AL GERMANILOR DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 6,
+       "votes": 39175,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 9,
+       "name": "ASOCIAŢIA PARTIDA ROMILOR \"PRO-EUROPA\"",
+       "label_basis": "verbatim",
+       "competitor_code": 25,
+       "votes": 22124,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 10,
+       "name": "ASOCIAŢIA MACEDONENILOR DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 9,
+       "votes": 12212,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 11,
+       "name": "UNIUNEA ARMENILOR DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 24,
+       "votes": 10761,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 12,
+       "name": "UNIUNEA BULGARĂ DIN BANAT - ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 5,
+       "votes": 10155,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 13,
+       "name": "FEDERAŢIA COMUNITĂŢILOR EVREIEŞTI DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 17,
+       "votes": 10019,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 14,
+       "name": "ASOCIAŢIA LIGA ALBANEZILOR DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 13,
+       "votes": 10010,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 15,
+       "name": "UNIUNEA ELENĂ DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 19,
+       "votes": 9863,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 16,
+       "name": "PARTIDUL POPULAR",
+       "label_basis": "verbatim",
+       "competitor_code": 31,
+       "votes": 9319,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 17,
+       "name": "UNIUNEA DEMOCRATĂ A TĂTARILOR TURCO-MUSULMANI DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 37,
+       "votes": 9291,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 18,
+       "name": "UNIUNEA DEMOCRATICĂ A SLOVACILOR ŞI CEHILOR DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 20,
+       "votes": 8677,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 19,
+       "name": "COMUNITATEA RUŞILOR LIPOVENI DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 8,
+       "votes": 8328,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 20,
+       "name": "UNIUNEA SÂRBILOR DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 30,
+       "votes": 8207,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 21,
+       "name": "UNIUNEA POLONEZILOR DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 27,
+       "votes": 8023,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 22,
+       "name": "ASOCIAŢIA ITALIENILOR DIN ROMÂNIA - RO.AS.IT.",
+       "label_basis": "verbatim",
+       "competitor_code": 3,
+       "votes": 7943,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 23,
+       "name": "UNIUNEA UCRAINENILOR DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 16,
+       "votes": 7353,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 24,
+       "name": "UNIUNEA DEMOCRATĂ TURCĂ DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 12,
+       "votes": 7324,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 25,
+       "name": "UNIUNEA CROAŢILOR DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 11,
+       "votes": 6281,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 26,
+       "name": "UNIUNEA CULTURALĂ A RUTENILOR DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 14,
+       "votes": 5265,
+       "seats": 1,
+       "absolute_majority_college_wins": 0,
+       "kind": "national_minority_organisation"
+      },
+      {
+       "row": 27,
+       "name": "PARTIDUL ALIANŢA SOCIALISTĂ",
+       "label_basis": "verbatim",
+       "competitor_code": 29,
+       "votes": 2331,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 28,
+       "name": "PARTIDUL POPULAR ŞI AL PROTECŢIEI SOCIALE",
+       "label_basis": "verbatim",
+       "competitor_code": 4,
+       "votes": 929,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 29,
+       "name": "PARTIDUL SOCIAL DEMOCRAT AL MUNCITORILOR",
+       "label_basis": "verbatim",
+       "competitor_code": 7,
+       "votes": 231,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 30,
+       "name": "PARTIDUL NAŢIONAL DEMOCRAT CREŞTIN",
+       "label_basis": "verbatim",
+       "competitor_code": 21,
+       "votes": 38,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      }
+     ],
+     "independents": {
+      "candidates": 11,
+      "votes": 12389,
+      "seats": 0
+     },
+     "minority_organisations_seated": [
+      "FORUMUL DEMOCRAT AL GERMANILOR DIN ROMÂNIA",
+      "ASOCIAŢIA PARTIDA ROMILOR \"PRO-EUROPA\"",
+      "ASOCIAŢIA MACEDONENILOR DIN ROMÂNIA",
+      "UNIUNEA ARMENILOR DIN ROMÂNIA",
+      "UNIUNEA BULGARĂ DIN BANAT - ROMÂNIA",
+      "FEDERAŢIA COMUNITĂŢILOR EVREIEŞTI DIN ROMÂNIA",
+      "ASOCIAŢIA LIGA ALBANEZILOR DIN ROMÂNIA",
+      "UNIUNEA ELENĂ DIN ROMÂNIA",
+      "UNIUNEA DEMOCRATĂ A TĂTARILOR TURCO-MUSULMANI DIN ROMÂNIA",
+      "UNIUNEA DEMOCRATICĂ A SLOVACILOR ŞI CEHILOR DIN ROMÂNIA",
+      "COMUNITATEA RUŞILOR LIPOVENI DIN ROMÂNIA",
+      "UNIUNEA SÂRBILOR DIN ROMÂNIA",
+      "UNIUNEA POLONEZILOR DIN ROMÂNIA",
+      "ASOCIAŢIA ITALIENILOR DIN ROMÂNIA - RO.AS.IT.",
+      "UNIUNEA UCRAINENILOR DIN ROMÂNIA",
+      "UNIUNEA DEMOCRATĂ TURCĂ DIN ROMÂNIA",
+      "UNIUNEA CROAŢILOR DIN ROMÂNIA",
+      "UNIUNEA CULTURALĂ A RUTENILOR DIN ROMÂNIA"
+     ],
+     "seats_by_constituency": [
+      {
+       "constituency": 1,
+       "name": "ALBA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 2,
+       "name": "ARAD",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 2,
+        "PARTIDUL POPORULUI": 2,
+        "UNIUNEA CULTURALĂ A RUTENILOR DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 3,
+       "name": "ARGEŞ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 2,
+        "UNIUNEA SOCIAL LIBERALĂ": 9
+       }
+      },
+      {
+       "constituency": 4,
+       "name": "BACĂU",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 2,
+        "UNIUNEA SOCIAL LIBERALĂ": 10
+       }
+      },
+      {
+       "constituency": 5,
+       "name": "BIHOR",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA DEMOCRATICĂ A SLOVACILOR ŞI CEHILOR DIN ROMÂNIA": 1,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2,
+        "UNIUNEA SOCIAL LIBERALĂ": 7
+       }
+      },
+      {
+       "constituency": 6,
+       "name": "BISTRIŢA-NĂSĂUD",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "ASOCIAŢIA ITALIENILOR DIN ROMÂNIA - RO.AS.IT.": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 7,
+       "name": "BOTOŞANI",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 6
+       }
+      },
+      {
+       "constituency": 8,
+       "name": "BRAŞOV",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 2,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 8
+       }
+      },
+      {
+       "constituency": 9,
+       "name": "BRĂILA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 5
+       }
+      },
+      {
+       "constituency": 10,
+       "name": "BUZĂU",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 7
+       }
+      },
+      {
+       "constituency": 11,
+       "name": "CARAŞ-SEVERIN",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA CROAŢILOR DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 5,
+        "UNIUNEA SÂRBILOR DIN ROMÂNIA": 1
+       }
+      },
+      {
+       "constituency": 12,
+       "name": "CĂLĂRAŞI",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "FEDERAŢIA COMUNITĂŢILOR EVREIEŞTI DIN ROMÂNIA": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 5
+       }
+      },
+      {
+       "constituency": 13,
+       "name": "CLUJ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 2,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 6
+       }
+      },
+      {
+       "constituency": 14,
+       "name": "CONSTANŢA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 2,
+        "PARTIDUL POPORULUI": 2,
+        "UNIUNEA DEMOCRATĂ A TĂTARILOR TURCO-MUSULMANI DIN ROMÂNIA": 1,
+        "UNIUNEA DEMOCRATĂ TURCĂ DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 10
+       }
+      },
+      {
+       "constituency": 15,
+       "name": "COVASNA",
+       "seats": {
+        "ASOCIAŢIA PARTIDA ROMILOR \"PRO-EUROPA\"": 1,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 3,
+        "UNIUNEA SOCIAL LIBERALĂ": 1
+       }
+      },
+      {
+       "constituency": 16,
+       "name": "DÂMBOVIŢA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 2,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 8
+       }
+      },
+      {
+       "constituency": 17,
+       "name": "DOLJ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 2,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 10
+       }
+      },
+      {
+       "constituency": 18,
+       "name": "GALAŢI",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 9
+       }
+      },
+      {
+       "constituency": 19,
+       "name": "GIURGIU",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 4
+       }
+      },
+      {
+       "constituency": 20,
+       "name": "GORJ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 2,
+        "UNIUNEA SOCIAL LIBERALĂ": 5
+       }
+      },
+      {
+       "constituency": 21,
+       "name": "HARGHITA",
+       "seats": {
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 4,
+        "UNIUNEA SOCIAL LIBERALĂ": 1
+       }
+      },
+      {
+       "constituency": 22,
+       "name": "HUNEDOARA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 6
+       }
+      },
+      {
+       "constituency": 23,
+       "name": "IALOMIŢA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 4
+       }
+      },
+      {
+       "constituency": 24,
+       "name": "IAŞI",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 2,
+        "ASOCIAŢIA LIGA ALBANEZILOR DIN ROMÂNIA": 1,
+        "ASOCIAŢIA MACEDONENILOR DIN ROMÂNIA": 1,
+        "PARTIDUL POPORULUI": 2,
+        "UNIUNEA SOCIAL LIBERALĂ": 12
+       }
+      },
+      {
+       "constituency": 25,
+       "name": "ILFOV",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 4
+       }
+      },
+      {
+       "constituency": 26,
+       "name": "MARAMUREŞ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 6,
+        "UNIUNEA UCRAINENILOR DIN ROMÂNIA": 1
+       }
+      },
+      {
+       "constituency": 27,
+       "name": "MEHEDINŢI",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 4
+       }
+      },
+      {
+       "constituency": 28,
+       "name": "MUREŞ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 3,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 29,
+       "name": "NEAMŢ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 2,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 7
+       }
+      },
+      {
+       "constituency": 30,
+       "name": "OLT",
+       "seats": {
+        "PARTIDUL POPORULUI": 2,
+        "UNIUNEA SOCIAL LIBERALĂ": 7
+       }
+      },
+      {
+       "constituency": 31,
+       "name": "PRAHOVA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 3,
+        "PARTIDUL POPORULUI": 2,
+        "UNIUNEA ELENĂ DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 10
+       }
+      },
+      {
+       "constituency": 32,
+       "name": "SATU MARE",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2,
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 33,
+       "name": "SĂLAJ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 34,
+       "name": "SIBIU",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "FORUMUL DEMOCRAT AL GERMANILOR DIN ROMÂNIA": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 5
+       }
+      },
+      {
+       "constituency": 35,
+       "name": "SUCEAVA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 2,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA POLONEZILOR DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 9
+       }
+      },
+      {
+       "constituency": 36,
+       "name": "TELEORMAN",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 6
+       }
+      },
+      {
+       "constituency": 37,
+       "name": "TIMIŞ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 2,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA BULGARĂ DIN BANAT - ROMÂNIA": 1,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 9
+       }
+      },
+      {
+       "constituency": 38,
+       "name": "TULCEA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "COMUNITATEA RUŞILOR LIPOVENI DIN ROMÂNIA": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 4
+       }
+      },
+      {
+       "constituency": 39,
+       "name": "VASLUI",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 7
+       }
+      },
+      {
+       "constituency": 40,
+       "name": "VÂLCEA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 6
+       }
+      },
+      {
+       "constituency": 41,
+       "name": "VRANCEA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 6
+       }
+      },
+      {
+       "constituency": 42,
+       "name": "Mun. BUCUREŞTI",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 6,
+        "PARTIDUL POPORULUI": 3,
+        "UNIUNEA ARMENILOR DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 28
+       }
+      },
+      {
+       "constituency": 43,
+       "name": "Strainatate (CE. 43)",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 2,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 1
+       }
+      }
+     ]
+    },
+    "S": {
+     "counts": {
+      "registered": 18423066,
+      "voters": 7694180,
+      "valid": 7416628,
+      "null": 185980,
+      "blank": 90968,
+      "ballots_received": 20596337,
+      "ballots_annulled": 12902262
+     },
+     "cross_check": {
+      "valid_by_polling_stations": 7416628,
+      "counts_by_polling_stations": [
+       18423066,
+       7694180,
+       7416628,
+       185980,
+       90968
+      ],
+      "polling_station_records": 18762,
+      "counts_by_colleges": [
+       18423066,
+       7694180,
+       7416628,
+       185980,
+       90968
+      ],
+      "valid_by_colleges": 7416628,
+      "candidate_file_rows": 760,
+      "candidate_file_matches_college_file": true,
+      "independent_votes_by_colleges": 728
+     },
+     "colleges": 137,
+     "mandates_per_college": {
+      "1": 100,
+      "2": 35,
+      "3": 2
+     },
+     "lists": [
+      {
+       "row": 1,
+       "name": "UNIUNEA SOCIAL LIBERALĂ",
+       "label_basis": "verbatim",
+       "competitor_code": 40,
+       "votes": 4457526,
+       "seats": 122,
+       "absolute_majority_college_wins": 117,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 2,
+       "name": "ALIANŢA ROMÂNIA DREAPTĂ",
+       "label_basis": "verbatim",
+       "competitor_code": 33,
+       "votes": 1239318,
+       "seats": 24,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 3,
+       "name": "PARTIDUL POPORULUI",
+       "label_basis": "partial_personal_name_omitted",
+       "title_sha256": "9688fad79c980cff579bbd14d1fdbc20d64bd88ea0013c07f6d61ee76da978d2",
+       "competitor_code": 39,
+       "votes": 1086822,
+       "seats": 21,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 4,
+       "name": "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA",
+       "label_basis": "verbatim",
+       "competitor_code": 23,
+       "votes": 388528,
+       "seats": 9,
+       "absolute_majority_college_wins": 6,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 5,
+       "name": "PARTIDUL ROMÂNIA MARE",
+       "label_basis": "verbatim",
+       "competitor_code": 18,
+       "votes": 109142,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 6,
+       "name": "ERDÉLYI MAGYAR NÉPPÁRT - PARTIDUL POPULAR MAGHIAR DIN TRANSILVANIA",
+       "label_basis": "verbatim",
+       "competitor_code": 38,
+       "votes": 58765,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 7,
+       "name": "PARTIDUL ECOLOGIST ROMÂN",
+       "label_basis": "verbatim",
+       "competitor_code": 10,
+       "votes": 58335,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 8,
+       "name": "PARTIDUL POPULAR",
+       "label_basis": "verbatim",
+       "competitor_code": 31,
+       "votes": 11681,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 9,
+       "name": "PARTIDUL ALIANŢA SOCIALISTĂ",
+       "label_basis": "verbatim",
+       "competitor_code": 29,
+       "votes": 2171,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 10,
+       "name": "PARTIDUL POPULAR ŞI AL PROTECŢIEI SOCIALE",
+       "label_basis": "verbatim",
+       "competitor_code": 4,
+       "votes": 2100,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 11,
+       "name": "PARTIDUL SOCIAL DEMOCRAT AL MUNCITORILOR",
+       "label_basis": "verbatim",
+       "competitor_code": 7,
+       "votes": 1380,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      },
+      {
+       "row": 12,
+       "name": "PARTIDUL NAŢIONAL DEMOCRAT CREŞTIN",
+       "label_basis": "verbatim",
+       "competitor_code": 21,
+       "votes": 132,
+       "seats": 0,
+       "absolute_majority_college_wins": 0,
+       "kind": "party_or_political_formation_list"
+      }
+     ],
+     "independents": {
+      "candidates": 1,
+      "votes": 728,
+      "seats": 0
+     },
+     "minority_organisations_seated": [],
+     "seats_by_constituency": [
+      {
+       "constituency": 1,
+       "name": "ALBA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 1
+       }
+      },
+      {
+       "constituency": 2,
+       "name": "ARAD",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 2,
+        "UNIUNEA SOCIAL LIBERALĂ": 1
+       }
+      },
+      {
+       "constituency": 3,
+       "name": "ARGEŞ",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 4
+       }
+      },
+      {
+       "constituency": 4,
+       "name": "BACĂU",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 4
+       }
+      },
+      {
+       "constituency": 5,
+       "name": "BIHOR",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 6,
+       "name": "BISTRIŢA-NĂSĂUD",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 7,
+       "name": "BOTOŞANI",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 8,
+       "name": "BRAŞOV",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 4
+       }
+      },
+      {
+       "constituency": 9,
+       "name": "BRĂILA",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 10,
+       "name": "BUZĂU",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 11,
+       "name": "CARAŞ-SEVERIN",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 12,
+       "name": "CĂLĂRAŞI",
+       "seats": {
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 13,
+       "name": "CLUJ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 14,
+       "name": "CONSTANŢA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 4
+       }
+      },
+      {
+       "constituency": 15,
+       "name": "COVASNA",
+       "seats": {
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2,
+        "UNIUNEA SOCIAL LIBERALĂ": 1
+       }
+      },
+      {
+       "constituency": 16,
+       "name": "DÂMBOVIŢA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 17,
+       "name": "DOLJ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 5
+       }
+      },
+      {
+       "constituency": 18,
+       "name": "GALAŢI",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 4
+       }
+      },
+      {
+       "constituency": 19,
+       "name": "GIURGIU",
+       "seats": {
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 20,
+       "name": "GORJ",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 21,
+       "name": "HARGHITA",
+       "seats": {
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 2
+       }
+      },
+      {
+       "constituency": 22,
+       "name": "HUNEDOARA",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 23,
+       "name": "IALOMIŢA",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 24,
+       "name": "IAŞI",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 5
+       }
+      },
+      {
+       "constituency": 25,
+       "name": "ILFOV",
+       "seats": {
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 26,
+       "name": "MARAMUREŞ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 27,
+       "name": "MEHEDINŢI",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 28,
+       "name": "MUREŞ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 29,
+       "name": "NEAMŢ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 30,
+       "name": "OLT",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 31,
+       "name": "PRAHOVA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 5
+       }
+      },
+      {
+       "constituency": 32,
+       "name": "SATU MARE",
+       "seats": {
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 1
+       }
+      },
+      {
+       "constituency": 33,
+       "name": "SĂLAJ",
+       "seats": {
+        "UNIUNEA DEMOCRATĂ MAGHIARĂ DIN ROMÂNIA": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 1
+       }
+      },
+      {
+       "constituency": 34,
+       "name": "SIBIU",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 35,
+       "name": "SUCEAVA",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 36,
+       "name": "TELEORMAN",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 37,
+       "name": "TIMIŞ",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 4
+       }
+      },
+      {
+       "constituency": 38,
+       "name": "TULCEA",
+       "seats": {
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 39,
+       "name": "VASLUI",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 40,
+       "name": "VÂLCEA",
+       "seats": {
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 3
+       }
+      },
+      {
+       "constituency": 41,
+       "name": "VRANCEA",
+       "seats": {
+        "UNIUNEA SOCIAL LIBERALĂ": 2
+       }
+      },
+      {
+       "constituency": 42,
+       "name": "Mun. BUCUREŞTI",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 3,
+        "PARTIDUL POPORULUI": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 12
+       }
+      },
+      {
+       "constituency": 43,
+       "name": "Strainatate (CE. 43)",
+       "seats": {
+        "ALIANŢA ROMÂNIA DREAPTĂ": 1,
+        "UNIUNEA SOCIAL LIBERALĂ": 1
+       }
+      }
+     ]
+    }
+   }
+  },
   "2016": {
    "retrieved_at": "2026-11-18",
    "dataset_page": "https://data.gov.ro/dataset/alegeri_parlamentare_2016",

@@ -871,6 +871,74 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-ro-cd-2012-12-09",
+   "country": "romania",
+   "date": "2012-12-09",
+   "chamber_id": "ro-camera-deputatilor",
+   "chamber_official_name": "Camera Deputaților",
+   "seats": 412,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-ro-cd-2012",
+   "system_family": "mixed-member proportional: 315 single-member colleges in 43 constituencies with a national threshold, county-level proportional allocation and additional seats where absolute-majority college winners exceed a competitor's share; national-minority organisation seats",
+   "allocation_method": "seats as published in the AEP candidate file; the Law 35/2008 allocation is not recomputed",
+   "base_seats": 315,
+   "thresholds": [
+    {
+     "applies_to": "competitor (party or alliance)",
+     "percent": 5,
+     "description": {
+      "en": "The 4 competitors holding seats (other than minority organisations) are exactly those with at least 5% of valid votes; alliance thresholds and the alternative college criterion are not tested (statute not read).",
+      "zh": "获得席位的4个竞选者（少数民族组织除外）恰为得票达到有效票 5% 者；未检验联盟门槛与替代的选区条件（未阅读法律原文）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: Law 35/2008 as applied in 2012 (statute text not read; legislatie.just.ro blocked); the institutional registry holds the later statute",
+   "constitution_id": "ro-constitution-1991",
+   "institutional_period_id": "romania-period-2003-10-29",
+   "changes_in_force": [
+    "ro-1991-constitution",
+    "ro-2003-revision"
+   ],
+   "later_changes": [
+    "ro-2015-electoral-law"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-ro-s-2012-12-09",
+   "country": "romania",
+   "date": "2012-12-09",
+   "chamber_id": "ro-senat",
+   "chamber_official_name": "Senatul",
+   "seats": 176,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-ro-s-2012",
+   "system_family": "mixed-member proportional: 137 single-member colleges in 43 constituencies with a national threshold, county-level proportional allocation and additional seats where absolute-majority college winners exceed a competitor's share",
+   "allocation_method": "seats as published in the AEP candidate file; the Law 35/2008 allocation is not recomputed",
+   "base_seats": 137,
+   "thresholds": [
+    {
+     "applies_to": "competitor (party or alliance)",
+     "percent": 5,
+     "description": {
+      "en": "The 4 competitors holding seats (other than minority organisations) are exactly those with at least 5% of valid votes; alliance thresholds and the alternative college criterion are not tested (statute not read).",
+      "zh": "获得席位的4个竞选者（少数民族组织除外）恰为得票达到有效票 5% 者；未检验联盟门槛与替代的选区条件（未阅读法律原文）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific: Law 35/2008 as applied in 2012 (statute text not read; legislatie.just.ro blocked); the institutional registry holds the later statute",
+   "constitution_id": "ro-constitution-1991",
+   "institutional_period_id": "romania-period-2003-10-29",
+   "changes_in_force": [
+    "ro-1991-constitution",
+    "ro-2003-revision"
+   ],
+   "later_changes": [
+    "ro-2015-electoral-law"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-ro-cd-2016-12-11",
    "country": "romania",
    "date": "2016-12-11",
