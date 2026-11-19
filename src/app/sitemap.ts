@@ -1,3 +1,4 @@
+import { admittedCountrySlugs } from "@/lib/politicalAdmission";
 import type { MetadataRoute } from "next";
 import { PLATFORM_BASE_URL, PLATFORM_RELEASE_DATE } from "@/lib/releaseMetadata";
 import { localizedRoute } from "@/i18n/config";
@@ -23,6 +24,7 @@ const routes = [
   "countries/serbia/",
   "data/",
   "politics/",
+  ...admittedCountrySlugs.map(slug => `politics/${slug}/`),
   "news/",
   "models/",
   "scenarios/",

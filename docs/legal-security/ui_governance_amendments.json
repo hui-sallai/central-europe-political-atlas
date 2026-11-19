@@ -4276,6 +4276,175 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "ten-country-parliamentary-election-frontend-2026-11-20",
+      "status": "owner_approved",
+      "approved_by": "Owner implementation and deployment brief of 2026-11-20. Presentation-only integration of admitted Austrian, Croatian, Romanian and Slovenian election pages, their scoped comparison fields, the public index, existing institutional and country entry points, bilingual navigation and sitemap.",
+      "baseline": "9f3f27638cc77bb8548f3199a4e29a977321b71c",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-20",
+      "files": [
+        {
+          "path": "src/app/(english)/en/countries/[slug]/page.tsx",
+          "sha256": "45fd3e63843336bd36fd9786544cf88b5767d9ee4b8114190abb99f214ba789c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/austria/page.tsx",
+          "sha256": "a826b0b3abf082739631c24e6a45b9fed469f39d1b2370d730df981986a34fd1",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/croatia/page.tsx",
+          "sha256": "79cfa17c8863996026c08b2e567493e762685e3f0f266da6e10545450eae5958",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/page.tsx",
+          "sha256": "861505e61e028fc036f21c1a3f4886091349b0fa6d2869e59ddb4e51b1f694a2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/romania/page.tsx",
+          "sha256": "cf6c84e7f3a38f6e7ae8c863e3bdf947e845b7105f8c434741f030da0f26902f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/slovenia/page.tsx",
+          "sha256": "890c7149bb0cb8580ac0761e409592ce4c0de39f76cfa9a1643feb9c9c3fe2b6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/countries/[slug]/page.tsx",
+          "sha256": "b28acd7fadbdb71393f7e0cab1622015d8f8a1784979f8eb4f37863bd541c062",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/austria/page.tsx",
+          "sha256": "08c222e6c007b257caa0863244ecaeb2a91e301298a0a23681f86d7e049ffd58",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/croatia/page.tsx",
+          "sha256": "7f4ba9f0957e0b15e418976a58e1adc03f697cd2860a4de8e55ffa7c2ceb7bb9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/page.tsx",
+          "sha256": "a8e605e864cf7279f7c9cd7db8b3fad336c27731d3976f1bac0dd068df37ff61",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/romania/page.tsx",
+          "sha256": "e6d42f660bddbb795a35e68d0b7bc9d0f052f6b4c06413b642045e5dbd7c52a9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/slovenia/page.tsx",
+          "sha256": "8eed186f026df9f37c1f8040188cfb86401726eca0034a7b0f5f6d7628e27cd0",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/politics-comparison.json/route.ts",
+          "sha256": "a76cdb49b7a24ae0ac66aa86ba0d958f369fd3e5ae6e4cdb4ee9a09f5543bb92",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/sitemap.ts",
+          "sha256": "ed4a76efc29eb2fb5864ac3c75a28dcaa975ffb143087173a199713eab0b3419",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryElectionHistory.tsx",
+          "sha256": "0ddc9bf97ea93949041498aad29c4ecdc97031e3ee1e1b28fed2e0378a0b2e0e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryResearchProfile.tsx",
+          "sha256": "3beabbd26eaabe9fa596727abd41fce57e652ee58d7ff434eda91122ce83fedd",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionDirectoryDetails.tsx",
+          "sha256": "33475e4929620453011a1b8747accdba01c44883f5c405c7fe1d0365fb9cb825",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/HomeResearchDiscovery.tsx",
+          "sha256": "0c6c93b3829f187fd87e21eeee847c067921330fbbe214822dce9b50d6489f47",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/InstitutionComparison.tsx",
+          "sha256": "b6bb110de434b9e22b2b51d600c6069e668ca81c49776705b637b7d9f946c89c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/InstitutionalHistory.tsx",
+          "sha256": "cbaa1580ae1b305e2b1e58582a40efc155de3849aad60c2c11381628440aa242",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalBallotExplorer.tsx",
+          "sha256": "9b011d4ce3ff6dfecf27fcb9991d51c407accf218c7502bfbf91bf26f0c40360",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalBallotExport.tsx",
+          "sha256": "d9339b7236e98d4414025d5857e11e5211d2cf98a6609e0fec45d94aac191ca8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalBallotResults.tsx",
+          "sha256": "32ea09a0444e9b92c1960e62b4e539baa5fd2a9d65ba75f0ecc9cb559ec462f2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalComparisonPicker.tsx",
+          "sha256": "d730fcd87158c28ef5d3f37ca31f29641187ff6dc6aefab20b43d1382a9a0ea2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "04e56d97c22605f7742dde2dfff6a547f6bac9e899894db106dc981d6cbd67ac",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalLanding.tsx",
+          "sha256": "b1d42905ce2fddf92f95366634d8006ea1fbe6a93afbb3d217d5b40a74c8def3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/i18n/config.ts",
+          "sha256": "9b6fe0349220c74be80a1a20b4b63dd8e65d340e0b6c122e4b780532b8a33a64",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "3ac48ccf3e06415ce622f9547e74404a89e9bc7fb0061315b046ecef81dec652",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalBallots.ts",
+          "sha256": "d735b9ed880a2672d9203b614032cf875801e9d3f12ffca51aaa30f92dedf955",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalComparisonBallots.ts",
+          "sha256": "50f9bc86b33f149da474ad4d1c05735c7a0d4c2d09dec45c7689c14ceda7d7f7",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalElectionDirectory.server.ts",
+          "sha256": "c9382ee8ae20c0e59fceca629c69c6b0e6b04c2d536a1a62dc95293d260b3174",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

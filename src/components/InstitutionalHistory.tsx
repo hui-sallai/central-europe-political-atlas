@@ -1,9 +1,11 @@
 "use client";
+import type {DirectoryDate} from "@/lib/politicalElectionDirectory.server";
 import {useEffect} from "react";
 import Link from "next/link";
+import {RegistryDate} from "./ElectionDirectoryDetails";
 import {changeDate, countryElectionLinks, countrySources, electionInstitutionalContext, institutionalCountry, institutionalPeriods, institutionalTimeline, text} from "@/lib/institutionalRegistry";
 
-export function InstitutionalHistory({slug,en}:{slug:string;en:boolean}) {
+export function InstitutionalHistory({slug,en,history}:{slug:string;en:boolean;history?:DirectoryDate[]}) {
   const country = institutionalCountry(slug);
   useEffect(()=>{
     function reveal() {
@@ -37,12 +39,12 @@ export function InstitutionalHistory({slug,en}:{slug:string;en:boolean}) {
       </details>,
       label:change.status==="partially_verified"?l("Partly verified","部分核实"):l("Verified change","已核实变更")
     })),
-    ...elections.map(e=>({id:e.election_id,date:e.date,label:l("Election","选举"),content:<Link className="underline" href={(en?"/en":"")+"/politics/"+slug+"/?election="+encodeURIComponent(e.election_id)}>{e.chamber_official_name} · {e.seats ?? "—"} {l("seats","席")}</Link>}))
+    ...elections.map(e=>({id:e.election_id,date:e.date,label:l("Election","选举"),content:<Link className="underline" href={(en?"/en":"")+"/politics/"+slug+"/?election="+encodeURIComponent(e.election_id)}>{history?.find(row=>row.id===e.election_id)?.chamber ?? e.chamber_official_name} · {e.seats ?? "—"} {l("seats","席")}</Link>}))
   ].sort((a,b)=>(a.date??"9999").localeCompare(b.date??"9999"));
-  return <details className="mt-3" id={'history-'+slug}><summary>{l("Institutional timeline","制度沿革")} · {changes.length}</summary>
+  return <details className="mt-3" id={'history-'+slug}><summary>{l("Institutional timeline","制度沿革")} · {entries.length}</summary>
     <p className="my-2 text-xs">{l("Ordered by effective date where known, otherwise by promulgation or adoption. Undated records appear last.","优先按生效日期排序，其次使用公布或通过日期。无日期记录列在末尾。")}</p>
     <ol className="space-y-3 border-l border-[var(--line)] pl-4">{entries.map(item=><li key={item.id}>
-      <span className="text-xs text-[var(--muted)]">{item.date??l("Date unavailable","日期未核实")} · {item.label}</span>{item.content}
+      <span className="text-xs text-[var(--muted)]">{item.date ? <RegistryDate date={item.date} awaitingConfirmation={history?.find(row=>row.id===item.id)?.dateNeedsCheck} en={en}/> : l("Date unavailable","日期未核实")} · {item.label}</span>{item.content}
     </li>)}</ol></details>;
 }
 

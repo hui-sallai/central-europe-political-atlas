@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 parliamentary election pages for Austria, Croatia, Romania and Slovenia — 2026-11-20
+
+- Connect all 34 previously admitted chamber elections to the bilingual Politics index and country profiles. Explore original ballot scopes, historical turnout, seats, rule versions and sources, compare elections across countries, and return to the selected ballot through exports or the Research Notebook.
+
 ### v2.0 Romanian parliamentary election 2012 — 2026-11-19
 
 - Add Romania's Chamber of Deputies (412 seats) and Senate (176 seats) elections of 9 December 2012 as two separate elections, from the Permanent Electoral Authority's files on data.gov.ro saved by the owner. Votes and counts agree across the polling-station, college and county files. Seats are those the files publish and are not recomputed (the 2012 electoral law was not read); they are checked against the 5% threshold, the minority-organisation rule and the candidates who won their college outright. Turnout is derived. Independent candidates are aggregated without names, and one party name containing a person's name is shown without it.

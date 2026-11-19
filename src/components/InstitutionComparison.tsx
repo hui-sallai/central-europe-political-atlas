@@ -7,13 +7,14 @@ import {useLocale} from "@/i18n/LocaleProvider";
 import {countries,type Country} from "@/lib/data";
 import {chambers,constitutionalRules,executiveOffices,governmentSystem,institutionalCheckedOn,institutionalSourceLinks,pendingInstitutionalFields} from "@/lib/institutionProfiles";
 import {admittedCountrySlugs} from "@/lib/politicalAdmission";
-import type {PoliticalCountryView} from "@/lib/politicalExplorer";
+import type {DirectoryDate, DirectoryElection, ElectionDirectoryCountry} from "@/lib/politicalElectionDirectory.server";
 
 import {compareInstitutions, institutionMeta, institutionalCountry, text} from "@/lib/institutionalRegistry";
 import {InstitutionalHistory} from "./InstitutionalHistory";
+import {RegistryDate} from "./ElectionDirectoryDetails";
 
 const queryKey='institution_countries';
-export function InstitutionalProfile({country,election}:{country:Country;election?:PoliticalCountryView['elections'][number]}) {
+export function InstitutionalProfile({country,elections=[],history}:{country:Country;elections?:DirectoryElection[];history?:DirectoryDate[]}) {
  const en=useLocale()==='en',i=en?0:1,slug=country.slug,prefix=en?'/en':'';
  const rule=constitutionalRules[slug],sources=institutionalSourceLinks(slug),pending=pendingInstitutionalFields(slug);
  const facts=[
@@ -29,14 +30,14 @@ export function InstitutionalProfile({country,election}:{country:Country;electio
    {rule ? <details><summary>{en?'Government formation and confidence':'政府形成与议会信任'}</summary>
     <ol className="my-2 flex flex-wrap items-center gap-2">{rule.formation[i].split(' → ').map((step,n)=><li key={step} className="rounded border border-[var(--line)] px-2 py-1">{n+1}. {step}</li>)}</ol><p>{rule.confidence[i]}</p></details> :
     <p>{en?'Selection, term and confidence rules await article-level verification.':'元首产生方式、任期和信任程序尚待法条核实。'}</p>}
-   {election && <details><summary>{en?'Electoral rules and seats':'选举规则与席位'} · {election.date}</summary>
-    <p>{election.chamber} · {election.totalSeats??'—'} {en?'seats':'席'} · {election.system.allocationMethod.replaceAll('_',' ')}</p>
-    <Link className="underline" href={prefix+'/politics/'+slug+'/?election='+encodeURIComponent(election.electionId)}>{en?'Results, ballot definitions and election sources':'结果、选票定义与当届来源'}</Link></details>}
+   {elections.map(election => <details key={election.id}><summary>{en?'Electoral rules and seats':'选举规则与席位'} · {election.chamber} · <RegistryDate date={election.date} awaitingConfirmation={election.dateNeedsCheck} en={en}/></summary>
+    <p>{election.chamber} · {election.seats??'—'} {en?'seats filled':'个已分配席位'} · {election.rules[en?'en':'zh-CN']}</p>
+    <Link className="underline" href={prefix+'/politics/'+slug+'/?election='+encodeURIComponent(election.id)}>{en?'Results, ballot definitions and election sources':'结果、选票定义与当届来源'}</Link></details>)}
    <details><summary>{en?'Chambers and electoral system':'议院与选举制度'}</summary>
     {institutionalCountry(slug)?.chambers.map(ch=><p key={ch.chamber_id} className="my-2"><strong>{ch.official_name}</strong> · {text(ch.selection.label,en)} · {text(ch.powers,en)}</p>)}
     {institutionalCountry(slug)?.electoral_systems.map(r=><p key={r.rule_id}>{text(r.summary,en)} · {text(institutionMeta.status_labels[r.status],en)}</p>)}
    </details>
-   <InstitutionalHistory slug={slug} en={en}/>
+   <InstitutionalHistory slug={slug} en={en} history={history}/>
    <details><summary>{en?'Institutional sources and scope':'制度来源与适用范围'}</summary>
     <p>{en?`Official texts checked ${institutionalCheckedOn(slug)}. Historical applicability requires the version in force at the time.`:`官方文本核查日期为 ${institutionalCheckedOn(slug)}。历史分析须查阅当时有效文本。`}</p>
     {rule&&<p>{rule.basis}</p>}
@@ -46,7 +47,7 @@ export function InstitutionalProfile({country,election}:{country:Country;electio
  </div>;
 }
 
-export function InstitutionComparison({political}:{political:PoliticalCountryView[]}) {
+export function InstitutionComparison({political}:{political:ElectionDirectoryCountry[]}) {
  const en=useLocale()==='en',prefix=en?'/en':'';
  const [group,setGroup]=useState('');
  const [ids,setIds]=useState<string[]>([]),[invalid,setInvalid]=useState(false);
@@ -70,7 +71,7 @@ export function InstitutionComparison({political}:{political:PoliticalCountryVie
  }
  return <section id="institutions" className="editorial-panel mt-6 p-4 sm:p-6">
   <h2 className="text-2xl font-semibold">{en?'Compare political institutions':'比较政治制度'}</h2>
-  <p className="mt-2 text-sm">{en?'Explore institutions in ten countries. Election results are available separately for six.':'查看十国政治制度。另有六国的历届议会选举资料。'}</p>
+  <p className="mt-2 text-sm">{en?'Compare constitutional arrangements and follow each country’s election history.':'比较各国宪政制度，并查阅相应议会的选举历史。'}</p>
   <fieldset className="mt-3 flex flex-wrap gap-x-4 gap-y-2"><legend>{en?'Choose two to four countries':'选择两至四个国家'} · {ids.length}/4</legend>
   {countries.map(c=><label key={c.slug}><input type="checkbox" checked={ids.includes(c.slug)} disabled={ids.length===4&&!ids.includes(c.slug)} onChange={()=>update(ids.includes(c.slug)?ids.filter(id=>id!==c.slug):[...ids,c.slug])}/> {en?c.nameEn:c.nameZh}</label>)}</fieldset>
   {invalid&&<p role="alert">{en?'Invalid country selection. Choose countries again.':'链接中的国家组合无效，请重新选择。'}</p>}
@@ -88,10 +89,10 @@ export function InstitutionComparison({political}:{political:PoliticalCountryVie
     })}</div></section>)}
    <div className="my-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">{ids.map(id=>{
     const country=countries.find(c=>c.slug===id)!;
-    const latest=political.find(c=>c.slug===id)?.elections.toSorted((a,b)=>b.date.localeCompare(a.date))[0];
+    const coverage=political.find(c=>c.slug===id);
     return <article key={id}><h3 className="mb-2 text-lg font-semibold"><Link className="underline" href={prefix+'/countries/'+id+'/#institutions'}>{en?country.nameEn:country.nameZh}</Link></h3>
      <label className="block text-sm">{en?'Replace country':'替换国家'} <select className="field-control" value={id} onChange={e=>update(ids.map(v=>v===id?e.target.value:v))}>{countries.filter(c=>c.slug===id||!ids.includes(c.slug)).map(c=><option key={c.slug} value={c.slug}>{en?c.nameEn:c.nameZh}</option>)}</select></label>
-     <InstitutionalProfile country={country} election={latest}/>
+     <InstitutionalProfile country={country} elections={coverage?.latest} history={coverage?.history}/>
      {admittedCountrySlugs.includes(id)?<Link className="underline" href={prefix+'/politics/'+id+'/'}>{en?'Election history':'选举历史'}</Link>:<p>{en?'Parliamentary results await admission.':'议会选举结果尚待准入。'}</p>}</article>;
    })}</div>
    <NotebookCollect create={()=>{

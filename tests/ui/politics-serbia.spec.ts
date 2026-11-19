@@ -32,7 +32,7 @@ test("Serbian 2020 election reconciles to 250 seats and keeps names out (zh)", a
 test("politics landing lists Serbia as admitted and no longer outside the pipeline", async ({ page }) => {
   await page.goto("/en/politics/", { waitUntil: "networkidle" });
   const main = page.locator("main");
-  await expect(main).toContainText("Choose from six countries with admitted parliamentary election records.");
+  await expect(main).toContainText("Admitted parliamentary election records are available for 10 countries.");
   await expect(main.locator("[data-political-country=serbia]")).toContainText("2020, 2022, 2023, 2026");
   await expect(main.locator("[data-political-country=serbia]")).toContainText("250");
   await expect(main).not.toContainText("including Serbia");

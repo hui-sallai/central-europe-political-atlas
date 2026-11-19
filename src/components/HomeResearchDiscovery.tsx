@@ -2,7 +2,7 @@ import Link from "next/link";
 import { localizedRoute, type Locale } from "@/i18n/config";
 import { eventCaseStudies } from "@/lib/eventCaseStudies";
 import { RESEARCH_CASE } from "@/lib/comparativeResearchCase";
-import { politicalComparisonCountries, politicalElectionViews } from "@/lib/politicalData";
+import { admittedCountrySlugs } from "@/lib/politicalAdmission";
 import { researchCountries, researchEvents, researchObservations } from "@/lib/researchData";
 import { spatialDisplayGateAudit } from "@/lib/spatialDataV087";
 import publication from "@/data/macro/var_dynamic_response_publication_boundary.json";
@@ -40,12 +40,11 @@ export function HomeCoverageSection({ locale }: { locale: Locale }) {
   const en = locale === "en";
   const national = researchCountries.filter(country => researchObservations.some(o => o.country_slug === country.slug && o.value !== null));
   const regional = spatialDisplayGateAudit.filter(country => country.boundary_layer_ready && country.regional_data_ready);
-  const political = [{ slug: "germany", elections: politicalElectionViews() }, ...politicalComparisonCountries()].filter(country => country.elections.length > 0);
   const name = (slug: string) => { const country = researchCountries.find(c => c.slug === slug); return (en ? country?.name : country?.name_zh) ?? slug; };
   const groups = [
     { id: "national", title: en ? "National macroeconomic profiles" : "国家宏观经济档案", slugs: national.map(c => c.slug), href: (slug: string) => `/countries/${slug}/`, note: en ? "Published observations exist; indicators and reference periods differ by country." : "已有公布观测；各国的指标与参照时期不同。" },
     { id: "regional", title: en ? "Connected regional maps" : "已连接的区域地图", slugs: regional.map(c => c.country_id), href: (slug: string) => `/map/?country=${slug}`, note: regional.some(c=>c.country_id==="serbia" && c.population_layer_ready) ? (en ? "Serbian NSTJ3 population is available for within-country comparison. Check coverage separately for each layer." : "塞尔维亚 NSTJ3 人口可在国内比较。其他指标须分别查看图层覆盖。") : (en ? "Check boundary and observation availability for each layer." : "请按图层查看边界与观测覆盖。") },
-    { id: "political", title: en ? "Parliamentary election research" : "全国议会选举研究", slugs: political.map(c => c.slug), href: (slug: string) => `/politics/${slug}/`, note: en ? "Selected elections only; election coverage does not establish continuous party identity or cross-country comparability." : "只覆盖已准入选举；不意味着连续政党身份或跨国可比性均已成立。" },
+    { id: "political", title: en ? "Parliamentary election research" : "全国议会选举研究", slugs: admittedCountrySlugs, href: (slug: string) => `/politics/${slug}/`, note: en ? "Selected elections only; election coverage does not establish continuous party identity or cross-country comparability." : "只覆盖已准入选举；不意味着连续政党身份或跨国可比性均已成立。" },
   ];
   return <section className="editorial-section mt-10" aria-labelledby="home-coverage-title" data-home-coverage>
     <h2 id="home-coverage-title" className="text-3xl font-semibold">{en ? "Country and regional exploration" : "国家与区域探索"}</h2>

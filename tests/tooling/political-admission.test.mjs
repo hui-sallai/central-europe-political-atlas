@@ -21,8 +21,12 @@ const replies = read('docs/legal-security/publisher_response_records.json').reco
 test('admitted countries are exactly the countries whose official stores are imported', () => {
   const imported = [...new Set([...fs.readFileSync(path.join(root, 'src/lib/politicalData.ts'), 'utf8').matchAll(/@\/data\/political\/([a-z]+)\//g)].map((m) => m[1]))].sort();
   assert.deepEqual([...admittedDataCountrySlugs].sort(), imported);
-  // Croatia, Slovenia, Romania and Austria are published as research data before their /politics/ pages exist; pages must not link to them.
-  assert.deepEqual([...admittedCountrySlugs].sort(), imported.filter((c) => !['croatia', 'slovenia', 'romania', 'austria'].includes(c)));
+  assert.deepEqual([...admittedCountrySlugs].sort(), imported);
+  for (const country of admittedCountrySlugs) {
+    for (const prefix of ['(zh)', '(english)/en']) {
+      assert.ok(fs.existsSync(path.join(root, 'src/app', prefix, 'politics', country, 'page.tsx')), country + ': route exists');
+    }
+  }
   assert.deepEqual(fs.readdirSync(path.join(root, 'src/data/political')).filter((d) => fs.statSync(path.join(root, 'src/data/political', d)).isDirectory()).sort(), imported);
   assert.deepEqual(imported, ['austria', 'croatia', 'czechia', 'germany', 'hungary', 'poland', 'romania', 'serbia', 'slovakia', 'slovenia']);
 });
@@ -63,7 +67,8 @@ test('Hungary: 2022 and 2026 admitted; hosts registered; the robots-blocked term
 
 test('Romania 2016 admitted from AEP files (the earlier Chamber-only staging package stays unused); reasons are bilingual and make no unsupported claims', () => {
   assert.equal(read('docs/political-data/romania_publication_readiness.json').technically_ready_for_activation, false);
-  assert.deepEqual(['state', 'politicsRoute'].map((k) => politicalAdmissions.find((r) => r.slug === 'romania')[k]), ['admitted', false]);
+  assert.equal(politicalAdmissions.find((r) => r.slug === 'romania').state, 'admitted');
+  assert.ok(admittedCountrySlugs.includes('romania'));
   for (const row of politicalAdmissions) {
     assert.ok(row.reason.en.trim() && row.reason['zh-CN'].trim() && row.name.en && row.name['zh-CN']);
     assert.doesNotMatch(row.reason.en, /[㐀-鿿]/u);

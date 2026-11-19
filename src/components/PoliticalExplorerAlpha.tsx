@@ -7,7 +7,7 @@ import { localeDate, localeNumber, localizedRoute } from "@/i18n/config";
 import { alignByLabel, chartResults, compareElections, measureValue, seatMeasureScope, seatsWon, type ElectionAggregate, type PoliticalCountryView, type PoliticalElectionView, type PoliticalMeasure, shareForDisplay, turnoutForDisplay } from "@/lib/politicalExplorer";
 import { toCsv } from "@/lib/researchSnapshot";
 import { ParliamentSeats } from "./ParliamentSeats";
-import { PoliticalCountryComparison } from "./PoliticalCountryComparison";
+import { PoliticalComparisonPicker } from "./PoliticalComparisonPicker";
 import { PoliticalPartyHistory } from "./PoliticalPartyHistory";
 import { PoliticalLinkedComparison } from "./PoliticalLinkedComparison";
 import { electionCountryRoute } from "@/lib/electionMacroLinkage";
@@ -62,11 +62,6 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
   const [historyKey, setHistoryKey] = useState(0);
   const [contextOpen, setContextOpen] = useState(false);
   const [voteType,setVoteType]=useState("");
-  // Cross-country comparison: only countries with authorised, published stores are ever passed in.
-  const [otherCountry, setOtherCountry] = useState(comparisonCountries[0]?.slug ?? "");
-  const [otherCountryElection, setOtherCountryElection] = useState("");
-  const comparedCountry = comparisonCountries.find((item) => item.slug === otherCountry) ?? null;
-  const comparedCountryElection = comparedCountry ? comparedCountry.elections.find((item) => item.electionId === otherCountryElection) ?? comparedCountry.elections.at(-1) ?? null : null;
   const baseElection = elections.find((item) => item.electionId === electionId) ?? elections[0];
   const election = baseElection && voteType ? selectNationalBallot(baseElection,voteType) : baseElection;
   const countrySlug=baseElection?.country??"germany", countryName=baseElection?.countryName?.[locale]??(en?"Germany":"德国");
@@ -270,14 +265,8 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
       {contextInputs ? <details id="politics-context-disclosure" className="card scroll-mt-24 p-5" open={contextOpen} onToggle={event=>setContextOpen(event.currentTarget.open)} data-context-disclosure><summary className="cursor-pointer font-semibold">{en ? "Explore election-economic historical context" : "探索选举与经济历史背景"}</summary><p className="mt-2 text-sm">{en ? "Published annual and monthly observations, verified events and a source-linked timeline. Historical context only, not an explanation of voting behaviour." : "已发布年度与月度观测、已核验事件和可查来源的时间线。仅为历史背景，不解释投票行为。"}</p>{contextOpen ? <PoliticalEconomicContext election={election} comparison={other ?? null} inputs={contextInputs} locale={locale} allElections={[...elections,...comparisonCountries.flatMap(c=>c.elections)]}/> : null}</details> : null}
       <section className="card p-5" data-politics-cross-country>
         <h3 className="font-semibold">{en ? "Comparing countries" : "跨国比较"}</h3>
-        <p className="mt-2 flex flex-wrap gap-x-4 text-sm">{[{slug:"germany",route:"/politics/germany/",label:en?"Germany's elections":"德国选举"},{slug:"czechia",route:"/politics/czechia/",label:en?"Czechia's elections: 2017, 2021 and 2025":"捷克选举：2017、2021、2025 年"},{slug:"poland",route:"/politics/poland/",label:en?"Poland's elections: 2011–2023":"波兰选举：2011—2023 年"},{slug:"slovakia",route:"/politics/slovakia/",label:en?"Slovakia's election: 2023":"斯洛伐克选举：2023 年"},{slug:"hungary",route:"/politics/hungary/",label:en?"Hungary's elections: 2022 and 2026":"匈牙利选举：2022、2026 年"},{slug:"serbia",route:"/politics/serbia/",label:en?"Serbia's elections: 2020, 2022, 2023 and 2026":"塞尔维亚选举：2020、2022、2023、2026 年"}].filter(v=>v.slug!==countrySlug).map(v=><a key={v.slug} data-politics-country-view={v.slug} className="text-[var(--accent)] underline" href={localizedRoute(v.route,locale)}>{v.label}</a>)}</p>
-        {comparisonCountries.length && comparedCountry && comparedCountryElection ? <>
-          <div className="mt-3 flex flex-wrap gap-4">
-            <label className="text-sm">{en ? "Compare with country" : "比较的国家"}<select className="field-control block" value={comparedCountry.slug} onChange={(event) => { setOtherCountry(event.target.value); setOtherCountryElection(""); }}>{comparisonCountries.map((item) => <option key={item.slug} value={item.slug}>{item.name[locale]}</option>)}</select></label>
-            <label className="text-sm">{en ? "Election" : "选举"}<select className="field-control block" value={comparedCountryElection.electionId} onChange={(event) => setOtherCountryElection(event.target.value)}>{comparedCountry.elections.map((item) => <option key={item.electionId} value={item.electionId}>{item.year}</option>)}</select></label>
-          </div>
-          <PoliticalCountryComparison a={election} b={comparedCountryElection} locale={locale} />
-        </> : <p className="mt-2 text-sm" data-cross-country-disabled>{en ? "Not available yet: Germany is the only country with authorised election data. A country becomes selectable only once its official data is published in the Atlas; no placeholder values are shown. The comparison view is built and will show two elections side by side — dates, chambers, turnout, seats, lists and each electoral system — without ranking parties or countries. A candidate package for Romania's 2016 Chamber of Deputies election exists in staging; it is not published and needs owner authorisation and unresolved source checks before it can be used." : "暂不可用：目前只有德国拥有经授权的选举数据。只有当一个国家的官方数据在 Atlas 中发布后，该国才可选择；不显示任何占位数值。比较视图已经建好，届时将并排显示两场选举的日期、议院、投票率、席位、名单和各自的选举制度，且不对政党或国家排名。罗马尼亚 2016 年众议院选举的候选数据包已在暂存区，但尚未发布；在获得所有者授权并完成未决的来源核查之前不能使用。"}</p>}
+        <nav className="mt-2 flex flex-wrap gap-x-4 text-sm" aria-label={en?"Other election pages":"其他国家选举页"}>{politicalAdmissions.filter(v=>v.state==="admitted"&&v.politicsRoute!==false&&v.slug!==countrySlug).map(v=><a key={v.slug} data-politics-country-view={v.slug} className="text-[var(--accent)] underline" href={localizedRoute("/politics/"+v.slug+"/",locale)}>{v.name[locale]}</a>)}</nav>
+        <PoliticalComparisonPicker election={election} countries={comparisonCountries} locale={locale}/>
         <details className="mt-4 border-t border-[var(--line)] pt-3" data-admission-status>
           <summary className="cursor-pointer text-sm font-semibold">{en ? "Publication-gate status by country" : "各国发布关卡状态"}</summary>
           <p className="mt-2 text-xs text-[var(--muted)]">{en ? "A country is compared only after every source, reuse-permission, definition, identity, electoral-rule and vintage gate is closed. Blocked countries show no values." : "只有在来源、再利用许可、定义、身份、选举规则与版本关卡全部关闭后，一个国家才能参与比较。受阻国家不显示任何数值。"}</p>

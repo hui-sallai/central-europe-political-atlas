@@ -1,30 +1,44 @@
 "use client";
-import {InstitutionComparison} from "./InstitutionComparison";
 import Link from "next/link";
-import { useEffect, type ReactNode } from "react";
-import { useLocale } from "@/i18n/LocaleProvider";
-import { localizedRoute } from "@/i18n/config";
-import type { PoliticalCountryView } from "@/lib/politicalExplorer";
+import {useEffect, type ReactNode} from "react";
+import {useLocale} from "@/i18n/LocaleProvider";
+import type {ElectionDirectoryCountry} from "@/lib/politicalElectionDirectory.server";
+import {InstitutionComparison} from "./InstitutionComparison";
+import {ElectionDirectoryDetails, electionHref, LatestChamber} from "./ElectionDirectoryDetails";
 
-/** Retain the original German route and all legacy research query parameters. */
-export function PoliticalLanding({ countries }: { countries: PoliticalCountryView[]; children?: ReactNode }) {
+const legacyGermanParams = ["measure","compare","comparison_mode","series","series_measure","context","research_q","research_study"];
+
+export function PoliticalLanding({countries, children}: {countries:ElectionDirectoryCountry[]; children?: ReactNode}) {
   const locale = useLocale(), en = locale === "en";
-  useEffect(()=>{const p=new URLSearchParams(location.search);if(p.get('country')==='germany'||['election','measure','compare','comparison_mode','series','series_measure','context','research_q','research_study'].some(k=>p.has(k))){const u=new URL(location.href);u.pathname=localizedRoute('/politics/germany/',locale);u.searchParams.delete('country');location.replace(u.href);}},[locale]);
+  useEffect(() => {
+    const url = new URL(location.href);
+    const params = url.searchParams;
+    const country = params.get("country"), election = params.get("election");
+    const owner = election ? countries.find(c => c.history.some(e => e.id === election)) : undefined;
+    if (country && !countries.some(c => c.slug === country)) return;
+    if (owner && country && owner.slug !== country) return;
+    const target = country ?? owner?.slug ?? (election || legacyGermanParams.some(key => params.has(key)) ? "germany" : null);
+    if (target) {
+      url.pathname = electionHref(target, locale);
+      params.delete("country");
+      location.replace(url.href);
+    }
+  }, [countries, locale]);
+
   return <>
-    <InstitutionComparison political={countries}/>
     <section className="mt-6" aria-label={en ? "Choose a political research country" : "选择政治研究国家"} data-political-landing>
-      <p className="mb-4 text-sm text-[var(--muted)]">{en ? "Choose from six countries with admitted parliamentary election records. The summaries describe the recorded election chamber, not a complete institutional dataset." : "选择已有议会选举资料的六个国家。下列摘要说明选举记录所涵盖的议院，不代表完整的政治制度数据库。"}</p>
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{countries.map(c => {
-        const latest = c.elections.at(-1);
-        return <article key={c.slug} className="editorial-panel p-4 space-y-2" data-political-country={c.slug}>
-          <h2 className="text-xl font-semibold"><Link className="underline text-[var(--accent)]" href={localizedRoute(`/politics/${c.slug}/`,locale)}>{c.name[locale]}</Link></h2>
-          <p>{latest?.chamber ?? (en ? "Chamber not recorded" : "未记录议院名称")}</p>
-          <p>{en ? "Available election years" : "可用选举年份"}: {c.elections.map(e => e.year).join(", ")}</p>
-          <p>{en ? "Election seats" : "选举席位"}: {latest?.totalSeats ?? "—"} · {latest?.year}</p>
-          <details><summary className="cursor-pointer text-sm font-semibold">{en ? "Electoral rules and source coverage" : "选举规则与来源覆盖"}</summary><p className="mt-2 text-sm">{latest?.system.family.replaceAll("_", " ")} · {latest?.system.allocationMethod.replaceAll("_", " ")}</p><p className="mt-2 text-xs">{en ? "Rules, chamber size and result vintages are election-specific. Upper-chamber or other institutional coverage is not inferred." : "规则、议院规模及结果版本均对应具体选举，不据此推断上院或其他制度资料的覆盖。"}</p>{latest?.sources.map(s => <a key={s.id} className="block mt-2 text-xs underline text-[var(--accent)]" href={s.url}>{s.institution ?? s.title}</a>)}</details>
-        </article>;
-      })}</div>
+      <p className="mb-4 text-sm text-[var(--muted)]">{en
+        ? `Admitted parliamentary election records are available for ${countries.length} countries.`
+        : `已有 ${countries.length} 个国家的议会选举记录获准发布。`}</p>
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{countries.map(country =>
+        <article key={country.slug} className="editorial-panel min-w-0 space-y-3 p-4" data-political-country={country.slug}>
+          <h2 className="text-xl font-semibold"><Link className="underline text-[var(--accent)]" href={electionHref(country.slug, locale)}>{country.name[locale]}</Link></h2>
+          <p className="text-sm">{en ? "Available election years" : "已收录选举年份"} · {[...new Set(country.history.map(e => e.year))].join(", ")}</p>
+          {country.latest.map(election => <LatestChamber key={election.id} slug={country.slug} election={election} locale={locale}/>)}
+          <ElectionDirectoryDetails country={country} locale={locale}/>
+        </article>)}</div>
     </section>
-    <p className="mt-5 text-sm text-[var(--muted)]">{en?'Countries outside these six have no admitted parliamentary election workflow here. This is a source-admission limit, not a claim that institutions or elections are absent.':'其他国家的议会选举流程尚未准入；这是来源准入限制，不代表不存在政治制度或选举。'}</p>
+    {children}
+    <InstitutionComparison political={countries}/>
   </>;
 }
