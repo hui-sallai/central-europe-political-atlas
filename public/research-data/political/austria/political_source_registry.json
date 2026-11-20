@@ -14,7 +14,7 @@
     "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
+    "raw_sha256": "48bd090a159be8adc6d9ddd5af482a15a12e3be754f30a9be60e0e32035b10a9",
     "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
     "files": {
       "workbook": {
@@ -39,7 +39,7 @@
     "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
+    "raw_sha256": "48bd090a159be8adc6d9ddd5af482a15a12e3be754f30a9be60e0e32035b10a9",
     "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
     "files": {
       "workbook": {
@@ -74,7 +74,7 @@
     "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
+    "raw_sha256": "48bd090a159be8adc6d9ddd5af482a15a12e3be754f30a9be60e0e32035b10a9",
     "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
     "files": {
       "workbook": {
@@ -104,7 +104,7 @@
     "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
+    "raw_sha256": "48bd090a159be8adc6d9ddd5af482a15a12e3be754f30a9be60e0e32035b10a9",
     "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
     "files": {
       "workbook": {
@@ -134,7 +134,7 @@
     "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
+    "raw_sha256": "48bd090a159be8adc6d9ddd5af482a15a12e3be754f30a9be60e0e32035b10a9",
     "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
     "files": {
       "workbook": {
@@ -164,7 +164,7 @@
     "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
+    "raw_sha256": "48bd090a159be8adc6d9ddd5af482a15a12e3be754f30a9be60e0e32035b10a9",
     "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
     "files": {
       "workbook": {
@@ -199,7 +199,7 @@
     "attribution": "Bundesministerium für Inneres (Bundeswahlbehörde)",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "a7b063900997d3584c24ed259669987f15e7a18f3848b760aeb4fca0cb86b57e",
+    "raw_sha256": "48bd090a159be8adc6d9ddd5af482a15a12e3be754f30a9be60e0e32035b10a9",
     "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
     "files": {
       "workbook": {
@@ -218,5 +218,22 @@
         "sha256": "38ffdd6cc1f776cf7d6043d38699ca89c2013b2503f7502977db4fa06ca31d10"
       }
     }
+  },
+  {
+    "source_id": "src-at-ris-wahlausschreibung-2024",
+    "country": "austria",
+    "institution": "Bundesregierung (Rechtsinformationssystem des Bundes)",
+    "dataset": "BGBl. II Nr. 169/2024: Verordnung der Bundesregierung über die Ausschreibung der Wahl zum Nationalrat, die Festsetzung des Wahltages und des Stichtages",
+    "tier": "tier1_official",
+    "url": "https://www.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2024_II_169/BGBLA_2024_II_169.html",
+    "licence_status": "legal_text_not_subject_to_copyright_urhg_7",
+    "licence_url": "https://www.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2024_II_169/BGBLA_2024_II_169.html",
+    "attribution": "Rechtsinformationssystem des Bundes (RIS)",
+    "retrieved_at": "2026-11-20",
+    "acquisition": "manual_reading_registered_host",
+    "raw_redistribution": "quoted clause only",
+    "raw_sha256": "48bd090a159be8adc6d9ddd5af482a15a12e3be754f30a9be60e0e32035b10a9",
+    "raw_path": "docs/political-data/raw/austria/nationalrat/evidence.json",
+    "use": "polling day (Wahltag) only"
   }
 ]

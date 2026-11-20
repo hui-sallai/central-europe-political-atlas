@@ -1,5 +1,2486 @@
 [
   {
+    "contestant_id": "ct-hu-ogy14-p01",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 1,
+    "minutes_list_id": null,
+    "ballot_number": 2,
+    "registered_label_native": "MCP",
+    "historical_display_label": "MCP",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 1",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p02",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 2,
+    "minutes_list_id": null,
+    "ballot_number": 3,
+    "registered_label_native": "A HAZA NEM ELADÓ MOZGALOM PÁRT",
+    "historical_display_label": "A HAZA NEM ELADÓ MOZGALOM PÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 2",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p03",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 3,
+    "minutes_list_id": null,
+    "ballot_number": 5,
+    "registered_label_native": "… SZÖVETSÉGESEI",
+    "historical_display_label": "… SZÖVETSÉGESEI",
+    "display_label_rule": "list name as printed in the minutes, without the personal name it begins with",
+    "label_basis": "partial_personal_name_omitted",
+    "printed_label_sha256": "ec83a3a79af85a513b673828ebde3f8c07c495df9226a4cfba7e024951c6f013",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 3",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p04",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 4,
+    "minutes_list_id": null,
+    "ballot_number": 7,
+    "registered_label_native": "FÜGGETLEN KISGAZDAPÁRT",
+    "historical_display_label": "FÜGGETLEN KISGAZDAPÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 4",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p05",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 5,
+    "minutes_list_id": null,
+    "ballot_number": 9,
+    "registered_label_native": "ÚDP",
+    "historical_display_label": "ÚDP",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 5",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p06",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "coalition",
+    "native_list_type": "közös pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 6,
+    "minutes_list_id": null,
+    "ballot_number": 10,
+    "registered_label_native": "FIDESZ-KDNP",
+    "historical_display_label": "FIDESZ-KDNP",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "organisations_printed_in_the_list_name_only_no_vote_or_seat_attribution",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 6",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p07",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 7,
+    "minutes_list_id": null,
+    "ballot_number": 19,
+    "registered_label_native": "SEM",
+    "historical_display_label": "SEM",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 7",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p08",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 8,
+    "minutes_list_id": null,
+    "ballot_number": 20,
+    "registered_label_native": "LMP",
+    "historical_display_label": "LMP",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 8",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p09",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 9,
+    "minutes_list_id": null,
+    "ballot_number": 22,
+    "registered_label_native": "JESZ",
+    "historical_display_label": "JESZ",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 9",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p10",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 10,
+    "minutes_list_id": null,
+    "ballot_number": 26,
+    "registered_label_native": "ÚMP",
+    "historical_display_label": "ÚMP",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 10",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p11",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 11,
+    "minutes_list_id": null,
+    "ballot_number": 28,
+    "registered_label_native": "MUNKÁSPÁRT",
+    "historical_display_label": "MUNKÁSPÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 11",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p12",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 12,
+    "minutes_list_id": null,
+    "ballot_number": 29,
+    "registered_label_native": "SZOCIÁLDEMOKRATÁK",
+    "historical_display_label": "SZOCIÁLDEMOKRATÁK",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 12",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p13",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 13,
+    "minutes_list_id": null,
+    "ballot_number": 32,
+    "registered_label_native": "KTI",
+    "historical_display_label": "KTI",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 13",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p14",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 14,
+    "minutes_list_id": null,
+    "ballot_number": 33,
+    "registered_label_native": "EGYÜTT 2014",
+    "historical_display_label": "EGYÜTT 2014",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 14",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p15",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 15,
+    "minutes_list_id": null,
+    "ballot_number": 36,
+    "registered_label_native": "ZÖLDEK PÁRTJA",
+    "historical_display_label": "ZÖLDEK PÁRTJA",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 15",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p16",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 16,
+    "minutes_list_id": null,
+    "ballot_number": 37,
+    "registered_label_native": "ÖSSZEFOGÁS",
+    "historical_display_label": "ÖSSZEFOGÁS",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 16",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p17",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "coalition",
+    "native_list_type": "közös pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 17,
+    "minutes_list_id": null,
+    "ballot_number": 41,
+    "registered_label_native": "MSZP-EGYÜTT-DK-PM-MLP",
+    "historical_display_label": "MSZP-EGYÜTT-DK-PM-MLP",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "organisations_printed_in_the_list_name_only_no_vote_or_seat_attribution",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 17",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-p18",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list abbreviation naming several organisations (FIDESZ-KDNP; MSZP-EGYÜTT-DK-PM-MLP); the threshold page labels every party list only 'Párt'. No official 'joint list' label was read.",
+    "list_number": 18,
+    "minutes_list_id": null,
+    "ballot_number": 44,
+    "registered_label_native": "JOBBIK",
+    "historical_display_label": "JOBBIK",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, party list 18",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n01",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 1,
+    "minutes_list_id": null,
+    "ballot_number": 8,
+    "registered_label_native": "MROÖ",
+    "historical_display_label": "MROÖ",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 1",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n02",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 2,
+    "minutes_list_id": null,
+    "ballot_number": 11,
+    "registered_label_native": "ORÖ",
+    "historical_display_label": "ORÖ",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 2",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n03",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 3,
+    "minutes_list_id": null,
+    "ballot_number": 12,
+    "registered_label_native": "ORSZÁGOS LENGYEL ÖNKORMÁNYZAT",
+    "historical_display_label": "ORSZÁGOS LENGYEL ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 3",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n04",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 4,
+    "minutes_list_id": null,
+    "ballot_number": 13,
+    "registered_label_native": "SZLOVÁK LISTA",
+    "historical_display_label": "SZLOVÁK LISTA",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 4",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n05",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 5,
+    "minutes_list_id": null,
+    "ballot_number": 15,
+    "registered_label_native": "ORSZÁGOS HORVÁT ÖNKORMÁNYZAT",
+    "historical_display_label": "ORSZÁGOS HORVÁT ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 5",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n06",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 6,
+    "minutes_list_id": null,
+    "ballot_number": 18,
+    "registered_label_native": "ORSZÁGOS ROMA ÖNKORMÁNYZAT",
+    "historical_display_label": "ORSZÁGOS ROMA ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 6",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n07",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 7,
+    "minutes_list_id": null,
+    "ballot_number": 24,
+    "registered_label_native": "MNOÖ",
+    "historical_display_label": "MNOÖ",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 7",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n08",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 8,
+    "minutes_list_id": null,
+    "ballot_number": 25,
+    "registered_label_native": "ORSZÁGOS SZLOVÉN ÖNKORMÁNYZAT",
+    "historical_display_label": "ORSZÁGOS SZLOVÉN ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 8",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n09",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 9,
+    "minutes_list_id": null,
+    "ballot_number": 27,
+    "registered_label_native": "SZOÖ",
+    "historical_display_label": "SZOÖ",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 9",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n10",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 10,
+    "minutes_list_id": null,
+    "ballot_number": 35,
+    "registered_label_native": "ÖRMÉNY ÖNKORMÁNYZAT",
+    "historical_display_label": "ÖRMÉNY ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 10",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n11",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 11,
+    "minutes_list_id": null,
+    "ballot_number": 39,
+    "registered_label_native": "UKRÁN ORSZÁGOS ÖNKORMÁNYZAT",
+    "historical_display_label": "UKRÁN ORSZÁGOS ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 11",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n12",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 12,
+    "minutes_list_id": null,
+    "ballot_number": 42,
+    "registered_label_native": "BOLGÁR ORSZÁGOS ÖNKORMÁNYZAT",
+    "historical_display_label": "BOLGÁR ORSZÁGOS ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 12",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy14-n13",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2014-04-06",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 13,
+    "minutes_list_id": null,
+    "ballot_number": 43,
+    "registered_label_native": "MAGYARORSZÁGI GÖRÖGÖK",
+    "historical_display_label": "MAGYARORSZÁGI GÖRÖGÖK",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, nationality list 13",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p01",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 1,
+    "minutes_list_id": 451,
+    "ballot_number": 5,
+    "registered_label_native": "SPORTOS ÉS EGÉSZSÉGES MAGYARORSZÁGÉRT PÁRT",
+    "historical_display_label": "SPORTOS ÉS EGÉSZSÉGES MAGYARORSZÁGÉRT PÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 1",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p02",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 2,
+    "minutes_list_id": 274,
+    "ballot_number": 9,
+    "registered_label_native": "MOMENTUM MOZGALOM",
+    "historical_display_label": "MOMENTUM MOZGALOM",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 2",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p03",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 3,
+    "minutes_list_id": 176,
+    "ballot_number": 11,
+    "registered_label_native": "DEMOKRATIKUS KOALÍCIÓ",
+    "historical_display_label": "DEMOKRATIKUS KOALÍCIÓ",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 3",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p04",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 4,
+    "minutes_list_id": 320,
+    "ballot_number": 13,
+    "registered_label_native": "SZEGÉNY EMBEREK MAGYARORSZÁGÉRT PÁRT",
+    "historical_display_label": "SZEGÉNY EMBEREK MAGYARORSZÁGÉRT PÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 4",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p05",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 5,
+    "minutes_list_id": 625,
+    "ballot_number": 14,
+    "registered_label_native": "KÖZÖS NEVEZŐ 2018",
+    "historical_display_label": "KÖZÖS NEVEZŐ 2018",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 5",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p06",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 6,
+    "minutes_list_id": 494,
+    "ballot_number": 15,
+    "registered_label_native": "EURÓPAI ROMA KERESZTÉNYEK JOBBLÉTÉÉRT DEMOKRATIKUS PÁRT",
+    "historical_display_label": "EURÓPAI ROMA KERESZTÉNYEK JOBBLÉTÉÉRT DEMOKRATIKUS PÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 6",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p07",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 7,
+    "minutes_list_id": 632,
+    "ballot_number": 16,
+    "registered_label_native": "ÖSSZEFOGÁS PÁRT",
+    "historical_display_label": "ÖSSZEFOGÁS PÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 7",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p08",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 8,
+    "minutes_list_id": 293,
+    "ballot_number": 18,
+    "registered_label_native": "MAGYAR KÉTFARKÚ KUTYA PÁRT",
+    "historical_display_label": "MAGYAR KÉTFARKÚ KUTYA PÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 8",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p09",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "coalition",
+    "native_list_type": "közös pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 9,
+    "minutes_list_id": 131,
+    "ballot_number": 20,
+    "registered_label_native": "MAGYAR SZOCIALISTA PÁRT – PÁRBESZÉD MAGYARORSZÁGÉRT PÁRT",
+    "historical_display_label": "MAGYAR SZOCIALISTA PÁRT – PÁRBESZÉD MAGYARORSZÁGÉRT PÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "organisations_printed_in_the_list_name_only_no_vote_or_seat_attribution",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 9",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p10",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 10,
+    "minutes_list_id": 468,
+    "ballot_number": 22,
+    "registered_label_native": "IRÁNYTŰ PÁRT",
+    "historical_display_label": "IRÁNYTŰ PÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 10",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p11",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 11,
+    "minutes_list_id": 447,
+    "ballot_number": 23,
+    "registered_label_native": "MAGYAR IGAZSÁG ÉS ÉLET PÁRTJA",
+    "historical_display_label": "MAGYAR IGAZSÁG ÉS ÉLET PÁRTJA",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 11",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p12",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 12,
+    "minutes_list_id": 306,
+    "ballot_number": 27,
+    "registered_label_native": "MAGYARORSZÁGI CIGÁNYPÁRT",
+    "historical_display_label": "MAGYARORSZÁGI CIGÁNYPÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 12",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p13",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "coalition",
+    "native_list_type": "közös pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 13,
+    "minutes_list_id": 239,
+    "ballot_number": 28,
+    "registered_label_native": "FIDESZ - MAGYAR POLGÁRI SZÖVETSÉG – KERESZTÉNYDEMOKRATA NÉPPÁRT",
+    "historical_display_label": "FIDESZ - MAGYAR POLGÁRI SZÖVETSÉG – KERESZTÉNYDEMOKRATA NÉPPÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "organisations_printed_in_the_list_name_only_no_vote_or_seat_attribution",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 13",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p14",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 14,
+    "minutes_list_id": 561,
+    "ballot_number": 29,
+    "registered_label_native": "NET PÁRT",
+    "historical_display_label": "NET PÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 14",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p15",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 15,
+    "minutes_list_id": 246,
+    "ballot_number": 30,
+    "registered_label_native": "JOBBIK MAGYARORSZÁGÉRT MOZGALOM",
+    "historical_display_label": "JOBBIK MAGYARORSZÁGÉRT MOZGALOM",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 15",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p16",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 16,
+    "minutes_list_id": 597,
+    "ballot_number": 31,
+    "registered_label_native": "MAGYARORSZÁGON ÉLŐ DOLGOZÓ ÉS TANULÓ EMBEREK PÁRTJA",
+    "historical_display_label": "MAGYARORSZÁGON ÉLŐ DOLGOZÓ ÉS TANULÓ EMBEREK PÁRTJA",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 16",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p17",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 17,
+    "minutes_list_id": 337,
+    "ballot_number": 37,
+    "registered_label_native": "MAGYAR MUNKÁSPÁRT",
+    "historical_display_label": "MAGYAR MUNKÁSPÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 17",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p18",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 18,
+    "minutes_list_id": 313,
+    "ballot_number": 38,
+    "registered_label_native": "EGYÜTT - A KORSZAKVÁLTÓK PÁRTJA",
+    "historical_display_label": "EGYÜTT - A KORSZAKVÁLTÓK PÁRTJA",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 18",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p19",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 19,
+    "minutes_list_id": 618,
+    "ballot_number": 41,
+    "registered_label_native": "CSALÁDOK PÁRTJA",
+    "historical_display_label": "CSALÁDOK PÁRTJA",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 19",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p20",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 20,
+    "minutes_list_id": 416,
+    "ballot_number": 45,
+    "registered_label_native": "LEHET MÁS A POLITIKA",
+    "historical_display_label": "LEHET MÁS A POLITIKA",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 20",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p21",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 21,
+    "minutes_list_id": 365,
+    "ballot_number": 49,
+    "registered_label_native": "TENNI AKARÁS MOZGALOM",
+    "historical_display_label": "TENNI AKARÁS MOZGALOM",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 21",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p22",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 22,
+    "minutes_list_id": 585,
+    "ballot_number": 52,
+    "registered_label_native": "REND ÉS ELSZÁMOLTATÁS PÁRT",
+    "historical_display_label": "REND ÉS ELSZÁMOLTATÁS PÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 22",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-p23",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló pártlista",
+    "kind_basis": "Printed list name in the minutes naming two organisations; the National Election Office's 2018 composition page groups rows 9 and 13 as 'MSZP-PÁRBESZÉD' and 'FIDESZ-KDNP'. No official 'joint list' label was read, as for 2022.",
+    "list_number": 23,
+    "minutes_list_id": 372,
+    "ballot_number": 53,
+    "registered_label_native": "KELL AZ ÖSSZEFOGÁS PÁRT",
+    "historical_display_label": "KELL AZ ÖSSZEFOGÁS PÁRT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, party list 23",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n01",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 1,
+    "minutes_list_id": 183,
+    "ballot_number": 1,
+    "registered_label_native": "MAGYARORSZÁGI NÉMETEK ORSZÁGOS ÖNKORMÁNYZATA",
+    "historical_display_label": "MAGYARORSZÁGI NÉMETEK ORSZÁGOS ÖNKORMÁNYZATA",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 1",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n02",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 2,
+    "minutes_list_id": 423,
+    "ballot_number": 4,
+    "registered_label_native": "ORSZÁGOS ÖRMÉNY ÖNKORMÁNYZAT",
+    "historical_display_label": "ORSZÁGOS ÖRMÉNY ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 2",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n03",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 3,
+    "minutes_list_id": 148,
+    "ballot_number": 8,
+    "registered_label_native": "ORSZÁGOS ROMA ÖNKORMÁNYZAT",
+    "historical_display_label": "ORSZÁGOS ROMA ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 3",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n04",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 4,
+    "minutes_list_id": 124,
+    "ballot_number": 10,
+    "registered_label_native": "ORSZÁGOS RUSZIN ÖNKORMÁNYZAT",
+    "historical_display_label": "ORSZÁGOS RUSZIN ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 4",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n05",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 5,
+    "minutes_list_id": 267,
+    "ballot_number": 17,
+    "registered_label_native": "BOLGÁR ORSZÁGOS ÖNKORMÁNYZAT",
+    "historical_display_label": "BOLGÁR ORSZÁGOS ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 5",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n06",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 6,
+    "minutes_list_id": 117,
+    "ballot_number": 21,
+    "registered_label_native": "MAGYARORSZÁGI GÖRÖGÖK ORSZÁGOS ÖNKORMÁNYZATA",
+    "historical_display_label": "MAGYARORSZÁGI GÖRÖGÖK ORSZÁGOS ÖNKORMÁNYZATA",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 6",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n07",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 7,
+    "minutes_list_id": 222,
+    "ballot_number": 33,
+    "registered_label_native": "UKRÁN ORSZÁGOS ÖNKORMÁNYZAT",
+    "historical_display_label": "UKRÁN ORSZÁGOS ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 7",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n08",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 8,
+    "minutes_list_id": 152,
+    "ballot_number": 34,
+    "registered_label_native": "ORSZÁGOS HORVÁT ÖNKORMÁNYZAT",
+    "historical_display_label": "ORSZÁGOS HORVÁT ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 8",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n09",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 9,
+    "minutes_list_id": 281,
+    "ballot_number": 35,
+    "registered_label_native": "MAGYARORSZÁGI ROMÁNOK ORSZÁGOS ÖNKORMÁNYZATA",
+    "historical_display_label": "MAGYARORSZÁGI ROMÁNOK ORSZÁGOS ÖNKORMÁNYZATA",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 9",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n10",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 10,
+    "minutes_list_id": 195,
+    "ballot_number": 36,
+    "registered_label_native": "ORSZÁGOS SZLOVÁK ÖNKORMÁNYZAT",
+    "historical_display_label": "ORSZÁGOS SZLOVÁK ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 10",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n11",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 11,
+    "minutes_list_id": 358,
+    "ballot_number": 39,
+    "registered_label_native": "ORSZÁGOS SZLOVÉN ÖNKORMÁNYZAT",
+    "historical_display_label": "ORSZÁGOS SZLOVÉN ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 11",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n12",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 12,
+    "minutes_list_id": 169,
+    "ballot_number": 40,
+    "registered_label_native": "ORSZÁGOS LENGYEL ÖNKORMÁNYZAT",
+    "historical_display_label": "ORSZÁGOS LENGYEL ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 12",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy18-n13",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2018-04-08",
+    "contestant_kind": "nationality_list",
+    "native_list_type": "nemzetiségi lista",
+    "kind_basis": "nationality-list table of the minutes",
+    "list_number": 13,
+    "minutes_list_id": 208,
+    "ballot_number": 47,
+    "registered_label_native": "SZERB ORSZÁGOS ÖNKORMÁNYZAT",
+    "historical_display_label": "SZERB ORSZÁGOS ÖNKORMÁNYZAT",
+    "display_label_rule": "list name as printed in the minutes",
+    "lead_party_id": null,
+    "party_relation_status": "not_a_party",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, nationality list 13",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "list_number",
+          "registered_label_native",
+          "minutes_list_id"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "contestant_id": "ct-hu-ogy22-p01",
     "country": "hungary",
     "election_id": "el-hu-ogy-2022-04-03",
@@ -22,10 +2503,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -58,10 +2539,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -94,10 +2575,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -130,10 +2611,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -166,10 +2647,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -202,10 +2683,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -238,10 +2719,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -274,10 +2755,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -310,10 +2791,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -346,10 +2827,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -382,10 +2863,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -418,10 +2899,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -454,10 +2935,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -490,10 +2971,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -526,10 +3007,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -562,10 +3043,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -598,10 +3079,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -634,10 +3115,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -670,10 +3151,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -706,10 +3187,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -742,10 +3223,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -778,10 +3259,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -814,10 +3295,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -850,10 +3331,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -886,10 +3367,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -922,10 +3403,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -958,10 +3439,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -994,10 +3475,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1030,10 +3511,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1066,10 +3547,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1102,10 +3583,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1138,10 +3619,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1174,10 +3655,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1210,10 +3691,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1246,10 +3727,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "list_number",
           "registered_label_native",

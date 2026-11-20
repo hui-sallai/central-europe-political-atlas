@@ -1,0 +1,76 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "romania-senate-2024-vacancy-note",
+ "country": "romania",
+ "election_ids": [
+  "el-ro-s-2024-12-01"
+ ],
+ "scope": "Explanatory metadata only: the 2024 Senate keeps 134 elected senators of 136 statutory seats exactly as the Central Electoral Bureau act 2RF prints them. The act states no reason; a labelled secondary source (IPU Parline) now explains that the two seats were due to POT, which had too few candidates in those constituencies, and that the Bureau left them vacant. No contestant result, vote or seat changes, and no senator is added.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-20",
+   "decision": "Owner brief 'historical parliamentary election backfill' (Romania 2024 Senate seat explanation) and answer including 'Romania: cite IPU Parline' and 'Romania: you stage files' (Government decision on the date and any Bureau decision on the vacancy, still to be supplied)."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/romania/parliament/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "citation_summary_only",
+   "evidence_kind": "owner_decision",
+   "basis": "IPU Parline is cited, and its explanation summarised in the Atlas's own words; nothing is reproduced from it."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "note_text_only",
+   "evidence_kind": "owner_decision",
+   "basis": "One sentence in the legislature note and the seat definition, marked as a secondary source."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed",
+   "evidence_kind": "owner_decision",
+   "basis": "No IPU page or data is stored."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_named_manual_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "The IPU Parline page named in the owner brief was read once by hand in a browser. Central Electoral Bureau hosts stay blocked and were not contacted."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "The page's Senate seat note and its seat table (POT 7) were read; the table agrees with section k of act 2RF."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "unchanged",
+   "evidence_kind": "build_check",
+   "basis": "reconcile2024 unchanged: two POT national-stage seats are deployed to no constituency, Giurgiu and Ialomița each keep one slot unfilled; 134 of 136."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "unchanged",
+   "evidence_kind": "owner_decision",
+   "basis": "Unchanged."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "statutory_vs_filled_kept",
+   "evidence_kind": "build_check",
+   "basis": "Statutory size 136 (seat_slots), filled 134 (total_seats), unfilled 2 (seats_by_mechanism.unfilled), allocated to POT but not deployed; later membership changes are not tracked."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "bec_final_act_with_secondary_explanation",
+   "evidence_kind": "official_act",
+   "basis": "The figures remain those of act 2RF of 7 December 2024. The polling day stays marked for confirmation until the Government decision setting it is supplied."
+  }
+ },
+ "continuity": "Unchanged.",
+ "germany_change_allowed": false
+}

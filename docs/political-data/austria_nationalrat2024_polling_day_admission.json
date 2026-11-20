@@ -1,0 +1,80 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "austria-nationalrat-2024-polling-day",
+ "country": "austria",
+ "election_ids": [
+  "el-at-nr-2024-09-29"
+ ],
+ "scope": "Metadata correction only: the 2024 Nationalrat polling day (29 September 2024), until now taken from the national election source registry (background_to_verify), is now sourced to the federal government ordinance BGBl. II Nr. 169/2024, § 2. No vote, seat or count changes.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-16",
+   "decision": "Owner approval: www.ris.bka.gv.at registered for manual reading of named legal texts, institutional facts only."
+  },
+  {
+   "date": "2026-11-20",
+   "decision": "Owner brief 'historical parliamentary election backfill' (Austria 2024 election metadata) and answer 'Austria: read RIS notice'."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/austria/nationalrat/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "legal_text_not_subject_to_copyright",
+   "evidence_kind": "statute_urhg_7",
+   "basis": "Federal law gazette text: laws and ordinances are free works under UrhG § 7(1). Only the date and the quoted clause are stored."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "polling_day_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The polling day and a one-sentence quotation of § 2; the 2013–2024 admission is otherwise unchanged."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed",
+   "evidence_kind": "owner_decision",
+   "basis": "The RIS page is cited by URL; no file is stored; signatories are not recorded."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "registered_manual_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "Read once by hand in a browser: the RIS search result list (/Ergebnis.wxe) and the document page /Dokumente/BgblAuth/BGBLA_2024_II_169/, both outside the paths RIS disallows. www.bmi.gv.at was not contacted."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "The ordinance has three sections; § 2 fixes the Wahltag, § 3 the reference day (9 July 2024), both recorded."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "unchanged",
+   "evidence_kind": "build_check",
+   "basis": "build-nationalrat check unchanged for every year; all 2024 rows other than the election row are byte-identical apart from checksums."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "unchanged",
+   "evidence_kind": "owner_decision",
+   "basis": "Same election id el-at-nr-2024-09-29; the date already matched."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "unchanged",
+   "evidence_kind": "build_check",
+   "basis": "Unchanged; the ordinance cites § 1 Abs. 2 NRWO as its legal basis."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "date_verified_from_legal_act",
+   "evidence_kind": "official_act",
+   "basis": "The polling day is a legal fact fixed by the ordinance of 28 June 2024 (published that day), distinct from the result decision of 16 October 2024."
+  }
+ },
+ "continuity": "Unchanged.",
+ "germany_change_allowed": false
+}

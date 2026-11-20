@@ -1,5 +1,12 @@
 # Changelog
 
+### v2.0 Hungarian parliamentary elections 2014 and 2018, Austrian and Romanian 2024 metadata — 2026-11-20
+
+- Add Hungary's National Assembly elections of 6 April 2014 and 8 April 2018 (all 199 seats each, under the 2011 electoral act): party-list and nationality-list votes as separate ballots, registers, participation, ballot counts and national list seats from the National Election Commission's national-list minutes (2018: the minutes printed as the annex to the Kúria's review decisions; 2014: the same minutes published in minutes form with the archive's seat calculation), and district seats per list from the election office's composition pages. Thresholds, the nationality preferential quota and the highest-averages allocation recompute every list seat (2018: 42/25/12/7/6 plus one German preferential seat; 2014: 37/28/23/5), and every year comes to 93 + 106 = 199. In 2018 one district seat was won by an independent candidate: it is counted and attributed to no list, and the candidate is not named. One 2014 list name that begins with a person's name is stored without it. No party is linked across elections. 2022 and 2026 are unchanged.
+- Austria 2024: the polling day (29 September 2024) is now sourced to the federal government's election-call ordinance BGBl. II Nr. 169/2024, § 2, so it is no longer marked as awaiting confirmation. No result changes.
+- Romania 2024 Senate: 134 senators elected of 136 seats stays exactly as the Central Electoral Bureau's act prints it. The note now adds, as a labelled secondary source (IPU Parline), that both unfilled seats were due to the Party of Young People, which had too few candidates in those constituencies, and that the bureau left them vacant. The polling day stays marked for confirmation until the Government decision setting it is supplied.
+- The published D4 research case stays fixed to the 17 elections it was run on; elections admitted later enter it only through a new research decision.
+
 ### v2.0 parliamentary election pages for Austria, Croatia, Romania and Slovenia — 2026-11-20
 
 - Connect all 34 previously admitted chamber elections to the bilingual Politics index and country profiles. Explore original ballot scopes, historical turnout, seats, rule versions and sources, compare elections across countries, and return to the selected ballot through exports or the Research Notebook.

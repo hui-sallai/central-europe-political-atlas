@@ -109,6 +109,12 @@ export const POLITICAL_ADMISSIONS = {
   'croatia-sabor-1995': { approved_on: '2026-11-19', country: 'croatia', gate_record: 'docs/political-data/croatia_sabor1995_admission.json', paths: CROATIAN_PATHS },
   'croatia-sabor-1992': { approved_on: '2026-11-19', country: 'croatia', gate_record: 'docs/political-data/croatia_sabor1992_admission.json', paths: CROATIAN_PATHS },
   'croatia-zupanijski-dom-1993': { approved_on: '2026-11-19', country: 'croatia', gate_record: 'docs/political-data/croatia_zupanijski_dom1993_admission.json', paths: CROATIAN_PATHS },
+  // Owner brief 2026-11-20 (historical backfill) and answer "Same scope as 2022": Hungary 2014 and 2018 from the national-list minutes and composition pages.
+  'hungary-ogy-2014-2018': { approved_on: '2026-11-20', country: 'hungary', gate_record: 'docs/political-data/hungary_ogy2014_2018_admission.json', paths: HUNGARIAN_PATHS },
+  // Same brief, answer "Austria: read RIS notice": the 2024 polling day sourced to BGBl. II Nr. 169/2024 (metadata only).
+  'austria-nationalrat-2024-polling-day': { approved_on: '2026-11-20', country: 'austria', gate_record: 'docs/political-data/austria_nationalrat2024_polling_day_admission.json', paths: AUSTRIAN_PATHS },
+  // Same brief, answer "Romania: cite IPU Parline": secondary explanation of the two unfilled 2024 Senate seats (metadata only).
+  'romania-senate-2024-vacancy-note': { approved_on: '2026-11-20', country: 'romania', gate_record: 'docs/political-data/romania_senate2024_vacancy_note_admission.json', paths: ROMANIAN_PATHS },
   'austria-nationalrat-2006-2008': { approved_on: '2026-11-19', country: 'austria', gate_record: 'docs/political-data/austria_nationalrat2006_2008_admission.json', paths: AUSTRIAN_PATHS },
 };
 const flags = ['germany_change_allowed', 'canonical_data_change_allowed', 'model_change_allowed', 'research_gate_change_allowed', 'release_version_change_allowed'];

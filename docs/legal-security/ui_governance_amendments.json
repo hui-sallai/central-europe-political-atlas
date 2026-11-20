@@ -4445,6 +4445,45 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "historical-election-backfill-2026-11-20",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-20 \"historical parliamentary election backfill and institutional rule completion\" and answers \"Same scope as 2022 (Recommended)\", \"Austria: read RIS notice\" and \"Romania: cite IPU Parline\": politicalAdmission.ts updates the Hungarian row text and record (Hungary 2014 and 2018) and the Romanian 2024 Senate explanation; politicalStores.ts and politicalNational.ts accept a counted number of independent constituency seats in a whole-chamber attribution (Hungary 2018: one), still failing closed when anything else is unattributed; election_links.json is regenerated with the two Hungarian elections; comparativeResearchCase.ts fixes the published D4 case to the 17 elections it was run on (RESEARCH_CASE.electionIds), so its findings do not change; no component, page or design change",
+      "baseline": "41a972bb3e83ab37d3d2b0cb6680599ac13ab978",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-20",
+      "files": [
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "ab050779a5daa656a87a5fa85f74214a8e52b15c27ab4dbbd93eff6c69684130",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalStores.ts",
+          "sha256": "bb2a858b33d8bead0cb57eaee2d5736db6219f8c3bf8e43214ad807c9f0cb35e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalNational.ts",
+          "sha256": "090b2991ee4a9c67b3a9e0056806af9e9f0b581d39fa4f9f6bc147267648c434",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/election_links.json",
+          "sha256": "b7e3370758aa15bf7ccf44c45669d3f0aba649fe337e996ef0412bd912fbe3db",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/comparativeResearchCase.ts",
+          "sha256": "746b0b9f9b72e767f53249cd176a0f650e49340e58d816cdcce8a39f62ccc14a",
+          "classification": "METHODOLOGY_PRESENTATION"
+        }
+      ]
     }
   ]
 }

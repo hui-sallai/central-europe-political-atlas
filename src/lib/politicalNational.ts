@@ -10,7 +10,7 @@ export type NationalRules = {
 };
 export type TurnoutBasis = { numerator: "voters" | "envelopes_issued" | "ballots_cast" | "valid_ballots" | "unknown"; denominator: "registered_electorate" | "eligible_population" | "unknown"; definition: string | null; sourceIds: string[] };
 export type NationalBallotView = { definition: VoteDefinition; validVotes: number | null; invalidVotes: number | null; ballotsCast: number | null; results: PoliticalResult[] };
-export type NationalContext = { chamber: string; dateEnd: string | null; vintage: string; turnout: TurnoutBasis; rules: NationalRules; activeVote: VoteDefinition; ballots: NationalBallotView[]; /** "complete" only when every seat of the chamber is attributed to a ballot entity in the stores. */ chamberAttribution?: "complete" | "none"; seatTiers?: { nationalList: number; constituency: number } | null };
+export type NationalContext = { chamber: string; dateEnd: string | null; vintage: string; turnout: TurnoutBasis; rules: NationalRules; activeVote: VoteDefinition; ballots: NationalBallotView[]; /** "complete" only when every seat of the chamber is attributed to a ballot entity in the stores. */ chamberAttribution?: "complete" | "none"; seatTiers?: { nationalList: number; constituency: number; /** Constituency seats won by independent candidates (included in constituency, attributed to no row). */ independentConstituency?: number } | null };
 export {voteDenominator,compatibleTurnout,compatibleVoteBasis} from "./politicalExplorer";
 
 /** Existing legacy secondVotes fields remain aliases of the actively selected ballot, not a German assumption. */

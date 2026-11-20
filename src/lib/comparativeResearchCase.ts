@@ -25,6 +25,9 @@ export const RESEARCH_CASE = {
   },
   countries: ["czechia", "germany", "hungary", "poland"] as string[],
   contextCountries: ["slovakia"] as string[],
+  // The published case (2026-11-06) is fixed to the elections it was run on. Elections admitted later (Hungary 2014 and 2018,
+  // 2026-11-20) enter it only through a new research decision, so a data admission never changes a published finding.
+  electionIds: ["el-de-bt-2002-09-22", "el-de-bt-2005-09-18", "el-de-bt-2009-09-27", "el-de-bt-2013-09-22", "el-de-bt-2017-09-24", "el-de-bt-2021-09-26", "el-de-bt-2025-02-23", "el-cz-ps-2017-10-20", "el-cz-ps-2021-10-08", "el-cz-ps-2025-10-03", "el-pl-sejm-2011-10-09", "el-pl-sejm-2015-10-25", "el-pl-sejm-2019-10-13", "el-pl-sejm-2023-10-15", "el-sk-nrsr-2023-09-30", "el-hu-ogy-2022-04-03", "el-hu-ogy-2026-04-12"] as string[],
   indicators: [...ELECTION_MACRO_INDICATORS] as ElectionMacroIndicator[],
   primaryView: "last_complete_year" as ResearchView,
   sensitivityView: "election_calendar_year" as ResearchView,
@@ -82,7 +85,8 @@ const NOTE: Record<string, Text> = {
   slovakia: { en: "Proportional list system in one national constituency; one admitted election, so no change between elections.", zh: "全国单一选区的比例名单制；只有一届已准入选举，因此没有选举之间的变化。" },
 };
 
-export function runResearchCase(elections: PoliticalElectionView[], points: ContextPoint[], links: PoliticalIdentityLink[], models: CaseModelObservation[]) {
+export function runResearchCase(admitted: PoliticalElectionView[], points: ContextPoint[], links: PoliticalIdentityLink[], models: CaseModelObservation[]) {
+  const elections = admitted.filter((e) => RESEARCH_CASE.electionIds.includes(e.electionId));
   // Fixed order, so every page that holds the same elections exports the same bytes.
   const scoped = elections.filter((e) => RESEARCH_CASE.countries.includes(countryOf(e))).sort((a, b) => countryOf(a).localeCompare(countryOf(b)) || a.date.localeCompare(b.date));
   const run = (view: ResearchView) => runComparativeResearch({ countries: RESEARCH_CASE.countries, indicators: RESEARCH_CASE.indicators, view }, elections, points, links);

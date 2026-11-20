@@ -1,5 +1,75 @@
 [
   {
+    "election_id": "el-hu-ogy-2014-04-06",
+    "country": "hungary",
+    "election_type": "national_parliament",
+    "chamber": "Országgyűlés",
+    "date": "2014-04-06",
+    "date_end": null,
+    "date_basis": "heading '2014. április. 6' of the National Election Office's 2014 result pages on static.valasztas.hu, read by hand",
+    "year": 2014,
+    "legislature_id": "lg-hu-ogy-2014",
+    "electoral_system_id": "es-hu-ogy-2014",
+    "result_status": "official_final",
+    "result_vintage": "final: National Election Commission minutes on the national list result as published in minutes form in the National Election Office archive, Frissitve: 2014.04.28. 10:01 (all three pages) (votes and national list seats); National Election Office chamber-composition record, Frissitve: 2014.04.28. 10:01; Betöltött képviselői helyek száma 199; Betöltetlen mandátumok száma 0 (constituency and whole-chamber seats)",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2014",
+        "source_url": "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
+        "source_record_id": "minutes, title",
+        "retrieved_at": "2026-11-20T01:40:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "chamber",
+          "result_vintage"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-hu-ogy-2018-04-08",
+    "country": "hungary",
+    "election_type": "national_parliament",
+    "chamber": "Országgyűlés",
+    "date": "2018-04-08",
+    "date_end": null,
+    "date_basis": "heading '2018. április. 8' of the National Election Office's 2018 result pages on static.valasztas.hu, read by hand",
+    "year": 2018,
+    "legislature_id": "lg-hu-ogy-2018",
+    "electoral_system_id": "es-hu-ogy-2018",
+    "result_status": "official_final",
+    "result_vintage": "final: National Election Commission minutes on the national list result as the annex to the Kúria's review decisions (votes and national list seats); National Election Office chamber-composition record, Frissitve: 2018-05-03 16:48:09; Betöltött képviselői helyek száma 199; Betöltetlen mandátumok száma 0 (constituency and whole-chamber seats)",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvb-minutes-2018",
+        "source_url": "https://static.valasztas.hu/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf",
+        "source_record_id": "minutes, title",
+        "retrieved_at": "2026-11-20T01:25:15Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "fields_covered": [
+          "chamber",
+          "result_vintage"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "election_id": "el-hu-ogy-2022-04-03",
     "country": "hungary",
     "election_type": "national_parliament",
@@ -22,10 +92,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "chamber",
           "result_vintage"
@@ -57,10 +127,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "fcf7475b868d1130cf76743d0414d2bbbd89f64e33ddfe6abb252d8e4bedc497"
+          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "8c17e83377663b323a91a7861727de899c63ea3405caccefb83cb2cbe1562acc",
+        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
         "fields_covered": [
           "chamber",
           "result_vintage"

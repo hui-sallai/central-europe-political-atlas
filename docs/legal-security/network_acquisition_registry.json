@@ -202,6 +202,10 @@
         {
           "date": "2026-11-03",
           "scope": "One retrieval of 11 named register and code-list files listed in docs/political-data/raw/czechia/registers/evidence.json, only where the national catalogue entry records no protected rights; automation stays not allowed otherwise."
+        },
+        {
+          "date": "2026-11-20",
+          "scope": "Manual reading of the open-data index (/opendata/opendata.htm) and the ps2002–ps2013 open-data pages to list file names for the owner to download by hand; the three year pages 2010, 2006 and 2002 were read with an in-page request from the open 2013 page. No data file was downloaded."
         }
       ]
     },
@@ -360,7 +364,13 @@
       "robots_checked_at": "2026-11-03",
       "robots_note": "pending",
       "reason": "Owner-approved 2026-11-03: one reading per named minutes document; national figures only.",
-      "status": "allowed_review_due"
+      "status": "allowed_review_due",
+      "owner_exceptions": [
+        {
+          "date": "2026-11-20",
+          "scope": "Owner answer 'minv.sk minutes': index pages of the National Council elections and the State Commission's minutes publication page were read by hand; only the 2023 minutes are linked, so no further document was requested. One scripted attempt to open guessed page names was refused by the session's permission check and did not run."
+        }
+      ]
     },
     {
       "host": "static.valasztas.hu",
@@ -370,7 +380,13 @@
       "robots_checked_at": "2026-11-05",
       "robots_note": "robots.txt: 'User-agent: * Disallow:' (all paths allowed)",
       "reason": "Owner-approved 2026-11-05: one reading per named minutes document (2026, 2022); national figures only. Constituency and territorial minutes are not authorised.",
-      "status": "allowed_review_due"
+      "status": "allowed_review_due",
+      "owner_exceptions": [
+        {
+          "date": "2026-11-20",
+          "scope": "Owner brief 2026-11-20 naming the 2018 and 2014 result pages, and answer 'Same scope as 2022': one request for the 2018 list-result minutes PDF (/dyn/pv18/jkvimage/listas_eredmeny_jkv.pdf) and one browser reading each of the 2018 and 2014 minutes-form, composition and (2014) threshold and seat-calculation pages under /dyn/pv18/ and /dyn/pv14/. National figures and aggregate seat counts only; constituency pages not read; automation stays not allowed."
+        }
+      ]
     },
     {
       "host": "njt.hu",
@@ -480,7 +496,13 @@
       "robots_checked_at": "2026-11-16",
       "robots_note": "Disallow /GeltendeFassung/, /geltendefassung/, /showdata/; crawl-delay 2. Only /Dokumente/Bundesnormen/ article pages and /Ergebnis.wxe result lists were read, at least 2 s apart.",
       "reason": "Owner approval 2026-11-16 (ten-country institutions brief; answer \"Register all\"): manual reading only, one reading per named legal text or page, institutional facts only; raw files stay in scratch storage and are never committed.",
-      "status": "allowed_review_due"
+      "status": "allowed_review_due",
+      "owner_exceptions": [
+        {
+          "date": "2026-11-20",
+          "scope": "Owner answer 'Austria: read RIS notice': one browser reading of the BGBl. II search result list and the document BGBLA_2024_II_169 (Nationalrat election call) for the polling day only."
+        }
+      ]
     },
     {
       "host": "www.cdep.ro",
@@ -615,6 +637,22 @@
       "reason": "Not registered for the assistant (unknown host = block). Owner answer \"Accept, record the route\" (2026-11-19): the owner supplied archived captures of the acts; they are kept in local-evidence/ by checksum.",
       "approved_by": "owner (AskUserQuestion answer \"Accept, record the route\", 2026-11-19)",
       "status": "blocked"
+    },
+    {
+      "host": "data.ipu.org",
+      "purpose": "Inter-Parliamentary Union, IPU Parline: secondary reference on parliamentary elections",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": null,
+      "robots_note": "not checked; one page read by hand in a browser",
+      "status": "allowed_review_due",
+      "reason": "Owner brief 2026-11-20 named the Romania Senate 2024 page and the owner answered 'Romania: cite IPU Parline': one reading, cited as a secondary source; only a summary in the Atlas's own words is stored.",
+      "owner_exceptions": [
+        {
+          "date": "2026-11-20",
+          "scope": "One browser reading of /parliament/RO/RO-UC01/election/RO-UC01-E20241201/."
+        }
+      ]
     }
   ],
   "reference_hosts": {

@@ -4,6 +4,6 @@ Whole chamber (183 seats), national level. Source: the Federal Ministry of the I
 
 Labels: the official short name (Kurzbezeichnung). Printed party names are stored only when they name no person (otherwise SHA-256 only); a short name that is a person's name is shown by its column position. No candidate names. No party is linked across elections.
 
-Turnout is derived (votes cast ÷ eligible voters). The 2006 and 2008 polling days are printed on the BMI result pages; the 2002, 2013 and 2024 polling days are not printed in the supplied files and come from the national election source registry.
+Turnout is derived (votes cast ÷ eligible voters). The 2006 and 2008 polling days are printed on the BMI result pages; the 2002 and 2013 polling days are not printed in the supplied files and come from the national election source registry; the 2024 polling day is the Wahltag fixed by the federal government ordinance BGBl. II Nr. 169/2024 (§ 2), read in RIS.
 
 Reuse basis: official works are free of copyright (UrhG § 7), recorded as the owner's reading of the statute, not a licence; the BMI Impressum permits attributed non-commercial reuse.

@@ -26,7 +26,7 @@ const row = (electionId, indicator) => rows.find((r) => r.electionId === electio
 
 test('every admitted election is matched to every indicator, with missing values kept explicit', () => {
   assert.equal(elections.length, 15);
-  assert.equal(allAdmitted.length, 21); // Serbia 2020, 2022, 2023, 2026
+  assert.equal(allAdmitted.length, 23); // Serbia 2020, 2022, 2023, 2026; Hungary 2014 and 2018 (2026-11-20)
   assert.equal(rows.length, 15 * ELECTION_MACRO_INDICATORS.length);
   assert.deepEqual([...new Set(rows.map((r) => r.country))].sort(), ['czechia', 'germany', 'poland', 'slovakia']);
   assert.deepEqual(Object.fromEntries(electionMacroCoverage(rows).map((c) => [c.indicator, [c.lastCompleteYear, c.retrospective, c.elections]])), { hicp_inflation: [15, 15, 15], real_gdp_growth: [9, 10, 15], unemployment_rate: [4, 6, 15], fiscal_balance_gdp: [15, 15, 15], government_debt_gdp: [15, 15, 15] });
@@ -102,14 +102,16 @@ test('the panel is enabled for all admitted countries through the existing contr
   assert.ok(inputs.events.every((e) => e.country_slug === 'germany'), 'events stay with the page country');
 });
 
-test('Hungary joins the same linkage: 2022 and 2026 rows, a turnout change on one computed basis, nothing claimed as released before polling', () => {
+test('Hungary joins the same linkage: 2014, 2018, 2022 and 2026 rows, turnout changes on one computed basis, nothing claimed as released before polling', () => {
   const hu = electionMacroRows(allAdmitted.filter((e) => e.country === 'hungary'), points);
-  assert.equal(hu.length, 2 * ELECTION_MACRO_INDICATORS.length);
+  assert.equal(hu.length, 4 * ELECTION_MACRO_INDICATORS.length);
   assert.ok(hu.every((r) => r.publishedBeforeElection.status !== 'documented' && r.turnout.published === null));
   const later = hu.find((r) => r.electionId === 'el-hu-ogy-2026-04-12');
   assert.ok(Math.abs(later.turnout.computed - (6408362 / 8112646) * 100) < 1e-9);
   assert.ok(Math.abs(later.turnout.changeSincePrevious - ((6408362 / 8112646) - (5717182 / 8215304)) * 100) < 1e-9);
-  assert.equal(hu.find((r) => r.electionId === 'el-hu-ogy-2022-04-03').turnout.changeSincePrevious, null);
+  assert.equal(hu.find((r) => r.electionId === 'el-hu-ogy-2014-04-06').turnout.changeSincePrevious, null, 'the first admitted election has no previous one');
+  assert.ok(Math.abs(hu.find((r) => r.electionId === 'el-hu-ogy-2022-04-03').turnout.changeSincePrevious - ((5717182 / 8215304) - (5796268 / 8312173)) * 100) < 1e-9);
+  assert.ok(Math.abs(hu.find((r) => r.electionId === 'el-hu-ogy-2018-04-08').turnout.changeSincePrevious - ((5796268 / 8312173) - (5096524 / 8241488)) * 100) < 1e-9);
   const election2026 = hu.filter((r) => r.electionId === 'el-hu-ogy-2026-04-12');
   assert.ok(election2026.every((r) => r.retrospective.status !== 'published'), 'the calendar year of a 2026 election is not complete, so it stays a gap');
 });

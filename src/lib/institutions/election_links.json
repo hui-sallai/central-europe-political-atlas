@@ -390,6 +390,106 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-hu-ogy-2014-04-06",
+   "country": "hungary",
+   "date": "2014-04-06",
+   "chamber_id": "hu-orszaggyules",
+   "chamber_official_name": "Országgyűlés",
+   "seats": 199,
+   "seat_count_basis": "statutory_total_not_current_composition",
+   "electoral_system_id": "es-hu-ogy-2014",
+   "system_family": "mixed: 106 single-member districts and 93 national list seats",
+   "allocation_method": "national list seats: highest averages over list votes plus surplus votes (§ 16)",
+   "base_seats": 199,
+   "thresholds": [
+    {
+     "applies_to": "party list",
+     "percent": 5,
+     "description": {
+      "en": "A party list below 5% of all valid party-list and nationality-list votes wins no list seat (§ 14(1)).",
+      "zh": "政党名单得票低于政党名单和民族名单有效票总数的 5% 时，不获得名单席位（第 14 条第 1 款）。"
+     }
+    },
+    {
+     "applies_to": "joint party list of two parties",
+     "percent": 10,
+     "description": {
+      "en": "A joint list of two parties below 10% of the same total wins no list seat (§ 14(2)).",
+      "zh": "两党联合名单低于同一总数的 10% 时，不获得名单席位（第 14 条第 2 款）。"
+     }
+    },
+    {
+     "applies_to": "joint party list of more than two parties",
+     "percent": 15,
+     "description": {
+      "en": "A joint list of more than two parties below 15% of the same total wins no list seat (§ 14(2)).",
+      "zh": "两党以上联合名单低于同一总数的 15% 时，不获得名单席位（第 14 条第 2 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Act CCIII of 2011, version read on the retrieval date; the minutes apply the same thresholds and method), not legal enactment dates",
+   "constitution_id": "hu-fundamental-law-2011",
+   "institutional_period_id": "hungary-period-2012-01-01",
+   "changes_in_force": [
+    "hu-2012-fundamental-law"
+   ],
+   "later_changes": [
+    "hu-2026-amendment-16",
+    "hu-2026-amendment-17"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-hu-ogy-2018-04-08",
+   "country": "hungary",
+   "date": "2018-04-08",
+   "chamber_id": "hu-orszaggyules",
+   "chamber_official_name": "Országgyűlés",
+   "seats": 199,
+   "seat_count_basis": "statutory_total_not_current_composition",
+   "electoral_system_id": "es-hu-ogy-2018",
+   "system_family": "mixed: 106 single-member districts and 93 national list seats",
+   "allocation_method": "national list seats: highest averages over list votes plus surplus votes (§ 16)",
+   "base_seats": 199,
+   "thresholds": [
+    {
+     "applies_to": "party list",
+     "percent": 5,
+     "description": {
+      "en": "A party list below 5% of all valid party-list and nationality-list votes wins no list seat (§ 14(1)).",
+      "zh": "政党名单得票低于政党名单和民族名单有效票总数的 5% 时，不获得名单席位（第 14 条第 1 款）。"
+     }
+    },
+    {
+     "applies_to": "joint party list of two parties",
+     "percent": 10,
+     "description": {
+      "en": "A joint list of two parties below 10% of the same total wins no list seat (§ 14(2)).",
+      "zh": "两党联合名单低于同一总数的 10% 时，不获得名单席位（第 14 条第 2 款）。"
+     }
+    },
+    {
+     "applies_to": "joint party list of more than two parties",
+     "percent": 15,
+     "description": {
+      "en": "A joint list of more than two parties below 15% of the same total wins no list seat (§ 14(2)).",
+      "zh": "两党以上联合名单低于同一总数的 15% 时，不获得名单席位（第 14 条第 2 款）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Act CCIII of 2011, version read on the retrieval date; the minutes apply the same thresholds and method), not legal enactment dates",
+   "constitution_id": "hu-fundamental-law-2011",
+   "institutional_period_id": "hungary-period-2012-01-01",
+   "changes_in_force": [
+    "hu-2012-fundamental-law"
+   ],
+   "later_changes": [
+    "hu-2026-amendment-16",
+    "hu-2026-amendment-17"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-hu-ogy-2022-04-03",
    "country": "hungary",
    "date": "2022-04-03",

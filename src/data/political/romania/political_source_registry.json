@@ -12,7 +12,7 @@
     "attribution": "Autoritatea Electorală Permanentă, data.gov.ro",
     "retrieved_at": "2026-11-19",
     "acquisition": "owner download 2026-11-19 from data.gov.ro (six AEP files); the assistant made no request; kept in local-evidence/ by checksum",
-    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
+    "raw_sha256": "30d44432e528224a336683c915f935311c40fbed27b20134615a4de537e476be",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "files": {
       "rezultate2012nivelcircumscriptie.xls": {
@@ -60,7 +60,7 @@
     "attribution": "Autoritatea Electorală Permanentă, data.gov.ro",
     "retrieved_at": "2026-11-19",
     "acquisition": "owner download 2026-11-19 from data.gov.ro (six AEP files); the assistant made no request; kept in local-evidence/ by checksum",
-    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
+    "raw_sha256": "30d44432e528224a336683c915f935311c40fbed27b20134615a4de537e476be",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "files": {
       "rezultate2012nivelcircumscriptie.xls": {
@@ -107,7 +107,7 @@
     "licence_url": "https://data.gov.ro/pages/licence",
     "attribution": "Autoritatea Electorală Permanentă, data.gov.ro",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
+    "raw_sha256": "30d44432e528224a336683c915f935311c40fbed27b20134615a4de537e476be",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "files": {
       "stations": {
@@ -139,7 +139,7 @@
     "licence_url": "https://data.gov.ro/pages/licence",
     "attribution": "Autoritatea Electorală Permanentă, data.gov.ro",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
+    "raw_sha256": "30d44432e528224a336683c915f935311c40fbed27b20134615a4de537e476be",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "files": {
       "stations": {
@@ -172,7 +172,7 @@
     "licence_url": "https://data.gov.ro/pages/licence",
     "attribution": "Camera Deputaților",
     "retrieved_at": "2026-11-18",
-    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
+    "raw_sha256": "30d44432e528224a336683c915f935311c40fbed27b20134615a4de537e476be",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "page_block_sha256": "9cf30fc60cbdfeb17504d61200d24ec8003921534757db91862d357713832afa"
   },
@@ -195,7 +195,7 @@
       "captured": "2021-01-15",
       "kind": "archived original PDF (byte copy of the publisher file as captured)"
     },
-    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
+    "raw_sha256": "30d44432e528224a336683c915f935311c40fbed27b20134615a4de537e476be",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "publisher_file_sha256": "b62912ecec728ea0fca4dc8d3801f82edd4f049200b8e791c2a8b879d0405d41"
   },
@@ -218,7 +218,7 @@
       "captured": "2021-01-14",
       "kind": "archived original PDF (byte copy of the publisher file as captured)"
     },
-    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
+    "raw_sha256": "30d44432e528224a336683c915f935311c40fbed27b20134615a4de537e476be",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "publisher_file_sha256": "6000d0e3086870eecf097d58c7321309499052e9928dbd5a3e186f7f1a8173e6"
   },
@@ -236,9 +236,28 @@
     "attribution": "Biroul Electoral Central",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
+    "raw_sha256": "30d44432e528224a336683c915f935311c40fbed27b20134615a4de537e476be",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "publisher_file_sha256": "27d0dc5be6a04bd3c94f4f94220bea3ffba3cade66e2ec60b94afa7f7c108239"
+  },
+  {
+    "source_id": "src-ro-ipu-parline-s-2024",
+    "country": "romania",
+    "institution": "Inter-Parliamentary Union, IPU Parline",
+    "dataset": "Romania Senate, December 2024 election (IPU Parline)",
+    "tier": "tier2_secondary_reference",
+    "role": "secondary_explanation_of_unfilled_seats",
+    "url": "https://data.ipu.org/parliament/RO/RO-UC01/election/RO-UC01-E20241201/",
+    "licence_status": "cited_summary_only_no_reuse_of_text",
+    "raw_redistribution": "a summary in the Atlas's own words; no text or data reproduced",
+    "licence_url": "https://data.ipu.org/parliament/RO/RO-UC01/election/RO-UC01-E20241201/",
+    "licence_url_basis": "cited reference page; nothing is reproduced from it",
+    "attribution": "Inter-Parliamentary Union (IPU Parline)",
+    "retrieved_at": "2026-11-20",
+    "acquisition": "manual_reading_owner_answer_2026_11_20",
+    "raw_sha256": "30d44432e528224a336683c915f935311c40fbed27b20134615a4de537e476be",
+    "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
+    "status": "secondary source: no Central Electoral Bureau decision on the vacancy was read"
   },
   {
     "source_id": "src-ro-bec-s-2024",
@@ -254,7 +273,7 @@
     "attribution": "Biroul Electoral Central",
     "retrieved_at": "2026-11-18",
     "acquisition": "owner_manual_download",
-    "raw_sha256": "745a285fbb57e10a7a9547f59c2def386bfd0eb37bd87661541d1cbd7c791dcf",
+    "raw_sha256": "30d44432e528224a336683c915f935311c40fbed27b20134615a4de537e476be",
     "raw_path": "docs/political-data/raw/romania/parliament/evidence.json",
     "publisher_file_sha256": "e87a5c6324192bc414903967b4cb6c616d9bb785edab127fd0b87798ee1c2270"
   }

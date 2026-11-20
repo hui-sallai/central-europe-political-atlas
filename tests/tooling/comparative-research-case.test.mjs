@@ -29,7 +29,9 @@ const result = run();
 const byPair = (from) => result.pairs.find((p) => p.fromElection === from);
 
 test('countries and elections: 12 successive pairs in four countries, Slovakia as context only, no pair across countries', () => {
-  assert.equal(elections.length, 17);
+  assert.equal(elections.length, 19, 'all admitted elections of the five countries, Hungary 2014 and 2018 included (2026-11-20)');
+  assert.equal(C.RESEARCH_CASE.electionIds.length, 17);
+  assert.ok(!result.elections.some((e) => /el-hu-ogy-20(14|18)/.test(e.electionId)), 'elections admitted after the published case stay outside it');
   assert.deepEqual(C.RESEARCH_CASE.countries, ['czechia', 'germany', 'hungary', 'poland']);
   const per = Object.fromEntries(C.RESEARCH_CASE.countries.map((c) => [c, result.pairs.filter((p) => p.country === c).length]));
   assert.deepEqual(per, { czechia: 2, germany: 6, hungary: 1, poland: 3 });
@@ -92,8 +94,9 @@ test('identity gates: only verified lists move; Hungary has no figure; coalition
 test('whole-chamber seat semantics hold for every election in the case', () => {
   for (const e of result.elections) assert.equal(explorer.seatMeasureScope(e), 'whole_chamber', e.electionId);
   for (const p of result.pairs) { assert.equal(p.rules.seatScopeFrom, 'whole_chamber'); assert.equal(p.rules.seatScopeTo, 'whole_chamber'); }
-  const tisza = data.politicalHungarianElectionViews()[1].results.find((r) => r.chamberSeats === 141);
-  assert.equal(explorer.measureValue(tisza, data.politicalHungarianElectionViews()[1], 'seat_share'), 100 * 141 / 199);
+  const hu26 = data.politicalHungarianElectionViews().find((v) => v.electionId === 'el-hu-ogy-2026-04-12');
+  const tisza = hu26.results.find((r) => r.chamberSeats === 141);
+  assert.equal(explorer.measureValue(tisza, hu26, 'seat_share'), 100 * 141 / 199);
   assert.equal(byPair('el-de-bt-2021-09-26').rules.rulesChanged, true, 'the 2025 German rules differ');
 });
 
@@ -161,7 +164,7 @@ test('export: the same data give the same bytes in any input order; findings mak
 });
 
 test('D1, D2 and D3 are preserved: the case runs the existing research functions unchanged', () => {
-  const d3 = R.runComparativeResearch({ countries: C.RESEARCH_CASE.countries, view: 'last_complete_year' }, elections, points, inputs.identityLinks);
+  const d3 = R.runComparativeResearch({ countries: C.RESEARCH_CASE.countries, view: 'last_complete_year' }, elections.filter((e) => C.RESEARCH_CASE.electionIds.includes(e.electionId)), points, inputs.identityLinks);
   assert.deepEqual(result.primary.b, d3.b);
   assert.deepEqual(result.primary.c.associations, d3.c.associations);
   assert.equal(R.RESEARCH_QUESTIONS.join(), 'A,B,C,D');
@@ -176,7 +179,7 @@ test('Hungary presentation: rules and vintage name both official sources and no 
     assert.doesNotMatch(rules.totalSeatsDefinition.en, /national list seats only/);
     assert.match(e.resultVintage, /National Election Commission minutes .*National Election Office chamber-composition record/);
     assert.ok(rules.sourceIds.some((id) => /^src-hu-nvi-composition-/.test(id)) || e.sources.some((s) => /^src-hu-nvi-composition-/.test(s.id)));
-    for (const r of e.national.ballots.flatMap((b) => b.results)) assert.match(r.chamberSeatSourceId, /^src-hu-nvi-composition-20(22|26)$/);
+    for (const r of e.national.ballots.flatMap((b) => b.results)) assert.match(r.chamberSeatSourceId, /^src-hu-nvi-composition-20(14|18|22|26)$/);
     assert.ok(e.sources.some((s) => s.institution === 'Nemzeti Választási Iroda') && e.sources.some((s) => s.institution === 'Nemzeti Választási Bizottság'));
   }
 });

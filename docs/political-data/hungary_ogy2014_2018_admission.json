@@ -1,0 +1,85 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "hungary-ogy-2014-2018",
+ "country": "hungary",
+ "election_ids": [
+  "el-hu-ogy-2014-04-06",
+  "el-hu-ogy-2018-04-08"
+ ],
+ "scope": "National Assembly elections of 6 April 2014 and 8 April 2018 under Act CCIII of 2011, all 199 seats: party-list and nationality-list votes, registers, participation and ballot counts, national list seats (recomputed by highest averages) from the National Election Commission's national-list minutes (2018: the PDF printed as the annex to the Kúria's review decisions; 2014: the same minutes published as an HTML page in minutes form, with the threshold and seat-calculation pages of that archive), and single-member district seats per list from the election office's composition pages (aggregate counts; 2018 includes one independent district seat, counted and not named). Constituency votes and per-district results, candidates and 2010 and earlier elections are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-05",
+   "decision": "Owner reply: publish national figures from the minutes only on Copyright Act § 1(4), a reading of the statute weaker than a licence; no candidate names."
+  },
+  {
+   "date": "2026-11-06",
+   "decision": "Owner reply: extend that reading to the office's composition pages for aggregate seat counts only."
+  },
+  {
+   "date": "2026-11-20",
+   "decision": "Owner brief 'historical parliamentary election backfill' naming the 2018 and 2014 result pages on static.valasztas.hu, and answer 'Same scope as 2022 (Recommended)': national-list minutes and seat composition by party for 2018 and 2014, one reading per named document, no constituency-level votes."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/hungary/ogy/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "statute_section_1_4_copyright_act",
+   "basis": "As for 2022 and 2026: Copyright Act § 1(4) (official notices and case documents) and Act XXXVI of 2013 § 76(2)(e) (publication of the result minutes). A reading accepted by the owner, weaker than a licence. For 2014 the minutes are published only as an HTML page in minutes form; the same reading is applied to it and to the threshold and seat-calculation pages of the same official archive, which carry the allocation figures of the minutes."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_from_minutes_and_composition_seat_counts",
+   "evidence_kind": "statute_section_1_4_copyright_act",
+   "basis": "National figures transcribed from the minutes (and, for 2014, the archive pages in minutes form), plus district seat counts per list from the composition pages. No candidate or member names; one 2014 list name beginning with a person's name is stored without it, with a checksum."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed_checksum_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The 2018 PDF is identified by checksum and not committed; pages 6 and 7, which name elected candidates, were not transcribed. The 2014 pages were read in a browser and are not saved."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "One request for the named 2018 minutes PDF on static.valasztas.hu (robots.txt allows all paths), linked from its minutes-form page; the 2014 minutes-form, threshold, seat-calculation and both composition pages were read once each by hand in a browser, following links from the archive index. www.valasztas.hu stays blocked and was not contacted; no data endpoint was requested."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "2018: minutes pages 1–5 (registers, participation, ballots, all 23 party lists and 13 nationality lists with identifiers, thresholds, qualifying lists, preferential quota, allocation table). 2014: all 18 party lists and 13 nationality lists, registers, participation, ballots, thresholds, quota and the seat calculation."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "build-ogy-national check per year: list votes = printed totals, party + nationality votes = valid ballots, invalid + valid = stamped, register and participation parts = totals, printed thresholds = ceil(5/10/15% of valid), quota = floor(all list votes ÷ 93 ÷ 4) (2018: the German list reaches it and wins one preferential seat; 2014: none), highest averages over list plus surplus votes reproduce every list seat (2018: 42/25/12/7/6 of 92; 2014: 37/28/23/5 of 93), composition rows match the minutes and come to 93 + 106 = 199 (2018 with one independent district seat)."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list",
+   "evidence_kind": "owner_decision",
+   "basis": "Each list is a contestant of its own election; joint lists stay whole (2018 rows 9 and 13; 2014 rows 6 and 17, by printed name, no official joint-list label read); no link between elections, even where a name repeats. continuous_party_series stays 0."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "act_cciii_2011_as_applied",
+   "evidence_kind": "build_check",
+   "basis": "Act CCIII of 2011 (as read for the 2022 admission): 106 single-member districts and 93 national list seats, 5/10/15% thresholds, surplus votes and highest averages, nationality preferential quota. The minutes of 2014 and 2018 apply the same thresholds and method. The institutions registry links both elections to the Fundamental Law period (from 2012-01-01)."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_minutes",
+   "evidence_kind": "official_act",
+   "basis": "2018: minutes printed as the annex to the Kúria's review decisions Kvk.V.37.548/2018/14., Kvk.I.37.551/2018/9. and Kvk.I.37.552/2018/9. (decision texts not read); result pages updated 3 May 2018. 2014: archive pages updated 28 April 2014. Polling days from the headings of the official result pages."
+  }
+ },
+ "continuity": "None: no party register was reviewed; no link is made between elections. continuous_party_series is 0.",
+ "germany_change_allowed": false
+}
