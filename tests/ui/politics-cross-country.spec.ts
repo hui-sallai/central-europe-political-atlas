@@ -229,7 +229,7 @@ for (const [route, country] of [["/en/politics/slovakia/", "slovakia"], ["/en/po
   await page.locator("[data-context-disclosure] > summary").click();
   const table = page.locator("[data-election-macro]");
   await expect(table).toBeVisible();
-  await expect(table.locator("[data-macro-election]")).toHaveCount(21); // +4 Serbia (2020, 2022, 2023, 2026), comparison sets from 2026-11-15
+  await expect(table.locator("[data-macro-election]")).toHaveCount(23); // +4 Serbia (2020, 2022, 2023, 2026), comparison sets from 2026-11-15; +2 Hungary (2014, 2018), 2026-11-20
   await expect(table.locator('[data-macro-election="el-sk-nrsr-2023-09-30"]')).toHaveAttribute("data-macro-status", "published");
   await expect(table.locator('[data-macro-election="el-sk-nrsr-2023-09-30"]')).toContainText("2022");
   await table.locator("select").first().selectOption("real_gdp_growth");
@@ -260,8 +260,8 @@ for (const locale of ["en", "zh-CN"] as const) test(`comparative research workfl
   const panel = page.locator("[data-comparative-research]");
   await expect(panel).toBeVisible({ timeout: 30000 });
   await expect(panel.locator("[data-research-boundary]")).toContainText(en ? "An association is not a cause" : "关联不等于因果");
-  // A: all twenty-one elections (Serbia 2020, 2022, 2023 and 2026 included from 2026-11-15), one row each, gaps stated.
-  await expect(panel.locator("[data-research-a-table] [data-research-row]")).toHaveCount(21);
+  // A: all twenty-three elections (Serbia 2020, 2022, 2023 and 2026 from 2026-11-15; Hungary 2014 and 2018 from 2026-11-20), one row each, gaps stated.
+  await expect(panel.locator("[data-research-a-table] [data-research-row]")).toHaveCount(23);
   await expect(panel.locator('[data-research-row="el-de-bt-2013-09-22"] [data-research-cell="missing"]').first()).toBeVisible();
   await expect(panel.locator("[data-research-findings='A']")).toContainText(en ? "from 0.1 (Poland 2015) to 13.2 (Poland 2023)" : "从 0.1（波兰 2015）到 13.2（波兰 2023）");
   // B: unselecting a middle election removes its pairs and never joins its neighbours.
