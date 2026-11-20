@@ -671,6 +671,125 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-cz-ps-2010-05-28",
+   "country": "czechia",
+   "date": "2010-05-28",
+   "chamber_id": "cz-poslanecka-snemovna",
+   "chamber_official_name": "Poslanecká sněmovna Parlamentu České republiky",
+   "seats": 200,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-cz-ps-2010",
+   "system_family": "list proportional representation in 14 regions",
+   "allocation_method": "one scrutiny: successive divisors 1, 2, 3 … within each region",
+   "base_seats": 200,
+   "thresholds": [
+    {
+     "applies_to": "political party or movement",
+     "percent": 5,
+     "description": {
+      "en": "Lists of a single party or movement below 5% of national valid votes take no part in the allocation (§ 49(1)(a)).",
+      "zh": "单一政党或运动的名单低于全国有效票 5% 时不参与席位分配（第 49 条第 1 款 a 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of two parties or movements",
+     "percent": 10,
+     "description": {
+      "en": "Coalitions of two below 10% take no part (§ 49(1)(b)).",
+      "zh": "两个政党或运动组成的联盟低于 10% 时不参与（第 49 条第 1 款 b 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of three parties or movements",
+     "percent": 15,
+     "description": {
+      "en": "Coalitions of three below 15% take no part (§ 49(1)(c)).",
+      "zh": "三个政党或运动组成的联盟低于 15% 时不参与（第 49 条第 1 款 c 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of four or more parties or movements",
+     "percent": 20,
+     "description": {
+      "en": "Coalitions of four or more below 20% take no part (§ 49(1)(d)).",
+      "zh": "四个及以上政党或运动组成的联盟低于 20% 时不参与（第 49 条第 1 款 d 项）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Act 247/1995 Coll., znění 14. 9. 2009 – 15. 6. 2010), not legal enactment dates",
+   "constitution_id": "cz-constitution-1993",
+   "institutional_period_id": "czechia-period-1993-01-01",
+   "changes_in_force": [
+    "cz-1993-constitution"
+   ],
+   "repealed_before": [],
+   "later_changes": [
+    "cz-2012-direct-president"
+   ],
+   "undated_changes": [
+    "cz-2021-chamber-electoral-rules"
+   ]
+  },
+  {
+   "election_id": "el-cz-ps-2013-10-25",
+   "country": "czechia",
+   "date": "2013-10-25",
+   "chamber_id": "cz-poslanecka-snemovna",
+   "chamber_official_name": "Poslanecká sněmovna Parlamentu České republiky",
+   "seats": 200,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-cz-ps-2013",
+   "system_family": "list proportional representation in 14 regions",
+   "allocation_method": "one scrutiny: successive divisors 1, 2, 3 … within each region",
+   "base_seats": 200,
+   "thresholds": [
+    {
+     "applies_to": "political party or movement",
+     "percent": 5,
+     "description": {
+      "en": "Lists of a single party or movement below 5% of national valid votes take no part in the allocation (§ 49(1)(a)).",
+      "zh": "单一政党或运动的名单低于全国有效票 5% 时不参与席位分配（第 49 条第 1 款 a 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of two parties or movements",
+     "percent": 10,
+     "description": {
+      "en": "Coalitions of two below 10% take no part (§ 49(1)(b)).",
+      "zh": "两个政党或运动组成的联盟低于 10% 时不参与（第 49 条第 1 款 b 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of three parties or movements",
+     "percent": 15,
+     "description": {
+      "en": "Coalitions of three below 15% take no part (§ 49(1)(c)).",
+      "zh": "三个政党或运动组成的联盟低于 15% 时不参与（第 49 条第 1 款 c 项）。"
+     }
+    },
+    {
+     "applies_to": "coalition of four or more parties or movements",
+     "percent": 20,
+     "description": {
+      "en": "Coalitions of four or more below 20% take no part (§ 49(1)(d)).",
+      "zh": "四个及以上政党或运动组成的联盟低于 20% 时不参与（第 49 条第 1 款 d 项）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation (Act 247/1995 Coll., znění 26. 6. 2012 – 6. 4. 2014), not legal enactment dates",
+   "constitution_id": "cz-constitution-1993",
+   "institutional_period_id": "czechia-period-2012-10-01",
+   "changes_in_force": [
+    "cz-1993-constitution",
+    "cz-2012-direct-president"
+   ],
+   "repealed_before": [],
+   "later_changes": [],
+   "undated_changes": [
+    "cz-2021-chamber-electoral-rules"
+   ]
+  },
+  {
    "election_id": "el-cz-ps-2017-10-20",
    "country": "czechia",
    "date": "2017-10-20",

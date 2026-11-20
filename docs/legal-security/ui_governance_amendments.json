@@ -4801,7 +4801,36 @@
         },
         {
           "path": "src/lib/institutions/election_links.json",
-          "sha256": "b37ed498f68cb38d7f9773a74ca4b115224ba55b4afcd86784ae57b9da89766b",
+          "sha256": "5ef3b8dd99981146dfb40768217b39f042ef6affad6347305a8f862a9bf01a53",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
+    },
+    {
+      "amendment_id": "czechia-2010-2013-admission-2026-11-21",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-21 \"Slovakia and Czechia historical election expansion\" and answer \"Accept ČSÚ general terms (Recommended)\": politicalAdmission.ts updates the Czech row text (2010 and 2013 admitted); politicalData.ts keeps the Czech continuity panel to the elections covered by the identity layer (2017 onward) instead of showing 2010 and 2013 as elections without a list; election_links.json is regenerated with the two elections; no component, page or design change",
+      "baseline": "efca2765d2e7ae28e0432f179d253abc977a3ea0",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-21",
+      "files": [
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "6062ec38962e8876657684dfbaba0032438838c66a1f8027ed258421b24336bd",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "ec7bd4150cf864abc8c00c29109d37b43dc1434189b8c0617ddc3ce19b947608",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/election_links.json",
+          "sha256": "5ef3b8dd99981146dfb40768217b39f042ef6affad6347305a8f862a9bf01a53",
           "classification": "DATA_PRESENTATION"
         }
       ]

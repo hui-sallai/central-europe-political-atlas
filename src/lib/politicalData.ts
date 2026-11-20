@@ -92,8 +92,9 @@ export function politicalElectionViews(): PoliticalElectionView[] {
 }
 
 /**
- * Czechia's admitted elections (2017, 2021, 2025): docs/political-data/czechia_ps2025_admission.json and
- * docs/political-data/czechia_ps2017_2021_admission.json, with exact-hash political admission records.
+ * Czechia's admitted elections (2010, 2013, 2017, 2021, 2025): docs/political-data/czechia_ps2025_admission.json,
+ * docs/political-data/czechia_ps2017_2021_admission.json and docs/political-data/czechia_ps2010_2013_admission.json, with
+ * exact-hash political admission records.
  */
 export function politicalCzechElectionViews(): PoliticalElectionView[] {
   const elections = electionViewsFromStores({ elections: czElections, turnout: czTurnout, results: czResults, contestants: czContestants, legislatures: czLegislatures, systems: czSystems, sources: czSources, members: czMembers } as PoliticalStores, {
@@ -109,9 +110,12 @@ export function politicalCzechIdentityLinks(): PoliticalIdentityLink[] {
   return czLinks as PoliticalIdentityLink[];
 }
 
-/** Per-entity list participation for the priority Czech parties and the coalition with a repeated composition. */
+/** Per-entity list participation for the priority Czech parties and the coalition with a repeated composition.
+ * The identity layer covers 2017 onward; earlier admitted elections (2010, 2013) carry no identity links and are left out of
+ * this panel rather than shown as elections without a list. */
 export function politicalCzechContinuity() {
-  return continuityEntities(politicalCzechElectionViews(), politicalCzechIdentityLinks(), czParties as ContinuityParty[]);
+  const unlinked = new Set((czContestants as { election_id: string; party_relation_status?: string }[]).filter((c) => c.party_relation_status === "not_linked_identity_layer_covers_2017_onward").map((c) => c.election_id));
+  return continuityEntities(politicalCzechElectionViews().filter((v) => !unlinked.has(v.electionId)), politicalCzechIdentityLinks(), czParties as ContinuityParty[]);
 }
 
 /** Poland's admitted Sejm elections (2011–2023): docs/political-data/poland_sejm_admission.json. */

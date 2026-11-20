@@ -2,6 +2,8 @@
   "schema_version": "czechia-political-export-v1",
   "country": "czechia",
   "elections": [
+    "el-cz-ps-2010-05-28",
+    "el-cz-ps-2013-10-25",
     "el-cz-ps-2017-10-20",
     "el-cz-ps-2021-10-08",
     "el-cz-ps-2025-10-03"
@@ -10,75 +12,75 @@
   "files": [
     {
       "name": "elections.json",
-      "sha256": "8b15a28c04e7cbd6ee8d2a94a7cd7083f0886e993d292aeb96c2a4cef121b24c"
+      "sha256": "9774619e6995480496b88e7c23d946ca70d285642986386f7d00762366c9c50a"
     },
     {
       "name": "elections.csv",
-      "sha256": "2e178d344e4f750fb55cd77074a0c80e4452729bebab4622eaf198c60fbf9cbf"
+      "sha256": "1e085b88b81059e16bc3046e58e1fa825927089b3f3a7740949c38537d36b70a"
     },
     {
       "name": "election_turnout.json",
-      "sha256": "e04ffec18769717d12563527f44f52187a152ce1eb35740ea8ebfc907cf336b1"
+      "sha256": "7836185dd5b03ef44c379947da5e4eecb865a53783168f734e6dca17588021d1"
     },
     {
       "name": "election_turnout.csv",
-      "sha256": "d9f2ffcfc2b897364b3885afc1f26753f9b73df157793df7c577c05214799586"
+      "sha256": "cee66fe94d09a71b221763a3efe36442383b120e658a27f53c3a440f462f4bfd"
     },
     {
       "name": "election_results.json",
-      "sha256": "5c4cfcdabbc94737e27574013d46c495a78e1bcb203e1c5ce568fcd208824201"
+      "sha256": "5286b6b5ee698ef92c8e3819b63f19dc7d78ac915c8867d79b71d92c3af5127e"
     },
     {
       "name": "election_results.csv",
-      "sha256": "b2973344f94b4dc8b5a697a37c64578097013a8cf9a8c75af08009d22fba68bb"
+      "sha256": "beaba46f603a9a4ed0afad970af7d0883536831815903cf21c5e2c3d3e56d398"
     },
     {
       "name": "electoral_contestants.json",
-      "sha256": "003e6f7a347f79c9ccae065a5e718e05bbf570c979643212fce82989af08bff6"
+      "sha256": "4fb31bd0ebe459cc37bf8ddd7daec7ca3b9af39df381b3d90965a3c8d2d48b29"
     },
     {
       "name": "electoral_contestants.csv",
-      "sha256": "437a34e4bb0a25b7cabc385dda2d833dc267b568db38855169109a3415bff287"
+      "sha256": "4f4d1089c5fb6a942ba9fbc3d9d259e5219999dcfc028a35645cff38a28d9c3f"
     },
     {
       "name": "legislatures.json",
-      "sha256": "d09e5b95a9a45fe0176c8267fdcba8059219f6fece063278654a51b528363ba2"
+      "sha256": "a6cb65ff30246d7c053d7be821bb1a8be537ddd9371c702d5b9155d927533840"
     },
     {
       "name": "legislatures.csv",
-      "sha256": "6997d351cc0580c14d25a5ca8080c4c20d80ee733964f3b85e8461272b9f4874"
+      "sha256": "d9403e752168f87cdea5829c754f652310e771c901c657e752611cacf39997a9"
     },
     {
       "name": "electoral_systems.json",
-      "sha256": "05918b7e54a1ba0d1a7a333be3ad6b4716c0d04066abdad337bb2ce2ea8fd167"
+      "sha256": "bb943e766c34e20431bfecdc7fbab1bc8ae44ec1ab6cd4a294bc0f9f00ac4173"
     },
     {
       "name": "electoral_systems.csv",
-      "sha256": "0033296ebc847fc57ba66add45ce81e015478cd74966caa68866fe9151193f0b"
+      "sha256": "fb6d94cec84d023ae5d288b13dd99b06cc9791fe55a4179623e996543afd22ea"
     },
     {
       "name": "political_source_registry.json",
-      "sha256": "5ad200ee3937a3800be396ec0c797cf8d59f59f55e5e81e008c43b61688fbbf4"
+      "sha256": "08aed43013a54e2dbbf3ded8d5fe7fc0ecf531716a8a2a33a78786bbbe8339d8"
     },
     {
       "name": "political_source_registry.csv",
-      "sha256": "d7393d25f214e7b6f95c98d3cdb37ce11f4a27348ff97f38f8cd0ce1b694d343"
+      "sha256": "2282a9dc955024eea9390a227632237a283eeff1e6c9f77db2b58ac530e21830"
     },
     {
       "name": "political_parties.json",
-      "sha256": "78010295b8c1b6277c45754b4f6f0fb1d71d0cf01599aefcbe982a7e3dbe56ec"
+      "sha256": "bf4095e3497a656c39bc2135779cd723f72a09075e34b47505b399c35a1696cc"
     },
     {
       "name": "political_parties.csv",
-      "sha256": "2227001cf476eaf4222f809631f5ccfdf7278ed63e01b47c4bf39d65e916f150"
+      "sha256": "642d1e34a401950f405761f2202fa295fc4fd91acea550b952b3afa940e4e535"
     },
     {
       "name": "contestant_members.json",
-      "sha256": "6df97f78daadd260f6171bb80cecdeb400a1338e98def5bd825620977f708a8c"
+      "sha256": "5e08489aa878796507d31e6ea01b585b562538cd2f99f68788f2158b579d081e"
     },
     {
       "name": "contestant_members.csv",
-      "sha256": "75cb98c4c9128ebc1bb9ca381621fb3f4975a839cdd38bac46a1341ea229f16b"
+      "sha256": "2e81f084a63cfea24d92ba31be495d5e61bd56e366990311933eca5cb5da7990"
     },
     {
       "name": "party_identity_links.json",
@@ -90,7 +92,7 @@
     },
     {
       "name": "README.md",
-      "sha256": "4630c465e4be7eb75ff91999a70069773365f187c5b29df4007ddb743e9b1b9b"
+      "sha256": "ab19c5247413bea8a02d1e8258142fc216693ff92a9d01abe1a1897659d85ae0"
     }
   ]
 }

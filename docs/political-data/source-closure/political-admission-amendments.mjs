@@ -70,6 +70,8 @@ export const POLITICAL_ADMISSIONS = {
   'czechia-ps-2025': { approved_on: '2026-10-25', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2025_admission.json', paths: CZECH_PATHS },
   'czechia-ps-2017-2021': { approved_on: '2026-11-02', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2017_2021_admission.json', paths: CZECH_PATHS },
   'czechia-identity': { approved_on: '2026-11-03', country: 'czechia', gate_record: 'docs/political-data/czechia_identity_admission.json', paths: CZECH_IDENTITY_PATHS },
+  // Owner brief 2026-11-21 (Slovakia and Czechia historical expansion) and answer "Accept ČSÚ general terms": Czechia 2010 and 2013.
+  'czechia-ps-2010-2013': { approved_on: '2026-11-21', country: 'czechia', gate_record: 'docs/political-data/czechia_ps2010_2013_admission.json', paths: CZECH_IDENTITY_PATHS },
   'poland-sejm-2011-2023': { approved_on: '2026-11-03', country: 'poland', gate_record: 'docs/political-data/poland_sejm_admission.json', paths: POLISH_PATHS },
   'poland-evidence-links': { approved_on: '2026-11-03', country: 'poland', gate_record: 'docs/political-data/poland_evidence_links_admission.json', paths: POLISH_PATHS },
   'slovakia-nrsr-2023': { approved_on: '2026-11-03', country: 'slovakia', gate_record: 'docs/political-data/slovakia_nrsr2023_admission.json', paths: SLOVAK_PATHS },

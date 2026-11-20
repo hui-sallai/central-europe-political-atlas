@@ -25,11 +25,11 @@ const rows = electionMacroRows(elections, points);
 const row = (electionId, indicator) => rows.find((r) => r.electionId === electionId && r.indicator === indicator);
 
 test('every admitted election is matched to every indicator, with missing values kept explicit', () => {
-  assert.equal(elections.length, 15);
-  assert.equal(allAdmitted.length, 24); // Serbia 2020, 2022, 2023, 2026; Hungary 2010, 2014 and 2018 (2026-11-20)
-  assert.equal(rows.length, 15 * ELECTION_MACRO_INDICATORS.length);
+  assert.equal(elections.length, 17); // Czechia 2010 and 2013 admitted 2026-11-21
+  assert.equal(allAdmitted.length, 26); // Serbia 2020, 2022, 2023, 2026; Hungary 2010, 2014 and 2018 (2026-11-20); Czechia 2010, 2013 (2026-11-21)
+  assert.equal(rows.length, 17 * ELECTION_MACRO_INDICATORS.length);
   assert.deepEqual([...new Set(rows.map((r) => r.country))].sort(), ['czechia', 'germany', 'poland', 'slovakia']);
-  assert.deepEqual(Object.fromEntries(electionMacroCoverage(rows).map((c) => [c.indicator, [c.lastCompleteYear, c.retrospective, c.elections]])), { hicp_inflation: [15, 15, 15], real_gdp_growth: [9, 10, 15], unemployment_rate: [4, 6, 15], fiscal_balance_gdp: [15, 15, 15], government_debt_gdp: [15, 15, 15] });
+  assert.deepEqual(Object.fromEntries(electionMacroCoverage(rows).map((c) => [c.indicator, [c.lastCompleteYear, c.retrospective, c.elections]])), { hicp_inflation: [17, 17, 17], real_gdp_growth: [11, 12, 17], unemployment_rate: [4, 6, 17], fiscal_balance_gdp: [17, 17, 17], government_debt_gdp: [17, 17, 17] });
   const gap = row('el-de-bt-2013-09-22', 'real_gdp_growth');
   if (gap) { assert.equal(gap.lastCompleteYear.status, 'missing'); assert.equal(gap.lastCompleteYear.value, null, 'missing is never zero'); }
   for (const r of rows) for (const c of [r.lastCompleteYear, r.retrospective]) assert.equal(c.value === null, c.status !== 'published');
@@ -74,7 +74,8 @@ test('turnout and macro changes stay within one country on the same definition',
   assert.ok(Math.abs(row('el-cz-ps-2021-10-08', 'hicp_inflation').turnout.changeSincePrevious - (65.43 - 60.84)) < 1e-9);
   assert.ok(Math.abs(row('el-pl-sejm-2023-10-15', 'hicp_inflation').turnout.changeSincePrevious - (74.38 - 61.74)) < 1e-9);
   assert.equal(row('el-sk-nrsr-2023-09-30', 'hicp_inflation').turnout.changeSincePrevious, null, 'first admitted election has no previous one');
-  assert.equal(row('el-cz-ps-2017-10-20', 'hicp_inflation').lastCompleteYear.changeSincePreviousElection, null);
+  assert.equal(row('el-cz-ps-2010-05-28', 'hicp_inflation').lastCompleteYear.changeSincePreviousElection, null, 'Czechia 2010 is the first admitted Czech election');
+  assert.ok(Math.abs(row('el-cz-ps-2017-10-20', 'hicp_inflation').turnout.changeSincePrevious - (60.84 - 59.48)) < 1e-9, '2017 now follows 2013 on the same turnout definition');
   for (const r of rows) if (r.lastCompleteYear.changeSincePreviousElection !== null) {
     const previous = rows.filter((x) => x.country === r.country && x.indicator === r.indicator && x.electionDate < r.electionDate).sort((a, b) => a.electionDate.localeCompare(b.electionDate)).at(-1);
     assert.ok(previous, r.electionId);

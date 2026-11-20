@@ -1,5 +1,1965 @@
 [
   {
+    "contestant_id": "ct-cz-ps2010-01",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "1",
+    "csu_register_code": 718,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      718
+    ],
+    "registered_label_native": "OBČANÉ.CZ",
+    "historical_display_label": "OBČANÉ.CZ",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 1",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-02",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "2",
+    "csu_register_code": 138,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      138
+    ],
+    "registered_label_native": "Liberálové.CZ",
+    "historical_display_label": "Liberálové.CZ",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 2",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-04",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "4",
+    "csu_register_code": 144,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      144
+    ],
+    "registered_label_native": "Věci veřejné",
+    "historical_display_label": "Věci veřejné",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 4",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-05",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "5",
+    "csu_register_code": 24,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      24
+    ],
+    "registered_label_native": "Konzervativní strana",
+    "historical_display_label": "Konzervativní strana",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 5",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-06",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "6",
+    "csu_register_code": 47,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      47
+    ],
+    "registered_label_native": "Komunistická strana Čech a Moravy",
+    "historical_display_label": "Komunistická strana Čech a Moravy",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 6",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-07",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "7",
+    "csu_register_code": 55,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      55
+    ],
+    "registered_label_native": "Koruna Česká (monarchistická strana Čech, Moravy a Slezska)",
+    "historical_display_label": "Koruna Česká (monarchistická strana Čech, Moravy a Slezska)",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 7",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-08",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "8",
+    "csu_register_code": 2,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      2
+    ],
+    "registered_label_native": "Česká strana národně sociální",
+    "historical_display_label": "Česká strana národně sociální",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 8",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-09",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "9",
+    "csu_register_code": 7,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      7
+    ],
+    "registered_label_native": "Česká strana sociálně demokratická",
+    "historical_display_label": "Česká strana sociálně demokratická",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 9",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-10",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "10",
+    "csu_register_code": 121,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      121
+    ],
+    "registered_label_native": "NÁRODNÍ PROSPERITA",
+    "historical_display_label": "NÁRODNÍ PROSPERITA",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 10",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-11",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "11",
+    "csu_register_code": 11,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      11
+    ],
+    "registered_label_native": "Sdružení pro republiku-Republikánská strana Československa",
+    "historical_display_label": "Sdružení pro republiku-Republikánská strana Československa",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 11",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-12",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "12",
+    "csu_register_code": 83,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      83
+    ],
+    "registered_label_native": "Moravané",
+    "historical_display_label": "Moravané",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 12",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-13",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "13",
+    "csu_register_code": 724,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      724
+    ],
+    "registered_label_native": "Strana Práv Občanů ZEMANOVCI",
+    "historical_display_label": "Strana Práv Občanů ZEMANOVCI",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 13",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-14",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "14",
+    "csu_register_code": 723,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      723
+    ],
+    "registered_label_native": "STOP",
+    "historical_display_label": "STOP",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 14",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-15",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "15",
+    "csu_register_code": 721,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      721
+    ],
+    "registered_label_native": "TOP 09",
+    "historical_display_label": "TOP 09",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 15",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-16",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "16",
+    "csu_register_code": 717,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      717
+    ],
+    "registered_label_native": "EVROPSKÝ STŘED",
+    "historical_display_label": "EVROPSKÝ STŘED",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 16",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-17",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "17",
+    "csu_register_code": 1,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      1
+    ],
+    "registered_label_native": "Křesťanská a demokratická unie - Československá strana lidová",
+    "historical_display_label": "Křesťanská a demokratická unie - Československá strana lidová",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 17",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-18",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "18",
+    "csu_register_code": 98,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      98
+    ],
+    "registered_label_native": "Volte Pravý Blok-stranu za ODVOLAT.polit.,NÍZKÉ daně,VYROVN.rozp.,MIN.byrokr.,SPRAV.just.,PŘÍMOU demokr. WWW.CIBULKA.NET",
+    "historical_display_label": "Volte Pravý Blok-stranu za ODVOLAT.polit.,NÍZKÉ daně,VYROVN.rozp.,MIN.byrokr.,SPRAV.just.,PŘÍMOU demokr. WWW.CIBULKA.NET",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 18",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-19",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "19",
+    "csu_register_code": 175,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      175
+    ],
+    "registered_label_native": "Česká strana národně socialistická",
+    "historical_display_label": "Česká strana národně socialistická",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 19",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-20",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "20",
+    "csu_register_code": 5,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      5
+    ],
+    "registered_label_native": "Strana zelených",
+    "historical_display_label": "Strana zelených",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 20",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-21",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "21",
+    "csu_register_code": 137,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      137
+    ],
+    "registered_label_native": "Suverenita - blok Jany Bobošíkové, strana zdravého rozumu",
+    "historical_display_label": "Suverenita - blok Jany Bobošíkové, strana zdravého rozumu",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 21",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-22",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "22",
+    "csu_register_code": 100,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      100
+    ],
+    "registered_label_native": "Humanistická strana",
+    "historical_display_label": "Humanistická strana",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 22",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-23",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "23",
+    "csu_register_code": 720,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      720
+    ],
+    "registered_label_native": "Česká pirátská strana",
+    "historical_display_label": "Česká pirátská strana",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 23",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-24",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "24",
+    "csu_register_code": 156,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      156
+    ],
+    "registered_label_native": "Dělnická strana sociální spravedlnosti",
+    "historical_display_label": "Dělnická strana sociální spravedlnosti",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 24",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-25",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "25",
+    "csu_register_code": 714,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      714
+    ],
+    "registered_label_native": "Strana svobodných občanů",
+    "historical_display_label": "Strana svobodných občanů",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 25",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-26",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "26",
+    "csu_register_code": 53,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      53
+    ],
+    "registered_label_native": "Občanská demokratická strana",
+    "historical_display_label": "Občanská demokratická strana",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 26",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2010-27",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "27",
+    "csu_register_code": 199,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      199
+    ],
+    "registered_label_native": "Klíčové hnutí",
+    "historical_display_label": "Klíčové hnutí",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 27",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-01",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "1",
+    "csu_register_code": 7,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      7
+    ],
+    "registered_label_native": "Česká strana sociálně demokratická",
+    "historical_display_label": "Česká strana sociálně demokratická",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 1",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-02",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "2",
+    "csu_register_code": 714,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      714
+    ],
+    "registered_label_native": "Strana svobodných občanů",
+    "historical_display_label": "Strana svobodných občanů",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 2",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-03",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "3",
+    "csu_register_code": 720,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      720
+    ],
+    "registered_label_native": "Česká pirátská strana",
+    "historical_display_label": "Česká pirátská strana",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 3",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-04",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "4",
+    "csu_register_code": 721,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      721
+    ],
+    "registered_label_native": "TOP 09",
+    "historical_display_label": "TOP 09",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 4",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-05",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "5",
+    "csu_register_code": 192,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      192
+    ],
+    "registered_label_native": "HLAVU VZHŮRU - volební blok",
+    "historical_display_label": "HLAVU VZHŮRU - volební blok",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 5",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-06",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "6",
+    "csu_register_code": 53,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      53
+    ],
+    "registered_label_native": "Občanská demokratická strana",
+    "historical_display_label": "Občanská demokratická strana",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 6",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-07",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "7",
+    "csu_register_code": 794,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      794
+    ],
+    "registered_label_native": "Romská demokratická strana",
+    "historical_display_label": "Romská demokratická strana",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 7",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-08",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "8",
+    "csu_register_code": 40,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      40
+    ],
+    "registered_label_native": "Klub angažovaných nestraníků",
+    "historical_display_label": "Klub angažovaných nestraníků",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 8",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-09",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "9",
+    "csu_register_code": 771,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      771
+    ],
+    "registered_label_native": "politické hnutí Změna",
+    "historical_display_label": "politické hnutí Změna",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 9",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-10",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "10",
+    "csu_register_code": 716,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      716
+    ],
+    "registered_label_native": "Strana soukromníků České republiky",
+    "historical_display_label": "Strana soukromníků České republiky",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 10",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-11",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "11",
+    "csu_register_code": 1,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      1
+    ],
+    "registered_label_native": "Křesťanská a demokratická unie - Československá strana lidová",
+    "historical_display_label": "Křesťanská a demokratická unie - Československá strana lidová",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 11",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-12",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "12",
+    "csu_register_code": 98,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      98
+    ],
+    "registered_label_native": "Volte Pravý Blok-stranu za ODVOLAT.polit.,NÍZKÉ daně,VYROVN.rozp.,MIN.byrokr.,SPRAV.just.,PŘÍMOU demokr. WWW.CIBULKA.NET",
+    "historical_display_label": "Volte Pravý Blok-stranu za ODVOLAT.polit.,NÍZKÉ daně,VYROVN.rozp.,MIN.byrokr.,SPRAV.just.,PŘÍMOU demokr. WWW.CIBULKA.NET",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 12",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-13",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "13",
+    "csu_register_code": 137,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      137
+    ],
+    "registered_label_native": "Suverenita - Strana zdravého rozumu",
+    "historical_display_label": "Suverenita - Strana zdravého rozumu",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 13",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-14",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "14",
+    "csu_register_code": 132,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      132
+    ],
+    "registered_label_native": "Aktiv nezávislých občanů",
+    "historical_display_label": "Aktiv nezávislých občanů",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 14",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-15",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "15",
+    "csu_register_code": 724,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      724
+    ],
+    "registered_label_native": "Strana Práv Občanů ZEMANOVCI",
+    "historical_display_label": "Strana Práv Občanů ZEMANOVCI",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 15",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-16",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "16",
+    "csu_register_code": 762,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      762
+    ],
+    "registered_label_native": "OBČANÉ 2011",
+    "historical_display_label": "OBČANÉ 2011",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 16",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-17",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "17",
+    "csu_register_code": 792,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      792
+    ],
+    "registered_label_native": "Úsvit přímé demokracie Tomia Okamury",
+    "historical_display_label": "Úsvit přímé demokracie Tomia Okamury",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 17",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-18",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "18",
+    "csu_register_code": 156,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      156
+    ],
+    "registered_label_native": "Dělnická strana sociální spravedlnosti",
+    "historical_display_label": "Dělnická strana sociální spravedlnosti",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 18",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-20",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "20",
+    "csu_register_code": 768,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      768
+    ],
+    "registered_label_native": "ANO 2011",
+    "historical_display_label": "ANO 2011",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 20",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-21",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "21",
+    "csu_register_code": 47,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      47
+    ],
+    "registered_label_native": "Komunistická strana Čech a Moravy",
+    "historical_display_label": "Komunistická strana Čech a Moravy",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 21",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-22",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "22",
+    "csu_register_code": 764,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      764
+    ],
+    "registered_label_native": "LEV 21 - Národní socialisté",
+    "historical_display_label": "LEV 21 - Národní socialisté",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 22",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-23",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "23",
+    "csu_register_code": 5,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      5
+    ],
+    "registered_label_native": "Strana zelených",
+    "historical_display_label": "Strana zelených",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 23",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-cz-ps2013-24",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_kind": "party_list",
+    "kind_basis": "list register: one proposer (SLOZENI) and code-list type S (single party or movement)",
+    "csu_list_code": "24",
+    "csu_register_code": 55,
+    "register_type": "S",
+    "csu_proposer_codes": [
+      55
+    ],
+    "registered_label_native": "Koruna Česká (monarchistická strana Čech, Moravy a Slezska)",
+    "historical_display_label": "Koruna Česká (monarchistická strana Čech, Moravy a Slezska)",
+    "display_label_rule": "full list name from the list register (NAZEVCELK)",
+    "lead_party_id": null,
+    "party_relation_status": "not_linked_identity_layer_covers_2017_onward",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 24",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "csu_list_code",
+          "registered_label_native",
+          "csu_register_code",
+          "csu_proposer_codes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "contestant_id": "ct-cz-ps2017-01",
     "country": "czechia",
     "election_id": "el-cz-ps-2017-10-20",
@@ -22,7 +1982,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -39,7 +1999,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -56,7 +2016,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -94,7 +2054,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -111,7 +2071,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -128,7 +2088,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -166,7 +2126,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -183,7 +2143,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -200,7 +2160,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -238,7 +2198,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -255,7 +2215,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -272,7 +2232,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -310,7 +2270,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -327,7 +2287,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -344,7 +2304,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -382,7 +2342,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -399,7 +2359,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -416,7 +2376,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -454,7 +2414,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -471,7 +2431,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -488,7 +2448,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -526,7 +2486,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -543,7 +2503,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -560,7 +2520,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -598,7 +2558,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -615,7 +2575,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -632,7 +2592,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -670,7 +2630,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -687,7 +2647,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -704,7 +2664,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -742,7 +2702,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -759,7 +2719,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -776,7 +2736,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -814,7 +2774,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -831,7 +2791,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -848,7 +2808,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -886,7 +2846,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -903,7 +2863,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -920,7 +2880,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -958,7 +2918,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -975,7 +2935,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -992,7 +2952,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1030,7 +2990,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1047,7 +3007,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1064,7 +3024,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1102,7 +3062,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1119,7 +3079,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1136,7 +3096,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1174,7 +3134,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1191,7 +3151,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1208,7 +3168,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1246,7 +3206,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1263,7 +3223,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1280,7 +3240,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1318,7 +3278,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1335,7 +3295,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1352,7 +3312,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1390,7 +3350,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1407,7 +3367,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1424,7 +3384,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1462,7 +3422,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1479,7 +3439,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1496,7 +3456,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1534,7 +3494,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1551,7 +3511,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1568,7 +3528,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1606,7 +3566,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1623,7 +3583,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1640,7 +3600,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1678,7 +3638,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1695,7 +3655,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1712,7 +3672,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1750,7 +3710,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1767,7 +3727,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1784,7 +3744,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1822,7 +3782,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1839,7 +3799,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1856,7 +3816,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1894,7 +3854,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1911,7 +3871,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1928,7 +3888,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -1966,7 +3926,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -1983,7 +3943,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2000,7 +3960,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2038,7 +3998,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2055,7 +4015,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2072,7 +4032,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2110,7 +4070,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2127,7 +4087,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2144,7 +4104,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2182,7 +4142,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2199,7 +4159,7 @@
           "sha256": "fee6c77ff2a2a9013cc47a72cdef42d9cecf636bd5b328d4de4e337d1cd59b61"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2216,7 +4176,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2254,7 +4214,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2271,7 +4231,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2288,7 +4248,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2326,7 +4286,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2343,7 +4303,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2360,7 +4320,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2398,7 +4358,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2415,7 +4375,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2432,7 +4392,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2470,7 +4430,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2487,7 +4447,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2504,7 +4464,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2542,7 +4502,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2559,7 +4519,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2576,7 +4536,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2614,7 +4574,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2631,7 +4591,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2648,7 +4608,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2686,7 +4646,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2703,7 +4663,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2720,7 +4680,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2758,7 +4718,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2775,7 +4735,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2792,7 +4752,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2830,7 +4790,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2847,7 +4807,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2864,7 +4824,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2902,7 +4862,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2919,7 +4879,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2936,7 +4896,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -2974,7 +4934,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -2991,7 +4951,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3008,7 +4968,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3046,7 +5006,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -3063,7 +5023,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3080,7 +5040,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3118,7 +5078,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -3135,7 +5095,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3152,7 +5112,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3192,7 +5152,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -3209,7 +5169,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3226,7 +5186,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3264,7 +5224,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -3281,7 +5241,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3298,7 +5258,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3336,7 +5296,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -3353,7 +5313,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3370,7 +5330,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3408,7 +5368,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -3425,7 +5385,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3442,7 +5402,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3481,7 +5441,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -3498,7 +5458,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3515,7 +5475,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3553,7 +5513,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -3570,7 +5530,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3587,7 +5547,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3625,7 +5585,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -3642,7 +5602,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3659,7 +5619,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3697,7 +5657,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -3714,7 +5674,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3731,7 +5691,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3769,7 +5729,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "csu_list_code",
           "registered_label_native"
@@ -3786,7 +5746,7 @@
           "sha256": "665ca111ee880249e142081b7c4902cd3fc056e876b44ca9e05290d4c285f702"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3803,7 +5763,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3858,7 +5818,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3875,7 +5835,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3930,7 +5890,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -3947,7 +5907,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4002,7 +5962,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4019,7 +5979,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4074,7 +6034,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4091,7 +6051,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4146,7 +6106,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4163,7 +6123,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4218,7 +6178,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4235,7 +6195,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4290,7 +6250,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4307,7 +6267,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4362,7 +6322,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4379,7 +6339,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4434,7 +6394,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4451,7 +6411,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4506,7 +6466,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4523,7 +6483,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4578,7 +6538,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4595,7 +6555,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4652,7 +6612,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4669,7 +6629,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4724,7 +6684,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4741,7 +6701,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4796,7 +6756,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4813,7 +6773,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4868,7 +6828,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4885,7 +6845,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4940,7 +6900,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -4957,7 +6917,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5012,7 +6972,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5029,7 +6989,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5084,7 +7044,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5101,7 +7061,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5156,7 +7116,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5173,7 +7133,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5228,7 +7188,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5245,7 +7205,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5300,7 +7260,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5317,7 +7277,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5372,7 +7332,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5389,7 +7349,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5444,7 +7404,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5461,7 +7421,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5516,7 +7476,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5533,7 +7493,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5588,7 +7548,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5605,7 +7565,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5660,7 +7620,7 @@
           "sha256": "175f150c8da914ee3af420bcd175e5511fad5db2aa18a802f9b56a0e90f8202a"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"
@@ -5677,7 +7637,7 @@
           "sha256": "0dfe3954a18aef55ea457d93003e8e3fb9d71860e75a726facf987dbc775e4c7"
         },
         "parser_version": "czechia-identity-v1",
-        "parser_sha256": "27ddb8142b85ee3874baa8e9b1c86f08cb91b36863fa5dc20df93a733b8ab207",
+        "parser_sha256": "6ac3d0a2ff179019fbbac2c3e97cce63acbe8512a74dbf44f95f979231692e39",
         "fields_covered": [
           "contestant_kind",
           "csu_proposer_codes"

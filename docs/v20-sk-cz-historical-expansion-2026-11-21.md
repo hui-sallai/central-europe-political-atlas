@@ -3,109 +3,178 @@
 Owner brief: "Slovakia and Czechia historical election expansion and historical institutional data completion" (2026-11-21).
 Starting commit: `efca2765d2e7ae28e0432f179d253abc977a3ea0` (deploy run 44815221876).
 
+Owner answers (2026-11-21):
+- Slovakia: "You save files, § 5(a) basis (Recommended)".
+- Czechia: "Accept ČSÚ general terms (Recommended)".
+
 ## 1. Outcome
 
 | Item | Result |
 |---|---|
-| Hungary 2010 dated institutional period (§7) | **Done.** Linked to `hungary-period-1989-10-30`; Hungary is now 5/5 |
-| Slovakia 2020, 2016, 2012, 2010 and earlier (§3) | **Not admitted.** No usable source under the current owner rules (section 3) |
-| Czechia 2013, 2010, 2006, 2002 (§4) | **Not admitted.** The rights basis for the files is still open (section 4) |
+| Czechia 2013 and 2010 (P0, first batch) | **Admitted.** `el-cz-ps-2013-10-25` and `el-cz-ps-2010-05-28` |
+| Hungary 2010 dated institutional period (§7) | **Done.** `hungary-period-1989-10-30`; Hungary is now 5 of 5 |
+| Slovakia 2020, 2016, 2012, 2010 and earlier | **Not admitted.** Waiting for owner-saved files (section 4) |
+| Czechia 2006, 2002 | **Not admitted.** Next batch; the same route applies (section 6) |
 
-No election was added. The published count stays at 58 chamber elections, and the results, seats and turnout of every admitted election are unchanged.
+Chamber elections: 58 → 60. Czechia now covers 2010, 2013, 2017, 2021 and 2025. Every previously admitted result, seat count and turnout figure is unchanged; tests check this row by row.
 
-## 2. Hungary 2010 institutional period
+## 2. Czechia 2010 and 2013
 
-Sources, each read once by hand on njt.jog.gov.hu (registered host, statutes only):
+### Sources and rights
+
+- **Data:** ČSÚ open-data CSV packages on volby.gov.cz, retrieved once each on 2026-11-21:
+  - `PS{2013,2010}_data_20230224_csv.zip`
+  - `_reg_20230428_csv.zip`
+  - `_cisel_20230224_csv.zip`
+- **Rights:** the ČSÚ terms, read the same day, state that statistical information published through csu.gov.cz is licensed CC BY 4.0. The volby.gov.cz pages link these terms in their footer, and the owner accepted them for these files.
+  - Rights entry `src-cz-volby-ps2010-2013`: `cleared_with_conditions`, `verified`.
+  - The general `src-cz-volby` entry stays `blocked`.
+  - Attribution entry `csu-volby-ps2010-2013`.
+- **Election calls:** presidential decisions 37/2010 Sb. (28–29 May 2010) and 266/2013 Sb. (25–26 October 2013), read on e-Sbírka.
+- **Rules:** Act 247/1995 Coll. in the versions in force on each polling day, both read on e-Sbírka; §§ 48–51 read identically in both:
+  - 14 Sep 2009 – 15 Jun 2010;
+  - 26 Jun 2012 – 6 Apr 2014.
+- **Official result check:** State Electoral Commission notice 343/2013 Sb. The 2010 notice was not located.
+
+### Reconciliation
+
+| | 2010 | 2013 |
+|---|---|---|
+| Polling districts | 14,894 | 14,873 |
+| Registered voters | 8,415,892 | 8,424,227 |
+| Issued envelopes | 5,268,098 | 5,010,944 |
+| Valid votes | 5,230,859 | 4,969,984 |
+| Published turnout | 62.6% | 59.48% |
+| Lists that stood (contestants) | 26 | 23 |
+| Lists with seats | ČSSD 56, ODS 53, TOP 09 41, KSČM 26, VV 24 | ČSSD 50, ANO 2011 47, KSČM 33, TOP 09 26, ODS 16, Úsvit 14, KDU-ČSL 14 |
+
+How the build checks these figures:
+- District sums equal ČSÚ VOLPS03 for registered voters, envelopes, valid votes and district counts, and reproduce the published turnout.
+- List votes sum to valid votes in every region.
+- Register seats (`POCMANDCR`) equal the elected count per list (`MANDAT`).
+- §§ 48–50 re-run on the regional votes reproduce every list's seats.
+- For 2013, all 360 cells of notice 343/2013 Sb. (23 lists plus total × 14 regions plus national) equal the district sums.
+- Districts abroad belong to one region drawn by lot (§ 27):
+  - 2013: Středočeský, shown by the notice.
+  - 2010: Jihočeský, inferred. It is the only region that reproduces the official seats, and it is used in the check only.
+
+Lists without any vote:
+- 2010 list 3 and 2013 list 19 are in the register but recorded no vote in any district. The 2013 notice does not list no. 19.
+- Neither is a contestant. Their register rows stay in the evidence.
+
+### What is stored
+
+National rows only, in the same stores as 2017–2025:
+- `elections`, `election_turnout`, `election_results`, `electoral_contestants`, `legislatures`, `electoral_systems`, `political_source_registry`.
+
+How the new rows differ:
+- `published_vote_share` is null. The derived share is computed, and no published share is claimed.
+- Contestants are `party_list`: every list had one proposer and code-list type S.
+- `party_relation_status` is `not_linked_identity_layer_covers_2017_onward`.
+
+Evidence (`docs/political-data/raw/czechia/ps2010-2013/`):
+- per-region totals and region × list vote sums;
+- the list register (list fields only);
+- the code-list rows used;
+- per-list elected counts;
+- the VOLPS03 excerpt.
+
+No candidate name, preferential vote or other candidate field is committed.
+
+Scripts:
+- `scripts/political-data/czechia/stage-ps2010-2013.mjs` (one-off staging);
+- `scripts/political-data/czechia/build-ps2010-2013.mjs` (build and checks, including the § 48–50 re-run);
+- merged by `build-ps-national.mjs`.
+
+Admission:
+- record `czechia-ps-2010-2013` (exact hashes, baseline d68d0e1);
+- gate record `docs/political-data/czechia_ps2010_2013_admission.json`.
+
+## 3. Hungary 2010 institutional period
+
+Sources, each read once by hand on njt.jog.gov.hu:
 
 | Source id | Act | Read |
 |---|---|---|
-| `hu-act-xxxi-1989` | 1989. évi XXXI. törvény az Alkotmány módosításáról | Adopted 1989-10-18; promulgated 1989-10-23; repealed from 2012-01-01 (Fundamental Law transitional provisions, Art. 31(3)(c)). No entry-into-force clause was found on the page |
-| `hu-act-xxxiv-1989` | 1989. évi XXXIV. törvény az országgyűlési képviselők választásáról | Adopted 1989-10-20; promulgated 1989-10-30; § 56(1) "E törvény a kihirdetése napján lép hatályba"; § 4: 386 seats (176 single-member, 152 territorial, 58 compensation); § 8(5) thresholds; repealed by Act CCIII of 2011 § 26(a) from 2012-01-01 |
+| `hu-act-xxxi-1989` | 1989. évi XXXI. törvény az Alkotmány módosításáról | Adopted 1989-10-18; promulgated 1989-10-23; repealed from 2012-01-01 |
+| `hu-act-xxxiv-1989` | 1989. évi XXXIV. törvény az országgyűlési képviselők választásáról | Adopted 1989-10-20; promulgated and in force 1989-10-30 (§ 56(1)); § 4: 386 seats; § 8(5) thresholds; repealed by Act CCIII of 2011 § 26(a) from 2012-01-01 |
 
-Registry changes (`src/lib/institutions/countries/hungary.json`):
-- Change `hu-1989-electoral-act`: effective 1989-10-30. Status `verified`. It opens `hungary-period-1989-10-30`, which runs to 2012-01-01.
-- Change `hu-1989-constitution-amendment`: status `partially_verified`.
-  - Its effective date is null, with a note. The page shows no entry-into-force clause.
-  - The period it opens, `hungary-period-1989-10-23`, starts on the promulgation date. That date is not asserted to be the effective date.
-- `previous_constitutions`: `hu-constitution-1949-as-amended-1989`, in force until 2012-01-01. The 1949 Act itself was not read.
-- Both 1989 changes carry `repealed_effective: 2012-01-01`.
+Effects:
+- Hungary 2010 is linked to `hungary-period-1989-10-30` and to `hu-constitution-1949-as-amended-1989` (new `previous_constitutions`).
+- Elections from 2014 list both 1989 acts under `repealed_before`, not as in force.
+- The constitutional amendment's effective date is not asserted: no entry-into-force clause was found.
 
-Builder changes (`scripts/institutions/build-institutions.mjs`):
-- `constitution_id` is now the constitution in force on polling day.
-  - Hungary 2010 resolves to `hu-constitution-1949-as-amended-1989`.
-  - Every other election is unchanged.
-- `changes_in_force` drops changes repealed before polling day.
-- A new `repealed_before` field lists the dropped changes.
-- The validator checks the new fields.
+## 4. Slovakia: waiting for owner files
 
-Not changed: the 2010 rule record in the Hungary store still says the statute was not read. That record and the admission hashes are untouched. The institutions registry now records the statute.
+Why there is no Slovak admission yet:
+- The only source with full results is volby.statistics.sk. Collecting from it automatically is not allowed.
+- The minv.sk file named `NR20_ZapisnicaStK.pdf` is the 2023 minutes, already admitted.
+- No minutes or Collection of Laws results notice was found for 2020, 2016, 2012 or 2010.
 
-## 3. Slovakia: source finding
+The owner chose to save the files by hand, with the Copyright Act § 5(a) basis used for 2023.
 
-- **volby.statistics.sk:** no automated collection, by the owner rule. The ŠÚ SR terms also prohibit robots, and their CC BY 4.0 grant names www.statistics.sk.
-  - The owner's 2026-11-20 answer was "You download by hand". No files are in `local-evidence/slovakia/` yet.
-- **State Commission minutes (www.minv.sk):** the file `NR20_ZapisnicaStK.pdf` that search finds for "2020" is the 2023 minutes, already admitted. Its file name is misleading, as `evidence.json` records.
-  - Searches found no minutes for 2016, 2012 or 2010 on minv.sk. The commission archive is described as starting in 2023.
-- **Collection of Laws (static.slov-lex.sk):** searches found no published results announcement for any National Council election, only the election calls and the electoral acts.
+Needed in `local-evidence/slovakia/<year>/`, 2020 and 2016 first, then 2012 and 2010:
+- For each year, the national result tables from volby.statistics.sk:
+  - voters on the rolls, voters who took part, valid votes and turnout;
+  - votes and shares for every list;
+  - seats per list;
+- or the State Commission minutes PDF, if it is listed there.
 
-**Owner action needed for Slovakia:**
-1. Save the national result files for 2020 and 2016 from volby.statistics.sk into `local-evidence/slovakia/<year>/`, then 2012 and 2010.
-2. Decide the reuse basis for national figures from those files. Options:
-   - Copyright Act § 5(a), as used for 2023. National totals are information, and the extract is an insubstantial part of the database (§ 138(3)).
-   - Or the ŠÚ SR CC BY 4.0 grant, if you read it as covering the election subdomain.
-
-Once the files are saved, the existing `build-nrsr-national.mjs` path takes each year:
-- the full list of electoral lists, with votes and published shares;
-- seats reconciled to 150;
-- turnout as published.
-
-The 2016 and 2020 elections fall under Act 180/2014. Its dated versions are on static.slov-lex.sk, which is allowed.
-
-## 4. Czechia: source finding
-
-- **volby.gov.cz:** registered as `evidence_only_pending_publisher`; automated collection is not allowed.
-- **Owner exception of 2026-11-20:** covers only files whose national catalogue (NKOD) entry records no protected rights.
-  - NKOD has entries from PS2017 onward only. None exist for PS2013, PS2010, PS2006 or PS2002, so the exception covers no file and nothing was retrieved.
-- 1998 and 1996 have no open data on volby.gov.cz.
-
-**Owner action needed for Czechia (choose one):**
-1. Accept ČSÚ's general terms for reusing statistical data, which the volby.gov.cz pages link to, as the basis. csu.gov.cz would be registered for reading those terms by hand.
-2. Or download the PS2013 and PS2010 CSV ZIPs yourself (`PS<year>_data_csv`, `_reg_`, `_cisel_`) into `local-evidence/czechia/<year>/`.
-
-Either way, the existing `build-ps-national.mjs` path then takes:
-- votes from the data files;
-- seats from the register's mandate flag, without names;
-- the 14 regions as they are.
-
-The rule records for 2010 and 2013 will be taken from Act 247/1995 in the version in force on each polling day, not from the 2021 amendment.
+The build reuses `build-nrsr-national.mjs`, with the year's rules from Act 180/2014 (2016, 2020) or Act 333/2004 (2010, 2012), read on static.slov-lex.sk.
 
 ## 5. Other inherited gaps (not worked on)
 
-- **Austria, 4 of 7 elections without a dated period:** 2002, 2006 and 2008 come before the earliest recorded Austrian change. This needs the dated Nationalrat-Wahlordnung 1992 amendments from RIS.
-- **Romania:** the 2024 polling-day source still needs the owner-staged Government decision. Earlier seat-allocation notes stay as recorded.
-- **Hungary:** the 2006 to 1990 elections are not admitted. The same 1989 period would now cover 1990 to 2006.
+- **Austria, 4 of 7 elections with a dated period:** 2002, 2006 and 2008 come before the earliest recorded Austrian change. This needs the dated Nationalrat-Wahlordnung 1992 amendments from RIS.
+- **Romania:** the 2024 polling-day source still needs the owner-staged Government decision.
+- **Czechia:**
+  - Change `cz-2021-chamber-electoral-rules` has no effective date in the registry. The 2021 rule record cites the version "1. 7. 2021 – 30. 6. 2024".
+  - The identity layer covers 2017 onward, so 2010 and 2013 lists are unlinked. Linking them needs the Interior Ministry register review that the identity rule already requires.
+- **Hungary:** 1990–2006 are not admitted. The 1989 period would now cover them.
 
-## 6. Checks
+## 6. Recommended next batch
 
-- `tests/tooling/institutions-registry.test.mjs` (9 tests) passes. It now asserts:
-  - the Hungary 2010 period, the constitution in force, the change lists, and the 1989–2012 period;
-  - for every Hungarian election from 2014, the Fundamental Law and no 1989 act in force.
-- The full CI mirror is run before any push.
+1. **Czechia 2006 and 2002.** Same route and owner decision type, using the ps2006 and ps2002 open-data packages; the same §§ 48–50 check applies. Hold until the owner extends the 2026-11-21 answer to these two years: it named 2013 and 2010.
+2. **Slovakia 2020 and 2016** once files are saved.
+3. **Czech identity extension to 2010/2013**, only with the register review the rule needs.
 
-## 7. Codex handoff — SLOVAKIA AND CZECHIA HISTORICAL ELECTION FRONTEND INTEGRATION
+## 7. Checks
 
-No new Slovak or Czech election exists yet, so there is nothing new to integrate for those countries. When they are admitted, the election IDs will follow `el-sk-nrsr-<date>` and `el-cz-ps-<date>`, and they will appear through the existing Politics directory without page changes.
+- Tooling: all files pass, including the new `tests/tooling/political-czechia-2010-2013.test.mjs` (5 tests).
+- Count updates:
+  - 58 → 60 links;
+  - Czech views 3 → 5;
+  - D1 17 elections;
+  - D4 case 22 inputs, with the published case still pinned to 17.
+- D2 and D3 keep their original reference sets exact. A separate test checks that Czechia 2010 and 2013 enter D3.
+- The full CI mirror runs before any push.
 
-What changed now, for Codex:
-1. `src/lib/institutions/election_links.json` changes:
-   - `el-hu-ogy-2010-04-11` now has:
-     - `institutional_period_id: "hungary-period-1989-10-30"`;
-     - `constitution_id: "hu-constitution-1949-as-amended-1989"`;
-     - `changes_in_force: ["hu-1989-constitution-amendment", "hu-1989-electoral-act"]`.
-   - Elections from 2014 carry `repealed_before` with both 1989 ids.
-   - The Politics index line "Linked to a dated institutional period" now reads 5/5 for Hungary.
-2. `InstitutionalCountry.previous_constitutions` is a new optional field. `ElectionInstitutionalLink.repealed_before` and `InstitutionalChange.repealed_effective` are also new and optional.
-   - Showing them, for example "Repealed before polling day" next to "Changes in force" in `PoliticalBallotExplorer.tsx` and `InstitutionalHistory.tsx`, is optional UI work.
-3. In `InstitutionalHistory.tsx`, the 2010→2014 comparison picks the constitutional change from `after.changes_in_force`. That still resolves to `hu-2012-fundamental-law`, because the repealed 1989 amendment is filtered out.
-   - The 2010 side could now show `hu-1989-constitution-amendment`. Its effective date is null, with `effective_note`.
-4. Two Hungarian changes, dated 1989, now open the institutional timeline. Check that the Hungary timeline renders them and their Chinese text.
+## 8. Codex handoff — SLOVAKIA AND CZECHIA HISTORICAL ELECTION FRONTEND INTEGRATION
+
+New data, all through the existing store contract, with no new page needed:
+
+| Election ID | Country | Chamber | Date | Seats | Contestants | System id | Period |
+|---|---|---|---|---|---|---|---|
+| `el-cz-ps-2010-05-28` | czechia | `cz-poslanecka-snemovna` (store `Poslanecká sněmovna`) | 2010-05-28 – 05-29 | 200 | 26 (`ct-cz-ps2010-NN`) | `es-cz-ps-2010` | `czechia-period-1993-01-01` |
+| `el-cz-ps-2013-10-25` | czechia | same | 2013-10-25 – 10-26 | 200 | 23 (`ct-cz-ps2013-NN`) | `es-cz-ps-2013` | `czechia-period-2012-10-01` |
+
+Where the data is:
+- **Stores:** `src/data/political/czechia/*.json`.
+- **Research export:** `public/research-data/political/czechia/{elections,election_turnout,election_results,electoral_contestants,electoral_systems,legislatures,political_source_registry}.{json,csv}`, with README and manifest updated.
+- **Turnout definition:** issued envelopes / registered voters × 100 (`turnout_basis.numerator: envelopes_issued`), the same as 2017–2025, so turnout is comparable within Czechia.
+- **Sources:** `src-cz-volby-ps{2010,2013}-opendata`, `src-cz-esbirka-247-1995-{2010,2013}`, `src-cz-esbirka-call-{2010,2013}`, `src-cz-esbirka-results-2013`, `src-cz-csu-volps03-2010-2013`, `src-cz-ps2010-2013-evidence`.
+
+Comparison restrictions:
+- `published_vote_share` is null for 2010/2013. Use `derived_vote_share`, labelled as computed from votes.
+- 2010/2013 and 2017 share the same rules; 2021 and 2025 differ: thresholds 5/8/11 and two scrutinies.
+- No party continuity crosses 2013→2017. `politicalCzechContinuity()` now uses only 2017–2025.
+- Czech and German turnout definitions differ (envelopes vs voters), as before.
+
+Hungary 2010 changes:
+- `institutional_period_id` and `constitution_id` changed, and there is a new optional `repealed_before`.
+- The comparison panel now shows "1989-10-30 until (exclusive) 2012-01-01" for 2010. The spec was updated.
+
+Codex tasks:
+1. Confirm 2010 and 2013 appear in the Czech year selectors, history turnout, seat composition and the ten-country comparison, in English and Chinese.
+2. Show "computed share" where `published_vote_share` is null; never present it as published.
+3. Optionally show `repealed_before` next to "Changes in force", and the 1989 Hungarian changes in the Hungary timeline.
+4. Fix only confirmed regressions; the comparison engine is unchanged.

@@ -110,7 +110,7 @@ test("election links: reproducible, complete, and tied to each election's own ru
       for (const id of link.later_changes) assert.ok(changeDate(countries[slug].changes.find((c) => c.change_id === id)) > e.date);
     }
   }
-  assert.equal(links.elections.length, 58);
+  assert.equal(links.elections.length, 60);
   // Hungary 2010 (Act XXXIV of 1989): 386 seats from its own rule record, under the 1949 Constitution as amended in 1989 and the
   // period opened by the 1989 electoral act (in force on promulgation, 1989-10-30, § 56(1)); both 1989 acts were repealed from 2012-01-01.
   const hu2010 = links.elections.find((l) => l.election_id === "el-hu-ogy-2010-04-11");
@@ -159,10 +159,10 @@ test("election links: reproducible, complete, and tied to each election's own ru
 test("preservation: election stores and economic data are unchanged by this iteration", () => {
   const BASE = "46dca48f4d6b85b14b8bda983440f5d44314368b";
   const changed = execFileSync("git", ["diff", "--name-only", BASE, "--", "src/data", "public/research-data", "public/data"], { cwd: root, encoding: "utf8" }).trim().split("\n").filter(Boolean);
-  // Later owner-admitted countries (Croatia, Slovenia, Romania and Austria, 2026-11-18; Hungary 2014 and 2018, 2026-11-20) add new political files only, each at the exact hash
+  // Later owner-admitted countries (Croatia, Slovenia, Romania and Austria, 2026-11-18; Hungary 2014 and 2018, 2026-11-20; Czechia 2010 and 2013, 2026-11-21) add new or regenerated political files only, each at the exact hash
   // of its admission record; every other data file stays unchanged.
-  const admitted = new Map(read("docs/legal-security/political_admission_records.json").admissions.filter((a) => a.status === "owner_approved" && ["croatia", "slovenia", "romania", "austria", "hungary"].includes(a.country)).flatMap((a) => a.files.map((f) => [f.path, f.sha256])));
+  const admitted = new Map(read("docs/legal-security/political_admission_records.json").admissions.filter((a) => a.status === "owner_approved" && ["croatia", "slovenia", "romania", "austria", "hungary", "czechia"].includes(a.country)).flatMap((a) => a.files.map((f) => [f.path, f.sha256])));
   const sha = (f) => crypto.createHash("sha256").update(fs.readFileSync(path.join(root, f))).digest("hex");
-  const unexplained = changed.filter((f) => !(/^(src\/data|public\/research-data)\/political\/(croatia|slovenia|romania|austria|hungary)\//.test(f) && admitted.get(f) === sha(f)));
+  const unexplained = changed.filter((f) => !(/^(src\/data|public\/research-data)\/political\/(croatia|slovenia|romania|austria|hungary|czechia)\//.test(f) && admitted.get(f) === sha(f)));
   assert.deepEqual(unexplained, [], `data files changed since ${BASE}`);
 });

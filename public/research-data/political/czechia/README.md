@@ -1,6 +1,8 @@
-# Czechia — Chamber of Deputies elections 2017, 2021 and 2025 (national level)
+# Czechia — Chamber of Deputies elections 2010, 2013, 2017, 2021 and 2025 (national level)
 
-Three elections: electoral lists with ČSÚ list codes, list votes, published (truncated) and derived shares, seats; registered voters, issued envelopes and turnout. Source: Český statistický úřad (ČSÚ), DataStat VOLPS201703, VOLPS202103, VOLPS202503 and VOLPS03; the national open-data catalogue records no copyright work, no original database, no database maker's right and no personal data for these distributions. Rules: Act 247/1995 Coll. (e-Sbírka informative versions); the thresholds and allocation method changed between 2017 and 2021.
+Five elections: electoral lists with ČSÚ list codes, list votes, published (truncated) and derived shares, seats; registered voters, issued envelopes and turnout. Source: Český statistický úřad (ČSÚ), DataStat VOLPS201703, VOLPS202103, VOLPS202503 and VOLPS03; the national open-data catalogue records no copyright work, no original database, no database maker's right and no personal data for these distributions. Rules: Act 247/1995 Coll. (e-Sbírka informative versions); the thresholds and allocation method changed between 2017 and 2021.
+
+2010 and 2013: ČSÚ open data from volby.gov.cz (polling-district results, list register, code lists), reused under the ČSÚ terms (CC BY 4.0; attribution: Český statistický úřad, https://csu.gov.cz/podminky_pro_vyuzivani_a_dalsi_zverejnovani_statistickych_udaju_csu). List votes are sums of the official polling-district records and equal State Electoral Commission notice 343/2013 Sb. for 2013; national totals equal ČSÚ VOLPS03; seats come from the list register and are reproduced by §§ 48–50 of Act 247/1995. No published vote share is stored for these two elections. Their lists are not linked to later elections in the identity tables.
 
 2017 figures are the original results: ČSÚ states that VOLPS201703 does not reflect Supreme Administrative Court resolution Vol 58/2017-173, which changed which candidate of one list was elected in one region; seats by list are unchanged.
 

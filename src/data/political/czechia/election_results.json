@@ -1,5 +1,2651 @@
 [
   {
+    "result_id": "er-ct-cz-ps2010-01",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-01",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 13397,
+    "published_vote_share": null,
+    "derived_vote_share": 0.2561147222664576,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 1",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 1 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-02",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-02",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 260,
+    "published_vote_share": null,
+    "derived_vote_share": 0.0049705029326923165,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 2",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 2 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-04",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-04",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 569127,
+    "published_vote_share": null,
+    "derived_vote_share": 10.880182394516847,
+    "seats": 24,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 4",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 4 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-05",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-05",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 4232,
+    "published_vote_share": null,
+    "derived_vote_share": 0.08090449388905341,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 5",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 5 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-06",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-06",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 589765,
+    "published_vote_share": null,
+    "derived_vote_share": 11.274725623458785,
+    "seats": 26,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 6",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 6 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-07",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-07",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 4024,
+    "published_vote_share": null,
+    "derived_vote_share": 0.07692809154289955,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 7",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 7 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-08",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-08",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 295,
+    "published_vote_share": null,
+    "derived_vote_share": 0.00563960909670859,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 8",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 8 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-09",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-09",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 1155267,
+    "published_vote_share": null,
+    "derived_vote_share": 22.08560773670252,
+    "seats": 56,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 9",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 9 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-10",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-10",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 186,
+    "published_vote_share": null,
+    "derived_vote_share": 0.003555821328772196,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 10",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 10 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-11",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-11",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 1993,
+    "published_vote_share": null,
+    "derived_vote_share": 0.038100816710983795,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 11",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 11 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-12",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-12",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 11914,
+    "published_vote_share": null,
+    "derived_vote_share": 0.22776373823113946,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 12",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 12 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-13",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-13",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 226527,
+    "published_vote_share": null,
+    "derived_vote_share": 4.330588914746125,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 13",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 13 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-14",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-14",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 3155,
+    "published_vote_share": null,
+    "derived_vote_share": 0.06031514135632408,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 14",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 14 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-15",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-15",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 873833,
+    "published_vote_share": null,
+    "derived_vote_share": 16.705344189166635,
+    "seats": 41,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 15",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 15 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-16",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-16",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 522,
+    "published_vote_share": null,
+    "derived_vote_share": 0.009979240503328421,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 16",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 16 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-17",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-17",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 229717,
+    "published_vote_share": null,
+    "derived_vote_share": 4.391573162266465,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 17",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 17 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-18",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-18",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 24750,
+    "published_vote_share": null,
+    "derived_vote_share": 0.47315364455436476,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 18",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 18 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-19",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-19",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 1371,
+    "published_vote_share": null,
+    "derived_vote_share": 0.026209844310466027,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 19",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 19 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-20",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-20",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 127831,
+    "published_vote_share": null,
+    "derived_vote_share": 2.4437860014961217,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 20",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 20 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-21",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-21",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 192145,
+    "published_vote_share": null,
+    "derived_vote_share": 3.6732972538544817,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 21",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 21 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-22",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-22",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 552,
+    "published_vote_share": null,
+    "derived_vote_share": 0.010552760072485226,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 22",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 22 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-23",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-23",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 42323,
+    "published_vote_share": null,
+    "derived_vote_share": 0.8091022908474497,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 23",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 23 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-24",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-24",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 59888,
+    "published_vote_share": null,
+    "derived_vote_share": 1.1448979985887595,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 24",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 24 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-25",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-25",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 38894,
+    "published_vote_share": null,
+    "derived_vote_share": 0.7435490040928268,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 25",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 25 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-26",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-26",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 1057792,
+    "published_vote_share": null,
+    "derived_vote_share": 20.2221470699172,
+    "seats": 53,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 26",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 26 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2010-27",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2010-05-28",
+    "contestant_ref": "ct-cz-ps2010-27",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 5230859,
+    "total_seats": 200,
+    "votes": 1099,
+    "published_vote_share": null,
+    "derived_vote_share": 0.021009933550110986,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+        "source_record_id": "ps2010_region_list_votes.csv KSTRANA 27",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+          "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2010-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 27 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+          "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-01",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-01",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 1016829,
+    "published_vote_share": null,
+    "derived_vote_share": 20.459401881374266,
+    "seats": 50,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 1",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 1 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-02",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-02",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 122564,
+    "published_vote_share": null,
+    "derived_vote_share": 2.4660843978572164,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 2",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 2 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-03",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-03",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 132417,
+    "published_vote_share": null,
+    "derived_vote_share": 2.6643345330689194,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 3",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 3 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-04",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-04",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 596357,
+    "published_vote_share": null,
+    "derived_vote_share": 11.999173437982899,
+    "seats": 26,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 4",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 4 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-05",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-05",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 21241,
+    "published_vote_share": null,
+    "derived_vote_share": 0.4273856817245287,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 5",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 5 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-06",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-06",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 384174,
+    "published_vote_share": null,
+    "derived_vote_share": 7.729884039868136,
+    "seats": 16,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 6",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 6 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-07",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-07",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 609,
+    "published_vote_share": null,
+    "derived_vote_share": 0.012253560574842896,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 7",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 7 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-08",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-08",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 293,
+    "published_vote_share": null,
+    "derived_vote_share": 0.005895391212527043,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 8",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 8 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-09",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-09",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 28592,
+    "published_vote_share": null,
+    "derived_vote_share": 0.5752936025548573,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 9",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 9 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-10",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-10",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 13041,
+    "published_vote_share": null,
+    "derived_vote_share": 0.2623952109302565,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 10",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 10 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-11",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-11",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 336970,
+    "published_vote_share": null,
+    "derived_vote_share": 6.780102310188524,
+    "seats": 14,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 11",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 11 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-12",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-12",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 1225,
+    "published_vote_share": null,
+    "derived_vote_share": 0.024647966673534562,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 12",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 12 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-13",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-13",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 13538,
+    "published_vote_share": null,
+    "derived_vote_share": 0.2723952431235191,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 13",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 13 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-14",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-14",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 1237,
+    "published_vote_share": null,
+    "derived_vote_share": 0.024889416142989597,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 14",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 14 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-15",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-15",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 75113,
+    "published_vote_share": null,
+    "derived_vote_share": 1.5113328332646545,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 15",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 15 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-16",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-16",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 455,
+    "published_vote_share": null,
+    "derived_vote_share": 0.00915495905016998,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 16",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 16 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-17",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-17",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 342339,
+    "published_vote_share": null,
+    "derived_vote_share": 6.888130826980529,
+    "seats": 14,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 17",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 17 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-18",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-18",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 42906,
+    "published_vote_share": null,
+    "derived_vote_share": 0.8633025780364685,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 18",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 18 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-20",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-20",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 927240,
+    "published_vote_share": null,
+    "derived_vote_share": 18.656800504790358,
+    "seats": 47,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 20",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 20 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-21",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-21",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 741044,
+    "published_vote_share": null,
+    "derived_vote_share": 14.91039005356959,
+    "seats": 33,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 21",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 21 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-22",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-22",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 3843,
+    "published_vote_share": null,
+    "derived_vote_share": 0.07732419259297414,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 22",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 22 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-23",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-23",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 159025,
+    "published_vote_share": null,
+    "derived_vote_share": 3.1997084900072115,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 23",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 23 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "result_id": "er-ct-cz-ps2013-24",
+    "country": "czechia",
+    "geography": "national",
+    "election_id": "el-cz-ps-2013-10-25",
+    "contestant_ref": "ct-cz-ps2013-24",
+    "vote_type": "chamber_list_vote",
+    "valid_votes": 4969984,
+    "total_seats": 200,
+    "votes": 8932,
+    "published_vote_share": null,
+    "derived_vote_share": 0.17971888843102915,
+    "seats": 0,
+    "published_seat_share": null,
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "provenance": [
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+        "source_record_id": "ps2013_region_list_votes.csv KSTRANA 24",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+          "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "votes"
+        ],
+        "published_or_derived": "derived",
+        "formula": "sum of POC_HLASU over all polling-district rows of csv_od/pst4p.csv for the list",
+        "input_fields": [
+          "POC_HLASU"
+        ]
+      },
+      {
+        "source_id": "src-cz-volby-ps2013-opendata",
+        "source_url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+        "source_record_id": "psrkl.csv KSTRANA 24 POCMANDCR",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+          "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "seats"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "result_id": "er-ct-cz-ps2017-01",
     "country": "czechia",
     "geography": "national",
@@ -25,7 +2671,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -62,7 +2708,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -99,7 +2745,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -136,7 +2782,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -173,7 +2819,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -210,7 +2856,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -247,7 +2893,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -284,7 +2930,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -321,7 +2967,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -358,7 +3004,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -395,7 +3041,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -432,7 +3078,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -469,7 +3115,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -506,7 +3152,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -543,7 +3189,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -580,7 +3226,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -617,7 +3263,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -654,7 +3300,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -691,7 +3337,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -728,7 +3374,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -765,7 +3411,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -802,7 +3448,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -839,7 +3485,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -876,7 +3522,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -913,7 +3559,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -950,7 +3596,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -987,7 +3633,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1024,7 +3670,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1061,7 +3707,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1098,7 +3744,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1135,7 +3781,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1172,7 +3818,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1209,7 +3855,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1246,7 +3892,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1283,7 +3929,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1320,7 +3966,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1357,7 +4003,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1394,7 +4040,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1431,7 +4077,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1468,7 +4114,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1505,7 +4151,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1542,7 +4188,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1579,7 +4225,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1616,7 +4262,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1653,7 +4299,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1690,7 +4336,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1727,7 +4373,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1764,7 +4410,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1801,7 +4447,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1838,7 +4484,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1875,7 +4521,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1912,7 +4558,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",
@@ -1949,7 +4595,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "votes",
           "published_vote_share",

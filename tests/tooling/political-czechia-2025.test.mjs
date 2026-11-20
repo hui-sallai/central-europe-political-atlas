@@ -21,7 +21,7 @@ const read = (file) => JSON.parse(fs.readFileSync(path.join(root, file), 'utf8')
 test('builder reproduces the committed stores and exports exactly from committed evidence', () => {
   const data = buildCzechiaNational();
   for (const [file, content] of Object.entries(czechiaFiles(data))) assert.equal(fs.readFileSync(path.join(root, file), 'utf8'), content, file);
-  assert.deepEqual(data.checks, {
+  assert.deepEqual(Object.fromEntries(['2017', '2021', '2025'].map((y) => [y, data.checks[y]])), {
     2017: { lists: 31, validVotes: 5060759, totalSeats: 200, registered: 8374501, envelopes: 5094633, turnout: 60.84 },
     2021: { lists: 22, validVotes: 5375090, totalSeats: 200, registered: 8275752, envelopes: 5414637, turnout: 65.43 },
     2025: { lists: 26, validVotes: 5621717, totalSeats: 200, registered: 8253316, envelopes: 5690635, turnout: 68.95 },
@@ -31,12 +31,13 @@ test('builder reproduces the committed stores and exports exactly from committed
 test('reconciliation: list votes = valid votes, seats = 200, shares are the official truncated shares, turnout reproduces', () => {
   const results = read('src/data/political/czechia/election_results.json');
   const turnouts = read('src/data/political/czechia/election_turnout.json');
-  assert.equal(turnouts.length, 3);
+  assert.equal(turnouts.length, 5);
   for (const turnout of turnouts) {
     const rows = results.filter((r) => r.election_id === turnout.election_id);
     assert.equal(rows.reduce((n, r) => n + r.votes, 0), turnout.valid_votes);
     assert.equal(rows.reduce((n, r) => n + r.seats, 0), 200);
-    for (const r of rows) assert.equal(Math.floor((r.votes * 10000) / r.valid_votes) / 100, r.published_vote_share, r.contestant_ref);
+    // 2010 and 2013 come from district sums with no published share (published_vote_share null); 2017+ shares are the truncated official ones.
+    for (const r of rows) if (/ps-201[03]-/.test(r.election_id)) assert.equal(r.published_vote_share, null); else assert.equal(Math.floor((r.votes * 10000) / r.valid_votes) / 100, r.published_vote_share, r.contestant_ref);
     assert.ok(Math.abs(turnout.voters / turnout.eligible_voters * 100 - turnout.published_turnout) < 0.005);
     assert.equal(turnout.invalid_votes, null, 'invalid votes are missing, not reconstructed');
     assert.equal(turnout.ballots_cast, null);
@@ -45,8 +46,8 @@ test('reconciliation: list votes = valid votes, seats = 200, shares are the offi
 
 test('identity: every list is election-specific and its kind comes from the official registers', () => {
   const contestants = read('src/data/political/czechia/electoral_contestants.json');
-  assert.equal(contestants.length, 79);
-  assert.equal(new Set(contestants.map((c) => c.contestant_id)).size, 79);
+  assert.equal(contestants.length, 128);
+  assert.equal(new Set(contestants.map((c) => c.contestant_id)).size, 128);
   for (const c of contestants) {
     assert.ok(['party_list', 'coalition'].includes(c.contestant_kind));
     assert.equal(c.contestant_kind === 'coalition', c.csu_proposer_codes.length > 1);
@@ -61,17 +62,17 @@ test('evidence integrity: raw files match their checksums; rights fields show no
     for (const dist of d.distributions) { if (dist.archived_path) assert.equal(sha(dist.archived_path), dist.sha256); if (dist.excerpt) assert.equal(sha(dist.excerpt.path), dist.excerpt.sha256); }
   }
   for (const source of read('src/data/political/czechia/political_source_registry.json')) assert.equal(sha(source.raw_path), source.raw_sha256, source.source_id);
-  for (const file of ['ps2025', 'ps2017-2021']) assert.doesNotMatch(fs.readFileSync(path.join(root, `docs/political-data/raw/czechia/${file}/evidence.json`), 'utf8'), /@[a-z0-9-]+\.[a-z]{2,}|Slavníková|Bendl|Kupka/i, 'no personal data');
+  for (const file of ['ps2025', 'ps2017-2021', 'ps2010-2013']) assert.doesNotMatch(fs.readFileSync(path.join(root, `docs/political-data/raw/czechia/${file}/evidence.json`), 'utf8'), /@[a-z0-9-]+\.[a-z]{2,}|Slavníková|Bendl|Kupka/i, 'no personal data');
   for (const source of read('src/data/political/czechia/political_source_registry.json')) if (source.licence_status.startsWith('no_protected')) assert.match(source.url, /^https:\/\/(data\.csu\.gov\.cz|volby\.gov\.cz\/opendata\/ps20(17|21|25)\/)/, 'results come from DataStat, registers from the named open-data pages');
 });
 
 test('admission record: exact hashes, every mandatory gate closed, Germany never admissible', () => {
   const records = read(POLITICAL_ADMISSION_FILE).admissions.filter((x) => x.country === 'czechia');
-  for (const file of ['czechia_ps2025_admission', 'czechia_ps2017_2021_admission', 'czechia_identity_admission']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(`docs/political-data/${file}.json`).gates[gate].status, 'closed', gate);
+  for (const file of ['czechia_ps2025_admission', 'czechia_ps2017_2021_admission', 'czechia_identity_admission', 'czechia_ps2010_2013_admission']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(`docs/political-data/${file}.json`).gates[gate].status, 'closed', gate);
   const { approved, problems } = approvedPoliticalAdmissionFiles(records, sha);
   assert.deepEqual(problems, []);
   assert.deepEqual([...approved.keys()].sort(), [...POLITICAL_ADMISSIONS['czechia-identity'].paths].sort());
-  assert.deepEqual(records.map((x) => x.admission_id), ['czechia-ps-2025', 'czechia-ps-2017-2021', 'czechia-identity']);
+  assert.deepEqual(records.map((x) => x.admission_id), ['czechia-ps-2025', 'czechia-ps-2017-2021', 'czechia-identity', 'czechia-ps-2010-2013']);
   for (const [file, hash] of approved) assert.equal(sha(file), hash, file);
   const r = records.at(-1);
   assert.ok(approvedPoliticalAdmissionFiles([{ ...r, files: [...r.files, { path: 'src/data/political/germany/elections.json', sha256: 'a'.repeat(64) }] }], sha).problems.length, 'Germany cannot be added');
@@ -88,7 +89,7 @@ test('adapter: Czechia view, Germany unchanged, comparable list votes and docume
   const data = require('../../src/lib/politicalData.ts');
   const [cz] = data.politicalComparisonCountries();
   assert.equal(cz.slug, 'czechia');
-  assert.deepEqual(cz.elections.map((x) => x.year), [2017, 2021, 2025]);
+  assert.deepEqual(cz.elections.map((x) => x.year), [2010, 2013, 2017, 2021, 2025]);
   const e = cz.elections.at(-1);
   assert.equal(e.date, '2025-10-03');
   assert.equal(e.national.dateEnd, '2025-10-04');
@@ -109,7 +110,9 @@ test('election-to-election: rule changes are recorded, Czech turnout and vote ba
   const data = require('../../src/lib/politicalData.ts');
   const { compatibleTurnout, compatibleVoteBasis } = require('../../src/lib/politicalNational.ts');
   const { compareElections } = require('../../src/lib/politicalExplorer.ts');
-  const [e2017, e2021, e2025] = data.politicalCzechElectionViews();
+  const [e2010, e2013, e2017, e2021, e2025] = data.politicalCzechElectionViews();
+  for (const e of [e2010, e2013]) { assert.deepEqual(e.national.rules.thresholds.map((t) => t.percent), [5, 10, 15, 20]); assert.match(e.system.allocationMethod, /divisors/); }
+  assert.equal(compatibleTurnout(e2013, e2017), true);
   assert.deepEqual(e2017.national.rules.thresholds.map((t) => t.percent), [5, 10, 15, 20]);
   assert.deepEqual(e2021.national.rules.thresholds.map((t) => t.percent), [5, 8, 11]);
   assert.match(e2017.system.allocationMethod, /divisors/);
@@ -124,7 +127,8 @@ test('election-to-election: rule changes are recorded, Czech turnout and vote ba
 });
 
 test('2017 vintage is labelled and the court revision is recorded without person data', () => {
-  const [e2017, e2021] = read('src/data/political/czechia/elections.json');
+  const all = read('src/data/political/czechia/elections.json');
+  const [e2017, e2021] = ['el-cz-ps-2017-10-20', 'el-cz-ps-2021-10-08'].map((id) => all.find((e) => e.election_id === id));
   assert.equal(e2017.result_status, 'official_final');
   assert.match(e2017.result_vintage, /does not reflect/);
   assert.equal(e2017.court_revision.seats_by_list, 'unchanged (official tables compared)');
@@ -134,6 +138,7 @@ test('2017 vintage is labelled and the court revision is recorded without person
 
 test('display labels drop only a leading ballot number equal to the ČSÚ list code; the official label is kept verbatim', () => {
   for (const c of read('src/data/political/czechia/electoral_contestants.json')) {
+    if (/ps-201[03]-/.test(c.election_id)) { assert.equal(c.historical_display_label, c.registered_label_native); continue; } // 2010/2013: register name, no ballot number
     const prefix = `${Number(c.csu_list_code)} `; // 2021 codes are zero-padded in the file ("04"); the label is not.
     assert.ok(c.registered_label_native.startsWith(prefix));
     assert.equal(c.historical_display_label, c.registered_label_native.slice(prefix.length));

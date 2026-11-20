@@ -22,7 +22,8 @@ const annual = read('public/research-data/annual_history_runtime.json'), monthly
 const points = [...contextAnnualPoints(inputs.observations, annual, inputs.indicators), ...contextMonthlyPoints(monthly, current.records, inputs.monthlyMetadata)];
 const allAdmitted = [...data.politicalElectionViews(), ...data.politicalComparisonCountries().flatMap((c) => c.elections)];
 // The original four countries keep their exact results; Hungary is checked separately.
-const elections = allAdmitted.filter((e) => e.country !== 'hungary' && e.country !== 'serbia'); // Serbia (2026-11-15) is checked separately: no macro context is held for it.
+// Czechia 2010 and 2013 (admitted 2026-11-21) have no dated-release records; the D2 pilot set keeps its exact results.
+const elections = allAdmitted.filter((e) => e.country !== 'hungary' && e.country !== 'serbia' && !['el-cz-ps-2010-05-28', 'el-cz-ps-2013-10-25'].includes(e.electionId)); // Serbia (2026-11-15) is checked separately: no macro context is held for it.
 const rows = electionMacroRows(elections, points);
 const SK = 'el-sk-nrsr-2023-09-30', PL = 'el-pl-sejm-2023-10-15', CZ = 'el-cz-ps-2025-10-03', DE = 'el-de-bt-2025-02-23';
 const asOf = (id, indicator) => rows.find((r) => r.electionId === id && r.indicator === indicator).publishedBeforeElection;

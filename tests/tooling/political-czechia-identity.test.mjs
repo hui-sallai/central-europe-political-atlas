@@ -59,14 +59,16 @@ test('kinds and coalitions: official composition, with single-party codes equal 
   assert.equal(list(2021, 13).register_type, 'K');
   assert.equal(list(2025, 11).register_type, null, '2025 list register unused');
   for (const c of contestants.filter((x) => x.csu_register_code !== null && x.contestant_kind === 'party_list')) assert.equal(c.csu_register_code, c.csu_proposer_codes[0], c.contestant_id);
-  for (const c of contestants) assert.deepEqual(members.filter((m) => m.contestant_id === c.contestant_id).length, c.csu_proposer_codes.length);
+  // The identity layer covers 2017 onward; 2010 and 2013 lists carry their register codes but no membership rows (2026-11-21).
+  for (const c of contestants.filter((x) => x.party_relation_status !== 'not_linked_identity_layer_covers_2017_onward')) assert.deepEqual(members.filter((m) => m.contestant_id === c.contestant_id).length, c.csu_proposer_codes.length);
+  for (const c of contestants.filter((x) => x.party_relation_status === 'not_linked_identity_layer_covers_2017_onward')) { assert.match(c.election_id, /ps-201[03]-/); assert.equal(members.filter((m) => m.contestant_id === c.contestant_id).length, 0); }
   for (const m of members) assert.equal(m.review_status, 'verified_same_election_membership');
 });
 
 test('coalition votes and seats stay whole: stores reconcile and no member receives a figure', () => {
   assert.equal(results.filter((r) => r.election_id.includes('ps-2021')).reduce((n, r) => n + r.seats, 0), 200);
   const views = data.politicalCzechElectionViews();
-  const spolu = views[1].results.find((r) => r.contestantId === 'ct-cz-ps2021-13');
+  const spolu = views.find((v) => v.electionId === 'el-cz-ps-2021-10-08').results.find((r) => r.contestantId === 'ct-cz-ps2021-13');
   assert.equal(spolu.partyId, null);
   assert.equal(spolu.memberPartyIds.length, 3);
   assert.equal(spolu.seats, 71);
@@ -126,7 +128,11 @@ test('outputs: changes come from official values; rule changes and coalition per
 });
 
 test('election-to-election comparison lists verified units only, in date order', () => {
-  const views = data.politicalCzechElectionViews(), identity = data.politicalCzechIdentityLinks();
+  // 2010 and 2013 (admitted 2026-11-21) precede the identity layer: no verified unit links them to any other election.
+  const all = data.politicalCzechElectionViews(), identity = data.politicalCzechIdentityLinks();
+  assert.deepEqual(all.slice(0, 2).map((v) => v.year), [2010, 2013]);
+  assert.equal(linkedUnitComparison(all, identity, all[1], all[2]).rows.length, 0, '2013–2017: no verified link');
+  const views = all.slice(2);
   const labels = (x, y) => linkedUnitComparison(views, identity, x, y).rows.map((r) => r.kind);
   assert.deepEqual(labels(views[0], views[1]), Array(5).fill('party'), '2017–2021: ANO, SPD, KSČM, ČSSD and Zelení');
   assert.equal(labels(views[1], views[2]).filter((k) => k === 'coalition').length, 1, '2021–2025 includes SPOLU as a coalition');

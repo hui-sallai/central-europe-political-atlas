@@ -19,12 +19,18 @@
   {
    "country": "czechia",
    "elections": [
+    2010,
+    2013,
     2017,
     2021,
     2025
    ],
-   "scope": "Chamber of Deputies 2017, 2021 and 2025, national level",
-   "record": "docs/political-data/czechia_identity_admission.json"
+   "scope": "Chamber of Deputies 2010, 2013, 2017, 2021 and 2025, national level",
+   "record": "docs/political-data/czechia_identity_admission.json",
+   "records": [
+    "docs/political-data/czechia_identity_admission.json",
+    "docs/political-data/czechia_ps2010_2013_admission.json"
+   ]
   },
   {
    "country": "poland",
@@ -287,6 +293,12 @@
    "country": "romania",
    "question": "Romania 2012 used the Law 35/2008 mixed-member system with additional seats; its allocation cannot be recomputed without the statute (legislatie.just.ro blocked). How should it be admitted?",
    "decision": "\"Admit, seats as published\": seats are the mandates printed in the AEP candidate file, checked against the 5% threshold, the minority rule and the absolute-majority college winners, and marked as not recomputed."
+  },
+  {
+   "date": "2026-11-21",
+   "country": "czechia",
+   "question": "Reuse basis for the PS2013 and PS2010 open-data files on volby.gov.cz, which have no national-catalogue entry",
+   "decision": "Accept ČSÚ's general terms (CC BY 4.0, footer-linked) for these files and retrieve the PS2013 and PS2010 CSV packages once each. This supersedes the 2026-10-25 'wait for ČSÚ's written reply' decision for these files only; automation stays not allowed."
   }
  ],
  "countries": {

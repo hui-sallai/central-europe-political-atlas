@@ -1,0 +1,219 @@
+{
+ "schema_version": "atlas-political-evidence-v1",
+ "country": "czechia",
+ "elections": [
+  "Volby do Poslanecké sněmovny Parlamentu ČR, 28–29 May 2010",
+  "Volby do Poslanecké sněmovny Parlamentu ČR, 25–26 October 2013"
+ ],
+ "captured_on": "2026-11-21",
+ "retrieval": {
+  "authorised_by": "owner answer 2026-11-21 'Accept ČSÚ general terms (Recommended)': read ČSÚ's general terms by hand; if they permit reuse with attribution, retrieve the PS2013 and PS2010 CSV packages once each",
+  "method": "one sequential request per named package, 5 seconds apart, identifying User-Agent; robots.txt of volby.gov.cz disallows /pls/ only"
+ },
+ "rights": {
+  "basis": "ČSÚ general terms for using and further publishing statistical data, linked from the footer of the volby.gov.cz open-data pages (\"Podmínky pro využívání a další zveřejňování statistických údajů ČSÚ\")",
+  "terms_url": "https://csu.gov.cz/podminky_pro_vyuzivani_a_dalsi_zverejnovani_statistickych_udaju_csu",
+  "terms_read_at": "2026-11-21",
+  "terms_html_sha256": "d7fb4c550d2aa3fbbdc5df60f6d98d2b39386ab6026ef0800acc59e0db962637",
+  "quote": "Statistické informace Českého statistického úřadu zveřejněné prostřednictvím internetových stránek https://csu.gov.cz jsou licencovány v souladu s CC BY 4.0.",
+  "licence": "CC BY 4.0",
+  "attribution": "Český statistický úřad (ČSÚ), volby.gov.cz open data; terms: https://csu.gov.cz/podminky_pro_vyuzivani_a_dalsi_zverejnovani_statistickych_udaju_csu",
+  "scope_note": "The operative sentence names csu.gov.cz, not volby.gov.cz. The owner accepted these terms as the basis for the volby.gov.cz files on 2026-11-21; the national catalogue (NKOD) has no entry for the 2010 or 2013 files.",
+  "personal_data": "The candidate register is not redistributed; only per-list elected counts are derived from it."
+ },
+ "years": {
+  "2010": {
+   "packages": {
+    "data": {
+     "url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+     "retrieved_at": "2026-11-20T21:30:30Z",
+     "http_last_modified": "Wed, 18 Sep 2024 12:47:23 GMT",
+     "bytes": 4919263,
+     "sha256": "03dab0c4df2f23db53415b7158cf13cbe4df47c4583a215229d997e8804ba62b"
+    },
+    "reg": {
+     "url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+     "retrieved_at": "2026-11-20T21:30:36Z",
+     "http_last_modified": "Wed, 18 Sep 2024 12:47:23 GMT",
+     "bytes": 312847,
+     "sha256": "7902c8e69e3bcaa02ac2b6928120fc6a2c4e29042ecc74b7c6246db6eb626905"
+    },
+    "cisel": {
+     "url": "https://volby.gov.cz/opendata/ps2010/PS2010_cisel_20230224_csv.zip",
+     "retrieved_at": "2026-11-20T21:30:41Z",
+     "http_last_modified": "Wed, 18 Sep 2024 12:47:23 GMT",
+     "bytes": 243570,
+     "sha256": "70a68577b17b629d437e6ac5282e2b661b17ebf935819abc05fadb6dab0002ec"
+    }
+   },
+   "members_read": {
+    "csv_od/pst4.csv": "f49c4ce01e405507a5710d224bf6efd20528ab25ed207c76c7e4a821289ee2ba",
+    "csv_od/pst4p.csv": "ff44af817e23113e49a2ca10cae6a37bea9a8c276977c7d4e14807508bc30257",
+    "csv_od/psrkl.csv": "952b87ad532ffb234a8ed86e4aea8ce3a4523c4caf702936247842bd924c0853",
+    "csv_od/psrk.csv": "baabb18aaafd5bd9d2014fd4fea2b6c7c1397fa6fbef7bd50fe6676255f8683d",
+    "csv_od/cvs.csv": "9c226d5a65baab040b9aa05d4c43d78a2935a1b40e062bacab8ac3f60f26d982"
+   },
+   "psrk_note": "csv_od/psrk.csv (candidate register) is read only for KSTRANA and MANDAT to count elected candidates per list; no candidate field is stored",
+   "pst4p_note": "only KRAJ, KSTRANA and POC_HLASU are read; the preferential-vote columns HLASY_01… are never read into the archive",
+   "districts": 14894,
+   "archived": {
+    "region_totals": {
+     "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_totals.csv",
+     "sha256": "0b5bd40019645a3149d6f29dbfa1d7ef4dc8f0a37b0a5220056587e4cccbd085"
+    },
+    "region_list_votes": {
+     "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_region_list_votes.csv",
+     "sha256": "4db9f9e519e960a050d926f28598f0ff614f93238c1ec48fb22c3cfaace14129"
+    },
+    "psrkl": {
+     "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_psrkl.csv",
+     "sha256": "4f075b8b30888d6c6de67b49a01ab8e4aba7155fbfe62430fbeb4e33f598a0a4"
+    },
+    "cvs_excerpt": {
+     "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_cvs_excerpt.csv",
+     "sha256": "281ec765d5454fe86fc707af3d0f1fb617957eaced4e70908c0dd9920b42bcfb"
+    },
+    "elected_counts": {
+     "path": "docs/political-data/raw/czechia/ps2010-2013/ps2010_elected_counts.csv",
+     "sha256": "ecf91fc5cdd88c689018bc1c044a45d72c65d7e40c4a10270f0c032768405fa2"
+    }
+   }
+  },
+  "2013": {
+   "packages": {
+    "data": {
+     "url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+     "retrieved_at": "2026-11-20T21:30:11Z",
+     "http_last_modified": "Wed, 18 Sep 2024 12:47:24 GMT",
+     "bytes": 4834495,
+     "sha256": "525d1c39f5b89f9f965f3b2780f8e1768482c73cfd5c2c1575f1ca82015af5d5"
+    },
+    "reg": {
+     "url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+     "retrieved_at": "2026-11-20T21:30:16Z",
+     "http_last_modified": "Wed, 18 Sep 2024 12:47:24 GMT",
+     "bytes": 374123,
+     "sha256": "ecd55369380856d587a8d49aa87c034357fd4b8115132ae06e81ad95998b1b78"
+    },
+    "cisel": {
+     "url": "https://volby.gov.cz/opendata/ps2013/PS2013_cisel_20230224_csv.zip",
+     "retrieved_at": "2026-11-20T21:30:21Z",
+     "http_last_modified": "Wed, 18 Sep 2024 12:47:24 GMT",
+     "bytes": 257139,
+     "sha256": "ed70457adf57af348bd071823316cbeacd9485f9f3e62774f7f0e078dd1cc585"
+    }
+   },
+   "members_read": {
+    "csv_od/pst4.csv": "e91c6a39e8c9910f15f646525bca609c4ec6a28dc504c0a86188cc5a92a075eb",
+    "csv_od/pst4p.csv": "a043ee454cc576477223ff705f4780e1c756e486ee329b31f96fab90d1465b3f",
+    "csv_od/psrkl.csv": "5a962d1fea3270f0e412c92ba3e2e8e7a1f9f4d49c56e5116b11ce437ecc02c2",
+    "csv_od/psrk.csv": "e661fa3d9b1421cb5a0cbd7904abaf64c96def0a7ec14396a308ea1d81b28436",
+    "csv_od/cvs.csv": "673fbf143d77e21b981e5c579b18d15ca18286e4a4218fbf995d8e950975fc6d"
+   },
+   "psrk_note": "csv_od/psrk.csv (candidate register) is read only for KSTRANA and MANDAT to count elected candidates per list; no candidate field is stored",
+   "pst4p_note": "only KRAJ, KSTRANA and POC_HLASU are read; the preferential-vote columns HLASY_01… are never read into the archive",
+   "districts": 14873,
+   "archived": {
+    "region_totals": {
+     "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_totals.csv",
+     "sha256": "a661b739c3ca3316b0f9128c7feb7a028acd8194170b55d23023cd90a08075e4"
+    },
+    "region_list_votes": {
+     "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_region_list_votes.csv",
+     "sha256": "dc25abc30f0c62778b3b7db9885bbfd1cda4db8f666845754da3e144af9e70c7"
+    },
+    "psrkl": {
+     "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_psrkl.csv",
+     "sha256": "fad22ad62f765bd182a09f53dc6ce10197288faa9584103a5b71511c30fffdbc"
+    },
+    "cvs_excerpt": {
+     "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_cvs_excerpt.csv",
+     "sha256": "54cee183e49466f3af762ca36de6830c75ea6a2a96cf7b8e06bf9566f5b33daf"
+    },
+    "elected_counts": {
+     "path": "docs/political-data/raw/czechia/ps2010-2013/ps2013_elected_counts.csv",
+     "sha256": "43d38c31091fce98980f0569103eebebd74d7da3fd2dabfecf120db758be4dba"
+    }
+   }
+  }
+ },
+ "volps03": {
+  "code": "VOLPS03",
+  "url": "https://data.csu.gov.cz/opendata/sady/VOLPS03/distribuce/csv",
+  "sha256": "dc174b79619a6d418509e537d613192e62528492cbf7381ac6f54c5c5f37fa08",
+  "excerpt": {
+   "path": "docs/political-data/raw/czechia/ps2010-2013/VOLPS03_cz_2010_2013_excerpt.csv",
+   "sha256": "6603f4cb5bc40a6c4ab9e6c5593cb3584b2a7d69acfc4c54e713baef473eb32f"
+  },
+  "note": "national rows for 2010 and 2013 (registered voters, issued envelopes, valid votes, turnout, polling districts)"
+ },
+ "election_calls": {
+  "2010": {
+   "act": "Rozhodnutí prezidenta republiky č. 37/2010 Sb. ze dne 5. února 2010 o vyhlášení voleb do Poslanecké sněmovny Parlamentu České republiky",
+   "url": "https://e-sbirka.gov.cz/sb/2010/37",
+   "quote": "na pátek 28. května 2010 a sobotu 29. května 2010.",
+   "read": "2026-11-21, browser innerText"
+  },
+  "2013": {
+   "act": "Rozhodnutí prezidenta republiky č. 266/2013 Sb. ze dne 28. srpna 2013 o vyhlášení voleb do Poslanecké sněmovny Parlamentu České republiky",
+   "url": "https://e-sbirka.gov.cz/sb/2013/266",
+   "quote": "na pátek 25. října 2013 a sobotu 26. října 2013.",
+   "read": "2026-11-21, browser innerText"
+  }
+ },
+ "results_notices": {
+  "2010": {
+   "status": "not_located",
+   "note": "The State Electoral Commission notice for 2010 was not found through web search or the e-Sbírka search box on 2026-11-21. National totals are reconciled to ČSÚ VOLPS03 instead."
+  },
+  "2013": {
+   "act": "Sdělení Státní volební komise č. 343/2013 Sb. ze dne 30. října 2013 o vyhlášení a uveřejnění celkových výsledků voleb do Poslanecké sněmovny Parlamentu České republiky konaných ve dnech 25. a 26. října 2013",
+   "url": "https://e-sbirka.gov.cz/sb/2013/343",
+   "excerpt_sha256": "8eb57ec95c367f820a0f13e25ea0ac490e3ddb3af09df76b3120d16002717a9e",
+   "excerpt_scope": "browser innerText from \"SDĚLENÍ\" to the start of the elected-candidates section (5,223 characters); candidate names were not captured",
+   "quotes": [
+    "Celkový počet osob zapsaných ve výpisech ze stálých seznamů voličů a ze zvláštních seznamů voličů:\t8 424 227",
+    "Celkový počet voličů, kterým byly vydány úřední obálky:\t5 010 944",
+    "CELKEM\t…\t4 969 984"
+   ],
+   "comparison": {
+    "cells": 360,
+    "differences": 0,
+    "rows": "23 lists with a result (1–18, 20–24) and CELKEM",
+    "columns": "14 regions and CELKEM ČR",
+    "abroad_rule": "votes cast in districts abroad (KRAJ 9900) are included in the Středočeský kraj column; every other region equals its own districts"
+   },
+   "not_listed": "list 19 (ČSS) appears in the list register but not in the notice and has no votes in any polling district"
+  }
+ },
+ "statutes": {
+  "2010": {
+   "act": "Zákon č. 247/1995 Sb.",
+   "version": "znění 14. 9. 2009 – 15. 6. 2010",
+   "url": "https://e-sbirka.gov.cz/sb/1995/247/2009-09-14?zalozka=text",
+   "status": "informativní znění systému e-Sbírka (informative consolidated text)",
+   "captured_sections": "§ 48 to § 51, browser innerText; § 27 quoted",
+   "captured_sha256": "261943c99972557de396144176574fe709e16bd03bf27927407a13d3f1470d7d"
+  },
+  "2013": {
+   "act": "Zákon č. 247/1995 Sb.",
+   "version": "znění 26. 6. 2012 – 6. 4. 2014",
+   "url": "https://e-sbirka.gov.cz/sb/1995/247/2012-06-26?zalozka=text",
+   "status": "informativní znění systému e-Sbírka (informative consolidated text)",
+   "captured_sections": "§ 48 to § 51, browser innerText",
+   "captured_sha256": "261943c99972557de396144176574fe709e16bd03bf27927407a13d3f1470d7d"
+  },
+  "identical_note": "§§ 48–51 read identically in both versions (same checksum of the captured text).",
+  "clauses": {
+   "s27": "Všechny zvláštní volební okrsky v zahraničí jsou podřazeny pod volební kraj určený losem Státní volební komisí do 7 dnů od vyhlášení voleb prezidentem republiky.",
+   "s24": "Poslanecká sněmovna má 200 poslanců, kteří jsou voleni na dobu čtyř let.",
+   "s48_1": "vydělí ho počtem poslanců. Číslo takto vypočtené a zaokrouhlené na jednotky je republikovým mandátovým číslem.",
+   "s49_1a": "které politické strany nebo politická hnutí získaly méně než 5 procent,",
+   "s49_1b": "které koalice, složené ze 2 politických stran, popřípadě politických hnutí získaly méně než 10 procent,",
+   "s49_1c": "které koalice, složené ze 3 politických stran, popřípadě politických hnutí získaly méně než 15 procent,",
+   "s49_1d": "které koalice, složené z nejméně 4 a více politických stran, popřípadě politických hnutí získaly méně než 20 procent z celkového počtu platných hlasů.",
+   "s49_3a": "u politických stran nebo politických hnutí hranici 5 procent na hranici 4 procent",
+   "s50_1": "Počet platných hlasů pro každou z politických stran, politických hnutí a koalic, které postoupily do skrutinia, se v rámci každého volebního kraje postupně dělí čísly 1; 2; 3 a dále vždy číslem o 1 vyšším."
+  }
+ }
+}

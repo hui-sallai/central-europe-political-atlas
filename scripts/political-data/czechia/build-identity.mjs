@@ -63,6 +63,8 @@ export function buildCzechIdentity(data) {
   const contestants = [], members = [], parties = new Map();
   const checks = { kinds: {}, seats_crosschecked: 0 };
   for (const c of data.electoral_contestants) {
+    // Elections before 2017 carry their own register fields (build-ps2010-2013.mjs); the identity layer covers 2017 onward only.
+    if (!YEARS.includes(yearOf(c))) { contestants.push(c); continue; }
     const y = yearOf(c), ballot = Number(c.csu_list_code);
     const l = R.lists[y].get(ballot) ?? fail(`${y}: list ${ballot} has no register composition`);
     if (l.valid !== 'A') fail(`${y}: list ${ballot} is not a valid registered list`);

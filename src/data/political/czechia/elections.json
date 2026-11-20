@@ -1,5 +1,75 @@
 [
   {
+    "election_id": "el-cz-ps-2010-05-28",
+    "country": "czechia",
+    "election_type": "national_parliament",
+    "chamber": "Poslanecká sněmovna",
+    "date": "2010-05-28",
+    "date_end": "2010-05-29",
+    "year": 2010,
+    "legislature_id": "lg-cz-ps-2010",
+    "electoral_system_id": "es-cz-ps-2010",
+    "result_status": "official_final",
+    "result_vintage": "final: ČSÚ open data PS2010 (data package 2023-02-24, registers 2023-04-28)",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-esbirka-call-2010",
+        "source_url": "https://e-sbirka.gov.cz/sb/2010/37",
+        "source_record_id": "Rozhodnutí prezidenta republiky č. 37/2010 Sb. ze dne 5. února 2010 o vyhlášení voleb do Poslanecké sněmovny Parlamentu České republiky",
+        "retrieved_at": "2026-11-20T21:30:30Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/evidence.json",
+          "sha256": "22c5abaf0eb16879645edc0e601c1ca4b20a5e7b0c00b4eb841bc0360d704b98"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "date",
+          "date_end",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-cz-ps-2013-10-25",
+    "country": "czechia",
+    "election_type": "national_parliament",
+    "chamber": "Poslanecká sněmovna",
+    "date": "2013-10-25",
+    "date_end": "2013-10-26",
+    "year": 2013,
+    "legislature_id": "lg-cz-ps-2013",
+    "electoral_system_id": "es-cz-ps-2013",
+    "result_status": "official_final",
+    "result_vintage": "final: ČSÚ open data PS2013 (data package 2023-02-24, registers 2023-04-28); equals State Electoral Commission notice 343/2013 Sb.",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-esbirka-call-2013",
+        "source_url": "https://e-sbirka.gov.cz/sb/2013/266",
+        "source_record_id": "Rozhodnutí prezidenta republiky č. 266/2013 Sb. ze dne 28. srpna 2013 o vyhlášení voleb do Poslanecké sněmovny Parlamentu České republiky",
+        "retrieved_at": "2026-11-20T21:30:11Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2010-2013/evidence.json",
+          "sha256": "22c5abaf0eb16879645edc0e601c1ca4b20a5e7b0c00b4eb841bc0360d704b98"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "fields_covered": [
+          "date",
+          "date_end",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "election_id": "el-cz-ps-2017-10-20",
     "country": "czechia",
     "election_type": "national_parliament",
@@ -32,7 +102,7 @@
           "sha256": "4fbedc450ce07a4e73aa1aa4fe166614e9f9d4dd17d3d32e49ff69ae523b32bd"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "date",
           "date_end",
@@ -50,7 +120,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "result_vintage"
         ],
@@ -90,7 +160,7 @@
           "sha256": "4fbedc450ce07a4e73aa1aa4fe166614e9f9d4dd17d3d32e49ff69ae523b32bd"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "date",
           "date_end",
@@ -108,7 +178,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "63d6568129330ddcb6f97b497e19fbe74bfccdefd50e815696e8ebb953d49b82",
+        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
         "fields_covered": [
           "result_vintage"
         ],
