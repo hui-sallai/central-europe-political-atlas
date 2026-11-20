@@ -4,6 +4,7 @@ import type { ComparisonBallot, ComparisonElection } from "./politicalComparison
 
 export type ArchiveTurnout = {
   ballotId: string | null;
+  round?: number; date?: string; constituencies?: number | null; sourceUrl?: string;
   value: number | null;
   published: boolean;
   scope: PoliticalLocalText;
@@ -22,11 +23,15 @@ export type ArchiveElection = ComparisonElection & {
     endDate: string | null;
     primaryBallot: string | null;
     turnout: ArchiveTurnout;
+    rounds?: ArchiveTurnout[];
+    period: {id:string; from:string; toExclusive:string|null} | null;
+    allocationUrls?:{composition?:string; compensation?:string};
+    allocations: {id:string; label:PoliticalLocalText; seats:number}[];
     sources: PoliticalSource[];
   };
 };
 export type ElectionHistoryIndex = Record<string, ArchiveElection[]>;
-export const historyMeasures = ["turnout", "chamber_seats", "contestants", "distribution"] as const;
+export const historyMeasures = ["turnout", "chamber_seats", "contestants", "distribution", "electoral_system"] as const;
 export type HistoryMeasure = typeof historyMeasures[number];
 
 let request: Promise<ElectionHistoryIndex> | undefined;
@@ -86,29 +91,38 @@ export function writeHistorySelection(query: URLSearchParams, state: HistorySele
   keys.forEach((key,i) => { if (values[i]) query.set(key, values[i]); else query.delete(key); });
 }
 
-export function inHistoryWindow(e: ArchiveElection, state: HistorySelection) {
-  return (!state.from || e.date >= state.from) && (!state.to || e.date <= state.to);
+export function inHistoryWindow(date: string, state: HistorySelection) {
+  return (!state.from || date >= state.from) && (!state.to || date <= state.to);
 }
-export type HistoryRow = { country: string; election: ArchiveElection; ballot?: ComparisonBallot };
+export type HistoryRow = { country:string; election:ArchiveElection; date:string; ballot?:ComparisonBallot; turnout?:ArchiveTurnout };
 export function historyRows(state: HistorySelection, index: ElectionHistoryIndex): HistoryRow[] {
   return state.countries.flatMap(country => {
-    const records = index[country];
+    const records = index[country] ?? [];
     const chosen = records.filter(e => state.events.includes(e.id));
-    return (chosen.length ? chosen : records).filter(e => inHistoryWindow(e,state)).map(election => {
-      const selectedBallot = state.ballots.get(election.id) ?? election.history.primaryBallot;
-      const scope = state.measure === "turnout" ? election.history.turnout.ballotId :
-        state.measure === "chamber_seats" ? null : selectedBallot;
-      return {country, election, ballot:election.ballots.find(b => b.id === scope)};
-    });
-  }).sort((a,b) => a.election.date.localeCompare(b.election.date) || a.election.id.localeCompare(b.election.id));
+    return (chosen.length ? chosen : records).flatMap((election):HistoryRow[] => {
+      if (state.measure === "turnout") {
+        return (election.history.rounds?.length ? election.history.rounds : [election.history.turnout]).map(turnout => ({
+          country, election, turnout, date:turnout.date ?? election.date,
+          ballot:election.ballots.find(b => b.id === turnout.ballotId),
+        }));
+      }
+      const usesBallot = state.measure === "distribution" || state.measure === "contestants";
+      const id = usesBallot ? state.ballots.get(election.id) ?? election.history.primaryBallot : null;
+      const ballot = election.ballots.find(b => b.id === id);
+      // Final chamber outcomes belong to the completed polling period. No declaration date is implied.
+      const date = usesBallot ? ballot?.date ?? election.date : election.history.endDate ?? election.date;
+      return [{country,election,ballot,date}];
+    }).filter(row => inHistoryWindow(row.date,state));
+  }).sort((a,b) => a.date.localeCompare(b.date) || a.election.id.localeCompare(b.election.id));
 }
 
 export function historyObservation(row: HistoryRow, measure: HistoryMeasure, locale: Locale) {
-  const {election,ballot} = row, en = locale === "en", t = election.history.turnout;
+  const {election,ballot} = row, en = locale === "en", t = row.turnout ?? election.history.turnout;
   if (measure === "turnout") return {value:t.value, unit:"%", scope:t.scope[locale],
     basis:t.value === null ? (en ? "No verified rate" : "缺少已核实投票率") : t.published ? (en ? "Published" : "官方公布") : (en ? "From official counts" : "按官方人数计算")};
   if (measure === "chamber_seats") return {value:election.slots ?? election.seats, unit:en ? "seats" : "席", scope:election.chamber,
     basis:election.slots != null ? (en ? "Recorded seat slots" : "收录的席位名额") : (en ? "Seats at this election" : "当届选举席位")};
+  if (measure === "electoral_system") return {value:null,unit:"",scope:election.chamber,basis:election.rules[locale]};
   return {value:ballot ? ballot.rows.length : null, unit:en ? "records" : "项", scope:ballot?.label[locale] ?? (en ? "Choose a ballot" : "请选择选票范围"),
     basis:ballot?.seatWinnersOnly ? (en ? "Only seat-winning lists recorded" : "仅收录取得席位的名单") : (en ? "Recorded contestants in this ballot" : "所选选票范围内收录的参选项")};
 }

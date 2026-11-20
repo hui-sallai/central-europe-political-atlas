@@ -2,17 +2,17 @@
 // views. It reads only what it is given: a country appears in the Political Explorer only when its stores are imported
 // by politicalData.ts, which happens only after owner authorisation. No identity link, score or estimate is created here.
 import type { PoliticalElectionView, PoliticalLocalText } from "./politicalExplorer";
-import type { NationalRules, TurnoutBasis, VoteDefinition } from "./politicalNational";
+import type { HistoricalAllocation, NationalRules, TurnoutBasis, VoteDefinition } from "./politicalNational";
 import { contestantIdentity, type ElectionMembership } from "./politicalIdentity";
 
-type Provenance = { source_id: string; fields_covered?: string[] };
+type Provenance = { source_id: string; source_url?: string; source_record_id?: string; fields_covered?: string[] };
 export type PoliticalStores = {
   members?:ElectionMembership[];
-  elections: Array<{ election_id: string; year: number; date: string; date_end?: string | null; chamber: string; legislature_id: string; electoral_system_id: string; result_vintage: string; provenance?:Provenance[] }>;
-  turnout: Array<{ election_id: string; vote_type?: string; eligible_voters: number | null; voters: number | null; valid_second_votes?: number | null; invalid_second_votes?: number | null; valid_votes?: number | null; invalid_votes?: number | null; ballots_cast?: number | null; voters_turned_out?: number; published_turnout: number | null; turnout_definition?: string | null; turnout_basis?: TurnoutBasis; provenance?: Provenance[] }>;
-  results: Array<{ election_id: string; contestant_ref: string; vote_type?: string; second_votes?: number | null; votes?: number | null; published_vote_share: number | null; seats: number | null; constituency_seats?: number | null; whole_chamber_seats?: number | null; provenance: Provenance[] }>;
+  elections: Array<{ election_id: string; year: number; date: string; date_end?: string | null; rounds?: {round:number; date:string}[]; chamber: string; legislature_id: string; electoral_system_id: string; result_vintage: string; provenance?:Provenance[] }>;
+  turnout: Array<{ election_id: string; vote_type?: string; round?:number; round_2?: {date:string; constituencies:number; eligible_voters:number; voters:number; published_turnout:number}; eligible_voters: number | null; voters: number | null; valid_second_votes?: number | null; invalid_second_votes?: number | null; valid_votes?: number | null; invalid_votes?: number | null; ballots_cast?: number | null; voters_turned_out?: number; published_turnout: number | null; turnout_definition?: string | null; turnout_basis?: TurnoutBasis; provenance?: Provenance[] }>;
+  results: Array<{ election_id: string; contestant_ref: string; vote_type?: string; second_votes?: number | null; votes?: number | null; published_vote_share: number | null; seats: number | null; constituency_seats?: number | null; whole_chamber_seats?: number | null; territorial_list_seats?:number|null; national_list_seats?:number|null; compensation_votes?:number|null; round1_seats?:number|null; round2_seats_derived?:number|null; provenance: Provenance[] }>;
   contestants: Array<{ contestant_id: string; historical_display_label: string; contestant_kind?: string; lead_party_id?: string | null }>;
-  legislatures: Array<{ legislature_id: string; total_seats: number | null; seat_attribution?: "complete" | "none"; national_list_seats?: number | null; constituency_seats?: number | null; /** Constituency seats won by independent candidates, attributed to no list (counted, never named). */ independent_constituency_seats?: number; /** Constituency seats won outside any list row, by kind (e.g. Hungary 2010: joint candidates without a list, an independent). */ constituency_seats_outside_lists?: { label: string; kind: string; seats: number }[]; provenance?:Provenance[] }>;
+  legislatures: Array<{ legislature_id: string; total_seats: number | null; seat_attribution?: "complete" | "none"; national_list_seats?: number | null; territorial_list_seats?:number; national_compensation_seats?:number; statutory_tiers?:HistoricalAllocation["statutory"]; tier_transfer?:{seats:number}; unmatched_national_lists?:HistoricalAllocation["unmatchedLists"]; constituency_seats?: number | null; /** Constituency seats won by independent candidates, attributed to no list (counted, never named). */ independent_constituency_seats?: number; /** Constituency seats won outside any list row, by kind (e.g. Hungary 2010: joint candidates without a list, an independent). */ constituency_seats_outside_lists?: { label: string; kind: string; seats: number }[]; provenance?:Provenance[] }>;
   systems: Array<{ electoral_system_id: string; system_family: string; allocation_method: string; base_seats: number | null; vote_type: string; vote_definitions?: VoteDefinition[]; national_rules?: NationalRules; notes: PoliticalLocalText; provenance: Provenance[] }>;
   sources: Array<{ source_id: string; dataset: string; url: string; raw_sha256?: string; retrieved_at?: string; licence_url?: string; institution?:string }>;
 };
@@ -60,7 +60,9 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
         const contestant=stores.contestants.find(c=>c.contestant_id===row.contestant_ref);
         if(!contestant||!row.provenance.length||!stores.sources.some(s=>s.source_id===row.provenance[0].source_id))throw Error("Unresolved contestant or source");
         const votes=row.votes!==undefined?row.votes:row.second_votes??null;
-        return {contestantId:row.contestant_ref,nativeLabel:contestant.historical_display_label,secondVotes:votes,votes,voteType:definition.id,publishedVoteShare:row.published_vote_share,seats:row.seats,...(complete?{constituencySeats:row.constituency_seats??null,chamberSeats:row.whole_chamber_seats??null,chamberSeatSourceId:row.provenance.find(p=>p.fields_covered?.includes("whole_chamber_seats"))?.source_id??null}:{}),sourceId:row.provenance[0].source_id,contestantKind:contestant.contestant_kind,...contestantIdentity(contestant,country.slug,election.election_id,stores.members??[],stores.sources.map(s=>s.source_id))};
+        return {...(row.round1_seats!==undefined ? {districtSeatsThisRound:row.round1_seats,districtSeatsBasis:"published" as const} : {}),
+          ...(row.round2_seats_derived!==undefined ? {districtSeatsThisRound:row.round2_seats_derived,districtSeatsBasis:"derived" as const} : {}),
+          ...(row.territorial_list_seats !== undefined ? {territorialSeats:row.territorial_list_seats,compensationSeats:row.national_list_seats??null,fragmentVotes:row.compensation_votes??null} : {}),contestantId:row.contestant_ref,nativeLabel:contestant.historical_display_label,secondVotes:votes,votes,voteType:definition.id,publishedVoteShare:row.published_vote_share,seats:row.seats,...(complete?{constituencySeats:row.constituency_seats??null,chamberSeats:row.whole_chamber_seats??null,chamberSeatSourceId:row.provenance.find(p=>p.fields_covered?.includes("whole_chamber_seats"))?.source_id??null}:{}),sourceId:row.provenance[0].source_id,contestantKind:contestant.contestant_kind,...contestantIdentity(contestant,country.slug,election.election_id,stores.members??[],stores.sources.map(s=>s.source_id))};
       });
       if(new Set(results.map(r=>r.contestantId)).size!==results.length)throw Error("Duplicate contestant within vote type");
       const validVotes=count?.valid_votes!==undefined?count.valid_votes:count?.valid_second_votes??null;
@@ -70,9 +72,23 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
       if(validVotes!==null&&results.reduce((n,r)=>n+(r.votes??0),0)>validVotes)throw Error("Votes exceed the defined denominator");
       if(definition.seatScope==="whole_chamber"&&legislature.total_seats!==null&&results.reduce((n,r)=>n+(r.seats??0),0)>legislature.total_seats)throw Error("Allocated seats exceed the chamber total");
       if(definition.tierSeats!==undefined&&(!Number.isSafeInteger(definition.tierSeats)||definition.tierSeats<=0||definition.seatScope!=="tier_only"))throw Error("Invalid seat tier");
-      return {definition,validVotes,invalidVotes:count?.invalid_votes!==undefined?count.invalid_votes:count?.invalid_second_votes??null,ballotsCast:count?.ballots_cast??null,results};
+      return {...(count?.round !== undefined ? {round:count.round, sourceUrl:count.provenance?.find(p=>p.fields_covered?.includes("valid_votes"))?.source_url} : {}),definition,validVotes,invalidVotes:count?.invalid_votes!==undefined?count.invalid_votes:count?.invalid_second_votes??null,ballotsCast:count?.ballots_cast??null,results};
     });
     const primary=ballots.find(b=>b.definition.id===system.vote_type)!;
+    const rounds = election.rounds?.map(({round,date}) => {
+      const first = round === counts.round;
+      const runoff = !first && round === 2 && counts.round_2?.date === date ? counts.round_2 : undefined;
+      const record = first ? counts : runoff;
+      const provenance = counts.provenance?.filter(p => p.fields_covered?.includes(first ? "published_turnout" : "round_2")) ?? [];
+      return {round,date,constituencies:runoff?.constituencies??null,eligible:record?.eligible_voters??null,voters:record?.voters??null,
+        turnout:record?.published_turnout??null,sourceIds:[...new Set(provenance.map(p=>p.source_id))],sourceUrl:provenance[0]?.source_url,
+        definition:first ? counts.turnout_definition??null : runoff ? `Voters who took part / voters on the rolls of the ${runoff.constituencies} constituencies holding a second round.` : null};
+    });
+    const historicalAllocation = legislature.statutory_tiers && legislature.territorial_list_seats !== undefined && legislature.national_compensation_seats !== undefined
+      ? {territorialSeats:legislature.territorial_list_seats,compensationSeats:legislature.national_compensation_seats,statutory:legislature.statutory_tiers,
+        transferred:legislature.tier_transfer?.seats??null,compositionUrl:legislature.provenance?.find(p=>p.fields_covered?.includes("total_seats"))?.source_url,
+        compensationUrl:rows.flatMap(r=>r.provenance).find(p=>p.fields_covered?.includes("compensation_votes"))?.source_url,sourceIds:[...new Set((legislature.provenance??[]).map(p=>p.source_id))],
+        unmatchedLists:(legislature.unmatched_national_lists??[]).map(({label,seats,compensation_votes})=>({label,seats,compensation_votes}))} : undefined;
     return {
       electionId: election.election_id, year: election.year, date: election.date,
       resultVintage: election.result_vintage, validSecondVotes: primary.validVotes,
@@ -83,10 +99,10 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
       notes: system.notes,
       sources: stores.sources.filter((s) => sourceIds.has(s.source_id)).map((s) => ({ id: s.source_id, title: s.dataset, url: s.url, sha256: s.raw_sha256, retrievedAt: s.retrieved_at, licenceUrl: s.licence_url, institution:s.institution })),
       results: primary.results,
-      country: country.slug, countryName: country.name, chamber: election.chamber, voteLabel: country.voteLabel, originalLanguage: country.originalLanguage,
+      country: country.slug, countryName: country.name, chamber: election.chamber, voteLabel: primary.definition.label, originalLanguage: country.originalLanguage,
       turnoutDefinition: counts.turnout_definition ?? null,
       ...((election as { result_coverage?: string }).result_coverage === "seat_winning_lists_only" ? { resultCoverage: "seat_winning_lists_only" as const } : {}),
-      national:{chamber:election.chamber,dateEnd:election.date_end??null,vintage:election.result_vintage,activeVote:primary.definition,ballots,
+      national:{systemId:system.electoral_system_id,legislatureId:legislature.legislature_id,...(rounds?{rounds}:{}),...(historicalAllocation?{historicalAllocation}:{}),chamber:election.chamber,dateEnd:election.date_end??null,vintage:election.result_vintage,activeVote:primary.definition,ballots,
         turnout:counts.turnout_basis??{numerator:country.slug==="germany"?"voters":"unknown",denominator:country.slug==="germany"?"registered_electorate":"unknown",definition:counts.turnout_definition??null,sourceIds:(counts.provenance??[]).map(p=>p.source_id)},
         chamberAttribution:complete?"complete":"none",seatTiers:complete?{nationalList:legislature.national_list_seats!,constituency:legislature.constituency_seats!,...(legislature.independent_constituency_seats?{independentConstituency:legislature.independent_constituency_seats}:{}),...(legislature.constituency_seats_outside_lists?.length?{outsideListConstituency:legislature.constituency_seats_outside_lists}:{})}:null,
         rules:system.national_rules??{nationalAllocation:system.allocation_method,districtAllocation:null,thresholds:null,minorityRepresentation:null,totalSeatsDefinition:null,sourceIds:system.provenance.map(p=>p.source_id)}},

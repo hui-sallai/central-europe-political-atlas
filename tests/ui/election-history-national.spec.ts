@@ -1,4 +1,5 @@
 import {test,expect} from "@playwright/test";
+import {activeNotebookRaw} from "./notebook-storage";
 import {readFile} from "node:fs/promises";
 
 const hu=["el-hu-ogy-2014-04-06","el-hu-ogy-2018-04-08","el-hu-ogy-2022-04-03","el-hu-ogy-2026-04-12"];
@@ -86,4 +87,48 @@ test("Slovakia has a single historical turnout point; Croatia can compare two di
   await expect(compare.locator("[data-same-country-turnout]")).toBeVisible();
   await page.reload();
   await expect(compare.getByLabel("Comparison ballot")).toHaveValue("hr-ie-11");
+});
+
+test("2010 round-specific turnout, vote counts, final seats, research downloads and evidence",async({page})=>{
+  const id="el-hu-ogy-2010-04-11";
+  const vote="hu10_smc_round2_vote";
+  await page.goto("/en/politics/hungary/?election="+id+"&vote_type="+vote);
+  const rounds=page.locator("[data-election-round-details]");
+  await expect(rounds.locator('[data-election-round="1"]')).toContainText("5,172,222 / 8,034,394");
+  await expect(rounds.locator('[data-election-round="2"]')).toContainText("57 runoff constituencies · 46.66%");
+  await expect(rounds.locator('[data-election-round="2"] a')).toHaveAttribute("href",/vdin2\/hu\/l100.htm$/);
+  await expect(rounds.locator("[data-historical-seat-tiers]")).toContainText("Single-member districts 176 · Territorial lists 146 · National compensation 64");
+  const composition=page.locator("[data-parliament-seats]");
+  await expect(composition.locator("svg")).toHaveAttribute("aria-label",/386\/386/);
+  const labels=await composition.locator("li").allTextContents();
+  expect(labels).toHaveLength(6);
+  expect(labels).toEqual(expect.arrayContaining([
+    expect.stringContaining("FIDESZ-KDNP: 262"),expect.stringContaining("FIDESZ-KDNP-MVMP: 1"),expect.stringContaining("Független: 1")]));
+  const chart=page.locator('[data-politics-chart="votes-seats"]');
+  await expect(chart.locator("[data-vote-chart-basis]")).toContainText("2010-04-25");
+  await expect(chart.locator("[data-vote-chart-basis]")).toContainText("1,152,693 valid votes");
+  await expect(chart.locator("[data-chart-seats]")).toHaveCount(0);
+  const history=page.locator("[data-history-observations]");
+  await history.locator("[data-history-details] > summary").click();
+  const [download]=await Promise.all([page.waitForEvent("download"),history.getByRole("button",{name:"Turnout CSV",exact:true}).click()]);
+  const csv=await readFile((await download.path())!,"utf8");
+  const rows=csv.split(/\r?\n/).filter(line=>line.includes('"'+id+'"'));
+  expect(rows).toHaveLength(2);
+  expect(rows[0]).toMatch(/2010-04-11.*vdin1\/hu\/l100.htm.*"64.38".*"5172222","8034394"/);
+  expect(rows[1]).toMatch(/2010-04-25.*vdin2\/hu\/l100.htm.*"46.66".*"1160117","2486111"/);
+  await page.locator("[data-selected-election-collect] [data-notebook-add]").click();
+  await expect.poll(async()=>JSON.parse((await activeNotebookRaw(page))??'{}').items?.length).toBe(1);
+  const item=JSON.parse((await activeNotebookRaw(page))!).items[0];
+  expect(item.periods).toEqual(["2010-04-25"]);
+  expect(item.metadata.filters).toMatchObject({round:2,vote_type:vote,vote_denominator:1152693,electoral_system_id:"es-hu-ogy-2010",constituencies:57});
+  expect(item.url).toContain(vote);
+  const selector=page.locator("[data-selected-vote-type]");
+  await selector.selectOption("hu10_territorial_list_vote");
+  await expect(chart.locator("[data-vote-chart-basis]")).toContainText("5,132,531 valid votes");
+  await page.locator("[data-results-disclosure] > summary").click();
+  const results=page.locator("[data-results-disclosure] tbody tr");
+  await expect(results).toHaveCount(10);
+  const row=results.filter({has:page.getByText("FIDESZ-KDNP",{exact:true})});
+  const cells=await row.locator("td").allTextContents();
+  expect(cells).toEqual(expect.arrayContaining(["87","3","135,592","172",expect.stringContaining("262")]));
 });

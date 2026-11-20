@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { localeNumber, type Locale } from "@/i18n/config";
 import { admittedCountrySlugs, politicalAdmissions } from "@/lib/politicalAdmission";
-import { electionHistoryHref, historyMeasures, historyObservation, historyRows, loadElectionHistoryIndex, readHistorySelection, writeHistorySelection,
+import { electionHistoryHref, historyMeasures, historyObservation, historyRows, inHistoryWindow, loadElectionHistoryIndex, readHistorySelection, writeHistorySelection,
   type ArchiveElection, type ElectionHistoryIndex, type HistoryMeasure, type HistoryRow, type HistorySelection } from "@/lib/electionHistoryComparison";
 import { historicalComparisonUrl, historyCsv, historyEvidence, observationSources } from "@/lib/electionHistoryEvidence";
 import { NotebookCollect } from "./NotebookCollect";
@@ -16,6 +16,7 @@ const measureLabels = {
   turnout:{en:"Turnout (%)","zh-CN":"投票率（%）"},
   chamber_seats:{en:"Chamber seats","zh-CN":"议院席位数"},
   contestants:{en:"Contestants recorded on a ballot","zh-CN":"选票收录参选项数"},
+  electoral_system:{en:"Electoral systems and seat allocation","zh-CN":"选举制度与席位分配"},
   distribution:{en:"Vote and seat distributions","zh-CN":"得票与席位分布"},
 };
 const snapshot = () => window.location.search;
@@ -41,19 +42,55 @@ const showDay = (day: number) => new Date(day * 86400000).toISOString().slice(0,
 function HistoryPlot({rows,state,locale}:{rows:HistoryRow[];state:HistorySelection;locale:Locale}) {
   const series = new Map<string, ChartSeries>();
   for (const row of rows) {
-    const e = row.election, id = row.country + "-" + e.chamber;
-    if (!series.has(id)) series.set(id,{id,label:names.get(row.country)![locale]+" · "+e.chamber,
+    const e = row.election, round = row.turnout?.round ?? row.ballot?.round;
+    const id = row.country + "-" + e.chamber + (round ? "-"+round : "");
+    if (!series.has(id)) series.set(id,{id,label:names.get(row.country)![locale]+" · "+e.chamber+(round ? " · "+(locale==="en"?"Round ":"第 ")+round+(locale==="en"?"":" 轮") : ""),
       color:colors[state.countries.indexOf(row.country)%colors.length],markers:true,width:0,points:[]});
     const observation = historyObservation(row,state.measure,locale);
-    series.get(id)!.points.push({x:toDay(e.date),y:observation.value,unit:observation.unit,
-      detail:e.date+" · "+observation.scope+" · "+observation.basis});
+    series.get(id)!.points.push({x:toDay(row.date),y:observation.value,unit:observation.unit,
+      detail:row.date+" · "+observation.scope+" · "+observation.basis});
   }
-  const dates = [...new Set(rows.map(r=>toDay(r.election.date)))].sort((a,b)=>a-b);
+  const dates = [...new Set(rows.map(r=>toDay(r.date)))].sort((a,b)=>a-b);
   const indices = new Set([0,Math.round((dates.length-1)/2),dates.length-1]);
   return <ResearchTimeSeriesChart title={measureLabels[state.measure][locale]}
     series={[...series.values()]} xKind="number" xLabel={locale==="en"?"Election date":"选举日期"}
     xTickValues={dates.filter((_,i)=>indices.has(i))} formatX={showDay}
     yLabel={measureLabels[state.measure][locale]} includeZero latestMarker={false}/>;
+}
+
+function BallotScope({e,state,locale}:{e:ArchiveElection;state:HistorySelection;locale:Locale}) {
+  const selection = state.ballots.get(e.id) ?? e.history.primaryBallot ?? "";
+  function choose(id:string) {
+    const ballots = new Map(state.ballots);
+    if (id) ballots.set(e.id,id); else ballots.delete(e.id);
+    navigate({...state,ballots});
+  }
+  return <label className="mb-1 block"><span className="sr-only">{locale==="en"?"Ballot scope":"选票范围"} · {e.id}</span>
+    <select className="field-control max-w-48" value={selection} onChange={ev=>choose(ev.target.value)}>
+      {!e.history.primaryBallot && <option value="">{locale==="en"?"Choose a ballot":"请选择选票"}</option>}
+      {e.ballots.map(b=><option key={b.id} value={b.id}>{b.label[locale]}{b.date?" · "+b.date:""}</option>)}
+    </select></label>;
+}
+
+function SystemDetails({e,locale}:{e:ArchiveElection;locale:Locale}) {
+  const en=locale==="en", history=e.history, period=history.period;
+  const types=new Map(e.ballots.map(b=>[b.voteType,b.voteLabel[locale]]));
+  return <div className="min-w-40 space-y-2" data-history-system>
+    <p><strong>{localeNumber(e.slots??e.seats,locale)} {en?"chamber seats":"个议院席位"}</strong></p>
+    {!!history.rounds?.length&&<p>{history.rounds.map(r=>(en?"Round ":"第 ")+r.round+(en?" · ":" 轮 · ")+r.date).join(" / ")}</p>}
+    {history.allocations.length>0
+      ? <ul aria-label={en?"Recorded seat allocation categories":"所录席位分配类别"}>{history.allocations.map(t=><li key={t.id}>{t.label[locale]} · {localeNumber(t.seats,locale)}</li>)}</ul>
+      : <p>{en?"Seat totals by electoral tier are unavailable in this view.":"此视图未收录按选举层级划分的席位数。"}</p>}
+    <details><summary className="cursor-pointer">{en?"Ballots and historical rules":"选票与当届制度"}</summary>
+      <ul className="my-2 list-disc pl-4">{[...types].map(([id,label])=><li key={id}>{label}</li>)}</ul>
+      <p>{e.rules[locale]}</p>
+      <p className="my-2">{en?"Institutional period":"制度时期"} · {period ? period.from+(period.toExclusive
+        ? (en?" until (exclusive) ":" 至（不含）")+period.toExclusive : (en?" onwards; no recorded end date":" 起，未收录截止日期"))
+        : en?"No verified period linked to this election":"此届选举尚未关联已核实的制度时期"}</p>
+      {history.systemId&&<code>{history.systemId}</code>}
+      {history.allocationUrls?.composition&&<a href={history.allocationUrls.composition} className="block underline">{en?"Official final chamber allocation":"官方最终全院席位分配"}</a>}
+    </details>
+  </div>;
 }
 
 function EventChoices({records,country,state,locale}:{records:ArchiveElection[];country:string;state:HistorySelection;locale:Locale}) {
@@ -69,9 +106,14 @@ function EventChoices({records,country,state,locale}:{records:ArchiveElection[];
   return <details className="min-w-0 rounded border border-[var(--line)] p-2" data-history-events={country}>
     <summary className="cursor-pointer font-semibold">{names.get(country)![locale]} · {active.length}/{records.length}</summary>
     <fieldset className="space-y-1 pt-2"><legend className="sr-only">{en?"Elections in ":"选举记录 · "}{names.get(country)![locale]}</legend>
-      {records.map(e=><label key={e.id} className="flex items-baseline gap-2"><input type="checkbox"
+      {records.map(e=>{
+        const current=e.ballots.find(b=>b.id===(state.ballots.get(e.id)??e.history.primaryBallot));
+        const alternateInWindow=(state.measure==="distribution"||state.measure==="contestants") && current?.date
+          && !inHistoryWindow(current.date,state) && e.ballots.some(b=>b.date && inHistoryWindow(b.date,state));
+        return <div key={e.id}><label className="flex items-baseline gap-2"><input type="checkbox"
         checked={active.includes(e.id)} disabled={active.length===1&&active[0]===e.id} onChange={()=>toggle(e.id)}/>
-        <span>{e.date} · {e.chamber}</span></label>)}
+        <span>{e.date} · {e.chamber}</span></label>
+        {alternateInWindow&&active.includes(e.id)&&<BallotScope e={e} state={state} locale={locale}/>}</div>;})}
     </fieldset>
   </details>;
 }
@@ -113,11 +155,6 @@ export default function PoliticalHistoryComparison({locale}:{locale:Locale}) {
     navigate({...state,countries:state.countries.filter(c=>c!==country),events:state.events.filter(id=>!removed.has(id)),
       ballots:new Map([...state.ballots].filter(([id])=>!removed.has(id)))});
   }
-  function chooseBallot(election:string, ballot:string) {
-    const ballots = new Map(state.ballots);
-    if (ballot) ballots.set(election,ballot); else ballots.delete(election);
-    navigate({...state,ballots});
-  }
   const rows = index && !errors.length && state.countries.length>=2 ? historyRows(state,index) : [];
   const noEvents = state.countries.filter(c=>!rows.some(row=>row.country===c));
   const viewBallots = state.measure==="contestants" || state.measure==="distribution";
@@ -146,33 +183,35 @@ export default function PoliticalHistoryComparison({locale}:{locale:Locale}) {
       {state.countries.length>=2&&!errors.length&&<>
         <p className="my-2 text-sm" data-history-count>{en?"Recorded polling dates / chamber elections":"收录的投票日期数／议院选举记录数"} · {state.countries.map(c=>{
           const selected=rows.filter(r=>r.country===c);
-          return names.get(c)![locale]+" "+new Set(selected.map(r=>r.election.date)).size+"/"+selected.length;
+          const dates=new Set(selected.flatMap(r=>r.election.history.rounds?.map(t=>t.date??r.date)??[r.date]).filter(d=>inHistoryWindow(d,state)));
+          return names.get(c)![locale]+" "+dates.size+"/"+new Set(selected.map(r=>r.election.id)).size;
         }).join(" · ")}</p>
         {noEvents.length>0&&<p role="status">{en?"No selected election in this window":"此日期范围内无所选选举"} · {noEvents.map(c=>names.get(c)![locale]).join(", ")}</p>}
         {rows.length>0&&<>
-          {state.measure!=="distribution"&&<HistoryPlot rows={rows} state={state} locale={locale}/>}
+          {!["distribution","electoral_system"].includes(state.measure)&&<HistoryPlot rows={rows} state={state} locale={locale}/>}
           <div className="data-table-viewport my-3" tabIndex={0} role="region" aria-label={en?"Election comparison observations":"选举比较观测"}>
             <table className="w-full text-left text-sm"><thead><tr><th scope="col">{en?"Country and chamber":"国家与议院"}</th>
               <th scope="col">{en?"Election date":"选举日期"}</th><th scope="col">{measureLabels[state.measure][locale]}</th>
               <th scope="col">{en?"Scope and sources":"口径与来源"}</th></tr></thead>
               <tbody>{rows.map(row=>{
                 const {country,election:e,ballot:b}=row, observation=historyObservation(row,state.measure,locale), references=observationSources(row,state);
-                return <tr key={e.id} className="align-top border-t border-[var(--line)]" data-history-record={e.id}>
+                return <tr key={e.id+":"+row.date} data-history-round={row.turnout?.round??b?.round} className="align-top border-t border-[var(--line)]" data-history-record={e.id}>
                   <th scope="row" className="p-2 font-normal">{names.get(country)![locale]}<br/>{e.chamber}</th>
-                  <td className="p-2"><Link className="underline" href={electionHistoryHref(row,locale)}>{e.date}</Link>
-                    {e.history.endDate&&e.history.endDate!==e.date&&<> – {e.history.endDate}</>}
+                  <td className="p-2"><Link className="underline" href={electionHistoryHref(row,locale)}>{row.date}</Link>
+                    {!row.turnout?.round&&!b?.round&&e.history.endDate&&e.history.endDate!==e.date&&
+                      <small className="block">{en?"Polling period":"投票期间"} · {e.date} – {e.history.endDate}</small>}
                     {e.history.dateBasis?.includes("background_to_verify")&&<small className="block">{en?"Registry date awaiting confirmation":"登记日期待核实"}</small>}</td>
-                  <td className="p-2">{viewBallots&&e.ballots.length>1&&<label className="mb-1 block"><span className="sr-only">{en?"Ballot scope":"选票范围"} · {e.id}</span><select className="field-control max-w-48" value={b?.id??""} onChange={ev=>chooseBallot(e.id,ev.target.value)}>
-                    {!e.history.primaryBallot&&<option value="">{en?"Choose a ballot":"请选择选票"}</option>}
-                    {e.ballots.map(ballot=><option key={ballot.id} value={ballot.id}>{ballot.label[locale]}</option>)}</select></label>}
-                    {state.measure==="distribution"? (b?<DistributionDisclosure row={row} locale={locale}/> : "—") :
+                  <td className="p-2">{viewBallots&&e.ballots.length>1&&<BallotScope e={e} state={state} locale={locale}/>}
+                    {state.measure==="distribution"? (b?<DistributionDisclosure row={row} locale={locale}/> : "—") : state.measure==="electoral_system" ? <SystemDetails e={e} locale={locale}/> :
                       <><strong>{localeNumber(observation.value,locale)}{observation.value!==null&&state.measure==="turnout"?"%":""}</strong>
                       <small className="block">{observation.basis}</small></>}
                   </td><td className="p-2">{observation.scope}
+                    {viewBallots&&b?.round && e.history.endDate && e.history.endDate!==row.date && b.rows.some(r=>r.seats!==null)&&
+                      <small className="block">{en?"Votes refer to this ballot. Final seats cover both rounds, through ":"票数属于本轮选票。最终席位来自两轮投票，投票截止于 "}{e.history.endDate}.</small>}
                     {state.measure==="chamber_seats"&&e.slots!=null&&e.seats!==e.slots&&<small className="block">{en?"Assigned seats":"已分配席位"} · {e.seats}</small>}
                     <details><summary className="cursor-pointer">{en?"Evidence":"证据"}</summary>
-                      {state.measure==="turnout"&&<><p>{e.history.turnout.definition}</p>
-                        <p>{en?"Recorded numerator / electorate":"收录的分子人数／选民人数"} · {localeNumber(e.history.turnout.count,locale)} / {localeNumber(e.history.turnout.electorate,locale)}</p></>}
+                      {row.turnout&&<><p>{row.turnout.definition}</p>
+                        <p>{en?"Recorded numerator / electorate":"收录的分子人数／选民人数"} · {localeNumber(row.turnout.count,locale)} / {localeNumber(row.turnout.electorate,locale)}</p></>}
                       <ul>{references.map(s=><li key={s.id}><a className="underline" href={s.url}>{s.title}</a></li>)}</ul>
                     </details></td>
                 </tr>;

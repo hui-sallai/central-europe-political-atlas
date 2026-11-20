@@ -3,7 +3,7 @@ import { politicalAustrianStores, politicalCroatianStores, politicalRomanianStor
 
 export type BallotCountrySlug = "austria" | "croatia" | "romania" | "slovenia";
 export type BallotCategory = "national" | "territorial" | "diaspora" | "minority" | "county";
-export type SeatDetail = { label: PoliticalLocalText; seats: number };
+export type SeatDetail = { key?: string; label: PoliticalLocalText; seats: number };
 export type BallotResult = {
   id: string; contestantId: string; name: string; votes: number | null; points: number | null;
   publishedShare: number | null; derivedShare: number | null; printedShareNote: number | null;
@@ -19,7 +19,7 @@ export type ElectionBallot = {
 export type BallotElection = {
   id: string; country: BallotCountrySlug; date: string; dateBasis: string | null; repeatPollDate: string | null; year: number; chamber: string;
   legislatureId: string; systemId: string; totalSeats: number; seatSlots: number | null;
-  composition: SeatDetail[]; rules: PoliticalLocalText; ruleDetails: PoliticalLocalText[];
+  compositionBasis: "mechanisms"|"parties"; composition: SeatDetail[]; rules: PoliticalLocalText; ruleDetails: PoliticalLocalText[];
   territorialTurnout: { geography: string; value: number | null; published: boolean; numerator: number | null; denominator: number | null; definition: string; sourceIds: string[] } | null;
   districts: string[]; sources: PoliticalSource[]; ballots: ElectionBallot[];
 };
@@ -120,7 +120,7 @@ function composition(legislature: LegislatureRow): SeatDetail[] {
     return Object.entries(legislature.seats_by_mechanism).map(([key, seats]) => {
       const label = seatMechanisms[key];
       if (!label) throw Error("Unknown admitted seat mechanism: " + key);
-      return {label, seats};
+      return {key, label, seats};
     });
   }
   return Object.entries(legislature.seats_by_party ?? {}).map(([name, seats]) => ({label: bi(name, name), seats}));
@@ -173,7 +173,7 @@ function projectBallot(election: ElectionRow, legislature: LegislatureRow, syste
   const results = rows.map(row => {
     const contestant = contestants.get(row.contestant_ref);
     if (!contestant || contestant.election_id !== election.election_id || row.total_seats !== rows[0].total_seats) throw Error("Invalid contest scope: " + row.result_id);
-    const seatDetails = seatKeys.flatMap(key => row[key] == null ? [] : [{label: seatDetailLabels[key], seats: row[key]}]);
+    const seatDetails = seatKeys.flatMap(key => row[key] == null ? [] : [{key, label: seatDetailLabels[key], seats: row[key]}]);
     return {
       id: row.result_id, contestantId: row.contestant_ref, name: contestant.historical_display_label,
       votes: row.votes, points: row.points ?? null, seats: row.seats, seatDetails,
@@ -246,7 +246,7 @@ export function politicalBallotElections(country: BallotCountrySlug): BallotElec
     return {
       id: election.election_id, date: election.date, dateBasis: election.date_basis ?? null, repeatPollDate: election.repeat_poll_date ?? null, year: election.year, country, chamber,
       legislatureId: legislature.legislature_id, systemId: system.electoral_system_id, totalSeats: legislature.total_seats,
-      seatSlots: chamberSlots, composition: composition(legislature), rules: system.notes, ruleDetails,
+      seatSlots: chamberSlots, compositionBasis: mechanisms ? "mechanisms" as const : "parties" as const, composition: composition(legislature), rules: system.notes, ruleDetails,
       territorialTurnout: aggregate ? {geography: aggregate.geography, value: aggregate.published_turnout ?? aggregate.derived_turnout,
         published: aggregate.published_turnout != null, numerator: aggregate.voters_turned_out ?? aggregate.voters, denominator: aggregate.eligible_voters, definition: aggregate.turnout_definition, sourceIds: sourceIds(aggregate)} : null,
       districts: districts(legislature), sources, ballots,

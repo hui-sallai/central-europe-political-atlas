@@ -1,13 +1,17 @@
 "use client";
 
 import { ElectionInstitutionalPeriod } from "./InstitutionalHistory";
+import { hungarianElectionTransition } from "@/lib/institutionalRegistry";
+import { ElectoralSystemComparison } from "./ElectoralSystemComparison";
 import { useEffect, useState } from "react";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { localeDate, localeNumber, localizedRoute } from "@/i18n/config";
-import { alignByLabel, chartResults, compareElections, measureValue, seatMeasureScope, seatsWon, type ElectionAggregate, type PoliticalCountryView, type PoliticalElectionView, type PoliticalMeasure, shareForDisplay, turnoutForDisplay } from "@/lib/politicalExplorer";
-import { toCsv } from "@/lib/researchSnapshot";
+import { alignByLabel, chartResults, compareElections, measureValue, seatMeasureScope, seatsWon, type ElectionAggregate, type PoliticalCountryView, type PoliticalElectionView, type PoliticalMeasure, shareForDisplay, turnoutForDisplay, voteDenominator } from "@/lib/politicalExplorer";
+import { ElectionResultDownloads } from "./ElectionResultDownloads";
 import { nationalComparisonView } from "@/lib/politicalComparisonBallots";
 import { compatibleTurnout } from "@/lib/politicalExplorer";
+import {roundElectorateLabel} from "@/lib/politicalNational";
+import { ElectionRoundDetails } from "./ElectionRoundDetails";
 import { ParliamentSeats } from "./ParliamentSeats";
 import { nationalHistoryObservation } from "@/lib/electionHistoryObservations";
 import { ElectionHistoryFigures } from "./ElectionHistoryFigures";
@@ -26,53 +30,21 @@ import { PoliticalPollingPanel } from "./PoliticalPollingPanel";
 import type { AdmittedPolling } from "@/lib/politicalPolling";
 import { sourceVerifiedPartySeries, type PoliticalIdentityLink } from "@/lib/politicalIdentity";
 
-function ElectionResultDownloads({ election, en }: { election: PoliticalElectionView; en: boolean }) {
-  const [failed, setFailed] = useState(false);
-  async function download(format: "csv" | "json") {
-    setFailed(false);
-    try {
-      const response = await fetch("/research-data/political/"+election.country+"/election_results.json");
-      if (!response.ok) throw new Error("Results unavailable");
-      const records: Record<string, unknown>[] = await response.json();
-      const rows = records.filter(row => row.election_id === election.electionId);
-      const expected = election.national?.ballots.reduce((n,b) => n + b.results.length, 0) ?? election.results.length;
-      if (!rows.length || rows.length !== expected) throw new Error("Incomplete results");
-      const tiers = election.national?.seatTiers;
-      const chamber = tiers ? {chamber_seats:election.totalSeats,national_list_seats:tiers.nationalList,
-        district_seats:tiers.constituency,independent_district_seats:tiers.independentConstituency??0} : null;
-      const csvRows = rows.map(row => ({ ...row, ...chamber, provenance: JSON.stringify(row.provenance) }));
-      const body = format === "csv" ? toCsv(Object.keys(csvRows[0]), csvRows) : JSON.stringify(chamber ? {election_id:election.electionId,date:election.date,chamber:election.chamber,composition:chamber,results:rows,sources:election.sources} : rows, null, 2);
-      const url = URL.createObjectURL(new Blob([body], { type: format === "csv" ? "text/csv;charset=utf-8" : "application/json" }));
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = election.electionId + "." + format;
-      link.click();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-    } catch {
-      setFailed(true);
-    }
-  }
-  return <div className="mt-3 flex flex-wrap gap-3">
-    <span>{en ? "Selected election results" : "所选选举结果"} · {election.date}</span>
-    {(["csv", "json"] as const).map(format => <button type="button" className="underline" key={format} onClick={() => download(format)}>{format.toUpperCase()}</button>)}
-    {failed && <span role="alert">{en ? "Could not load the complete results for this election." : "未能读取该届选举的完整结果。"}</span>}
-  </div>;
-}
-
 /** Germany-only descriptive results; no unresolved cross-election identity lines. */
 export default function PoliticalExplorerAlpha({ elections, comparisonCountries = [], contextInputs, pollingData=null,identityLinks=[] }: { elections: PoliticalElectionView[]; comparisonCountries?: PoliticalCountryView[]; contextInputs?: PoliticalContextInputs; pollingData?:AdmittedPolling|null;identityLinks?:PoliticalIdentityLink[] }) {
   const locale = useLocale();
   const en = locale === "en";
-  const [electionId, setElectionId] = useState(elections.at(-1)?.electionId ?? "");
+  const [electionId, setElectionId] = useState<string | null>(null);
   const [measure, setMeasure] = useState<PoliticalMeasure>("vote_share");
   const [compareId, setCompareId] = useState("");
+  const [compareVoteType,setCompareVoteType]=useState("");
   const [comparisonMode, setComparisonMode] = useState("verified");
   const [historyKey, setHistoryKey] = useState(0);
   const [contextOpen, setContextOpen] = useState(false);
   const [voteType,setVoteType]=useState("");
-  const baseElection = elections.find((item) => item.electionId === electionId) ?? elections[0];
+  const baseElection = elections.find((item) => item.electionId === electionId);
   const election = baseElection && voteType ? selectNationalBallot(baseElection,voteType) : baseElection;
-  const countrySlug=baseElection?.country??"germany", countryName=baseElection?.countryName?.[locale]??(en?"Germany":"德国");
+  const countrySlug=elections[0]?.country??"germany", countryName=elections[0]?.countryName?.[locale]??(en?"Germany":"德国");
   const period=`${elections[0]?.year??"—"}–${elections.at(-1)?.year??"—"}`;
   const secondVote=(election??baseElection)?.system.voteType==="second_vote";
   // Seat labels name the scope: whole-chamber representation, or a list tier whose seats are divided by the tier's own size.
@@ -90,9 +62,10 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
       const params = new URLSearchParams(window.location.search);
       const id = params.get("election"), metric = params.get("measure");
       setVoteType(params.get("vote_type")??"");
-      setElectionId(elections.find(e => e.electionId === id)?.electionId ?? elections.at(-1)?.electionId ?? "");
+      setElectionId(id ?? elections.at(-1)?.electionId ?? "");
       setMeasure(["votes", "vote_share", "seats", "seat_share"].includes(metric ?? "") ? metric as PoliticalMeasure : "vote_share");
       const other = params.get("compare");
+      setCompareVoteType(params.get("compare_vote_type")??"");
       setCompareId(elections.some(e => e.electionId === other) ? other! : "");
       setComparisonMode(params.get("comparison_mode") === "labels" ? "labels" : "verified");
       if (params.get("context") === "1" || params.has("research_q") || params.get("research_study") === "d4") setContextOpen(true);
@@ -103,16 +76,41 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
   function select(id: string, metric: PoliticalMeasure) {
     setElectionId(id); setMeasure(metric);
     const url = new URL(window.location.href); url.searchParams.set("election", id); url.searchParams.set("measure", metric);
-    if (id !== electionId) window.history.pushState(null, "", url);
-    else window.history.replaceState(null, "", url);
+    if (id !== electionId) {
+      // A selected ballot belongs to the old election unless its registered definition is also available here.
+      const next = elections.find(item => item.electionId === id);
+      if (voteType && !next?.national?.ballots.some(ballot => ballot.definition.id === voteType)) {
+        setVoteType("");
+        url.searchParams.delete("vote_type");
+      }
+      if (compareId === id) {
+        setCompareId("");
+        setCompareVoteType("");
+        url.searchParams.delete("compare");
+        url.searchParams.delete("compare_vote_type");
+      }
+      window.history.pushState(null, "", url);
+    } else window.history.replaceState(null, "", url);
   }
   function compareWith(id: string) {
-    setCompareId(id);
-    const url = new URL(window.location.href); if (id) url.searchParams.set("compare", id); else url.searchParams.delete("compare");
+    setCompareId(id); setCompareVoteType("");
+    const url = new URL(window.location.href); url.searchParams.delete("compare_vote_type"); if (id) url.searchParams.set("compare", id); else url.searchParams.delete("compare");
     window.history.replaceState(null, "", url);
   }
   const peerElection = elections.find((item) => item.electionId === compareId && item.electionId !== election?.electionId) ?? null;
-  const other = peerElection && voteType ? selectNationalBallot(peerElection, voteType) : peerElection;
+  const other = peerElection && compareVoteType ? selectNationalBallot(peerElection,compareVoteType) :
+    peerElection && voteType ? selectNationalBallot(peerElection,voteType) ?? peerElection : peerElection;
+  const transition=countrySlug==="hungary"?hungarianElectionTransition():null;
+  const transitionPeer=transition && (election?.electionId===transition.before.election_id ? transition.after :
+    election?.electionId===transition.after.election_id ? transition.before : null);
+  const crossesReform=Boolean(election && peerElection && countrySlug==="hungary" &&
+    Boolean(election.national?.historicalAllocation)!==Boolean(peerElection.national?.historicalAllocation));
+  function choosePeerBallot(ballot:string) {
+    const url=new URL(window.location.href);
+    url.searchParams.set("compare_vote_type",ballot);
+    setCompareVoteType(ballot);
+    window.history.pushState(null,"",url);
+  }
   const currentIndex = elections.findIndex(e => e.electionId === electionId);
   const history = elections.map(e => nationalHistoryObservation(e,locale));
   const number = (value: number | null, digits = 0) => localeNumber(value, locale, { maximumFractionDigits: digits, minimumFractionDigits: digits });
@@ -130,13 +128,24 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
   const maxSeats = Math.max(1, ...charted.map((result) => election ? seatsWon(result, election) : 0));
   const splitSeats = election?.national?.activeVote.seatScope === "tier_only" && election.national.chamberAttribution === "complete";
   const largest = charted[0];
+  const ballot=election?.national?.ballots.find(b=>b.definition.id===election.system.voteType);
+  const round=election?.national?.rounds?.find(r=>r.round===ballot?.round);
+  const allocation=election?.national?.historicalAllocation;
+  const votesOnly=election?.national?.activeVote.seatScope==="unavailable" && election.national.activeVote.kind==="constituency";
+  const denominator=election?voteDenominator(election):null;
   function draft(sourceId?: string): EvidenceDraft {
     if (!election) throw new Error("No election selected");
     const selectedSources = election.sources.filter(s => !sourceId || s.id === sourceId);
     const boundary = { en: "Election-specific descriptive evidence. Unresolved party relations are excluded from continuous series; no causal estimates, forecasts or evaluative scores.", "zh-CN": "当届选举描述性证据。未解决政党关系不进入连续序列；不提供因果估计、预测或评价分数。" };
     const url = new URL(localizedRoute(electionCountryRoute(election.country??"germany"), locale), "https://hy-central-europe-analysis.org");
     url.searchParams.set("election", election.electionId); url.searchParams.set("measure", measure); if (sourceId) url.searchParams.set("source", sourceId); if(election.national&&election.national.ballots.length>1)url.searchParams.set("vote_type",election.system.voteType);
-    return { type: sourceId ? "source" : "series_view", title: `${election.countryName?.en??election.country} ${election.year} election`, labels: { en: `${election.countryName?.en??election.country} ${election.year} election`, "zh-CN": `${election.countryName?.["zh-CN"]??election.country} ${election.year} 年选举` }, url: url.href, canonical_ids: sourceId ? [sourceId] : [election.electionId, ...election.results.map(r => r.contestantId)], countries: [election.country??"germany"], periods: [election.date], layer: secondVote?"national_election_second_votes":`national_election:${election.system.voteType}`, sources: selectedSources.map(s => ({ institution: s.institution??"Institution not recorded", dataset: s.title, url: s.url, code: s.id, layer: "tier1_official", retrieved_at: s.retrievedAt })), warnings: [boundary.en], warning_labels: { en: [boundary.en], "zh-CN": [boundary["zh-CN"]] }, comparability: "election_specific_no_party_continuity", metadata: { filters: { election: election.electionId, date: election.date, chamber: election.chamber ?? "", measure, ...(election.national&&election.national.ballots.length>1?{vote_type:election.system.voteType}:{}), ...(sourceId ? { source: sourceId } : {}) }, row_count: sourceId ? 1 : election.results.length, reference: `${election.chamber}; ${election.resultVintage}` } };
+    return { type: sourceId ? "source" : "series_view", title: `${election.countryName?.en??election.country} ${election.year} election`, labels: { en: `${election.countryName?.en??election.country} ${election.year} election`, "zh-CN": `${election.countryName?.["zh-CN"]??election.country} ${election.year} 年选举` }, url: url.href, canonical_ids: sourceId ? [sourceId] : [election.electionId, ...election.results.map(r => r.contestantId)], countries: [election.country??"germany"], periods: [round?.date??election.date], layer: secondVote?"national_election_second_votes":`national_election:${election.system.voteType}`, sources: selectedSources.map(s => ({ institution: s.institution??"Institution not recorded", dataset: s.title, url: s.url, code: s.id, layer: "tier1_official", retrieved_at: s.retrievedAt })), warnings: [boundary.en], warning_labels: { en: [boundary.en], "zh-CN": [boundary["zh-CN"]] }, comparability: "election_specific_no_party_continuity", metadata: { filters: { election: election.electionId, date: round?.date??election.date, chamber: election.chamber ?? "", measure,
+      ...(election.national?.systemId?{electoral_system_id:election.national.systemId}:{}),
+      ...(election.national?.legislatureId?{legislature_id:election.national.legislatureId}:{}),
+      ...(round?{round:round.round,round_date:round.date,electorate:round.constituencies===null?"national":"runoff_constituencies",
+        ...(round.constituencies===null?{}:{constituencies:round.constituencies})}:{}),
+      ...(allocation?{seat_scope:election.national!.activeVote.seatScope,allocation_tiers:["single_member","territorial_list","national_compensation"],allocation_date:election.national!.dateEnd??election.date}:{}),
+      ...(denominator===null?{}:{vote_denominator:denominator}), ...(election.national&&election.national.ballots.length>1?{vote_type:election.system.voteType}:{}), ...(sourceId ? { source: sourceId } : {}) }, row_count: sourceId ? 1 : election.results.length, reference: `${election.chamber}; ${election.resultVintage}` } };
   }
 
   return <section aria-labelledby="political-explorer-title" className="space-y-6" data-politics-explorer>
@@ -152,34 +161,36 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
     <div className="card overflow-x-auto p-4" role="region" tabIndex={0} aria-label={en ? "Election history (scrollable)" : "选举历史（可横向滚动）"}>
       <table className="w-full min-w-[560px] text-left text-sm"><caption className="mb-3 text-left font-semibold">{en ? `Election history · ${period}` : `选举历史 · ${period}`}</caption>
         <thead><tr><th scope="col">{en ? "Date" : "日期"}</th><th scope="col">{en ? "Turnout" : "投票率"}</th><th scope="col">{en ? "Contestants" : "参选名单数"}</th><th scope="col">{en ? "Election seats" : "选举席位"}</th><th scope="col">{en ? "Rules / source" : "规则／来源"}</th></tr></thead>
-        <tbody>{elections.map(item => <tr key={item.electionId} className="border-t border-[var(--line)]"><th scope="row" className="py-3"><button type="button" className="text-[var(--accent)] underline" aria-pressed={election?.electionId === item.electionId} onClick={() => select(item.electionId, measure)}>{localeDate(item.date, locale)}</button></th><td>{percent(turnoutForDisplay(item).value, 2)}{turnoutForDisplay(item).value !== null && <small className="block">{turnoutForDisplay(item).computed ? (en ? "Computed from official counts" : "按官方人数计算") : (en ? "Published" : "公布值")}</small>}</td><td>{item.results.length}</td><td>{item.totalSeats}{countrySlug==="germany" && item.year === 2021 ? <span className="block text-xs">{en ? "Corrected after repeat" : "重选后更正"}</span> : null}</td><td><button type="button" className="underline" onClick={() => { select(item.electionId, measure); document.getElementById("politics-system")?.scrollIntoView(); }}>{en ? "System notes" : "选制说明"}</button></td></tr>)}</tbody>
+        <tbody>{elections.map(item => <tr key={item.electionId} className="border-t border-[var(--line)]"><th scope="row" className="py-3"><button type="button" className="text-[var(--accent)] underline" aria-pressed={election?.electionId === item.electionId} onClick={() => select(item.electionId, measure)}>{localeDate(item.date, locale)}</button></th><td>{percent(turnoutForDisplay(item).value, 2)}{turnoutForDisplay(item).value !== null && <small className="block">{item.national?.rounds?.[0]&&roundElectorateLabel(item.national.rounds[0],locale)+" · "}{turnoutForDisplay(item).computed ? (en ? "Computed from official counts" : "按官方人数计算") : (en ? "Published" : "公布值")}</small>}</td><td>{item.results.length}{item.national?.rounds?.length&&<small className="block">{item.national.activeVote.label[locale]}</small>}</td><td>{item.totalSeats}{countrySlug==="germany" && item.year === 2021 ? <span className="block text-xs">{en ? "Corrected after repeat" : "重选后更正"}</span> : null}</td><td><button type="button" className="underline" onClick={() => { select(item.electionId, measure); document.getElementById("politics-system")?.scrollIntoView(); }}>{en ? "System notes" : "选制说明"}</button></td></tr>)}</tbody>
       </table>
     </div>
     <nav aria-label={en ? "Consecutive admitted elections" : "相邻的已收录选举"} className="flex flex-wrap gap-4 text-sm" data-election-step>
       {[{item:elections[currentIndex-1],label:en?"Previous election":"上一届选举"}, {item:elections[currentIndex+1],label:en?"Next election":"下一届选举"}].filter(x=>x.item).map(({item,label})=><button key={item.electionId} type="button" className="underline" onClick={()=>select(item.electionId,measure)}>{label} · {item.date}</button>)}
     </nav>
     <div className="flex flex-wrap gap-4">
-      {baseElection?.national&&baseElection.national.ballots.length>1?<label>{en?"Vote type":"选票类型"}<select className="field-control block" value={voteType||baseElection.system.voteType} onChange={e=>{setVoteType(e.target.value);const url=new URL(window.location.href);url.searchParams.set("vote_type",e.target.value);window.history.replaceState(null,"",url);}}>{baseElection.national.ballots.map(b=><option key={b.definition.id} value={b.definition.id}>{b.definition.label[locale]}</option>)}</select></label>:null}
+      {baseElection?.national&&baseElection.national.ballots.length>1?<label>{en?"Vote type":"选票类型"}<select data-selected-vote-type aria-label={en ? "Vote type" : "选票类型"} className="field-control block" value={voteType||baseElection.system.voteType} onChange={e=>{setVoteType(e.target.value);const url=new URL(window.location.href);url.searchParams.set("vote_type",e.target.value);window.history.replaceState(null,"",url);}}>{baseElection.national.ballots.map(b=><option key={b.definition.id} value={b.definition.id}>{b.definition.label[locale]}</option>)}</select></label>:null}
       <label>{en ? "Country" : "国家"}{countrySlug === "germany" ? <select disabled className="field-control block"><option>{en ? "Germany" : "德国"}</option></select> : <select disabled className="field-control block"><option>{countryName}</option></select>}</label>
-      <label>{en ? "Election" : "选举"}<select className="field-control block" value={election?.electionId ?? ""} onChange={(event) => select(event.target.value, measure)}>
+      <label>{en ? "Election" : "选举"}<select data-selected-election aria-label={en ? "Election" : "选举"} className="field-control block" value={baseElection?.electionId ?? ""} onChange={(event) => select(event.target.value, measure)}>
+        {!baseElection && <option value="">{en ? "Select an election" : "选择选举"}</option>}
         {elections.map((item) => <option key={item.electionId} value={item.electionId}>{item.year}</option>)}
       </select></label>
-      <label>{en ? "Measure" : "指标"}<select className="field-control block" value={measure} onChange={(event) => select(election!.electionId, event.target.value as PoliticalMeasure)}>
+      <label>{en ? "Measure" : "指标"}<select className="field-control block" value={measure} disabled={!election} onChange={(event) => election && select(election.electionId, event.target.value as PoliticalMeasure)}>
         {Object.entries(labels).map(([key, label]) => <option key={key} value={key}>{label}</option>)}
       </select></label>
     </div>
-    {!election ? <div role="status"><p>{voteType?(en?"The requested vote type is unavailable for this election; no other vote type has been silently substituted.":"该届选举没有所请求的选票类型；未默默替换为另一种选票。"):en ? "No approved election data available." : "暂无通过准入的数据。"}</p>{voteType?<button type="button" className="underline" onClick={()=>{setVoteType("");const u=new URL(window.location.href);u.searchParams.delete("vote_type");window.history.replaceState(null,"",u);}}>{en?"Return to the registered primary vote":"返回登记的主要选票"}</button>:null}</div> : <>
+    {!election ? <div role="status"><p>{electionId === null ? (en ? "Loading the selected election…" : "正在读取所选选举…") : !baseElection ? (en ? "This election is outside the published archive. Choose an available election above." : "档案中没有该届选举，请从上方选择已收录的年份。") : voteType?(en?"The requested vote type is unavailable for this election; no other vote type has been silently substituted.":"该届选举没有所请求的选票类型；未默默替换为另一种选票。"):en ? "No approved election data available." : "暂无通过准入的数据。"}</p>{baseElection && voteType?<button type="button" className="underline" onClick={()=>{setVoteType("");const u=new URL(window.location.href);u.searchParams.delete("vote_type");window.history.replaceState(null,"",u);}}>{en?"Return to the registered primary vote":"返回登记的主要选票"}</button>:null}</div> : <>
       <div aria-live="polite" id="politics-system" className="card p-5">
         <a className="text-sm underline" href={`${en?"/en":""}/politics/?institution_countries=${countrySlug}#institutions`}>{en?'Compare this country’s institutions':'比较该国的政治制度'}</a>
         <ElectionInstitutionalPeriod id={election.electionId} en={en}/>
         <h3 className="font-semibold">{en ? "Electoral system and result vintage" : "选制与结果版本"}</h3>
         <p>{en ? "Result vintage" : "结果版本"}: {countrySlug==="germany" && election.year === 2021 ? (en ? "Corrected final after the 2024 Berlin repeat" : "2024年柏林部分重选后的更正最终结果") : election.resultVintage==="final"?(en ? "Final" : "最终结果"):election.resultVintage}</p>
-        <p>{turnoutShown?.computed ? (en ? "Turnout, computed from official counts" : "投票率，根据官方人数计算") : (en ? "Published turnout" : "官方公布投票率")}: {localeNumber(turnoutShown?.value ?? null, locale)}{turnoutShown?.value === null ? "" : "%"}</p>
+        <p>{turnoutShown?.computed ? (en ? "Turnout, computed from official counts" : "投票率，根据官方人数计算") : (en ? "Published turnout" : "官方公布投票率")}{round&&" · "+roundElectorateLabel(round,locale)}: {localeNumber(turnoutShown?.value ?? null, locale)}{turnoutShown?.value === null ? "" : "%"}</p>
         {countrySlug === "serbia" && <p>{en ? "Turnout uses voters who voted divided by registered voters. Attendance and ballots cast are recorded separately. The report gives no turnout percentage." : "投票率用实际投票人数除以登记选民人数计算。到场人数与投入票箱的选票数另列。原报告未公布投票率百分比。"}</p>}
+        <ElectionRoundDetails election={election} locale={locale}/>
         <p>{election.notes[locale]}</p>
         <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-2 lg:grid-cols-4" data-politics-research-details>
           {[
-            [en ? "Election date" : "选举日期", localeDate(election.date, locale)],
+            [round?(en?"Selected ballot date":"所选选票日期"):(en ? "Election date" : "选举日期"), localeDate(round?.date??election.date, locale)],
             [en ? "Vote shown" : "所示选票", election.voteLabel?.[locale]??election.system.voteType],
             [en ? "Seat allocation method" : "席位分配方法", election.system.allocationMethod],
             [en ? "Base seats under the rules" : "规则规定的基础席位", number(election.system.baseSeats)],
@@ -195,19 +206,21 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
         <h3 className="font-semibold">{en ? `The ${election.year} election at a glance` : `${election.year} 年选举概览`}</h3>
         {election.resultCoverage === "seat_winning_lists_only" ? <p className="mt-2 text-sm leading-7" data-result-coverage="seat_winning_lists_only">{en
           ? `The source prints only the ${election.results.length} lists that won seats. Lists without seats, valid ballots and voters on the electoral roll are not printed there, so no vote share over valid ballots and no turnout are shown.`
-          : `来源只列出获得席位的 ${election.results.length} 份名单。未获席位的名单、有效票和登记选民人数均未列出，因此不显示以有效票为分母的得票率，也不显示投票率。`}</p> : <p className="mt-2 text-sm leading-7">{en
-          ? `${election.results.length} lists stood for election and ${election.results.filter((r) => seatsWon(r, election) > 0).length} of them won ${scope === "national_list_tier" ? "national list seats" : "seats"}. ${turnoutShown?.computed ? "Turnout computed from official counts was" : "Published turnout was"} ${percent(turnoutShown?.value ?? null, 1)}. ${largest ? "The contestant with the most votes on the selected ballot received " + percent(shareForDisplay(largest, election).value, 1) + (shareForDisplay(largest, election).computed ? " (computed within this ballot)." : " (published).") : ""}`
-          : `共有 ${election.results.length} 份名单参选，其中 ${election.results.filter((r) => seatsWon(r, election) > 0).length} 份获得${scope === "national_list_tier" ? "全国名单席位" : "席位"}。${turnoutShown?.computed ? "根据官方人数计算的投票率为" : "官方公布的投票率为"} ${percent(turnoutShown?.value ?? null, 1)}。${largest ? "所选选票中得票最多的参选方得票率为 " + percent(shareForDisplay(largest, election).value, 1) + (shareForDisplay(largest, election).computed ? "（在此选票内计算）。" : "（官方公布）。") : ""}`}</p>}
+          : `来源只列出获得席位的 ${election.results.length} 份名单。未获席位的名单、有效票和登记选民人数均未列出，因此不显示以有效票为分母的得票率，也不显示投票率。`}</p> : votesOnly ? <p className="mt-2 text-sm leading-7">{en?`The archive groups candidate votes by the printed nominating organisation or independent category. ${number(denominator)} valid votes were recorded for this ballot.`:`档案按原文提名组织或独立参选类别汇总候选人票。所选选票共记录 ${number(denominator)} 张有效票。`}</p> : <p className="mt-2 text-sm leading-7">{en
+          ? `${election.results.length} ${allocation?"territorial lists":"lists"} stood for election and ${election.results.filter((r) => seatsWon(r, election) > 0).length} of them won ${scope === "national_list_tier" ? "national list seats" : "seats"}. ${turnoutShown?.computed ? "Turnout computed from official counts was" : "Published turnout was"} ${percent(turnoutShown?.value ?? null, 1)}. ${largest ? "The contestant with the most votes on the selected ballot received " + percent(shareForDisplay(largest, election).value, 1) + (shareForDisplay(largest, election).computed ? " (computed within this ballot)." : " (published).") : ""}`
+          : `共有 ${election.results.length} 份${allocation?"地区名单":"名单"}参选，其中 ${election.results.filter((r) => seatsWon(r, election) > 0).length} 份获得${scope === "national_list_tier" ? "全国名单席位" : "席位"}。${turnoutShown?.computed ? "根据官方人数计算的投票率为" : "官方公布的投票率为"} ${percent(turnoutShown?.value ?? null, 1)}。${largest ? "所选选票中得票最多的参选方得票率为 " + percent(shareForDisplay(largest, election).value, 1) + (shareForDisplay(largest, election).computed ? "（在此选票内计算）。" : "（官方公布）。") : ""}`}</p>}
         <div className="mt-5 grid gap-6 lg:grid-cols-2">
           <ParliamentSeats election={election}/>
           <figure data-politics-chart="votes-seats">
-            <figcaption className="text-sm font-semibold">{secondVote?(en ? "Second-vote share and seats, by list" : "各名单的第二票得票率与席位"):(en?"Vote share and representation, by contestant":"各参选方得票率与代表席位")}</figcaption>
-            <p className="mt-1 text-xs text-[var(--muted)]">{en ? `Contestants that won seats or reached 1% of the selected ballot. Upper bar: ${computedShares ? "vote share computed within this ballot" : "published vote share"} (%). Lower bar: ${scope === "national_list_tier" ? "national list seats only (the list tier, not the whole chamber)" : "whole-chamber seats"}. Bars use one neutral colour; order is by votes.` : `仅列出获得席位或所选选票得票率达到 1% 的参选方。上方条：${computedShares ? "在此选票内计算的得票率" : "官方公布的得票率"}（%）；下方条：${scope === "national_list_tier" ? "仅全国名单席位（名单层，并非全议院）" : "全议院席位"}。所有条形使用同一中性颜色，按票数排序。`}</p>
+            <figcaption className="text-sm font-semibold">{votesOnly?(en?"Candidate votes by nominating organisation":"候选人得票按提名组织分列"):secondVote?(en ? "Second-vote share and seats, by list" : "各名单的第二票得票率与席位"):(en?"Vote share and representation, by contestant":"各参选方得票率与代表席位")}</figcaption>
+            {ballot&&<p className="mt-1 text-xs" data-vote-chart-basis>{round?.date??election.date} · {ballot.definition.label[locale]} · {en?"Share denominator":"占比分母"} · {number(denominator)} {ballot.definition.denominator==="valid_votes"?(en?"valid votes":"有效票"):ballot.definition.denominator==="ballots_cast"?(en?"ballots cast":"投出票数"):(en?"(unestablished)":"（未确定）")}
+              {" · "}{ballot.sourceUrl?<a className="underline" href={ballot.sourceUrl}>{en?"Official ballot totals":"官方选票汇总"}</a>:election.sources.filter(s=>ballot.definition.sourceIds.includes(s.id)).map(s=><a className="mr-2 underline" key={s.id} href={s.url}>{s.title}</a>)}</p>}
+            <p className="mt-1 text-xs text-[var(--muted)]">{votesOnly ? (en?"Entries reaching 1% of valid votes in the selected round. The complete table includes the other entries. Seat totals are reported in the final chamber allocation.":"显示所选轮次中得票达到有效票 1% 的条目；完整结果表保留其他条目。席位总数见最终全院分配。") : en ? `Contestants that won seats or reached 1% of the selected ballot. Upper bar: ${computedShares ? "vote share computed within this ballot" : "published vote share"} (%). Lower bar: ${scope === "national_list_tier" ? "national list seats only (the list tier, not the whole chamber)" : "whole-chamber seats"}. Bars use one neutral colour; order is by votes.` : `仅列出获得席位或所选选票得票率达到 1% 的参选方。上方条：${computedShares ? "在此选票内计算的得票率" : "官方公布的得票率"}（%）；下方条：${scope === "national_list_tier" ? "仅全国名单席位（名单层，并非全议院）" : "全议院席位"}。所有条形使用同一中性颜色，按票数排序。`}</p>
             <ul className="mt-3 space-y-3">{charted.map((result) => (
               <li key={result.contestantId} className="text-xs" data-chart-list={result.contestantId}>
                 <span lang={election.originalLanguage} data-original-language={election.originalLanguage} className="font-semibold">{result.nativeLabel}</span>
-                <div className="mt-1 flex items-center gap-2"><span className="h-3 rounded-sm bg-[var(--accent)]" style={{ width: `${70 * (shareForDisplay(result, election).value ?? 0) / maxShare}%`,display:shareForDisplay(result, election).value===null?"none":undefined }} aria-hidden="true" /><span className="metric-number">{percent(shareForDisplay(result, election).value, 1)}</span></div>
-                <div className="mt-1 flex items-center gap-2"><span className="h-3 rounded-sm border border-[var(--accent)]" style={{ width: `${70 * seatsWon(result, election) / maxSeats}%`,display:measureValue(result, election, "seats")===null?"none":undefined }} aria-hidden="true" /><span className="metric-number" data-chart-seats={scope}>{measureValue(result, election, "seats") === null ? (en ? "seats: —" : "席位：—") : `${number(measureValue(result, election, "seats"))} ${scope === "national_list_tier" ? (en ? "list seats" : "个名单席位") : (en ? "seats" : "席")}`}{splitSeats ? (en ? ` (list ${number(result.seats)} + constituency ${number(result.constituencySeats ?? null)})` : `（名单 ${number(result.seats)} + 单选区 ${number(result.constituencySeats ?? null)}）`) : ""}</span></div>
+                <div className="mt-1 flex items-center gap-2"><span className="h-3 rounded-sm bg-[var(--accent)]" style={{ width: `${70 * (shareForDisplay(result, election).value ?? 0) / maxShare}%`,display:shareForDisplay(result, election).value===null?"none":undefined }} aria-hidden="true" /><span className="metric-number">{percent(shareForDisplay(result, election).value, 1)}{round&&` · ${number(result.secondVotes)} ${en?"votes":"票"}`}</span></div>
+                {!votesOnly&&<div className="mt-1 flex items-center gap-2"><span className="h-3 rounded-sm border border-[var(--accent)]" style={{ width: `${70 * seatsWon(result, election) / maxSeats}%`,display:measureValue(result, election, "seats")===null?"none":undefined }} aria-hidden="true" /><span className="metric-number" data-chart-seats={scope}>{measureValue(result, election, "seats") === null ? (en ? "seats: —" : "席位：—") : `${number(measureValue(result, election, "seats"))} ${scope === "national_list_tier" ? (en ? "list seats" : "个名单席位") : (en ? "seats" : "席")}`}{splitSeats ? (en ? ` (list ${number(result.seats)} + constituency ${number(result.constituencySeats ?? null)})` : `（名单 ${number(result.seats)} + 单选区 ${number(result.constituencySeats ?? null)}）`) : ""}</span></div>}
               </li>
             ))}</ul>
           </figure>
@@ -221,14 +234,14 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
       <div className="overflow-x-auto" role="region" tabIndex={0} aria-label={en ? "Election results (scrollable)" : "选举结果（可横向滚动）"}>
         <table className="w-full min-w-[720px] text-left text-sm">
           <caption className="text-left">{labels[measure]}</caption>
-          <thead><tr><th scope="col">{en ? "Ballot contestant (original name)" : "参选名单（原文名称）"}</th><th scope="col">{labels[measure]}</th>{measure === "vote_share" ? <><th scope="col">{en ? "Published vote share" : "官方公布票率"}</th><th scope="col">{seatShareLabel}</th></> : null}{splitSeats ? <><th scope="col">{en ? "National list seats" : "全国名单席位"}</th><th scope="col">{en ? "Constituency seats" : "单选区席位"}</th><th scope="col">{en ? "Whole-chamber seats" : "全议院席位"}</th></> : null}<th scope="col">{en ? "Source" : "来源"}</th></tr></thead>
+          <thead><tr><th scope="col">{en ? "Ballot contestant (original name)" : "参选名单（原文名称）"}</th><th scope="col">{labels[measure]}</th>{measure === "vote_share" ? <><th scope="col">{en ? "Published vote share" : "官方公布票率"}</th><th scope="col">{seatShareLabel}</th></> : null}{votesOnly&&<th scope="col">{round?.round===1?(en?"Districts settled in round 1 (published)":"第一轮确定的选区席位（公布值）"):(en?"Districts settled in this round (derived)":"本轮确定的选区席位（计算值）")}</th>}{splitSeats ? <>{allocation ? <><th scope="col">{en?"Territorial-list seats":"地区名单席位"}</th><th scope="col">{en?"National compensation seats":"全国补偿席位"}</th><th scope="col">{en?"Fragment votes":"补偿余票"}</th></> : <th scope="col">{en ? "National list seats" : "全国名单席位"}</th>}<th scope="col">{en ? "Constituency seats" : "单选区席位"}</th><th scope="col">{en ? "Whole-chamber seats" : "全议院席位"}</th></> : null}<th scope="col">{en ? "Source" : "来源"}</th></tr></thead>
           <tbody>{election.results.map((result) => {
             const value = measureValue(result, election, measure);
             const source = election.sources.find((item) => item.id === result.sourceId);
             return <tr key={result.contestantId} className="border-t border-[var(--line)]">
-              <th scope="row" className="py-3 font-normal"><span lang={election.originalLanguage??"de"} data-original-language={election.originalLanguage??"de"}>{result.nativeLabel}</span><span className="block text-xs text-[var(--muted)]">{result.contestantKind==="nationality_list" ? (en ? "Nationality list · a separate ballot with its own denominator" : "民族名单 · 单独的选票，使用各自的分母") : result.contestantKind==="coalition" ? (en ? "Coalition list · votes and seats are not divided among members" : "联盟名单 · 票数和席位不分配给各成员") : result.contestantKind==="voters_committee_list" ? (en ? "Voters' election committee · specific to this election" : "选民选举委员会 · 仅限当届") : countrySlug === "germany" || seriesContestants.has(`${election.electionId}:${result.contestantId}`) ? (en ? "Election-specific party list · see verified series comparison below" : "当届政党名单 · 已核实序列比较见下方") : (en ? "Election-specific party list · no verified link to another election" : "当届政党名单 · 没有与其他届选举的已核实关联")}</span></th>
+              <th scope="row" className="py-3 font-normal"><span lang={election.originalLanguage??"de"} data-original-language={election.originalLanguage??"de"}>{result.nativeLabel}</span><span className="block text-xs text-[var(--muted)]">{votesOnly ? (en?"Printed nominating organisation or independent category for this round":"当轮原文提名组织或独立参选类别") : result.contestantKind==="nationality_list" ? (en ? "Nationality list · a separate ballot with its own denominator" : "民族名单 · 单独的选票，使用各自的分母") : result.contestantKind==="coalition" ? (en ? "Coalition list · votes and seats are not divided among members" : "联盟名单 · 票数和席位不分配给各成员") : result.contestantKind==="voters_committee_list" ? (en ? "Voters' election committee · specific to this election" : "选民选举委员会 · 仅限当届") : countrySlug === "germany" || seriesContestants.has(`${election.electionId}:${result.contestantId}`) ? (en ? "Election-specific party list · see verified series comparison below" : "当届政党名单 · 已核实序列比较见下方") : (en ? "Election-specific party list · no verified link to another election" : "当届政党名单 · 没有与其他届选举的已核实关联")}</span></th>
               <td className="metric-number">{localeNumber(value, locale)}{value !== null && measure.endsWith("share") ? "%" : ""}</td>
-              {measure === "vote_share" ? <><td className="metric-number">{localeNumber(result.publishedVoteShare, locale, { maximumFractionDigits: 1, minimumFractionDigits: 1 })}{result.publishedVoteShare === null ? "" : "%"}</td><td className="metric-number">{localeNumber(measureValue(result, election, "seat_share"), locale)}{measureValue(result, election, "seat_share") === null ? "" : "%"}</td></> : null}{splitSeats ? <><td className="metric-number">{number(result.seats)}</td><td className="metric-number">{number(result.constituencySeats ?? null)}</td><td className="metric-number">{number(result.chamberSeats ?? null)}{(() => { const s = election.sources.find((item) => item.id === result.chamberSeatSourceId); return s ? <a href={s.url} className="block text-xs font-normal underline" data-chamber-seat-source={s.id}>{en ? "composition record" : "议会构成记录"}</a> : null; })()}</td></> : null}
+              {measure === "vote_share" ? <><td className="metric-number">{localeNumber(result.publishedVoteShare, locale, { maximumFractionDigits: 1, minimumFractionDigits: 1 })}{result.publishedVoteShare === null ? "" : "%"}</td><td className="metric-number">{localeNumber(measureValue(result, election, "seat_share"), locale)}{measureValue(result, election, "seat_share") === null ? "" : "%"}</td></> : null}{votesOnly&&<td>{number(result.districtSeatsThisRound??null)}</td>}{splitSeats ? <>{allocation ? <><td>{number(result.territorialSeats??null)}</td><td>{number(result.compensationSeats??null)}</td><td>{number(result.fragmentVotes??null)}</td></> : <td className="metric-number">{number(result.seats)}</td>}<td className="metric-number">{number(result.constituencySeats ?? null)}</td><td className="metric-number">{number(result.chamberSeats ?? null)}{(() => { const s = election.sources.find((item) => item.id === result.chamberSeatSourceId); return s ? <a href={s.url} className="block text-xs font-normal underline" data-chamber-seat-source={s.id}>{en ? "composition record" : "议会构成记录"}</a> : null; })()}</td></> : null}
               <td>{source ? <a href={source.url} className="underline">{source.title}</a> : <span>{en ? "Source missing" : "来源缺失"}</span>}</td>
             </tr>;
           })}</tbody>
@@ -239,11 +252,18 @@ export default function PoliticalExplorerAlpha({ elections, comparisonCountries 
       </details>
       <section className="card p-5" aria-labelledby="politics-compare-title" data-politics-compare>
         <h3 id="politics-compare-title" className="font-semibold">{en ? "Compare two elections" : "比较两届选举"}</h3>
-        <label className="mt-3 block text-sm">{en ? `Compare ${election.year} with` : `将 ${election.year} 年与以下选举比较`}<select className="field-control block" value={other?.electionId ?? ""} onChange={(event) => compareWith(event.target.value)}>
+        <label className="mt-3 block text-sm">{en ? `Compare ${election.year} with` : `将 ${election.year} 年与以下选举比较`}<select className="field-control block" value={peerElection?.electionId ?? ""} onChange={(event) => compareWith(event.target.value)}>
           <option value="">{en ? "No comparison" : "不比较"}</option>
           {elections.filter((item) => item.electionId !== election.electionId).map((item) => <option key={item.electionId} value={item.electionId}>{item.year}</option>)}
         </select></label>
-        {other ? <>
+        {transitionPeer && !peerElection && <button type="button" className="mt-2 text-sm underline" onClick={()=>compareWith(transitionPeer.election_id)}>{en?"Compare the electoral reform with":"比较选制变迁"} · {transitionPeer.date.slice(0,4)}</button>}
+        {peerElection?.national && (crossesReform || !!compareVoteType) && <label className="mt-2 block text-sm">{en?"Ballot in the comparison election":"对照选举的选票"}
+          <select className="field-control block max-w-full" data-peer-vote-type value={other?.system.voteType??""} onChange={ev=>choosePeerBallot(ev.target.value)}>
+            {!other&&<option value="">{en?"Choose an admitted ballot":"选择已收录的选票"}</option>}
+            {peerElection.national.ballots.map(ballot=><option key={ballot.definition.id} value={ballot.definition.id}>{ballot.definition.label[locale]}</option>)}
+          </select></label>}
+        {peerElection && compareVoteType && !other ? <p role="alert">{en?"The linked ballot is unavailable in this election. Choose a recorded ballot to compare.":"这届选举未收录链接指定的选票，请选择已有选票进行比较。"}</p> :
+          other && crossesReform ? <ElectoralSystemComparison a={election} b={other} locale={locale}/> : other ? <>
           <div className="mt-3 flex flex-wrap gap-3" role="group" aria-label={en ? "Comparison mode" : "比较模式"}>{["verified","labels"].map(mode=><button key={mode} type="button" className="rounded border border-[var(--line)] px-3 py-2 text-sm" aria-pressed={comparisonMode===mode} onClick={()=>{setComparisonMode(mode);const url=new URL(window.location.href);url.searchParams.set("comparison_mode",mode);window.history.replaceState(null,"",url);}}>{mode==="verified"?(en?"Verified party-series comparison":"已核实政党序列比较"):(en?"Election-specific ballot labels":"当届选票名称比较")}</button>)}</div>
           <div className="mt-4 overflow-x-auto" role="region" tabIndex={0} aria-label={en ? "Election-level comparison (scrollable)" : "选举层面的比较（可横向滚动）"}>
             <table className="w-full min-w-[520px] text-left text-sm" data-compare-aggregates>

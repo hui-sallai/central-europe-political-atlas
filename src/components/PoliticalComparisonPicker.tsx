@@ -6,7 +6,7 @@ import {localizedRoute, type Locale} from "@/i18n/config";
 import {politicalAdmissions} from "@/lib/politicalAdmission";
 import type {BallotElection} from "@/lib/politicalBallots";
 import type {PoliticalCountryView, PoliticalElectionView} from "@/lib/politicalExplorer";
-import {nationalComparisonView, scopedComparisonView, type ComparisonElection, type ComparisonBallot, type ComparisonIndex} from "@/lib/politicalComparisonBallots";
+import {comparisonSourceIndex, nationalComparisonView, scopedComparisonView, type ComparisonElection, type ComparisonBallot, type ComparisonIndex} from "@/lib/politicalComparisonBallots";
 import {loadElectionHistoryIndex} from "@/lib/electionHistoryComparison";
 import {PoliticalCountryComparison} from "./PoliticalCountryComparison";
 
@@ -28,33 +28,39 @@ function choose(country:string, election="", ballot="") {
   history.pushState(null,"",url);
   window.dispatchEvent(new Event("electioncomparison"));
 }
-export function ScopedDistribution({country,election,ballot,locale}:{country:string;election:ComparisonElection;ballot?:ComparisonBallot;locale:Locale}) {
+export function ScopedDistribution({country,election,ballot,locale,compactRules=false}:{country:string;election:ComparisonElection;ballot?:ComparisonBallot;locale:Locale;compactRules?:boolean}) {
   const en=locale==="en", title=politicalAdmissions.find(a=>a.slug===country)?.name[locale];
-  const format=(n:number|null,dp=2)=>n===null?"—":n.toLocaleString(locale,{maximumFractionDigits:dp});
+  const format=(n:number|null|undefined,dp=2)=>n==null?"—":n.toLocaleString(locale,{maximumFractionDigits:dp});
   const query=new URLSearchParams({election:election.id});
   if (ballot) query.set(ballot.geographyKey??"ballot",ballot.id);
   return <article className="min-w-0" data-comparison-column={country}>
-    <h4 className="font-semibold">{title} · {election.date}</h4>
+    {!compactRules && <><h4 className="font-semibold">{title} · {election.date}</h4>
     <p>{election.chamber} · {format(election.seats)} {en?"assigned seats":"已分配席位"}{election.slots!==null&&election.slots!==election.seats&&
       <> / {format(election.slots)} {en?"seat slots":"法定席位"}</>}</p>
-    <p className="my-2 text-sm">{election.rules[locale]}</p>
+    <p className="my-2 text-sm">{election.rules[locale]}</p></>}
     <Link className="text-sm underline" href={localizedRoute('/politics/'+country+'/',locale)+'?'+query}>{en?"Election results, sources and rules":"选举结果、来源与当届规则"}</Link>
     {ballot ? <>
       <p className="mt-3 font-semibold">{ballot.label[locale]}</p>
-      <p className="text-sm">{ballot.basis[locale]} · {en?"Recorded contestants":"已收录参选项"} {ballot.rows.length}{ballot.seatWinnersOnly && (en?" (seat-winning lists only)":"（仅收录赢得席位的名单）")}</p>
+      {ballot.round!=null && <p className="text-sm">{en?"Voting round":"投票轮次"} {ballot.round} · {ballot.date??election.date}</p>}
+      <p className="text-sm">{ballot.basis[locale]}{!ballot.pointsBallot && ballot.voteDenominator!=null && <> · {en?"Denominator":"分母"} {format(ballot.voteDenominator)}</>} · {en?"Recorded contestants":"已收录参选项"} {ballot.rows.length}{ballot.seatWinnersOnly && (en?" (seat-winning lists only)":"（仅收录赢得席位的名单）")}</p>
       <p className="text-sm">{ballot.turnoutScope?.[locale]??(en?"Turnout":"投票率")} · {ballot.turnout===null?(en?"No recorded turnout rate":"未收录投票率"):`${format(ballot.turnout)}% (${ballot.turnoutPublished?(en?"published":"官方公布"):(en?"from official counts":"按官方人数计算")})`}</p>
       <p className="text-sm">{ballot.seatScopeLabel?.[locale]??(en?"Seat-share denominator":"席位占比分母")} · {format(ballot.seatScope)} {en?"seats":"席"}</p>
       <details className="mt-3"><summary>{en?"Vote and seat distribution":"得票与席位分布"}</summary>
       <div className="overflow-x-auto" role="region" tabIndex={0} aria-label={title+' '+election.chamber}>
         <table className="w-full text-left text-sm"><thead><tr><th scope="col">{en?"Recorded label":"收录名称"}</th>
+          {!ballot.pointsBallot && <th scope="col">{en?"Votes":"票数"}</th>}
           <th scope="col">{ballot.pointsBallot?(en?"Points":"积分"):(en?"Vote share (%)":"得票率（%）")}</th>
           <th scope="col">{en?"Seats":"席位"}</th><th scope="col">{en?"Seat share (%)":"席位占比（%）"}</th></tr></thead>
           <tbody>{ballot.rows.map(row=><tr key={row.id} className="border-t border-[var(--line)]">
             <th scope="row" className="break-words py-1 font-normal">{row.name}</th>
+            {!ballot.pointsBallot && <td>{format(row.votes)}</td>}
             <td>{ballot.pointsBallot?format(row.points):<>{format(row.share)}{row.share!==null&&<small className="block">{row.published?(en?"published":"公布"):(en?"derived":"计算")}</small>}</>}</td>
             <td>{format(row.seats)}</td><td>{format(row.seats!==null&&ballot.seatScope?100*row.seats/ballot.seatScope:null)}</td>
           </tr>)}</tbody></table>
-      </div></details>
+      </div>
+      {ballot.sourceUrl&&<a className="mt-1 block break-words text-xs underline" href={ballot.sourceUrl}>{en?"Official ballot totals":"官方选票汇总"}</a>}
+      {comparisonSourceIndex(election).filter(s=>ballot.sourceIds?.includes(s.id)).map(s=><a key={s.id} className="mt-1 block break-words text-xs underline" href={s.url}>{s.title}</a>)}
+      </details>
     </>:<p className="mt-3 text-sm">{en?"Select a ballot to inspect its turnout and distribution.":"选择选票范围以查看其投票率与分布。"}</p>}
   </article>;
 }

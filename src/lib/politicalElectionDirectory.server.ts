@@ -1,12 +1,12 @@
 // Compact server-rendered metadata for country entry points. Full ballot rows stay on election pages.
 import {cache} from "react";
-import {electionInstitutionalContext} from "./institutionalRegistry";
+import {electionInstitutionalContext, electionTransitionRuleIds} from "./institutionalRegistry";
 import {admittedCountrySlugs, politicalAdmissions} from "./politicalAdmission";
 import {isBallotCountry, politicalBallotElections, type BallotElection} from "./politicalBallots";
 import {politicalComparisonCountries, politicalElectionViews} from "./politicalData";
 import {turnoutForDisplay, type PoliticalElectionView, type PoliticalLocalText, type PoliticalSource} from "./politicalExplorer";
 
-export type DirectoryDate = {id: string; year: number; date: string; chamber: string; dateNeedsCheck?: boolean};
+export type DirectoryDate = {id: string; year: number; date: string; endDate?: string; ruleSources?: Pick<PoliticalSource, "id" | "title" | "url">[]; chamber: string; dateNeedsCheck?: boolean};
 export type DirectoryResultType = "votes" | "points" | "seats" | "turnout";
 export type DirectoryElection = DirectoryDate & {
   seats: number | null; slots: number | null; rules: PoliticalLocalText;
@@ -27,6 +27,10 @@ function nationalSummary(election: PoliticalElectionView): DirectoryElection {
   if (turnout.value !== null) availableResults.push("turnout");
   return {
     id: election.electionId, date: election.date, year: election.year, chamber: election.chamber ?? "",
+    ...(election.national?.dateEnd && election.national.dateEnd !== election.date ? {endDate:election.national.dateEnd} : {}),
+    ...(electionTransitionRuleIds.includes(electionInstitutionalContext(election.electionId)?.electoral_system_id ?? "") ? {
+      ruleSources:election.sources.filter(s => election.national?.rules.sourceIds.includes(s.id)).map(({id,title,url}) => ({id,title,url})),
+    } : {}),
     availableResults, seats: election.totalSeats, slots: null, rules: election.notes, sources: election.sources,
     turnout: turnout.value, turnoutPublished: !turnout.computed, turnoutScope: "national", composition: [],
   };
@@ -69,7 +73,7 @@ export const electionDirectory = cache((): ElectionDirectoryCountry[] => {
       availableResults:[...new Set(sorted.flatMap(election => election.availableResults))],
       ruleRecords:links.filter(link => link?.electoral_system_id).length,
       datedPeriods:links.filter(link => link?.institutional_period_id).length,
-      history:sorted.map(({id,year,date,chamber,dateNeedsCheck}) => ({id,year,date,chamber,dateNeedsCheck})),
+      history:sorted.map(({id,year,date,endDate,chamber,dateNeedsCheck,ruleSources}) => ({id,year,date,endDate,chamber,dateNeedsCheck,ruleSources})),
       latest:sorted.filter(election => election.date === latestDate)};
   });
 });

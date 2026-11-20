@@ -88,4 +88,11 @@ export function electionInstitutionalContext(electionId: string) { return LINKS.
 /** Elections linked to institutional periods, for countries with a /politics/<slug>/ page (pages link each election there).
  * Croatia and Slovenia are in election_links.json but have no page yet, so they are not listed for linking. */
 export function countryElectionLinks(slug: string) { return admittedCountrySlugs.includes(slug) ? LINKS.elections.filter((e) => e.country === slug) : []; }
+// Election-specific rule records on the two sides of the documented Hungarian electoral-system reform.
+export const electionTransitionRuleIds = ["es-hu-ogy-2010", "es-hu-ogy-2014"];
+export function hungarianElectionTransition() {
+  const entries = countryElectionLinks("hungary");
+  const [before, after] = electionTransitionRuleIds.map(id => entries.find(e => e.electoral_system_id === id));
+  return before && after ? {before, after} : null;
+}
 export function caseStudy(slug: string) { return RECORDS[slug]?.case_study_sections ?? []; }

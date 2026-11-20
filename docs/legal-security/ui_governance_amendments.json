@@ -4642,6 +4642,140 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "historical-electoral-system-transitions-2026-11-21",
+      "status": "owner_approved",
+      "approved_by": "Owner brief of 2026-11-21 for historical electoral-system transitions and Hungary 2010 research integration. Bilingual presentation, round and ballot projections, chamber allocation, historical comparison and research exports using previously admitted observations only.",
+      "baseline": "4db61747ee9f792d272e58bc4bb4936da5d4cbab",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-21",
+      "files": [
+        {
+          "path": "src/app/(english)/en/politics/hungary/page.tsx",
+          "sha256": "302d2ab1501ecf71ab7bbdb84463a4877bc1c943bc6f16473cd6d624211580a6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/hungary/page.tsx",
+          "sha256": "69f7b7be65d06effd3deda2b5067a5e2a3de0565275bbaa8e3d4b1bf14e9072e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CountryElectionHistory.tsx",
+          "sha256": "d4506b22d9c8e2582f4dfeeb6290d2916f7868ba00b944cd4c05d762df2a96bb",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionHistoryFigures.tsx",
+          "sha256": "4e1a7c88a4d7f37752ebc4c2fb6f4f1223fea0b68b17d5edf80b4ffe23e7e068",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionResultDownloads.tsx",
+          "sha256": "b91e7a69b03dab17c11f93eb6c19a2ff2d4cd86492bce9fd8bb55602a40744bc",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionRoundDetails.tsx",
+          "sha256": "cfaffb10ffcf556aa02d7c9665a13f5efe986080e8eb55b96fc27b0ceac07b26",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectoralSystemComparison.tsx",
+          "sha256": "33f168fa4ac91ac09251178b42c56ac24024e7c53b86fdc0590301a6914f51d9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/InstitutionalHistory.tsx",
+          "sha256": "6cb990fa2f28a898972c72fdafe7fbce8211a6003934dd347f9d3168f34cb3e3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ParliamentSeats.tsx",
+          "sha256": "0462f636a27fc9f8c9dba66c5d4104d132e47b81e2675d2882e192316d80f2bf",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalComparisonPicker.tsx",
+          "sha256": "141cd891fb559af77457ba7b1080942e5b613d61e621508853ca64ac1a551db9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalCountryComparison.tsx",
+          "sha256": "69b6a43525250205685ead3da95964afb15586b4e77a47ae13e3752fa767c25b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "6bd9dea8e15204185ecdc9a2d86b2a60603556094c0e7951c2b6dceeb8c5cad3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalHistoryComparison.tsx",
+          "sha256": "72d2cbb2bc098cc72571a0e65285206ed0ac1cb7102fc82632539c5a0adc0606",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryComparison.ts",
+          "sha256": "b486995df2ec9cd2f4fa28f8120754d02b784339c64c924e6c4d46420d9042da",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryEvidence.ts",
+          "sha256": "7aaa14df5a104bbe1f40061630424a0900343dd812a87092f3140d318ac42c2b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryIndex.server.ts",
+          "sha256": "6c2dc47fd998b338954e6a12558b9b9b6a6454030594958a20edd643284c4163",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryObservations.ts",
+          "sha256": "128c096490f12974857f77717f4daa9d290884684d69ee747b2fa65cc8f13ea6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutionalRegistry.ts",
+          "sha256": "c08c9f0433c9e3e488c85d6c078031d95b6c24e4351d6c5570778f79afcdb46a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalBallots.ts",
+          "sha256": "99bdc79da69492a70d1cf3259730cd05820ade7f1a4036f19c54682982feeef0",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalComparisonBallots.ts",
+          "sha256": "8f45214d368e746cecd44cbbebb867fb0e717eb58b903de7faa6c902b9f4c671",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalElectionDirectory.server.ts",
+          "sha256": "cea3bf63590cd6f37b4b3e73c8294bb5289f83af863e1cba98473412948f3bea",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalExplorer.ts",
+          "sha256": "03db77374f11448e6544c4bcec573d426170ec12e34848a2a7f2bed377584e38",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalNational.ts",
+          "sha256": "266707a35c9e74133bb3502b9e5a957b698207e5908d5a91236fbd3e38f1cc87",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalStores.ts",
+          "sha256": "939b3ef29ec75e7365d5df7ba5f2898c327f0779d2adbdf3a402164a261c5da2",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }
