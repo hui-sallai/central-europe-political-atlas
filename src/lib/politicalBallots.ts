@@ -12,7 +12,7 @@ export type BallotResult = {
 export type ElectionBallot = {
   geography: string; category: BallotCategory; label: PoliticalLocalText; voteType: string;
   voteLabel: PoliticalLocalText; shareBasis: "valid_votes" | "ballots_cast" | "candidate_votes" | "points" | "unavailable";
-  totalSeats: number; turnout: number | null; turnoutPublished: boolean; turnoutDefinition: string;
+  totalSeats: number; turnout: number | null; turnoutPublished: boolean; turnoutDefinition: string; turnoutSourceIds: string[];
   turnoutVoters: number | null; printedTurnoutNote: number | null; eligible: number | null; voters: number | null; valid: number | null;
   invalid: number | null; cast: number | null; sourceIds: string[]; results: BallotResult[];
 };
@@ -20,7 +20,7 @@ export type BallotElection = {
   id: string; country: BallotCountrySlug; date: string; dateBasis: string | null; repeatPollDate: string | null; year: number; chamber: string;
   legislatureId: string; systemId: string; totalSeats: number; seatSlots: number | null;
   composition: SeatDetail[]; rules: PoliticalLocalText; ruleDetails: PoliticalLocalText[];
-  territorialTurnout: { geography: string; value: number | null; published: boolean; sourceIds: string[] } | null;
+  territorialTurnout: { geography: string; value: number | null; published: boolean; numerator: number | null; denominator: number | null; definition: string; sourceIds: string[] } | null;
   districts: string[]; sources: PoliticalSource[]; ballots: ElectionBallot[];
 };
 
@@ -185,7 +185,7 @@ function projectBallot(election: ElectionRow, legislature: LegislatureRow, syste
   return {
     ...scoped, geography: turnout.geography, voteType: definition.id, voteLabel: definition.label, shareBasis,
     totalSeats: rows[0].total_seats, turnout: turnout.published_turnout ?? turnout.derived_turnout,
-    turnoutPublished: turnout.published_turnout != null, turnoutDefinition: turnout.turnout_definition,
+    turnoutPublished: turnout.published_turnout != null, turnoutDefinition: turnout.turnout_definition, turnoutSourceIds: sourceIds(turnout),
     printedTurnoutNote: turnout.printed_turnout_not_reproduced ?? null, eligible: turnout.eligible_voters, voters: turnout.voters,
     turnoutVoters: turnout.voters_turned_out ?? turnout.voters, valid: turnout.valid_votes, invalid: turnout.invalid_votes,
     cast: turnout.ballots_cast, sourceIds: [...new Set([...sourceIds(turnout), ...definition.sourceIds, ...results.flatMap(r=>r.sourceIds)])],
@@ -248,7 +248,7 @@ export function politicalBallotElections(country: BallotCountrySlug): BallotElec
       legislatureId: legislature.legislature_id, systemId: system.electoral_system_id, totalSeats: legislature.total_seats,
       seatSlots: chamberSlots, composition: composition(legislature), rules: system.notes, ruleDetails,
       territorialTurnout: aggregate ? {geography: aggregate.geography, value: aggregate.published_turnout ?? aggregate.derived_turnout,
-        published: aggregate.published_turnout != null, sourceIds: sourceIds(aggregate)} : null,
+        published: aggregate.published_turnout != null, numerator: aggregate.voters_turned_out ?? aggregate.voters, denominator: aggregate.eligible_voters, definition: aggregate.turnout_definition, sourceIds: sourceIds(aggregate)} : null,
       districts: districts(legislature), sources, ballots,
     };
   }).sort((a,b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));

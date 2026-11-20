@@ -21,8 +21,8 @@ test('reviewed annual event handoff preserves the country, reference year and de
 });
 test('institutional comparison is collected with the selected dimension',async({page})=>{
  await page.goto('/en/politics/?institution_countries=poland,hungary&institution_dimension=executive#institutions');
- await page.locator('#institutions [data-notebook-add]').click();
- await expect(page.locator('#institutions [data-notebook-add]')).toHaveText('Added');
+ await page.locator('#institutions').getByRole('button', {name:'Add to notebook', exact:true}).click();
+ await expect(page.locator('#institutions').getByRole('button', {name:'Added', exact:true})).toBeVisible();
  await expect.poll(()=>page.evaluate(()=>Object.values(localStorage).some(raw=>raw.includes('institutional_comparison')))).toBe(true);
  await page.goto('/en/notebook/');
  await expect(page.locator('main')).toContainText('Political institutions · poland / hungary');

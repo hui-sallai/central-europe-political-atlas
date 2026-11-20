@@ -33,7 +33,7 @@ test("politics landing lists Serbia as admitted and no longer outside the pipeli
   await page.goto("/en/politics/", { waitUntil: "networkidle" });
   const main = page.locator("main");
   await expect(main).toContainText("Admitted parliamentary election records are available for 10 countries.");
-  await expect(main.locator("[data-political-country=serbia]")).toContainText("2020, 2022, 2023, 2026");
+  await expect(main.locator("[data-political-country=serbia] [data-history-election]")).toHaveText(["2020", "2022", "2023", "2026"]);
   await expect(main.locator("[data-political-country=serbia]")).toContainText("250");
   await expect(main).not.toContainText("including Serbia");
 });
@@ -97,7 +97,7 @@ for (const locale of ["en", "zh-CN"] as const) test(`Serbian 2022: 19 lists and 
 for (const prefix of ["", "/en"]) test(`Serbia election selection, history, turnout and downloads stay aligned (${prefix || "zh"})`, async ({ browser, page }) => {
   const en = prefix === "/en";
   await page.goto(prefix + "/politics/");
-  await expect(page.locator("[data-political-country=serbia]")).toContainText("2020, 2022, 2023, 2026");
+  await expect(page.locator("[data-political-country=serbia] [data-history-election]")).toHaveText(["2020", "2022", "2023", "2026"]);
   const base = "/research-data/political/serbia/";
   const records = await (await page.request.get(base + "election_results.json")).json();
   const turnout = await (await page.request.get(base + "election_turnout.json")).json();

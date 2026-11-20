@@ -23,7 +23,7 @@ for (const prefix of ['/en', '']) {
     await page.goto(prefix + '/countries/croatia/#institutions');
     const timeline = page.locator('#history-croatia');
     await timeline.locator('summary').first().click();
-    const county = timeline.locator('a[href$="el-hr-zupanijski-dom-1993-02-07"]');
+    const county = timeline.locator('a[data-timeline-election="el-hr-zupanijski-dom-1993-02-07"]');
     await expect(county).toContainText('Županijski dom');
     await expect(county).toContainText('63');
     await county.click();

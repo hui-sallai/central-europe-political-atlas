@@ -4484,6 +4484,130 @@
           "classification": "METHODOLOGY_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "historical-election-research-2026-11-20",
+      "status": "owner_approved",
+      "approved_by": "Owner brief of 2026-11-20 for the ten-country historical election explorer and comparative political visualization. Dated election observations, independent ballot and chamber scopes, institutional links, research evidence and presentation only.",
+      "baseline": "600e71a7adbbf7c55a8c5041bf64368ed3fe709f",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-20",
+      "files": [
+        {
+          "path": "src/app/politics-comparison.json/route.ts",
+          "sha256": "ac4461821ddbb1a1952d96ae9cabe1189821b413c6aefea978c0192d19d69bb7",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionDataOrigin.tsx",
+          "sha256": "7c74cf82850f0be61178bf85b7382824ae1036a48cd99801295dc63c1c0634b8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionDirectoryDetails.tsx",
+          "sha256": "a364c7f4197b110d6934fcb8dab0e3b0d2dadba13aa4757e8c5c2e718563bb91",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionHistoryFigures.tsx",
+          "sha256": "2e048bc22ee90ef8d1f4638fc777a40c816842f1e4873455421adf1d6826f4da",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/InstitutionalHistory.tsx",
+          "sha256": "10c213d350e2834a35bad135e61de4139ef05b194c4389126a85c8bb94e4f886",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/NationalComparisonWorkspace.tsx",
+          "sha256": "52816950883b960022542e045d38ffa56d0bf4f5a478ee48686d244c8fdb1837",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ParliamentSeats.tsx",
+          "sha256": "0c515fb422578ddaf4282201421b34fdd5b1bf201b22876456b9a652713f3487",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalBallotExplorer.tsx",
+          "sha256": "b5515303a9b609a7f8d042faabcfbbb31fa6b16d3e38da0192e6a8de02954271",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalComparisonPicker.tsx",
+          "sha256": "1d9ad2acda265f4eca4cd794e70ed2d6b816b5519f95d4eb37962e4d8abf511e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalEconomicContext.tsx",
+          "sha256": "cfbd6a4e4972644550574a3d303cdd52eaae37420bb2ed4e96d3a797abba7788",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalElectionDataLink.tsx",
+          "sha256": "330a64121e60ea0760ce17af0b15296ce8f6016e97618bb1479e8205333d2163",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "0f279df4b3167b53acaf89b20f335fa43f926d317fc02fd93c47be28720522c3",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalHistoryComparison.tsx",
+          "sha256": "15b3b471eb04900cbe6c29f8314695942060398583c70186a35203e87dd1ddad",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalLanding.tsx",
+          "sha256": "187b59fbfc2f4f55569bf2c791ad483bba9dfdef383e38bfae3e37d7c46f8fca",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalPartyHistory.tsx",
+          "sha256": "99c4d52a7d6702af05975beda084399c6e1b79eb78e373a2c9ddc8f47903491c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryComparison.ts",
+          "sha256": "57da748491b95d8cf859f2885d37493acfb18573312969619b2ee81ca7aded4f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryEvidence.ts",
+          "sha256": "d56c0530050cb7feda62a6f1634ce54e10d8a7ddb5859a12e2dc3ea0235a7908",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryIndex.server.ts",
+          "sha256": "45c4beb9d1200c6c0124fbb0f392f48388e487086e383628f26756c524f8d60e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryObservations.ts",
+          "sha256": "a0e60a247bca196f658f2fa5d1f3a54bff81d6bba0abafcc83ec050669c3e675",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalBallots.ts",
+          "sha256": "a43d6ba79b20d18c4072f31c2dfa16fb2bd54b220b8d7a2fdc4818280167a3fa",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalComparisonBallots.ts",
+          "sha256": "f05fb49712c785ada14f985bb4f7d76dcc469fb15b5480c44cb1fdb604653a6b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalElectionDirectory.server.ts",
+          "sha256": "6a77e9dce0561bfe5fc77f4bfe329c76be34dbb7f179c3ac206623c646b5fe71",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

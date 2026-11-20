@@ -4,6 +4,18 @@ import {useLocale} from '@/i18n/LocaleProvider';
 export function ParliamentSeats({election}:{election:PoliticalElectionView}){
  const en=useLocale()==='en',chamber=election.totalSeats,total=chamber??0,turnout=turnoutForDisplay(election),scope=seatMeasureScope(election);
  const parties=election.results.map(r=>({id:r.contestantId,label:r.nativeLabel,seats:seatsWon(r,election)})).filter(r=>r.seats>0);
+ // A mixed-system election attributes some seats outside the active list ballot.
+ if(election.national?.chamberAttribution==='complete' && election.national.seatTiers){
+   for(const b of election.national.ballots.filter(b=>b.definition.id!==election.system.voteType)){
+     const recorded=b.results.map(r=>r.chamberSeats);
+     if(recorded.every(s=>typeof s==='number')){
+       const otherSeats=recorded.reduce<number>((n,s)=>n+(s??0),0);
+       if(otherSeats>0)parties.push({id:b.definition.id,label:b.definition.label[en?'en':'zh-CN'],seats:otherSeats});
+     }
+   }
+   const independent=election.national.seatTiers.independentConstituency;
+   if(independent)parties.push({id:'independent-district-seats',label:en?'Independent district seats':'独立候选人单选区席位',seats:independent});
+ }
  const known=parties.reduce((n,p)=>n+p.seats,0),valid=Number.isInteger(total)&&total>0&&total<=1500&&known<=total;
  const colors=['#475569','#64748b','#0f766e','#b45309','#7c3a5e','#596b32','#706b87','#254c65'];
  const assignments=parties.flatMap((p,i)=>Array.from({length:p.seats},()=>({label:p.label,color:colors[i%colors.length]})));

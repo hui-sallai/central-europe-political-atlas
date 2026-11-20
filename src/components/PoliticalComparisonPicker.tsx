@@ -7,11 +7,12 @@ import {politicalAdmissions} from "@/lib/politicalAdmission";
 import type {BallotElection} from "@/lib/politicalBallots";
 import type {PoliticalCountryView, PoliticalElectionView} from "@/lib/politicalExplorer";
 import {nationalComparisonView, scopedComparisonView, type ComparisonElection, type ComparisonBallot, type ComparisonIndex} from "@/lib/politicalComparisonBallots";
+import {loadElectionHistoryIndex} from "@/lib/electionHistoryComparison";
 import {PoliticalCountryComparison} from "./PoliticalCountryComparison";
 
 type Props = { locale:Locale } & (
   { election:PoliticalElectionView; countries:PoliticalCountryView[]; ballotElection?:never; geography?:never } |
-  { ballotElection:BallotElection; geography?:string; election?:never; countries?:never }
+  { ballotElection:BallotElection; localElections?:BallotElection[]; geography?:string; election?:never; countries?:never }
 );
 const fields=["compare_country","compare_election","compare_ballot"] as const;
 const snapshot=()=>location.search;
@@ -27,16 +28,7 @@ function choose(country:string, election="", ballot="") {
   history.pushState(null,"",url);
   window.dispatchEvent(new Event("electioncomparison"));
 }
-let pending:Promise<ComparisonIndex>|undefined;
-function loadComparison() {
-  pending ??= fetch("/politics-comparison.json").then(r=>{
-    if(!r.ok) throw new Error("Comparison unavailable");
-    return r.json() as Promise<ComparisonIndex>;
-  }).catch(error=>{pending=undefined;throw error;});
-  return pending;
-}
-
-function ScopedDistribution({country,election,ballot,locale}:{country:string;election:ComparisonElection;ballot?:ComparisonBallot;locale:Locale}) {
+export function ScopedDistribution({country,election,ballot,locale}:{country:string;election:ComparisonElection;ballot?:ComparisonBallot;locale:Locale}) {
   const en=locale==="en", title=politicalAdmissions.find(a=>a.slug===country)?.name[locale];
   const format=(n:number|null,dp=2)=>n===null?"—":n.toLocaleString(locale,{maximumFractionDigits:dp});
   const query=new URLSearchParams({election:election.id});
@@ -50,8 +42,8 @@ function ScopedDistribution({country,election,ballot,locale}:{country:string;ele
     {ballot ? <>
       <p className="mt-3 font-semibold">{ballot.label[locale]}</p>
       <p className="text-sm">{ballot.basis[locale]} · {en?"Recorded contestants":"已收录参选项"} {ballot.rows.length}{ballot.seatWinnersOnly && (en?" (seat-winning lists only)":"（仅收录赢得席位的名单）")}</p>
-      <p className="text-sm">{en?"Turnout":"投票率"} · {ballot.turnout===null?(en?"No recorded turnout rate":"未收录投票率"):`${format(ballot.turnout)}% (${ballot.turnoutPublished?(en?"published":"官方公布"):(en?"from official counts":"按官方人数计算")})`}</p>
-      <p className="text-sm">{en?"Seat-share denominator":"席位占比分母"} · {format(ballot.seatScope)} {en?"seats":"席"}</p>
+      <p className="text-sm">{ballot.turnoutScope?.[locale]??(en?"Turnout":"投票率")} · {ballot.turnout===null?(en?"No recorded turnout rate":"未收录投票率"):`${format(ballot.turnout)}% (${ballot.turnoutPublished?(en?"published":"官方公布"):(en?"from official counts":"按官方人数计算")})`}</p>
+      <p className="text-sm">{ballot.seatScopeLabel?.[locale]??(en?"Seat-share denominator":"席位占比分母")} · {format(ballot.seatScope)} {en?"seats":"席"}</p>
       <details className="mt-3"><summary>{en?"Vote and seat distribution":"得票与席位分布"}</summary>
       <div className="overflow-x-auto" role="region" tabIndex={0} aria-label={title+' '+election.chamber}>
         <table className="w-full text-left text-sm"><thead><tr><th scope="col">{en?"Recorded label":"收录名称"}</th>
@@ -71,30 +63,42 @@ export function PoliticalComparisonPicker(props:Props) {
   const {locale}=props,en=locale==="en";
   const query=new URLSearchParams(useSyncExternalStore(subscribe,snapshot,serverSnapshot));
   const primary=props.ballotElection?.country??props.election?.country??"germany";
-  const countries=politicalAdmissions.filter(a=>a.state==="admitted"&&a.politicsRoute!==false&&a.slug!==primary);
+  const countries=politicalAdmissions.filter(a=>a.state==="admitted"&&a.politicsRoute!==false&&(a.slug!==primary||props.ballotElection));
   const other=query.get(fields[0])??props.countries?.[0]?.slug??"";
   const explicitYear=query.get(fields[1]),explicitScope=query.get(fields[2]);
   const legacy=props.countries?.find(c=>c.slug===other);
   const [index,setIndex]=useState<ComparisonIndex|null>(null);
   const [failed,setFailed]=useState(false),[attempt,setAttempt]=useState(0);
-  const needsIndex=Boolean(other&&!legacy&&countries.some(c=>c.slug===other));
+  const sameCountry=Boolean(props.ballotElection && primary===other);
+  const needsIndex=Boolean(other&&!legacy&&!sameCountry&&countries.some(c=>c.slug===other));
   useEffect(()=>{
     if(!needsIndex||index)return;
     let active=true;
-    loadComparison().then(data=>{if(active)setIndex(data);},()=>{if(active)setFailed(true);});
+    loadElectionHistoryIndex().then(data=>{if(active)setIndex(data);},()=>{if(active)setFailed(true);});
     return ()=>{active=false;};
   },[needsIndex,index,attempt]);
-  const compact=index?.[other]??[];
+  const local = sameCountry && props.ballotElection
+    ? props.localElections?.filter(item=>item.id!==props.ballotElection?.id)??[] : [];
+  const compact = sameCountry ? local.map(scopedComparisonView) : index?.[other]??[];
   const options=legacy?legacy.elections.map(e=>({id:e.electionId,date:e.date,chamber:e.chamber??""})):compact;
   const latestDate=options.map(e=>e.date).sort().at(-1);
   const latest=options.filter(e=>e.date===latestDate);
-  const electionId=explicitYear??(latest.length===1?latest[0].id:"");
+  const electionId=explicitYear??(!sameCountry&&latest.length===1?latest[0].id:"");
   const b=compact.find(e=>e.id===electionId);
   const legacyElection=legacy?.elections.find(e=>e.electionId===electionId);
-  const selectedBallot=explicitScope??(b?.ballots.find(v=>v.id==="national")?.id??(b?.ballots.length===1?b.ballots[0].id:""));
+  const matchingScope = sameCountry ? b?.ballots.find(v=>v.id===props.geography)?.id : undefined;
+  const selectedBallot=explicitScope??matchingScope??(b?.ballots.find(v=>v.id==="national")?.id??(b?.ballots.length===1?b.ballots[0].id:""));
   const peer=b?.ballots.find(v=>v.id===selectedBallot);
   const a=b?(props.election?nationalComparisonView(props.election):scopedComparisonView(props.ballotElection)):null;
   const current=a?.ballots.find(v=>v.id===props.geography)??(props.geography?undefined:a?.ballots.find(v=>v.id==="national")??(a?.ballots.length===1?a.ballots[0]:undefined));
+  const original = props.ballotElection?.ballots.find(v => v.geography === current?.id);
+  const peerElection = local.find(e => e.id === b?.id);
+  const peerBallot = peerElection?.ballots.find(v => v.geography === peer?.id);
+  const sameDefinition = original && peerBallot && props.ballotElection?.chamber === peerElection?.chamber
+    && original.geography === peerBallot.geography && original.voteType === peerBallot.voteType
+    && original.turnoutDefinition && original.turnoutDefinition === peerBallot.turnoutDefinition;
+  const turnoutDifference = sameDefinition && original.turnout !== null && peerBallot.turnout !== null
+    ? peerBallot.turnout - original.turnout : null;
   return <div className="my-4" data-comparison-picker>
     {props.ballotElection&&<h2 className="mb-2 text-xl font-semibold">{en?"Compare parliamentary elections":"比较各国议会选举"}</h2>}
     <div className="flex flex-wrap items-end gap-3">
@@ -114,6 +118,9 @@ export function PoliticalComparisonPicker(props:Props) {
     {((other&&!countries.some(c=>c.slug===other))||(options.length>0&&explicitYear&&!options.some(e=>e.id===explicitYear))||(b&&explicitScope&&!peer))&&
       <p role="status">{en?"The linked selection has no matching admitted record. Choose another option.":"收录记录中没有此链接指定的选项，请重新选择。"}</p>}
     {props.election&&legacyElection&&<PoliticalCountryComparison a={props.election} b={legacyElection} locale={locale}/>}
+    {sameCountry && b && <p className="mt-3 text-sm" data-same-country-turnout>{turnoutDifference === null
+      ? (en ? "A turnout difference requires the same chamber, ballot population and documented turnout definition." : "投票率差值要求议院、选票人群和已记载的投票率定义一致。")
+      : (en ? "Turnout difference" : "投票率差值") + " (" + b.date + " − " + props.ballotElection?.date + ") · " + turnoutDifference.toLocaleString(locale,{maximumFractionDigits:2,signDisplay:"exceptZero"}) + (en ? " pp" : " 个百分点")}</p>}
     {a&&b&&<div className="mt-4 grid gap-5 lg:grid-cols-2" data-scoped-comparison>
       <ScopedDistribution country={primary} election={a} ballot={current} locale={locale}/>
       <ScopedDistribution country={other} election={b} ballot={peer} locale={locale}/>

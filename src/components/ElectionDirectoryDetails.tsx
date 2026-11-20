@@ -13,8 +13,16 @@ export function RegistryDate({date, awaitingConfirmation, en}: {date:string; awa
 
 export function ElectionDirectoryDetails({country, locale}: {country: ElectionDirectoryCountry; locale: Locale}) {
   const en = locale === "en";
+  const resultLabels = {
+    votes: en ? "votes" : "票数", seats: en ? "seats" : "席位",
+    turnout: en ? "turnout" : "投票率", points: en ? "ranking points" : "排序积分",
+  };
   return <details className="mt-2 text-sm">
     <summary className="cursor-pointer font-semibold">{en ? "Electoral rules and source coverage" : "选举规则与来源覆盖"}</summary>
+    <p className="mt-2">{en ? "Recorded in this archive" : "历届收录指标"} · {country.availableResults.map(key => resultLabels[key]).join(en ? ", " : "、")}</p>
+    <p>{en ? "Elections linked to their rules" : "已关联当届选举规则"} · {country.ruleRecords}/{country.history.length}
+      {" · "}{en ? "Linked to a dated institutional period" : "已关联有日期的制度时期"} · {country.datedPeriods}/{country.history.length}</p>
+    <Link className="underline" href={localizedRoute("/countries/"+country.slug+"/",locale)+"#history-"+country.slug}>{en ? "Open the institutional timeline" : "查看制度沿革"}</Link>
     {country.latest.map(election => <div key={election.id} className="space-y-2 py-2">
       <p><strong>{election.chamber}</strong> · {election.rules[locale]}</p>
       {election.composition.length > 0 && <ul className="list-disc pl-5">

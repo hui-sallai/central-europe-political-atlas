@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 historical parliamentary election research — 2026-11-20
+
+- Open admitted elections by chamber and year, inspect dated turnout and seat composition, and save or export a historical comparison across selected countries. Historical ballots, institutional rules and official sources accompany each observation.
+
 ### v2.0 Hungarian parliamentary elections 2014 and 2018, Austrian and Romanian 2024 metadata — 2026-11-20
 
 - Add Hungary's National Assembly elections of 6 April 2014 and 8 April 2018 (all 199 seats each, under the 2011 electoral act): party-list and nationality-list votes as separate ballots, registers, participation, ballot counts and national list seats from the National Election Commission's national-list minutes (2018: the minutes printed as the annex to the Kúria's review decisions; 2014: the same minutes published in minutes form with the archive's seat calculation), and district seats per list from the election office's composition pages. Thresholds, the nationality preferential quota and the highest-averages allocation recompute every list seat (2018: 42/25/12/7/6 plus one German preferential seat; 2014: 37/28/23/5), and every year comes to 93 + 106 = 199. In 2018 one district seat was won by an independent candidate: it is counted and attributed to no list, and the candidate is not named. One 2014 list name that begins with a person's name is stored without it. No party is linked across elections. 2022 and 2026 are unchanged.

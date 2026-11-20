@@ -13,6 +13,7 @@ import type { Observation } from "@/types/Observation";
 import type { Indicator } from "@/types/Indicator";
 import type { Event } from "@/types/Event";
 import type { EvidenceDraft } from "@/lib/researchNotebook";
+import { PoliticalElectionDataLink } from "./PoliticalElectionDataLink";
 import { NotebookCollect } from "./NotebookCollect";
 import { ResearchTimeSeriesChart, monthIndex, indexToPeriod } from "./ResearchTimeSeriesChart";
 import { PoliticalElectionMacroTable } from "./PoliticalElectionMacroTable";
@@ -102,6 +103,7 @@ export function PoliticalEconomicContext({ election, comparison, inputs, locale,
     <div className="grid gap-4 md:grid-cols-2">{selectedElections.map((e,i)=>{const p=referencePoints[i];return <article key={e.electionId} className="rounded border border-[var(--line)] p-4" data-context-election={e.electionId}>
       <h4 className="font-semibold">{comparison?(i===0?"A · ":"B · "):""}{localeDate(e.date,locale)}</h4><p className="text-sm">{en?"Published turnout":"官方公布投票率"}: {format(e.publishedTurnout)}{e.publishedTurnout===null?"":"%"} · {e.year===2021?(en?"Corrected final after 2024 Berlin repeat":"2024年柏林部分重选后的更正最终结果"):e.resultVintage}</p>
       <p className="mt-2 text-sm">{en?"Reference range":"参照范围"}: {ranges[i].from}–{ranges[i].to}</p>
+      {selectedId && <PoliticalElectionDataLink election={{country,id:e.electionId,date:e.date,chamber:e.chamber}} locale={locale} frequency={frequency} indicator={selectedId} range={ranges[i]}/>}
       <p className="metric-number mt-3">{name??"—"}: {p&&contextPublished(p)?format(p.value):"—"} {p?unit(p.unit):""}</p><p className="text-xs">{en?"Exact end-of-range observation period (no fallback)":"范围末端的精确观测期（不回退替代）"}: {ranges[i].to.slice(0,frequency==="annual"?4:7)}</p>
       {p?<><p className="text-xs">{status(p)} · {timing(p,e)}</p>{p.sourceUrl?<a className="text-xs underline" href={p.sourceUrl}>{p.source}</a>:null}</>:<p className="text-xs">{en?"No matching observation at that reference period.":"该参照期没有匹配观测。"}</p>}
       <p className="mt-2 text-xs">{en?"Published observations / verified events":"已发布观测／已核验事件"}: {selections[i].filter(contextPublished).length} / {eventsByElection[i].length}</p>

@@ -4,9 +4,12 @@ import Link from "next/link";
 import { useSyncExternalStore } from "react";
 import { localeNumber, localizedRoute, type Locale } from "@/i18n/config";
 import { politicalAdmissions } from "@/lib/politicalAdmission";
-import type { BallotCategory, BallotCountrySlug, BallotElection, ElectionBallot } from "@/lib/politicalBallots";
+import type { BallotCategory, BallotCountrySlug, BallotElection } from "@/lib/politicalBallots";
 import { electionInstitutionalContext, institutionalPeriods, institutionalTimeline, text } from "@/lib/institutionalRegistry";
 import { PoliticalComparisonPicker } from "./PoliticalComparisonPicker";
+import { ballotHistoryObservation } from "@/lib/electionHistoryObservations";
+import { ElectionHistoryFigures } from "./ElectionHistoryFigures";
+import { PoliticalElectionDataLink } from "./PoliticalElectionDataLink";
 import { BallotResults } from "./PoliticalBallotResults";
 import { PoliticalBallotExport } from "./PoliticalBallotExport";
 import { BarMeter } from "./ResearchCharts";
@@ -58,20 +61,6 @@ function HistoricalRules({ election, locale }: { election: BallotElection; local
   </section>;
 }
 
-function TurnoutHistory({ elections, election, ballot, locale }: { elections: BallotElection[]; election: BallotElection; ballot: ElectionBallot; locale: Locale }) {
-  const en = locale==="en";
-  const rows = elections.filter(e=>e.chamber===election.chamber).map(e=>({e,b:e.ballots.find(b=>b.geography===ballot.geography && b.category===ballot.category)}));
-  return <details className="editorial-panel p-4" data-ballot-turnout-history>
-    <summary>{en?"Turnout history":"历届投票率"} · {ballot.label[locale]}</summary>
-    <p className="mt-2 text-sm">{en?"Each bar uses the electorate defined for that election and ballot. District boundaries and electorates can change.":"各条形使用当届选举、该张选票所定义的选民范围。历届选区边界及选民范围可能不同。"}</p>
-    <ul className="mt-2 max-w-2xl space-y-2">{rows.map(({e,b})=><li key={e.id} className="grid grid-cols-[5rem_1fr] gap-2 text-sm">
-      {b ? <button className="text-left underline" onClick={()=>choose(e.id,b.geography)}>{e.year}</button> : <span>{e.year}</span>}
-      {b?.turnout != null ? <div>{localeNumber(b.turnout,locale)}% · {b.turnoutPublished ? (en?"Published":"公布值") : (en?"Derived from counts":"按人数计算")}
-        <BarMeter value={b.turnout} label={e.year+" · "+ballot.label[locale]+" (%)"}/></div> : <span>{en?"No verified rate for this scope":"此范围无已核实的比率"}</span>}
-    </li>)}</ul>
-  </details>;
-}
-
 export function PoliticalBallotExplorer({ country, elections, locale }: { country: BallotCountrySlug; elections: BallotElection[]; locale: Locale }) {
   const query=useSyncExternalStore(subscribe,currentQuery,serverQuery);
   const params=new URLSearchParams(query);
@@ -99,6 +88,8 @@ export function PoliticalBallotExplorer({ country, elections, locale }: { countr
     const sameBallot=next.ballots.find(b=>b.geography===ballot?.geography && b.voteType===ballot.voteType);
     choose(next.id,sameBallot?.geography);
   }
+  const chamberHistory = elections.filter(e=>e.chamber===election?.chamber);
+  const position = chamberHistory.findIndex(e=>e.id===election?.id);
   const chamberSeats=election?.seatSlots??election?.totalSeats;
   const prefix=localizedRoute("/countries/"+country+"/",locale);
   return <main className="page-shell min-w-0 space-y-6" data-political-ballot-explorer={country}>
@@ -124,6 +115,10 @@ export function PoliticalBallotExplorer({ country, elections, locale }: { countr
         {election.ballots.length>1 && <label className="min-w-0">{t("Constituency or ballot","选区或选票")}<select className="field-control block w-full" data-ballot-scope value={ballot?.geography??""} onChange={e=>choose(election.id,e.target.value)}>
           {!ballot && <option value="">{t("Choose a ballot","选择选票")}</option>}{available.map(b=><option key={b.geography} value={b.geography}>{b.label[locale]}</option>)}</select></label>}
       </div>
+      {chamberHistory.length>1 && <nav aria-label={t("Consecutive elections for this chamber","本议院相邻选举")} className="flex flex-wrap gap-4 text-sm" data-election-step>
+        {[{item:chamberHistory[position-1],label:t("Previous election","上一届选举")},{item:chamberHistory[position+1],label:t("Next election","下一届选举")}].filter(x=>x.item).map(({item,label})=>
+          <button type="button" key={item.id} className="underline" onClick={()=>changeElection(item)}>{label} · {item.date}</button>)}
+      </nav>}
       {invalid && <p role="alert">{t("This ballot is not recorded for the selected election. Choose one of the available ballots.","本届选举没有此选票记录，请选择已收录的选票。")} <button className="underline" onClick={()=>choose(election.id)}>{t("Reset ballot selection","重置选票选择")}</button></p>}
       <section data-ballot-composition className="min-w-0"><h2 className="text-xl font-semibold">{t("Chamber seat distribution","全院席位分布")} · {election.year}</h2>
         <p className="mt-1 text-sm">{election.chamber} · {election.totalSeats} {t("allocated seats","个已分配席位")}{election.seatSlots!==null && election.seatSlots>election.totalSeats && <> · {election.seatSlots-election.totalSeats} {t("unfilled seats","个空缺席位")}</>}</p>
@@ -140,8 +135,11 @@ export function PoliticalBallotExplorer({ country, elections, locale }: { countr
           {ballot.printedTurnoutNote!==null && <p>{t("Unreproduced turnout printed in source","原件所印、未能复算的投票率")} · {ballot.printedTurnoutNote}%</p>}
         </div>
         <BallotResults election={election} ballot={ballot} locale={locale}/>
-        <TurnoutHistory election={election} elections={elections} ballot={ballot} locale={locale}/>
       </> : !invalid && <p>{t("Select a constituency or ballot to inspect its contestants, vote results and turnout.","选择选区或选票，即可查看相应的参选者、票数和投票率。")}</p>}
+      {!invalid && <div className="editorial-panel p-4" data-ballot-turnout-history>
+        <ElectionHistoryFigures selected={election.id} rows={chamberHistory.map(e=>ballotHistoryObservation(e,ballot,locale))}
+          locale={locale} select={id=>changeElection(elections.find(e=>e.id===id))}/>
+      </div>}
       <HistoricalRules election={election} locale={locale}/>
       <details className="editorial-panel p-4" data-ballot-sources><summary>{t("Official sources and observation definitions","官方来源与观测定义")} · {election.sources.length}</summary>
         <p className="mt-2 text-sm">{election.systemId} · {election.legislatureId}</p>
@@ -150,7 +148,8 @@ export function PoliticalBallotExplorer({ country, elections, locale }: { countr
         <ul className="mt-3 space-y-2 break-words text-sm">{election.sources.map(s=><li key={s.id}><a href={s.url} className="underline">{s.title}</a>{s.sha256 && <small className="ml-2 break-all">SHA-256 · {s.sha256}</small>}</li>)}</ul></details>
       {!invalid && <PoliticalBallotExport election={election} ballot={ballot} locale={locale}/>}
       <Link href={workspaceToolLink("/data/",locale,{tab:"compare",compare_countries:country,compare_frequency:"annual",comparison_indicator:"annual:real_gdp_growth",compare_from:election.year-3,compare_to:election.year,comparison_mode:"side_by_side"})} className="inline-block underline">{t("Explore the historical economic context","查看历史经济背景")} · {election.year-3}–{election.year}</Link>
-      {!invalid && <PoliticalComparisonPicker ballotElection={election} geography={ballot?.geography} locale={locale}/>}
+      <PoliticalElectionDataLink election={{country, id:election.id, date:election.date, chamber:election.chamber}} locale={locale}/>
+      {!invalid && <PoliticalComparisonPicker ballotElection={election} localElections={elections} geography={ballot?.geography} locale={locale}/>}
     </>}
   </main>;
 }
