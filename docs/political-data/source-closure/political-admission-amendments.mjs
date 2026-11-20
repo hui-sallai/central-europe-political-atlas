@@ -114,6 +114,8 @@ export const POLITICAL_ADMISSIONS = {
   // Same brief, answer "Austria: read RIS notice": the 2024 polling day sourced to BGBl. II Nr. 169/2024 (metadata only).
   'austria-nationalrat-2024-polling-day': { approved_on: '2026-11-20', country: 'austria', gate_record: 'docs/political-data/austria_nationalrat2024_polling_day_admission.json', paths: AUSTRIAN_PATHS },
   // Same brief, answer "Romania: cite IPU Parline": secondary explanation of the two unfilled 2024 Senate seats (metadata only).
+  // Owner brief 2026-11-20 (gap closure) and answer "National figures per tier": Hungary 2010 (386 seats, two rounds, three tiers).
+  'hungary-ogy-2010': { approved_on: '2026-11-20', country: 'hungary', gate_record: 'docs/political-data/hungary_ogy2010_admission.json', paths: HUNGARIAN_PATHS },
   'romania-senate-2024-vacancy-note': { approved_on: '2026-11-20', country: 'romania', gate_record: 'docs/political-data/romania_senate2024_vacancy_note_admission.json', paths: ROMANIAN_PATHS },
   'austria-nationalrat-2006-2008': { approved_on: '2026-11-19', country: 'austria', gate_record: 'docs/political-data/austria_nationalrat2006_2008_admission.json', paths: AUSTRIAN_PATHS },
 };

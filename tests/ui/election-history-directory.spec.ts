@@ -12,7 +12,7 @@ for (const prefix of ["", "/en"]) {
     const slovakia = directory.locator('[data-political-country="slovakia"]');
     await expect(slovakia.locator("[data-election-year-links] a")).toHaveText(["2023"]);
     const hungary = directory.locator('[data-political-country="hungary"]');
-    await expect(hungary.locator("[data-election-year-links] a")).toHaveText(["2014","2018","2022","2026"]);
+    await expect(hungary.locator("[data-election-year-links] a")).toHaveText(["2010","2014","2018","2022","2026"]); // 2010 admitted 2026-11-20
     const romania = directory.locator('[data-political-country="romania"]');
     await expect(romania.locator("[data-election-year-links] h3")).toHaveText(["Camera Deputaților", "Senat"]);
     const early = hungary.locator('[data-history-election="el-hu-ogy-2014-04-06"]');

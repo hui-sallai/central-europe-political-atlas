@@ -12,7 +12,7 @@ export type PoliticalStores = {
   turnout: Array<{ election_id: string; vote_type?: string; eligible_voters: number | null; voters: number | null; valid_second_votes?: number | null; invalid_second_votes?: number | null; valid_votes?: number | null; invalid_votes?: number | null; ballots_cast?: number | null; voters_turned_out?: number; published_turnout: number | null; turnout_definition?: string | null; turnout_basis?: TurnoutBasis; provenance?: Provenance[] }>;
   results: Array<{ election_id: string; contestant_ref: string; vote_type?: string; second_votes?: number | null; votes?: number | null; published_vote_share: number | null; seats: number | null; constituency_seats?: number | null; whole_chamber_seats?: number | null; provenance: Provenance[] }>;
   contestants: Array<{ contestant_id: string; historical_display_label: string; contestant_kind?: string; lead_party_id?: string | null }>;
-  legislatures: Array<{ legislature_id: string; total_seats: number | null; seat_attribution?: "complete" | "none"; national_list_seats?: number | null; constituency_seats?: number | null; /** Constituency seats won by independent candidates, attributed to no list (counted, never named). */ independent_constituency_seats?: number; provenance?:Provenance[] }>;
+  legislatures: Array<{ legislature_id: string; total_seats: number | null; seat_attribution?: "complete" | "none"; national_list_seats?: number | null; constituency_seats?: number | null; /** Constituency seats won by independent candidates, attributed to no list (counted, never named). */ independent_constituency_seats?: number; /** Constituency seats won outside any list row, by kind (e.g. Hungary 2010: joint candidates without a list, an independent). */ constituency_seats_outside_lists?: { label: string; kind: string; seats: number }[]; provenance?:Provenance[] }>;
   systems: Array<{ electoral_system_id: string; system_family: string; allocation_method: string; base_seats: number | null; vote_type: string; vote_definitions?: VoteDefinition[]; national_rules?: NationalRules; notes: PoliticalLocalText; provenance: Provenance[] }>;
   sources: Array<{ source_id: string; dataset: string; url: string; raw_sha256?: string; retrieved_at?: string; licence_url?: string; institution?:string }>;
 };
@@ -39,9 +39,14 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
     if(complete){
       const tiers=[legislature.national_list_seats,legislature.constituency_seats,legislature.total_seats];
       if(tiers.some(v=>v===null||v===undefined||!Number.isSafeInteger(v)||v<0)||legislature.national_list_seats!+legislature.constituency_seats!!==legislature.total_seats)throw Error("Seat tiers do not make up the chamber");
-      for(const r of rows)if([r.seats,r.constituency_seats,r.whole_chamber_seats].some(v=>v===null||v===undefined||!Number.isSafeInteger(v)||v<0)||r.seats!+r.constituency_seats!!==r.whole_chamber_seats)throw Error("Incomplete whole-chamber attribution");
-      const total=(k:"seats"|"constituency_seats"|"whole_chamber_seats")=>rows.reduce((n,r)=>n+(r[k]??0),0);
-      const independent=legislature.independent_constituency_seats??0;
+      // Votes-only ballots (seat scope "unavailable", e.g. Hungary 2010 single-member candidate votes) carry no seats.
+      const attributed=rows.filter(r=>definitions.find(d=>d.id===(r.vote_type??system.vote_type))?.seatScope!=="unavailable");
+      for(const r of rows)if(!attributed.includes(r)&&[r.seats,r.constituency_seats,r.whole_chamber_seats].some(v=>v!==null&&v!==undefined))throw Error("Seats on a votes-only ballot");
+      for(const r of attributed)if([r.seats,r.constituency_seats,r.whole_chamber_seats].some(v=>v===null||v===undefined||!Number.isSafeInteger(v)||v<0)||r.seats!+r.constituency_seats!!==r.whole_chamber_seats)throw Error("Incomplete whole-chamber attribution");
+      const total=(k:"seats"|"constituency_seats"|"whole_chamber_seats")=>attributed.reduce((n,r)=>n+(r[k]??0),0);
+      const outside=legislature.constituency_seats_outside_lists??[];
+      if(outside.some(o=>!o.label||!o.kind||!Number.isSafeInteger(o.seats)||o.seats<=0))throw Error("Outside-list seats are not counts");
+      const independent=(legislature.independent_constituency_seats??0)+outside.reduce((n,o)=>n+o.seats,0);
       if(!Number.isSafeInteger(independent)||independent<0)throw Error("Independent seats are not a count");
       if(total("seats")!==legislature.national_list_seats||total("constituency_seats")+independent!==legislature.constituency_seats||total("whole_chamber_seats")+independent!==legislature.total_seats)throw Error("Attributed seats do not reconcile with the chamber");
     }else if(rows.some(r=>(r.constituency_seats??null)!==null||(r.whole_chamber_seats??null)!==null))throw Error("Whole-chamber seats without complete attribution");
@@ -83,7 +88,7 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
       ...((election as { result_coverage?: string }).result_coverage === "seat_winning_lists_only" ? { resultCoverage: "seat_winning_lists_only" as const } : {}),
       national:{chamber:election.chamber,dateEnd:election.date_end??null,vintage:election.result_vintage,activeVote:primary.definition,ballots,
         turnout:counts.turnout_basis??{numerator:country.slug==="germany"?"voters":"unknown",denominator:country.slug==="germany"?"registered_electorate":"unknown",definition:counts.turnout_definition??null,sourceIds:(counts.provenance??[]).map(p=>p.source_id)},
-        chamberAttribution:complete?"complete":"none",seatTiers:complete?{nationalList:legislature.national_list_seats!,constituency:legislature.constituency_seats!,...(legislature.independent_constituency_seats?{independentConstituency:legislature.independent_constituency_seats}:{})}:null,
+        chamberAttribution:complete?"complete":"none",seatTiers:complete?{nationalList:legislature.national_list_seats!,constituency:legislature.constituency_seats!,...(legislature.independent_constituency_seats?{independentConstituency:legislature.independent_constituency_seats}:{}),...(legislature.constituency_seats_outside_lists?.length?{outsideListConstituency:legislature.constituency_seats_outside_lists}:{})}:null,
         rules:system.national_rules??{nationalAllocation:system.allocation_method,districtAllocation:null,thresholds:null,minorityRepresentation:null,totalSeatsDefinition:null,sourceIds:system.provenance.map(p=>p.source_id)}},
     };
   });

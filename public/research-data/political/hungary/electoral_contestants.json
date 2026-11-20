@@ -1,5 +1,1057 @@
 [
   {
+    "contestant_id": "ct-hu-ogy10-t01",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "coalition",
+    "native_list_type": "közös területi lista",
+    "kind_basis": "threshold page tables 'Önálló területi listát állító pártok' and 'Közös területi listát állító pártok'",
+    "list_number": 1,
+    "list_number_basis": "order of the threshold page (by votes); the archive prints no national list identifier",
+    "minutes_list_id": null,
+    "registered_label_native": "FIDESZ-KDNP",
+    "historical_display_label": "FIDESZ-KDNP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "national_list_label": "FIDESZ KDNP",
+    "lead_party_id": null,
+    "party_relation_status": "organisations_printed_in_the_list_name_only_no_vote_or_seat_attribution",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l120.htm",
+        "source_record_id": "threshold",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-t02",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló területi lista",
+    "kind_basis": "threshold page tables 'Önálló területi listát állító pártok' and 'Közös területi listát állító pártok'",
+    "list_number": 2,
+    "list_number_basis": "order of the threshold page (by votes); the archive prints no national list identifier",
+    "minutes_list_id": null,
+    "registered_label_native": "MSZP",
+    "historical_display_label": "MSZP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "national_list_label": "MSZP",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l120.htm",
+        "source_record_id": "threshold",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-t03",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló területi lista",
+    "kind_basis": "threshold page tables 'Önálló területi listát állító pártok' and 'Közös területi listát állító pártok'",
+    "list_number": 3,
+    "list_number_basis": "order of the threshold page (by votes); the archive prints no national list identifier",
+    "minutes_list_id": null,
+    "registered_label_native": "Jobbik",
+    "historical_display_label": "Jobbik",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "national_list_label": "Jobbik",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l120.htm",
+        "source_record_id": "threshold",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-t04",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló területi lista",
+    "kind_basis": "threshold page tables 'Önálló területi listát állító pártok' and 'Közös területi listát állító pártok'",
+    "list_number": 4,
+    "list_number_basis": "order of the threshold page (by votes); the archive prints no national list identifier",
+    "minutes_list_id": null,
+    "registered_label_native": "LMP",
+    "historical_display_label": "LMP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "national_list_label": "LEHET MÁS A POLITIKA",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l120.htm",
+        "source_record_id": "threshold",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-t05",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló területi lista",
+    "kind_basis": "threshold page tables 'Önálló területi listát állító pártok' and 'Közös területi listát állító pártok'",
+    "list_number": 5,
+    "list_number_basis": "order of the threshold page (by votes); the archive prints no national list identifier",
+    "minutes_list_id": null,
+    "registered_label_native": "MDF",
+    "historical_display_label": "MDF",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "national_list_label": "MDF",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l120.htm",
+        "source_record_id": "threshold",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-t06",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló területi lista",
+    "kind_basis": "threshold page tables 'Önálló területi listát állító pártok' and 'Közös területi listát állító pártok'",
+    "list_number": 6,
+    "list_number_basis": "order of the threshold page (by votes); the archive prints no national list identifier",
+    "minutes_list_id": null,
+    "registered_label_native": "CM",
+    "historical_display_label": "CM",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "national_list_label": null,
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l120.htm",
+        "source_record_id": "threshold",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-t07",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló területi lista",
+    "kind_basis": "threshold page tables 'Önálló területi listát állító pártok' and 'Közös területi listát állító pártok'",
+    "list_number": 7,
+    "list_number_basis": "order of the threshold page (by votes); the archive prints no national list identifier",
+    "minutes_list_id": null,
+    "registered_label_native": "MUNKÁSPÁRT",
+    "historical_display_label": "MUNKÁSPÁRT",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "national_list_label": null,
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l120.htm",
+        "source_record_id": "threshold",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-t08",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló területi lista",
+    "kind_basis": "threshold page tables 'Önálló területi listát állító pártok' and 'Közös területi listát állító pártok'",
+    "list_number": 8,
+    "list_number_basis": "order of the threshold page (by votes); the archive prints no national list identifier",
+    "minutes_list_id": null,
+    "registered_label_native": "MSZDP",
+    "historical_display_label": "MSZDP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "national_list_label": null,
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l120.htm",
+        "source_record_id": "threshold",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-t09",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló területi lista",
+    "kind_basis": "threshold page tables 'Önálló területi listát állító pártok' and 'Közös területi listát állító pártok'",
+    "list_number": 9,
+    "list_number_basis": "order of the threshold page (by votes); the archive prints no national list identifier",
+    "minutes_list_id": null,
+    "registered_label_native": "ÖP",
+    "historical_display_label": "ÖP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "national_list_label": null,
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l120.htm",
+        "source_record_id": "threshold",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-t10",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "party_list",
+    "native_list_type": "önálló területi lista",
+    "kind_basis": "threshold page tables 'Önálló területi listát állító pártok' and 'Közös területi listát állító pártok'",
+    "list_number": 10,
+    "list_number_basis": "order of the threshold page (by votes); the archive prints no national list identifier",
+    "minutes_list_id": null,
+    "registered_label_native": "MIÉP",
+    "historical_display_label": "MIÉP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "national_list_label": null,
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l120.htm",
+        "source_record_id": "threshold",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native",
+          "contestant_kind"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c01",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "FIDESZ-KDNP",
+    "historical_display_label": "FIDESZ-KDNP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c02",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "MSZP",
+    "historical_display_label": "MSZP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c03",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "Jobbik",
+    "historical_display_label": "Jobbik",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c04",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "LMP",
+    "historical_display_label": "LMP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c05",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "CM",
+    "historical_display_label": "CM",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c06",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "FIDESZ-KDNP-MVMP",
+    "historical_display_label": "FIDESZ-KDNP-MVMP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c07",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "FKgP",
+    "historical_display_label": "FKgP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c08",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "independent_candidates_aggregate",
+    "native_list_type": "független jelöltek",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "Független",
+    "historical_display_label": "Független",
+    "display_label_rule": "aggregate of independent candidates; names not stored",
+    "lead_party_id": null,
+    "party_relation_status": "not_applicable",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c09",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "MCF",
+    "historical_display_label": "MCF",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c10",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "MDF",
+    "historical_display_label": "MDF",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c11",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "MDF-ÖSSZEFOGÁS",
+    "historical_display_label": "MDF-ÖSSZEFOGÁS",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c12",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "MDF-SZDSZ",
+    "historical_display_label": "MDF-SZDSZ",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c13",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "MESZ",
+    "historical_display_label": "MESZ",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c14",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "MIÉP",
+    "historical_display_label": "MIÉP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c15",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "MSZDP",
+    "historical_display_label": "MSZDP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c16",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "MUNKÁSPÁRT",
+    "historical_display_label": "MUNKÁSPÁRT",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c17",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "ÖP",
+    "historical_display_label": "ÖP",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c18",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "SOMOGYÉRT",
+    "historical_display_label": "SOMOGYÉRT",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c19",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": null,
+    "historical_display_label": "…-KISGAZDA",
+    "display_label_rule": "label as printed, without the personal name it contains",
+    "label_basis": "partial_personal_name_omitted",
+    "printed_label_sha256": "a83c8103e63a5347c648cf34a3f021d8d8034d41881aaa50ed78df75ad6f79bf",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "contestant_id": "ct-hu-ogy10-c20",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-2010-04-11",
+    "contestant_kind": "nominating_organisation_candidates",
+    "native_list_type": "egyéni jelöltet állító szervezet",
+    "kind_basis": "national totals page, single-member candidates column, summed per nominating organisation by the office",
+    "list_number": null,
+    "minutes_list_id": null,
+    "registered_label_native": "ZÖLD BALOLDAL",
+    "historical_display_label": "ZÖLD BALOLDAL",
+    "display_label_rule": "abbreviation as printed on the national pages",
+    "lead_party_id": null,
+    "party_relation_status": "party_register_not_reviewed",
+    "continuous_series_eligible": false,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "source_record_id": "national_totals_round1",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "contestant_id": "ct-hu-ogy14-p01",
     "country": "hungary",
     "election_id": "el-hu-ogy-2014-04-06",
@@ -23,10 +1075,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -60,10 +1112,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -99,10 +1151,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -136,10 +1188,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -173,10 +1225,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -210,10 +1262,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -247,10 +1299,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -284,10 +1336,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -321,10 +1373,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -358,10 +1410,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -395,10 +1447,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -432,10 +1484,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -469,10 +1521,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -506,10 +1558,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -543,10 +1595,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -580,10 +1632,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -617,10 +1669,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -654,10 +1706,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -691,10 +1743,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -728,10 +1780,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -765,10 +1817,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -802,10 +1854,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -839,10 +1891,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -876,10 +1928,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -913,10 +1965,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -950,10 +2002,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -987,10 +2039,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1024,10 +2076,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1061,10 +2113,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1098,10 +2150,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1135,10 +2187,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1172,10 +2224,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1209,10 +2261,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1246,10 +2298,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1283,10 +2335,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1320,10 +2372,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1357,10 +2409,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1394,10 +2446,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1431,10 +2483,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1468,10 +2520,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1505,10 +2557,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1542,10 +2594,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1579,10 +2631,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1616,10 +2668,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1653,10 +2705,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1690,10 +2742,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1727,10 +2779,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1764,10 +2816,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1801,10 +2853,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1838,10 +2890,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1875,10 +2927,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1912,10 +2964,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1949,10 +3001,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -1986,10 +3038,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2023,10 +3075,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2060,10 +3112,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2097,10 +3149,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2134,10 +3186,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2171,10 +3223,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2208,10 +3260,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2245,10 +3297,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2282,10 +3334,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2319,10 +3371,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2356,10 +3408,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2393,10 +3445,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2430,10 +3482,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2467,10 +3519,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2503,10 +3555,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2539,10 +3591,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2575,10 +3627,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2611,10 +3663,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2647,10 +3699,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2683,10 +3735,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2719,10 +3771,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2755,10 +3807,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2791,10 +3843,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2827,10 +3879,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2863,10 +3915,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2899,10 +3951,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2935,10 +3987,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -2971,10 +4023,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3007,10 +4059,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3043,10 +4095,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3079,10 +4131,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3115,10 +4167,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3151,10 +4203,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3187,10 +4239,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3223,10 +4275,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3259,10 +4311,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3295,10 +4347,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3331,10 +4383,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3367,10 +4419,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3403,10 +4455,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3439,10 +4491,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3475,10 +4527,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3511,10 +4563,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3547,10 +4599,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3583,10 +4635,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3619,10 +4671,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3655,10 +4707,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3691,10 +4743,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",
@@ -3727,10 +4779,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "list_number",
           "registered_label_native",

@@ -21,6 +21,10 @@
     {
       "date": "2026-11-20",
       "decision": "Owner brief 2026-11-20 (historical backfill) and answer 'Same scope as 2022': admit 2018 and 2014 from the national-list minutes and the composition pages on static.valasztas.hu, one reading per named document, national figures and aggregate seat counts only, no constituency votes, no candidate names. 2014 publishes the minutes only in HTML form, so its threshold and seat-calculation pages of the same archive were read once each."
+    },
+    {
+      "date": "2026-11-20",
+      "decision": "Owner brief 'historical election data gap closure' naming the 2010 eredind.htm, l50.htm and mandleir.htm pages, and answer 'National figures per tier (Recommended)': round summaries, national sums per tier, threshold, compensation and composition pages read once each; no per-constituency rows; no candidate names."
     }
   ],
   "minutes": {
@@ -1304,16 +1308,427 @@
     "allocation": "minden pártlista, illetve nemzetiségi lista szavazatai alatt képezünk egy számoszlopot, amelynek első száma az adott lista szavazatainak a fele, a következő szám a harmada, a negyede stb."
   },
   "not_admitted": {
+    "2010": "admitted 2026-11-20 at national level per tier (see act_xxxiv_1989.2010).",
     "2018": "admitted 2026-11-20 (see minutes.2018).",
     "elections": [
-      2010,
       2006,
       2002,
       1998,
       1994,
       1990
     ],
-    "earlier": "2010 and earlier used the previous system (Act XXXIV of 1989): 386 seats in up to two rounds, with 176 single-member, up to 152 territorial-list and at least 58 national compensation seats. None was read; their rules and sources need a separate decision.",
+    "earlier": "2006 to 1990 used the same 386-seat two-round system in principle, but year-specific rules and pages were not read; each needs its own reading of the archive.",
     "not_included_for_admitted_elections": "Per-list constituency seats and votes (106 separate minutes, not authorised for reading), county results, candidates, elected deputies, and the application's printed shares."
+  },
+  "act_xxxiv_1989": {
+    "2010": {
+      "election_id": "el-hu-ogy-2010-04-11",
+      "rounds": [
+        {
+          "round": 1,
+          "date": "2010-04-11"
+        },
+        {
+          "round": 2,
+          "date": "2010-04-25"
+        }
+      ],
+      "polling_day_basis": "headings '1. fordulója - 2010. április 11.' and '2. fordulója - 2010. április 25.' of the National Election Office's 2010 result pages",
+      "read_at": "2026-11-20T09:00:00Z",
+      "access": "read by hand once each in a browser from the named archive pages (owner brief 2026-11-20 naming eredind.htm, l50.htm and mandleir.htm, and answer 'National figures per tier'); only national figures and seat counts recorded; no per-constituency page and no candidate name recorded",
+      "pages": {
+        "index_round2": "https://static.valasztas.hu/dyn/pv10/outroot/vdin2/hu/eredind.htm",
+        "round1_summary": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l100.htm",
+        "round2_summary": "https://static.valasztas.hu/dyn/pv10/outroot/vdin2/hu/l100.htm",
+        "threshold": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l120.htm",
+        "national_totals_round1": "https://static.valasztas.hu/dyn/pv10/outroot/vdin1/hu/l22.htm",
+        "national_totals_round2": "https://static.valasztas.hu/dyn/pv10/outroot/vdin2/hu/l22.htm",
+        "compensation": "https://static.valasztas.hu/dyn/pv10/outroot/vdin2/hu/l61.htm",
+        "composition": "https://static.valasztas.hu/dyn/pv10/outroot/vdin2/en/l50.htm",
+        "rules": "https://static.valasztas.hu/dyn/pv10/outroot/vstat1/mandleir.htm"
+      },
+      "page_states": {
+        "round1": "Frissítve : 2010.04.15. 19:37:03",
+        "round2": "Frissítve : 2010.05.11. 12:09:15"
+      },
+      "rules_quoted": {
+        "seats": "Az országgyűlési képviselők száma összesen 386.",
+        "tiers": "176 országgyűlési képviselőt egyéni választókerületben a többségi elv alapján, 152-t pedig a leadott szavazatok arányában a fővárosi és megyei (területi) választókerületekben listán választanak. … további 58 kompenzációs mandátum kerül kiosztásra.",
+        "threshold": "… a pártlistákra leadott összes szavazat 5 %-át meghaladják, két párt által állított közös listák esetén a 10 %-át elérik.",
+        "transfer": "A területi választókerületben ki nem osztható mandátumok az országos listán kerülnek kiosztásra.",
+        "compensation_method": "Az ún. d’Hondt módszerrel történik a mandátumok szétosztása a listák között.",
+        "fragment_votes": "töredékszavazat: egyéni választókerületben az első érvényes fordulóban mandátumot nem eredményező pártjelöltekre leadott szavazatok; területi választókerületben a mandátumhoz nem elegendő vagy azt meghaladó listás szavazatok (summary of points a and b)"
+      },
+      "statutory_tiers": {
+        "single_member": 176,
+        "territorial_lists": 152,
+        "national_compensation_minimum": 58,
+        "total": 386
+      },
+      "round1": {
+        "registers": {
+          "on_roll_at_close": 7976496,
+          "added_with_certificate": 49091,
+          "on_roll_at_end": 8025587,
+          "foreign_mission": 8807,
+          "total": 8034394
+        },
+        "participation": {
+          "at_domestic_stations": 5165461,
+          "declarations": 6761,
+          "total": 5172222
+        },
+        "printed_turnout_percent": 64.38,
+        "constituencies": {
+          "total": 176,
+          "valid_decided": 119,
+          "valid_undecided": 57,
+          "invalid": 0
+        },
+        "territorial_districts": {
+          "total": 20,
+          "valid": 20,
+          "invalid": 0
+        }
+      },
+      "round2": {
+        "registers": {
+          "on_roll_at_close": 2475572,
+          "added_with_certificate": 7654,
+          "on_roll_at_end": 2483226,
+          "foreign_mission": 2885,
+          "total": 2486111
+        },
+        "participation": {
+          "at_domestic_stations": 1158665,
+          "declarations": 1452,
+          "total": 1160117
+        },
+        "printed_turnout_percent": 46.66,
+        "constituencies": {
+          "total": 57,
+          "valid_decided": 57,
+          "valid_undecided": 0,
+          "invalid": 0
+        }
+      },
+      "threshold_page": {
+        "territorial_list_votes_total": 5132531,
+        "five_percent_exceed": 256626,
+        "ten_percent_reach": 513254,
+        "joint_list_split_note": "The page divides the FIDESZ-KDNP joint list's votes equally between its two parties only to evaluate the threshold ('Felosztott szavazatok'); the split is not a vote attribution and is not stored."
+      },
+      "territorial_lists": [
+        {
+          "label": "FIDESZ-KDNP",
+          "joint": true,
+          "votes": 2706292,
+          "seats": 87,
+          "national_list_label": "FIDESZ KDNP"
+        },
+        {
+          "label": "MSZP",
+          "votes": 990428,
+          "seats": 28,
+          "national_list_label": "MSZP"
+        },
+        {
+          "label": "Jobbik",
+          "votes": 855436,
+          "seats": 26,
+          "national_list_label": "Jobbik"
+        },
+        {
+          "label": "LMP",
+          "votes": 383876,
+          "seats": 5,
+          "national_list_label": "LEHET MÁS A POLITIKA"
+        },
+        {
+          "label": "MDF",
+          "votes": 136895,
+          "seats": 0,
+          "national_list_label": "MDF"
+        },
+        {
+          "label": "CM",
+          "votes": 45863,
+          "seats": 0
+        },
+        {
+          "label": "MUNKÁSPÁRT",
+          "votes": 5606,
+          "seats": 0
+        },
+        {
+          "label": "MSZDP",
+          "votes": 4117,
+          "seats": 0
+        },
+        {
+          "label": "ÖP",
+          "votes": 2732,
+          "seats": 0
+        },
+        {
+          "label": "MIÉP",
+          "votes": 1286,
+          "seats": 0
+        }
+      ],
+      "territorial_seats_total": 146,
+      "smc_round1": [
+        {
+          "label": "FIDESZ-KDNP",
+          "votes": 2732965,
+          "round1_seats": 119
+        },
+        {
+          "label": "MSZP",
+          "votes": 1088374
+        },
+        {
+          "label": "Jobbik",
+          "votes": 836774
+        },
+        {
+          "label": "LMP",
+          "votes": 259220
+        },
+        {
+          "label": "CM",
+          "votes": 34938
+        },
+        {
+          "label": "FIDESZ-KDNP-MVMP",
+          "votes": 10661
+        },
+        {
+          "label": "FKgP",
+          "votes": 381
+        },
+        {
+          "label": "Független",
+          "votes": 33702,
+          "aggregate": "independent candidates"
+        },
+        {
+          "label": "MCF",
+          "votes": 491
+        },
+        {
+          "label": "MDF",
+          "votes": 72768
+        },
+        {
+          "label": "MDF-ÖSSZEFOGÁS",
+          "votes": 4052
+        },
+        {
+          "label": "MDF-SZDSZ",
+          "votes": 12652
+        },
+        {
+          "label": "MESZ",
+          "votes": 1027
+        },
+        {
+          "label": "MIÉP",
+          "votes": 2345
+        },
+        {
+          "label": "MSZDP",
+          "votes": 3156
+        },
+        {
+          "label": "MUNKÁSPÁRT",
+          "votes": 5668
+        },
+        {
+          "label": "ÖP",
+          "votes": 3422
+        },
+        {
+          "label": "SOMOGYÉRT",
+          "votes": 7470
+        },
+        {
+          "label": null,
+          "votes": 3079,
+          "label_basis": "partial_personal_name_omitted",
+          "printed_label_sha256": "a83c8103e63a5347c648cf34a3f021d8d8034d41881aaa50ed78df75ad6f79bf",
+          "display": "…-KISGAZDA"
+        },
+        {
+          "label": "ZÖLD BALOLDAL",
+          "votes": 1425
+        }
+      ],
+      "smc_round1_total": 5114570,
+      "smc_round1_seats": 119,
+      "smc_round2": [
+        {
+          "label": "FIDESZ-KDNP",
+          "votes": 620232,
+          "seats_derived": 53
+        },
+        {
+          "label": "MSZP",
+          "votes": 326361,
+          "seats_derived": 2
+        },
+        {
+          "label": "Jobbik",
+          "votes": 141415,
+          "seats_derived": 0
+        },
+        {
+          "label": "LMP",
+          "votes": 43437,
+          "seats_derived": 0
+        },
+        {
+          "label": "FIDESZ-KDNP-MVMP",
+          "votes": 8796,
+          "seats_derived": 1
+        },
+        {
+          "label": "Független",
+          "votes": 12452,
+          "seats_derived": 1
+        }
+      ],
+      "smc_round2_total": 1152693,
+      "smc_seats_final": {
+        "FIDESZ-KDNP": 172,
+        "MSZP": 2,
+        "FIDESZ-KDNP-MVMP": 1,
+        "Független": 1
+      },
+      "compensation": {
+        "seats_to_distribute": 64,
+        "lists": [
+          {
+            "drawn": 1,
+            "label": "Jobbik",
+            "smc_fragment": 836774,
+            "list_fragment": 88478,
+            "total": 925252,
+            "seats": 21
+          },
+          {
+            "drawn": 2,
+            "label": "FIDESZ KDNP",
+            "smc_fragment": 28577,
+            "list_fragment": 107015,
+            "total": 135592,
+            "seats": 3
+          },
+          {
+            "drawn": 3,
+            "label": "MDF",
+            "smc_fragment": 0,
+            "list_fragment": 0,
+            "total": 0,
+            "seats": 0
+          },
+          {
+            "drawn": 4,
+            "label": "CIVILEK",
+            "smc_fragment": 0,
+            "list_fragment": 0,
+            "total": 0,
+            "seats": 0
+          },
+          {
+            "drawn": 5,
+            "label": "MSZP",
+            "smc_fragment": 1066154,
+            "list_fragment": 155369,
+            "total": 1221523,
+            "seats": 29
+          },
+          {
+            "drawn": 6,
+            "label": "LEHET MÁS A POLITIKA",
+            "smc_fragment": 259220,
+            "list_fragment": 212085,
+            "total": 471305,
+            "seats": 11
+          }
+        ],
+        "fragment_total": 2753672
+      },
+      "composition": {
+        "rows": [
+          {
+            "label_on_page": "FIDESZ - HUNGARIAN CIVIC UNION / KDNP / Vállalkozók Pártja",
+            "smc": 1,
+            "territorial": 0,
+            "national": 0,
+            "total": 1,
+            "attributed_to": "FIDESZ-KDNP-MVMP (single-member candidates only; no list)"
+          },
+          {
+            "label_on_page": "FIDESZ - HUNGARIAN CIVIC UNION / KDNP",
+            "smc": 172,
+            "territorial": 87,
+            "national": 3,
+            "total": 262,
+            "attributed_to": "FIDESZ-KDNP"
+          },
+          {
+            "label_on_page": "HSP",
+            "smc": 2,
+            "territorial": 28,
+            "national": 29,
+            "total": 59,
+            "attributed_to": "MSZP"
+          },
+          {
+            "label_on_page": "MOVEMENT FOR A BETTER HUNGARY",
+            "smc": 0,
+            "territorial": 26,
+            "national": 21,
+            "total": 47,
+            "attributed_to": "Jobbik"
+          },
+          {
+            "label_on_page": "POLITICS CAN BE DIFFERENT",
+            "smc": 0,
+            "territorial": 5,
+            "national": 11,
+            "total": 16,
+            "attributed_to": "LMP"
+          },
+          {
+            "label_on_page": "Independent",
+            "smc": 1,
+            "territorial": 0,
+            "national": 0,
+            "total": 1,
+            "attributed_to": "independent candidate (not named)"
+          }
+        ],
+        "printed_totals": {
+          "smc": 176,
+          "territorial": 146,
+          "national": 64,
+          "total": 386
+        },
+        "vacant": 0
+      },
+      "not_recorded": "per-constituency and per-territorial-district results, invalid ballots per ballot type (not printed on the national pages), candidates and elected members",
+      "unmatched_national_lists": [
+        {
+          "label": "CIVILEK",
+          "drawn": 4,
+          "compensation_votes": 0,
+          "seats": 0,
+          "note": "a national list on the compensation page with no fragment votes; not matched to any territorial list, because no page read states which organisation stands behind it"
+        }
+      ],
+      "smc_round2_seats_basis": "derived: final single-member seats per nominating group (round-2 national totals page) minus round-1 seats (round-1 national totals page); the pages print no per-round split"
+    }
   }
 }

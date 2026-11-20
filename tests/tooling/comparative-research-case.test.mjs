@@ -29,9 +29,9 @@ const result = run();
 const byPair = (from) => result.pairs.find((p) => p.fromElection === from);
 
 test('countries and elections: 12 successive pairs in four countries, Slovakia as context only, no pair across countries', () => {
-  assert.equal(elections.length, 19, 'all admitted elections of the five countries, Hungary 2014 and 2018 included (2026-11-20)');
+  assert.equal(elections.length, 20, 'all admitted elections of the five countries, Hungary 2010, 2014 and 2018 included (2026-11-20)');
   assert.equal(C.RESEARCH_CASE.electionIds.length, 17);
-  assert.ok(!result.elections.some((e) => /el-hu-ogy-20(14|18)/.test(e.electionId)), 'elections admitted after the published case stay outside it');
+  assert.ok(!result.elections.some((e) => /el-hu-ogy-20(10|14|18)/.test(e.electionId)), 'elections admitted after the published case stay outside it');
   assert.deepEqual(C.RESEARCH_CASE.countries, ['czechia', 'germany', 'hungary', 'poland']);
   const per = Object.fromEntries(C.RESEARCH_CASE.countries.map((c) => [c, result.pairs.filter((p) => p.country === c).length]));
   assert.deepEqual(per, { czechia: 2, germany: 6, hungary: 1, poland: 3 });
@@ -172,7 +172,7 @@ test('D1, D2 and D3 are preserved: the case runs the existing research functions
 });
 
 test('Hungary presentation: rules and vintage name both official sources and no longer say constituency seats are excluded', () => {
-  for (const e of data.politicalHungarianElectionViews()) {
+  for (const e of data.politicalHungarianElectionViews().filter((v) => v.year >= 2014)) { // 2010 is a different system with its own archive record
     const rules = e.national.rules;
     assert.doesNotMatch(rules.districtAllocation, /not included/);
     assert.match(rules.districtAllocation, /chamber-composition record/);

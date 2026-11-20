@@ -390,6 +390,47 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-hu-ogy-2010-04-11",
+   "country": "hungary",
+   "date": "2010-04-11",
+   "chamber_id": "hu-orszaggyules",
+   "chamber_official_name": "Országgyűlés",
+   "seats": 386,
+   "seat_count_basis": "final_allocation_of_the_election_not_current_composition",
+   "electoral_system_id": "es-hu-ogy-2010",
+   "system_family": "mixed, two rounds: 176 single-member constituencies, up to 152 territorial-list seats in 20 districts and at least 58 national compensation seats",
+   "allocation_method": "territorial lists in 20 districts; national compensation seats by D'Hondt over fragment votes",
+   "base_seats": 386,
+   "thresholds": [
+    {
+     "applies_to": "party list",
+     "percent": 5,
+     "description": {
+      "en": "A party list must exceed 5% of all territorial-list votes nationally (5,132,531 in 2010) to win territorial or national list seats.",
+      "zh": "政党名单须在全国地区名单票（2010 年为 5,132,531 张）中超过 5%，方可获得地区或全国名单席位。"
+     }
+    },
+    {
+     "applies_to": "joint list of two parties",
+     "percent": 10,
+     "description": {
+      "en": "A joint list of two parties must reach 10% of the same total.",
+      "zh": "两党联合名单须达到同一总数的 10%。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation from the office's 2010 description of the seat allocation (mandleir); the statute (Act XXXIV of 1989) was not read",
+   "constitution_id": "hu-fundamental-law-2011",
+   "institutional_period_id": null,
+   "changes_in_force": [],
+   "later_changes": [
+    "hu-2012-fundamental-law",
+    "hu-2026-amendment-16",
+    "hu-2026-amendment-17"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-hu-ogy-2014-04-06",
    "country": "hungary",
    "date": "2014-04-06",

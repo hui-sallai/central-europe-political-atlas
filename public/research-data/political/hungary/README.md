@@ -1,4 +1,10 @@
-# Hungary — National Assembly elections of 2014, 2018, 2022 and 2026
+# Hungary — National Assembly elections of 2010, 2014, 2018, 2022 and 2026
+
+## 2010 (Act XXXIV of 1989)
+
+386 seats in two rounds (11 and 25 April 2010) and three tiers: by statute 176 single-member, up to 152 territorial-list and at least 58 national compensation seats; the final allocation was 176 + 146 + 64 because 6 territorial seats passed to the national lists. Three ballots are kept apart, each with its own total: territorial-list votes (round 1; `hu10_territorial_list_vote`), and national sums of single-member candidate votes per nominating organisation in round 1 and round 2 (`hu10_smc_round1_vote`, `hu10_smc_round2_vote`; votes only, `seats` null). Each territorial-list row holds `territorial_list_seats`, `national_list_seats` (compensation, recomputed by D'Hondt over the printed fragment votes), `constituency_seats` (single-member seats of candidates nominated by the same organisations) and `whole_chamber_seats`. Two single-member seats were won outside the lists (joint FIDESZ-KDNP-MVMP candidates; one independent): see `constituency_seats_outside_lists` in the legislature record. Turnout is the printed round-1 figure (64.38%); round 2 (57 constituencies, 46.66%) is in `round_2`. Sources: the National Election Office's 2010 archive pages (round summaries, threshold, national totals, compensation, composition) and its description of the seat allocation, read once each by hand; national figures only, no per-constituency rows, no candidate names. One single-member organisation label containing a person's name is stored without it.
+
+## 2014–2026 (Act CCIII of 2011)
 
 Four elections under Act CCIII of 2011: party lists and nationality lists with their numbers, votes, national list seats, single-member constituency seats and whole-chamber seats; voters on all registers, voters who took part, and ballot counts. Sources: minutes of the National Election Commission on the national list result, transcribed from PDFs identified by checksum (2018: the minutes printed as the annex to the Kúria's review decisions; 2014: the same minutes published only as an HTML page in minutes form, with the threshold and seat-calculation pages of the same archive, read by hand once); the election office's composition page of each election for constituency seats, read by hand once. Rules: Act CCIII of 2011.
 
@@ -12,4 +18,4 @@ A joint list's votes and seats, including the constituency seats of candidates n
 
 continuous_party_series is 0: the minutes give each nominating organisation an identifier specific to one election, joint lists are election-specific, and no party register was reviewed, so no link is made between elections, even where a name repeats. 2014 list names are abbreviations as printed; one 2014 list name that begins with a person's name is stored without it (`label_basis`, `printed_label_sha256`).
 
-Not included: 2010 and earlier (a different 386-seat, two-round system under Act XXXIV of 1989), constituency votes and per-district results, county results, candidates, elected deputies, and the application's CSV.
+Not included: 2006 and earlier, constituency votes and per-district results, county results, candidates, elected deputies, and the application's CSV.

@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Hungarian parliamentary election 2010 — 2026-11-20
+
+- Add Hungary's National Assembly election of 11 and 25 April 2010 under the earlier electoral act: 386 seats in two rounds and three tiers (by statute 176 single-member, up to 152 territorial-list and at least 58 national compensation seats; finally 176 + 146 + 64, because 6 territorial seats passed to the national lists). Territorial-list votes of all 10 list organisations, national sums of single-member candidate votes for all 20 nominating groups in each round, compensation fragment votes, both rounds' turnout (64.38% and 46.66% in the 57 constituencies of round 2) and seats per tier come from the election office's 2010 archive pages. Thresholds, the 6-seat transfer, the D'Hondt compensation seats (21/3/29/11) and the 386-seat composition reconcile. Ballots are never pooled. Two single-member seats were won outside the lists (joint FIDESZ-KDNP-MVMP candidates and one independent): counted, not named. One organisation label containing a person's name is stored without it. No list is linked to a later election; 2014–2026 are unchanged.
+
 ### v2.0 historical parliamentary election research — 2026-11-20
 
 - Open admitted elections by chamber and year, inspect dated turnout and seat composition, and save or export a historical comparison across selected countries. Historical ballots, institutional rules and official sources accompany each observation.

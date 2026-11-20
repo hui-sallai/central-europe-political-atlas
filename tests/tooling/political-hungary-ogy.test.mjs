@@ -6,7 +6,7 @@ import crypto from 'node:crypto';
 import Module, { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
-import { buildHungary, highestAverages, hungaryFiles, reconcile, reconcileComposition, NATIONALITY_VOTE, PARTY_VOTE } from '../../scripts/political-data/hungary/build-ogy-national.mjs';
+import { buildHungary, highestAverages, hungaryFiles, reconcile, reconcile2010, reconcileComposition, NATIONALITY_VOTE, PARTY_VOTE } from '../../scripts/political-data/hungary/build-ogy-national.mjs';
 import { MANDATORY_ADMISSION_GATES, POLITICAL_ADMISSION_FILE, POLITICAL_ADMISSIONS, approvedPoliticalAdmissionFiles } from '../../docs/political-data/source-closure/political-admission-amendments.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -23,12 +23,14 @@ const explorer = require('../../src/lib/politicalExplorer.ts');
 const national = require('../../src/lib/politicalNational.ts');
 const views = data.politicalHungarianElectionViews();
 const evidence = read(EVIDENCE);
-const [v14, v18, v22, v26] = views;
+const v10 = views.find((v) => v.year === 2010);
+const post = views.filter((v) => v.year >= 2014); // the 199-seat system of Act CCIII of 2011
+const [v14, v18, v22, v26] = post;
 
 test('builder reproduces stores and exports exactly from committed evidence', () => {
   const built = buildHungary();
   for (const [file, content] of Object.entries(hungaryFiles(built))) assert.equal(fs.readFileSync(path.join(root, file), 'utf8'), content, file);
-  assert.deepEqual(views.map((v) => [v.electionId, v.date, v.totalSeats]), [['el-hu-ogy-2014-04-06', '2014-04-06', 199], ['el-hu-ogy-2018-04-08', '2018-04-08', 199], ['el-hu-ogy-2022-04-03', '2022-04-03', 199], ['el-hu-ogy-2026-04-12', '2026-04-12', 199]]);
+  assert.deepEqual(views.map((v) => [v.electionId, v.date, v.totalSeats]), [['el-hu-ogy-2010-04-11', '2010-04-11', 386], ['el-hu-ogy-2014-04-06', '2014-04-06', 199], ['el-hu-ogy-2018-04-08', '2018-04-08', 199], ['el-hu-ogy-2022-04-03', '2022-04-03', 199], ['el-hu-ogy-2026-04-12', '2026-04-12', 199]]);
 });
 
 test('2026 figures match the minutes, and the party-list totals reconcile', () => {
@@ -45,7 +47,7 @@ test('2026 figures match the minutes, and the party-list totals reconcile', () =
 });
 
 test('party-list and nationality-list votes are separate ballots with separate denominators; constituency votes are not held', () => {
-  for (const view of views) {
+  for (const view of post) {
     assert.deepEqual(view.national.ballots.map((b) => [b.definition.id, b.definition.kind, b.definition.seatScope]), [[PARTY_VOTE, 'list', 'tier_only'], [NATIONALITY_VOTE, 'minority', 'tier_only']]);
     assert.ok(!view.national.ballots.some((b) => b.definition.kind === 'constituency'));
     assert.equal(view.results.filter((r) => r.contestantKind === 'nationality_list').length, 0, 'nationality lists are not in the party ballot');
@@ -57,13 +59,13 @@ test('party-list and nationality-list votes are separate ballots with separate d
   assert.equal(v26.national.ballots[0].validVotes + v26.national.ballots[1].validVotes, m.ballots.valid, 'only the printed ballot total joins them, as a check');
   const results = read(`${STORE}/election_results.json`);
   for (const r of results) assert.equal(r.votes + 0, r.votes);
-  assert.ok(results.filter((r) => r.surplus_votes !== null).every((r) => r.votes_for_list_seat_allocation === r.votes + r.surplus_votes), 'surplus votes are an allocation input, never added to votes');
+  assert.ok(results.filter((r) => r.surplus_votes != null).every((r) => r.votes_for_list_seat_allocation === r.votes + r.surplus_votes), 'surplus votes are an allocation input, never added to votes');
 });
 
 test('shares and turnout are computed, labelled as computed, and never carry the application\'s printed figures', () => {
   const results = read(`${STORE}/election_results.json`);
   assert.ok(results.every((r) => r.published_vote_share === null));
-  assert.ok(read(`${STORE}/election_turnout.json`).every((t) => t.published_turnout === null));
+  assert.ok(read(`${STORE}/election_turnout.json`).filter((t) => t.election_id !== v10.electionId).every((t) => t.published_turnout === null), '2014-2026: no printed percentage; 2010 prints its round-1 turnout');
   const tisza = v26.results.find((r) => r.nativeLabel === 'Tisztelet és Szabadság Párt');
   const shown = explorer.shareForDisplay(tisza, v26);
   assert.equal(shown.computed, true);
@@ -79,7 +81,7 @@ test('shares and turnout are computed, labelled as computed, and never carry the
 
 test('whole chamber: 93 list + 106 constituency = 199 in every election, with the official 2026 totals', () => {
   const seats = (view, label) => { const r = view.national.ballots.flatMap((b) => b.results).find((x) => x.nativeLabel === label); return [r.seats, r.constituencySeats, r.chamberSeats]; };
-  for (const view of views) {
+  for (const view of post) {
     const all = view.national.ballots.flatMap((b) => b.results);
     assert.equal(view.national.chamberAttribution, 'complete');
     const independent = view === v18 ? 1 : 0;
@@ -132,7 +134,7 @@ test('2014 and 2018: the recorded allocation recomputes, and the person-named 20
   const comp = evidence.chamber_composition['2018'];
   assert.throws(() => reconcileComposition(m18, { ...structuredClone(comp), independent_constituency_seats: 0 }), /constituency seats ≠ 106/);
   assert.throws(() => reconcileComposition(m18, { ...structuredClone(comp), independent_constituency_seats: 2 }), /constituency seats ≠ 106/);
-  const named = read(`${STORE}/electoral_contestants.json`).find((c) => c.label_basis === 'partial_personal_name_omitted');
+  const named = read(`${STORE}/electoral_contestants.json`).find((c) => c.label_basis === 'partial_personal_name_omitted' && c.election_id === 'el-hu-ogy-2014-04-06');
   assert.equal(named.election_id, 'el-hu-ogy-2014-04-06');
   assert.equal(named.registered_label_native, '… SZÖVETSÉGESEI');
   assert.match(named.printed_label_sha256, /^[0-9a-f]{64}$/);
@@ -207,11 +209,11 @@ test('joint lists stay whole; no party or link is created; no series between 202
   assert.equal(kind('2022', 1), 'coalition');
   assert.equal(kind('2022', 6), 'coalition');
   assert.equal(kind('2022', 5), 'party_list');
-  for (const view of views) assert.ok(view.national.ballots.flatMap((b) => b.results).every((r) => r.partyId === null && r.memberPartyIds.length === 0));
+  for (const view of post) assert.ok(view.national.ballots.flatMap((b) => b.results).every((r) => r.partyId === null && r.memberPartyIds.length === 0));
   for (const store of ['contestant_members', 'political_parties', 'party_identity_links']) assert.ok(!fs.existsSync(path.join(root, STORE, `${store}.json`)), store);
   assert.ok(contestants.every((c) => c.continuous_series_eligible === false && c.lead_party_id === null));
   assert.equal(read('public/research-data/political/hungary/manifest.json').continuous_party_series, 0);
-  assert.equal(read('public/research-data/political/hungary/manifest.json').coverage, 'whole_chamber_199_of_199_seats_attributed');
+  assert.equal(read('public/research-data/political/hungary/manifest.json').coverage, 'whole_chamber_all_seats_attributed_386_in_2010_199_from_2014');
   const ids = (year, re) => evidence.minutes[year].party_lists.filter((l) => re.test(l.label)).map((l) => l.id);
   assert.notDeepEqual(ids('2022', /^MI HAZÁNK/i), ids('2026', /^Mi Hazánk/i), 'the minutes number nominating organisations per election, so an id is no identity');
   assert.notDeepEqual(ids('2022', /KUTYA/i), ids('2026', /Kutya/i));
@@ -224,7 +226,7 @@ test('evidence: rights limits recorded, checksums only, no PDF, no CSV, no perso
   assert.match(evidence.rights.limits.join(' '), /were not read and could contain conditions/);
   assert.match(evidence.rights.database_right.finding, /not settled/);
   assert.match(evidence.csv_check.finding, /generated in the browser/);
-  assert.deepEqual(evidence.not_admitted.elections, [2010, 2006, 2002, 1998, 1994, 1990]);
+  assert.deepEqual(evidence.not_admitted.elections, [2006, 2002, 1998, 1994, 1990]);
   assert.match(evidence.minutes['2014'].url, /^https:\/\/static\.valasztas\.hu\//);
   for (const year of ['2018', '2022', '2026']) { assert.match(evidence.minutes[year].pdf_sha256, /^[0-9a-f]{64}$/); assert.match(evidence.minutes[year].url, /^https:\/\/static\.valasztas\.hu\//); }
   const dir = path.join(root, 'docs/political-data/raw/hungary/ogy');
@@ -240,8 +242,8 @@ test('evidence: rights limits recorded, checksums only, no PDF, no CSV, no perso
 
 test('admission: exact hashes, closed gates, Germany inadmissible', () => {
   const records = read(POLITICAL_ADMISSION_FILE).admissions.filter((x) => x.country === 'hungary');
-  assert.deepEqual(records.map((x) => x.admission_id), ['hungary-ogy-2022-2026', 'hungary-ogy-2014-2018']);
-  for (const record of ['docs/political-data/hungary_ogy_admission.json', 'docs/political-data/hungary_ogy2014_2018_admission.json']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(record).gates[gate].status, 'closed', gate);
+  assert.deepEqual(records.map((x) => x.admission_id), ['hungary-ogy-2022-2026', 'hungary-ogy-2014-2018', 'hungary-ogy-2010']);
+  for (const record of ['docs/political-data/hungary_ogy_admission.json', 'docs/political-data/hungary_ogy2014_2018_admission.json', 'docs/political-data/hungary_ogy2010_admission.json']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(record).gates[gate].status, 'closed', gate);
   const { approved, problems } = approvedPoliticalAdmissionFiles(records, sha);
   assert.deepEqual(problems, []);
   assert.deepEqual([...approved.keys()].sort(), [...POLITICAL_ADMISSIONS['hungary-ogy-2022-2026'].paths].sort());
@@ -263,6 +265,41 @@ test('other countries are unchanged; research functions run for Hungary without 
   assert.equal(explorer.compatibleTurnout(v22, v26), true);
   assert.equal(R.turnoutChange({ country: 'x', from: v26, to: data.politicalSlovakElectionViews()[0] }).status, 'withheld', 'computed and published turnout are never differenced');
   const rows = require('../../src/lib/electionMacroLinkage.ts').electionMacroRows(views, []);
-  assert.equal(rows.length, 20);
+  assert.equal(rows.length, 25);
   assert.ok(rows.every((r) => r.publishedBeforeElection.status !== 'documented'), 'no release was read for Hungary, so none is claimed');
 });
+
+test('2010 (Act XXXIV of 1989): 386 seats in three tiers and two rounds, ballots kept apart, every check fail-closed', () => {
+  const x = evidence.act_xxxiv_1989['2010'];
+  assert.deepEqual([v10.electionId, v10.date, v10.national.dateEnd, v10.totalSeats], ['el-hu-ogy-2010-04-11', '2010-04-11', '2010-04-25', 386]);
+  assert.deepEqual(v10.national.ballots.map((b) => [b.definition.id, b.definition.kind, b.definition.seatScope, b.validVotes]), [['hu10_territorial_list_vote', 'list', 'tier_only', 5132531], ['hu10_smc_round1_vote', 'constituency', 'unavailable', 5114570], ['hu10_smc_round2_vote', 'constituency', 'unavailable', 1152693]]);
+  for (const b of v10.national.ballots) assert.equal(b.results.reduce((n, r) => n + r.votes, 0), b.validVotes, 'each ballot adds up to its own total; ballots are never pooled');
+  assert.ok(v10.national.ballots.slice(1).every((b) => b.results.every((r) => r.seats === null && r.chamberSeats === null)), 'candidate-vote ballots carry no seats');
+  const seats = (label) => { const r = v10.results.find((x) => x.nativeLabel === label); return [r.seats, r.constituencySeats, r.chamberSeats]; };
+  assert.deepEqual(seats('FIDESZ-KDNP'), [90, 172, 262]);
+  assert.deepEqual(seats('MSZP'), [57, 2, 59]);
+  assert.deepEqual(seats('Jobbik'), [47, 0, 47]);
+  assert.deepEqual(seats('LMP'), [16, 0, 16]);
+  assert.deepEqual(seats('MDF'), [0, 0, 0], 'a zero-seat list stays a row');
+  assert.deepEqual(v10.national.seatTiers, { nationalList: 210, constituency: 176, outsideListConstituency: [{ label: 'FIDESZ-KDNP-MVMP', kind: 'joint_candidates_without_list', seats: 1 }, { label: 'Független', kind: 'independent_candidate', seats: 1 }] });
+  assert.equal(v10.results.reduce((n, r) => n + r.chamberSeats, 0) + 2, 386);
+  const leg = read(`${STORE}/legislatures.json`).find((l) => l.election_id === v10.electionId);
+  assert.deepEqual([leg.territorial_list_seats, leg.national_compensation_seats, leg.statutory_tiers.territorial_lists, leg.statutory_tiers.national_compensation_minimum, leg.tier_transfer.seats], [146, 64, 152, 58, 6]);
+  assert.deepEqual(highestAverages([925252, 135592, 1221523, 471305], 64), [21, 3, 29, 11]);
+  assert.equal(explorer.turnoutForDisplay(v10).value, 64.38, 'the printed round-1 turnout');
+  assert.equal(read(`${STORE}/election_turnout.json`).find((t) => t.election_id === v10.electionId && t.round_2).round_2.published_turnout, 46.66);
+  assert.deepEqual(read(`${STORE}/elections.json`).find((e) => e.election_id === v10.electionId).rounds, [{ round: 1, date: '2010-04-11' }, { round: 2, date: '2010-04-25' }]);
+  assert.match(v10.notes.en, /never pooled/);
+  const contestants = read(`${STORE}/electoral_contestants.json`).filter((c) => c.election_id === v10.electionId);
+  assert.equal(contestants.filter((c) => c.contestant_id.includes('-t')).length, 10);
+  assert.equal(contestants.filter((c) => c.contestant_id.includes('-c')).length, 20);
+  assert.equal(contestants.find((c) => c.label_basis === 'partial_personal_name_omitted').historical_display_label, '…-KISGAZDA');
+  assert.doesNotMatch(fs.readFileSync(path.join(root, EVIDENCE), 'utf8'), /[A-ZÁÉÍÓÖŐÚÜŰ]{4,}-KISGAZDA/, 'the name in the organisation label is not stored');
+  const change = (f) => { const c = structuredClone(x); f(c); return c; };
+  assert.throws(() => reconcile2010(change((c) => { c.territorial_lists[0].votes += 1; })), /territorial list votes/);
+  assert.throws(() => reconcile2010(change((c) => { c.compensation.lists[0].seats += 1; c.compensation.lists[1].seats -= 1; })), /compensation seats/);
+  assert.throws(() => reconcile2010(change((c) => { c.composition.rows[1].smc -= 1; c.composition.rows[1].total -= 1; })), /composition totals|single-member seats/);
+  assert.throws(() => reconcile2010(change((c) => { c.round1.printed_turnout_percent = 64.4; })), /printed turnout/);
+  assert.throws(() => reconcile2010(change((c) => { c.territorial_seats_total = 152; })), /territorial seats|compensation seats/);
+});
+

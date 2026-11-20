@@ -4608,6 +4608,40 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "historical-election-gap-closure-2026-11-20",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-20 \"historical election data gap closure: Slovakia, Czechia and pre-2014 Hungary\" and answer \"National figures per tier (Recommended)\": politicalAdmission.ts updates the Hungarian row text and record (Hungary 2010); politicalStores.ts lets a votes-only ballot (seat scope unavailable) carry no seats and counts listed constituency seats won outside any list row, still failing closed otherwise; politicalNational.ts types that list; election_links.json is regenerated with the 2010 election; no component, page or design change",
+      "baseline": "332cb076743abce60ce6abe36ab44d412fd53544",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-20",
+      "files": [
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "51534ec91fc692070d123d4b519cf8b41ccd1123ffcaf5e2639548e44b1869ea",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalStores.ts",
+          "sha256": "cb027dc7ed86160e8f03479e2473499e4512b200acb80e574cf57d6d52390d13",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalNational.ts",
+          "sha256": "a2d9c286a97f859b2bbc280e811b80eb0fe76e5e00d734afd9a92a7e26117a61",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/election_links.json",
+          "sha256": "d397c6172e58740a158574de6e53ef3b52ec294031d9f4370ec67fc1fab5842c",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

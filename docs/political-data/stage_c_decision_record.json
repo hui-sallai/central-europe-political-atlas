@@ -48,16 +48,18 @@
   {
    "country": "hungary",
    "elections": [
+    2010,
     2014,
     2018,
     2022,
     2026
    ],
-   "scope": "National Assembly 2014, 2018, 2022 and 2026, all 199 seats attributed (national list seats from the minutes, district seats from the composition pages; 2018 one independent district seat, counted, not named)",
+   "scope": "National Assembly 2010 (386 seats, two rounds, three tiers, national figures per tier) and 2014, 2018, 2022 and 2026 (199 seats), all seats attributed; seats won outside lists counted, not named",
    "record": "docs/political-data/hungary_ogy_admission.json",
    "records": [
     "docs/political-data/hungary_ogy_admission.json",
-    "docs/political-data/hungary_ogy2014_2018_admission.json"
+    "docs/political-data/hungary_ogy2014_2018_admission.json",
+    "docs/political-data/hungary_ogy2010_admission.json"
    ]
   },
   {
@@ -402,9 +404,10 @@
   "next_step": "Owner sends the ŠÚ SR contact packet, or downloads the files by hand and decides the terms' scope."
  },
  "hungary_other_elections": {
+  "2010": "Admitted 2026-11-20 from the 2010 archive pages on static.valasztas.hu, national figures per tier (owner answer \"National figures per tier\").",
   "2014": "Admitted 2026-11-20 from the minutes-form, threshold and seat-calculation pages on static.valasztas.hu.",
   "2018": "Admitted 2026-11-20 from the minutes PDF on static.valasztas.hu (owner answer \"Same scope as 2022\").",
-  "2010_and_earlier": "Previous 386-seat, two-round system (Act XXXIV of 1989); not read and not admitted.",
+  "2010_and_earlier": "2006 to 1990: same family of rules, but no page read; not admitted.",
   "constituency_tier": "Per-list constituency seats and votes are not covered by the decision on the minutes.",
   "record": "docs/political-data/hungary_source_status.json"
  }

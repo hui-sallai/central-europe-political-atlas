@@ -1,5 +1,51 @@
 [
   {
+    "election_id": "el-hu-ogy-2010-04-11",
+    "country": "hungary",
+    "election_type": "national_parliament",
+    "chamber": "Országgyűlés",
+    "date": "2010-04-11",
+    "date_end": "2010-04-25",
+    "date_basis": "headings '1. fordulója - 2010. április 11.' and '2. fordulója - 2010. április 25.' of the National Election Office's 2010 result pages",
+    "rounds": [
+      {
+        "round": 1,
+        "date": "2010-04-11"
+      },
+      {
+        "round": 2,
+        "date": "2010-04-25"
+      }
+    ],
+    "year": 2010,
+    "legislature_id": "lg-hu-ogy-2010",
+    "electoral_system_id": "es-hu-ogy-2010",
+    "result_status": "official_final",
+    "result_vintage": "final: National Election Office archive of the 2010 election, round 1 (Frissítve : 2010.04.15. 19:37:03) and round 2 (Frissítve : 2010.05.11. 12:09:15); national totals and seat tables only",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-2010",
+        "source_url": "https://static.valasztas.hu/dyn/pv10/outroot/vdin2/hu/eredind.htm",
+        "source_record_id": "index_round2",
+        "retrieved_at": "2026-11-20T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
+        "fields_covered": [
+          "date",
+          "date_end",
+          "rounds"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "election_id": "el-hu-ogy-2014-04-06",
     "country": "hungary",
     "election_type": "national_parliament",
@@ -22,10 +68,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "chamber",
           "result_vintage"
@@ -57,10 +103,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "chamber",
           "result_vintage"
@@ -92,10 +138,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "chamber",
           "result_vintage"
@@ -127,10 +173,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "85aa0ee5544319aff18d0e72dbf512c6245c477b639fdff52868dafbec2c0294"
+          "sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "0919c145e394d7e9611ea2b8f13dc1d6119dfae1da329cbc7f0e9f744ce3cce5",
+        "parser_sha256": "230c9b349296e8a84d6994950f949b9b963f235998d798891a5258e5dc3e57d9",
         "fields_covered": [
           "chamber",
           "result_vintage"

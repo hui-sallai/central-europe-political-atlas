@@ -1,0 +1,84 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "hungary-ogy-2010",
+ "country": "hungary",
+ "election_ids": [
+  "el-hu-ogy-2010-04-11"
+ ],
+ "scope": "National Assembly election of 11 and 25 April 2010 under Act XXXIV of 1989, all 386 seats: round-1 and round-2 registers and participation with the printed turnout, territorial-list votes and seats of every list, national sums of single-member candidate votes per nominating organisation in each round (votes only), national compensation fragment votes and seats, and the final composition (176 + 146 + 64), from the National Election Office's 2010 archive pages; statutory tiers (176 / up to 152 / at least 58) from its description of the seat allocation. Per-constituency and per-district results, invalid ballots per ballot type and candidates are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-05",
+   "decision": "Owner reply: national figures on Copyright Act § 1(4), a reading of the statute weaker than a licence; no candidate names."
+  },
+  {
+   "date": "2026-11-06",
+   "decision": "Owner reply: extend that reading to the office's composition pages for aggregate seat counts."
+  },
+  {
+   "date": "2026-11-20",
+   "decision": "Owner brief 'historical election data gap closure' naming the 2010 eredind.htm, l50.htm and mandleir.htm pages on static.valasztas.hu, and answer 'National figures per tier (Recommended)'."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/hungary/ogy/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "statute_section_1_4_copyright_act",
+   "basis": "As for 2014–2026: official result publications of the election office, read under the owner's Copyright Act § 1(4) reading; no licence exists."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_and_seat_counts_per_tier",
+   "evidence_kind": "owner_decision",
+   "basis": "National counts, national sums per ballot and per tier, and seat counts; no per-constituency rows; no candidate names; one organisation label containing a person's name stored without it (checksum kept)."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed",
+   "evidence_kind": "owner_decision",
+   "basis": "The pages were read in a browser and are not saved; only the transcribed figures are committed."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "Nine named pages under /dyn/pv10/outroot/ on static.valasztas.hu (robots.txt allows all paths) read once each by hand, following links from the owner-named index; www.valasztas.hu not contacted; no data endpoint requested."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "Both round summaries, the threshold page, both national-totals pages (all 20 single-member nominating groups and all 10 territorial-list organisations), the compensation page (6 national lists) and the composition page."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "reconcile2010: registers and participation add up in both rounds and reproduce the printed turnouts (64.38%, 46.66%); round 2 in exactly the 57 undecided constituencies; territorial-list votes = 5,132,531; printed thresholds reproduce (5% exceeded, 10% reached for the two-party list) and match the seat-holding lists; territorial seats = 146; compensation seats = 58 + 6 and D'Hondt over the printed fragment votes reproduces 21/3/29/11; single-member seats 119 + 57 = 176 and per organisation; composition rows equal the tiers and total 386 with no vacancy."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list_and_per_nominating_group",
+   "evidence_kind": "owner_decision",
+   "basis": "Territorial-list organisations and single-member nominating groups are separate contestants of the 2010 election; FIDESZ-KDNP stays one joint entity (the threshold page's halving is not used); the national list printed as CIVILEK is not matched; no link to any other election."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "office_description_statute_not_read",
+   "evidence_kind": "build_check",
+   "basis": "From the office's 2010 description of the seat allocation: 386 seats, two rounds, 176 / 152 / 58 statutory tiers, 5% and 10% thresholds, transfer of unallocated territorial seats, D'Hondt for compensation seats. Act XXXIV of 1989 itself was not read; the 15% rule for joint lists of three or more parties is not printed there and is not asserted."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_archive_pages",
+   "evidence_kind": "official_act",
+   "basis": "Round-1 pages updated 15 April 2010 and round-2 pages 11 May 2010; the composition prints 386 mandates obtained and none vacant. Polling days from the page headings."
+  }
+ },
+ "continuity": "None: no party register reviewed; no link to 2014 or later elections.",
+ "germany_change_allowed": false
+}

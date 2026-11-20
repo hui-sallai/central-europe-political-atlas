@@ -110,7 +110,11 @@ test("election links: reproducible, complete, and tied to each election's own ru
       for (const id of link.later_changes) assert.ok(changeDate(countries[slug].changes.find((c) => c.change_id === id)) > e.date);
     }
   }
-  assert.equal(links.elections.length, 57);
+  assert.equal(links.elections.length, 58);
+  // Hungary 2010 (Act XXXIV of 1989): 386 seats from its own rule record; it predates the earliest recorded Hungarian period (Fundamental Law, 2012).
+  const hu2010 = links.elections.find((l) => l.election_id === "el-hu-ogy-2010-04-11");
+  assert.deepEqual([hu2010.chamber_id, hu2010.seats, hu2010.institutional_period_id, hu2010.thresholds.map((t) => t.percent)], ["hu-orszaggyules", 386, null, [5, 10]]);
+  assert.ok(hu2010.later_changes.includes("hu-2012-fundamental-law"));
   // Hungary 2014 and 2018 (admitted 2026-11-20) fall under the Fundamental Law period, with the 199-seat chamber and their own thresholds.
   for (const id of ["el-hu-ogy-2014-04-06", "el-hu-ogy-2018-04-08"]) { const l = links.elections.find((x) => x.election_id === id); assert.deepEqual([l.chamber_id, l.seats, l.institutional_period_id, l.thresholds.map((t) => t.percent)], ["hu-orszaggyules", 199, "hungary-period-2012-01-01", [5, 10, 15]]); }
   const hr1992 = links.elections.find((l) => l.election_id === "el-hr-sabor-1992-08-02");
