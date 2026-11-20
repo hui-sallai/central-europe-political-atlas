@@ -62,6 +62,12 @@ export function validate({ meta, countries }, { storeSystems, storeChambers, kno
     const cites = (list, where) => { for (const id of list ?? []) if (!sources.has(id)) problems.push(at(`${where} cites unknown source ${id}`)); };
     const con = c.constitution;
     claim(con.id, at("constitution")); bilingual(con.name, at("constitution.name"), problems); cites(con.source_ids, "constitution");
+    for (const pc of c.previous_constitutions ?? []) {
+      claim(pc.id, at(`previous_constitutions.${pc.id}`)); bilingual(pc.name, at(`previous constitution ${pc.id}.name`), problems); bilingual(pc.note, at(`previous constitution ${pc.id}.note`), problems, { optional: true }); cites(pc.source_ids, `previous constitution ${pc.id}`);
+      if (!(pc.source_ids ?? []).length) problems.push(at(`previous constitution ${pc.id} has no source`));
+      if (!DATE.test(pc.in_force_to_exclusive ?? "")) problems.push(at(`previous constitution ${pc.id} needs in_force_to_exclusive`));
+      if (con.in_force && pc.in_force_to_exclusive !== con.in_force) problems.push(at(`previous constitution ${pc.id} must end when ${con.id} enters into force`));
+    }
     for (const k of ["adopted", "in_force"]) if (con[k] !== null && !DATE.test(con[k])) problems.push(at(`constitution.${k}`));
     const chamberIds = new Set();
     for (const ch of c.chambers) {
@@ -117,6 +123,7 @@ export function validate({ meta, countries }, { storeSystems, storeChambers, kno
       const known = dates.filter(Boolean);
       if (known.join() !== [...known].sort().join()) problems.push(at(`change ${ch.change_id}: adoption, promulgation and effect are out of order`));
       if (!known.length && !ch.effective_note) problems.push(at(`change ${ch.change_id}: no date and no date note`));
+      if (ch.repealed_effective !== undefined && (!DATE.test(ch.repealed_effective ?? "") || (changeDate(ch) && ch.repealed_effective <= changeDate(ch)))) problems.push(at(`change ${ch.change_id}.repealed_effective must be a date after it took effect`));
       if (!["verified", "partially_verified"].includes(ch.status)) problems.push(at(`change ${ch.change_id} status`));
       cites(ch.source_ids, `change ${ch.change_id}`);
       if (!(ch.source_ids ?? []).length) problems.push(at(`change ${ch.change_id} has no source`));
@@ -127,11 +134,15 @@ export function validate({ meta, countries }, { storeSystems, storeChambers, kno
   return problems;
 }
 
+// The constitution in force on a date: an election held before the current constitution entered into force is linked to the
+// recorded previous constitution whose interval covers it (null when none is recorded), never to the later text.
+export const constitutionOn = (c, date) => (!c.constitution.in_force || c.constitution.in_force <= date ? c.constitution.id : (c.previous_constitutions ?? []).find((pc) => pc.in_force_to_exclusive > date && (!pc.in_force || pc.in_force <= date))?.id ?? null);
+
 // The date on which a change took effect, or the best documented date when the effective date was not read.
 export const changeDate = (ch) => ch.effective ?? ch.promulgated ?? ch.adopted ?? null;
 
 export function buildLinks({ countries }) {
-  const out = { schema_version: "institutional-election-links-v1", generated_from: "src/lib/institutions/countries/*.json and src/data/political/<country>/{elections,legislatures,electoral_systems}.json", rule: "Each election is linked to its own stored election-specific rule record; current statutory text is never applied retroactively. Institutional changes are listed as in force on polling day only when their documented date precedes it; undated changes are listed separately.", periods: {}, elections: [] };
+  const out = { schema_version: "institutional-election-links-v1", generated_from: "src/lib/institutions/countries/*.json and src/data/political/<country>/{elections,legislatures,electoral_systems}.json", rule: "Each election is linked to its own stored election-specific rule record; current statutory text is never applied retroactively. Institutional changes are listed as in force on polling day only when their documented date precedes it and no recorded repeal took effect by then (repealed ones are listed under repealed_before); undated changes are listed separately.", periods: {}, elections: [] };
   for (const [slug, c] of Object.entries(countries)) {
     const dated = c.changes.filter((ch) => changeDate(ch)).sort((a, b) => changeDate(a).localeCompare(changeDate(b)) || a.change_id.localeCompare(b.change_id));
     const starts = [...new Set(dated.map(changeDate))];
@@ -150,8 +161,9 @@ export function buildLinks({ countries }) {
         electoral_system_id: e.electoral_system_id, system_family: sys?.system_family ?? null, allocation_method: sys?.allocation_method ?? null, base_seats: sys?.base_seats ?? null,
         thresholds: (sys?.national_rules?.thresholds ?? []).map((t) => ({ applies_to: t.appliesTo, percent: t.percent, description: t.description ? { en: t.description.en, zh: t.description["zh-CN"] } : null })),
         rule_basis: sys?.interval_basis ?? null,
-        constitution_id: c.constitution.id, institutional_period_id: period?.period_id ?? null,
-        changes_in_force: dated.filter((ch) => changeDate(ch) <= e.date).map((ch) => ch.change_id),
+        constitution_id: constitutionOn(c, e.date), institutional_period_id: period?.period_id ?? null,
+        changes_in_force: dated.filter((ch) => changeDate(ch) <= e.date && !(ch.repealed_effective && ch.repealed_effective <= e.date)).map((ch) => ch.change_id),
+        repealed_before: dated.filter((ch) => ch.repealed_effective && ch.repealed_effective <= e.date).map((ch) => ch.change_id),
         later_changes: dated.filter((ch) => changeDate(ch) > e.date).map((ch) => ch.change_id),
         undated_changes: c.changes.filter((ch) => !changeDate(ch)).map((ch) => ch.change_id),
       });

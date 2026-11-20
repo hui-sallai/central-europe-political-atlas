@@ -28,7 +28,7 @@ for (const [prefix, en] of [["/en",true],["",false]] as const) {
       await expect(column.locator("[data-comparison-rules]")).toContainText("10%");
     }
     await expect(former.locator("[data-comparison-chamber]")).toContainText("FIDESZ-KDNP-MVMP");
-    await expect(former.locator("[data-comparison-rules]")).toContainText(en?"No verified period boundary":"尚无已核实的时期边界");
+    await expect(former.locator("[data-comparison-rules]")).toContainText(en?"1989-10-30 until (exclusive) 2012-01-01":"1989-10-30 至（不含） 2012-01-01");
     await expect(latter.locator("[data-comparison-rules]")).toContainText("2012-01-01");
     await expect(former.locator("[data-comparison-rules]")).not.toContainText("15%");
     await expect(latter.locator("[data-comparison-rules]")).toContainText("15%");

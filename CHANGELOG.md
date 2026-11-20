@@ -1,5 +1,11 @@
 # Changelog
 
+### v2.0 Hungary 2010 institutional period — 2026-11-21
+
+- Link Hungary's 2010 election to a dated institutional period. It now falls under the period opened by Act XXXIV of 1989 on the election of Members of Parliament, which entered into force on its promulgation on 30 October 1989 (§ 56(1)) and was repealed from 1 January 2012. Its constitution is recorded as the 1949 Constitution as amended by Act XXXI of 1989, not the 2011 Fundamental Law. All five Hungarian elections now have a dated period.
+- Elections from 2014 list both 1989 acts as repealed before polling day instead of in force. No election result, seat or turnout figure changes.
+- Slovakia (2016, 2020 and earlier) and Czechia (2013 and earlier) are not admitted in this release; see [the iteration report](docs/v20-sk-cz-historical-expansion-2026-11-21.md) for the source decisions they await.
+
 ### v2.0 historical electoral systems and Hungary 2010 — 2026-11-21
 
 - Connect the two polling rounds, three allocation tiers and official final 386-seat composition to the existing bilingual election explorer, country hub, comparison, CSV and Notebook. Keep the 57-constituency runoff separate from nationwide turnout.

@@ -153,7 +153,7 @@ test("electoral systems preserve verified seat allocations, ballot types, period
   assert.deepEqual(first.history.allocations.map(t=>[t.id,t.seats]),[["single_member",176],["territorial_list",146],["national_compensation",64]]);
   assert.deepEqual(next.history.allocations.map(t=>[t.id,t.seats]),[["single_member",106],["national_list",93]]);
   assert.equal(first.history.systemId,"es-hu-ogy-2010");
-  assert.equal(first.history.period,null);
+  assert.deepEqual(first.history.period,{id:"hungary-period-1989-10-30",from:"1989-10-30",toExclusive:"2012-01-01"});
   assert.ok(next.history.period.id && next.history.period.from <= next.date);
   assert.deepEqual(first.ballots.map(b=>b.voteDenominator).sort((a,b)=>a-b),[1152693,5114570,5132531]);
   assert.ok(first.ballots.every(b=>!b.voteType.includes("compensation")));

@@ -408,12 +408,12 @@
     },
     {
       "host": "njt.jog.gov.hu",
-      "purpose": "Hungarian national legislation database: Acts LXXVI of 1999, CCIII of 2011 and XXXVI of 2013",
+      "purpose": "Hungarian national legislation database: Acts XXXI and XXXIV of 1989, LXXVI of 1999, CCIII of 2011 and XXXVI of 2013",
       "automation_allowed": false,
       "manual_allowed": true,
       "robots_checked_at": "2026-11-05",
       "robots_note": "Allows /jogszabaly/*; disallows /search/*",
-      "reason": "Target of the owner-approved njt.hu registration of 2026-11-05; statutes only, one reading per act.",
+      "reason": "Target of the owner-approved njt.hu registration of 2026-11-05; statutes only, one reading per act. 2026-11-21: Acts XXXI of 1989 and XXXIV of 1989 read once each (dates, § 4, § 8(5), § 56(1), repeal footnotes) for the Hungary 2010 institutional period.",
       "status": "allowed_review_due"
     },
     {
