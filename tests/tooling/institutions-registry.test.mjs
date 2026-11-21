@@ -110,13 +110,18 @@ test("election links: reproducible, complete, and tied to each election's own ru
       for (const id of link.later_changes) assert.ok(changeDate(countries[slug].changes.find((c) => c.change_id === id)) > e.date);
     }
   }
-  assert.equal(links.elections.length, 62);
+  assert.equal(links.elections.length, 64); // Hungary 2002 and 2006 admitted 2026-11-22
   // Hungary 2010 (Act XXXIV of 1989): 386 seats from its own rule record, under the 1949 Constitution as amended in 1989 and the
   // period opened by the 1989 electoral act (in force on promulgation, 1989-10-30, § 56(1)); both 1989 acts were repealed from 2012-01-01.
   const hu2010 = links.elections.find((l) => l.election_id === "el-hu-ogy-2010-04-11");
   assert.deepEqual([hu2010.chamber_id, hu2010.seats, hu2010.institutional_period_id, hu2010.constitution_id, hu2010.thresholds.map((t) => t.percent)], ["hu-orszaggyules", 386, "hungary-period-1989-10-30", "hu-constitution-1949-as-amended-1989", [5, 10]]);
   assert.deepEqual([hu2010.changes_in_force, hu2010.repealed_before], [["hu-1989-constitution-amendment", "hu-1989-electoral-act"], []]);
   assert.ok(hu2010.later_changes.includes("hu-2012-fundamental-law"));
+  // Hungary 2002 and 2006 (admitted 2026-11-22) share that period; the dated 1994 and 1997 amendments of the act are listed as versions in force,
+  // without opening new periods. Every amendment takes effect after the act and before its repeal.
+  for (const id of ["el-hu-ogy-2002-04-07", "el-hu-ogy-2006-04-09", "el-hu-ogy-2010-04-11"]) { const l = links.elections.find((x) => x.election_id === id); assert.deepEqual([l.seats, l.institutional_period_id, l.amendments_in_force], [386, "hungary-period-1989-10-30", ["hu-1994-electoral-act-amendment", "hu-1997-electoral-act-amendment"]], id); }
+  for (const l of links.elections.filter((x) => x.country !== "hungary" || x.date >= "2012-01-01")) assert.equal(l.amendments_in_force, undefined, l.election_id);
+  for (const c of Object.values(countries)) for (const ch of c.changes) for (const a of ch.amendments ?? []) assert.ok(a.effective > changeDate(ch) && (!ch.repealed_effective || a.effective < ch.repealed_effective), a.amendment_id);
   assert.deepEqual(links.periods.hungary.find((p) => p.period_id === "hungary-period-1989-10-30"), { period_id: "hungary-period-1989-10-30", from: "1989-10-30", to_exclusive: "2012-01-01", opened_by: ["hu-1989-electoral-act"] });
   for (const l of links.elections.filter((x) => x.country === "hungary" && x.date >= "2012-01-01")) { assert.equal(l.constitution_id, "hu-fundamental-law-2011"); assert.deepEqual(l.repealed_before, ["hu-1989-constitution-amendment", "hu-1989-electoral-act"]); assert.ok(!l.changes_in_force.some((id) => id.startsWith("hu-1989"))); }
   // Hungary 2014 and 2018 (admitted 2026-11-20) fall under the Fundamental Law period, with the 199-seat chamber and their own thresholds.

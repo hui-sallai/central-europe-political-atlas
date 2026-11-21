@@ -29,9 +29,9 @@ const result = run();
 const byPair = (from) => result.pairs.find((p) => p.fromElection === from);
 
 test('countries and elections: 12 successive pairs in four countries, Slovakia as context only, no pair across countries', () => {
-  assert.equal(elections.length, 24, 'all admitted elections of the five countries, Hungary 2010, 2014 and 2018 (2026-11-20) and Czechia 2002–2013 (2026-11-21) included');
+  assert.equal(elections.length, 26, 'all admitted elections of the five countries, Hungary 2010, 2014 and 2018 (2026-11-20), Czechia 2002–2013 (2026-11-21) and Hungary 2002 and 2006 (2026-11-22) included');
   assert.equal(C.RESEARCH_CASE.electionIds.length, 17);
-  assert.ok(!result.elections.some((e) => /el-hu-ogy-20(10|14|18)|el-cz-ps-20(0[26]|1[03])/.test(e.electionId)), 'elections admitted after the published case stay outside it');
+  assert.ok(!result.elections.some((e) => /el-hu-ogy-20(0[26]|10|14|18)|el-cz-ps-20(0[26]|1[03])/.test(e.electionId)), 'elections admitted after the published case stay outside it');
   assert.deepEqual(C.RESEARCH_CASE.countries, ['czechia', 'germany', 'hungary', 'poland']);
   const per = Object.fromEntries(C.RESEARCH_CASE.countries.map((c) => [c, result.pairs.filter((p) => p.country === c).length]));
   assert.deepEqual(per, { czechia: 2, germany: 6, hungary: 1, poland: 3 });

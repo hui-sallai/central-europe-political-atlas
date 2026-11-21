@@ -33,10 +33,10 @@ test("Hungarian election pairs preserve both ballot scopes, constituency seats a
 test("Historical turnout and seat exports retain dates, denominators, original sources and the 2018 independent seat",async({page})=>{
   await page.goto("/en/politics/hungary/?election="+hu[1]);
   const history=page.locator("[data-history-observations]");
-  await expect(history.locator("[data-turnout-point]")).toHaveCount(5); // 2010 (printed round-1 turnout) admitted 2026-11-20
+  await expect(history.locator("[data-turnout-point]")).toHaveCount(7); // 2010 (printed round-1 turnout) admitted 2026-11-20; 2002 and 2006 admitted 2026-11-22
   await history.locator("[data-history-details] > summary").click();
   await history.getByLabel("2026-04-12",{exact:true}).uncheck();
-  await expect(history.locator("[data-turnout-point]")).toHaveCount(4);
+  await expect(history.locator("[data-turnout-point]")).toHaveCount(6);
   for(const [id,contestant,seats,minority] of [[hu[1],"ct-hu-ogy18-p13",133,"ct-hu-ogy18-n01"],[hu[2],"ct-hu-ogy22-p06",135,"ct-hu-ogy22-n10"]] as const){
     const composition=history.locator('[data-history-composition="'+id+'"]');
     await composition.locator("summary").click();
@@ -70,7 +70,7 @@ test("Historical turnout and seat exports retain dates, denominators, original s
   expect(new Set(json.results.map((r:{vote_type:string})=>r.vote_type)).size).toBe(2);
   expect(json.results.reduce((n:number,r:{whole_chamber_seats:number})=>n+r.whole_chamber_seats,0)+1).toBe(199);
   await page.locator('a[hreflang="zh-CN"]').click();
-  await expect(history.locator("[data-turnout-point]")).toHaveCount(4);
+  await expect(history.locator("[data-turnout-point]")).toHaveCount(6);
   await expect(page).toHaveURL(/history_events=/);
 });
 
