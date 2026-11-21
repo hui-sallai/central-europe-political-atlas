@@ -14,9 +14,9 @@ Owner answers (2026-11-21):
 | Czechia 2013 and 2010 (P0, first batch) | **Admitted.** `el-cz-ps-2013-10-25` and `el-cz-ps-2010-05-28` |
 | Hungary 2010 dated institutional period (§7) | **Done.** `hungary-period-1989-10-30`; Hungary is now 5 of 5 |
 | Slovakia 2020, 2016, 2012, 2010 and earlier | **Not admitted.** Waiting for owner-saved files (section 4) |
-| Czechia 2006, 2002 | **Not admitted.** Next batch; the same route applies (section 6) |
+| Czechia 2006, 2002 (second batch) | **Admitted** after the owner's reply 'do it': `el-cz-ps-2006-06-02`, `el-cz-ps-2002-06-14` (section 2a) |
 
-Chamber elections: 58 → 60. Czechia now covers 2010, 2013, 2017, 2021 and 2025. Every previously admitted result, seat count and turnout figure is unchanged; tests check this row by row.
+Chamber elections: 58 → 62. Czechia now covers 2002, 2006, 2010, 2013, 2017, 2021 and 2025. Every previously admitted result, seat count and turnout figure is unchanged; tests check this row by row.
 
 ## 2. Czechia 2010 and 2013
 
@@ -90,6 +90,35 @@ Admission:
 - record `czechia-ps-2010-2013` (exact hashes, baseline d68d0e1);
 - gate record `docs/political-data/czechia_ps2010_2013_admission.json`.
 
+## 2a. Czechia 2002 and 2006
+
+These follow the same route and rights basis as 2010 and 2013. The owner extended the ČSÚ-terms answer to these years ("do it", 2026-11-21).
+
+- **Data:** the PS2006 and PS2002 CSV packages, retrieved once each.
+- **Rules:** Act 247/1995 versions 30 Apr – 30 Jun 2002 and 19 Jul 2004 – 29 Jun 2006. §§ 48–51 are identical to each other and their clauses match 2010 and 2013.
+- **Election calls:** 38/2002 Sb. and 31/2006 Sb.
+
+| | 2002 | 2006 |
+|---|---|---|
+| Polling districts | 14,868 | 14,866 |
+| Registered voters | 8,264,484 | 8,333,305 |
+| Issued envelopes | 4,793,706 | 5,372,449 |
+| Valid votes | 4,768,006 | 5,348,976 |
+| Published turnout | 58% | 64.47% |
+| Lists that stood | 28 (list 17 had no vote) | 26 |
+| Seats | ČSSD 70, ODS 58, KSČM 41, KOALICE 31 | ODS 81, ČSSD 74, KSČM 26, KDU-ČSL 13, SZ 6 |
+
+- **Coalitions:** `ct-cz-ps2002-25` (KOALICE, two proposers) and `ct-cz-ps2006-21` (Koalice pro Českou republiku, seven proposers, no seat) are `coalition` contestants. Their votes and seats are never divided among members.
+- **Seat check:** §§ 48–50 with member-count thresholds reproduce every list's seats.
+- **Votes abroad:** the § 27 draw was not read. 13 regions (2002) and 12 regions (2006) reproduce the official seats, so no region is asserted.
+- **Results notices:** none located for either year.
+
+Admission:
+- record `czechia-ps-2002-2006`;
+- gate record `docs/political-data/czechia_ps2002_2006_admission.json`;
+- rights entry `src-cz-volby-ps2002-2006` (verified) and attribution `csu-volby-ps2002-2006`;
+- evidence in `docs/political-data/raw/czechia/ps2002-2006/` (script `stage-ps2002-2006.mjs`). The same builder now handles both sets.
+
 ## 3. Hungary 2010 institutional period
 
 Sources, each read once by hand on njt.jog.gov.hu:
@@ -133,7 +162,7 @@ The build reuses `build-nrsr-national.mjs`, with the year's rules from Act 180/2
 
 ## 6. Recommended next batch
 
-1. **Czechia 2006 and 2002.** Same route and owner decision type, using the ps2006 and ps2002 open-data packages; the same §§ 48–50 check applies. Hold until the owner extends the 2026-11-21 answer to these two years: it named 2013 and 2010.
+1. **Czechia 1998 and 1996:** no open data exists on volby.gov.cz. They need another official source, such as the results notices in the Collection of Laws, and an owner decision.
 2. **Slovakia 2020 and 2016** once files are saved.
 3. **Czech identity extension to 2010/2013**, only with the register review the rule needs.
 
@@ -156,6 +185,8 @@ New data, all through the existing store contract, with no new page needed:
 |---|---|---|---|---|---|---|---|
 | `el-cz-ps-2010-05-28` | czechia | `cz-poslanecka-snemovna` (store `Poslanecká sněmovna`) | 2010-05-28 – 05-29 | 200 | 26 (`ct-cz-ps2010-NN`) | `es-cz-ps-2010` | `czechia-period-1993-01-01` |
 | `el-cz-ps-2013-10-25` | czechia | same | 2013-10-25 – 10-26 | 200 | 23 (`ct-cz-ps2013-NN`) | `es-cz-ps-2013` | `czechia-period-2012-10-01` |
+| `el-cz-ps-2006-06-02` | czechia | same | 2006-06-02 – 06-03 | 200 | 26 (one coalition) | `es-cz-ps-2006` | `czechia-period-1993-01-01` |
+| `el-cz-ps-2002-06-14` | czechia | same | 2002-06-14 – 06-15 | 200 | 28 (one coalition) | `es-cz-ps-2002` | `czechia-period-1993-01-01` |
 
 Where the data is:
 - **Stores:** `src/data/political/czechia/*.json`.
@@ -164,7 +195,7 @@ Where the data is:
 - **Sources:** `src-cz-volby-ps{2010,2013}-opendata`, `src-cz-esbirka-247-1995-{2010,2013}`, `src-cz-esbirka-call-{2010,2013}`, `src-cz-esbirka-results-2013`, `src-cz-csu-volps03-2010-2013`, `src-cz-ps2010-2013-evidence`.
 
 Comparison restrictions:
-- `published_vote_share` is null for 2010/2013. Use `derived_vote_share`, labelled as computed from votes.
+- `published_vote_share` is null for 2002–2013. Use `derived_vote_share`, labelled as computed from votes.
 - 2010/2013 and 2017 share the same rules; 2021 and 2025 differ: thresholds 5/8/11 and two scrutinies.
 - No party continuity crosses 2013→2017. `politicalCzechContinuity()` now uses only 2017–2025.
 - Czech and German turnout definitions differ (envelopes vs voters), as before.

@@ -13,12 +13,17 @@ const read = (rel) => JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8'));
 const sha = (rel) => crypto.createHash('sha256').update(fs.readFileSync(path.join(root, rel))).digest('hex');
 const csv = (rel) => { const [h, ...rows] = parseCsv(fs.readFileSync(path.join(root, rel), 'utf8')); return rows.filter((r) => r.length > 1).map((r) => Object.fromEntries(h.map((k, i) => [k, r[i]]))); };
 
-test('Czechia 2010 and 2013: national totals equal ČSÚ VOLPS03 and seats are reproduced by §§ 48–50', () => {
+test('Czechia 2002–2013: national totals equal ČSÚ VOLPS03 and seats are reproduced by §§ 48–50', () => {
   const { checks } = buildCzechiaEarly();
   assert.deepEqual(Object.fromEntries(Object.entries(checks).map(([y, c]) => [y, [c.lists, c.registered, c.envelopes, c.validVotes, c.turnout, c.not_on_ballot, c.seats_reproduced]])), {
+    2002: [28, 8264484, 4793706, 4768006, 58, [17], true],
+    2006: [26, 8333305, 5372449, 5348976, 64.47, [], true],
     2010: [26, 8415892, 5268098, 5230859, 62.6, [3], true],
     2013: [23, 8424227, 5010944, 4969984, 59.48, [19], true],
   });
+  assert.equal(checks[2002].abroad_region, null, 'the 2002 and 2006 § 27 draws are not asserted');
+  assert.equal(checks[2006].abroad_region, null);
+  assert.equal(checks[2010].regions_reproducing, 1);
   assert.equal(checks[2013].abroad_region, '2100');
   assert.match(checks[2010].abroad_basis, /^inferred/, 'the 2010 § 27 draw is not asserted');
 });
@@ -72,4 +77,21 @@ test('Czechia 2010 and 2013: admission record is exact-hash and every gate is cl
   const rights = read('docs/legal-security/source_rights_registry.json').sources.find((s) => s.source_id === 'src-cz-volby-ps2010-2013');
   assert.equal(rights.review_status, 'verified');
   assert.equal(read('docs/legal-security/source_rights_registry.json').sources.find((s) => s.source_id === 'src-cz-volby').review_status, 'blocked', 'other volby.gov.cz files stay blocked');
+});
+
+test('Czechia 2002 and 2006: coalition lists stay whole and every list that stood is present', () => {
+  const contestants = read('src/data/political/czechia/electoral_contestants.json');
+  const results = read('src/data/political/czechia/election_results.json');
+  const coalitions = contestants.filter((c) => /ps200[26]/.test(c.contestant_id) && c.contestant_kind === 'coalition');
+  assert.deepEqual(coalitions.map((c) => [c.contestant_id, c.csu_proposer_codes.length]), [['ct-cz-ps2002-25', 2], ['ct-cz-ps2006-21', 7]]);
+  const seats = { 'el-cz-ps-2002-06-14': { 3: 70, 22: 58, 23: 41, 25: 31 }, 'el-cz-ps-2006-06-02': { 9: 81, 10: 74, 18: 6, 20: 26, 24: 13 } };
+  for (const [id, expected] of Object.entries(seats)) {
+    const rows = results.filter((r) => r.election_id === id);
+    assert.equal(rows.reduce((n, r) => n + r.seats, 0), 200);
+    assert.deepEqual(Object.fromEntries(rows.filter((r) => r.seats > 0).map((r) => [Number(r.contestant_ref.slice(-2)), r.seats])), expected);
+  }
+  assert.equal(read('docs/legal-security/source_rights_registry.json').sources.find((s) => s.source_id === 'src-cz-volby-ps2002-2006').review_status, 'verified');
+  const rec = read('docs/legal-security/political_admission_records.json').admissions.find((a) => a.admission_id === 'czechia-ps-2002-2006');
+  assert.match(rec.verification, /official-total reconciliation and closed admission gate record$/);
+  for (const f of rec.files) assert.equal(sha(f.path), f.sha256, f.path);
 });

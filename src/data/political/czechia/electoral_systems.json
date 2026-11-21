@@ -1,5 +1,227 @@
 [
   {
+    "electoral_system_id": "es-cz-ps-2002",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2002-06-14",
+    "valid_from": "2002-06-14",
+    "valid_to": "2002-06-15",
+    "interval_basis": "election-specific rule observation (Act 247/1995 Coll., znění 30. 4. 2002 – 30. 6. 2002), not legal enactment dates",
+    "system_family": "list proportional representation in 14 regions",
+    "vote_type": "chamber_list_vote",
+    "allocation_method": "one scrutiny: successive divisors 1, 2, 3 … within each region",
+    "base_seats": 200,
+    "vote_definitions": [
+      {
+        "id": "chamber_list_vote",
+        "kind": "list",
+        "label": {
+          "en": "List votes (one list vote per voter)",
+          "zh-CN": "名单票（每名选民一票）"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "whole_chamber",
+        "sourceIds": [
+          "src-cz-volby-ps2002-opendata",
+          "src-cz-esbirka-247-1995-2002"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "Seats are apportioned to the 14 regions: total valid votes ÷ 200, rounded, is the republic mandate number; each region receives the whole number of mandate numbers in its valid votes, remaining seats go to the largest remainders (§ 48). There is no national second scrutiny.",
+      "districtAllocation": "Within each region the votes of each qualifying list are divided by 1, 2, 3 and so on; the largest quotients up to the regional seat number each win one seat (§ 50).",
+      "thresholds": [
+        {
+          "appliesTo": "political party or movement",
+          "percent": 5,
+          "description": {
+            "en": "Lists of a single party or movement below 5% of national valid votes take no part in the allocation (§ 49(1)(a)).",
+            "zh-CN": "单一政党或运动的名单低于全国有效票 5% 时不参与席位分配（第 49 条第 1 款 a 项）。"
+          },
+          "sourceIds": [
+            "src-cz-esbirka-247-1995-2002"
+          ]
+        },
+        {
+          "appliesTo": "coalition of two parties or movements",
+          "percent": 10,
+          "description": {
+            "en": "Coalitions of two below 10% take no part (§ 49(1)(b)).",
+            "zh-CN": "两个政党或运动组成的联盟低于 10% 时不参与（第 49 条第 1 款 b 项）。"
+          },
+          "sourceIds": [
+            "src-cz-esbirka-247-1995-2002"
+          ]
+        },
+        {
+          "appliesTo": "coalition of three parties or movements",
+          "percent": 15,
+          "description": {
+            "en": "Coalitions of three below 15% take no part (§ 49(1)(c)).",
+            "zh-CN": "三个政党或运动组成的联盟低于 15% 时不参与（第 49 条第 1 款 c 项）。"
+          },
+          "sourceIds": [
+            "src-cz-esbirka-247-1995-2002"
+          ]
+        },
+        {
+          "appliesTo": "coalition of four or more parties or movements",
+          "percent": 20,
+          "description": {
+            "en": "Coalitions of four or more below 20% take no part (§ 49(1)(d)).",
+            "zh-CN": "四个及以上政党或运动组成的联盟低于 20% 时不参与（第 49 条第 1 款 d 项）。"
+          },
+          "sourceIds": [
+            "src-cz-esbirka-247-1995-2002"
+          ]
+        }
+      ],
+      "minorityRepresentation": null,
+      "totalSeatsDefinition": {
+        "en": "200 seats (§ 24).",
+        "zh-CN": "共 200 席（第 24 条）。"
+      },
+      "sourceIds": [
+        "src-cz-esbirka-247-1995-2002"
+      ]
+    },
+    "notes": {
+      "en": "One scrutiny by successive divisors within 14 regions, 200 seats; thresholds 5%, 10%, 15% and 20% by list type, the same §§ 48–50 text as in 2017 and different from 2021 and 2025. 28 lists stood, 1 of them a coalition; coalition votes and seats are not divided among members. Votes are sums of the official polling-district records; re-running §§ 48–50 on them reproduces every list's seats. Districts abroad belong to one region drawn by lot (§ 27). No published vote share is stored.",
+      "zh-CN": "14 个选区内一轮最高均数法分配，共 200 席；门槛按名单类型分别为 5%、10%、15%、20%，第 48–50 条文本与 2017 年相同，与 2021 和 2025 年不同。共 28 份名单，其中 1 份为联盟；联盟的票数和席位不在成员间分配。票数为官方投票区记录之和；按第 48–50 条重算可复现各名单席位。国外投票区按抽签归入某一选区（第 27 条）。未存储官方公布的得票率。"
+    },
+    "provenance": [
+      {
+        "source_id": "src-cz-esbirka-247-1995-2002",
+        "source_url": "https://e-sbirka.gov.cz/sb/1995/247/2002-04-30?zalozka=text",
+        "source_record_id": "Act 247/1995 Coll. §§ 24, 48–50 (znění 30. 4. 2002 – 30. 6. 2002)",
+        "retrieved_at": "2026-11-21T00:23:20Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2002-2006/evidence.json",
+          "sha256": "2afc1187143b4de2cd592078823e9ebb9a39b59f2fd5951990bcd397e571dbc5"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "b4b2211ff87cf934911167a863fd73b94ad635e7d03582e39563894e76661d1e",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "national_rules"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "electoral_system_id": "es-cz-ps-2006",
+    "country": "czechia",
+    "election_id": "el-cz-ps-2006-06-02",
+    "valid_from": "2006-06-02",
+    "valid_to": "2006-06-03",
+    "interval_basis": "election-specific rule observation (Act 247/1995 Coll., znění 19. 7. 2004 – 29. 6. 2006), not legal enactment dates",
+    "system_family": "list proportional representation in 14 regions",
+    "vote_type": "chamber_list_vote",
+    "allocation_method": "one scrutiny: successive divisors 1, 2, 3 … within each region",
+    "base_seats": 200,
+    "vote_definitions": [
+      {
+        "id": "chamber_list_vote",
+        "kind": "list",
+        "label": {
+          "en": "List votes (one list vote per voter)",
+          "zh-CN": "名单票（每名选民一票）"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "whole_chamber",
+        "sourceIds": [
+          "src-cz-volby-ps2006-opendata",
+          "src-cz-esbirka-247-1995-2006"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "Seats are apportioned to the 14 regions: total valid votes ÷ 200, rounded, is the republic mandate number; each region receives the whole number of mandate numbers in its valid votes, remaining seats go to the largest remainders (§ 48). There is no national second scrutiny.",
+      "districtAllocation": "Within each region the votes of each qualifying list are divided by 1, 2, 3 and so on; the largest quotients up to the regional seat number each win one seat (§ 50).",
+      "thresholds": [
+        {
+          "appliesTo": "political party or movement",
+          "percent": 5,
+          "description": {
+            "en": "Lists of a single party or movement below 5% of national valid votes take no part in the allocation (§ 49(1)(a)).",
+            "zh-CN": "单一政党或运动的名单低于全国有效票 5% 时不参与席位分配（第 49 条第 1 款 a 项）。"
+          },
+          "sourceIds": [
+            "src-cz-esbirka-247-1995-2006"
+          ]
+        },
+        {
+          "appliesTo": "coalition of two parties or movements",
+          "percent": 10,
+          "description": {
+            "en": "Coalitions of two below 10% take no part (§ 49(1)(b)).",
+            "zh-CN": "两个政党或运动组成的联盟低于 10% 时不参与（第 49 条第 1 款 b 项）。"
+          },
+          "sourceIds": [
+            "src-cz-esbirka-247-1995-2006"
+          ]
+        },
+        {
+          "appliesTo": "coalition of three parties or movements",
+          "percent": 15,
+          "description": {
+            "en": "Coalitions of three below 15% take no part (§ 49(1)(c)).",
+            "zh-CN": "三个政党或运动组成的联盟低于 15% 时不参与（第 49 条第 1 款 c 项）。"
+          },
+          "sourceIds": [
+            "src-cz-esbirka-247-1995-2006"
+          ]
+        },
+        {
+          "appliesTo": "coalition of four or more parties or movements",
+          "percent": 20,
+          "description": {
+            "en": "Coalitions of four or more below 20% take no part (§ 49(1)(d)).",
+            "zh-CN": "四个及以上政党或运动组成的联盟低于 20% 时不参与（第 49 条第 1 款 d 项）。"
+          },
+          "sourceIds": [
+            "src-cz-esbirka-247-1995-2006"
+          ]
+        }
+      ],
+      "minorityRepresentation": null,
+      "totalSeatsDefinition": {
+        "en": "200 seats (§ 24).",
+        "zh-CN": "共 200 席（第 24 条）。"
+      },
+      "sourceIds": [
+        "src-cz-esbirka-247-1995-2006"
+      ]
+    },
+    "notes": {
+      "en": "One scrutiny by successive divisors within 14 regions, 200 seats; thresholds 5%, 10%, 15% and 20% by list type, the same §§ 48–50 text as in 2017 and different from 2021 and 2025. 26 lists stood, 1 of them a coalition; coalition votes and seats are not divided among members. Votes are sums of the official polling-district records; re-running §§ 48–50 on them reproduces every list's seats. Districts abroad belong to one region drawn by lot (§ 27). No published vote share is stored.",
+      "zh-CN": "14 个选区内一轮最高均数法分配，共 200 席；门槛按名单类型分别为 5%、10%、15%、20%，第 48–50 条文本与 2017 年相同，与 2021 和 2025 年不同。共 26 份名单，其中 1 份为联盟；联盟的票数和席位不在成员间分配。票数为官方投票区记录之和；按第 48–50 条重算可复现各名单席位。国外投票区按抽签归入某一选区（第 27 条）。未存储官方公布的得票率。"
+    },
+    "provenance": [
+      {
+        "source_id": "src-cz-esbirka-247-1995-2006",
+        "source_url": "https://e-sbirka.gov.cz/sb/1995/247/2004-07-19?zalozka=text",
+        "source_record_id": "Act 247/1995 Coll. §§ 24, 48–50 (znění 19. 7. 2004 – 29. 6. 2006)",
+        "retrieved_at": "2026-11-21T00:23:03Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2002-2006/evidence.json",
+          "sha256": "2afc1187143b4de2cd592078823e9ebb9a39b59f2fd5951990bcd397e571dbc5"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "b4b2211ff87cf934911167a863fd73b94ad635e7d03582e39563894e76661d1e",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "national_rules"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "electoral_system_id": "es-cz-ps-2010",
     "country": "czechia",
     "election_id": "el-cz-ps-2010-05-28",
@@ -99,7 +321,7 @@
           "sha256": "22c5abaf0eb16879645edc0e601c1ca4b20a5e7b0c00b4eb841bc0360d704b98"
         },
         "parser_version": "czechia-ps-2010-2013-v1",
-        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "parser_sha256": "b4b2211ff87cf934911167a863fd73b94ad635e7d03582e39563894e76661d1e",
         "fields_covered": [
           "system_family",
           "allocation_method",
@@ -210,7 +432,7 @@
           "sha256": "22c5abaf0eb16879645edc0e601c1ca4b20a5e7b0c00b4eb841bc0360d704b98"
         },
         "parser_version": "czechia-ps-2010-2013-v1",
-        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "parser_sha256": "b4b2211ff87cf934911167a863fd73b94ad635e7d03582e39563894e76661d1e",
         "fields_covered": [
           "system_family",
           "allocation_method",
@@ -321,7 +543,7 @@
           "sha256": "4fbedc450ce07a4e73aa1aa4fe166614e9f9d4dd17d3d32e49ff69ae523b32bd"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
+        "parser_sha256": "701fcbfd78bc139539cad46e397625a8c0483642d767ab924197ae09d0ed4b8f",
         "fields_covered": [
           "system_family",
           "allocation_method",
@@ -340,7 +562,7 @@
           "sha256": "4fbedc450ce07a4e73aa1aa4fe166614e9f9d4dd17d3d32e49ff69ae523b32bd"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
+        "parser_sha256": "701fcbfd78bc139539cad46e397625a8c0483642d767ab924197ae09d0ed4b8f",
         "fields_covered": [
           "notes"
         ],
@@ -437,7 +659,7 @@
           "sha256": "4fbedc450ce07a4e73aa1aa4fe166614e9f9d4dd17d3d32e49ff69ae523b32bd"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
+        "parser_sha256": "701fcbfd78bc139539cad46e397625a8c0483642d767ab924197ae09d0ed4b8f",
         "fields_covered": [
           "system_family",
           "allocation_method",
@@ -456,7 +678,7 @@
           "sha256": "4fbedc450ce07a4e73aa1aa4fe166614e9f9d4dd17d3d32e49ff69ae523b32bd"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
+        "parser_sha256": "701fcbfd78bc139539cad46e397625a8c0483642d767ab924197ae09d0ed4b8f",
         "fields_covered": [
           "notes"
         ],

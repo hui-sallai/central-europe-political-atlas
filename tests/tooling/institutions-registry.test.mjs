@@ -110,7 +110,7 @@ test("election links: reproducible, complete, and tied to each election's own ru
       for (const id of link.later_changes) assert.ok(changeDate(countries[slug].changes.find((c) => c.change_id === id)) > e.date);
     }
   }
-  assert.equal(links.elections.length, 60);
+  assert.equal(links.elections.length, 62);
   // Hungary 2010 (Act XXXIV of 1989): 386 seats from its own rule record, under the 1949 Constitution as amended in 1989 and the
   // period opened by the 1989 electoral act (in force on promulgation, 1989-10-30, § 56(1)); both 1989 acts were repealed from 2012-01-01.
   const hu2010 = links.elections.find((l) => l.election_id === "el-hu-ogy-2010-04-11");

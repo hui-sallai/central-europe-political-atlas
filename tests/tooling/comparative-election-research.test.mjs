@@ -21,8 +21,8 @@ const inputs = context.politicalContextData('germany');
 const points = [...contextAnnualPoints(inputs.observations, read('public/research-data/annual_history_runtime.json'), inputs.indicators), ...contextMonthlyPoints(read('public/research-data/monthly_history_runtime.json'), read('public/research-data/high_frequency_runtime.json').records, inputs.monthlyMetadata)];
 const allAdmitted = [...data.politicalElectionViews(), ...data.politicalComparisonCountries().flatMap((c) => c.elections)];
 // The original four countries keep their exact results; Hungary is checked separately.
-// Czechia 2010 and 2013 (admitted 2026-11-21) are checked separately below, so the original reference set keeps its exact results.
-const CZ_EARLY = ['el-cz-ps-2010-05-28', 'el-cz-ps-2013-10-25'];
+// Czechia 2002, 2006, 2010 and 2013 (admitted 2026-11-21) are checked separately below, so the original reference set keeps its exact results.
+const CZ_EARLY = ['el-cz-ps-2002-06-14', 'el-cz-ps-2006-06-02', 'el-cz-ps-2010-05-28', 'el-cz-ps-2013-10-25'];
 const elections = allAdmitted.filter((e) => e.country !== 'hungary' && e.country !== 'serbia' && !CZ_EARLY.includes(e.electionId)); // Serbia (2026-11-15) is checked separately: no macro context is held for it.
 const links = inputs.identityLinks;
 const run = (selection = {}) => R.runComparativeResearch(selection, elections, points, links);
@@ -301,7 +301,7 @@ test('existing research results are preserved: D1 and D2 coverage and the electi
   assert.equal(rows.length, 75);
   assert.deepEqual(Object.fromEntries(electionMacroCoverage(rows).map((c) => [c.indicator, [c.lastCompleteYear, c.retrospective, c.publishedBeforeElection]])), { hicp_inflation: [15, 15, 4], real_gdp_growth: [9, 10, 4], unemployment_rate: [4, 6, 3], fiscal_balance_gdp: [15, 15, 4], government_debt_gdp: [15, 15, 4] });
   assert.deepEqual([...new Set(allAdmitted.map((e) => e.country))].sort(), ['czechia', 'germany', 'hungary', 'poland', 'serbia', 'slovakia']);
-  assert.deepEqual(['czechia', 'germany', 'hungary', 'poland', 'serbia', 'slovakia'].map((c) => allAdmitted.filter((e) => e.country === c).length), [5, 7, 5, 4, 4, 1]); // Serbia 2022 added 2026-11-15; Hungary 2010, 2014 and 2018 added 2026-11-20; Czechia 2010 and 2013 added 2026-11-21
+  assert.deepEqual(['czechia', 'germany', 'hungary', 'poland', 'serbia', 'slovakia'].map((c) => allAdmitted.filter((e) => e.country === c).length), [7, 7, 5, 4, 4, 1]); // Serbia 2022 added 2026-11-15; Hungary 2010, 2014 and 2018 added 2026-11-20; Czechia 2002–2013 added 2026-11-21
 });
 
 test('the workflow is reachable from the existing context panel on all four country pages', () => {
@@ -445,12 +445,12 @@ test('exports name the question, election, vintage, rule and comparability, and 
   assert.equal(R.researchCsv(run()).split('\n')[1].includes('"A"'), true, 'the default question is A');
 });
 
-test('Czechia 2010 and 2013 (admitted 2026-11-21) enter every view as ordinary admitted elections', () => {
+test('Czechia 2002, 2006, 2010 and 2013 (admitted 2026-11-21) enter every view as ordinary admitted elections', () => {
   const withEarly = allAdmitted.filter((e) => e.country !== 'hungary' && e.country !== 'serbia');
-  assert.equal(withEarly.length, elections.length + 2);
+  assert.equal(withEarly.length, elections.length + 4);
   const r = R.runComparativeResearch({}, withEarly, points, links);
   const pairs = R.successiveElectionPairs(withEarly, r.selection).filter((p) => p.country === 'czechia').map((p) => `${p.from.year}>${p.to.year}`);
-  assert.deepEqual(pairs, ['2010>2013', '2013>2017', '2017>2021', '2021>2025']);
+  assert.deepEqual(pairs, ['2002>2006', '2006>2010', '2010>2013', '2013>2017', '2017>2021', '2021>2025']);
   const all = R.researchObservations(withEarly, points);
   for (const id of CZ_EARLY) assert.equal(all.filter((o) => o.electionId === id).length, 5 * 4, id);
   const texts = Object.values(R.researchFindings(r, withEarly)).flat();

@@ -1,5 +1,75 @@
 [
   {
+    "election_id": "el-cz-ps-2002-06-14",
+    "country": "czechia",
+    "election_type": "national_parliament",
+    "chamber": "Poslanecká sněmovna",
+    "date": "2002-06-14",
+    "date_end": "2002-06-15",
+    "year": 2002,
+    "legislature_id": "lg-cz-ps-2002",
+    "electoral_system_id": "es-cz-ps-2002",
+    "result_status": "official_final",
+    "result_vintage": "final: ČSÚ open data PS2002 (data package 2023-02-24, registers 2023-04-28)",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-esbirka-call-2002",
+        "source_url": "https://e-sbirka.gov.cz/sb/2002/38",
+        "source_record_id": "Rozhodnutí prezidenta republiky č. 38/2002 Sb. ze dne 30. ledna 2002 o vyhlášení voleb do Poslanecké sněmovny Parlamentu, do Senátu Parlamentu a do zastupitelstev obcí",
+        "retrieved_at": "2026-11-21T00:23:20Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2002-2006/evidence.json",
+          "sha256": "2afc1187143b4de2cd592078823e9ebb9a39b59f2fd5951990bcd397e571dbc5"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "b4b2211ff87cf934911167a863fd73b94ad635e7d03582e39563894e76661d1e",
+        "fields_covered": [
+          "date",
+          "date_end",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "election_id": "el-cz-ps-2006-06-02",
+    "country": "czechia",
+    "election_type": "national_parliament",
+    "chamber": "Poslanecká sněmovna",
+    "date": "2006-06-02",
+    "date_end": "2006-06-03",
+    "year": 2006,
+    "legislature_id": "lg-cz-ps-2006",
+    "electoral_system_id": "es-cz-ps-2006",
+    "result_status": "official_final",
+    "result_vintage": "final: ČSÚ open data PS2006 (data package 2023-02-24, registers 2023-04-28)",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-cz-esbirka-call-2006",
+        "source_url": "https://e-sbirka.gov.cz/sb/2006/31",
+        "source_record_id": "Rozhodnutí prezidenta republiky č. 31/2006 Sb. ze dne 30. ledna 2006 o vyhlášení voleb do Poslanecké sněmovny Parlamentu České republiky",
+        "retrieved_at": "2026-11-21T00:23:03Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/czechia/ps2002-2006/evidence.json",
+          "sha256": "2afc1187143b4de2cd592078823e9ebb9a39b59f2fd5951990bcd397e571dbc5"
+        },
+        "parser_version": "czechia-ps-2010-2013-v1",
+        "parser_sha256": "b4b2211ff87cf934911167a863fd73b94ad635e7d03582e39563894e76661d1e",
+        "fields_covered": [
+          "date",
+          "date_end",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "election_id": "el-cz-ps-2010-05-28",
     "country": "czechia",
     "election_type": "national_parliament",
@@ -24,7 +94,7 @@
           "sha256": "22c5abaf0eb16879645edc0e601c1ca4b20a5e7b0c00b4eb841bc0360d704b98"
         },
         "parser_version": "czechia-ps-2010-2013-v1",
-        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "parser_sha256": "b4b2211ff87cf934911167a863fd73b94ad635e7d03582e39563894e76661d1e",
         "fields_covered": [
           "date",
           "date_end",
@@ -59,7 +129,7 @@
           "sha256": "22c5abaf0eb16879645edc0e601c1ca4b20a5e7b0c00b4eb841bc0360d704b98"
         },
         "parser_version": "czechia-ps-2010-2013-v1",
-        "parser_sha256": "2b75fb8adc39a2faf44a6b3d2ede63c3e0878d425b8b2a4e0f807feb84905e49",
+        "parser_sha256": "b4b2211ff87cf934911167a863fd73b94ad635e7d03582e39563894e76661d1e",
         "fields_covered": [
           "date",
           "date_end",
@@ -102,7 +172,7 @@
           "sha256": "4fbedc450ce07a4e73aa1aa4fe166614e9f9d4dd17d3d32e49ff69ae523b32bd"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
+        "parser_sha256": "701fcbfd78bc139539cad46e397625a8c0483642d767ab924197ae09d0ed4b8f",
         "fields_covered": [
           "date",
           "date_end",
@@ -120,7 +190,7 @@
           "sha256": "070c1c1b0f7fff4aefeb28c354faeb76a4eb3cb6e51543e89fd1e0a283c40c5b"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
+        "parser_sha256": "701fcbfd78bc139539cad46e397625a8c0483642d767ab924197ae09d0ed4b8f",
         "fields_covered": [
           "result_vintage"
         ],
@@ -160,7 +230,7 @@
           "sha256": "4fbedc450ce07a4e73aa1aa4fe166614e9f9d4dd17d3d32e49ff69ae523b32bd"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
+        "parser_sha256": "701fcbfd78bc139539cad46e397625a8c0483642d767ab924197ae09d0ed4b8f",
         "fields_covered": [
           "date",
           "date_end",
@@ -178,7 +248,7 @@
           "sha256": "ace0dfb34f5fde9bda46ec4fdc0db56b4bb49c535071990c7a2948da65750a1d"
         },
         "parser_version": "czechia-ps-national-v1",
-        "parser_sha256": "197b8b25acc005528d0373eee0ad9a0f030131bcd8f68d597db32fb7e572dd4c",
+        "parser_sha256": "701fcbfd78bc139539cad46e397625a8c0483642d767ab924197ae09d0ed4b8f",
         "fields_covered": [
           "result_vintage"
         ],

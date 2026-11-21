@@ -1,0 +1,204 @@
+{
+ "schema_version": "atlas-political-evidence-v1",
+ "country": "czechia",
+ "elections": [
+  "Volby do Poslanecké sněmovny Parlamentu ČR, 14–15 June 2002",
+  "Volby do Poslanecké sněmovny Parlamentu ČR, 2–3 June 2006"
+ ],
+ "captured_on": "2026-11-21",
+ "retrieval": {
+  "authorised_by": "owner reply 2026-11-21 'do it' to the offer to extend the 'Accept ČSÚ general terms (Recommended)' answer from PS2013/PS2010 to PS2006 and PS2002: retrieve their CSV packages once each under the same terms",
+  "method": "one sequential request per named package, 5 seconds apart, identifying User-Agent; robots.txt of volby.gov.cz disallows /pls/ only"
+ },
+ "rights": {
+  "basis": "ČSÚ general terms for using and further publishing statistical data, linked from the footer of the volby.gov.cz open-data pages (\"Podmínky pro využívání a další zveřejňování statistických údajů ČSÚ\")",
+  "terms_url": "https://csu.gov.cz/podminky_pro_vyuzivani_a_dalsi_zverejnovani_statistickych_udaju_csu",
+  "terms_read_at": "2026-11-21",
+  "terms_html_sha256": "d7fb4c550d2aa3fbbdc5df60f6d98d2b39386ab6026ef0800acc59e0db962637",
+  "quote": "Statistické informace Českého statistického úřadu zveřejněné prostřednictvím internetových stránek https://csu.gov.cz jsou licencovány v souladu s CC BY 4.0.",
+  "licence": "CC BY 4.0",
+  "attribution": "Český statistický úřad (ČSÚ), volby.gov.cz open data; terms: https://csu.gov.cz/podminky_pro_vyuzivani_a_dalsi_zverejnovani_statistickych_udaju_csu",
+  "scope_note": "The operative sentence names csu.gov.cz, not volby.gov.cz. The owner accepted these terms as the basis for the 2010 and 2013 volby.gov.cz files on 2026-11-21 and extended that answer to 2006 and 2002 the same day; the national catalogue (NKOD) has no entry for these files.",
+  "personal_data": "The candidate register is not redistributed; only per-list elected counts are derived from it."
+ },
+ "years": {
+  "2002": {
+   "packages": {
+    "data": {
+     "url": "https://volby.gov.cz/opendata/ps2002/PS2002_data_20230224_csv.zip",
+     "retrieved_at": "2026-11-21T00:23:20Z",
+     "http_last_modified": "Wed, 18 Sep 2024 12:47:22 GMT",
+     "bytes": 3820236,
+     "sha256": "5234c082b4fc33c8020cb0ca66ceb59ba63a842a9b4b8729e94534333eb2995d"
+    },
+    "reg": {
+     "url": "https://volby.gov.cz/opendata/ps2002/PS2002_reg_20230428_csv.zip",
+     "retrieved_at": "2026-11-21T00:23:25Z",
+     "http_last_modified": "Wed, 18 Sep 2024 12:47:22 GMT",
+     "bytes": 339180,
+     "sha256": "fb034bfec3d8f2f9983c8dfb581e65a3a54b8fe12f5ab8f5b2b0f145e01bdb94"
+    },
+    "cisel": {
+     "url": "https://volby.gov.cz/opendata/ps2002/PS2002_cisel_20230224_csv.zip",
+     "retrieved_at": "2026-11-21T00:23:30Z",
+     "http_last_modified": "Wed, 18 Sep 2024 12:47:22 GMT",
+     "bytes": 222034,
+     "sha256": "abe6ecc70294798145dbd6920be397f44fc81648eec5686618bce9fcbc907773"
+    }
+   },
+   "members_read": {
+    "csv_od/pst4.csv": "5146956af8d4497b4e85c21f9df8ce5277a84981d67f2e47cffa27a13c66a637",
+    "csv_od/pst4p.csv": "889f555076de824025de94cd588a8f1b1f36a789a82fd641caa9a5edd1dbc4e3",
+    "csv_od/psrkl.csv": "b5450208868c24106e68478ba477c11ea563e0622d14bdfda6377bb448fb1545",
+    "csv_od/psrk.csv": "f2a07a2a5c813617107fbb84563158f0f78963a64b9680ffae2c6f2a13a4a4cc",
+    "csv_od/cvs.csv": "1275b940fcfbdf61bcd045237fd18e8243f90626fe0a4637041c1d9b9b24ef60"
+   },
+   "psrk_note": "csv_od/psrk.csv (candidate register) is read only for KSTRANA and MANDAT to count elected candidates per list; no candidate field is stored",
+   "pst4p_note": "only KRAJ, KSTRANA and POC_HLASU are read; the preferential-vote columns HLASY_01… are never read into the archive",
+   "districts": 14868,
+   "archived": {
+    "region_totals": {
+     "path": "docs/political-data/raw/czechia/ps2002-2006/ps2002_region_totals.csv",
+     "sha256": "b356191a3b2af54cf6270423c22d58ebd3b615f950c14c13235789b56adda3e1"
+    },
+    "region_list_votes": {
+     "path": "docs/political-data/raw/czechia/ps2002-2006/ps2002_region_list_votes.csv",
+     "sha256": "ceba98483b7021602fad7d00a2e451ba4059f2b95a5cb396ab80e2566ca5a47e"
+    },
+    "psrkl": {
+     "path": "docs/political-data/raw/czechia/ps2002-2006/ps2002_psrkl.csv",
+     "sha256": "148dd52af5deafe55092d461e7ee9f78d4d6248c0a55c9fcd591d3b9576ad62c"
+    },
+    "cvs_excerpt": {
+     "path": "docs/political-data/raw/czechia/ps2002-2006/ps2002_cvs_excerpt.csv",
+     "sha256": "ae43c22f987b160abfeb13a7e6d968bfe0074e039f40f5a0794a80a987f42400"
+    },
+    "elected_counts": {
+     "path": "docs/political-data/raw/czechia/ps2002-2006/ps2002_elected_counts.csv",
+     "sha256": "42f4c810d1018e5175392bb6aa6bfdcae9e65f7f2bf18bfcb8790c517f72eea0"
+    }
+   }
+  },
+  "2006": {
+   "packages": {
+    "data": {
+     "url": "https://volby.gov.cz/opendata/ps2006/PS2006_data_20230224_csv.zip",
+     "retrieved_at": "2026-11-21T00:23:03Z",
+     "http_last_modified": "Wed, 18 Sep 2024 12:47:26 GMT",
+     "bytes": 3513490,
+     "sha256": "d3de6ba3d67a18c9dd79b295932ce250135590a73ceaf7378278b362a2391371"
+    },
+    "reg": {
+     "url": "https://volby.gov.cz/opendata/ps2006/PS2006_reg_20230428_csv.zip",
+     "retrieved_at": "2026-11-21T00:23:08Z",
+     "http_last_modified": "Wed, 18 Sep 2024 12:47:26 GMT",
+     "bytes": 291348,
+     "sha256": "4aa34b0261f49bbf0074bb09a02b86de9f6b28e1710c27b414a795011358a648"
+    },
+    "cisel": {
+     "url": "https://volby.gov.cz/opendata/ps2006/PS2006_cisel_20230224_csv.zip",
+     "retrieved_at": "2026-11-21T00:23:14Z",
+     "http_last_modified": "Wed, 18 Sep 2024 12:47:26 GMT",
+     "bytes": 233315,
+     "sha256": "f61e380b892af883be0e55c3357b821bd111bfa1182fb6fb2c4169d4cec1df4a"
+    }
+   },
+   "members_read": {
+    "csv_od/pst4.csv": "a6d95af737da7a70abd16cc1af1b328df5fd1ad324878808ec7bca0bbff1ec46",
+    "csv_od/pst4p.csv": "f79307f8a038a0b70cf161929d16f3f0557d7352eb2c0155d95e93c2f9410ee3",
+    "csv_od/psrkl.csv": "12395e6b94c5cf0728a4368971dd1156b456f8b530669befdb9256c6fbb1b39e",
+    "csv_od/psrk.csv": "db6c5a493e5b691c96e2c6332f60c49630d8ff5114707ff55bdb00b3e5a9e213",
+    "csv_od/cvs.csv": "2cacb82efe48c68cd9951ee9dc3d269f6bf4eb1ded02cbd1d1c0775c0d4bc3b4"
+   },
+   "psrk_note": "csv_od/psrk.csv (candidate register) is read only for KSTRANA and MANDAT to count elected candidates per list; no candidate field is stored",
+   "pst4p_note": "only KRAJ, KSTRANA and POC_HLASU are read; the preferential-vote columns HLASY_01… are never read into the archive",
+   "districts": 14866,
+   "archived": {
+    "region_totals": {
+     "path": "docs/political-data/raw/czechia/ps2002-2006/ps2006_region_totals.csv",
+     "sha256": "11dda33a8b830602ff5be6b6699988105809980b518109a505b8febfaeebe6f5"
+    },
+    "region_list_votes": {
+     "path": "docs/political-data/raw/czechia/ps2002-2006/ps2006_region_list_votes.csv",
+     "sha256": "a635b1955b81ea42317b488565f6740103590d5a87cff2e26b0115e8c3bd043b"
+    },
+    "psrkl": {
+     "path": "docs/political-data/raw/czechia/ps2002-2006/ps2006_psrkl.csv",
+     "sha256": "bd0d61f836a009c0886eaebe66077159ac8c3ab1b467a9788fa5e3d01bda58d9"
+    },
+    "cvs_excerpt": {
+     "path": "docs/political-data/raw/czechia/ps2002-2006/ps2006_cvs_excerpt.csv",
+     "sha256": "224eba0afe5c6878f8205bce97f68104e0f85b908cf7f17bdf6cb3a7286676fd"
+    },
+    "elected_counts": {
+     "path": "docs/political-data/raw/czechia/ps2002-2006/ps2006_elected_counts.csv",
+     "sha256": "243f3c590429550b5009fb188532e00772a753eee41ac3e664b3a6a4213464ef"
+    }
+   }
+  }
+ },
+ "volps03": {
+  "code": "VOLPS03",
+  "url": "https://data.csu.gov.cz/opendata/sady/VOLPS03/distribuce/csv",
+  "sha256": "dc174b79619a6d418509e537d613192e62528492cbf7381ac6f54c5c5f37fa08",
+  "excerpt": {
+   "path": "docs/political-data/raw/czechia/ps2002-2006/VOLPS03_cz_2002_2006_excerpt.csv",
+   "sha256": "c8810c94658abb52dfc42640d2e346fc0c4b197504e0d2869e57052582819823"
+  },
+  "note": "national rows for 2002 and 2006 (registered voters, issued envelopes, valid votes, turnout, polling districts)"
+ },
+ "election_calls": {
+  "2002": {
+   "act": "Rozhodnutí prezidenta republiky č. 38/2002 Sb. ze dne 30. ledna 2002 o vyhlášení voleb do Poslanecké sněmovny Parlamentu, do Senátu Parlamentu a do zastupitelstev obcí",
+   "url": "https://e-sbirka.gov.cz/sb/2002/38",
+   "quote": "stanovím dny jejich konání na pátek 14. června 2002 a sobotu 15. června 2002.",
+   "read": "2026-11-21, browser innerText"
+  },
+  "2006": {
+   "act": "Rozhodnutí prezidenta republiky č. 31/2006 Sb. ze dne 30. ledna 2006 o vyhlášení voleb do Poslanecké sněmovny Parlamentu České republiky",
+   "url": "https://e-sbirka.gov.cz/sb/2006/31",
+   "quote": "stanovím dny jejich konání na pátek 2. června 2006 a sobotu 3. června 2006.",
+   "read": "2026-11-21, browser innerText"
+  }
+ },
+ "results_notices": {
+  "2002": {
+   "status": "not_located",
+   "note": "The State Electoral Commission notice for 2002 was not found through web search on 2026-11-21. National totals are reconciled to ČSÚ VOLPS03 instead."
+  },
+  "2006": {
+   "status": "not_located",
+   "note": "The State Electoral Commission notice for 2006 was not found through web search on 2026-11-21. National totals are reconciled to ČSÚ VOLPS03 instead."
+  }
+ },
+ "statutes": {
+  "2002": {
+   "act": "Zákon č. 247/1995 Sb.",
+   "version": "znění 30. 4. 2002 – 30. 6. 2002",
+   "url": "https://e-sbirka.gov.cz/sb/1995/247/2002-04-30?zalozka=text",
+   "status": "informativní znění systému e-Sbírka (informative consolidated text)",
+   "captured_sections": "§ 48 to § 51, browser innerText; §§ 24, 27 quoted",
+   "captured_sha256": "9e338048d10a71e56153ddb7ea3a5456a8bafc330160e164dc0db6a7bc4640a3"
+  },
+  "2006": {
+   "act": "Zákon č. 247/1995 Sb.",
+   "version": "znění 19. 7. 2004 – 29. 6. 2006",
+   "url": "https://e-sbirka.gov.cz/sb/1995/247/2004-07-19?zalozka=text",
+   "status": "informativní znění systému e-Sbírka (informative consolidated text)",
+   "captured_sections": "§ 48 to § 51, browser innerText; §§ 24, 27 quoted",
+   "captured_sha256": "9e338048d10a71e56153ddb7ea3a5456a8bafc330160e164dc0db6a7bc4640a3"
+  },
+  "identical_note": "§§ 48–51 read identically in the 2002 and 2006 versions (same checksum of the captured text); the thresholds, § 48 and § 50(1) clauses equal the 2010 and 2013 versions word for word.",
+  "clauses": {
+   "s27": "Všechny zvláštní volební okrsky v zahraničí jsou podřazeny pod volební kraj určený losem Státní volební komisí do 7 dnů od vyhlášení voleb prezidentem republiky.",
+   "s24": "Poslanecká sněmovna má 200 poslanců, kteří jsou voleni na dobu čtyř let.",
+   "s48_1": "vydělí ho počtem poslanců. Číslo takto vypočtené a zaokrouhlené na jednotky je republikovým mandátovým číslem.",
+   "s49_1a": "které politické strany nebo politická hnutí získaly méně než 5 procent,",
+   "s49_1b": "které koalice, složené ze 2 politických stran, popřípadě politických hnutí získaly méně než 10 procent,",
+   "s49_1c": "které koalice, složené ze 3 politických stran, popřípadě politických hnutí získaly méně než 15 procent,",
+   "s49_1d": "které koalice, složené z nejméně 4 a více politických stran, popřípadě politických hnutí získaly méně než 20 procent z celkového počtu platných hlasů.",
+   "s49_3a": "u politických stran nebo politických hnutí hranici 5 procent na hranici 4 procent",
+   "s50_1": "Počet platných hlasů pro každou z politických stran, politických hnutí a koalic, které postoupily do skrutinia, se v rámci každého volebního kraje postupně dělí čísly 1; 2; 3 a dále vždy číslem o 1 vyšším."
+  }
+ }
+}

@@ -1,5 +1,11 @@
 # Changelog
 
+### v2.0 Czech parliamentary elections 2002 and 2006 — 2026-11-21
+
+- Add the Czech Chamber of Deputies elections of 14–15 June 2002 and 2–3 June 2006 (200 seats each). Every list that stood is included (28 in 2002, 26 in 2006), with votes and seats, registered voters, issued envelopes, valid votes and the published turnout (58% and 64.47%). The source is ČSÚ open data under the same ČSÚ terms (CC BY 4.0) as 2010 and 2013. National totals equal ČSÚ's published figures, and re-running §§ 48–50 of Act 247/1995 with member-count thresholds reproduces every list's seats.
+- Both coalition lists stay whole: the two-party KOALICE (2002, 31 seats) and the seven-party Koalice pro Českou republiku (2006, no seat). The rules are the same as 2010 to 2017. No results notice was located for either year, and the region drawn for votes abroad is not asserted.
+- Czechia now covers 2002 to 2025 (seven elections).
+
 ### v2.0 Czech parliamentary elections 2010 and 2013, Hungary 2010 institutional period — 2026-11-21
 
 - Add the Czech Chamber of Deputies elections of 28–29 May 2010 and 25–26 October 2013 (200 seats each). Every list that stood is included (26 in 2010, 23 in 2013) with its votes and seats, along with registered voters, issued envelopes, valid votes and the published turnout (62.6% and 59.48%). The source is ČSÚ open data from volby.gov.cz, reused under the ČSÚ terms (CC BY 4.0). Votes are sums of the official polling-district records:
@@ -9,7 +15,7 @@
 - Both elections used the same rules as 2017: thresholds of 5%, 10%, 15% and 20% by list type, and successive divisors within 14 regions. These rules differ from 2021 and 2025. No published vote share is stored for the two elections, and their lists are not linked to later elections.
 - Link Hungary's 2010 election to a dated institutional period. It now falls under the period opened by Act XXXIV of 1989 on the election of Members of Parliament, which entered into force on its promulgation on 30 October 1989 (§ 56(1)) and was repealed from 1 January 2012. Its constitution is recorded as the 1949 Constitution as amended by Act XXXI of 1989, not the 2011 Fundamental Law. All five Hungarian elections now have a dated period.
 - Elections from 2014 list both 1989 acts as repealed before polling day instead of in force. No election result, seat or turnout figure changes.
-- Slovakia (2016, 2020 and earlier) and Czechia 2002 and 2006 are not admitted in this release. Slovakia waits for owner-saved files; see [the iteration report](docs/v20-sk-cz-historical-expansion-2026-11-21.md).
+- Slovakia (2016, 2020 and earlier) is not admitted in this release; it waits for owner-saved files; see [the iteration report](docs/v20-sk-cz-historical-expansion-2026-11-21.md).
 
 ### v2.0 historical electoral systems and Hungary 2010 — 2026-11-21
 

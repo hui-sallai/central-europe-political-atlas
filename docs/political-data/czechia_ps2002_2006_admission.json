@@ -1,0 +1,85 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "czechia-ps-2002-2006",
+ "country": "czechia",
+ "election_ids": [
+  "el-cz-ps-2002-06-14",
+  "el-cz-ps-2006-06-02"
+ ],
+ "scope": "Chamber of Deputies elections of 14–15 June 2002 and 2–3 June 2006 (200 seats each), national level: every list that stood (28 in 2002, 26 in 2006, including one coalition each) with its votes and seats, registered voters, issued envelopes, valid votes and published turnout. Regional sums are archived as evidence; candidates and preferential votes are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-20",
+   "decision": "Owner answer 'One-time retrieval exception' for the PS2013/PS2010 CSV packages, only where the national catalogue records no protected rights; no catalogue entry existed, so nothing was retrieved."
+  },
+  {
+   "date": "2026-11-21",
+   "decision": "Owner brief 'Slovakia and Czechia historical election expansion' naming the PS2013 and PS2010 open-data pages, and answer 'Accept ČSÚ general terms (Recommended)': read the ČSÚ terms by hand and, if they permit reuse with attribution, retrieve the PS2013 and PS2010 CSV packages once each."
+  },
+  {
+   "date": "2026-11-21",
+   "decision": "Owner reply 'do it' to the offer to extend the 'Accept ČSÚ general terms' answer to PS2006 and PS2002: retrieve their CSV packages once each under the same terms."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/czechia/ps2010-2013/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "cc_by_4_0_csu_terms_owner_accepted",
+   "evidence_kind": "owner_decision",
+   "basis": "ČSÚ terms (read 2026-11-21, quoted in evidence): statistical information published through csu.gov.cz is licensed CC BY 4.0. The sentence names csu.gov.cz; the volby.gov.cz pages link these terms in their footer, and the owner accepted them as the basis for the volby.gov.cz files. Attribution: Český statistický úřad."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_per_list",
+   "evidence_kind": "owner_decision",
+   "basis": "National votes and seats per list and national turnout figures, with attribution and a link to the terms; region × list sums archived as evidence; no candidate field."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "derived_sums_and_list_register_only",
+   "evidence_kind": "owner_decision",
+   "basis": "The CSV packages are not redistributed. Committed: per-region sums of the district tables, the list register (list fields only), code-list rows used by a list and per-list elected counts."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_retrieval",
+   "evidence_kind": "owner_decision",
+   "basis": "Six named CSV packages on volby.gov.cz (data, registers and code lists for 2002 and 2006) retrieved once each, 5 seconds apart, identifying User-Agent; robots.txt disallows /pls/ only. Statutes and election calls read in a browser on e-Sbírka."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "All polling districts (14,868 in 2002, 14,866 in 2006, matching VOLPS03), the full list register, and the code-list rows of every list."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "build-ps2010-2013 (2002–2013 sets): district sums equal ČSÚ VOLPS03 registered voters, issued envelopes, valid votes and district counts and reproduce the published turnout (58%, 64.47%); list votes equal valid votes in every region; register seats equal the elected count per list; §§ 48–50 with member-count thresholds reproduce every list's seats (districts abroad assigned to a region by lot under § 27; the drawn region was not read and is not asserted). The results notices for 2002 and 2006 were not located."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list",
+   "evidence_kind": "evidence_record",
+   "basis": "Each list that stood is one contestant (list register KSTRANA). Coalition lists (2002 KOALICE: two proposers; 2006 Koalice pro Českou republiku: seven) stay whole; members are listed as proposer codes only. 2002 list 17 recorded no vote and is not a contestant. No link to any other election."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "statute_version_in_force_quoted",
+   "evidence_kind": "official_act",
+   "basis": "Act 247/1995 Coll., e-Sbírka versions 30 Apr – 30 Jun 2002 and 19 Jul 2004 – 29 Jun 2006: § 24 (200 seats), § 27 (districts abroad by lot), § 48, § 49 (5/10/15/20% thresholds), § 50; §§ 48–51 identical in both versions."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_open_data_2023_packages",
+   "evidence_kind": "official_act",
+   "basis": "ČSÚ data packages dated 2023-02-24 and registers 2023-04-28. Polling days from presidential decisions 38/2002 Sb. and 31/2006 Sb."
+  }
+ },
+ "continuity": "None: the identity layer covers 2017 onward; 2002 and 2006 lists carry their own register codes but are not linked to any other election.",
+ "germany_change_allowed": false
+}
