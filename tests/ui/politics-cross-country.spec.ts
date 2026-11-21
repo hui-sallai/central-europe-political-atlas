@@ -343,7 +343,8 @@ for (const locale of ["en", "zh-CN"] as const) test(`research deep link: Poland 
   await page.waitForFunction(() => { const q = new URLSearchParams(location.search); return q.get("research_q") === "B" && q.get("context") === "1" && !q.get("research_countries")?.includes("germany"); });
   await panel.locator("[data-research-question]").selectOption("C");
   await expect(panel.locator("[data-research-c-pairs]")).toBeVisible();
-  await expect(panel.locator('[data-research-availability="partial"]')).toBeVisible();
+  // Without Germany, Czechia's six successive pairs (2002–2025, admitted 2026-11-21) give enough pairs: no partial notice.
+  await expect(panel.locator("[data-research-availability]")).toHaveCount(0);
   await panel.locator("[data-research-question]").selectOption("A");
   await expect(panel.locator("[data-research-a-table]")).toBeVisible();
   // An election without dated releases says so; a pilot chosen here survives a reload.
