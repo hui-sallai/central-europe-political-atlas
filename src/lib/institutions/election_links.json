@@ -1,7 +1,7 @@
 {
  "schema_version": "institutional-election-links-v1",
  "generated_from": "src/lib/institutions/countries/*.json and src/data/political/<country>/{elections,legislatures,electoral_systems}.json",
- "rule": "Each election is linked to its own stored election-specific rule record; current statutory text is never applied retroactively. Institutional changes are listed as in force on polling day only when their documented date precedes it and no recorded repeal took effect by then (repealed ones are listed under repealed_before); undated changes are listed separately.",
+ "rule": "Each election is linked to its own stored election-specific rule record; current statutory text is never applied retroactively. Institutional changes are listed as in force on polling day only when their documented date precedes it and no recorded repeal took effect by then (repealed ones are listed under repealed_before); dated amendments of a change in force are listed under amendments_in_force when they took effect by polling day; undated changes are listed separately.",
  "periods": {
   "poland": [
    {
@@ -410,6 +410,120 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-hu-ogy-2002-04-07",
+   "country": "hungary",
+   "date": "2002-04-07",
+   "chamber_id": "hu-orszaggyules",
+   "chamber_official_name": "Országgyűlés",
+   "seats": 386,
+   "seat_count_basis": "final_allocation_of_the_election_not_current_composition",
+   "electoral_system_id": "es-hu-ogy-2002",
+   "system_family": "mixed, two rounds: 176 single-member constituencies, up to 152 territorial-list seats in 20 districts and at least 58 national compensation seats",
+   "allocation_method": "territorial lists in 20 districts; national compensation seats by D'Hondt over fragment votes",
+   "base_seats": 386,
+   "thresholds": [
+    {
+     "applies_to": "party list",
+     "percent": 5,
+     "description": {
+      "en": "A party list must exceed 5% of all territorial-list votes nationally (5,616,750 in 2002) to win territorial or national list seats (§ 8(5)(a)).",
+      "zh": "政党名单须在全国地区名单票（2002 年为 5,616,750 张）中超过 5%，方可获得地区或全国名单席位（第 8 条第 5 款 a 项）。"
+     }
+    },
+    {
+     "applies_to": "joint list of two parties",
+     "percent": 10,
+     "description": {
+      "en": "A joint list of two parties must reach 10% of the same total (§ 8(5)(ba)).",
+      "zh": "两党联合名单须达到同一总数的 10%（第 8 条第 5 款 ba 项）。"
+     }
+    },
+    {
+     "applies_to": "joint list of more than two parties",
+     "percent": 15,
+     "description": {
+      "en": "A joint list of more than two parties must reach 15% of the same total (§ 8(5)(ba)); no such list stood in 2002.",
+      "zh": "两党以上联合名单须达到同一总数的 15%（第 8 条第 5 款 ba 项）；2002 年没有此类名单。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation: Act XXXIV of 1989 with § 8(3) and Annex 4 as set by Act III of 1994 (in force 1994-01-20) and § 8(5) and § 9(2)–(6) as set by Act XCVI of 1997 (in force 1997-11-05), read on the legislation database with the amending act of each provision; the office's 2002 pages apply the same tiers, thresholds and methods",
+   "constitution_id": "hu-constitution-1949-as-amended-1989",
+   "institutional_period_id": "hungary-period-1989-10-30",
+   "changes_in_force": [
+    "hu-1989-constitution-amendment",
+    "hu-1989-electoral-act"
+   ],
+   "repealed_before": [],
+   "amendments_in_force": [
+    "hu-1994-electoral-act-amendment",
+    "hu-1997-electoral-act-amendment"
+   ],
+   "later_changes": [
+    "hu-2012-fundamental-law",
+    "hu-2026-amendment-16",
+    "hu-2026-amendment-17"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-hu-ogy-2006-04-09",
+   "country": "hungary",
+   "date": "2006-04-09",
+   "chamber_id": "hu-orszaggyules",
+   "chamber_official_name": "Országgyűlés",
+   "seats": 386,
+   "seat_count_basis": "final_allocation_of_the_election_not_current_composition",
+   "electoral_system_id": "es-hu-ogy-2006",
+   "system_family": "mixed, two rounds: 176 single-member constituencies, up to 152 territorial-list seats in 20 districts and at least 58 national compensation seats",
+   "allocation_method": "territorial lists in 20 districts; national compensation seats by D'Hondt over fragment votes",
+   "base_seats": 386,
+   "thresholds": [
+    {
+     "applies_to": "party list",
+     "percent": 5,
+     "description": {
+      "en": "A party list must exceed 5% of all territorial-list votes nationally (5,408,050 in 2006) to win territorial or national list seats (§ 8(5)(a)).",
+      "zh": "政党名单须在全国地区名单票（2006 年为 5,408,050 张）中超过 5%，方可获得地区或全国名单席位（第 8 条第 5 款 a 项）。"
+     }
+    },
+    {
+     "applies_to": "joint list of two parties",
+     "percent": 10,
+     "description": {
+      "en": "A joint list of two parties must reach 10% of the same total (§ 8(5)(ba)).",
+      "zh": "两党联合名单须达到同一总数的 10%（第 8 条第 5 款 ba 项）。"
+     }
+    },
+    {
+     "applies_to": "joint list of more than two parties",
+     "percent": 15,
+     "description": {
+      "en": "A joint list of more than two parties must reach 15% of the same total (§ 8(5)(ba)); no such list stood in 2006.",
+      "zh": "两党以上联合名单须达到同一总数的 15%（第 8 条第 5 款 ba 项）；2006 年没有此类名单。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation: Act XXXIV of 1989 with § 8(3) and Annex 4 as set by Act III of 1994 (in force 1994-01-20) and § 8(5) and § 9(2)–(6) as set by Act XCVI of 1997 (in force 1997-11-05), read on the legislation database with the amending act of each provision; the office's 2006 pages apply the same tiers, thresholds and methods",
+   "constitution_id": "hu-constitution-1949-as-amended-1989",
+   "institutional_period_id": "hungary-period-1989-10-30",
+   "changes_in_force": [
+    "hu-1989-constitution-amendment",
+    "hu-1989-electoral-act"
+   ],
+   "repealed_before": [],
+   "amendments_in_force": [
+    "hu-1994-electoral-act-amendment",
+    "hu-1997-electoral-act-amendment"
+   ],
+   "later_changes": [
+    "hu-2012-fundamental-law",
+    "hu-2026-amendment-16",
+    "hu-2026-amendment-17"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-hu-ogy-2010-04-11",
    "country": "hungary",
    "date": "2010-04-11",
@@ -447,6 +561,10 @@
     "hu-1989-electoral-act"
    ],
    "repealed_before": [],
+   "amendments_in_force": [
+    "hu-1994-electoral-act-amendment",
+    "hu-1997-electoral-act-amendment"
+   ],
    "later_changes": [
     "hu-2012-fundamental-law",
     "hu-2026-amendment-16",

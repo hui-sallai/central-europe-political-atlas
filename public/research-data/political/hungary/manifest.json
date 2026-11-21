@@ -2,79 +2,81 @@
   "schema_version": "hungary-political-export-v1",
   "country": "hungary",
   "elections": [
+    "el-hu-ogy-2002-04-07",
+    "el-hu-ogy-2006-04-09",
     "el-hu-ogy-2010-04-11",
     "el-hu-ogy-2014-04-06",
     "el-hu-ogy-2018-04-08",
     "el-hu-ogy-2022-04-03",
     "el-hu-ogy-2026-04-12"
   ],
-  "coverage": "whole_chamber_all_seats_attributed_386_in_2010_199_from_2014",
+  "coverage": "whole_chamber_all_seats_attributed_386_in_2002_2006_2010_199_from_2014",
   "seat_scopes": {
-    "seats": "national list tier (93; 2010: territorial + national lists, 210)",
-    "constituency_seats": "single-member constituencies (106; 2010: 176)",
-    "whole_chamber_seats": "whole chamber (199; 2010: 386)"
+    "seats": "national list tier (93; 2002, 2006 and 2010: territorial + national lists, 210)",
+    "constituency_seats": "single-member constituencies (106; 2002, 2006 and 2010: 176)",
+    "whole_chamber_seats": "whole chamber (199; 2002, 2006 and 2010: 386)"
   },
   "continuous_party_series": 0,
   "files": [
     {
       "name": "elections.json",
-      "sha256": "c971640e3e8d7d3ee31244071f7c54392a48f538a3c14f3450a3d31bf579a6a5"
+      "sha256": "dcddb7fa1cdbad1fcc70d89e1d99031a0f61ae08272e6732acd7f78a01ee3f2b"
     },
     {
       "name": "elections.csv",
-      "sha256": "a47ef6acafbfa7c94b41e8024ec0e1bd2e9bc88a511101338e1770e65fe592e0"
+      "sha256": "40b33b2e79020bff895bbe86e14cb0b35868af48d18558c10b7e151f5c06c3a3"
     },
     {
       "name": "election_turnout.json",
-      "sha256": "0833995163673f31ecbaae1038328061e67bf83d10d6141afc0d2cbe57807d3b"
+      "sha256": "e02b7e7899484930f9a1c883398caa15300502749b57dff63e1cb370879d4676"
     },
     {
       "name": "election_turnout.csv",
-      "sha256": "83193f05db61f632ae2d2edfe2cf47c7962c3c203845a4350511b7837eaba784"
+      "sha256": "3daa29a7202ecc25ca2aa904d8edd5fb886642aeef667dbdb63ab18e611bbc45"
     },
     {
       "name": "election_results.json",
-      "sha256": "8bdec5138c07576500c04d524bb18a53c651b0761012118b176b142bc0aa8287"
+      "sha256": "3ee0c8b3d5bc68e6b022e3933be20df5b6766b1a4c692506ffa2b34a16211250"
     },
     {
       "name": "election_results.csv",
-      "sha256": "dc29a997e005d4884b6e4a457e6c3287bcaac8ab0df6c9c609a78283b32f4aba"
+      "sha256": "049cf726a64b9176c6f4f5782e30b9be664c4b6702959c3d2b1e6345e17473e0"
     },
     {
       "name": "electoral_contestants.json",
-      "sha256": "6896ef956ab9064f3d5b4f6b870b3877a6f794c51c7f7645399c2f79b90891bc"
+      "sha256": "7896414bdd224f3519c7bfdbc4e1417ada11ce611c544f1d726048460423854e"
     },
     {
       "name": "electoral_contestants.csv",
-      "sha256": "51f32b87e63590020832eb7c3fb70e0dba7e166f44aa898c817d8071ec4e44ca"
+      "sha256": "8a2cb0ba825648dfa74413166a7954986ab5bf3439020557396e3ccff4aac80f"
     },
     {
       "name": "legislatures.json",
-      "sha256": "ea48d9b56f113f2c8aad1b789f64f5c7dc14c0108af3a0ec50de437a4afa9a28"
+      "sha256": "57c5bc76b35168640d7ada871aef655aba065bc6bb5d02414fba4da88a32f371"
     },
     {
       "name": "legislatures.csv",
-      "sha256": "08bb02646c75b72163b7d7b67bdcc40be6f53e5fffab8e0c39f2fb4d6d2332d9"
+      "sha256": "c611a93ff4878d8611dbcb26a97baff4247a6259e8ac5d8efd620af0eb33b455"
     },
     {
       "name": "electoral_systems.json",
-      "sha256": "a1995d82a645c3e4e48ec49297fc94e8dd5fc6d8b831d20e51db656fb5670341"
+      "sha256": "2b172884b36e0b6495b5c289e1500146a6aee2bb77b1e72511c003b09270aa63"
     },
     {
       "name": "electoral_systems.csv",
-      "sha256": "c46d720dc669c729a427716dad8cea65162604eb9db2d9c5b9a68cbf1bb7aa45"
+      "sha256": "253db6bdf4b8d98c580fe9a8ec36976c2a3431b80e22ab486f63f8edceacf106"
     },
     {
       "name": "political_source_registry.json",
-      "sha256": "3d361622597cdcb4312f9c649ac256c0aef981263107d1f9a21bec75cf7d118d"
+      "sha256": "69c5bf052379b781b33227b4888efe716508acb787b405d399ba1b524cefd217"
     },
     {
       "name": "political_source_registry.csv",
-      "sha256": "e1076f86c88282b93c577aa42cc8da5be6bfce7f9cde9517fa160b7845fabfd0"
+      "sha256": "197c9412d8a29b46ef85e0c170638286d7a87893508e7158fb536742cfc8fafc"
     },
     {
       "name": "README.md",
-      "sha256": "a51e4edb615a81303953199b942ab2dac63004ba3ba6bcc88917969303535dc2"
+      "sha256": "4e3299d0f5286a0b4e6a2647f5ab764b5061a93d676a518badd069e4ae1ecac8"
     }
   ]
 }

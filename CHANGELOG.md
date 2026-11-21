@@ -1,5 +1,12 @@
 # Changelog
 
+### v2.0 Hungarian parliamentary elections 2002 and 2006 — 2026-11-22
+
+- Add the Hungarian National Assembly elections of 7 and 21 April 2002 and 9 and 23 April 2006 (386 seats each, two rounds, three tiers). Every territorial list and every single-member nominating group is included, with round-1 and round-2 registers, participation and the printed turnout (2002: 70.53% and 73.51%; 2006: 67.83% and 64.39%), territorial-list votes and seats, single-member votes per round, compensation fragment votes and seats, and the final composition. The source is the National Election Office's 2002 and 2006 archive pages.
+- Statutory and final tiers are kept apart: by statute 176 / 152 / 58; final 176 + 140 + 70 in 2002 and 176 + 146 + 64 in 2006. Every printed total is reproduced, and D'Hondt over the printed fragment votes reproduces every compensation seat. The joint lists FIDESZ-MDF and FIDESZ-KDNP stay whole, and no list is linked to another election.
+- Record the 1994 and 1997 amendments of Act XXXIV of 1989 as dated versions of the act: Act III of 1994 (in force 1994-01-20) and Act XCVI of 1997 (in force 1997-11-05, which set the 5%, 10% and 15% thresholds). 2002, 2006 and 2010 now list both as in force; the institutional period is unchanged.
+- Hungary now covers 2002 to 2026 (seven elections); 1998 and earlier are not admitted. See [the iteration report](docs/v20-hungary-2002-2006-backfill-2026-11-22.md).
+
 ### v2.0 Czech historical election comparison — 2026-11-21
 
 - Compare the thresholds, regional allocation and national remainder rules that applied to each Czech Chamber of Deputies election. The bilateral comparison and country timeline link to the law in use on polling day.

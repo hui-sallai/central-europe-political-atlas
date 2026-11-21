@@ -401,6 +401,10 @@
         {
           "date": "2026-11-20",
           "scope": "Owner brief 'historical election data gap closure' naming the 2010 eredind.htm, l50.htm and mandleir.htm pages, and answer 'National figures per tier': one browser reading each of nine named pages under /dyn/pv10/outroot/ (round summaries, threshold, national totals per round, compensation, composition, seat-allocation description). No per-constituency page; automation stays not allowed."
+        },
+        {
+          "date": "2026-11-22",
+          "scope": "Owner brief 'Hungary 2002–2006 historical parliamentary election backfill' naming the 2006 and 2002 result pages: one browser reading each of nine pages under /parval2006/outroot/ and the named /nepszav08/hu/11/ogy2006.html (2006), and ten pages under /parval2002/so02/ and the named /parval2006/outroot/vstat2/2002pmand.htm (2002): indexes, round summaries, threshold, national totals, compensation and composition pages, followed from the named pages by visible links. The named 2006 l406.htm (not linked) and 2002 l400.htm (per-constituency) were not opened. National figures and aggregate seat counts only; automation stays not allowed."
         }
       ]
     },
@@ -421,7 +425,7 @@
       "manual_allowed": true,
       "robots_checked_at": "2026-11-05",
       "robots_note": "Allows /jogszabaly/*; disallows /search/*",
-      "reason": "Target of the owner-approved njt.hu registration of 2026-11-05; statutes only, one reading per act. 2026-11-21: Acts XXXI of 1989 and XXXIV of 1989 read once each (dates, § 4, § 8(5), § 56(1), repeal footnotes) for the Hungary 2010 institutional period.",
+      "reason": "Target of the owner-approved njt.hu registration of 2026-11-05; statutes only, one reading per act. 2026-11-21: Acts XXXI of 1989 and XXXIV of 1989 read once each (dates, § 4, § 8(5), § 56(1), repeal footnotes) for the Hungary 2010 institutional period. 2026-11-22 (owner brief asking for the versions of Act XXXIV of 1989 applicable in 2002 and 2006): Act XXXIV of 1989 read again for §§ 7–9, Annexes 2 and 4 and the amendment footnotes, and Acts III of 1994 and XCVI of 1997 read once each from the links in those footnotes (dates and entry-into-force clauses). Optional cookies declined.",
       "status": "allowed_review_due"
     },
     {

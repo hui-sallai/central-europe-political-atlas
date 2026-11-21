@@ -1,5 +1,62 @@
 [
   {
+    "source_id": "src-hu-nvi-archive-2002",
+    "country": "hungary",
+    "institution": "Nemzeti Választási Iroda (Országos Választási Iroda archive)",
+    "dataset": "2002. évi országgyűlési képviselő választás — national result pages, rounds 1 and 2 (index, summary, threshold, national totals, compensation, composition)",
+    "tier": "tier1_official",
+    "url": "https://static.valasztas.hu/parval2002/so02/v02din2/eredind.htm",
+    "licence_status": "official_result_publication_section_1_4_copyright_act_owner_reading_no_licence",
+    "raw_redistribution": "national figures and seat counts only; pages not saved; no candidate names",
+    "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
+    "attribution": "Nemzeti Választási Iroda",
+    "retrieved_at": "2026-11-22T09:00:00Z",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
+    "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
+    "pages": {
+      "index_round1": "https://static.valasztas.hu/parval2002/so02/v02din1/eredind.htm",
+      "index_round2": "https://static.valasztas.hu/parval2002/so02/v02din2/eredind.htm",
+      "round1_summary": "https://static.valasztas.hu/parval2002/so02/v02din1/l100.htm",
+      "round2_summary": "https://static.valasztas.hu/parval2002/so02/v02din2/l100.htm",
+      "threshold": "https://static.valasztas.hu/parval2002/so02/v02din1/l120.htm",
+      "composition_round1": "https://static.valasztas.hu/parval2002/so02/v02din1/l50.htm",
+      "national_totals_round1": "https://static.valasztas.hu/parval2002/so02/v02din1/l22.htm",
+      "national_totals": "https://static.valasztas.hu/parval2002/so02/v02din2/l22y.htm",
+      "compensation": "https://static.valasztas.hu/parval2002/so02/v02din2/l61.htm",
+      "composition": "https://static.valasztas.hu/parval2002/so02/v02din2/l50.htm",
+      "seat_history": "https://static.valasztas.hu/parval2006/outroot/vstat2/2002pmand.htm"
+    },
+    "access": "read by hand once each in a browser from the archive pages named in the owner brief of 2026-11-22 and the links visible on them (10 pages under /parval2002/so02/ and one under /parval2006/outroot/vstat2/); only national figures and seat counts recorded; no per-constituency or per-district page, no polling-station page and no candidate name recorded"
+  },
+  {
+    "source_id": "src-hu-nvi-archive-2006",
+    "country": "hungary",
+    "institution": "Nemzeti Választási Iroda (Országos Választási Iroda archive)",
+    "dataset": "2006. évi országgyűlési képviselő választás — national result pages, rounds 1 and 2 (index, summary, threshold, national totals, compensation, composition)",
+    "tier": "tier1_official",
+    "url": "https://static.valasztas.hu/parval2006/outroot/vdin2/hu/eredind.htm",
+    "licence_status": "official_result_publication_section_1_4_copyright_act_owner_reading_no_licence",
+    "raw_redistribution": "national figures and seat counts only; pages not saved; no candidate names",
+    "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
+    "attribution": "Nemzeti Választási Iroda",
+    "retrieved_at": "2026-11-22T09:00:00Z",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
+    "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
+    "pages": {
+      "index_round1": "https://static.valasztas.hu/parval2006/outroot/vdin1/hu/eredind.htm",
+      "index_round2": "https://static.valasztas.hu/parval2006/outroot/vdin2/hu/eredind.htm",
+      "round1_summary": "https://static.valasztas.hu/parval2006/outroot/vdin1/hu/l100.htm",
+      "round2_summary": "https://static.valasztas.hu/parval2006/outroot/vdin2/hu/l100.htm",
+      "threshold": "https://static.valasztas.hu/parval2006/outroot/vdin1/hu/l120.htm",
+      "composition_round1": "https://static.valasztas.hu/parval2006/outroot/vdin1/hu/l50.htm",
+      "national_totals": "https://static.valasztas.hu/parval2006/outroot/vdin2/hu/l22y.htm",
+      "compensation": "https://static.valasztas.hu/parval2006/outroot/vdin2/hu/l61.htm",
+      "composition": "https://static.valasztas.hu/parval2006/outroot/vdin2/hu/l50.htm",
+      "system_description": "https://static.valasztas.hu/nepszav08/hu/11/ogy2006.html"
+    },
+    "access": "read by hand once each in a browser from the archive pages named in the owner brief of 2026-11-22 and the links visible on them (9 pages under /parval2006/outroot/ and one under /nepszav08/); only national figures and seat counts recorded; no per-constituency or per-district page, no polling-station page and no candidate name recorded"
+  },
+  {
     "source_id": "src-hu-nvi-archive-2010",
     "country": "hungary",
     "institution": "Nemzeti Választási Iroda (Országos Választási Iroda archive)",
@@ -11,7 +68,7 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "attribution": "Nemzeti Választási Iroda",
     "retrieved_at": "2026-11-20T09:00:00Z",
-    "raw_sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
     "pages": {
       "index_round2": "https://static.valasztas.hu/dyn/pv10/outroot/vdin2/hu/eredind.htm",
@@ -38,7 +95,7 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "attribution": "Nemzeti Választási Iroda",
     "retrieved_at": "2026-11-20T09:00:00Z",
-    "raw_sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
     "statute_not_read": "Act XXXIV of 1989"
   },
@@ -54,7 +111,7 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "attribution": "Nemzeti Választási Bizottság",
     "retrieved_at": "2026-11-20T01:40:00Z",
-    "raw_sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
     "publisher_pages": [
       "https://static.valasztas.hu/dyn/pv14/szavossz/hu/orszjkv.html",
@@ -75,7 +132,7 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "attribution": "Nemzeti Választási Bizottság",
     "retrieved_at": "2026-11-20T01:25:15Z",
-    "raw_sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
     "publisher_pdf_sha256": "e4ca8a14f9d1e9916d1087ae4ebf66b684090c4010a39351b119c92cc8b06612"
   },
@@ -91,7 +148,7 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "attribution": "Nemzeti Választási Bizottság",
     "retrieved_at": "2026-11-05T13:04:31Z",
-    "raw_sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
     "publisher_pdf_sha256": "b958153abf1c2b1969f93f1ccf07a93634436a6ca66db2e55668efd50415f145"
   },
@@ -107,7 +164,7 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "attribution": "Nemzeti Választási Bizottság",
     "retrieved_at": "2026-11-05T13:04:22Z",
-    "raw_sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
     "publisher_pdf_sha256": "3468005c850df14af823f01b87b79f945dadbca3b89840d750730a2c50a3b398"
   },
@@ -122,7 +179,7 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "retrieved_at": "2026-11-20T01:35:00Z",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
-    "raw_sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
     "raw_record": "chamber_composition.2014",
     "access": "read by hand once in a browser; the page is built in the browser and its data endpoints were not requested",
     "use": "constituency and whole-chamber seat counts of the lists in the minutes, only after reconciliation",
@@ -139,7 +196,7 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "retrieved_at": "2026-11-20T01:30:00Z",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
-    "raw_sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
     "raw_record": "chamber_composition.2018",
     "access": "read by hand once in a browser; the page is built in the browser and its data endpoints were not requested",
     "use": "constituency and whole-chamber seat counts of the lists in the minutes, only after reconciliation",
@@ -156,7 +213,7 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "retrieved_at": "2026-11-05T19:40:49Z",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
-    "raw_sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
     "raw_record": "chamber_composition.2022",
     "access": "read by hand once in a browser; the page is built in the browser and its data endpoints were not requested",
     "use": "constituency and whole-chamber seat counts of the lists in the minutes, only after reconciliation",
@@ -173,11 +230,42 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "retrieved_at": "2026-11-05T19:40:49Z",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
-    "raw_sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
     "raw_record": "chamber_composition.2026",
     "access": "read by hand once in a browser; the page is built in the browser and its data endpoints were not requested",
     "use": "constituency and whole-chamber seat counts of the lists in the minutes, only after reconciliation",
     "not_used": "candidate names, constituency-level results and any per-district figure"
+  },
+  {
+    "source_id": "src-hu-njt-act-xxxiv-1989-versions",
+    "country": "hungary",
+    "institution": "Nemzeti Jogszabálytár",
+    "dataset": "Act XXXIV of 1989 (text state 2011.12.22 with amendment footnotes) and its amending Acts III of 1994 and XCVI of 1997 (dates and entry-into-force clauses; quoted clauses)",
+    "tier": "tier1_official",
+    "url": "https://njt.jog.gov.hu/jogszabaly/1989-34-00-00",
+    "licence_status": "statute_not_subject_to_copyright",
+    "raw_redistribution": "quoted_clauses_only",
+    "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
+    "attribution": "Nemzeti Jogszabálytár",
+    "retrieved_at": "2026-11-22T09:00:00Z",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
+    "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json",
+    "amending_acts": [
+      {
+        "act": "Act III of 1994",
+        "url": "https://njt.jog.gov.hu/jogszabaly/1994-3-00-00",
+        "adopted": "1993-12-22",
+        "promulgated": "1994-01-20",
+        "effective": "1994-01-20"
+      },
+      {
+        "act": "Act XCVI of 1997",
+        "url": "https://njt.jog.gov.hu/jogszabaly/1997-96-00-00",
+        "adopted": "1997-10-14",
+        "promulgated": "1997-10-21",
+        "effective": "1997-11-05"
+      }
+    ]
   },
   {
     "source_id": "src-hu-act-ccIII-2011",
@@ -191,7 +279,7 @@
     "licence_url": "https://njt.jog.gov.hu/jogszabaly/1999-76-00-00",
     "attribution": "Nemzeti Jogszabálytár",
     "retrieved_at": "2026-11-05T13:05:59Z",
-    "raw_sha256": "2b76152419ae19f9d3a759dc88a7ee96f301463babf8d1ba3e0ad34db6c4ebb7",
+    "raw_sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227",
     "raw_path": "docs/political-data/raw/hungary/ogy/evidence.json"
   }
 ]

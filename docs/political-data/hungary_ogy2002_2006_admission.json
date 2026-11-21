@@ -1,0 +1,89 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "hungary-ogy-2002-2006",
+ "country": "hungary",
+ "election_ids": [
+  "el-hu-ogy-2002-04-07",
+  "el-hu-ogy-2006-04-09"
+ ],
+ "scope": "National Assembly elections of 7 and 21 April 2002 and 9 and 23 April 2006 under Act XXXIV of 1989 (as amended by Acts III of 1994 and XCVI of 1997), all 386 seats each: round-1 and round-2 registers and participation with the printed turnout, territorial-list votes and seats of every list, national sums of single-member candidate votes per nominating organisation in each round (votes only), round-1 and final single-member seats per organisation, national compensation fragment votes and seats, and the final composition (2002: 176 + 140 + 70; 2006: 176 + 146 + 64), from the National Election Office's 2002 and 2006 archive pages; statutory tiers, thresholds and methods from the statute and its two amending acts on the national legislation database. Per-constituency and per-district results, invalid ballots per ballot type and candidates are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-05",
+   "decision": "Owner reply: national figures on Copyright Act § 1(4), a reading of the statute weaker than a licence; no candidate names."
+  },
+  {
+   "date": "2026-11-06",
+   "decision": "Owner reply: extend that reading to the office's composition pages for aggregate seat counts."
+  },
+  {
+   "date": "2026-11-20",
+   "decision": "Owner answer 'National figures per tier (Recommended)' for the 2010 archive, the scope applied here."
+  },
+  {
+   "date": "2026-11-22",
+   "decision": "Owner brief 'Hungary 2002–2006 historical parliamentary election backfill and pre-2010 electoral system integration' naming the 2006 eredind.htm, l22y.htm, l406.htm and ogy2006.html pages and the 2002 l22.htm, eredind.htm, l22y.htm, l400.htm and 2002pmand.htm pages on static.valasztas.hu, and asking for the applicable versions of Act XXXIV of 1989."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/hungary/ogy/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "statute_section_1_4_copyright_act",
+   "basis": "As for 2010: official result publications of the election office, read under the owner's Copyright Act § 1(4) reading; no licence exists. Statutes are not subject to copyright."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_and_seat_counts_per_tier",
+   "evidence_kind": "owner_decision",
+   "basis": "National counts, national sums per ballot and per tier, and seat counts, as for 2010; no per-constituency rows; no candidate names. No organisation label in either election contains a personal name."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed",
+   "evidence_kind": "owner_decision",
+   "basis": "The pages were read in a browser and are not saved; only the transcribed figures and short quoted clauses are committed."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "2006: ten pages (nine under /parval2006/outroot/, the named system description under /nepszav08/); 2002: eleven pages (ten under /parval2002/so02/, the named seat history under /parval2006/outroot/vstat2/); each read once by hand from the owner-named pages and links visible on them. The named l406.htm (2006) is not linked from the index and was not opened; the compensation page linked from the index (l61.htm) was read instead. The named per-constituency page l400.htm (2002) was not read. Statutes: Act XXXIV of 1989 (text state 2011.12.22 with amendment footnotes) and the two amending acts linked from its footnotes, on njt.jog.gov.hu (robots allow /jogszabaly/*). www.valasztas.hu not contacted; no data endpoint requested."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "For each election: both round summaries, the threshold page (every territorial list), the national totals page (every single-member nominating group in both rounds and every territorial list), both composition pages, the compensation page (every national list) and the index with the rules; plus a cross-check page (2006 system description; 2002 seat history)."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "reconcileEarly: registers and participation add up in both rounds and reproduce the printed turnouts (2002: 70.53%, 73.51%; 2006: 67.83%, 64.39%); round 2 in exactly the 131 (2002) and 110 (2006) undecided constituencies; territorial-list votes = 5,616,750 and 5,408,050; printed 5%/10% thresholds reproduce and match the threshold page's findings; territorial seats 140 and 146 unchanged after round 1; compensation seats = 58 + 12 = 70 and 58 + 6 = 64, and D'Hondt over the printed fragment votes reproduces 26/13/31 and 11/17/9/27; single-member seats 45 + 131 and 66 + 110 = 176 and per organisation; both compositions total 386 with no vacancy and match every list's tiers; round-1 compositions total 185 and 212."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list_and_per_nominating_group",
+   "evidence_kind": "owner_decision",
+   "basis": "Territorial-list organisations and single-member nominating groups are separate contestants of each election; the joint lists FIDESZ-MDF (2002) and FIDESZ-KDNP (2006) stay whole (the threshold page's halving is not used); joint single-member groups such as MSZP-SZDSZ stay separate groups; two 2006 national lists without fragment votes are not matched; no link to any other election."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "statute_versions_read",
+   "evidence_kind": "build_check",
+   "basis": "Act XXXIV of 1989 read with the amending act of each provision: § 4 (386 = 176 + 152 + 58, original text); § 8(3) and Annex 4 set by Act III of 1994 (in force on promulgation, 1994-01-20); § 8(5) thresholds (more than 5%; at least 10% for a joint list of two parties; at least 15% for more than two) and § 9(2)–(6) set by Act XCVI of 1997 (in force on the 15th day after promulgation, 1997-11-05). No later amendment of these provisions before 2010 is footnoted. Annex 4 points I and II.1 were replaced in 2011; their earlier wording was not read, and the office pages state the rules they describe."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_archive_pages",
+   "evidence_kind": "official_act",
+   "basis": "2002 pages updated 7 May 2002 and headed 'Végleges' (final); 2006 pages updated 25 May 2006; both compositions print 386 seats filled and none vacant. Polling days from the page headings. The 2006 round-2 summary is headed 'Tájékoztató adatok' (informational figures); its counts reproduce its printed turnout."
+  }
+ },
+ "continuity": "None: no party register reviewed; no link to 2010 or later elections, even where a label repeats.",
+ "germany_change_allowed": false
+}

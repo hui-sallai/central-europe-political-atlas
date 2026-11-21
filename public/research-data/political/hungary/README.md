@@ -1,4 +1,8 @@
-# Hungary — National Assembly elections of 2010, 2014, 2018, 2022 and 2026
+# Hungary — National Assembly elections of 2002, 2006, 2010, 2014, 2018, 2022 and 2026
+
+## 2002 and 2006 (Act XXXIV of 1989 as amended in 1994 and 1997)
+
+386 seats in two rounds (7 and 21 April 2002; 9 and 23 April 2006) and three tiers, as in 2010. By statute 176 single-member, up to 152 territorial-list and at least 58 national compensation seats; the final allocation was 176 + 140 + 70 in 2002 (12 territorial seats passed to the national lists) and 176 + 146 + 64 in 2006 (6 passed). The same three ballots are kept apart, each with its own total: territorial-list votes (round 1; `hu02_territorial_list_vote`, `hu06_territorial_list_vote`) and national sums of single-member candidate votes per nominating organisation in round 1 and round 2 (`hu02_smc_round1_vote`, `hu02_smc_round2_vote`, `hu06_smc_round1_vote`, `hu06_smc_round2_vote`; votes only). Round-1 single-member seats per organisation come from the round-1 composition page; round-2 seats are the final seats minus round-1 seats (`round2_seats_derived`). Seats won outside the lists are in `constituency_seats_outside_lists`: 2002, one seat of joint MSZP-SZDSZ candidates; 2006, six seats of joint MSZP-SZDSZ candidates and one of SOMOGYÉRT candidates. Joint lists (FIDESZ-MDF in 2002, FIDESZ-KDNP in 2006) stay whole; the threshold page halves their votes only to test the threshold, and that split is not used. Turnout is the printed round-1 figure (2002: 70.53%; 2006: 67.83%); round 2 (2002: 131 constituencies, 73.51%; 2006: 110 constituencies, 64.39%) is in `round_2`. The national totals pages also print a column that adds single-member and territorial-list votes together; it pools two ballots and is not stored. Rules: Act XXXIV of 1989 read on the legislation database with the amending act of each provision; § 8(5) (thresholds) was set by Act XCVI of 1997, in force 1997-11-05, and § 8(3) and the calculation annex by Act III of 1994, in force 1994-01-20. Sources: the National Election Office's 2002 and 2006 archive pages (round indexes and summaries, threshold, national totals, compensation, composition after each round), read once each by hand; national figures only, no per-constituency rows, no candidate names.
 
 ## 2010 (Act XXXIV of 1989)
 
@@ -18,4 +22,4 @@ A joint list's votes and seats, including the constituency seats of candidates n
 
 continuous_party_series is 0: the minutes give each nominating organisation an identifier specific to one election, joint lists are election-specific, and no party register was reviewed, so no link is made between elections, even where a name repeats. 2014 list names are abbreviations as printed; one 2014 list name that begins with a person's name is stored without it (`label_basis`, `printed_label_sha256`).
 
-Not included: 2006 and earlier, constituency votes and per-district results, county results, candidates, elected deputies, and the application's CSV.
+Not included: 1998 and earlier, constituency votes and per-district results, county results, candidates, elected deputies, and the application's CSV.

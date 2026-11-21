@@ -4957,6 +4957,40 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "hungary-2002-2006-admission-2026-11-22",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-22 \"Hungary 2002–2006 historical parliamentary election backfill and pre-2010 electoral system integration\", section 5 (applicable versions of Act XXXIV of 1989) and section 12 (integration through the existing pipeline): hungary.json records the dated 1994 and 1997 amendments of Act XXXIV of 1989 (read on njt.jog.gov.hu) and their two sources; institutionalRegistry.ts types the optional amendments and amendments_in_force fields; election_links.json is regenerated with 2002 and 2006; politicalAdmission.ts updates the Hungary row text (2002–2026 admitted); no component, page or design change",
+      "baseline": "1d006219ecfad93894a585dc94d00cb20a43eabb",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-22",
+      "files": [
+        {
+          "path": "src/lib/institutions/countries/hungary.json",
+          "sha256": "d198693a20daaaf49e6e4ef0e3f1c8bc38ec3a139c2f19db24cca87ac7b75547",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutionalRegistry.ts",
+          "sha256": "cd0f01a8f44840454caf07af14b334470760fc82fe8aae2b31dbcf22a762b9fc",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/election_links.json",
+          "sha256": "0bbd3768d07c7f53cfcb25d12b0de8e6bb1ccf0609de10fd075c286daf7aeef8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "b15fdfb45a7e970bcce6ecc284bf2edab4094aadac2d4e77cc18d635038dc85e",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }
