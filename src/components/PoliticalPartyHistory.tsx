@@ -31,6 +31,9 @@ export function PoliticalPartyHistory({ elections, locale, identityLinks=[] }: {
   const en = locale === "en";
   const country=elections[0]?.country??"germany",german=country==="germany";
   const registry=useMemo(()=>german?germanOfficialSeries:sourceVerifiedPartySeries(elections,identityLinks),[german,elections,identityLinks]);
+  const firstLinkedCzechElection = country === "czechia"
+    ? elections.find(election => registry.some(item => item.links.some(link => link.electionId === election.electionId)))
+    : undefined;
   const [seriesId, setSeriesId] = useState("");
   const [measure, setMeasure] = useState<HistoryMeasure>("published_share");
   useEffect(() => {
@@ -98,6 +101,10 @@ export function PoliticalPartyHistory({ elections, locale, identityLinks=[] }: {
     <section className="card p-5" aria-labelledby="politics-history-title" data-politics-history={series?.id ?? ""}>
       <h3 id="politics-history-title" className="font-semibold">{en ? "Party history across elections" : "政党的跨届选举历史"}</h3>
       <p className="mt-2 text-sm">{!german?(en?"Only explicit source-verified party-list links are offered. Alliances, mergers and splits do not automatically continue a series.":"仅提供来源已核实的政党名单关联；联盟、合并和分裂不自动延续序列。"):en ? "Only parties that the Federal Returning Officer's historical results table presents as one series are offered. Each election's list was matched to that table by its exact official second-vote count, never by name." : "仅提供联邦选举委员会历史结果表中作为同一序列呈现的政党。每届名单都是按官方第二票数完全相等与该表对应的，从不按名称匹配。"}</p>
+      {firstLinkedCzechElection && elections[0].year < firstLinkedCzechElection.year && <p className="mt-2 text-sm" data-identity-coverage>
+        {en ? `Verified party links begin with the ${firstLinkedCzechElection.year} election. Earlier ballots retain each list’s votes and seats. Continuity with later parties is unverified.` : `已核实的政党关联始于 ${firstLinkedCzechElection.year} 年选举。此前各届保留每份名单的票数和席位，与后来政党的连续性尚待核实。`}
+        {" "}<button type="button" className="underline" onClick={showContestants}>{en ? "View lists in the selected election" : "查看所选届次的名单"}</button>
+      </p>}
       {registry.length===0 ? <div role="status" className="mt-3 text-sm" data-history-no-series>
         <p>{en?"The archive has no verified cross-election party series for this country. Each election retains its original contestant and joint-list results.":"该国档案中尚无已核实的跨届政党序列。各届均保留原始参选名单与联合名单结果。"}</p>
         <button type="button" className="mt-2 underline" onClick={showContestants}>{en?"View contestants in the selected election":"查看所选届次的参选名单"}</button>
@@ -118,7 +125,7 @@ export function PoliticalPartyHistory({ elections, locale, identityLinks=[] }: {
         <table className="w-full min-w-[640px] text-left text-sm" data-history-table>
           <thead><tr><th scope="col">{en ? "Election" : "选举"}</th><th scope="col">{en ? "Original ballot label" : "原始选票名称"}</th><th scope="col">{labels[measure].label}</th><th scope="col">{en ? "Result vintage" : "结果版本"}</th><th scope="col">{en ? "Authority's note" : "官方备注"}</th></tr></thead>
           <tbody>{rows.map((row) => (
-            <tr key={row.election.electionId} className="border-t border-[var(--line)]" data-history-year={row.election.year} data-history-state={row.link ? "observed" : "no_list"}>
+            <tr key={row.election.electionId} className="border-t border-[var(--line)]" data-history-year={row.election.year} data-history-state={row.link ? "observed" : german ? "no_list" : "unverified_link"}>
               <th scope="row" className="py-2 font-normal"><a className="underline" href={localizedRoute("/politics/"+country+"/",locale)+"?election="+encodeURIComponent(row.election.electionId)}>{localeDate(row.election.date, locale)}</a></th>
               <td>{row.link ? <span lang={row.election.originalLanguage??(german?"de":undefined)}>{row.label}</span> : <span className="text-[var(--muted)]">{german?(en ? "No list in this series (not on the authority's table for this election)" : "该系列在此届无名单（官方表格中此届无此行）"):(en?"No verified identity link for this election":"该届尚无已核实的身份关联")}</span>}</td>
               <td className="metric-number">{row.link ? format(value(row)) : "—"}</td>

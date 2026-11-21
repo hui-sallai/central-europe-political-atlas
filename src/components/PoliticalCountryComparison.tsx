@@ -1,6 +1,8 @@
 import { localeDate, localeNumber, type Locale } from "@/i18n/config";
 import { chamberSeatShare, chamberSeats, chartResults, compareCountries, shareForDisplay, seatMeasureScope, type CountryComparisonRow, type PoliticalElectionView } from "@/lib/politicalExplorer";
 
+import { turnoutFraction } from "@/lib/politicalNational";
+
 // Two national parliamentary elections from different countries, side by side. Presentational and stateless: the
 // explorer chooses the elections. Values are shown as published or as labelled derived shares; nothing is subtracted,
 // ranked or pooled across countries, and lists are never matched between countries.
@@ -31,7 +33,11 @@ export function PoliticalCountryComparison({ a, b, locale }: { a: PoliticalElect
 
     if (value === null) return en ? "not established" : "尚未确定";
     if (key === "date") return localeDate(String(value), locale);
-    if (typeof value === "number") return number(value, key === "turnout" ? 1 : 0);
+    if (key === "turnout" && typeof value === "number") {
+      const fraction = election.national && turnoutFraction(election.national.turnout, locale);
+      return <>{localeNumber(value, locale, { maximumFractionDigits: 2 })}%{fraction && <small className="block">{fraction}</small>}</>;
+    }
+    if (typeof value === "number") return number(value);
     return value;
   };
   const lists = (election: PoliticalElectionView) => (

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useSyncExternalStore } from "react";
-import { localeNumber, type Locale } from "@/i18n/config";
+import { localeNumber, localizedRoute, type Locale } from "@/i18n/config";
+import { descriptiveShare } from "@/lib/politicalExplorer";
 import type { HistoryObservation } from "@/lib/electionHistoryObservations";
 import type { EvidenceDraft } from "@/lib/researchNotebook";
 import { toCsv } from "@/lib/researchSnapshot";
@@ -43,6 +44,7 @@ function SeatBar({row, locale}: {row: HistoryObservation; locale: Locale}) {
   const total = row.seats;
   const [expanded,setExpanded] = useState(false);
   const composition = row.attribution ?? row.segments;
+  const listSources = [...new Map(row.segments.flatMap(part => part.list ? [[part.list.source.url, part.list.source] as const] : [])).values()];
   const sum = composition.reduce((n, part) => n + part.seats, 0);
   return <details className="min-w-0 border-t border-[var(--line)] py-2" data-history-composition={row.id} onToggle={e=>setExpanded(e.currentTarget.open)}>
     <summary className="cursor-pointer text-sm">
@@ -53,10 +55,16 @@ function SeatBar({row, locale}: {row: HistoryObservation; locale: Locale}) {
     </summary>
     {expanded && <>
       {row.attribution && <p className="mt-2 text-xs font-semibold">{en ? "Whole-chamber seats by election-specific contestant" : "全院席位按当届参选方分列"}</p>}
-      <ul className="mt-2 space-y-1 text-xs">{composition.map((part,i) => <li key={i} className="break-words" data-seat-contestant={row.attribution?.[i].contestantId??undefined}>
+      <ul className="mt-2 space-y-1 text-xs">{composition.map((part,i) => <li key={i} className="break-words" data-seat-contestant={row.attribution?.[i].contestantId ?? part.list?.id ?? undefined}>
         <span className="mr-2 inline-block h-2 w-2" style={{backgroundColor:segmentColours[i % segmentColours.length]}} aria-hidden="true"/>
-        {part.label} · {localeNumber(part.seats, locale)}
+        {part.label}{part.list?.kind === "coalition" && <> ({en ? "electoral coalition" : "选举联盟"})</>} · {localeNumber(part.seats, locale)}
+        {part.list && total !== null && total > 0 && <> {en ? "seats" : "席"} · {localeNumber(descriptiveShare(part.seats,total), locale)}% {en ? "of chamber" : "占全议院"}</>}
       </li>)}</ul>
+      {row.allocationMethod && <p className="mt-2 text-xs" data-history-allocation>{row.allocationMethod}</p>}
+      {listSources.length > 0 && <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs">
+        {listSources.map(source => <a key={source.url} className="underline" href={source.url} data-seat-source={source.id}>{en ? "Official seat results" : "官方席位结果"}</a>)}
+        <a className="underline" href={localizedRoute("/politics/"+row.country+"/",locale)+"?election="+encodeURIComponent(row.id)+"#politics-system"}>{en ? "Electoral rules for this election" : "本届选举适用规则"}</a>
+      </div>}
       {row.attribution && <p className="mt-2 text-xs">{en?"Same chamber by allocation mechanism":"同一议院按席位分配机制分列"} · {row.segments.map(p=>p.label+" "+p.seats).join(" · ")}</p>}
     </>}
     {total !== null && sum < total && <p className="text-xs">{en ? "Outside the recorded breakdown" : "来源分项未涵盖的席位"} · {total-sum}</p>}
@@ -108,9 +116,14 @@ export function ElectionHistoryFigures({rows, selected, locale, select}: {
         source_ids:point.turnoutSources.map(s=>s.id).join(" | "),source_urls:point.turnoutSources.map(s=>s.url).join(" | ")}));
       // These are alternative partitions of the same chamber. Each breakdown reconciles independently.
       const seatBase={...base,election_start_date:r.date,final_round_date:r.rounds?.at(-1)?.date??null,allocation_stage:"final_election_allocation"};
-      const mechanisms = (r.segments.length?r.segments:[{label:null,seats:null}]).map(part=>({...seatBase,
+      const mechanisms = (r.segments.length?r.segments:[{label:null,seats:null}]).map(part=>{
+        const list = "list" in part ? part.list : undefined;
+        return {...seatBase,
+        ...(list ? {source_ids:list.source.id, source_urls:list.source.url, contestant_kind:list.kind,
+          chamber_share_percent:descriptiveShare(part.seats,r.seats)} : {}),
         chamber_seat_slots:r.seats, breakdown:r.attribution?"allocation_mechanism":"recorded_composition",
-        electoral_tier:"tier" in part?part.tier:null, contestant_id:null, vote_type:null, segment:part.label, seats:part.seats}));
+        electoral_tier:list?"whole_chamber":"tier" in part?part.tier:null, contestant_id:list?.id??null, vote_type:list?r.voteType:null, segment:part.label, seats:part.seats};
+      });
       const contestants = (r.attribution??[]).map(part=>{
         const evidence = r.sources.find(s=>s.id===part.sourceId);
         return {...seatBase, source_ids:evidence?.id??base.source_ids,source_urls:evidence?.url??base.source_urls,
@@ -122,7 +135,14 @@ export function ElectionHistoryFigures({rows, selected, locale, select}: {
     exportRows(first.country+"-election-"+kind,records);
   }
   function draft(kind:"turnout"|"seats"): EvidenceDraft {
-    const sources = [...new Map((kind==="turnout" ? turnoutRows.flatMap(r=>r.turnoutSources) : active.flatMap(r=>r.sources)).map(s=>[s.id+s.url,s])).values()];
+    const seatSources = active.flatMap(row => [
+      ...row.sources,
+      ...row.segments.flatMap(part => {
+        const source = row.sources.find(s => s.id === part.list?.source.id);
+        return source && part.list ? [{...source, url:part.list.source.url}] : [];
+      }),
+    ]);
+    const sources = [...new Map((kind==="turnout" ? turnoutRows.flatMap(r=>r.turnoutSources) : seatSources).map(s=>[s.id+s.url,s])).values()];
     const name = kind==="turnout" ? t("Election turnout history","选举投票率历史") : t("Historical chamber composition","历届议院席位构成");
     return {type:"series_view",title:first.chamber+" · "+name,url:historyUrl(kind),layer:"election_history_"+kind,
       canonical_ids:[...new Set(active.flatMap(r=>[r.id,...[r.chamberId,r.systemId,r.legislatureId].filter((id):id is string=>!!id)]))],countries:[first.country],periods:kind==="turnout"?turnoutRows.map(r=>r.date):active.map(r=>r.date),
@@ -134,6 +154,9 @@ export function ElectionHistoryFigures({rows, selected, locale, select}: {
     <figure data-politics-chart="turnout">
       <figcaption className="font-semibold">{t("Turnout by election date","按选举日期查看投票率")} · {first.chamber}</figcaption>
       <p className="mt-1 text-xs text-[var(--muted)]">{first.scope} · {t("Polling dates are spaced by elapsed time.","横轴按投票日期的实际时间间隔排列。")}</p>
+      {first.turnoutBasisLabel && rows.every(row => row.turnoutBasisLabel === first.turnoutBasisLabel && row.published) && <p className="mt-1 text-xs" data-history-turnout-basis>
+        {t("Published turnout","官方公布的投票率")} = {first.turnoutBasisLabel} × 100
+      </p>}
       <svg viewBox="0 0 456 155" role="img" aria-label={t("Election turnout (%) by polling date","以投票日期为横轴的投票率（%）")} className="mt-2 w-full max-w-2xl text-[var(--muted)]">
         {[0,50,100].map(v=><g key={v}><line x1={43} x2={428} y1={y(v)} y2={y(v)} stroke="var(--line)"/><text x={37} y={y(v)+4} textAnchor="end" fontSize={12} fill="currentColor">{v}%</text></g>)}
         <text x={from===to?238:43} y={148} textAnchor={from===to?"middle":"start"} fontSize={12} fill="currentColor">{firstDate}</text>
@@ -158,6 +181,7 @@ export function ElectionHistoryFigures({rows, selected, locale, select}: {
         {rows.map(r=><label key={r.id}><input type="checkbox" checked={active.includes(r)} onChange={()=>toggle(r.id)}/> {r.date}</label>)}
       </fieldset>
       {!active.length && <p role="status">{t("Select an election to display its history.","选择至少一届选举以查看记录。")}</p>}
+      {first.country === "czechia" && <p className="mb-2 text-xs text-[var(--muted)]">{t("Colours distinguish lists within each election. Open a bar for seat counts, shares and official results.", "颜色只区分同一届选举中的名单。展开席位条可查看席位数、占比和官方结果。")}</p>}
       {active.map(r=><SeatBar key={r.id} row={r} locale={locale}/>)}
       <div className="mt-3 overflow-x-auto" role="region" tabIndex={0} aria-label={t("Election turnout sources and counts","历届投票率来源与计数")}>
         <table className="w-full min-w-[540px] text-left text-xs"><caption>{t("Turnout observations and source definitions","投票率观测与来源定义")}</caption>

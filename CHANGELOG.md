@@ -1,5 +1,10 @@
 # Changelog
 
+### v2.0 Czech historical election comparison — 2026-11-21
+
+- Compare the thresholds, regional allocation and national remainder rules that applied to each Czech Chamber of Deputies election. The bilateral comparison and country timeline link to the law in use on polling day.
+- Distinguish count-derived vote shares from published turnout, and inspect whole-chamber seats, coalition identities and original seat sources across the seven elections. The Hungary timeline also records when the 1989 electoral act ceased to apply. [Research handoff](docs/v20-czech-election-history-2026-11-21.md)
+
 ### v2.0 Czech parliamentary elections 2002 and 2006 — 2026-11-21
 
 - Add the Czech Chamber of Deputies elections of 14–15 June 2002 and 2–3 June 2006 (200 seats each). Every list that stood is included (28 in 2002, 26 in 2006), with votes and seats, registered voters, issued envelopes, valid votes and the published turnout (58% and 64.47%). The source is ČSÚ open data under the same ČSÚ terms (CC BY 4.0) as 2010 and 2013. National totals equal ČSÚ's published figures, and re-running §§ 48–50 of Act 247/1995 with member-count thresholds reproduces every list's seats.

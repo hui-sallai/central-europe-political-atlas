@@ -101,7 +101,16 @@ export function politicalCzechElectionViews(): PoliticalElectionView[] {
     slug: "czechia", name: { en: "Czechia", "zh-CN": "捷克" }, originalLanguage: "cs",
     voteLabel: { en: "List votes", "zh-CN": "名单票" },
   });
-  for (const view of elections) if (politicalPublicationProblems(view.country!, view.sources, ["czechia"]).length) throw Error("Political source publication gate failed");
+  for (const view of elections) {
+    if (politicalPublicationProblems(view.country!, view.sources, ["czechia"]).length) throw Error("Political source publication gate failed");
+    // The source dates the consolidated text; separate evidence for commencement of the amendment is pending.
+    if (view.national?.systemId === "es-cz-ps-2021") {
+      view.notes = {
+        en: view.notes.en.replace("in force from 1 July 2021", "documented in the consolidated text of 1 July 2021 (the amendment’s exact effective date is unverified)"),
+        "zh-CN": view.notes["zh-CN"].replace("自 2021 年 7 月 1 日起施行", "记载于 2021 年 7 月 1 日版本的法律文本中（修正法的确切生效日期仍待核实）"),
+      };
+    }
+  }
   return elections;
 }
 

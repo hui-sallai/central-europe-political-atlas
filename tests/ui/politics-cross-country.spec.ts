@@ -113,7 +113,7 @@ for (const locale of ["zh-CN", "en"] as const) test(`Czech view: real 2017–202
   await page.getByLabel(locale === "en" ? "Compare 2017 with" : "将 2017 年与以下选举比较").selectOption({ label: "2021" });
   const compare = panel.locator("[data-compare-aggregates]");
   await expect(compare).toBeVisible();
-  await expect(compare.locator("tbody tr").first()).toContainText("4.6");
+  await expect(compare.locator('[data-aggregate="turnout"] td')).toHaveText(["60.84", "65.43", locale === "en" ? "+4.59 pp" : "+4.59 个百分点"]);
   // Only the seven register-verified party series are offered, after the empty choice.
   await expect(panel.locator("[data-politics-history] select").first().locator("option")).toHaveCount(8);
   await expect(panel.locator("[data-country-comparison]")).toBeVisible();

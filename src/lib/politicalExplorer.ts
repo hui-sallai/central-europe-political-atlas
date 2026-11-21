@@ -21,6 +21,7 @@ export type PoliticalResult = {
   /** Source of the constituency and whole-chamber seats, where it differs from the row's vote source. */
   chamberSeatSourceId?: string | null;
   sourceId: string;
+  seatSource?: { id: string; url: string };
   votes?: number | null;
   voteType?: string;
   contestantKind?: string;

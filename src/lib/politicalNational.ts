@@ -9,6 +9,19 @@ export type NationalRules = {
   sourceIds: string[];
 };
 export type TurnoutBasis = { numerator: "voters" | "envelopes_issued" | "ballots_cast" | "valid_ballots" | "unknown"; denominator: "registered_electorate" | "eligible_population" | "unknown"; definition: string | null; sourceIds: string[] };
+/** Display the recorded count definitions in the interface language. */
+export function turnoutFraction(basis: TurnoutBasis, locale: keyof PoliticalLocalText): string | null {
+  if (basis.numerator === "unknown" || basis.denominator === "unknown") return null;
+  const counts = {
+    voters: { en: "Voters", "zh-CN": "实际投票人数" },
+    envelopes_issued: { en: "Issued envelopes", "zh-CN": "发出的投票信封数" },
+    ballots_cast: { en: "Ballots cast", "zh-CN": "投出的选票数" },
+    valid_ballots: { en: "Valid ballots", "zh-CN": "有效选票数" },
+    registered_electorate: { en: "registered voters", "zh-CN": "登记选民数" },
+    eligible_population: { en: "eligible population", "zh-CN": "有投票资格的人口数" },
+  };
+  return counts[basis.numerator][locale] + " / " + counts[basis.denominator][locale];
+}
 export type ElectionRound = { round: number; date: string; constituencies: number | null; eligible: number | null; voters: number | null; turnout: number | null; sourceIds: string[]; sourceUrl?: string; definition: string | null };
 export function roundElectorateLabel(r:ElectionRound,locale:keyof PoliticalLocalText) {
   if (locale==="en") return `Round ${r.round} · ${r.constituencies===null?"national electorate":r.constituencies+" runoff constituencies"}`;

@@ -1,5 +1,5 @@
 import { electionInstitutionalContext, institutionalPeriods, type ElectionInstitutionalLink } from "./institutionalRegistry";
-import { selectNationalBallot } from "./politicalNational";
+import { selectNationalBallot, turnoutFraction } from "./politicalNational";
 import { nationalComparisonView, roundScope, scopedComparisonView } from "./politicalComparisonBallots";
 import { turnoutForDisplay, type PoliticalElectionView } from "./politicalExplorer";
 import type { BallotElection } from "./politicalBallots";
@@ -31,6 +31,13 @@ export function nationalHistoryView(e: PoliticalElectionView): ArchiveElection {
   const view = nationalComparisonView(e);
   const rate = turnoutForDisplay(e);
   const rule = electionInstitutionalContext(e.electionId);
+  const basis = e.national?.turnout;
+  const fractionEn = basis && turnoutFraction(basis, "en");
+  const fractionZh = basis && turnoutFraction(basis, "zh-CN");
+  const scope = fractionEn && fractionZh ? {
+    en: national.en + " · " + fractionEn,
+    "zh-CN": national["zh-CN"] + " · " + fractionZh,
+  } : national;
   // The country's primary ballot stays first for existing entry points.
   for (const ballot of e.national?.ballots ?? []) {
     if (ballot.definition.id === e.system.voteType) continue;
@@ -50,7 +57,7 @@ export function nationalHistoryView(e: PoliticalElectionView): ArchiveElection {
       compensation:e.national.historicalAllocation.compensationUrl} : undefined,
     dateBasis:null, endDate:e.national?.dateEnd ?? null, primaryBallot:e.system.voteType,rounds,
     turnout:rounds?.[0] ?? {ballotId:null,value:rate.value, published:rate.value !== null && !rate.computed,
-      scope:national, count:e.voters, electorate:e.eligibleVoters, definition:e.turnoutDefinition ?? null,
+      scope, count:e.voters, electorate:e.eligibleVoters, definition:e.turnoutDefinition ?? null,
       sourceIds:e.national?.turnout.sourceIds ?? []},
     sources:e.sources,
   }};

@@ -1,7 +1,7 @@
 "use client";
 import { localeNumber, type Locale } from "@/i18n/config";
 import type { PoliticalElectionView } from "@/lib/politicalExplorer";
-import { compatibleTurnout, voteSeatDifference } from "@/lib/politicalNational";
+import { compatibleTurnout, turnoutFraction, voteSeatDifference } from "@/lib/politicalNational";
 
 export function PoliticalNationalDetails({election,comparison,locale}:{election:PoliticalElectionView;comparison:PoliticalElectionView|null;locale:Locale}){
  const en=locale==="en",n=election.national;
@@ -18,7 +18,7 @@ export function PoliticalNationalDetails({election,comparison,locale}:{election:
    [en?"Election date interval":"选举日期区间",`${election.date}${n.dateEnd?` – ${n.dateEnd}`:""}`],
    [en?"Active vote / share denominator":"所示选票／得票率分母",`${n.activeVote.label[locale]} · ${n.activeVote.denominator}`],
    [en?"Valid / invalid ballots for this vote":"该选票的有效票／无效票",`${localeNumber(ballot.validVotes,locale)} / ${localeNumber(ballot.invalidVotes,locale)}`],
-   [en?"Turnout numerator / denominator":"投票率分子／分母",`${n.turnout.numerator} / ${n.turnout.denominator}`],
+   [en?"Turnout numerator / denominator":"投票率分子／分母",turnoutFraction(n.turnout,locale) ?? n.turnout.definition ?? unknown],
    [en?"Turnout definition":"投票率定义",n.turnout.definition??unknown],
    [en?"National / district allocation":"全国／选区分配",`${n.rules.nationalAllocation??unknown} / ${n.rules.districtAllocation??unknown}`],
    [en?"Minority representation":"少数群体代表规则",n.rules.minorityRepresentation?.[locale]??unknown],

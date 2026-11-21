@@ -60,7 +60,10 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
         const contestant=stores.contestants.find(c=>c.contestant_id===row.contestant_ref);
         if(!contestant||!row.provenance.length||!stores.sources.some(s=>s.source_id===row.provenance[0].source_id))throw Error("Unresolved contestant or source");
         const votes=row.votes!==undefined?row.votes:row.second_votes??null;
-        return {...(row.round1_seats!==undefined ? {districtSeatsThisRound:row.round1_seats,districtSeatsBasis:"published" as const} : {}),
+        // Earlier Czech returns publish vote totals and seats in different files under one source ID.
+        const seatEvidence = country.slug === "czechia" ? row.provenance.find(p => p.fields_covered?.includes("seats")) : undefined;
+        return {...(seatEvidence?.source_url ? {seatSource:{id:seatEvidence.source_id, url:seatEvidence.source_url}} : {}),
+          ...(row.round1_seats!==undefined ? {districtSeatsThisRound:row.round1_seats,districtSeatsBasis:"published" as const} : {}),
           ...(row.round2_seats_derived!==undefined ? {districtSeatsThisRound:row.round2_seats_derived,districtSeatsBasis:"derived" as const} : {}),
           ...(row.territorial_list_seats !== undefined ? {territorialSeats:row.territorial_list_seats,compensationSeats:row.national_list_seats??null,fragmentVotes:row.compensation_votes??null} : {}),contestantId:row.contestant_ref,nativeLabel:contestant.historical_display_label,secondVotes:votes,votes,voteType:definition.id,publishedVoteShare:row.published_vote_share,seats:row.seats,...(complete?{constituencySeats:row.constituency_seats??null,chamberSeats:row.whole_chamber_seats??null,chamberSeatSourceId:row.provenance.find(p=>p.fields_covered?.includes("whole_chamber_seats"))?.source_id??null}:{}),sourceId:row.provenance[0].source_id,contestantKind:contestant.contestant_kind,...contestantIdentity(contestant,country.slug,election.election_id,stores.members??[],stores.sources.map(s=>s.source_id))};
       });

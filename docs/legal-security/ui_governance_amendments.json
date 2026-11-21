@@ -4858,6 +4858,105 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "czech-election-history-comparability-2026-11-21",
+      "status": "owner_approved",
+      "approved_by": "Owner development brief of 2026-11-21 for Czechia 2002–2025 historical election research and institutional comparability. Bilingual presentation of previously admitted election, rule and source records, including the Hungarian legal-period linkage and research exports.",
+      "baseline": "29bc11fe19085efa9dec2610a3e8340ec769319b",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-21",
+      "files": [
+        {
+          "path": "src/app/(english)/en/politics/czechia/page.tsx",
+          "sha256": "dc9485180777e5c87eec19c4a8be0a4668ed50db77064db58d4128d7584a9018",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/czechia/page.tsx",
+          "sha256": "7a8bb88d8d10457ed272b84d79768b1b3ad5224a7bf08f5a7961e05f6f966013",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/CzechElectionRuleComparison.tsx",
+          "sha256": "f1c611a4e3b686a7205a660d5d5a4f5ee59ad96a1778e2d2ee6481b973c553f6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionHistoryFigures.tsx",
+          "sha256": "f420c972499c854e2fa54bbcafe7595b34adda49b874e5193940ffdea7b66636",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/InstitutionalHistory.tsx",
+          "sha256": "d739d3583187d40e4c1010612f6b6a2977386bd1caf01818ddba099fc1518197",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalCountryComparison.tsx",
+          "sha256": "0e8eef566474560042704d92938ef8654ec4f90116a0da3a9b47f91797b9389b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "25d0e1bad31577c6588f27432e8a0fe99dbca1db57e7c412271a764ce166c257",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalNationalDetails.tsx",
+          "sha256": "8bd9e8bd9f3da1d6a6c5278427a7b8276daca464c3094cd0537d48a52ed7068c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalPartyHistory.tsx",
+          "sha256": "f979f66ad6acd8fbd2ced779a783d3e023d548697350074f39a6de5df4cf803f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/czechElectionRules.ts",
+          "sha256": "6fed97f92e95a078ac875ad3b2a07280ecc5cbd4803499ecf9b133028b5e34f1",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryIndex.server.ts",
+          "sha256": "ce4e0ccfde81d2291ea20baf83aafbdc2dc6146ddfb611b65f028a781439f2da",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryObservations.ts",
+          "sha256": "3fa91508bace032c04edf153aee5e857e9f603df786516fdd17ba3e459e46cbd",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "82e22e994180da1b7c9e9c7aa0f7beba419f4e45d675cbcd91651f8b01862b9a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalElectionDirectory.server.ts",
+          "sha256": "a96036bd0cb7aa1289ac8ee69735762e2aa59de85c9eaa5946ba3d2af71d12c8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalExplorer.ts",
+          "sha256": "c70f0011acf1b0299dc2b0e912bc0915a90b8cf96902c3b188db3cad5c5fea49",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalNational.ts",
+          "sha256": "02b236d57f94da454cb035661794109245cb0b29531e246abb18aa7221db7fa8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalStores.ts",
+          "sha256": "5d3d2e2d32fae1f2d29620e6a17b2226c1595062008bc78dd156abc6b7743e3f",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

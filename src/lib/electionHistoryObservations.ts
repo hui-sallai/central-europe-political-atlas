@@ -1,15 +1,19 @@
 import type { Locale } from "@/i18n/config";
 import { electionInstitutionalContext } from "./institutionalRegistry";
 import type { BallotElection, ElectionBallot } from "./politicalBallots";
-import {roundElectorateLabel} from "./politicalNational";
+import {czechAllocationLabel} from "./czechElectionRules";
+import {roundElectorateLabel, turnoutFraction} from "./politicalNational";
 import { chamberSeats, turnoutForDisplay, type PoliticalElectionView, type PoliticalSource } from "./politicalExplorer";
 
-type Segment = { label: string; seats: number; tier?: string };
+type Segment = {
+  label: string; seats: number; tier?: string;
+  list?: {id: string; kind?: string; source: {id:string; url:string}};
+};
 export type HistoryRound = { round:number; date:string; scope:string; constituencies:number|null; turnout:number|null; numerator:number|null; denominator:number|null; definition:string|null; turnoutSources:PoliticalSource[] };
 type Attribution = Segment & { contestantId: string | null; voteType: string | null; sourceId: string | null };
 export type HistoryObservation = {
   id: string; country: string; chamber: string; chamberId: string | null; date: string; dateBasis?: string | null;
-  systemId?:string; legislatureId?:string; rounds?:HistoryRound[];
+  systemId?:string; allocationMethod?:string; turnoutBasisLabel?:string; legislatureId?:string; rounds?:HistoryRound[];
   ballot: string | null; voteType: string | null; scope: string; turnout: number | null;
   published: boolean; numerator: number | null; denominator: number | null; definition: string | null;
   turnoutSources: PoliticalSource[]; seats: number | null; segments: Segment[]; attribution?: Attribution[]; sources: PoliticalSource[];
@@ -34,7 +38,10 @@ export function nationalHistoryObservation(e: PoliticalElectionView, locale: Loc
   } else {
     for (const r of e.results) {
       const seats = chamberSeats(r, e);
-      if (seats !== null && seats > 0) segments.push({label: r.nativeLabel, seats});
+      if (seats !== null && seats > 0) {
+        const list = r.seatSource ? {id:r.contestantId, kind:r.contestantKind, source:r.seatSource} : undefined;
+        segments.push({label:r.nativeLabel, seats, ...(list ? {list} : {})});
+      }
     }
   }
   // Chamber attribution includes both list ballots. Each source row is an election-specific identity.
@@ -57,6 +64,10 @@ export function nationalHistoryObservation(e: PoliticalElectionView, locale: Loc
   return {
     id: e.electionId, country: e.country ?? "germany", chamber: e.chamber ?? "—", chamberId: electionInstitutionalContext(e.electionId)?.chamber_id ?? null, date: e.date,
     systemId:e.national?.systemId,legislatureId:e.national?.legislatureId,
+    ...(e.country === "czechia" && basis ? {
+      allocationMethod:czechAllocationLabel(e.system.allocationMethod,locale) ?? undefined,
+      turnoutBasisLabel:turnoutFraction(basis,locale) ?? undefined,
+    } : {}),
     rounds:e.national?.rounds?.map(r=>({
       round:r.round,date:r.date,constituencies:r.constituencies,
       scope:roundElectorateLabel(r,locale),

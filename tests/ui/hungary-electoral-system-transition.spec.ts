@@ -41,8 +41,12 @@ for (const [prefix, en] of [["/en",true],["",false]] as const) {
     const timeline=page.locator("#hungary-electoral-system-transition");
     await expect(timeline).toHaveJSProperty("open",true);
     await timeline.getByText(en?"Legal dates and sources":"法律日期与来源",{exact:true}).click();
-    await expect(timeline).toContainText("2012-01-01");
-    await expect(timeline).toContainText(en?"Separate adoption and commencement dates":"未单列选举法");
+    const formerAct=timeline.locator('[data-former-electoral-act="hu-1989-electoral-act"]');
+    await expect(formerAct.locator("dt")).toHaveText(en
+      ? ["Adoption","Promulgation","Effective date","Repeal effective"]
+      : ["通过","公布","生效日期","废止生效"]);
+    await expect(formerAct.locator("dd")).toHaveText(["1989-10-20","1989-10-30","1989-10-30","2012-01-01"]);
+    await expect(formerAct.getByRole("link").last()).toHaveAttribute("href","https://njt.jog.gov.hu/jogszabaly/1989-34-00-00");
     await expect(timeline.locator('[data-transition-source="src-hu-act-ccIII-2011"]')).toHaveAttribute("href",/\/2011-203-00-00$/);
     await expect(timeline.locator('[data-transition-source="src-hu-nvi-mandleir-2010"]')).toHaveAttribute("href",/mandleir.htm$/);
     await timeline.getByRole("link",{name:en?"Compare both electoral systems and results":"比较两届选制与结果"}).click();
@@ -63,6 +67,18 @@ test("Historical ballots are selectable on the right and invalid peer codes requ
   await expect(peer).toBeVisible();
   await page.goBack();
   await expect(page.locator("[data-politics-compare] [role=alert]")).toBeVisible();
+});
+
+test("The later Hungarian election separates repealed acts from applicable changes",async({page})=>{
+  await page.goto("/en/politics/hungary/?election="+second);
+  const period=page.locator('[data-election-period="'+second+'"]');
+  await period.locator("summary").click();
+  const repealed=period.getByText("Repealed before this election",{exact:true}).locator("..");
+  await expect(repealed.getByRole("link")).toHaveCount(2);
+  await repealed.locator('a[href$="#hu-1989-electoral-act"]').click();
+  const act=page.locator("#hu-1989-electoral-act");
+  await expect(act).toHaveJSProperty("open",true);
+  await expect(act.locator("dt").filter({hasText:"Repeal effective"}).locator("..")).toContainText("2012-01-01");
 });
 
 test("The selected runoff keeps its electorate and vote basis in the national cross-country table",async({page})=>{
