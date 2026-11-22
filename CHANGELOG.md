@@ -1,5 +1,11 @@
 # Changelog
 
+### v2.0 Hungarian parliamentary election 1998 (integration branch) — 2026-11-23
+
+- Add the Hungarian National Assembly election of 10 and 24 May 1998 (386 seats; final tiers 176 + 128 + 82, with 24 territorial seats transferred). The territorial-list total of 4,547,682 combines each district's valid round: round 1 in 18 districts and round 2 in Hajdú-Bihar and Szabolcs-Szatmár-Bereg. It has no single turnout and is never labelled round 1. The office's printed list shares are kept.
+- The national single-member table divides joint candidates' votes among parties, so its rows are marked as source-apportioned party totals. Original groups are kept only where the office prints them: the Fidesz/MDF table for round 2 and the chamber composition (50 joint and 1 independent seats outside the lists). Round-1 turnout (56.26%, all 176 constituencies) and round-2 turnout (57.01%, 175 constituencies) stay on their own ballots.
+- Not public until the frontend round-scope integration lands. See [the 1998 report](docs/v20-hungary-1998-2026-11-23.md).
+
 ### v2.0 Hungarian threshold wording — 2026-11-23
 
 - Chinese descriptions of the Hungarian 15% joint-list threshold (2002, 2006 and 2014–2026) now say "三个或更多政党的联合名单" (three or more parties) instead of the ambiguous "两党以上". The Chinese summary of the 1997 amendment says "超过 5%" (more than 5%). The pre-2012 coverage note names the two documented amendments and keeps the remaining gaps. Figures, thresholds and English text are unchanged.

@@ -410,6 +410,63 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-hu-ogy-1998-05-10",
+   "country": "hungary",
+   "date": "1998-05-10",
+   "chamber_id": "hu-orszaggyules",
+   "chamber_official_name": "Országgyűlés",
+   "seats": 386,
+   "seat_count_basis": "final_allocation_of_the_election_not_current_composition",
+   "electoral_system_id": "es-hu-ogy-1998",
+   "system_family": "mixed, two rounds: 176 single-member constituencies, up to 152 territorial-list seats in 20 districts and at least 58 national compensation seats",
+   "allocation_method": "territorial lists in 20 districts; national compensation seats by D'Hondt over fragment votes",
+   "base_seats": 386,
+   "thresholds": [
+    {
+     "applies_to": "party list",
+     "percent": 5,
+     "description": {
+      "en": "A party list must exceed 5% of all territorial-list votes nationally to win territorial or national list seats (§ 8(5)(a)). In 1998 the total was 4,547,682, the valid round of each district (round 1 in 18, round 2 in 2), so the office set the 5% border only after round 2.",
+      "zh": "政党名单须在全国地区名单票中超过 5%，方可获得地区或全国名单席位（第 8 条第 5 款 a 项）。1998 年该总数为 4,547,682 张，取各地区的有效轮次（18 个地区为第一轮，2 个地区为第二轮），因此选举办公室在第二轮之后才确定 5% 界限。"
+     }
+    },
+    {
+     "applies_to": "joint list of two parties",
+     "percent": 10,
+     "description": {
+      "en": "A joint list of two parties must reach 10% of the same total (§ 8(5)(ba)). In force in 1998; no joint or linked list stood, so the office did not calculate it.",
+      "zh": "两党联合名单须达到同一总数的 10%（第 8 条第 5 款 ba 项）。1998 年该规定有效；由于没有联合或关联名单参选，选举办公室未计算该界限。"
+     }
+    },
+    {
+     "applies_to": "joint list of more than two parties",
+     "percent": 15,
+     "description": {
+      "en": "A joint list of more than two parties must reach 15% of the same total (§ 8(5)(ba)). In force in 1998; no joint or linked list stood, so the office did not calculate it.",
+      "zh": "三个或更多政党的联合名单须达到同一总数的 15%（第 8 条第 5 款 ba 项）。1998 年该规定有效；由于没有联合或关联名单参选，选举办公室未计算该界限。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation: Act XXXIV of 1989 with § 8(3) and Annex 4 as set by Act III of 1994 (in force 1994-01-20) and § 8(5) and § 9(2)–(6) as set by Act XCVI of 1997 (in force 1997-11-05), read on the legislation database with the amending act of each provision; the office's 1998 notice and pages apply the same tiers, threshold and methods",
+   "constitution_id": "hu-constitution-1949-as-amended-1989",
+   "institutional_period_id": "hungary-period-1989-10-30",
+   "changes_in_force": [
+    "hu-1989-constitution-amendment",
+    "hu-1989-electoral-act"
+   ],
+   "repealed_before": [],
+   "amendments_in_force": [
+    "hu-1994-electoral-act-amendment",
+    "hu-1997-electoral-act-amendment"
+   ],
+   "later_changes": [
+    "hu-2012-fundamental-law",
+    "hu-2026-amendment-16",
+    "hu-2026-amendment-17"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-hu-ogy-2002-04-07",
    "country": "hungary",
    "date": "2002-04-07",

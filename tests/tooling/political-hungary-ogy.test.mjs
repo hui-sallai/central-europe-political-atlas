@@ -6,7 +6,7 @@ import crypto from 'node:crypto';
 import Module, { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
-import { buildHungary, highestAverages, hungaryFiles, reconcile, reconcile2010, reconcileEarly, reconcileComposition, NATIONALITY_VOTE, PARTY_VOTE } from '../../scripts/political-data/hungary/build-ogy-national.mjs';
+import { buildHungary, highestAverages, hungaryFiles, reconcile, reconcile2010, reconcile1998, reconcileEarly, reconcileComposition, impliedValidBounds, NATIONALITY_VOTE, PARTY_VOTE, VT98 } from '../../scripts/political-data/hungary/build-ogy-national.mjs';
 import { MANDATORY_ADMISSION_GATES, POLITICAL_ADMISSION_FILE, POLITICAL_ADMISSIONS, approvedPoliticalAdmissionFiles } from '../../docs/political-data/source-closure/political-admission-amendments.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -30,7 +30,7 @@ const [v14, v18, v22, v26] = post;
 test('builder reproduces stores and exports exactly from committed evidence', () => {
   const built = buildHungary();
   for (const [file, content] of Object.entries(hungaryFiles(built))) assert.equal(fs.readFileSync(path.join(root, file), 'utf8'), content, file);
-  assert.deepEqual(views.map((v) => [v.electionId, v.date, v.totalSeats]), [['el-hu-ogy-2002-04-07', '2002-04-07', 386], ['el-hu-ogy-2006-04-09', '2006-04-09', 386], ['el-hu-ogy-2010-04-11', '2010-04-11', 386], ['el-hu-ogy-2014-04-06', '2014-04-06', 199], ['el-hu-ogy-2018-04-08', '2018-04-08', 199], ['el-hu-ogy-2022-04-03', '2022-04-03', 199], ['el-hu-ogy-2026-04-12', '2026-04-12', 199]]);
+  assert.deepEqual(views.map((v) => [v.electionId, v.date, v.totalSeats]), [['el-hu-ogy-1998-05-10', '1998-05-10', 386], ['el-hu-ogy-2002-04-07', '2002-04-07', 386], ['el-hu-ogy-2006-04-09', '2006-04-09', 386], ['el-hu-ogy-2010-04-11', '2010-04-11', 386], ['el-hu-ogy-2014-04-06', '2014-04-06', 199], ['el-hu-ogy-2018-04-08', '2018-04-08', 199], ['el-hu-ogy-2022-04-03', '2022-04-03', 199], ['el-hu-ogy-2026-04-12', '2026-04-12', 199]]);
 });
 
 test('2026 figures match the minutes, and the party-list totals reconcile', () => {
@@ -64,8 +64,10 @@ test('party-list and nationality-list votes are separate ballots with separate d
 
 test('shares and turnout are computed, labelled as computed, and never carry the application\'s printed figures', () => {
   const results = read(`${STORE}/election_results.json`);
-  assert.ok(results.every((r) => r.published_vote_share === null));
-  assert.ok(read(`${STORE}/election_turnout.json`).filter((t) => !['2002', '2006', '2010'].some((y) => t.election_id.includes(`-${y}-`))).every((t) => t.published_turnout === null), '2014-2026: no printed percentage; 2002, 2006 and 2010 print their round-1 turnout');
+  // Only the 1998 threshold page prints list shares; they are kept as printed (two decimals, the same valid-round denominator).
+  const printed = results.filter((r) => r.published_vote_share !== null);
+  assert.ok(printed.length === 15 && printed.every((r) => r.vote_type === 'hu98_territorial_list_valid_round_vote' && Math.round(r.derived_vote_share * 100) / 100 === r.published_vote_share));
+  assert.ok(read(`${STORE}/election_turnout.json`).filter((t) => !['1998', '2002', '2006', '2010'].some((y) => t.election_id.includes(`-${y}-`))).every((t) => t.published_turnout === null), '2014-2026: no printed percentage; 1998-2010 print their round turnout');
   const tisza = v26.results.find((r) => r.nativeLabel === 'Tisztelet és Szabadság Párt');
   const shown = explorer.shareForDisplay(tisza, v26);
   assert.equal(shown.computed, true);
@@ -213,7 +215,7 @@ test('joint lists stay whole; no party or link is created; no series between 202
   for (const store of ['contestant_members', 'political_parties', 'party_identity_links']) assert.ok(!fs.existsSync(path.join(root, STORE, `${store}.json`)), store);
   assert.ok(contestants.every((c) => c.continuous_series_eligible === false && c.lead_party_id === null));
   assert.equal(read('public/research-data/political/hungary/manifest.json').continuous_party_series, 0);
-  assert.equal(read('public/research-data/political/hungary/manifest.json').coverage, 'whole_chamber_all_seats_attributed_386_in_2002_2006_2010_199_from_2014');
+  assert.equal(read('public/research-data/political/hungary/manifest.json').coverage, 'whole_chamber_all_seats_attributed_386_in_1998_2002_2006_2010_199_from_2014');
   const ids = (year, re) => evidence.minutes[year].party_lists.filter((l) => re.test(l.label)).map((l) => l.id);
   assert.notDeepEqual(ids('2022', /^MI HAZÁNK/i), ids('2026', /^Mi Hazánk/i), 'the minutes number nominating organisations per election, so an id is no identity');
   assert.notDeepEqual(ids('2022', /KUTYA/i), ids('2026', /Kutya/i));
@@ -226,7 +228,7 @@ test('evidence: rights limits recorded, checksums only, no PDF, no CSV, no perso
   assert.match(evidence.rights.limits.join(' '), /were not read and could contain conditions/);
   assert.match(evidence.rights.database_right.finding, /not settled/);
   assert.match(evidence.csv_check.finding, /generated in the browser/);
-  assert.deepEqual(evidence.not_admitted.elections, [1998, 1994, 1990]);
+  assert.deepEqual(evidence.not_admitted.elections, [1994, 1990]);
   assert.match(evidence.minutes['2014'].url, /^https:\/\/static\.valasztas\.hu\//);
   for (const year of ['2018', '2022', '2026']) { assert.match(evidence.minutes[year].pdf_sha256, /^[0-9a-f]{64}$/); assert.match(evidence.minutes[year].url, /^https:\/\/static\.valasztas\.hu\//); }
   const dir = path.join(root, 'docs/political-data/raw/hungary/ogy');
@@ -242,8 +244,8 @@ test('evidence: rights limits recorded, checksums only, no PDF, no CSV, no perso
 
 test('admission: exact hashes, closed gates, Germany inadmissible', () => {
   const records = read(POLITICAL_ADMISSION_FILE).admissions.filter((x) => x.country === 'hungary');
-  assert.deepEqual(records.map((x) => x.admission_id), ['hungary-ogy-2022-2026', 'hungary-ogy-2014-2018', 'hungary-ogy-2010', 'hungary-ogy-2002-2006', 'hungary-ogy-wording-2026-11-23']);
-  for (const record of ['docs/political-data/hungary_ogy_admission.json', 'docs/political-data/hungary_ogy2014_2018_admission.json', 'docs/political-data/hungary_ogy2010_admission.json', 'docs/political-data/hungary_ogy2002_2006_admission.json', 'docs/political-data/hungary_ogy_wording_2026_11_23_admission.json']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(record).gates[gate].status, 'closed', gate);
+  assert.deepEqual(records.map((x) => x.admission_id), ['hungary-ogy-2022-2026', 'hungary-ogy-2014-2018', 'hungary-ogy-2010', 'hungary-ogy-2002-2006', 'hungary-ogy-wording-2026-11-23', 'hungary-ogy-1998']);
+  for (const record of ['docs/political-data/hungary_ogy_admission.json', 'docs/political-data/hungary_ogy2014_2018_admission.json', 'docs/political-data/hungary_ogy2010_admission.json', 'docs/political-data/hungary_ogy2002_2006_admission.json', 'docs/political-data/hungary_ogy_wording_2026_11_23_admission.json', 'docs/political-data/hungary_ogy1998_admission.json']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(record).gates[gate].status, 'closed', gate);
   const { approved, problems } = approvedPoliticalAdmissionFiles(records, sha);
   assert.deepEqual(problems, []);
   assert.deepEqual([...approved.keys()].sort(), [...POLITICAL_ADMISSIONS['hungary-ogy-2022-2026'].paths].sort());
@@ -265,7 +267,7 @@ test('other countries are unchanged; research functions run for Hungary without 
   assert.equal(explorer.compatibleTurnout(v22, v26), true);
   assert.equal(R.turnoutChange({ country: 'x', from: v26, to: data.politicalSlovakElectionViews()[0] }).status, 'withheld', 'computed and published turnout are never differenced');
   const rows = require('../../src/lib/electionMacroLinkage.ts').electionMacroRows(views, []);
-  assert.equal(rows.length, 35); // 2002 and 2006 admitted 2026-11-22
+  assert.equal(rows.length, 40); // 2002 and 2006 admitted 2026-11-22; 1998 admitted 2026-11-23
   assert.ok(rows.every((r) => r.publishedBeforeElection.status !== 'documented'), 'no release was read for Hungary, so none is claimed');
 });
 
@@ -352,7 +354,7 @@ test('2002 and 2006 (Act XXXIV of 1989 as amended in 1994 and 1997): 386 seats e
 test('wording 2026-11-23: three-or-more-party joint lists in Chinese; numbers, operators and English unchanged; 2010 gains no entry', () => {
   const systems = read(`${STORE}/electoral_systems.json`);
   const larger = systems.flatMap((s) => (s.national_rules?.thresholds ?? []).filter((t) => /more than two parties/.test(t.appliesTo)).map((t) => [s.election_id.slice(10, 14), t]));
-  assert.deepEqual(larger.map(([y]) => y).sort(), ['2002', '2006', '2014', '2018', '2022', '2026']);
+  assert.deepEqual(larger.map(([y]) => y).sort(), ['1998', '2002', '2006', '2014', '2018', '2022', '2026']);
   for (const [y, t] of larger) {
     assert.equal(t.percent, 15, y);
     assert.match(t.description['zh-CN'], /三个或更多政党的联合名单/, y);
@@ -368,4 +370,79 @@ test('wording 2026-11-23: three-or-more-party joint lists in Chinese; numbers, o
   const pending = hu.pending.find((p) => p.field === 'changes_before_2012').reason;
   for (const text of [pending.en, pending.zh]) for (const act of [/III/, /XCVI/]) assert.match(text, act);
   assert.match(pending.en, /calculation annexes/); assert.match(pending.en, /not otherwise been verified/);
+});
+
+test('1998: the territorial-list ballot is a valid-round composite, never a round-1 ballot; scopes and denominators stay apart', () => {
+  const scope = require('../../src/lib/politicalRoundScope.ts');
+  const v98 = views.find((v) => v.year === 1998);
+  const systems = read(`${STORE}/electoral_systems.json`), turnout = read(`${STORE}/election_turnout.json`).filter((t) => t.election_id === 'el-hu-ogy-1998-05-10');
+  const defs = systems.find((x) => x.election_id === 'el-hu-ogy-1998-05-10').vote_definitions;
+  const [list, r1, r2] = [VT98.territorial, VT98.smc1, VT98.smc2].map((id) => [defs.find((d) => d.id === id), turnout.find((t) => t.vote_type === id)]);
+  // Composite: no round, turnout, electorate or invalid count; two parts that add up, the round-2 part marked derived.
+  assert.equal(scope.roundScopeOf(list[0]), 'valid_round_composite');
+  assert.deepEqual(scope.roundScopeProblems(...list), []);
+  assert.equal(scope.singleRoundTurnout(...list), null);
+  assert.deepEqual(list[1].round_composition.map((p) => [p.round, p.territorial_districts, p.votes, p.votes_basis]), [[1, 18, 4064201, 'published'], [2, 2, 483481, 'derived_difference_of_published_totals']]);
+  assert.equal(list[1].actual_round1_ballot.valid_ballots, 4483974, 'the real round-1 territorial ballot (all 20 districts) is kept apart');
+  assert.notEqual(list[1].actual_round1_ballot.valid_ballots, list[1].valid_votes);
+  assert.equal(v98.publishedTurnout, null, 'no turnout is attached to the composite list ballot');
+  assert.ok(v98.national.rounds.every((r) => r.turnout === null), 'the existing round view gets no misattributed turnout');
+  // The same round can have different geographies: round 2 is 175 constituencies for single-member votes and 2 districts for lists.
+  assert.deepEqual([scope.singleRoundTurnout(...r1), scope.singleRoundTurnout(...r2)].map((x) => [x.round, x.publishedTurnout, x.eligibleVoters, x.geographicScope]), [[1, 56.26, 8062708, { single_member_constituencies: 176 }], [2, 57.01, 8016397, { single_member_constituencies: 175 }]]);
+  assert.deepEqual(list[1].round_composition[1].districts.map((d) => [d.eligible_voters, d.published_turnout]), [[427395, 56.16], [440557, 56.56]]);
+  const [lo, hi] = impliedValidBounds(evidence.act_xxxiv_1989['1998'].round2.territorial_districts.rows);
+  assert.ok(lo <= 483481 && 483481 <= hi && hi - lo < 200, 'the derived round-2 part agrees with the printed district percentages');
+  // A record that names a round or carries a turnout on the composite is rejected.
+  assert.ok(scope.roundScopeProblems(list[0], { ...list[1], round: 1 }).length);
+  assert.ok(scope.roundScopeProblems(list[0], { ...list[1], published_turnout: 56.26 }).length);
+  assert.ok(scope.roundScopeProblems(list[0], { ...list[1], valid_votes: 4483974 }).length);
+  // Older records keep their meaning without the new fields.
+  assert.equal(scope.roundScopeOf(systems.find((x) => x.election_id === 'el-hu-ogy-2002-04-07').vote_definitions[0]), 'single_round');
+});
+
+test('1998: single-member rows are source-apportioned party totals; original groups only where the office prints them', () => {
+  const v98 = views.find((v) => v.year === 1998);
+  const results = read(`${STORE}/election_results.json`).filter((r) => r.election_id === 'el-hu-ogy-1998-05-10');
+  const smc = results.filter((r) => r.vote_type !== VT98.territorial);
+  assert.ok(smc.every((r) => ['source_apportioned_party_total', 'independent_candidates_aggregate'].includes(r.attribution_basis)));
+  assert.ok(smc.every((r) => r.seats === null && r.single_member_seats_won_final === undefined && r.round1_seats === undefined), 'first-named-party seats never use the original-group seat fields');
+  assert.ok(v98.national.ballots.filter((b) => b.definition.id !== VT98.territorial).every((b) => b.results.every((r) => r.districtSeatsThisRound === undefined)));
+  const fidesz2 = smc.find((r) => r.vote_type === VT98.smc2 && r.result_id.endsWith('c01-r2'));
+  assert.deepEqual(fidesz2.nomination_group_components.map((g) => [g.label, g.votes, g.seats]), [['Fidesz', 1085538, 55], ['Fidesz-MDF', 620617, 35]]);
+  assert.equal(fidesz2.votes, 1085538 + 620617);
+  assert.ok(smc.filter((r) => r.vote_type === VT98.smc1).every((r) => r.nomination_group_components === undefined), 'no original groups are claimed for round 1');
+  assert.equal(smc.find((r) => r.result_id.endsWith('c01-r1')).round1_table_votes, 956008, 'the round-1 table differs by 98 votes; kept as a recorded discrepancy');
+  // Chamber: original groups from the composition page — 335 list-linked + 50 joint Fidesz/MDF + 1 independent = 386.
+  const leg = read(`${STORE}/legislatures.json`).find((l) => l.legislature_id === 'lg-hu-ogy-1998');
+  assert.deepEqual(leg.constituency_seats_outside_lists.map((o) => [o.kind, o.seats]), [['joint_candidates_without_list', 50], ['independent_candidate', 1]]);
+  const lists = results.filter((r) => r.vote_type === VT98.territorial);
+  assert.equal(lists.reduce((n, r) => n + r.whole_chamber_seats, 0), 335);
+  assert.deepEqual(['MAGYAR SZOCIALISTA PÁRT', 'Fidesz', 'MDF'].map((l) => { const r = v98.results.find((x) => x.nativeLabel === l); return [r.constituencySeats, r.chamberSeats, r.publishedVoteShare]; }), [[54, 134, 32.92], [55, 113, 29.48], [2, 2, 2.8]]);
+  assert.deepEqual([leg.territorial_list_seats, leg.national_compensation_seats, leg.tier_transfer.seats], [128, 82, 24]);
+  // No party continuity, no names.
+  const contestants = read(`${STORE}/electoral_contestants.json`).filter((c) => c.election_id === 'el-hu-ogy-1998-05-10');
+  assert.ok(contestants.every((c) => c.continuous_series_eligible === false && c.lead_party_id === null));
+  const fields = []; JSON.stringify(evidence.act_xxxiv_1989['1998'], (k, v) => { fields.push([k, v]); return v; });
+  assert.ok(!fields.some(([k]) => /(^|_)(names?|deput(y|ies))(_|$)/i.test(k)), 'no person field');
+  assert.ok(fields.filter(([k]) => /^candidates$/.test(k)).every(([, v]) => Number.isSafeInteger(v)), 'candidates appear only as counts');
+  assert.doesNotMatch(JSON.stringify(evidence.act_xxxiv_1989['1998']), /\bDr\. /, 'the round-1 notice names one deputy; no name is transcribed');
+});
+
+test('1998 reconciliation is fail-closed on every changed observation', () => {
+  const base = evidence.act_xxxiv_1989['1998'];
+  const mutate = (fn) => { const x = structuredClone(base); fn(x); return x; };
+  assert.doesNotThrow(() => reconcile1998(base));
+  for (const [what, fn, re] of [
+    ['printed share', (x) => { x.territorial_lists[0].printed_percent = 32.93; }, /printed share/],
+    ['composite total', (x) => { x.threshold_page.territorial_list_votes_total = 4483974; }, /territorial list votes/],
+    ['round-1 part', (x) => { x.territorial_lists[1].votes_round1_valid_districts += 5000; x.territorial_round1_valid_districts_total += 5000; }, /outside the range/],
+    ['invalid round districts', (x) => { x.round2.territorial_districts.total = 3; }, /districts whose round 1 was invalid/],
+    ['round-2 constituencies', (x) => { x.round2.constituencies.total = 144; x.round2.constituencies.valid_decided = 144; }, /round 2 held/],
+    ['nomination groups', (x) => { x.nomination_groups_round2.groups[2].votes += 1; }, /nomination groups|joint nomination|printed ratios/],
+    ['joint seats', (x) => { x.composition.rows[0].outside.components[0].seats = 34; }, /joint-candidate seats/],
+    ['compensation', (x) => { x.compensation.lists[0].seats = 12; x.compensation.lists[4].seats = 9; }, /compensation seats/],
+    ['joint list', (x) => { x.territorial_lists[0].joint = true; }, /joint list/],
+    ['5% border', (x) => { x.threshold_page.five_percent_exceed = 227385; }, /thresholds/],
+    ['ballot accounting', (x) => { x.round1.territorial_ballot.invalid += 1; }, /invalid plus valid/],
+  ]) assert.throws(() => reconcile1998(mutate(fn)), re, what);
 });

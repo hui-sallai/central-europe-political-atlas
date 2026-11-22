@@ -1308,19 +1308,793 @@
     "allocation": "minden pártlista, illetve nemzetiségi lista szavazatai alatt képezünk egy számoszlopot, amelynek első száma az adott lista szavazatainak a fele, a következő szám a harmada, a negyede stb."
   },
   "not_admitted": {
+    "1998": "admitted 2026-11-23 at national level per tier (see act_xxxiv_1989.1998).",
     "2002": "admitted 2026-11-22 at national level per tier (see act_xxxiv_1989.2002).",
     "2006": "admitted 2026-11-22 at national level per tier (see act_xxxiv_1989.2006).",
     "2010": "admitted 2026-11-20 at national level per tier (see act_xxxiv_1989.2010).",
     "2018": "admitted 2026-11-20 (see minutes.2018).",
     "elections": [
-      1998,
       1994,
       1990
     ],
-    "earlier": "1998, 1994 and 1990 used the same 386-seat two-round system in principle (§ 8(5) as set by Act XCVI of 1997 applies from 1997-11-05, so 1990 and 1994 fell under earlier wording that was not read), but their archive pages were not read; each needs its own reading.",
+    "earlier": "1994 and 1990 used the same 386-seat two-round system in principle, but § 8(5) before 1997-11-05 and the archive pages were not read; each needs its own reading.",
     "not_included_for_admitted_elections": "Per-list constituency seats and votes (106 separate minutes, not authorised for reading), county results, candidates, elected deputies, and the application's printed shares."
   },
   "act_xxxiv_1989": {
+    "1998": {
+      "election_id": "el-hu-ogy-1998-05-10",
+      "rounds": [
+        {
+          "round": 1,
+          "date": "1998-05-10"
+        },
+        {
+          "round": 2,
+          "date": "1998-05-24"
+        }
+      ],
+      "polling_day_basis": "notice heading 'az 1998. évi országgyűlési képviselő-választás 1998. május 10-i, első fordulójának …' and the round-2 page heading '1998. évi országgyűlési képviselő választás 2. fordulója 1998. május 24.'",
+      "read_at": "2026-11-23T09:00:00Z",
+      "access": "read by hand once each in a browser from the pages named in the owner brief of 2026-11-23 (ovbk1.htm, l22.htm, l120.htm, l23a.htm, eredind.htm, elemind.htm, l100.htm) and pages linked visibly from them (v98din1/l22.htm, l100t.htm, l50.htm, l61.htm); only national figures, the two round-2 territorial-district aggregates and seat counts recorded. The round-1 notice lists per-constituency participation and names the one deputy elected in round 1; neither is recorded. l100e.htm (per-constituency round-2 rows, linked from l100.htm) was opened and not transcribed. No candidate, deputy or party member page (l3_/l4_/l5_/l56_/l301_ pages) was opened.",
+      "pages": {
+        "notice_round1": "https://static.valasztas.hu/ujweb/jog1/ovbk1.htm",
+        "index_round2": "https://static.valasztas.hu/v98din2/eredind.htm",
+        "analyses_index": "https://static.valasztas.hu/v98din2/elemind.htm",
+        "round2_summary": "https://static.valasztas.hu/v98din2/l100.htm",
+        "round2_territorial": "https://static.valasztas.hu/v98din2/l100t.htm",
+        "national_totals_round1": "https://static.valasztas.hu/v98din1/l22.htm",
+        "national_totals": "https://static.valasztas.hu/v98din2/l22.htm",
+        "threshold": "https://static.valasztas.hu/v98din2/l120.htm",
+        "nomination_groups": "https://static.valasztas.hu/v98din2/l23a.htm",
+        "compensation": "https://static.valasztas.hu/v98din2/l61.htm",
+        "composition": "https://static.valasztas.hu/v98din2/l50.htm"
+      },
+      "page_text_sha256": {
+        "method": "SHA-256 of the UTF-8 page text as rendered in the browser (document.body.innerText) at the single reading; the pages were not saved, so these identify the text read rather than the served bytes (windows-1250)",
+        "notice_round1": "975db134fa44f111a15a5f1f277aab761e4dfcaa887a163e967ecac73ea4ff3d",
+        "index_round2": "01d4aace124f2430fa6c261c31ceaec8b5521bf4c8857cc0e1fd169e9f4297c7",
+        "round2_summary": "bfa2b1c0c25c463699249128c40996757f9b270497e320d14da2fa243437a041",
+        "round2_territorial": "d6bb8e9d224572cbe2a549a812d76040e5de9d7d402e857adb5d49494d679d44",
+        "national_totals_round1": "5d8c2b94bd866e7697032821bf1caae2b4b20bcf5c718dad0403a27d76ead549",
+        "national_totals": "907d144b9a74de61cdb146fbf688aaa63fc0b67605edd28cda16de7b75697f9f",
+        "threshold": "9cda7399b5c1af43e8c4e238d49a72585762156e82785447537c186dc1604c43",
+        "nomination_groups": "9cec4d52b8e02fd78b21b99ebd387060df830b3258d3d4f59f0ced8d25a8e408",
+        "compensation": "9f2f1c95625936e6a8e7206603f908fa3d49c3d2411bd0cc822c73ab49e2e812",
+        "composition": "69560bb0a963c794dd3876faeff2e1795877b4f670b5bd68452dd4c70d3d968d"
+      },
+      "page_states": {
+        "notice_round1": "final: 'országosan összesített végleges eredményéről'; 'Készült: 1998. május.18-án'",
+        "round2": "final: headings 'Végleges adatok …' / 'Végleges összesített adatok a fordulóról' on the round-2 pages",
+        "threshold": "'(Jegyzőkönyvi adatok) A szavazókörök 100,00 %-ának adatai alapján'",
+        "round1_table": "the round-1 national table prints no finality heading; it is used only for round-1 seats and the 18-district round-1 list votes"
+      },
+      "rules_quoted": {
+        "smc_round2": "Az első forduló 144 egyéni választókerületben érvényes és eredménytelen volt … 31 egyéni választókerületben érvénytelen volt",
+        "territorial_round2": "Hajdú-Bihar megye és Szabolcs-Szatmár-Bereg megye területi választókerületekben második fordulót kell tartani, melyen valamennyi, az első fordulóban indult területi lista részt vehet.",
+        "threshold_deferred": "az 5 %-os országosan összesített területi listás szavazathatárt csak a második forduló után, annak eredményei ismeretében lehet megállapítani.",
+        "no_joint_lists": "A pártok közös listát nem állítottak, listáikat nem kapcsolták, így a 10-15 %-os határ kiszámítására nincs szükség.",
+        "national_table_joint_candidates": "A közös egyéni jelöltek mandátumai a szavazólapon elöl álló párt sorában szerepelnek, a közös jelöltek szavazatai a jelöltet indító pártok között felosztva jelennek meg.",
+        "national_table_valid_round": "A választás érvényes fordulójában kapott szavazatok.",
+        "fragment_total": "összes töredékszavazat = egyéni + listás(netto) szavazat"
+      },
+      "statutory_tiers": {
+        "single_member": 176,
+        "territorial_lists": 152,
+        "national_compensation_minimum": 58,
+        "total": 386
+      },
+      "round1": {
+        "registers": {
+          "on_roll_day_before": 8031084,
+          "added_on_polling_day": 32106,
+          "removed_on_polling_day": 482,
+          "total": 8062708
+        },
+        "refused_voters": 690,
+        "participation": {
+          "total": 4536254
+        },
+        "printed_turnout_percent": 56.26,
+        "percent_denominator_note": "the notice's valid and invalid percentages are of the voters taking part (F), not of the ballots in the urn",
+        "smc_ballot": {
+          "in_urn": 4532043,
+          "missing_from_urn": 4220,
+          "invalid": 64103,
+          "valid": 4467940,
+          "printed_invalid_percent": 1.41,
+          "printed_valid_percent": 98.49,
+          "issued_in_excess": 9
+        },
+        "territorial_ballot": {
+          "in_urn": 4532375,
+          "missing_from_urn": 3891,
+          "invalid": 48401,
+          "valid": 4483974,
+          "printed_invalid_percent": 1.07,
+          "printed_valid_percent": 98.85,
+          "issued_in_excess": 12
+        },
+        "constituencies": {
+          "total": 176,
+          "valid_decided": 1,
+          "valid_undecided": 144,
+          "invalid": 31
+        },
+        "decided_seat_nominating_group": "Fidesz-MDF",
+        "territorial_districts": {
+          "total": 20,
+          "valid": 18,
+          "invalid": 2,
+          "invalid_districts": [
+            {
+              "label": "Hajdú-Bihar megye",
+              "printed_participation_percent": 48.84
+            },
+            {
+              "label": "Szabolcs-Szatmár-Bereg megye",
+              "printed_participation_percent": 49.58
+            }
+          ]
+        }
+      },
+      "round2": {
+        "registers": {
+          "on_roll_day_before": 7993080,
+          "added_on_polling_day": 23546,
+          "removed_on_polling_day": 229,
+          "total": 8016397
+        },
+        "participation": {
+          "total": 4570386
+        },
+        "printed_turnout_percent": 57.01,
+        "scope_note": "The round-2 summary prints one register and one participation count; its constituency table covers 175 single-member constituencies (all valid and decided) and its territorial table 2 districts (both valid). The two districts lie within those constituencies, so the count is read as the 175-constituency electorate.",
+        "constituencies": {
+          "total": 175,
+          "valid_decided": 175,
+          "valid_undecided": 0,
+          "invalid": 0
+        },
+        "territorial_districts": {
+          "total": 2,
+          "valid": 2,
+          "invalid": 0,
+          "rows": [
+            {
+              "label": "HAJDÚ-BIHAR",
+              "registered": 427395,
+              "printed_participation_percent": 56.16,
+              "printed_valid_percent": 99.03,
+              "printed_invalid_percent": 0.97
+            },
+            {
+              "label": "SZABOLCS-SZATMÁR-BEREG",
+              "registered": 440557,
+              "printed_participation_percent": 56.56,
+              "printed_valid_percent": 98.63,
+              "printed_invalid_percent": 1.37
+            }
+          ]
+        },
+        "smc_invalid_note": "No national count of invalid round-2 single-member ballots is printed; only per-constituency percentages (not recorded)."
+      },
+      "threshold_page": {
+        "territorial_list_votes_total": 4547682,
+        "five_percent_exceed": 227384,
+        "ten_percent_reach": null,
+        "fifteen_percent_reach": null,
+        "coverage": "100,00 %",
+        "basis": "valid-round territorial-list votes: round 1 in 18 districts, round 2 in Hajdú-Bihar and Szabolcs-Szatmár-Bereg"
+      },
+      "territorial_lists": [
+        {
+          "label": "MAGYAR SZOCIALISTA PÁRT",
+          "votes": 1497231,
+          "printed_percent": 32.92,
+          "evaluation": "may_win",
+          "seats": 50,
+          "votes_round1_valid_districts": 1304591,
+          "national_list_label": "MAGYAR SZOCIALISTA PÁRT"
+        },
+        {
+          "label": "Fidesz",
+          "votes": 1340826,
+          "printed_percent": 29.48,
+          "evaluation": "may_win",
+          "seats": 48,
+          "votes_round1_valid_districts": 1153217,
+          "national_list_label": "Fidesz"
+        },
+        {
+          "label": "FÜGGETLEN KISGAZDAPÁRT",
+          "votes": 597820,
+          "printed_percent": 13.15,
+          "evaluation": "may_win",
+          "seats": 22,
+          "votes_round1_valid_districts": 545106,
+          "national_list_label": "FÜGGETLEN KISGAZDAPÁRT"
+        },
+        {
+          "label": "SZDSZ",
+          "votes": 344352,
+          "printed_percent": 7.57,
+          "evaluation": "may_win",
+          "seats": 5,
+          "votes_round1_valid_districts": 329589,
+          "national_list_label": "SZDSZ"
+        },
+        {
+          "label": "MAGYAR IGAZSÁG ÉS ÉLET PÁRTJA",
+          "votes": 248901,
+          "printed_percent": 5.47,
+          "evaluation": "may_win",
+          "seats": 3,
+          "votes_round1_valid_districts": 229194,
+          "national_list_label": "MAGYAR IGAZSÁG ÉS ÉLET PÁRTJA"
+        },
+        {
+          "label": "MUNKÁSPÁRT",
+          "votes": 179672,
+          "printed_percent": 3.95,
+          "evaluation": "may_not",
+          "seats": 0,
+          "votes_round1_valid_districts": 168811,
+          "national_list_label": "MUNKÁSPÁRT"
+        },
+        {
+          "label": "MDF",
+          "votes": 127118,
+          "printed_percent": 2.8,
+          "evaluation": "may_not",
+          "seats": 0,
+          "votes_round1_valid_districts": 127118,
+          "national_list_label": "MDF"
+        },
+        {
+          "label": "KERESZTÉNYDEMOKRATA NÉPPÁRT",
+          "votes": 104892,
+          "printed_percent": 2.31,
+          "evaluation": "may_not",
+          "seats": 0,
+          "votes_round1_valid_districts": 103413,
+          "national_list_label": "KERESZTÉNYDEMOKRATA NÉPPÁRT"
+        },
+        {
+          "label": "MDNP-NÉPPÁRT",
+          "votes": 61004,
+          "printed_percent": 1.34,
+          "evaluation": "may_not",
+          "seats": 0,
+          "votes_round1_valid_districts": 61004,
+          "national_list_label": "MDNP-NÉPPÁRT"
+        },
+        {
+          "label": "ÚJ SZÖVETSÉG",
+          "votes": 22220,
+          "printed_percent": 0.49,
+          "evaluation": "may_not",
+          "seats": 0,
+          "votes_round1_valid_districts": 21811,
+          "national_list_label": "ÚJ SZÖVETSÉG"
+        },
+        {
+          "label": "EGYÜTT MAGYARORSZÁGÉRT UNIÓ",
+          "votes": 8786,
+          "printed_percent": 0.19,
+          "evaluation": "may_not",
+          "seats": 0,
+          "votes_round1_valid_districts": 8539,
+          "national_list_label": "EGYÜTT MAGYARORSZÁGÉRT UNIÓ"
+        },
+        {
+          "label": "NEMZETISÉGI FÓRUM",
+          "votes": 5895,
+          "printed_percent": 0.13,
+          "evaluation": "may_not",
+          "seats": 0,
+          "votes_round1_valid_districts": 5895,
+          "national_list_label": "NEMZETISÉGI FÓRUM"
+        },
+        {
+          "label": "MSZDP",
+          "votes": 3504,
+          "printed_percent": 0.08,
+          "evaluation": "may_not",
+          "seats": 0,
+          "votes_round1_valid_districts": 3504
+        },
+        {
+          "label": "ZÖLD PÁRT",
+          "votes": 3052,
+          "printed_percent": 0.07,
+          "evaluation": "may_not",
+          "seats": 0,
+          "votes_round1_valid_districts": 0
+        },
+        {
+          "label": "VÁLLALKOZÓK PÁRTJA",
+          "votes": 2409,
+          "printed_percent": 0.05,
+          "evaluation": "may_not",
+          "seats": 0,
+          "votes_round1_valid_districts": 2409
+        }
+      ],
+      "territorial_list_order_basis": "order of the threshold page (by valid-round votes); the archive prints no list number",
+      "territorial_round1_valid_districts_total": 4064201,
+      "territorial_seats_total": 128,
+      "smc": [
+        {
+          "label": "Fidesz",
+          "votes_round1": 956106,
+          "votes_round2": 1706155,
+          "first_named_party_seats_final": 90,
+          "first_named_party_round1_seats": 1
+        },
+        {
+          "label": "MAGYAR SZOCIALISTA PÁRT",
+          "votes_round1": 1332178,
+          "votes_round2": 1941307,
+          "first_named_party_seats_final": 54,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "FÜGGETLEN KISGAZDAPÁRT",
+          "votes_round1": 594023,
+          "votes_round2": 275857,
+          "first_named_party_seats_final": 12,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "SZDSZ",
+          "votes_round1": 455910,
+          "votes_round2": 139504,
+          "first_named_party_seats_final": 2,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "MDF",
+          "votes_round1": 343089,
+          "votes_round2": 356891,
+          "first_named_party_seats_final": 17,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "MAGYAR IGAZSÁG ÉS ÉLET PÁRTJA",
+          "votes_round1": 249127,
+          "votes_round2": 28608,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "Független",
+          "votes_round1": 75965,
+          "votes_round2": 39154,
+          "first_named_party_seats_final": 1,
+          "first_named_party_round1_seats": 0,
+          "aggregate": "independent candidates"
+        },
+        {
+          "label": "EGYÜTT MAGYARORSZÁGÉRT UNIÓ",
+          "votes_round1": 13599,
+          "votes_round2": 347,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "FÖLDI-ÉLET-PÁRTJA",
+          "votes_round1": 150,
+          "votes_round2": 169,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "FPSZ",
+          "votes_round1": 1789,
+          "votes_round2": 0,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "FÜGGETLENEK KÖZÖSSÉGE",
+          "votes_round1": 972,
+          "votes_round2": 0,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "KERESZTÉNYDEMOKRATA NÉPPÁRT",
+          "votes_round1": 129787,
+          "votes_round2": 122,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "MAGYAR NÉPJÓLÉTI SZÖVETSÉG",
+          "votes_round1": 252,
+          "votes_round2": 76,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "MANÉP",
+          "votes_round1": 184,
+          "votes_round2": 0,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "MCDP",
+          "votes_round1": 290,
+          "votes_round2": 264,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "MDNP-NÉPPÁRT",
+          "votes_round1": 87971,
+          "votes_round2": 247,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "MSZDP",
+          "votes_round1": 11845,
+          "votes_round2": 213,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "MSZMP",
+          "votes_round1": 515,
+          "votes_round2": 0,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "MUNKÁSPÁRT",
+          "votes_round1": 165455,
+          "votes_round2": 17703,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "NEMZETISÉGI FÓRUM",
+          "votes_round1": 11928,
+          "votes_round2": 473,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "NŐK PÁRTJA",
+          "votes_round1": 460,
+          "votes_round2": 0,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "Szociáldemokrata Párt",
+          "votes_round1": 669,
+          "votes_round2": 0,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "TÁRSADALMI KOALÍCIÓ",
+          "votes_round1": 825,
+          "votes_round2": 0,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "ÚJ SZÖVETSÉG",
+          "votes_round1": 23891,
+          "votes_round2": 1502,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "VÁLLALKOZÓK PÁRTJA",
+          "votes_round1": 8874,
+          "votes_round2": 1054,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "ZÖLD PÁRT",
+          "votes_round1": 328,
+          "votes_round2": 206,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        },
+        {
+          "label": "ZÖLDEK",
+          "votes_round1": 1758,
+          "votes_round2": 130,
+          "first_named_party_seats_final": 0,
+          "first_named_party_round1_seats": 0
+        }
+      ],
+      "smc_round1_total": 4467940,
+      "smc_round2_total": 4509982,
+      "smc_attribution": "source_apportioned_party_total",
+      "smc_round1_table_discrepancy": {
+        "page": "national_totals_round1",
+        "rows": [
+          {
+            "label": "Fidesz",
+            "votes_round1": 956008
+          },
+          {
+            "label": "SZDSZ",
+            "votes_round1": 456008
+          }
+        ],
+        "note": "The round-1 national table prints Fidesz 956,008 and SZDSZ 456,008; the final round-2 table prints 956,106 and 455,910 for round 1. The total (4,467,940) and every other row agree. The difference of 98 votes moves between two parties and is not explained on either page. The final table is used."
+      },
+      "nomination_groups_round2": {
+        "page": "nomination_groups",
+        "heading": "Önállóan és közösen jelöltet állító pártok eredményei",
+        "coverage": "Fidesz and MDF only: separate candidates of each party and their joint candidates in both name orders. The page does not state its round; its vote rows add up exactly to the round-2 column of the final national table for Fidesz and MDF, and its seats to their final single-member seats, so it is read as round 2. Whether other parties nominated joint candidates is not shown.",
+        "groups": [
+          {
+            "label": "Fidesz",
+            "nomination": "separate",
+            "candidates": 95,
+            "seats": 55,
+            "votes": 1085538,
+            "printed_win_rate_percent": 57.89,
+            "printed_votes_per_candidate": 11426.72
+          },
+          {
+            "label": "MDF",
+            "nomination": "separate",
+            "candidates": 94,
+            "seats": 2,
+            "votes": 22714,
+            "printed_win_rate_percent": 2.13,
+            "printed_votes_per_candidate": 241.64
+          },
+          {
+            "label": "Fidesz-MDF",
+            "nomination": "joint",
+            "candidates": 52,
+            "seats": 35,
+            "votes": 620617,
+            "printed_win_rate_percent": 67.31,
+            "printed_votes_per_candidate": 11934.94,
+            "first_named": "Fidesz"
+          },
+          {
+            "label": "MDF-Fidesz",
+            "nomination": "joint",
+            "candidates": 26,
+            "seats": 15,
+            "votes": 334177,
+            "printed_win_rate_percent": 57.69,
+            "printed_votes_per_candidate": 12852.96,
+            "first_named": "MDF"
+          }
+        ],
+        "printed_joint_total": {
+          "candidates": 78,
+          "seats": 50,
+          "votes": 954794,
+          "printed_win_rate_percent": 64.1,
+          "printed_votes_per_candidate": 12240.95
+        }
+      },
+      "compensation": {
+        "seats_to_distribute": 82,
+        "lists": [
+          {
+            "drawn": 1,
+            "label": "MAGYAR IGAZSÁG ÉS ÉLET PÁRTJA",
+            "smc_fragment": 246325,
+            "list_fragment": 155746,
+            "total": 402071,
+            "seats": 11
+          },
+          {
+            "drawn": 2,
+            "label": "MUNKÁSPÁRT",
+            "smc_fragment": 0,
+            "list_fragment": 0,
+            "total": 0,
+            "seats": 0
+          },
+          {
+            "drawn": 3,
+            "label": "MDF",
+            "smc_fragment": 0,
+            "list_fragment": 0,
+            "total": 0,
+            "seats": 0
+          },
+          {
+            "drawn": 4,
+            "label": "NEMZETISÉGI FÓRUM",
+            "smc_fragment": 0,
+            "list_fragment": 0,
+            "total": 0,
+            "seats": 0
+          },
+          {
+            "drawn": 5,
+            "label": "Fidesz",
+            "smc_fragment": 296843,
+            "list_fragment": 66906,
+            "total": 363749,
+            "seats": 10
+          },
+          {
+            "drawn": 6,
+            "label": "FÜGGETLEN KISGAZDAPÁRT",
+            "smc_fragment": 506621,
+            "list_fragment": 27788,
+            "total": 534409,
+            "seats": 14
+          },
+          {
+            "drawn": 7,
+            "label": "MAGYAR SZOCIALISTA PÁRT",
+            "smc_fragment": 914817,
+            "list_fragment": 167577,
+            "total": 1082394,
+            "seats": 30
+          },
+          {
+            "drawn": 8,
+            "label": "MDNP-NÉPPÁRT",
+            "smc_fragment": 0,
+            "list_fragment": 0,
+            "total": 0,
+            "seats": 0
+          },
+          {
+            "drawn": 9,
+            "label": "KERESZTÉNYDEMOKRATA NÉPPÁRT",
+            "smc_fragment": 0,
+            "list_fragment": 0,
+            "total": 0,
+            "seats": 0
+          },
+          {
+            "drawn": 10,
+            "label": "ÚJ SZÖVETSÉG",
+            "smc_fragment": 0,
+            "list_fragment": 0,
+            "total": 0,
+            "seats": 0
+          },
+          {
+            "drawn": 11,
+            "label": "SZDSZ",
+            "smc_fragment": 417812,
+            "list_fragment": 192313,
+            "total": 610125,
+            "seats": 17
+          },
+          {
+            "drawn": 12,
+            "label": "EGYÜTT MAGYARORSZÁGÉRT UNIÓ",
+            "smc_fragment": 0,
+            "list_fragment": 0,
+            "total": 0,
+            "seats": 0
+          }
+        ],
+        "fragment_total": 2992748
+      },
+      "composition": {
+        "rows": [
+          {
+            "label_on_page": "Fidesz MDF",
+            "smc": 50,
+            "territorial": 0,
+            "national": 0,
+            "total": 50,
+            "printed_share_percent": 12.95,
+            "attributed_to": "Fidesz MDF",
+            "outside": {
+              "label": "Fidesz-MDF / MDF-Fidesz",
+              "kind": "joint_candidates_without_list",
+              "components": [
+                {
+                  "label": "Fidesz-MDF",
+                  "seats": 35
+                },
+                {
+                  "label": "MDF-Fidesz",
+                  "seats": 15
+                }
+              ]
+            }
+          },
+          {
+            "label_on_page": "Fidesz",
+            "smc": 55,
+            "territorial": 48,
+            "national": 10,
+            "total": 113,
+            "printed_share_percent": 29.27,
+            "attributed_to": "Fidesz"
+          },
+          {
+            "label_on_page": "FÜGGETLEN KISGAZDAPÁRT",
+            "smc": 12,
+            "territorial": 22,
+            "national": 14,
+            "total": 48,
+            "printed_share_percent": 12.44,
+            "attributed_to": "FÜGGETLEN KISGAZDAPÁRT"
+          },
+          {
+            "label_on_page": "MAGYAR IGAZSÁG ÉS ÉLET PÁRTJA",
+            "smc": 0,
+            "territorial": 3,
+            "national": 11,
+            "total": 14,
+            "printed_share_percent": 3.63,
+            "attributed_to": "MAGYAR IGAZSÁG ÉS ÉLET PÁRTJA"
+          },
+          {
+            "label_on_page": "MAGYAR SZOCIALISTA PÁRT",
+            "smc": 54,
+            "territorial": 50,
+            "national": 30,
+            "total": 134,
+            "printed_share_percent": 34.72,
+            "attributed_to": "MAGYAR SZOCIALISTA PÁRT"
+          },
+          {
+            "label_on_page": "MDF",
+            "smc": 2,
+            "territorial": 0,
+            "national": 0,
+            "total": 2,
+            "printed_share_percent": 0.52,
+            "attributed_to": "MDF"
+          },
+          {
+            "label_on_page": "SZDSZ",
+            "smc": 2,
+            "territorial": 5,
+            "national": 17,
+            "total": 24,
+            "printed_share_percent": 6.22,
+            "attributed_to": "SZDSZ"
+          },
+          {
+            "label_on_page": "Független",
+            "smc": 1,
+            "territorial": 0,
+            "national": 0,
+            "total": 1,
+            "printed_share_percent": 0.25,
+            "attributed_to": "Független",
+            "outside": {
+              "label": "Független",
+              "kind": "independent_candidate"
+            }
+          }
+        ],
+        "printed_totals": {
+          "smc": 176,
+          "territorial": 128,
+          "national": 82,
+          "total": 386
+        },
+        "filled": 386,
+        "vacant": 0,
+        "printed_share_adjusted": [
+          "Független"
+        ],
+        "printed_share_note": "The printed seat shares add to 100.00%. Rounded to two decimals they would add to 100.01%; the page prints the independent row as 0.25% (1/386 = 0.259%). The printed shares are kept in the evidence only; seat shares are not stored."
+      },
+      "unmatched_national_lists": [],
+      "not_recorded": "Per-constituency and per-district results other than the two round-2 territorial districts, candidate and deputy names, the round-2 single-member invalid count (not printed nationally), per-list round-1 votes in Hajdú-Bihar and Szabolcs-Szatmár-Bereg (not printed nationally), and original-group single-member votes for round 1 or for parties other than Fidesz and MDF."
+    },
     "2002": {
       "election_id": "el-hu-ogy-2002-04-07",
       "rounds": [

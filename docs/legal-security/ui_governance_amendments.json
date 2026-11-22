@@ -5090,7 +5090,36 @@
         },
         {
           "path": "src/lib/institutions/election_links.json",
-          "sha256": "12795b97aad9ded9b6e88edc9999f14ccfb84b88e30bd0715f682b68527e3cd1",
+          "sha256": "4a9b36b7f2cc72c1b3aa3a5853c977d271c9b8783be5f2091f85b3bfec7b24db",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
+    },
+    {
+      "amendment_id": "hungary-1998-admission-2026-11-23",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-23 \"Hungary 1998 source semantics, data admission, and canonical wording\", sections 4-6 and 9: politicalRoundScope.ts types the minimal round-scope and attribution contract of the 1998 records (valid-round composite ballots, source-apportioned party totals) with two pure helpers used by tests; election_links.json is regenerated with 1998; politicalAdmission.ts updates the Hungary row text (1998-2026 admitted); no component, page or design change",
+      "baseline": "ba5ffcde5ad9e0d547942e8b39af72ed95dab513",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-23",
+      "files": [
+        {
+          "path": "src/lib/politicalRoundScope.ts",
+          "sha256": "1a8898613fc09c166f52d1418b05cf96aa07af22c680e242c2ac9b2d0b4b9d97",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/election_links.json",
+          "sha256": "4a9b36b7f2cc72c1b3aa3a5853c977d271c9b8783be5f2091f85b3bfec7b24db",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "1c51fdce408c66cf21adc97468fc75d384b674b863d6be192616c0f19169ee79",
           "classification": "DATA_PRESENTATION"
         }
       ]
