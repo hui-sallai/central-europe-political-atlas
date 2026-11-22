@@ -48,9 +48,7 @@ function amendmentName(amendment: InstitutionalAmendment, en: boolean) {
 function AmendmentRecord({amendment, slug, en}: {amendment:InstitutionalAmendment; slug:string; en:boolean}) {
   return <details id={amendment.amendment_id} className="my-2 border-l-2 border-[var(--line)] pl-3">
     <summary>{amendmentName(amendment,en)} · {en?"effective":"生效于"} <time dateTime={amendment.effective}>{amendment.effective}</time></summary>
-    <p className="mt-2">{!en && amendment.amendment_id==="hu-1997-electoral-act-amendment"
-      ? amendment.summary.zh.replace("须获得全国地区名单票的 5% 以上","的全国地区名单得票率须超过 5%").replace("两党以上联合名单","三个或更多政党的联合名单")
-      : text(amendment.summary,en)}</p>
+    <p className="mt-2">{text(amendment.summary,en)}</p>
     <LegalDates change={amendment} en={en}/>
     <p className="mt-1">{en?"Amended provisions":"修正条款"} · {amendment.provisions}</p>
     <p>{amendment.effective_basis}</p>

@@ -41,6 +41,8 @@ export function ScopedDistribution({country,election,ballot,locale,compactRules=
     <Link className="text-sm underline" href={localizedRoute('/politics/'+country+'/',locale)+'?'+query}>{en?"Election results, sources and rules":"选举结果、来源与当届规则"}</Link>
     {ballot ? <>
       <p className="mt-3 font-semibold">{ballot.label[locale]}</p>
+      {ballot.roundScope === "valid_round_composite" && <p className="text-sm" data-comparison-composite>{en ? "Territorial-list results from each district’s valid round" : "地区名单票按各地区有效轮次汇总"} · {ballot.dateStart} – {ballot.dateEnd}</p>}
+      {ballot.attributionBasis === "source_apportioned_party_total" && <p className="text-sm">{en ? "The election office apportioned joint candidates’ votes among their parties. Independents are grouped separately." : "选举办公室将联合候选人的选票分摊至各提名政党，独立候选人单独汇总。"}</p>}
       {ballot.round!=null && <p className="text-sm">{en?"Voting round":"投票轮次"} {ballot.round} · {ballot.date??election.date}</p>}
       <p className="text-sm">{ballot.basis[locale]}{!ballot.pointsBallot && ballot.voteDenominator!=null && <> · {en?"Denominator":"分母"} {format(ballot.voteDenominator)}</>} · {en?"Recorded contestants":"已收录参选项"} {ballot.rows.length}{ballot.seatWinnersOnly && (en?" (seat-winning lists only)":"（仅收录赢得席位的名单）")}</p>
       <p className="text-sm">{ballot.turnoutScope?.[locale]??(en?"Turnout":"投票率")} · {ballot.turnout===null?(en?"No recorded turnout rate":"未收录投票率"):`${format(ballot.turnout)}% (${ballot.turnoutPublished?(en?"published":"官方公布"):(en?"from official counts":"按官方人数计算")})`}</p>
@@ -54,7 +56,7 @@ export function ScopedDistribution({country,election,ballot,locale,compactRules=
           <tbody>{ballot.rows.map(row=><tr key={row.id} className="border-t border-[var(--line)]">
             <th scope="row" className="break-words py-1 font-normal">{row.name}</th>
             {!ballot.pointsBallot && <td>{format(row.votes)}</td>}
-            <td>{ballot.pointsBallot?format(row.points):<>{format(row.share)}{row.share!==null&&<small className="block">{row.published?(en?"published":"公布"):(en?"derived":"计算")}</small>}</>}</td>
+            <td>{ballot.pointsBallot?format(row.points):<>{row.published && row.share != null && ballot.roundScope === "valid_round_composite" ? row.share.toLocaleString(locale,{minimumFractionDigits:2,maximumFractionDigits:2}) : format(row.share)}{row.share!==null&&<small className="block">{row.published?(en?"published":"公布"):(en?"derived":"计算")}</small>}</>}</td>
             <td>{format(row.seats)}</td><td>{format(row.seats!==null&&ballot.seatScope?100*row.seats/ballot.seatScope:null)}</td>
           </tr>)}</tbody></table>
       </div>

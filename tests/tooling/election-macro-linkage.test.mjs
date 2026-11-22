@@ -26,7 +26,7 @@ const row = (electionId, indicator) => rows.find((r) => r.electionId === electio
 
 test('every admitted election is matched to every indicator, with missing values kept explicit', () => {
   assert.equal(elections.length, 19); // Czechia 2002, 2006, 2010 and 2013 admitted 2026-11-21
-  assert.equal(allAdmitted.length, 30); // Serbia 2020, 2022, 2023, 2026; Hungary 2010, 2014 and 2018 (2026-11-20); Czechia 2002–2013 (2026-11-21); Hungary 2002 and 2006 (2026-11-22)
+  assert.equal(allAdmitted.length, 31); // Serbia 2020, 2022, 2023, 2026; Hungary 2010, 2014 and 2018 (2026-11-20); Czechia 2002–2013 (2026-11-21); Hungary 2002 and 2006 (2026-11-22); Hungary 1998 (2026-11-23)
   assert.equal(rows.length, 19 * ELECTION_MACRO_INDICATORS.length);
   assert.deepEqual([...new Set(rows.map((r) => r.country))].sort(), ['czechia', 'germany', 'poland', 'slovakia']);
   assert.deepEqual(Object.fromEntries(electionMacroCoverage(rows).map((c) => [c.indicator, [c.lastCompleteYear, c.retrospective, c.elections]])), { hicp_inflation: [19, 19, 19], real_gdp_growth: [13, 14, 19], unemployment_rate: [4, 6, 19], fiscal_balance_gdp: [19, 19, 19], government_debt_gdp: [19, 19, 19] });
@@ -104,13 +104,14 @@ test('the panel is enabled for all admitted countries through the existing contr
   assert.ok(inputs.events.every((e) => e.country_slug === 'germany'), 'events stay with the page country');
 });
 
-test('Hungary joins the same linkage: 2002, 2006, 2010, 2014, 2018, 2022 and 2026 rows, turnout changes on one computed basis, nothing claimed as released before polling', () => {
+test('Hungary joins the same linkage: 1998, 2002, 2006, 2010, 2014, 2018, 2022 and 2026 rows, turnout changes on one computed basis, nothing claimed as released before polling', () => {
   const hu = electionMacroRows(allAdmitted.filter((e) => e.country === 'hungary'), points);
-  assert.equal(hu.length, 7 * ELECTION_MACRO_INDICATORS.length);
+  assert.equal(hu.length, 8 * ELECTION_MACRO_INDICATORS.length);
+  assert.ok(hu.filter((r) => r.electionId === 'el-hu-ogy-1998-05-10').every((r) => r.turnout.published === null && r.turnout.computed === null), '1998: the list ballot is a valid-round composite with no single turnout');
   assert.ok(hu.every((r) => r.publishedBeforeElection.status !== 'documented'));
   assert.ok(hu.every((r) => r.turnout.published === ({ 'el-hu-ogy-2002-04-07': 70.53, 'el-hu-ogy-2006-04-09': 67.83, 'el-hu-ogy-2010-04-11': 64.38 }[r.electionId] ?? null)), '2002, 2006 and 2010 print their round-1 turnout; 2014-2026 print none');
   assert.ok(Math.abs(hu.find((r) => r.electionId === 'el-hu-ogy-2010-04-11').turnout.changeSincePrevious - (64.38 - 67.83)) < 1e-9, 'printed round-1 turnout to printed round-1 turnout');
-  assert.equal(hu.find((r) => r.electionId === 'el-hu-ogy-2002-04-07').turnout.changeSincePrevious, null, 'the first admitted election has no previous one');
+  assert.equal(hu.find((r) => r.electionId === 'el-hu-ogy-2002-04-07').turnout.changeSincePrevious, null, 'no change is computed against the 1998 composite ballot');
   const later = hu.find((r) => r.electionId === 'el-hu-ogy-2026-04-12');
   assert.ok(Math.abs(later.turnout.computed - (6408362 / 8112646) * 100) < 1e-9);
   assert.ok(Math.abs(later.turnout.changeSincePrevious - ((6408362 / 8112646) - (5717182 / 8215304)) * 100) < 1e-9);

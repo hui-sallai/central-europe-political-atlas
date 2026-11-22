@@ -1,0 +1,88 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "hungary-ogy-1998",
+ "country": "hungary",
+ "election_ids": [
+  "el-hu-ogy-1998-05-10"
+ ],
+ "scope": "National Assembly election of 10 and 24 May 1998 under Act XXXIV of 1989 (as amended by Acts III of 1994 and XCVI of 1997), all 386 seats: round-1 registers, participation, printed turnout and both round-1 ballots' counts (all 176 constituencies, all 20 territorial districts); round-2 register, participation and printed turnout of the 175 constituencies holding round 2, and the registers and printed percentages of the 2 territorial districts holding round 2; territorial-list votes of every list as the valid-round composite (round 1 in 18 districts, round 2 in 2) with the printed shares and the 18-district round-1 part; national single-member votes per party in each round as apportioned by the office, with the office's Fidesz/MDF nomination-group table for round 2; national compensation fragment votes and seats; the final composition (176 + 128 + 82) with original groups. Per-constituency rows, per-list round-1 votes in the 2 re-run districts, the round-2 single-member invalid count and candidates are not covered.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-05",
+   "decision": "Owner reply: national figures on Copyright Act § 1(4), a reading of the statute weaker than a licence; no candidate names."
+  },
+  {
+   "date": "2026-11-06",
+   "decision": "Owner reply: extend that reading to the office's composition pages for aggregate seat counts."
+  },
+  {
+   "date": "2026-11-20",
+   "decision": "Owner answer 'National figures per tier (Recommended)' for the 2010 archive, the scope applied here."
+  },
+  {
+   "date": "2026-11-23",
+   "decision": "Owner brief 'Hungary 1998 source semantics, data admission, and canonical wording' naming ovbk1.htm, l22.htm, l120.htm, l23a.htm, eredind.htm, elemind.htm and l100.htm on static.valasztas.hu, and asking that the valid-round composite and the apportioned single-member table be resolved before admission, and that admission be completed when the evidence and existing authorisation permit it."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/hungary/ogy/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": {
+   "status": "closed",
+   "value": "statutory_reading_owner_decision_uncertainty_recorded",
+   "evidence_kind": "statute_section_1_4_copyright_act",
+   "basis": "As for 2002-2010: official result publications of the election office and the National Election Commission's notice, read under the owner's Copyright Act § 1(4) reading; no licence exists. Statutes are not subject to copyright."
+  },
+  "normalized_republication": {
+   "status": "closed",
+   "value": "national_figures_and_seat_counts_per_tier",
+   "evidence_kind": "owner_decision",
+   "basis": "National counts, national sums per ballot and per tier, and seat counts, as for 2002-2010. The two round-2 territorial districts are recorded as the whole geography of that part of the list ballot (registers and printed percentages only). No per-constituency rows; no candidate names. The round-1 notice names the one deputy elected in round 1; the name is not recorded."
+  },
+  "raw_redistribution": {
+   "status": "closed",
+   "value": "not_redistributed",
+   "evidence_kind": "owner_decision",
+   "basis": "The pages were read in a browser and are not saved; only the transcribed figures, short quoted clauses and a SHA-256 of each page's rendered text are committed."
+  },
+  "acquisition_route": {
+   "status": "closed",
+   "value": "owner_authorised_single_reading",
+   "evidence_kind": "owner_decision",
+   "basis": "The seven owner-named pages and four pages linked visibly from them (v98din1/l22.htm, l100t.htm, l50.htm, l61.htm), each read once by hand. l100e.htm (per-constituency round-2 rows, linked from l100.htm) was opened and not transcribed. No candidate, member or per-party page was opened. Statutes as for 2002-2010 (njt.jog.gov.hu, read 2026-11-22). www.valasztas.hu not contacted; no data endpoint requested."
+  },
+  "source_files_complete": {
+   "status": "closed",
+   "value": "complete_for_scope",
+   "evidence_kind": "evidence_record",
+   "basis": "Round-1 notice (registers, both ballots, constituency and district outcomes); round-2 summary and territorial summary; national totals after round 1 and after round 2 (every party, both single-member rounds, territorial and fragment columns); threshold page (every territorial list with printed shares); nomination-group page (Fidesz/MDF); compensation page (every national list); composition page (every group, original joint row). Missing nationally and recorded as unavailable: per-list round-1 votes in the 2 re-run districts, round-2 territorial participants, the round-2 single-member invalid count, original single-member groups for round 1 and for parties other than Fidesz and MDF."
+  },
+  "national_definition_complete": {
+   "status": "closed",
+   "value": "reconciled",
+   "evidence_kind": "build_check",
+   "basis": "reconcile1998: registers add up in both rounds and reproduce 56.26% and 57.01%; each round-1 ballot's urn plus missing minus voters equals the printed excess (9, 12) and invalid plus valid equals the urn, with percentages of voters reproduced; 1 + 144 + 31 = 176 constituencies and round 2 in exactly 175; round 2 in exactly the 2 districts whose round 1 was invalid; 15 territorial lists = 4,547,682 with every printed share reproduced; 18-district round-1 part 4,064,201 and derived round-2 part 483,481 within the range implied by the printed district percentages; printed 5% border 227,384 reproduces and matches every finding; no joint list; 128 territorial seats; 58 + 24 = 82 compensation seats reproduced by D'Hondt (11/10/14/30/17); single-member votes 4,467,940 and 4,509,982; Fidesz and MDF nomination groups reproduce their round-2 votes and seats; composition 176 + 128 + 82 = 386, none vacant, with 335 list-linked seats, 50 joint Fidesz-MDF/MDF-Fidesz seats and 1 independent."
+  },
+  "same_election_identity_complete": {
+   "status": "closed",
+   "value": "one_contestant_per_list_and_per_party_row",
+   "evidence_kind": "owner_decision",
+   "basis": "Territorial lists (all single-party; the office states none was joint or linked) and single-member party rows are separate contestants. Single-member rows are labelled source_apportioned_party_total: the office divided joint candidates' votes among the nominating parties and shows their seats under the first-named party; these seats are kept as first_named_party_* and never as original-group seats. Original groups are kept where the office prints them (Fidesz/MDF round 2; the composition). No link to any other election."
+  },
+  "electoral_system_metadata_complete": {
+   "status": "closed",
+   "value": "statute_versions_read",
+   "evidence_kind": "build_check",
+   "basis": "Same version as 2002-2010: § 4 original text; § 8(3) and Annex 4 set by Act III of 1994 (in force 1994-01-20); § 8(5) and § 9(2)-(6) set by Act XCVI of 1997 (in force 1997-11-05, before both 1998 polling days). The 10% and 15% thresholds were in force; the office did not calculate them because no joint or linked list stood."
+  },
+  "vintage_decisions_complete": {
+   "status": "closed",
+   "value": "final_archive_pages",
+   "evidence_kind": "official_act",
+   "basis": "Round-1 notice of the National Election Commission, final ('végleges'), made 18 May 1998; round-2 pages headed 'Végleges' (final); composition prints 386 filled and 0 vacant. The round-1 national table prints no finality heading and differs from the final table by 98 round-1 votes between Fidesz and SZDSZ (same total); the final table is used and the difference recorded."
+  }
+ },
+ "continuity": "None: no party register reviewed; no link to 2002 or later elections, even where a label repeats.",
+ "germany_change_allowed": false
+}

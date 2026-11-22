@@ -1,5 +1,67 @@
 [
   {
+    "election_id": "el-hu-ogy-1998-05-10",
+    "country": "hungary",
+    "election_type": "national_parliament",
+    "chamber": "Országgyűlés",
+    "date": "1998-05-10",
+    "date_end": "1998-05-24",
+    "date_basis": "notice heading 'az 1998. évi országgyűlési képviselő-választás 1998. május 10-i, első fordulójának …' and the round-2 page heading '1998. évi országgyűlési képviselő választás 2. fordulója 1998. május 24.'",
+    "rounds": [
+      {
+        "round": 1,
+        "date": "1998-05-10"
+      },
+      {
+        "round": 2,
+        "date": "1998-05-24"
+      }
+    ],
+    "year": 1998,
+    "legislature_id": "lg-hu-ogy-1998",
+    "electoral_system_id": "es-hu-ogy-1998",
+    "result_status": "official_final",
+    "result_vintage": "final: National Election Office archive of the 1998 election — the round-1 national notice of 18 May 1998 and the round-2 pages headed 'Végleges' (final); national totals and seat tables only",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-hu-nvi-archive-1998",
+        "source_url": "https://static.valasztas.hu/ujweb/jog1/ovbk1.htm",
+        "source_record_id": "notice_round1",
+        "retrieved_at": "2026-11-23T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
+        "fields_covered": [
+          "date",
+          "rounds"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-archive-1998",
+        "source_url": "https://static.valasztas.hu/v98din2/eredind.htm",
+        "source_record_id": "index_round2",
+        "retrieved_at": "2026-11-23T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
+        "fields_covered": [
+          "date_end",
+          "rounds"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "election_id": "el-hu-ogy-2002-04-07",
     "country": "hungary",
     "election_type": "national_parliament",
@@ -32,10 +94,10 @@
         "retrieved_at": "2026-11-22T09:00:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "date",
           "date_end",
@@ -78,10 +140,10 @@
         "retrieved_at": "2026-11-22T09:00:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "date",
           "date_end",
@@ -124,10 +186,10 @@
         "retrieved_at": "2026-11-20T09:00:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "date",
           "date_end",
@@ -160,10 +222,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "chamber",
           "result_vintage"
@@ -195,10 +257,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "chamber",
           "result_vintage"
@@ -230,10 +292,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "chamber",
           "result_vintage"
@@ -265,10 +327,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "chamber",
           "result_vintage"

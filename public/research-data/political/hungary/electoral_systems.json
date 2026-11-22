@@ -1,5 +1,210 @@
 [
   {
+    "electoral_system_id": "es-hu-ogy-1998",
+    "country": "hungary",
+    "election_id": "el-hu-ogy-1998-05-10",
+    "valid_from": "1998-05-10",
+    "valid_to": "1998-05-24",
+    "interval_basis": "election-specific rule observation: Act XXXIV of 1989 with § 8(3) and Annex 4 as set by Act III of 1994 (in force 1994-01-20) and § 8(5) and § 9(2)–(6) as set by Act XCVI of 1997 (in force 1997-11-05), read on the legislation database with the amending act of each provision; the office's 1998 notice and pages apply the same tiers, threshold and methods",
+    "system_family": "mixed, two rounds: 176 single-member constituencies, up to 152 territorial-list seats in 20 districts and at least 58 national compensation seats",
+    "vote_type": "hu98_territorial_list_valid_round_vote",
+    "allocation_method": "territorial lists in 20 districts; national compensation seats by D'Hondt over fragment votes",
+    "base_seats": 386,
+    "vote_definitions": [
+      {
+        "id": "hu98_territorial_list_valid_round_vote",
+        "kind": "list",
+        "label": {
+          "en": "Territorial-list votes (valid round of each district)",
+          "zh-CN": "地区名单票（各地区有效轮次）"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "tier_only",
+        "tierSeats": 210,
+        "roundScope": "valid_round_composite",
+        "rounds": [
+          1,
+          2
+        ],
+        "attributionBasis": "original_list",
+        "geographicScope": {
+          "territorial_districts": 20,
+          "round1_districts": 18,
+          "round2_districts": 2
+        },
+        "sourceIds": [
+          "src-hu-nvi-archive-1998",
+          "src-hu-njt-act-xxxiv-1989-versions"
+        ]
+      },
+      {
+        "id": "hu98_smc_round1_vote",
+        "kind": "constituency",
+        "label": {
+          "en": "Single-member candidate votes, round 1 (party totals; joint candidates apportioned by the office)",
+          "zh-CN": "单一选区候选人票，第一轮（政党合计；联合候选人票数由选举办公室分摊）"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "unavailable",
+        "roundScope": "single_round",
+        "rounds": [
+          1
+        ],
+        "attributionBasis": "source_apportioned_party_total",
+        "geographicScope": {
+          "single_member_constituencies": 176
+        },
+        "sourceIds": [
+          "src-hu-nvi-archive-1998"
+        ]
+      },
+      {
+        "id": "hu98_smc_round2_vote",
+        "kind": "constituency",
+        "label": {
+          "en": "Single-member candidate votes, round 2 (175 constituencies; party totals, joint candidates apportioned by the office)",
+          "zh-CN": "单一选区候选人票，第二轮（175 个选区；政党合计，联合候选人票数由选举办公室分摊）"
+        },
+        "denominator": "valid_votes",
+        "seatScope": "unavailable",
+        "roundScope": "single_round",
+        "rounds": [
+          2
+        ],
+        "attributionBasis": "source_apportioned_party_total",
+        "geographicScope": {
+          "single_member_constituencies": 175
+        },
+        "sourceIds": [
+          "src-hu-nvi-archive-1998"
+        ]
+      }
+    ],
+    "national_rules": {
+      "nationalAllocation": "National compensation lists: 82 seats (58 by statute plus 24 territorial seats that could not be allocated) shared by D'Hondt over fragment votes (unused single-member votes of the first valid round plus unused territorial-list votes).",
+      "districtAllocation": "Single-member constituencies in up to two rounds: round 1 decides with more than half the valid votes and more than half the voters taking part; otherwise round 2 (24 May 1998) decides by plurality. In 1998 round 1 decided 1 constituency, was valid without a winner in 144 and invalid in 31. Territorial lists in 20 districts among lists over the threshold; round 1 was invalid in 2 districts, which voted again in round 2.",
+      "thresholds": [
+        {
+          "appliesTo": "party list",
+          "percent": 5,
+          "description": {
+            "en": "A party list must exceed 5% of all territorial-list votes nationally to win territorial or national list seats (§ 8(5)(a)). In 1998 the total was 4,547,682, the valid round of each district (round 1 in 18, round 2 in 2), so the office set the 5% border only after round 2.",
+            "zh-CN": "政党名单须在全国地区名单票中超过 5%，方可获得地区或全国名单席位（第 8 条第 5 款 a 项）。1998 年该总数为 4,547,682 张，取各地区的有效轮次（18 个地区为第一轮，2 个地区为第二轮），因此选举办公室在第二轮之后才确定 5% 界限。"
+          },
+          "sourceIds": [
+            "src-hu-njt-act-xxxiv-1989-versions",
+            "src-hu-nvi-archive-1998"
+          ]
+        },
+        {
+          "appliesTo": "joint list of two parties",
+          "percent": 10,
+          "description": {
+            "en": "A joint list of two parties must reach 10% of the same total (§ 8(5)(ba)). In force in 1998; no joint or linked list stood, so the office did not calculate it.",
+            "zh-CN": "两党联合名单须达到同一总数的 10%（第 8 条第 5 款 ba 项）。1998 年该规定有效；由于没有联合或关联名单参选，选举办公室未计算该界限。"
+          },
+          "sourceIds": [
+            "src-hu-njt-act-xxxiv-1989-versions",
+            "src-hu-nvi-archive-1998"
+          ]
+        },
+        {
+          "appliesTo": "joint list of more than two parties",
+          "percent": 15,
+          "description": {
+            "en": "A joint list of more than two parties must reach 15% of the same total (§ 8(5)(ba)). In force in 1998; no joint or linked list stood, so the office did not calculate it.",
+            "zh-CN": "三个或更多政党的联合名单须达到同一总数的 15%（第 8 条第 5 款 ba 项）。1998 年该规定有效；由于没有联合或关联名单参选，选举办公室未计算该界限。"
+          },
+          "sourceIds": [
+            "src-hu-njt-act-xxxiv-1989-versions",
+            "src-hu-nvi-archive-1998"
+          ]
+        }
+      ],
+      "minorityRepresentation": null,
+      "totalSeatsDefinition": {
+        "en": "386 seats. By statute 176 single-member, up to 152 territorial-list and at least 58 national compensation seats; in 1998 the final allocation was 176 + 128 + 82, because 24 territorial seats passed to the national lists. Each list row shows its territorial plus national list seats, the single-member seats of its own candidates and their sum. 51 single-member seats were won outside the lists: 50 by joint candidates of Fidesz and MDF (35 Fidesz-MDF, 15 MDF-Fidesz) and 1 by an independent candidate.",
+        "zh-CN": "386 席。法定为 176 个单一选区席位、最多 152 个地区名单席位和至少 58 个全国补偿席位；1998 年最终分配为 176 + 128 + 82，因为 24 个地区席位转入全国名单。每个名单行显示其地区及全国名单席位、本党候选人赢得的单一选区席位及两者之和。有 51 个单一选区席位不属于任何名单：50 个由 Fidesz 和 MDF 联合候选人赢得（Fidesz-MDF 35 个，MDF-Fidesz 15 个），1 个由独立候选人赢得。"
+      },
+      "sourceIds": [
+        "src-hu-njt-act-xxxiv-1989-versions",
+        "src-hu-nvi-archive-1998"
+      ]
+    },
+    "notes": {
+      "en": "Mixed two-round system with 386 seats under Act XXXIV of 1989 as amended in 1994 and 1997, the version also applied in 2002–2010. Two observations differ from those years. The territorial-list total combines each district's valid round: round 1 (10 May) in 18 districts and round 2 (24 May) in Hajdú-Bihar and Szabolcs-Szatmár-Bereg, where under half the voters took part in round 1; it has no single turnout or electorate. The single-member columns of the national table divide joint candidates' votes among the nominating parties and show their seats under the first-named party, so they are party totals apportioned by the office, not original nomination groups; the office's separate Fidesz–MDF table and the chamber composition keep the joint candidates (50 seats) apart. Shares are computed within each ballot; the list shares printed by the office (two decimals) use the same valid-round total. No list is linked to another election.",
+      "zh-CN": "1989 年第 XXXIV 号法（经 1994 年和 1997 年修订）下的 386 席两轮混合制，2002–2010 年适用同一版本。有两项观测与那些年份不同。地区名单票总数合并了各地区的有效轮次：18 个地区为第一轮（5 月 10 日），Hajdú-Bihar 和 Szabolcs-Szatmár-Bereg 两个地区为第二轮（5 月 24 日），因为这两个地区第一轮参与投票的选民不足一半；该总数没有单一的投票率或选民总数。全国表格的单一选区栏把联合候选人的票数分给各提名政党，并把其席位列在名列第一的政党名下，因此是选举办公室分摊后的政党合计，而非原始提名组；选举办公室另行公布的 Fidesz–MDF 表格和议会构成则把联合候选人（50 席）单独列出。得票率在各选票内部计算；选举办公室公布的名单得票率（两位小数）使用同一有效轮次总数。没有任何名单与其他选举相连。"
+    },
+    "provenance": [
+      {
+        "source_id": "src-hu-njt-act-xxxiv-1989-versions",
+        "source_url": "https://njt.jog.gov.hu/jogszabaly/1989-34-00-00",
+        "source_record_id": "statute",
+        "retrieved_at": "2026-11-22T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
+        "fields_covered": [
+          "system_family",
+          "base_seats",
+          "national_rules"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-archive-1998",
+        "source_url": "https://static.valasztas.hu/ujweb/jog1/ovbk1.htm",
+        "source_record_id": "notice_round1",
+        "retrieved_at": "2026-11-23T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
+        "fields_covered": [
+          "national_rules"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-archive-1998",
+        "source_url": "https://static.valasztas.hu/v98din2/l120.htm",
+        "source_record_id": "threshold",
+        "retrieved_at": "2026-11-23T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
+        "fields_covered": [
+          "national_rules"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-hu-nvi-archive-1998",
+        "source_url": "https://static.valasztas.hu/v98din2/l61.htm",
+        "source_record_id": "compensation",
+        "retrieved_at": "2026-11-23T09:00:00Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/hungary/ogy/evidence.json",
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
+        },
+        "parser_version": "hungary-ogy-national-v1",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
+        "fields_covered": [
+          "allocation_method"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "electoral_system_id": "es-hu-ogy-2002",
     "country": "hungary",
     "election_id": "el-hu-ogy-2002-04-07",
@@ -115,10 +320,10 @@
         "retrieved_at": "2026-11-22T09:00:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "system_family",
           "base_seats",
@@ -133,10 +338,10 @@
         "retrieved_at": "2026-11-22T09:00:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "allocation_method"
         ],
@@ -149,10 +354,10 @@
         "retrieved_at": "2026-11-22T09:00:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "allocation_method"
         ],
@@ -276,10 +481,10 @@
         "retrieved_at": "2026-11-22T09:00:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "system_family",
           "base_seats",
@@ -294,10 +499,10 @@
         "retrieved_at": "2026-11-22T09:00:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "allocation_method"
         ],
@@ -310,10 +515,10 @@
         "retrieved_at": "2026-11-22T09:00:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "allocation_method"
         ],
@@ -426,10 +631,10 @@
         "retrieved_at": "2026-11-20T09:00:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "system_family",
           "base_seats",
@@ -444,10 +649,10 @@
         "retrieved_at": "2026-11-20T09:00:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "allocation_method"
         ],
@@ -562,10 +767,10 @@
         "retrieved_at": "2026-11-05T13:05:59Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "system_family",
           "allocation_method",
@@ -581,10 +786,10 @@
         "retrieved_at": "2026-11-20T01:40:00Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "notes"
         ],
@@ -699,10 +904,10 @@
         "retrieved_at": "2026-11-05T13:05:59Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "system_family",
           "allocation_method",
@@ -718,10 +923,10 @@
         "retrieved_at": "2026-11-20T01:25:15Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "notes"
         ],
@@ -836,10 +1041,10 @@
         "retrieved_at": "2026-11-05T13:05:59Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "system_family",
           "allocation_method",
@@ -855,10 +1060,10 @@
         "retrieved_at": "2026-11-05T13:04:31Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "notes"
         ],
@@ -973,10 +1178,10 @@
         "retrieved_at": "2026-11-05T13:05:59Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "system_family",
           "allocation_method",
@@ -992,10 +1197,10 @@
         "retrieved_at": "2026-11-05T13:04:22Z",
         "raw_snapshot": {
           "path": "docs/political-data/raw/hungary/ogy/evidence.json",
-          "sha256": "b72e32d3f24c45e49297a235bd5e0f04133f9db34d3a793d598eddd686bd2227"
+          "sha256": "6a66cf264294735b618be6f4a90874b41bd237264a6f0a7f288c73cc7e2d296b"
         },
         "parser_version": "hungary-ogy-national-v1",
-        "parser_sha256": "5821446dce665a3e607f20894dac217fc255615682f22a4070c1fd064efa809c",
+        "parser_sha256": "cb76ff895c8d71fb5b479a6b005ec30f933a3e9c7e091da1b05f10144bc07148",
         "fields_covered": [
           "notes"
         ],

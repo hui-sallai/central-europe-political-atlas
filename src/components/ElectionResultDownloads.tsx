@@ -33,16 +33,35 @@ function exportBody(election: PoliticalElectionView, rows: ResultRow[], format: 
     [ballot.definition.id + "/" + result.contestantId, { ballot, result }] as const)));
   if (!rows.length || rows.length !== expected.size || new Set(rows.map(row => row.vote_type + "/" + row.contestant_ref)).size !== expected.size)
     throw new Error("Incomplete results");
+  const ballots = (national?.ballots ?? []).map(ballot => {
+    const definition = ballot.definition;
+    return {
+      vote_type: definition.id,
+      ballot_round: ballot.round ?? null,
+      ballot_date: ballot.date ?? (definition.roundScope === "valid_round_composite" ? null : election.date),
+      ballot_date_start: ballot.dateStart,
+      ballot_date_end: ballot.dateEnd,
+      ballot_source_url: ballot.sourceUrl,
+      round_scope: definition.roundScope,
+      rounds_in_ballot: definition.rounds,
+      published_share_decimal_places: definition.roundScope === "valid_round_composite" ? 2 : undefined,
+      geographic_scope: definition.geographicScope,
+      attribution_basis: definition.attributionBasis,
+      turnout_record: ballot.turnoutRecord,
+    };
+  });
+  const ballotById = new Map(ballots.map(ballot => [ballot.vote_type, ballot]));
   const results = rows.map(row => {
     const entry = expected.get(row.vote_type + "/" + row.contestant_ref);
     if (!entry) throw new Error("Unregistered ballot or contestant");
     if (!history) return row;
     const { ballot, result } = entry;
-    const round = national?.rounds?.find(item => item.round === ballot.round);
+    const context = ballotById.get(ballot.definition.id)!;
     return { ...row, contestant_label: result.nativeLabel, electoral_system_id: national?.systemId,
       election_date: election.date, election_end_date: national?.dateEnd,
       ballot_source_url: ballot.sourceUrl,
-      ballot_round: ballot.round ?? null, ballot_date: round?.date ?? election.date,
+      ballot_round: context.ballot_round, ballot_date: context.ballot_date,
+      ballot_date_start: context.ballot_date_start, ballot_date_end: context.ballot_date_end,
       vote_denominator_basis: ballot.definition.denominator, vote_denominator:
         ballot.definition.denominator === "valid_votes" ? ballot.validVotes :
         ballot.definition.denominator === "ballots_cast" ? ballot.ballotsCast : null,
@@ -51,11 +70,20 @@ function exportBody(election: PoliticalElectionView, rows: ResultRow[], format: 
   });
   if (format === "json") return JSON.stringify(composition ? {
     election_id: election.electionId, date: election.date, chamber: election.chamber,
-    ...(history ? { date_end: national?.dateEnd, electoral_system_id: national?.systemId, rounds: national?.rounds } : {}),
+    ...(history ? { date_end: national?.dateEnd, electoral_system_id: national?.systemId, ballots, rounds: national?.rounds } : {}),
     composition, results, sources: election.sources,
   } : results, null, 2);
   const csvRows = results.map(row => {
-    const fields: Record<string, unknown> = { ...row, ...(composition ? {
+    const context = ballotById.get(row.vote_type);
+    const turnout = context?.turnout_record;
+    const fields: Record<string, unknown> = { ...row,
+      ...(context?.round_scope ? {
+        published_share_decimal_places:context.published_share_decimal_places,
+        ...(context.published_share_decimal_places && typeof row.published_vote_share === "number" ? {published_vote_share:row.published_vote_share.toFixed(context.published_share_decimal_places)} : {}),
+        ballot_attribution_basis: context.attribution_basis, geographic_scope: context.geographic_scope,
+        turnout_basis: turnout?.turnout_basis, round_composition: turnout?.round_composition,
+        actual_round1_ballot: turnout?.actual_round1_ballot, turnout_record: turnout,
+      } : {}), ...(composition ? {
       chamber_seats: composition.chamber_seats, district_seats: composition.district_seats,
       independent_district_seats: composition.independent_district_seats,
       ...(history ? { final_allocation_through_poll_date: national?.dateEnd, chamber_composition_source_url: history.compositionUrl, chamber_territorial_seats: history.territorialSeats,

@@ -1,8 +1,10 @@
 /** Descriptive election views only. Identity continuity is not inferred here. */
-import type { NationalContext } from "./politicalNational";
+import { roundScopeOf, type ScopedResult } from "./politicalRoundScope";
+import type { BallotProvenance, NationalContext } from "./politicalNational";
 export type PoliticalMeasure = "votes" | "vote_share" | "seats" | "seat_share";
 export type PoliticalSource = { id: string; title: string; url: string; sha256?: string; retrievedAt?: string; licenceUrl?: string; institution?: string };
-export type PoliticalResult = {
+export type PoliticalResult = ScopedResult & {
+  provenance?: BallotProvenance[];
   contestantId: string;
   nativeLabel: string;
   secondVotes: number | null;
@@ -90,13 +92,14 @@ export function compatibleTurnout(a:PoliticalElectionView,b:PoliticalElectionVie
   const x=a.national?.turnout,y=b.national?.turnout;
   // A runoff covers the constituencies still voting at this election. Even equal
   // constituency counts would not establish a common electorate across years.
-  const scoped = [a,b].some(e => selectedElectionRound(e)?.constituencies != null);
-  if (a.electionId !== b.electionId && scoped) return false;
+  const left = selectedElectionRound(a), right = selectedElectionRound(b);
+  const restricted = left?.electorateScope === "restricted" || right?.electorateScope === "restricted";
+  if (restricted && (a.electionId !== b.electionId || left?.round !== right?.round)) return false;
   return Boolean(x&&y&&x.numerator!=="unknown"&&x.denominator!=="unknown"&&x.numerator===y.numerator&&x.denominator===y.denominator&&x.definition&&x.definition===y.definition);
 }
 export function compatibleVoteBasis(a:PoliticalElectionView,b:PoliticalElectionView):boolean {
   const x=a.national?.activeVote,y=b.national?.activeVote;
-  return Boolean(x&&y&&x.denominator!=="unknown"&&x.kind===y.kind&&x.id===y.id&&x.denominator===y.denominator);
+  return Boolean(x&&y&&x.denominator!=="unknown"&&x.kind===y.kind&&x.id===y.id&&x.denominator===y.denominator&&roundScopeOf(x)===roundScopeOf(y));
 }
 
 /**

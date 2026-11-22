@@ -4,7 +4,7 @@ import { useState, useSyncExternalStore } from "react";
 import { localeNumber, localizedRoute, type Locale } from "@/i18n/config";
 import { outsideListKindLabel } from "@/lib/politicalNational";
 import { descriptiveShare } from "@/lib/politicalExplorer";
-import type { HistoryObservation } from "@/lib/electionHistoryObservations";
+import type { HistoryObservation, HistoryRound } from "@/lib/electionHistoryObservations";
 import type { EvidenceDraft } from "@/lib/researchNotebook";
 import { toCsv } from "@/lib/researchSnapshot";
 import { NotebookCollect } from "./NotebookCollect";
@@ -33,9 +33,15 @@ function exportRows(name: string, rows: Record<string, unknown>[]) {
 }
 
 function turnoutRecords(row: HistoryObservation) {
-  const base = {sourceHeading:undefined as string | undefined,id:row.id,date:row.date,dateBasis:row.dateBasis,scope:row.scope,turnout:row.turnout,published:row.published,
-    numerator:row.numerator,denominator:row.denominator,definition:row.definition,turnoutSources:row.turnoutSources,round:null as number|null,constituencies:null as number|null};
-  return row.rounds?.length ? row.rounds.map(round=>({...base,...round,published:round.turnout!==null})) : [base];
+  type Point = Omit<HistoryRound, "round" | "electorateScope"> & {
+    id: string; dateBasis?: string | null; round: number | null; electorateScope: HistoryRound["electorateScope"] | null; published: boolean;
+  };
+  const points: Point[] = row.rounds?.length
+    ? row.rounds.map(round => ({...round, id:row.id, dateBasis:row.dateBasis, published:round.turnout !== null}))
+    : [{id:row.id, date:row.date, dateBasis:row.dateBasis, scope:row.scope, turnout:row.turnout, published:row.published,
+      numerator:row.numerator, denominator:row.denominator, definition:row.definition, turnoutSources:row.turnoutSources,
+      round:null, electorateScope:null, constituencyCount:null, constituencies:null}];
+  return points;
 }
 
 const segmentColours = ["#475569", "#0f766e", "#9c5a26", "#665578", "#637545", "#896267"];
@@ -60,6 +66,10 @@ function SeatBar({row, locale}: {row: HistoryObservation; locale: Locale}) {
         <span className="mr-2 inline-block h-2 w-2" style={{backgroundColor:segmentColours[i % segmentColours.length]}} aria-hidden="true"/>
         {part.label}{part.list?.kind === "coalition" && <> ({en ? "electoral coalition" : "选举联盟"})</>} · {localeNumber(part.seats, locale)}
         {part.outsideListKind && <> · {outsideListKindLabel(part.outsideListKind, locale)}</>}
+        {part.components?.length ? <small className="block pl-4">
+          {en ? "Included in this total" : "其中"} · {part.components.map(c => c.label+" "+c.seats).join(" + ")}
+          {part.componentSourceUrl && <> · <a className="underline" href={part.componentSourceUrl}>{en ? "Nomination-group results" : "提名组合结果"}</a></>}
+        </small> : null}
         {part.list && total !== null && total > 0 && <> {en ? "seats" : "席"} · {localeNumber(descriptiveShare(part.seats,total), locale)}% {en ? "of chamber" : "占全议院"}</>}
       </li>)}</ul>
       {row.allocationMethod && <p className="mt-2 text-xs" data-history-allocation>{row.allocationMethod}</p>}
@@ -82,7 +92,7 @@ export function ElectionHistoryFigures({rows, selected, locale, select}: {
   const filter = params.get(selectionField)?.split(",");
   const active = rows.filter(row => !filter || filter.includes(row.id));
   const turnoutRows=active.flatMap(turnoutRecords);
-  const restrictedRounds=turnoutRows.filter(r=>r.constituencies!==null);
+  const restrictedRounds=turnoutRows.filter(r=>r.electorateScope==="restricted");
   const first = rows[0], last = rows.at(-1);
   if (!first || !last) return null;
   const dates=rows.flatMap(r=>r.rounds?.length?r.rounds.map(point=>point.date):[r.date]).sort();
@@ -112,7 +122,8 @@ export function ElectionHistoryFigures({rows, selected, locale, select}: {
       const base = {country:r.country,election_id:r.id,date:r.date,chamber:r.chamber,chamber_id:r.chamberId,legislature_id:r.legislatureId??null,electoral_system_id:r.systemId??null,date_basis:r.dateBasis??null,
         source_ids:sources.map(s=>s.id).join(" | "),source_urls:sources.map(s=>s.url).join(" | "),research_url:historyUrl(kind)};
       if (kind === "turnout") return turnoutRecords(r).map(point=>({...base,date:point.date,round:point.round,scope:point.scope,
-        runoff_constituencies:point.constituencies,source_heading:point.sourceHeading,ballot:r.ballot,vote_type:point.round===null?r.voteType:null,turnout_percent:point.turnout,
+        electorate_scope:point.electorateScope, constituency_count:point.constituencyCount, runoff_constituencies:point.constituencies,
+        source_heading:point.sourceHeading,ballot:point.sourceBallotLabel??r.ballot,vote_type:point.sourceBallotId??(point.round===null?r.voteType:null),turnout_percent:point.turnout,
         value_basis:point.turnout===null?"unavailable":point.published?"published":"computed_from_counts",
         numerator:point.numerator,denominator:point.denominator,definition:point.definition,
         source_ids:point.turnoutSources.map(s=>s.id).join(" | "),source_urls:point.turnoutSources.map(s=>s.url).join(" | ")}));
@@ -124,21 +135,28 @@ export function ElectionHistoryFigures({rows, selected, locale, select}: {
         ...(list ? {source_ids:list.source.id, source_urls:list.source.url, contestant_kind:list.kind,
           chamber_share_percent:descriptiveShare(part.seats,r.seats)} : {}),
         chamber_seat_slots:r.seats, breakdown:r.attribution?"allocation_mechanism":"recorded_composition",
-        electoral_tier:list?"whole_chamber":"tier" in part?part.tier:null, contestant_id:list?.id??null, vote_type:list?r.voteType:null, outside_list_kind:null, segment:part.label, seats:part.seats};
+        electoral_tier:list?"whole_chamber":"tier" in part?part.tier:null, contestant_id:list?.id??null, vote_type:list?r.voteType:null, outside_list_kind:null, outside_list_components:null, component_source_url:null, segment:part.label, seats:part.seats};
       });
       const contestants = (r.attribution??[]).map(part=>{
         const evidence = r.sources.find(s=>s.id===part.sourceId);
         return {...seatBase, source_ids:evidence?.id??base.source_ids,source_urls:r.compositionUrl??evidence?.url??base.source_urls,
           chamber_seat_slots:r.seats, breakdown:"whole_chamber_attribution", electoral_tier:"whole_chamber",contestant_id:part.contestantId,
-          vote_type:part.voteType, outside_list_kind:part.outsideListKind, segment:part.label, seats:part.seats};
+          vote_type:part.voteType, outside_list_kind:part.outsideListKind, outside_list_components:part.components ? JSON.stringify(part.components) : null,
+          component_source_url:part.componentSourceUrl, segment:part.label, seats:part.seats};
       });
       return [...mechanisms,...contestants];
     });
     exportRows(first.country+"-election-"+kind,records);
   }
   function draft(kind:"turnout"|"seats"): EvidenceDraft {
+    const sourcedRounds = kind === "turnout" ? turnoutRows.filter(r => r.sourceBallotId) : [];
+    const voteTypes = [...new Set(sourcedRounds.flatMap(r => r.sourceBallotId ? [r.sourceBallotId] : []))];
     const seatSources = active.flatMap(row => [
       ...row.sources,
+      ...(row.attribution ?? []).flatMap(part => {
+        const source = row.sources.find(s => s.id === part.sourceId);
+        return source ? [row.compositionUrl, part.componentSourceUrl].flatMap(url => url ? [{...source,url}] : []) : [];
+      }),
       ...row.segments.flatMap(part => {
         const source = row.sources.find(s => s.id === part.list?.source.id);
         return source && part.list ? [{...source, url:part.list.source.url}] : [];
@@ -147,15 +165,17 @@ export function ElectionHistoryFigures({rows, selected, locale, select}: {
     const sources = [...new Map((kind==="turnout" ? turnoutRows.flatMap(r=>r.turnoutSources) : seatSources).map(s=>[s.id+s.url,s])).values()];
     const name = kind==="turnout" ? t("Election turnout history","选举投票率历史") : t("Historical chamber composition","历届议院席位构成");
     return {type:"series_view",title:first.chamber+" · "+name,url:historyUrl(kind),layer:"election_history_"+kind,
-      canonical_ids:[...new Set(active.flatMap(r=>[r.id,...[r.chamberId,r.systemId,r.legislatureId].filter((id):id is string=>!!id)]))],countries:[first.country],periods:kind==="turnout"?turnoutRows.map(r=>r.date):active.map(r=>r.date),
+      canonical_ids:[...new Set([...active.flatMap(r=>[r.id,...[r.chamberId,r.systemId,r.legislatureId].filter((id):id is string=>!!id)]), ...voteTypes])],countries:[first.country],periods:kind==="turnout"?turnoutRows.map(r=>r.date):active.map(r=>r.date),
       sources:sources.map(s=>({institution:s.institution??s.title,dataset:s.title,code:s.id,url:s.url,layer:"election_document",retrieved_at:s.retrievedAt})),
       warnings:[t("Each observation describes its recorded election, chamber and electorate.","各项观测对应收录的该届选举、议院和选民范围。")],
-      metadata:{filters:{measure:kind,chamber:first.chamber,elections:active.map(r=>r.id).join(",")},row_count:kind==="turnout"?turnoutRows.length:active.length,entersModel:false}};
+      metadata:{filters:{measure:kind,chamber:first.chamber,elections:active.map(r=>r.id).join(","), ...(voteTypes.length ? {source_ballots:voteTypes} : {})},
+        ...(sourcedRounds.length ? {coverage:sourcedRounds.map(r => [r.date, r.scope, r.sourceBallotLabel].filter(Boolean).join(" · "))} : {}),
+        row_count:kind==="turnout"?turnoutRows.length:active.length,entersModel:false}};
   }
   return <section className="min-w-0 space-y-3" id="election-history-observations" data-history-observations>
     <figure data-politics-chart="turnout">
       <figcaption className="font-semibold">{t("Turnout by election date","按选举日期查看投票率")} · {first.chamber}</figcaption>
-      <p className="mt-1 text-xs text-[var(--muted)]">{first.scope} · {t("Polling dates are spaced by elapsed time.","横轴按投票日期的实际时间间隔排列。")}</p>
+      <p className="mt-1 text-xs text-[var(--muted)]">{restrictedRounds.length ? t("Circles show nationwide turnout. Diamonds show turnout in participating runoff constituencies.", "圆点表示全国投票率，菱形表示参加复选的选区投票率。") : first.scope} · {t("Polling dates are spaced by elapsed time.","横轴按投票日期的实际时间间隔排列。")}</p>
       {first.turnoutBasisLabel && rows.every(row => row.turnoutBasisLabel === first.turnoutBasisLabel && row.published) && <p className="mt-1 text-xs" data-history-turnout-basis>
         {t("Published turnout","官方公布的投票率")} = {first.turnoutBasisLabel} × 100
       </p>}
@@ -163,19 +183,23 @@ export function ElectionHistoryFigures({rows, selected, locale, select}: {
         {[0,50,100].map(v=><g key={v}><line x1={43} x2={428} y1={y(v)} y2={y(v)} stroke="var(--line)"/><text x={37} y={y(v)+4} textAnchor="end" fontSize={12} fill="currentColor">{v}%</text></g>)}
         <text x={from===to?238:43} y={148} textAnchor={from===to?"middle":"start"} fontSize={12} fill="currentColor">{firstDate}</text>
         {to!==from&&<text x={428} y={148} textAnchor="end" fontSize={12} fill="currentColor">{lastDate}</text>}
-        {turnoutRows.filter(r=>r.constituencies===null&&r.turnout!==null).map(r=><circle key={r.id} data-turnout-point={r.id} cx={x(r.date)} cy={y(r.turnout!)} r={r.id===selected?6:4.5} stroke="var(--accent)" strokeWidth={2} fill={r.id===selected?"var(--accent)":"var(--panel)"}>
-          <title>{r.date+" · "+r.scope+" · "+formatRate(r.turnout!)}</title></circle>)}
-        {restrictedRounds.filter(r=>r.turnout!==null).map(r=><g key={r.id+r.date} data-turnout-round-point={r.date} transform={`translate(${x(r.date)}, ${y(r.turnout!)})`}>
-          <path d="M 0 -5 L 5 0 L 0 5 L -5 0 Z" stroke="currentColor" fill="var(--panel)" strokeWidth={2}><title>{r.date+" · "+r.scope+" · "+formatRate(r.turnout!)}</title></path>
+        {turnoutRows.filter(r=>r.electorateScope!=="restricted"&&r.turnout!==null).map(r=><circle key={r.id} data-turnout-point={r.id} data-ballot-id={r.sourceBallotId} cx={x(r.date)} cy={y(r.turnout!)} r={r.id===selected?6:4.5} stroke="var(--accent)" strokeWidth={2} fill={r.id===selected?"var(--accent)":"var(--panel)"}>
+          <title>{[r.date,r.scope,r.sourceBallotLabel,formatRate(r.turnout!)].filter(Boolean).join(" · ")}</title></circle>)}
+        {restrictedRounds.filter(r=>r.turnout!==null).map(r=><g key={r.id+r.date} data-turnout-round-point={r.date} data-ballot-id={r.sourceBallotId} transform={`translate(${x(r.date)}, ${y(r.turnout!)})`}>
+          <path d="M 0 -5 L 5 0 L 0 5 L -5 0 Z" stroke="currentColor" fill="var(--panel)" strokeWidth={2}><title>{[r.date,r.scope,r.sourceBallotLabel,formatRate(r.turnout!)].filter(Boolean).join(" · ")}</title></path>
         </g>)}
       </svg>
       {restrictedRounds.map(r=><p className="mt-2 text-xs" key={r.id+r.date}>
         <span aria-hidden="true">◇ </span>{r.date} · {r.scope} · {r.turnout===null?"—":formatRate(r.turnout)}. {t("The second-round electorate covers only constituencies that voted again.","第二轮选民范围仅包括举行复选的选区。")}
       </p>)}
-      <ul className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs">{active.map(r=><li key={r.id} data-turnout-year={r.date.slice(0,4)}>
-        <button type="button" aria-pressed={r.id===selected} className="underline" onClick={()=>select(r.id)}>{r.date.slice(0,4)}</button>
-        {r.rounds?.length ? " · "+r.rounds[0].scope : ""}{" · "}{r.turnout===null?"—":formatRate(r.turnout)}
-      </li>)}</ul>
+      <ul className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs">{active.map(r=>{
+        const nationalRound = r.rounds?.find(round => round.electorateScope === "national");
+        const rate = nationalRound ? nationalRound.turnout : r.turnout;
+        return <li key={r.id} data-turnout-year={r.date.slice(0,4)}>
+          <button type="button" aria-pressed={r.id===selected} className="underline" onClick={()=>select(r.id)}>{r.date.slice(0,4)}</button>
+          {nationalRound && " · "+nationalRound.scope}{" · "}{rate===null?"—":formatRate(rate)}
+        </li>;
+      })}</ul>
     </figure>
     <details className="border-t border-[var(--line)] pt-2" open={params.has("history_detail") || undefined} data-history-details>
       <summary className="cursor-pointer font-semibold">{t("Compare historical seat compositions, inspect turnout and export","比较历届席位构成、查看投票率依据与导出")}</summary>
@@ -188,7 +212,7 @@ export function ElectionHistoryFigures({rows, selected, locale, select}: {
       <div className="mt-3 overflow-x-auto" role="region" tabIndex={0} aria-label={t("Election turnout sources and counts","历届投票率来源与计数")}>
         <table className="w-full min-w-[540px] text-left text-xs"><caption>{t("Turnout observations and source definitions","投票率观测与来源定义")}</caption>
           <thead><tr>{[t("Election date","选举日期"),t("Turnout (%)","投票率（%）"),t("Numerator / denominator","分子／分母"),t("Definition and source","定义与来源")].map(label=><th scope="col" key={label}>{label}</th>)}</tr></thead>
-          <tbody>{turnoutRows.map(r=><tr key={r.id+r.date} className="border-t border-[var(--line)] align-top"><th scope="row" className="py-2">{r.date}{r.round!==null&&<small className="block">{r.scope}</small>}{r.dateBasis?.includes("background_to_verify")&&<small className="block">{t("Registry date awaiting confirmation","登记日期待核实")}</small>}</th>
+          <tbody>{turnoutRows.map(r=><tr key={r.id+r.date} className="border-t border-[var(--line)] align-top"><th scope="row" className="py-2">{r.date}{r.round!==null&&<small className="block">{r.scope}</small>}{r.sourceBallotLabel&&<small className="block">{r.sourceBallotLabel}</small>}{r.dateBasis?.includes("background_to_verify")&&<small className="block">{t("Registry date awaiting confirmation","登记日期待核实")}</small>}</th>
             <td>{r.turnout===null?t("No verified rate","尚无核实值"):formatRate(r.turnout)+" · "+(r.published?t("Published","公布值"):t("Computed from counts","根据人数计算"))}</td>
             <td>{localeNumber(r.numerator,locale)} / {localeNumber(r.denominator,locale)}</td>
             <td className="max-w-64 break-words">{r.definition&&<details><summary>{t("Source definition","来源定义")}</summary><span lang="en">{r.definition}</span></details>}

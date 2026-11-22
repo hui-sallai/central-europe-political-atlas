@@ -57,6 +57,7 @@
   {
    "country": "hungary",
    "elections": [
+    1998,
     2002,
     2006,
     2010,
@@ -65,13 +66,14 @@
     2022,
     2026
    ],
-   "scope": "National Assembly 2002, 2006 and 2010 (386 seats, two rounds, three tiers, national figures per tier) and 2014, 2018, 2022 and 2026 (199 seats), all seats attributed; seats won outside lists counted, not named",
+   "scope": "National Assembly 1998, 2002, 2006 and 2010 (386 seats, two rounds, three tiers, national figures per tier; the 1998 territorial-list total combines each district's valid round) and 2014, 2018, 2022 and 2026 (199 seats), all seats attributed; seats won outside lists counted, not named",
    "record": "docs/political-data/hungary_ogy_admission.json",
    "records": [
     "docs/political-data/hungary_ogy_admission.json",
     "docs/political-data/hungary_ogy2014_2018_admission.json",
     "docs/political-data/hungary_ogy2010_admission.json",
-    "docs/political-data/hungary_ogy2002_2006_admission.json"
+    "docs/political-data/hungary_ogy2002_2006_admission.json",
+    "docs/political-data/hungary_ogy1998_admission.json"
    ]
   },
   {
@@ -433,7 +435,8 @@
   "2018": "Admitted 2026-11-20 from the minutes PDF on static.valasztas.hu (owner answer \"Same scope as 2022\").",
   "2006": "Admitted 2026-11-22 from the 2006 archive pages on static.valasztas.hu, national figures per tier (owner brief 2026-11-22).",
   "2002": "Admitted 2026-11-22 from the 2002 archive pages on static.valasztas.hu, national figures per tier (owner brief 2026-11-22).",
-  "2010_and_earlier": "1998 to 1990: same family of rules, but no page read; not admitted.",
+  "1998": "Admitted 2026-11-23 from the round-1 notice and the round-2 national pages on static.valasztas.hu, national figures per tier (owner brief 2026-11-23); valid-round composite list ballot and source-apportioned single-member party totals.",
+  "2010_and_earlier": "1994 and 1990: same family of rules, but § 8(5) before 1997-11-05 and the result pages were not read; not admitted.",
   "constituency_tier": "Per-list constituency seats and votes are not covered by the decision on the minutes.",
   "record": "docs/political-data/hungary_source_status.json"
  }

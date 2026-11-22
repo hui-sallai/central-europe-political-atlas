@@ -110,7 +110,7 @@ test("election links: reproducible, complete, and tied to each election's own ru
       for (const id of link.later_changes) assert.ok(changeDate(countries[slug].changes.find((c) => c.change_id === id)) > e.date);
     }
   }
-  assert.equal(links.elections.length, 64); // Hungary 2002 and 2006 admitted 2026-11-22
+  assert.equal(links.elections.length, 65); // Hungary 2002 and 2006 admitted 2026-11-22; 1998 admitted 2026-11-23
   // Hungary 2010 (Act XXXIV of 1989): 386 seats from its own rule record, under the 1949 Constitution as amended in 1989 and the
   // period opened by the 1989 electoral act (in force on promulgation, 1989-10-30, § 56(1)); both 1989 acts were repealed from 2012-01-01.
   const hu2010 = links.elections.find((l) => l.election_id === "el-hu-ogy-2010-04-11");
@@ -119,7 +119,7 @@ test("election links: reproducible, complete, and tied to each election's own ru
   assert.ok(hu2010.later_changes.includes("hu-2012-fundamental-law"));
   // Hungary 2002 and 2006 (admitted 2026-11-22) share that period; the dated 1994 and 1997 amendments of the act are listed as versions in force,
   // without opening new periods. Every amendment takes effect after the act and before its repeal.
-  for (const id of ["el-hu-ogy-2002-04-07", "el-hu-ogy-2006-04-09", "el-hu-ogy-2010-04-11"]) { const l = links.elections.find((x) => x.election_id === id); assert.deepEqual([l.seats, l.institutional_period_id, l.amendments_in_force], [386, "hungary-period-1989-10-30", ["hu-1994-electoral-act-amendment", "hu-1997-electoral-act-amendment"]], id); }
+  for (const id of ["el-hu-ogy-1998-05-10", "el-hu-ogy-2002-04-07", "el-hu-ogy-2006-04-09", "el-hu-ogy-2010-04-11"]) { const l = links.elections.find((x) => x.election_id === id); assert.deepEqual([l.seats, l.institutional_period_id, l.amendments_in_force], [386, "hungary-period-1989-10-30", ["hu-1994-electoral-act-amendment", "hu-1997-electoral-act-amendment"]], id); }
   for (const l of links.elections.filter((x) => x.country !== "hungary" || x.date >= "2012-01-01")) assert.equal(l.amendments_in_force, undefined, l.election_id);
   for (const c of Object.values(countries)) for (const ch of c.changes) for (const a of ch.amendments ?? []) assert.ok(a.effective > changeDate(ch) && (!ch.repealed_effective || a.effective < ch.repealed_effective), a.amendment_id);
   assert.deepEqual(links.periods.hungary.find((p) => p.period_id === "hungary-period-1989-10-30"), { period_id: "hungary-period-1989-10-30", from: "1989-10-30", to_exclusive: "2012-01-01", opened_by: ["hu-1989-electoral-act"] });
