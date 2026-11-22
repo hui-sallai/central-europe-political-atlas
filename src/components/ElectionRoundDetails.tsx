@@ -1,7 +1,7 @@
 import { localeNumber, type Locale } from "@/i18n/config";
 import type { PoliticalElectionView } from "@/lib/politicalExplorer";
 
-import { outsideListKindLabel } from "@/lib/politicalNational";
+import { outsideListKindLabel, roundElectorateLabel } from "@/lib/politicalNational";
 
 export function HistoricalChamberReconciliation({election, locale}: {election:PoliticalElectionView; locale:Locale}) {
   const national = election.national;
@@ -16,6 +16,9 @@ export function HistoricalChamberReconciliation({election, locale}: {election:Po
     <p>{en ? "Whole chamber" : "全议院"} · {election.totalSeats} {en ? "seats" : "席"} · {en ? "Attributable to territorial-list organisations" : "可归属地区名单组织"} {linked}</p>
     <ul>{outside.map(holder => <li key={holder.label} data-outside-list-kind={holder.kind}>
       <span lang="hu">{holder.label}</span> · {outsideListKindLabel(holder.kind, locale)} · {holder.seats} {en ? (holder.seats === 1 ? "seat" : "seats") : "席"}
+      {holder.components?.length ? <ul className="ml-4 text-xs" aria-label={en ? "Included joint nominations" : "其中的联合提名席位"}>
+        {holder.components.map(part => <li key={part.label}><span lang="hu">{part.label}</span> · {localeNumber(part.seats,locale)} {en ? "seats" : "席"}</li>)}
+      </ul> : null}
     </li>)}</ul>
     {allocation.unmatchedLists.map(row => <p key={row.label} data-unmatched-compensation>
       <span lang="hu">{row.label}</span> · {en ? "Unmatched compensation list" : "未匹配到地区名单的补偿名单"} · {row.compensation_votes} {en ? "fragment votes" : "张余票"} · {row.seats} {en ? "seats" : "席"}
@@ -33,8 +36,7 @@ export function ElectionRoundDetails({election,locale}:{election:PoliticalElecti
   return <section className="my-4 space-y-3 border-y border-[var(--line)] py-3 text-sm" data-election-round-details>
     <h4 className="font-semibold">{en?"Polling rounds and electorates":"各轮投票日期与选民范围"}</h4>
     <ul className="space-y-2">{n.rounds.map(r=><li key={r.round} data-election-round={r.round}>
-      <strong>{r.date} · {en?`Round ${r.round}`:`第 ${r.round} 轮`}</strong>
-      {" · "}{r.constituencies===null?(en?"National electorate":"全国选民"):(en?`${r.constituencies} runoff constituencies`:`${r.constituencies} 个复选选区`)}
+      <strong>{r.date} · {roundElectorateLabel(r,locale)}</strong>
       {" · "}{localeNumber(r.turnout,locale)}{r.turnout!==null?"%":""}
       {" · "}{localeNumber(r.voters,locale)} / {localeNumber(r.eligible,locale)} {en?"registered voters":"名登记选民"}
       {r.sourceHeading && <span className="ml-1">{en ? "The election office labels this summary informational." : "选举办公室将这份汇总标为参考数据。"} <span lang="hu">{r.sourceHeading}</span></span>}

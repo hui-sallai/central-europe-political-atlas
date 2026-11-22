@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Hungary 1998 ballot scopes — 2026-11-23
+
+- Inspect the 1998 territorial lists across each district’s valid round, the separate first-round national ballot and both single-member electorates. Comparisons, historical charts, downloads and Notebook evidence carry their polling periods, source documents and seat attribution. [Round-scope integration](docs/v20-hungary-1998-2026-11-23.md)
+
 ### v2.0 Hungarian parliamentary election 1998 (integration branch) — 2026-11-23
 
 - Add the Hungarian National Assembly election of 10 and 24 May 1998 (386 seats; final tiers 176 + 128 + 82, with 24 territorial seats transferred). The territorial-list total of 4,547,682 combines each district's valid round: round 1 in 18 districts and round 2 in Hajdú-Bihar and Szabolcs-Szatmár-Bereg. It has no single turnout and is never labelled round 1. The office's printed list shares are kept.

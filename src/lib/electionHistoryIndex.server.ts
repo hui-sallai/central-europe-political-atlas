@@ -45,9 +45,9 @@ export function nationalHistoryView(e: PoliticalElectionView): ArchiveElection {
     if (selected) view.ballots.push(...nationalComparisonView(selected).ballots);
   }
   const rounds:ArchiveTurnout[] | undefined = e.national?.rounds?.map(r=>({
-    ballotId:r.date===e.date ? null : view.ballots.find(b=>b.round===r.round)?.id ?? null,
-    date:r.date, round:r.round, constituencies:r.constituencies, sourceUrl:r.sourceUrl,
-    value:r.turnout, published:r.turnout!==null, scope:roundScope(r.round,r.constituencies),
+    ballotId:r.sourceBallotId ?? (r.date===e.date ? null : view.ballots.find(b=>b.round===r.round)?.id ?? null),
+    date:r.date, round:r.round, constituencies:r.constituencies, constituencyCount:r.constituencyCount, electorateScope:r.electorateScope, sourceUrl:r.sourceUrl,
+    value:r.turnout, published:r.turnout!==null, scope:roundScope(r),
     count:r.voters, electorate:r.eligible, definition:r.definition, sourceIds:r.sourceIds,
   }));
   return {...view,sources:undefined,history:{
@@ -56,7 +56,7 @@ export function nationalHistoryView(e: PoliticalElectionView): ArchiveElection {
     allocationUrls:e.national?.historicalAllocation ? {composition:e.national.historicalAllocation.compositionUrl,
       compensation:e.national.historicalAllocation.compensationUrl} : undefined,
     dateBasis:null, endDate:e.national?.dateEnd ?? null, primaryBallot:e.system.voteType,rounds,
-    turnout:rounds?.[0] ?? {ballotId:null,value:rate.value, published:rate.value !== null && !rate.computed,
+    turnout:(e.national?.activeVote.roundScope === "valid_round_composite" ? undefined : rounds?.[0]) ?? {ballotId:null,value:rate.value, published:rate.value !== null && !rate.computed,
       scope, count:e.voters, electorate:e.eligibleVoters, definition:e.turnoutDefinition ?? null,
       sourceIds:e.national?.turnout.sourceIds ?? []},
     sources:e.sources,

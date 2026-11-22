@@ -5123,6 +5123,125 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "hungary-1998-round-scope-integration-2026-11-23",
+      "status": "owner_approved",
+      "approved_by": "Owner development brief of 2026-11-23 for the Hungary 1998 round-scope integration and release. Typed display of admitted ballots, provenance, historical scope, comparisons and Notebook evidence.",
+      "baseline": "f351bc00be7b99ea5b8309f8f1cca8b14042649b",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-23",
+      "files": [
+        {
+          "path": "src/components/ElectionBallotLabelComparison.tsx",
+          "sha256": "2ba74645ade070a7c7c9883b5df63b570786c8baf354b066f1b643af6c1a2840",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionHistoryFigures.tsx",
+          "sha256": "cf4d45e1f8bdbea4b57985e394e30cf7cdca7dc975ce075c384669caf2f3dbe4",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionResultDownloads.tsx",
+          "sha256": "74323a332376d857ba06dbf5bdc31e99a66f5295246b9d70757791d4080b2fb6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionRoundDetails.tsx",
+          "sha256": "726682576cf2781f1a444d276b58f4e26ab11ac09ba4c48d313cc5f891d5e412",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectoralSystemComparison.tsx",
+          "sha256": "a65761d4b2e03fcd6e537408f972c4fdd1fb0b89fad93efd9369a5d8268925d4",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/HistoricalBallotEvidence.tsx",
+          "sha256": "79097865098f08e4aea7b3a91f61843a44cd7f41c617921bdfca5e8e43f653b9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/InstitutionalHistory.tsx",
+          "sha256": "0ad737da66d57cb84035d320aa72683a5e92451e47eaeef4b96fb56719be3112",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalComparisonPicker.tsx",
+          "sha256": "8fb30444bdf2bc5bba398544be8e3c91e5499bbd7c5ead5098b6d29fd49aa4b7",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalCountryComparison.tsx",
+          "sha256": "662d0ed67b6ef042c131e07f2327a2a11dac63233336b63bf49a0fc23d4fd5db",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "48bc0a1cfe99860a9a0036270c685a66c6e64d02a2ead54b7789b795f44949f0",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalHistoryComparison.tsx",
+          "sha256": "624a6102835cad67747d7d016b5087a4a61587454737a78f97e5dc503caa713c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalNationalDetails.tsx",
+          "sha256": "2c9341aba5278694563bb98ffe091adc79d1debd26fd9a4959a8b7888436d1c9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryComparison.ts",
+          "sha256": "46a49a2fa32ccd23932f213f87446e481e6dd69c03868be059c6b9760a5d0a1a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryEvidence.ts",
+          "sha256": "64f27d23291e4e044ae0442d2f92a8550c76650faf669982572f41a9da70f9ce",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryIndex.server.ts",
+          "sha256": "26faaf01260aead64d5d2b4c7d19d3bb4c1745a76e7f3ed1925af52077d6ecba",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryObservations.ts",
+          "sha256": "be70e729537cf509240c1b30d4d94bd782ad1a15de7a9362764adaf6a745af76",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalComparisonBallots.ts",
+          "sha256": "4de882c54af802b76fd2d73afc88523c5513c5141df441389152c05ad69061a4",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalExplorer.ts",
+          "sha256": "9973e656ba89ac8363fb8a1f43f92e9dd2bd617412fe2f02f3865daa6b2af58c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalNational.ts",
+          "sha256": "d142717e8ad5e7733e3df5b5a59b678bdf9fd9606156f8226abb65a3e4659296",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalRoundScope.ts",
+          "sha256": "ce8acdb2e6e511cc884e2ae70ff287e32f1ba283635cd2a3fabd42331149a424",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalStores.ts",
+          "sha256": "de9844286cea017173d3fbd870c237f0c9eb86755a2fa23ff898860c7ed9db58",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

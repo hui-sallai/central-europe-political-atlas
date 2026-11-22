@@ -48,7 +48,7 @@ export function historyEvidence(rows: HistoryRow[], state: HistorySelection, loc
   return {
     type:"country_comparison", title:en ? "Parliamentary election history comparison" : "议会选举历史比较",
     url:historicalComparisonUrl(state,locale), canonical_ids:distinct(rows.map(r=>r.election.id)), countries:state.countries,
-    periods:distinct(rows.map(r=>r.date)), layer:"admitted_parliamentary_election_history", warnings, sources,
+    periods:distinct(rows.map(r=>r.ballot?.roundScope==="valid_round_composite" ? r.ballot.dateStart+" – "+r.ballot.dateEnd : r.date)), layer:"admitted_parliamentary_election_history", warnings, sources,
     metadata:{filters:{measure:state.measure, from:state.from, to:state.to,
       chamber:distinct(rows.map(r=>r.election.history.chamberId ?? r.election.history.legislatureId ?? r.election.chamber)),
       rule:distinct(rows.flatMap(r=>r.election.history.systemId?[r.election.history.systemId]:[])),
@@ -67,8 +67,11 @@ export function historyCsv(rows: HistoryRow[], state: HistorySelection, locale: 
     const shared = {
       country:row.country,election_id:e.id,election_date:e.date,poll_end_date:e.history.endDate,date_basis:e.history.dateBasis,
       chamber:e.chamber,chamber_id:e.history.chamberId,legislature_id:e.history.legislatureId,rule_id:e.history.systemId,
-      observation_date:row.date,
-      observation_date_basis:state.measure==="electoral_system" || state.measure==="chamber_seats" ? "last_recorded_poll_not_declaration_date" : "ballot_or_election_polling_date",
+      observation_date:b?.roundScope==="valid_round_composite" ? null : row.date,
+      observation_from:b?.dateStart, observation_to:b?.dateEnd, round_scope:b?.roundScope,
+      geographic_scope:b?.geographicScope ? JSON.stringify(b.geographicScope) : undefined, ballot_attribution_basis:b?.attributionBasis,
+      electorate_scope:turnout?.electorateScope, constituency_count:turnout?.constituencyCount,
+      observation_date_basis:state.measure==="electoral_system" || state.measure==="chamber_seats" ? "last_recorded_poll_not_declaration_date" : b?.roundScope==="valid_round_composite" ? "valid_rounds_by_district" : "ballot_or_election_polling_date",
       round:turnout?.round ?? b?.round,
       institutional_period_id:history.period?.id, institutional_from:history.period?.from, institutional_to_exclusive:history.period?.toExclusive,
       period_from:state.from,period_to:state.to,measure:state.measure,
@@ -93,7 +96,7 @@ export function historyCsv(rows: HistoryRow[], state: HistorySelection, locale: 
       compensation_source_url:b?.rows.some(r=>r.fragmentVotes!=null) ? history.allocationUrls?.compensation : undefined,
       ballot_source_url:b?.sourceUrl,chamber_size:e.slots??e.seats,vote_share_denominator:b?.basis[locale],vote_denominator_count:b?.voteDenominator,seat_share_denominator:b?.seatScope,seat_share_scope:b?.seatScopeLabel?.[locale]};
     if (!b) return [{...fields, status:"ballot_selection_required"}];
-    return b.rows.map(r=>({...fields,record_id:r.id,contestant_id:r.contestantId,contestant:r.name,votes:r.votes,vote_share_percent:r.share,
+    return b.rows.map(r=>({...fields,record_id:r.id,contestant_id:r.contestantId,contestant:r.name,votes:r.votes,vote_share_percent:b.roundScope==="valid_round_composite" && r.published ? r.share?.toFixed(2) : r.share, attribution_basis:r.attributionBasis,
       district_seats:r.districtSeats,territorial_seats:r.territorialSeats,compensation_seats:r.compensationSeats,
       compensation_fragment_votes:r.fragmentVotes,district_seats_awarded_this_round:r.districtSeatsThisRound,
       district_seats_this_round_basis:r.districtSeatsBasis,result_source_ids:r.sourceIds.join(" | "),

@@ -66,16 +66,40 @@ export function singleRoundTurnout(definition: ScopedVoteDefinition | undefined,
 }
 
 /** Problems that would make a composite ballot misread; empty when the record is internally consistent. */
-export function roundScopeProblems(definition: ScopedVoteDefinition | undefined, row: ScopedTurnout & { valid_votes?: number | null; published_turnout?: number | null; eligible_voters?: number | null; voters?: number | null; invalid_votes?: number | null } | undefined): string[] {
+export function roundScopeProblems(definition: ScopedVoteDefinition | undefined, row: ScopedTurnout & {
+  valid_votes?: number | null; published_turnout?: number | null; eligible_voters?: number | null;
+  voters?: number | null; invalid_votes?: number | null; ballots_cast?: number | null; derived_turnout?: number | null;
+  turnout_basis?: {numerator: string; denominator: string};
+} | undefined): string[] {
   const problems: string[] = [];
   const scope = roundScopeOf(definition);
   if (row?.round_scope && row.round_scope !== scope) problems.push("turnout row and vote definition disagree on round scope");
-  if (scope !== "valid_round_composite") return problems;
+  if (scope !== "valid_round_composite") {
+    if (row?.round_composition || row?.actual_round1_ballot) problems.push("single-round ballot carries composite observations");
+    if (definition?.rounds && (row?.round == null || !definition.rounds.includes(row.round))) problems.push("ballot round differs from its definition");
+    const districts = definition?.geographicScope?.single_member_constituencies;
+    if (districts != null && row?.geographic_scope?.single_member_constituencies !== districts) problems.push("ballot constituency count differs from its definition");
+    return problems;
+  }
   if (!row) return ["composite ballot without its turnout row"];
   if (row.round !== undefined) problems.push("a composite ballot names a single round");
-  for (const [k, v] of [["published_turnout", row.published_turnout], ["eligible_voters", row.eligible_voters], ["voters", row.voters], ["invalid_votes", row.invalid_votes]] as const) if (v !== null && v !== undefined) problems.push(`a composite ballot carries ${k}`);
+  for (const [k, v] of [["published_turnout", row.published_turnout], ["eligible_voters", row.eligible_voters], ["voters", row.voters], ["invalid_votes", row.invalid_votes], ["ballots_cast", row.ballots_cast], ["derived_turnout", row.derived_turnout]] as const) if (v !== null && v !== undefined) problems.push(`a composite ballot carries ${k}`);
+  if (row.turnout_basis && (row.turnout_basis.numerator !== "unknown" || row.turnout_basis.denominator !== "unknown")) {
+    problems.push("a composite ballot has a single turnout basis");
+  }
   const parts = row.round_composition ?? [];
   if (parts.length < 2 || new Set(parts.map((p) => p.round)).size !== parts.length) problems.push("a composite ballot needs one part per round");
+  const districts = definition?.geographicScope?.territorial_districts;
+  if (parts.some(p => !Number.isSafeInteger(p.votes) || p.votes < 0 || !Number.isSafeInteger(p.territorial_districts) || p.territorial_districts <= 0)) {
+    problems.push("invalid component votes or district count");
+  }
+  if (parts.some(p => {
+    const n = definition?.geographicScope?.[`round${p.round}_districts`];
+    return n != null && p.territorial_districts !== n;
+  })) problems.push("a composite round differs from its registered district count");
+  if (districts != null && parts.reduce((n, part) => n + part.territorial_districts, 0) !== districts) {
+    problems.push("composite parts do not cover the defined territorial districts");
+  }
   if (row.valid_votes !== null && row.valid_votes !== undefined && parts.reduce((n, p) => n + p.votes, 0) !== row.valid_votes) problems.push("composite parts do not add up to the ballot total");
   if (definition?.rounds && JSON.stringify([...definition.rounds].sort()) !== JSON.stringify(parts.map((p) => p.round).sort())) problems.push("composite parts differ from the definition's rounds");
   return problems;

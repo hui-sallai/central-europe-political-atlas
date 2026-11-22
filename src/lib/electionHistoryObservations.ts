@@ -2,14 +2,17 @@ import type { Locale } from "@/i18n/config";
 import { electionInstitutionalContext } from "./institutionalRegistry";
 import type { BallotElection, ElectionBallot } from "./politicalBallots";
 import {czechAllocationLabel} from "./czechElectionRules";
-import {roundElectorateLabel, turnoutFraction} from "./politicalNational";
+import {roundElectorateLabel, selectNationalBallot, turnoutFraction, type ElectionRound} from "./politicalNational";
 import { chamberSeats, turnoutForDisplay, type PoliticalElectionView, type PoliticalSource } from "./politicalExplorer";
 
 type Segment = {
   label: string; seats: number; tier?: string; outsideListKind?: string;
+  components?: Array<{label:string; seats:number}>; componentSourceUrl?: string;
   list?: {id: string; kind?: string; source: {id:string; url:string}};
 };
-export type HistoryRound = { sourceHeading?:string; round:number; date:string; scope:string; constituencies:number|null; turnout:number|null; numerator:number|null; denominator:number|null; definition:string|null; turnoutSources:PoliticalSource[] };
+export type HistoryRound = Pick<ElectionRound, "sourceHeading" | "sourceBallotId" | "round" | "date" | "electorateScope" | "constituencies" | "constituencyCount" | "turnout" | "definition"> & {
+  scope: string; sourceBallotLabel?: string; numerator: number | null; denominator: number | null; turnoutSources: PoliticalSource[];
+};
 type Attribution = Segment & { contestantId: string | null; voteType: string | null; sourceId: string | null };
 export type HistoryObservation = {
   id: string; country: string; chamber: string; chamberId: string | null; date: string; dateBasis?: string | null;
@@ -19,7 +22,11 @@ export type HistoryObservation = {
   turnoutSources: PoliticalSource[]; seats: number | null; segments: Segment[]; attribution?: Attribution[]; sources: PoliticalSource[];
 };
 
-export function nationalHistoryObservation(e: PoliticalElectionView, locale: Locale): HistoryObservation {
+export function nationalHistoryObservation(election: PoliticalElectionView, locale: Locale): HistoryObservation {
+  // Keep the historical election summary on its composite ballot even when a caller is inspecting one round.
+  const composite = election.national?.ballots.find(b => b.definition.roundScope === "valid_round_composite");
+  const e = composite && composite.definition.id !== election.system.voteType
+    ? selectNationalBallot(election, composite.definition.id)! : election;
   const en = locale === "en";
   const turnout = turnoutForDisplay(e);
   const basis = e.national?.turnout;
@@ -56,7 +63,7 @@ export function nationalHistoryObservation(e: PoliticalElectionView, locale: Loc
       contestantId:null, voteType:null, sourceId:null,
     });
     for (const holder of tiers.outsideListConstituency ?? []) {
-      parts.push({label:holder.label,seats:holder.seats,outsideListKind:holder.kind,contestantId:null,voteType:null,sourceId:allocation?.sourceIds[0]??null});
+      parts.push({label:holder.label,seats:holder.seats,outsideListKind:holder.kind,components:holder.components,componentSourceUrl:holder.components?.length ? allocation?.outsideListSourceUrl : undefined,contestantId:null,voteType:null,sourceId:allocation?.sourceIds[0]??null});
     }
     if (parts.reduce((sum,part)=>sum+part.seats,0)===e.totalSeats) attribution=parts;
   }
@@ -70,6 +77,8 @@ export function nationalHistoryObservation(e: PoliticalElectionView, locale: Loc
     } : {}),
     rounds:e.national?.rounds?.map(r=>({
       round:r.round,date:r.date,constituencies:r.constituencies,sourceHeading:r.sourceHeading,
+      electorateScope:r.electorateScope, constituencyCount:r.constituencyCount, sourceBallotId:r.sourceBallotId,
+      sourceBallotLabel:e.national?.ballots.find(b => b.definition.id === r.sourceBallotId)?.definition.label[locale],
       scope:roundElectorateLabel(r,locale),
       turnout:r.turnout,numerator:r.voters,denominator:r.eligible,definition:r.definition,
       turnoutSources:e.sources.filter(s=>r.sourceIds.includes(s.id)).map(s=>({...s,url:r.sourceUrl??s.url})),

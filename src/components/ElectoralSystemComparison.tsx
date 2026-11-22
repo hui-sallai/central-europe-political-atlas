@@ -2,7 +2,7 @@ import Link from "next/link";
 import {localeNumber, localizedRoute, type Locale} from "@/i18n/config";
 import {nationalHistoryObservation} from "@/lib/electionHistoryObservations";
 import {electionInstitutionalContext, institutionalPeriods} from "@/lib/institutionalRegistry";
-import {thresholdDescription} from "@/lib/politicalNational";
+import {roundElectorateLabel} from "@/lib/politicalNational";
 import {nationalComparisonView} from "@/lib/politicalComparisonBallots";
 import {type PoliticalElectionView} from "@/lib/politicalExplorer";
 import {ScopedDistribution} from "./PoliticalComparisonPicker";
@@ -18,7 +18,7 @@ function SystemRules({election,locale}: {election:PoliticalElectionView; locale:
   return <details data-comparison-rules={election.electionId}><summary>{election.year} · {l("Allocation, thresholds and legal sources","席位分配、门槛与法律来源")}</summary>
       <p className="text-sm">{national.rules.totalSeatsDefinition?.[locale]}</p>
       <p className="text-sm">{historical?l("The national compensation allocation uses fragment votes under the D’Hondt method. These votes do not form a separate popular ballot.","全国补偿席位以未用于取得席位的选票按顿特法分配，没有独立的全国补偿投票。"):l("District seats use plurality. National-list seats use highest averages over qualifying list votes and surplus votes.","选区按相对多数分席，全国名单席位按合格名单票和剩余票以最高平均数法分配。")}</p>
-      <ul className="my-2 list-disc pl-4 text-sm">{national.rules.thresholds?.map(t=><li key={t.appliesTo}>{thresholdDescription(election.country,t,locale)}</li>)}</ul>
+      <ul className="my-2 list-disc pl-4 text-sm">{national.rules.thresholds?.map(t=><li key={t.appliesTo}>{t.description[locale]}</li>)}</ul>
       {historical && national.rules.thresholds?.length && !national.rules.thresholds.some(t=>t.appliesTo==="joint list of more than two parties") ? <p className="text-sm" data-threshold-coverage>{l("This election’s rule record omits the larger joint-list threshold. The documented amendment remained in force on polling day.","本届规则记录缺少三个或以上政党联合名单的门槛。已登记的修正法在投票日仍然有效。")}</p> : null}
       {national.rules.minorityRepresentation&&<p className="text-sm">{national.rules.minorityRepresentation[locale]}</p>}
       <p className="text-sm">{l("Constitutional period on election day","选举日所属宪制时期")} · {period ? period.from+" "+(period.to_exclusive ? l("until (exclusive)","至（不含）")+" "+period.to_exclusive : l("onward","起")) : l("No verified period boundary in the register.","登记表尚无已核实的时期边界。")}</p>
@@ -37,17 +37,19 @@ function SystemPanel({election,locale}: {election:PoliticalElectionView; locale:
   const historical=national.historicalAllocation;
   const rounds=national.rounds;
   const tiers=national.seatTiers;
+  const repeatedTerritorial = national.ballots.find(b=>b.definition.roundScope === "valid_round_composite")
+    ?.turnoutRecord?.round_composition?.find(part=>part.round === 2);
   const amount=(v:number|null)=>localeNumber(v,locale,{maximumFractionDigits:2});
   return <section className="min-w-0 space-y-2 border-t border-[var(--line)] pt-3" data-comparison-system={election.electionId}>
     <h4 className="font-semibold">{election.year} · {election.chamber} · {amount(election.totalSeats)} {l("seats","席")}</h4>
-    <p className="text-sm">{historical?l("Two rounds; the second was confined to undecided constituencies.","两轮投票，第二轮仅在第一轮未决选区举行。"):l("One round in the single-member constituencies; separate national party and nationality lists.","单一议席选区一轮投票，另设全国政党名单和民族名单。")}</p>
+    <p className="text-sm">{repeatedTerritorial ? l(`Second-round voting took place in the remaining single-member constituencies and ${repeatedTerritorial.territorial_districts} territorial districts repeated their list ballot.`,`尚待确定席位的单一选区举行第二轮投票，另有 ${repeatedTerritorial.territorial_districts} 个地区选区重投名单票。`) : historical?l("Two rounds; the second was confined to undecided constituencies.","两轮投票，第二轮仅在第一轮未决选区举行。"):l("One round in the single-member constituencies; separate national party and nationality lists.","单一议席选区一轮投票，另设全国政党名单和民族名单。")}</p>
     {tiers&&<p className="text-sm" data-comparison-tiers>
       {l("Final allocation","最终分配")} · {l("Single-member constituencies","单一议席选区")} {amount(tiers.constituency)}
       {historical?<> · {l("Territorial lists","地区名单")} {amount(historical.territorialSeats)} · {l("National compensation","全国补偿名单")} {amount(historical.compensationSeats)}</>:<> · {l("National lists","全国名单")} {amount(tiers.nationalList)}</>}
     </p>}
     <div className="text-sm" data-comparison-turnout>
       {rounds?.length ? <ul>{rounds.map(r=><li key={r.round}>
-        {l("Round","第")}{en?" ":""}{r.round}{en?"":"轮"} · {r.date} · {r.constituencies!=null?amount(r.constituencies)+" "+l("constituencies","个选区"):l("national electorate","全国选民")} · {amount(r.turnout)}{r.turnout!==null?"%":""}
+        {r.date} · {roundElectorateLabel(r,locale)} · {amount(r.turnout)}{r.turnout!==null?"%":""}
         {" · "}{amount(r.voters)} / {amount(r.eligible)} · {l("published turnout","公布投票率")}
         {r.sourceUrl&&<a href={r.sourceUrl} className="ml-1 underline">{l("Round summary","本轮官方汇总")}</a>}
       </li>)}</ul>:<p>{election.date} · {l("National turnout","全国投票率")} {amount(observation.turnout)}{observation.turnout!==null?"%":""}

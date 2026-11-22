@@ -4,7 +4,7 @@ import type { ComparisonBallot, ComparisonElection } from "./politicalComparison
 
 export type ArchiveTurnout = {
   ballotId: string | null;
-  round?: number; date?: string; constituencies?: number | null; sourceUrl?: string;
+  round?: number; date?: string; electorateScope?: "national" | "restricted"; constituencyCount?: number | null; constituencies?: number | null; sourceUrl?: string;
   value: number | null;
   published: boolean;
   scope: PoliticalLocalText;
@@ -110,7 +110,8 @@ export function historyRows(state: HistorySelection, index: ElectionHistoryIndex
       const id = usesBallot ? state.ballots.get(election.id) ?? election.history.primaryBallot : null;
       const ballot = election.ballots.find(b => b.id === id);
       // Final chamber outcomes belong to the completed polling period. No declaration date is implied.
-      const date = usesBallot ? ballot?.date ?? election.date : election.history.endDate ?? election.date;
+      const date = usesBallot ? ballot?.dateEnd ?? ballot?.date ?? election.date : election.history.endDate ?? election.date;
+      if (ballot?.roundScope === "valid_round_composite" && ballot.dateStart && !inHistoryWindow(ballot.dateStart, state)) return [];
       return [{country,election,ballot,date}];
     }).filter(row => inHistoryWindow(row.date,state));
   }).sort((a,b) => a.date.localeCompare(b.date) || a.election.id.localeCompare(b.election.id));

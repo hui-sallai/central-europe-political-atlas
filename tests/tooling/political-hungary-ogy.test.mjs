@@ -386,7 +386,9 @@ test('1998: the territorial-list ballot is a valid-round composite, never a roun
   assert.equal(list[1].actual_round1_ballot.valid_ballots, 4483974, 'the real round-1 territorial ballot (all 20 districts) is kept apart');
   assert.notEqual(list[1].actual_round1_ballot.valid_ballots, list[1].valid_votes);
   assert.equal(v98.publishedTurnout, null, 'no turnout is attached to the composite list ballot');
-  assert.ok(v98.national.rounds.every((r) => r.turnout === null), 'the existing round view gets no misattributed turnout');
+  assert.deepEqual(v98.national.rounds.map(r => [r.turnout, r.electorateScope, r.constituencyCount, r.sourceBallotId, r.date]), [
+    [56.26, 'national', 176, VT98.smc1, '1998-05-10'], [57.01, 'restricted', 175, VT98.smc2, '1998-05-24'],
+  ]);
   // The same round can have different geographies: round 2 is 175 constituencies for single-member votes and 2 districts for lists.
   assert.deepEqual([scope.singleRoundTurnout(...r1), scope.singleRoundTurnout(...r2)].map((x) => [x.round, x.publishedTurnout, x.eligibleVoters, x.geographicScope]), [[1, 56.26, 8062708, { single_member_constituencies: 176 }], [2, 57.01, 8016397, { single_member_constituencies: 175 }]]);
   assert.deepEqual(list[1].round_composition[1].districts.map((d) => [d.eligible_voters, d.published_turnout]), [[427395, 56.16], [440557, 56.56]]);
@@ -445,4 +447,64 @@ test('1998 reconciliation is fail-closed on every changed observation', () => {
     ['5% border', (x) => { x.threshold_page.five_percent_exceed = 227385; }, /thresholds/],
     ['ballot accounting', (x) => { x.round1.territorial_ballot.invalid += 1; }, /invalid plus valid/],
   ]) assert.throws(() => reconcile1998(mutate(fn)), re, what);
+});
+
+test('1998 ballot switches restore each recorded electorate, interval, source basis and result attribution', () => {
+  const primary = views.find(v => v.year === 1998);
+  const records = read(`${STORE}/election_turnout.json`).filter(t => t.election_id === primary.electionId);
+  const v02 = views.find(v => v.year === 2002);
+  assert.equal(national.counterpartBallot(primary, v02).definition.id, v02.system.voteType);
+  assert.equal(national.counterpartBallot(v02, primary).definition.id, VT98.territorial);
+  assert.equal(explorer.compatibleVoteBasis(primary, v02), false);
+  assert.equal(explorer.compareElections(primary, v02).find(r => r.key === 'turnout').difference, null);
+  let selected = primary;
+  for (const id of [VT98.smc1, VT98.territorial, VT98.smc2, VT98.smc1, VT98.smc2, VT98.territorial]) {
+    selected = national.selectNationalBallot(selected, id);
+    const raw = records.find(r => r.vote_type === id);
+    const b = selected.national.ballots.find(b => b.definition.id === id);
+    assert.deepEqual(b.turnoutRecord, raw);
+    assert.deepEqual(selected.national.turnout, raw.turnout_basis);
+    assert.deepEqual([selected.publishedTurnout, selected.eligibleVoters, selected.voters, selected.turnoutDefinition, b.invalidVotes],
+      [raw.published_turnout, raw.eligible_voters, raw.voters, raw.turnout_definition, raw.invalid_votes]);
+    const point = explorer.selectedElectionRound(selected);
+    assert.equal(point?.round, raw.round);
+    if (id === VT98.territorial) {
+      assert.deepEqual([b.date, b.dateStart, b.dateEnd, b.validVotes], [undefined, '1998-05-10', '1998-05-24', 4547682]);
+      assert.equal(b.sourceUrl, 'https://static.valasztas.hu/v98din2/l120.htm');
+    } else {
+      assert.equal(point.sourceBallotId, id);
+      assert.equal(b.date, point.date);
+      assert.ok(b.sourceUrl);
+      assert.equal(point.constituencies, raw.round === 1 ? null : 175);
+      assert.equal(selected.results.find(r => r.nativeLabel === 'Független').attribution_basis, 'independent_candidates_aggregate');
+      assert.ok(selected.results.every(r => r.districtSeatsThisRound == null && r.seats == null));
+    }
+  }
+  const r1 = national.selectNationalBallot(primary, VT98.smc1), r2 = national.selectNationalBallot(primary, VT98.smc2);
+  const {nationalHistoryObservation} = require('../../src/lib/electionHistoryObservations.ts');
+  assert.equal(nationalHistoryObservation(r2, 'en').turnout, null);
+  const fidesz = e => e.results.find(r => r.nativeLabel === 'Fidesz');
+  assert.deepEqual([fidesz(r1).round1_table_votes, fidesz(r1).votes], [956008, 956106]);
+  assert.deepEqual(fidesz(r2).nomination_group_components.map(r => [r.label, r.seats]), [['Fidesz',55],['Fidesz-MDF',35]]);
+  assert.equal(fidesz(r2).first_named_party_seats_final, 90);
+  assert.ok(fidesz(r2).nomination_group_basis);
+  assert.ok(fidesz(r2).provenance.some(p => p.source_record_id === 'nomination_groups'));
+});
+
+test('adapter rejects contradictory turnout, totals, geography and date on a composite ballot', () => {
+  const {electionViewsFromStores} = require('../../src/lib/politicalStores.ts');
+  const stems = {elections:'elections', turnout:'election_turnout', results:'election_results', contestants:'electoral_contestants',
+    legislatures:'legislatures', systems:'electoral_systems', sources:'political_source_registry'};
+  const stores = Object.fromEntries(Object.entries(stems).map(([key,file]) => [key, read(`${STORE}/${file}.json`)]));
+  const meta = {slug:'hungary',name:{en:'Hungary','zh-CN':'匈牙利'},voteLabel:{en:'Votes','zh-CN':'选票'},originalLanguage:'hu'};
+  for (const patch of [
+    r => { r.round = 1; }, r => { r.published_turnout = 56.26; }, r => { r.voters = 4536254; },
+    r => { r.ballots_cast = 4532375; }, r => { r.invalid_votes = 48401; }, r => { r.round_composition[1].votes++; },
+    r => { r.turnout_basis.numerator = 'voters'; }, r => { r.round_composition[0].territorial_districts--; r.round_composition[1].territorial_districts++; },
+    r => { r.round_composition[1].territorial_districts++; }, r => { r.round_composition[0].date = '1998-05-24'; },
+  ]) {
+    const broken = structuredClone(stores);
+    patch(broken.turnout.find(r => r.vote_type === VT98.territorial));
+    assert.throws(() => electionViewsFromStores(broken, meta), /composite/i);
+  }
 });

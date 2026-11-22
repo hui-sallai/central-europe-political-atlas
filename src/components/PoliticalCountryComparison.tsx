@@ -1,7 +1,7 @@
 import { localeDate, localeNumber, type Locale } from "@/i18n/config";
 import { chamberSeatShare, chamberSeats, chartResults, compareCountries, shareForDisplay, seatMeasureScope, type CountryComparisonRow, type PoliticalElectionView } from "@/lib/politicalExplorer";
 
-import { turnoutFraction } from "@/lib/politicalNational";
+import { roundElectorateLabel, turnoutFraction } from "@/lib/politicalNational";
 
 // Two national parliamentary elections from different countries, side by side. Presentational and stateless: the
 // explorer chooses the elections. Values are shown as published or as labelled derived shares; nothing is subtracted,
@@ -26,9 +26,10 @@ export function PoliticalCountryComparison({ a, b, locale }: { a: PoliticalElect
     if (key==="vote") return ballot?.definition.label[locale] ?? election.voteLabel?.[locale] ?? value;
     if (key==="date" && election.national?.dateEnd && election.national.dateEnd!==election.date)
       return localeDate(election.date,locale)+" – "+localeDate(election.national.dateEnd,locale);
+    if (key==="turnout" && ballot?.definition.roundScope==="valid_round_composite")
+      return en ? "No single turnout across the valid polling rounds" : "各地区取自不同有效轮次，没有单一投票率";
     if (key==="turnout" && round) return <>
-      {number(round.turnout,2)}{round.turnout===null?"":"%"} · {round.date} · {en?"Round ":"第 "}{round.round}{en?"":" 轮"}
-      {" · "}{round.constituencies===null?(en?"national electorate":"全国选民"):round.constituencies+" "+(en?"runoff constituencies":"个复选选区")}
+      {number(round.turnout,2)}{round.turnout===null?"":"%"} · {round.date} · {roundElectorateLabel(round,locale)}
       {round.sourceUrl&&<a href={round.sourceUrl} className="ml-2 underline">{en?"Round summary":"本轮官方汇总"}</a>}</>;
 
     if (value === null) return en ? "not established" : "尚未确定";
@@ -44,7 +45,7 @@ export function PoliticalCountryComparison({ a, b, locale }: { a: PoliticalElect
     <div className="overflow-x-auto" role="region" tabIndex={0} aria-label={en ? `Contestants, ${name(election)} (scrollable)` : `${name(election)} 的参选项（可横向滚动）`}>
       <table className="w-full min-w-[420px] text-left text-sm" data-country-lists={election.country}>
         <caption className="mb-2 text-left font-semibold">{name(election)} · {election.voteLabel?.[locale] ?? election.system.voteType}</caption>
-        <thead><tr><th scope="col">{election.national?.activeVote.kind==="constituency"?(en?"Nominating organisation or independent category":"提名组织或独立参选类别"):(en ? "List (original label)" : "名单（原文名称）")}</th><th scope="col">{en ? "Vote share" : "得票率"}</th><th scope="col">{en ? "Whole-chamber seats" : "全议院席位"}</th><th scope="col">{en ? "Whole-chamber seat share (derived)" : "全议院席位占比（计算值）"}</th></tr></thead>
+        <thead><tr><th scope="col">{election.national?.activeVote.attributionBasis==="source_apportioned_party_total"?(en?"Party totals apportioned by the election office; independent category":"选举办公室分摊至各政党的票数及独立参选类别"):election.national?.activeVote.kind==="constituency"?(en?"Nominating organisation or independent category":"提名组织或独立参选类别"):(en ? "List (original label)" : "名单（原文名称）")}</th><th scope="col">{en ? "Vote share" : "得票率"}</th><th scope="col">{en ? "Whole-chamber seats" : "全议院席位"}</th><th scope="col">{en ? "Whole-chamber seat share (derived)" : "全议院席位占比（计算值）"}</th></tr></thead>
         <tbody>{chartResults(election).map((result) => {
           const {computed:derived,value:share}=shareForDisplay(result,election);
           // Only whole-chamber seats are set side by side across countries; a list-tier count is shown as such, with no share.
@@ -52,7 +53,7 @@ export function PoliticalCountryComparison({ a, b, locale }: { a: PoliticalElect
           const seatShare = whole ? chamberSeatShare(result, election) : null;
           return <tr key={result.contestantId} className="border-t border-[var(--line)]" data-share-basis={derived ? "derived" : "published"}>
             <th scope="row" className="py-2 font-normal"><span lang={election.originalLanguage} data-original-language={election.originalLanguage}>{result.nativeLabel}</span></th>
-            <td className="metric-number">{number(share, 1)}{share === null ? "" : "%"}<span className="block text-xs text-[var(--muted)]">{derived ? (en ? "derived" : "计算值") : (en ? "published" : "官方公布")}</span></td>
+            <td className="metric-number">{number(share, election.national?.activeVote.roundScope==="valid_round_composite" && !derived ? 2 : 1)}{share === null ? "" : "%"}<span className="block text-xs text-[var(--muted)]">{derived ? (en ? "derived" : "计算值") : (en ? "published" : "官方公布")}</span></td>
             <td className="metric-number" data-seat-scope={seatScope}>{whole ? number(chamberSeats(result, election)) : <>{en ? "not established" : "尚未确定"}{seatScope==="national_list_tier"&&<span className="block text-xs text-[var(--muted)]">{en ? `list tier only: ${number(result.seats)}` : `仅名单层：${number(result.seats)}`}</span>}</>}</td>
             <td className="metric-number">{whole ? `${number(seatShare, 1)}${seatShare === null ? "" : "%"}` : (en ? "not comparable" : "不可比较")}</td>
           </tr>;
@@ -80,7 +81,7 @@ export function PoliticalCountryComparison({ a, b, locale }: { a: PoliticalElect
         {[a, b].map((election) => <div key={election.electionId} data-country-system={election.country}><p className="text-sm font-semibold">{en ? `Electoral system: ${name(election)}` : `选举制度：${name(election)}`}</p><p className="mt-1 text-sm">{election.notes[locale]}</p></div>)}
       </div>
       <div className="grid gap-6 lg:grid-cols-2">{lists(a)}{lists(b)}</div>
-      <p className="text-sm">{candidateBallot?(en?"The distributions include contestants with seats or at least 1% of their own ballot. Each share uses the denominator for that ballot. District votes are grouped by the printed nominating organisation or independent category.":"分布列出获席参选项或在其所处选票中得票达到 1% 的参选项。各占比使用本选票对应分母。选区票按原文提名组织或独立参选类别汇总。"):en ? "Lists that won seats or reached 1% of valid list votes. A share marked “derived” is calculated by the Atlas as votes ÷ valid list votes × 100 because no official share was published in the source; “published” shares are the authority's own. Lists in different countries are unrelated and are never matched." : "仅列出获得席位或得票率达到 1% 的名单。标为“计算值”的得票率由 Atlas 按“票数 ÷ 有效名单票 × 100”计算，因为来源没有公布官方得票率；“官方公布”的得票率来自选举机构。不同国家的名单互不相关，不会相互匹配。"}</p>
+      <p className="text-sm">{candidateBallot?(en?"The distributions include contestants with seats or at least 1% of their own ballot. Each share uses the denominator for that ballot.":"分布列出获席参选项或在其所处选票中得票达到 1% 的参选项。各占比使用本选票对应分母。"):en ? "Lists that won seats or reached 1% of valid list votes. A share marked “derived” is calculated by the Atlas as votes ÷ valid list votes × 100 because no official share was published in the source; “published” shares are the authority's own. Lists in different countries are unrelated and are never matched." : "仅列出获得席位或得票率达到 1% 的名单。标为“计算值”的得票率由 Atlas 按“票数 ÷ 有效名单票 × 100”计算，因为来源没有公布官方得票率；“官方公布”的得票率来自选举机构。不同国家的名单互不相关，不会相互匹配。"}</p>
     </div>
   );
 }

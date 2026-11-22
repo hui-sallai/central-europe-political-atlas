@@ -197,8 +197,8 @@ export default function PoliticalHistoryComparison({locale}:{locale:Locale}) {
                 const {country,election:e,ballot:b}=row, observation=historyObservation(row,state.measure,locale), references=observationSources(row,state);
                 return <tr key={e.id+":"+row.date} data-history-round={row.turnout?.round??b?.round} className="align-top border-t border-[var(--line)]" data-history-record={e.id}>
                   <th scope="row" className="p-2 font-normal">{names.get(country)![locale]}<br/>{e.chamber}</th>
-                  <td className="p-2"><Link className="underline" href={electionHistoryHref(row,locale)}>{row.date}</Link>
-                    {!row.turnout?.round&&!b?.round&&e.history.endDate&&e.history.endDate!==e.date&&
+                  <td className="p-2"><Link className="underline" href={electionHistoryHref(row,locale)}>{b?.roundScope === "valid_round_composite" ? b.dateStart+" – "+b.dateEnd : row.date}</Link>
+                    {b?.roundScope!=="valid_round_composite"&&!row.turnout?.round&&!b?.round&&e.history.endDate&&e.history.endDate!==e.date&&
                       <small className="block">{en?"Polling period":"投票期间"} · {e.date} – {e.history.endDate}</small>}
                     {e.history.dateBasis?.includes("background_to_verify")&&<small className="block">{en?"Registry date awaiting confirmation":"登记日期待核实"}</small>}</td>
                   <td className="p-2">{viewBallots&&e.ballots.length>1&&<BallotScope e={e} state={state} locale={locale}/>}

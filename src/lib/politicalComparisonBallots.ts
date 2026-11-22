@@ -1,14 +1,17 @@
 import type { BallotElection, ElectionBallot } from "./politicalBallots";
 import { chamberSeats, seatMeasureScope, shareForDisplay, turnoutForDisplay, voteDenominator, type PoliticalElectionView, type PoliticalLocalText, type PoliticalSource } from "./politicalExplorer";
 
+import { roundElectorateLabel, type ElectionRound } from "./politicalNational";
+import type { ScopedVoteDefinition, AttributionBasis } from "./politicalRoundScope";
+
 type Text = PoliticalLocalText;
 const text = (en: string, zh: string): Text => ({en, "zh-CN":zh});
 
-export type ComparisonBallot = {
+export type ComparisonBallot = ScopedVoteDefinition & {
   id: string; geographyKey?: "vote_type"; pointsBallot: boolean; turnoutScope?: Text; seatScopeLabel?: Text; sourceIds?: string[]; seatWinnersOnly?: boolean; label: Text; basis: Text; seatScope: number | null; turnout: number | null; turnoutPublished: boolean;
-  voteType: string; voteLabel: Text; voteDenominator: number | null; round?: number; date?: string; sourceUrl?:string;
+  voteType: string; voteLabel: Text; voteDenominator: number | null; round?: number; date?: string; dateStart?: string; dateEnd?: string; sourceUrl?:string;
   rows: { id: string; contestantId: string; name: string; votes: number | null; share: number | null; published: boolean; seats: number | null; points: number | null;
-    districtSeats?:number|null; territorialSeats?:number|null; compensationSeats?:number|null; fragmentVotes?:number|null; districtSeatsThisRound?:number|null; districtSeatsBasis?:"published"|"derived"; sourceIds:string[] }[];
+    attributionBasis?: AttributionBasis; districtSeats?:number|null; territorialSeats?:number|null; compensationSeats?:number|null; fragmentVotes?:number|null; districtSeatsThisRound?:number|null; districtSeatsBasis?:"published"|"derived"; sourceIds:string[] }[];
 };
 export type ComparisonElection = {
   id: string; date: string; chamber: string; seats: number | null; slots: number | null; rules: Text; ballots: ComparisonBallot[];
@@ -40,9 +43,12 @@ export function scopedComparisonView(e: BallotElection): ComparisonElection {
   };
 }
 
-export function roundScope(round:number, constituencies:number|null): Text {
-  return constituencies === null ? text(`Round ${round} · registered electorate`,`第 ${round} 轮 · 登记选民`)
-    : text(`Round ${round} · ${constituencies} constituencies`,`第 ${round} 轮 · ${constituencies} 个选区`);
+export function roundScope(round: ElectionRound): Text {
+  if (round.constituencyCount != null && round.electorateScope === "national")
+    return text(roundElectorateLabel(round, "en"), roundElectorateLabel(round, "zh-CN"));
+  return round.constituencies === null
+    ? text(`Round ${round.round} · registered electorate`,`第 ${round.round} 轮 · 登记选民`)
+    : text(`Round ${round.round} · ${round.constituencies} constituencies`,`第 ${round.round} 轮 · ${round.constituencies} 个选区`);
 }
 
 export function nationalComparisonView(e: PoliticalElectionView): ComparisonElection {
@@ -58,9 +64,13 @@ export function nationalComparisonView(e: PoliticalElectionView): ComparisonElec
     ballots:[{
       id:e.system.voteType, voteType:e.system.voteType, voteLabel:definition?.label??e.voteLabel??text(e.system.voteType,e.system.voteType), geographyKey:"vote_type", pointsBallot:false,
       seatWinnersOnly:e.resultCoverage==="seat_winning_lists_only", label:definition?.label??e.voteLabel??text(e.system.voteType,e.system.voteType),basis,
-      round:active?.round,date:round?.date,sourceUrl:active?.sourceUrl,voteDenominator:voteDenominator(e),
+      round:active?.round,date:active?.date ?? round?.date, dateStart:active?.dateStart,dateEnd:active?.dateEnd,
+      roundScope:definition?.roundScope, rounds:definition?.rounds, geographicScope:definition?.geographicScope,
+      attributionBasis:definition?.attributionBasis,sourceUrl:active?.sourceUrl,voteDenominator:voteDenominator(e),
       turnout:rate,turnoutPublished:rate!==null && (round ? true : !turnout.computed),
-      turnoutScope:round ? roundScope(round.round,round.constituencies) : text("Election-wide turnout", "当届全体选民投票率"),
+      turnoutScope:definition?.roundScope === "valid_round_composite"
+        ? text("District results from different polling rounds have no single electorate or turnout rate", "各地区取自不同有效轮次，没有单一选民范围和投票率")
+        : round ? roundScope(round) : text("Election-wide turnout", "当届全体选民投票率"),
       sourceIds:[...new Set([...(definition?.sourceIds ?? []),
         ...e.results.flatMap(row=>row.chamberSeatSourceId?[row.sourceId,row.chamberSeatSourceId]:[row.sourceId])])],
       seatScopeLabel:scope === "whole_chamber" ? text("Whole-chamber seat-share denominator","全院席位占比分母") :
@@ -70,7 +80,7 @@ export function nationalComparisonView(e: PoliticalElectionView): ComparisonElec
         const share=shareForDisplay(r,e);
         return {id:r.contestantId,contestantId:r.contestantId,name:r.nativeLabel,votes:r.secondVotes,
           share:share.value,published:!share.computed,seats:scope==="whole_chamber"?chamberSeats(r,e):scope==="national_list_tier"?r.seats:null,
-          points:null,districtSeats:r.constituencySeats,territorialSeats:r.territorialSeats,
+          attributionBasis:r.attribution_basis,points:null,districtSeats:r.constituencySeats,territorialSeats:r.territorialSeats,
           compensationSeats:r.compensationSeats,fragmentVotes:r.fragmentVotes,
           districtSeatsThisRound:r.districtSeatsThisRound,districtSeatsBasis:r.districtSeatsBasis,
           sourceIds:[...new Set([r.sourceId,...(r.chamberSeatSourceId?[r.chamberSeatSourceId]:[])])]};

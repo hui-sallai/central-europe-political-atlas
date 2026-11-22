@@ -42,11 +42,13 @@ function BallotCells({record, election, columns, locale}: {
 }) {
   const en = locale === "en";
   const share = record && shareForDisplay(record, election);
+  const apportioned = election.national?.activeVote.attributionBasis === "source_apportioned_party_total";
   return <>
     <td className="metric-number py-1 pr-3" data-comparison-share={election.electionId}>
       {share ? share.value === null ? "—" : <>
         {localeNumber(share.value, locale, {minimumFractionDigits:2, maximumFractionDigits:2})}%
         <small className="block">{share.computed ? (en ? "Computed vote share" : "按官方票数计算的得票率") : (en ? "Published vote share" : "官方公布的得票率")}</small>
+        {apportioned && <small className="block">{record?.attribution_basis === "independent_candidates_aggregate" ? (en ? "Independent aggregate" : "独立候选人合计") : (en ? "Apportioned party total" : "按政党分摊总数")}</small>}
       </> : (en ? "No recorded entry under this label" : "当届收录记录中无此名称")}
     </td>
     {columns.map(({field}) => {
@@ -66,14 +68,21 @@ export function ElectionBallotLabelComparison({a,b,locale}: {a:PoliticalElection
   const [showAll,setShowAll] = useState(false);
   const [detailed,setDetailed] = useState(false);
   const sides = [a,b];
+  const mixedRounds = sides.some(e => e.national?.activeVote.roundScope === "valid_round_composite")
+    && sides.some(e => e.national?.activeVote.roundScope !== "valid_round_composite");
+  const includesApportioned = sides.some(e => e.national?.activeVote.attributionBasis === "source_apportioned_party_total");
   const columns = sides.map(e => seatColumns(e, detailed, locale));
   const significant = new Set(sides.flatMap(e => chartResults(e).map(r => r.nativeLabel)));
   const aligned = alignByLabel(a,b);
   const visible = showAll ? aligned : aligned.filter(row => significant.has(row.label) || (row.a?.districtSeatsThisRound ?? 0) > 0 || (row.b?.districtSeatsThisRound ?? 0) > 0);
   return <div className="mt-4 space-y-3" data-ballot-label-comparison>
-    <p className="text-sm" data-identity-limitation>{en
-      ? "Rows align the original ballot labels. An identical name alone cannot establish party continuity or support a party-level change."
+    <p className="text-sm" data-identity-limitation>{includesApportioned
+      ? (en ? "Rows align recorded names from the selected tables. In the apportioned ballot the election office divides joint candidates’ votes among parties. Independent candidates have a separate aggregate. Matching labels cannot establish party continuity." : "各行按所选表格中记载的名称对齐。分摊统计中，联合候选人的票数由选举办公室分给各提名政党；独立候选人另行合计。同名无法确认跨届政党身份。")
+      : en ? "Rows align the original ballot labels. An identical name alone cannot establish party continuity or support a party-level change."
       : "按原始选票名称对齐。仅凭同名无法确认跨届政党身份，也无法据此计算政党的跨届变化。"}</p>
+    {mixedRounds && <p className="text-sm" data-comparison-round-basis>{en
+      ? "The territorial-list composite uses the valid polling round in each district. The other ballot covers one polling round. Each vote share uses its own denominator."
+      : "地区名单合计采用各地区的有效轮次，对照选票只涵盖一个投票日。两侧得票率分别按各自的有效票数计算。"}</p>}
     <ul className="space-y-1 text-sm">{sides.map(e => {
       const definition = e.national?.activeVote;
       const basis = definition?.denominator === "ballots_cast" ? (en ? "ballots cast" : "投出的选票") : (en ? "valid votes" : "有效票");
@@ -100,7 +109,7 @@ export function ElectionBallotLabelComparison({a,b,locale}: {a:PoliticalElection
       <table className="w-full min-w-[640px] text-left text-sm" data-compare-lists>
         <caption className="mb-2 text-left font-semibold">{en ? "Results by election-specific ballot label" : "按当届选票名称比较结果"}</caption>
         <thead><tr>
-          <th scope="col">{en ? "Ballot label (original)" : "选票名称（原文）"}</th>
+          <th scope="col">{includesApportioned ? (en ? "Name in source table" : "来源表格中的名称") : (en ? "Ballot label (original)" : "选票名称（原文）")}</th>
           {sides.map((e,i) => <Fragment key={e.electionId}>
             <th scope="col" className="min-w-28 pr-3">{e.year} · {en ? "Vote share" : "得票率"}</th>
             {columns[i].map(col=><th key={col.field} scope="col" className="min-w-24 pr-3">{e.year} · {col.label}</th>)}
