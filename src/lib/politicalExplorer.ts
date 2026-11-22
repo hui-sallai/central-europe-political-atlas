@@ -1,5 +1,5 @@
 /** Descriptive election views only. Identity continuity is not inferred here. */
-import { roundScopeOf, type ScopedResult } from "./politicalRoundScope";
+import type { ScopedResult } from "./politicalRoundScope";
 import type { BallotProvenance, NationalContext } from "./politicalNational";
 export type PoliticalMeasure = "votes" | "vote_share" | "seats" | "seat_share";
 export type PoliticalSource = { id: string; title: string; url: string; sha256?: string; retrievedAt?: string; licenceUrl?: string; institution?: string };
@@ -99,7 +99,7 @@ export function compatibleTurnout(a:PoliticalElectionView,b:PoliticalElectionVie
 }
 export function compatibleVoteBasis(a:PoliticalElectionView,b:PoliticalElectionView):boolean {
   const x=a.national?.activeVote,y=b.national?.activeVote;
-  return Boolean(x&&y&&x.denominator!=="unknown"&&x.kind===y.kind&&x.id===y.id&&x.denominator===y.denominator&&roundScopeOf(x)===roundScopeOf(y));
+  return Boolean(x&&y&&x.denominator!=="unknown"&&x.kind===y.kind&&x.id===y.id&&x.denominator===y.denominator&&(x.roundScope ?? "single_round")===(y.roundScope ?? "single_round"));
 }
 
 /**
