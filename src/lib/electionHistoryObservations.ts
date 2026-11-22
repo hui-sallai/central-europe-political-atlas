@@ -6,14 +6,14 @@ import {roundElectorateLabel, turnoutFraction} from "./politicalNational";
 import { chamberSeats, turnoutForDisplay, type PoliticalElectionView, type PoliticalSource } from "./politicalExplorer";
 
 type Segment = {
-  label: string; seats: number; tier?: string;
+  label: string; seats: number; tier?: string; outsideListKind?: string;
   list?: {id: string; kind?: string; source: {id:string; url:string}};
 };
-export type HistoryRound = { round:number; date:string; scope:string; constituencies:number|null; turnout:number|null; numerator:number|null; denominator:number|null; definition:string|null; turnoutSources:PoliticalSource[] };
+export type HistoryRound = { sourceHeading?:string; round:number; date:string; scope:string; constituencies:number|null; turnout:number|null; numerator:number|null; denominator:number|null; definition:string|null; turnoutSources:PoliticalSource[] };
 type Attribution = Segment & { contestantId: string | null; voteType: string | null; sourceId: string | null };
 export type HistoryObservation = {
   id: string; country: string; chamber: string; chamberId: string | null; date: string; dateBasis?: string | null;
-  systemId?:string; allocationMethod?:string; turnoutBasisLabel?:string; legislatureId?:string; rounds?:HistoryRound[];
+  systemId?:string; compositionUrl?:string; allocationMethod?:string; turnoutBasisLabel?:string; legislatureId?:string; rounds?:HistoryRound[];
   ballot: string | null; voteType: string | null; scope: string; turnout: number | null;
   published: boolean; numerator: number | null; denominator: number | null; definition: string | null;
   turnoutSources: PoliticalSource[]; seats: number | null; segments: Segment[]; attribution?: Attribution[]; sources: PoliticalSource[];
@@ -56,20 +56,20 @@ export function nationalHistoryObservation(e: PoliticalElectionView, locale: Loc
       contestantId:null, voteType:null, sourceId:null,
     });
     for (const holder of tiers.outsideListConstituency ?? []) {
-      parts.push({label:holder.label,seats:holder.seats,contestantId:null,voteType:null,sourceId:allocation?.sourceIds[0]??null});
+      parts.push({label:holder.label,seats:holder.seats,outsideListKind:holder.kind,contestantId:null,voteType:null,sourceId:allocation?.sourceIds[0]??null});
     }
     if (parts.reduce((sum,part)=>sum+part.seats,0)===e.totalSeats) attribution=parts;
   }
   const ids = basis?.sourceIds ?? [];
   return {
     id: e.electionId, country: e.country ?? "germany", chamber: e.chamber ?? "—", chamberId: electionInstitutionalContext(e.electionId)?.chamber_id ?? null, date: e.date,
-    systemId:e.national?.systemId,legislatureId:e.national?.legislatureId,
+    systemId:e.national?.systemId,compositionUrl:allocation?.compositionUrl,legislatureId:e.national?.legislatureId,
     ...(e.country === "czechia" && basis ? {
       allocationMethod:czechAllocationLabel(e.system.allocationMethod,locale) ?? undefined,
       turnoutBasisLabel:turnoutFraction(basis,locale) ?? undefined,
     } : {}),
     rounds:e.national?.rounds?.map(r=>({
-      round:r.round,date:r.date,constituencies:r.constituencies,
+      round:r.round,date:r.date,constituencies:r.constituencies,sourceHeading:r.sourceHeading,
       scope:roundElectorateLabel(r,locale),
       turnout:r.turnout,numerator:r.voters,denominator:r.eligible,definition:r.definition,
       turnoutSources:e.sources.filter(s=>r.sourceIds.includes(s.id)).map(s=>({...s,url:r.sourceUrl??s.url})),

@@ -8,6 +8,14 @@ export type NationalRules = {
   minorityRepresentation: PoliticalLocalText | null; totalSeatsDefinition: PoliticalLocalText | null;
   sourceIds: string[];
 };
+/** The registered Hungarian scope is three or more parties; Chinese “两党以上” can include two. */
+export function thresholdDescription(country: string | undefined, threshold: NonNullable<NationalRules["thresholds"]>[number], locale: keyof PoliticalLocalText) {
+  const description = threshold.description[locale];
+  const largerJointList = threshold.appliesTo === "joint list of more than two parties" || threshold.appliesTo === "joint party list of more than two parties";
+  return country === "hungary" && locale === "zh-CN" && largerJointList
+    ? description.replace("两党以上联合名单", "三个或更多政党的联合名单")
+    : description;
+}
 export type TurnoutBasis = { numerator: "voters" | "envelopes_issued" | "ballots_cast" | "valid_ballots" | "unknown"; denominator: "registered_electorate" | "eligible_population" | "unknown"; definition: string | null; sourceIds: string[] };
 /** Display the recorded count definitions in the interface language. */
 export function turnoutFraction(basis: TurnoutBasis, locale: keyof PoliticalLocalText): string | null {
@@ -22,7 +30,16 @@ export function turnoutFraction(basis: TurnoutBasis, locale: keyof PoliticalLoca
   };
   return counts[basis.numerator][locale] + " / " + counts[basis.denominator][locale];
 }
-export type ElectionRound = { round: number; date: string; constituencies: number | null; eligible: number | null; voters: number | null; turnout: number | null; sourceIds: string[]; sourceUrl?: string; definition: string | null };
+export function outsideListKindLabel(kind: string, locale: keyof PoliticalLocalText) {
+  const labels: Record<string, PoliticalLocalText> = {
+    joint_candidates_without_list: {en: "Joint candidates without a list", "zh-CN": "未列入名单的联合候选人"},
+    organisation_candidates_without_list: {en: "Organisation candidates without a list", "zh-CN": "未列入名单的组织提名候选人"},
+    independent_candidate: {en: "Independent candidate", "zh-CN": "独立候选人"},
+  };
+  return labels[kind]?.[locale] ?? kind;
+}
+
+export type ElectionRound = { sourceHeading?: string; round: number; date: string; constituencies: number | null; eligible: number | null; voters: number | null; turnout: number | null; sourceIds: string[]; sourceUrl?: string; definition: string | null };
 export function roundElectorateLabel(r:ElectionRound,locale:keyof PoliticalLocalText) {
   if (locale==="en") return `Round ${r.round} · ${r.constituencies===null?"national electorate":r.constituencies+" runoff constituencies"}`;
   return `第 ${r.round} 轮 · ${r.constituencies===null?"全国选民":r.constituencies+" 个复选选区"}`;
@@ -35,6 +52,21 @@ export type HistoricalAllocation = {
 export type NationalBallotView = { round?: number; sourceUrl?:string; definition: VoteDefinition; validVotes: number | null; invalidVotes: number | null; ballotsCast: number | null; results: PoliticalResult[] };
 export type NationalContext = { systemId?: string; legislatureId?: string; rounds?: ElectionRound[]; historicalAllocation?: HistoricalAllocation; chamber: string; dateEnd: string | null; vintage: string; turnout: TurnoutBasis; rules: NationalRules; activeVote: VoteDefinition; ballots: NationalBallotView[]; /** "complete" only when every seat of the chamber is attributed to a ballot entity in the stores. */ chamberAttribution?: "complete" | "none"; seatTiers?: { nationalList: number; constituency: number; /** Constituency seats won by independent candidates (included in constituency, attributed to no row). */ independentConstituency?: number; /** Constituency seats won outside any list row, by kind and printed label (Hungary 2010); included in constituency, attributed to no row. */ outsideListConstituency?: { label: string; kind: string; seats: number }[] } | null };
 export {voteDenominator,compatibleTurnout,compatibleVoteBasis} from "./politicalExplorer";
+
+/** Find a ballot actually registered in the other election. A role match selects a view;
+ * compatibility of statistics is tested separately against the two observations. */
+export function counterpartBallot(selected: PoliticalElectionView, peer: PoliticalElectionView): NationalBallotView | undefined {
+  const ballots = peer.national?.ballots ?? [];
+  const exact = ballots.find(ballot => ballot.definition.id === selected.system.voteType);
+  if (exact || !selected.national?.historicalAllocation || !peer.national?.historicalAllocation) return exact;
+  const source = selected.national.ballots.find(ballot => ballot.definition.id === selected.system.voteType);
+  if (!source?.round) return undefined;
+  const matches = ballots.filter(ballot =>
+    ballot.round === source.round && ballot.definition.kind === source.definition.kind &&
+    ballot.definition.denominator === source.definition.denominator
+  );
+  return matches.length === 1 ? matches[0] : undefined;
+}
 
 /** Existing legacy secondVotes fields remain aliases of the actively selected ballot, not a German assumption. */
 export function selectNationalBallot(e: PoliticalElectionView, id: string): PoliticalElectionView | null {

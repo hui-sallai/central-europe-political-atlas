@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Hungarian historical election comparison — 2026-11-22
+
+- Compare independently selected Hungarian ballots, recorded turnout, list seats, and whole-chamber attributions in 2002, 2006 and 2010. Election and institutional details link to the amendments in force and distinguish the minimum compensation tier from seats ultimately allocated. [Comparison and source handoff](docs/v20-hungary-2002-2010-comparison-2026-11-22.md)
+
 ### v2.0 Hungarian parliamentary elections 2002 and 2006 — 2026-11-22
 
 - Add the Hungarian National Assembly elections of 7 and 21 April 2002 and 9 and 23 April 2006 (386 seats each, two rounds, three tiers). Every territorial list and every single-member nominating group is included, with round-1 and round-2 registers, participation and the printed turnout (2002: 70.53% and 73.51%; 2006: 67.83% and 64.39%), territorial-list votes and seats, single-member votes per round, compensation fragment votes and seats, and the final composition. The source is the National Election Office's 2002 and 2006 archive pages.

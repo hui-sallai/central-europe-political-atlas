@@ -4991,6 +4991,85 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "hungary-historical-ballot-comparability-2026-11-22",
+      "status": "owner_approved",
+      "approved_by": "Owner development brief of 2026-11-22 for Hungary 2002–2010 comparison and institutional context. Bilingual views and scoped exports of admitted election, ballot, seat attribution and legal sources, including independent peer-ballot selection.",
+      "baseline": "6ca6f57abd410a7fbb2b0ad732d849dcba69aac6",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-22",
+      "files": [
+        {
+          "path": "src/components/ElectionBallotLabelComparison.tsx",
+          "sha256": "1947493aeef21320c54859015f9a0477d5598f3ab388ac26f352aefdb60f34ef",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionHistoryFigures.tsx",
+          "sha256": "5c60dc8bb234fb23a9091352143fa63235082b6e1f0bd979d27e371921bc3d24",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionResultDownloads.tsx",
+          "sha256": "0b19128fdea08a40670e1caf6c3500cfd033180063b65a77f63540c4a8a55ff1",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectionRoundDetails.tsx",
+          "sha256": "0237f68f8e92baee95d0a92fd24d0c264b99f9d117c6bd1ec1d3e69d068fecd5",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ElectoralSystemComparison.tsx",
+          "sha256": "f3d2cccd05ce736a2975c9a177c0de1f6764a36586fc93eeb690023a0c07b4ba",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/InstitutionalHistory.tsx",
+          "sha256": "fc03219bf8d0e13f98a3e5f01bfc5543f491c95ea792607997b6a0d4803b31e4",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "67b1b92af6409e511e3ba9f4531005d411315252693c9a2f76da30282d1bac6c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalNationalDetails.tsx",
+          "sha256": "aac9bcbe0a45390953b0b8fcc36950212f2ae6c3d0f63442eaab3638dc138baa",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/electionHistoryObservations.ts",
+          "sha256": "6e38b3b77a31424025c4ed492749f0990b9bfe0be3b078cf6eb99799347d61f5",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutionProfiles.ts",
+          "sha256": "c54dd380930eb58461c751a8a6f48576e609d5351d790a022a707c63ad725be2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalExplorer.ts",
+          "sha256": "e90c5ff2161d4046e09fadc32bd394a8cca92f9b347b30b42347b8ce844bd1df",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalNational.ts",
+          "sha256": "34fbb10ea6b543ed2b7c7f3786e9d43633458933cc26748c3072294b29c66ae2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalStores.ts",
+          "sha256": "0902cda311a4e5b020847ba63f36cabae0aeae4212c18668627a60525ffc9662",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

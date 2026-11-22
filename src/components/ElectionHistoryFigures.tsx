@@ -2,6 +2,7 @@
 
 import { useState, useSyncExternalStore } from "react";
 import { localeNumber, localizedRoute, type Locale } from "@/i18n/config";
+import { outsideListKindLabel } from "@/lib/politicalNational";
 import { descriptiveShare } from "@/lib/politicalExplorer";
 import type { HistoryObservation } from "@/lib/electionHistoryObservations";
 import type { EvidenceDraft } from "@/lib/researchNotebook";
@@ -23,7 +24,7 @@ function subscribe(callback: () => void) {
 
 function exportRows(name: string, rows: Record<string, unknown>[]) {
   if (!rows.length) return;
-  const url = URL.createObjectURL(new Blob(["\uFEFF", toCsv(Object.keys(rows[0]), rows)], {type:"text/csv;charset=utf-8"}));
+  const url = URL.createObjectURL(new Blob(["\uFEFF", toCsv([...new Set(rows.flatMap(row => Object.keys(row)))], rows)], {type:"text/csv;charset=utf-8"}));
   const a = document.createElement("a");
   a.href = url;
   a.download = name + ".csv";
@@ -32,7 +33,7 @@ function exportRows(name: string, rows: Record<string, unknown>[]) {
 }
 
 function turnoutRecords(row: HistoryObservation) {
-  const base = {id:row.id,date:row.date,dateBasis:row.dateBasis,scope:row.scope,turnout:row.turnout,published:row.published,
+  const base = {sourceHeading:undefined as string | undefined,id:row.id,date:row.date,dateBasis:row.dateBasis,scope:row.scope,turnout:row.turnout,published:row.published,
     numerator:row.numerator,denominator:row.denominator,definition:row.definition,turnoutSources:row.turnoutSources,round:null as number|null,constituencies:null as number|null};
   return row.rounds?.length ? row.rounds.map(round=>({...base,...round,published:round.turnout!==null})) : [base];
 }
@@ -58,6 +59,7 @@ function SeatBar({row, locale}: {row: HistoryObservation; locale: Locale}) {
       <ul className="mt-2 space-y-1 text-xs">{composition.map((part,i) => <li key={i} className="break-words" data-seat-contestant={row.attribution?.[i].contestantId ?? part.list?.id ?? undefined}>
         <span className="mr-2 inline-block h-2 w-2" style={{backgroundColor:segmentColours[i % segmentColours.length]}} aria-hidden="true"/>
         {part.label}{part.list?.kind === "coalition" && <> ({en ? "electoral coalition" : "选举联盟"})</>} · {localeNumber(part.seats, locale)}
+        {part.outsideListKind && <> · {outsideListKindLabel(part.outsideListKind, locale)}</>}
         {part.list && total !== null && total > 0 && <> {en ? "seats" : "席"} · {localeNumber(descriptiveShare(part.seats,total), locale)}% {en ? "of chamber" : "占全议院"}</>}
       </li>)}</ul>
       {row.allocationMethod && <p className="mt-2 text-xs" data-history-allocation>{row.allocationMethod}</p>}
@@ -110,7 +112,7 @@ export function ElectionHistoryFigures({rows, selected, locale, select}: {
       const base = {country:r.country,election_id:r.id,date:r.date,chamber:r.chamber,chamber_id:r.chamberId,legislature_id:r.legislatureId??null,electoral_system_id:r.systemId??null,date_basis:r.dateBasis??null,
         source_ids:sources.map(s=>s.id).join(" | "),source_urls:sources.map(s=>s.url).join(" | "),research_url:historyUrl(kind)};
       if (kind === "turnout") return turnoutRecords(r).map(point=>({...base,date:point.date,round:point.round,scope:point.scope,
-        runoff_constituencies:point.constituencies,ballot:r.ballot,vote_type:point.round===null?r.voteType:null,turnout_percent:point.turnout,
+        runoff_constituencies:point.constituencies,source_heading:point.sourceHeading,ballot:r.ballot,vote_type:point.round===null?r.voteType:null,turnout_percent:point.turnout,
         value_basis:point.turnout===null?"unavailable":point.published?"published":"computed_from_counts",
         numerator:point.numerator,denominator:point.denominator,definition:point.definition,
         source_ids:point.turnoutSources.map(s=>s.id).join(" | "),source_urls:point.turnoutSources.map(s=>s.url).join(" | ")}));
@@ -122,13 +124,13 @@ export function ElectionHistoryFigures({rows, selected, locale, select}: {
         ...(list ? {source_ids:list.source.id, source_urls:list.source.url, contestant_kind:list.kind,
           chamber_share_percent:descriptiveShare(part.seats,r.seats)} : {}),
         chamber_seat_slots:r.seats, breakdown:r.attribution?"allocation_mechanism":"recorded_composition",
-        electoral_tier:list?"whole_chamber":"tier" in part?part.tier:null, contestant_id:list?.id??null, vote_type:list?r.voteType:null, segment:part.label, seats:part.seats};
+        electoral_tier:list?"whole_chamber":"tier" in part?part.tier:null, contestant_id:list?.id??null, vote_type:list?r.voteType:null, outside_list_kind:null, segment:part.label, seats:part.seats};
       });
       const contestants = (r.attribution??[]).map(part=>{
         const evidence = r.sources.find(s=>s.id===part.sourceId);
-        return {...seatBase, source_ids:evidence?.id??base.source_ids,source_urls:evidence?.url??base.source_urls,
+        return {...seatBase, source_ids:evidence?.id??base.source_ids,source_urls:r.compositionUrl??evidence?.url??base.source_urls,
           chamber_seat_slots:r.seats, breakdown:"whole_chamber_attribution", electoral_tier:"whole_chamber",contestant_id:part.contestantId,
-          vote_type:part.voteType, segment:part.label, seats:part.seats};
+          vote_type:part.voteType, outside_list_kind:part.outsideListKind, segment:part.label, seats:part.seats};
       });
       return [...mechanisms,...contestants];
     });

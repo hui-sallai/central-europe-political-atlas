@@ -59,7 +59,8 @@ function exportBody(election: PoliticalElectionView, rows: ResultRow[], format: 
       chamber_seats: composition.chamber_seats, district_seats: composition.district_seats,
       independent_district_seats: composition.independent_district_seats,
       ...(history ? { final_allocation_through_poll_date: national?.dateEnd, chamber_composition_source_url: history.compositionUrl, chamber_territorial_seats: history.territorialSeats,
-        chamber_compensation_seats: history.compensationSeats, chamber_combined_list_tier_seats: tiers!.nationalList }
+        chamber_compensation_seats: history.compensationSeats, chamber_combined_list_tier_seats: tiers!.nationalList,
+        chamber_constituency_seats_outside_lists: outside, chamber_unmatched_compensation_lists: history.unmatchedLists }
         : { national_list_seats: tiers!.nationalList }),
     } : {}) };
     for (const [key, value] of Object.entries(fields)) {

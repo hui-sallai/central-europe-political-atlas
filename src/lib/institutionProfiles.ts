@@ -39,5 +39,17 @@ export function executiveOffices(slug: string): Text {
   return [`${shortName(hs?.name.en ?? "")} · ${shortName(hg?.name.en ?? "")}`, `${shortName(hs?.name.zh ?? "")} · ${shortName(hg?.name.zh ?? "")}`];
 }
 // Fields this record still marks as pending, as short bilingual reasons.
-export function pendingInstitutionalFields(slug: string): Text[] { return (institutionalCountry(slug)?.pending ?? []).map((p) => pair(p.reason)); }
+export function pendingInstitutionalFields(slug: string): Text[] {
+  const country = institutionalCountry(slug);
+  const formerAct = country?.changes.find(change => change.change_id === "hu-1989-electoral-act");
+  return (country?.pending ?? []).map(p => {
+    if (p.field === "changes_before_2012" && formerAct?.amendments?.length) {
+      return [
+        "The institutional timeline identifies the documented amendments to the 1989 electoral act. Other revisions to the electoral act, its calculation annexes and the earlier Constitution still have gaps in coverage.",
+        "制度时间线列出了已核实的 1989 年选举法修正记录。该法其他修订、计算附件以及原宪法的修订仍有资料缺口。",
+      ];
+    }
+    return pair(p.reason);
+  });
+}
 export function institutionalCheckedOn(slug: string) { return institutionalCountry(slug)?.verified_on ?? null; }

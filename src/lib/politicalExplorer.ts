@@ -82,8 +82,16 @@ export function turnoutForDisplay(e:PoliticalElectionView):{value:number|null;co
   if(basis?.numerator!=="voters"||basis.denominator!=="registered_electorate"||e.voters===null||!e.eligibleVoters)return{value:null,computed:false};
   return{value:100*e.voters/e.eligibleVoters,computed:true};
 }
+export function selectedElectionRound(e: PoliticalElectionView) {
+  const ballot = e.national?.ballots.find(b => b.definition.id === e.system.voteType);
+  return ballot?.round ? e.national?.rounds?.find(r => r.round === ballot.round) : undefined;
+}
 export function compatibleTurnout(a:PoliticalElectionView,b:PoliticalElectionView):boolean {
   const x=a.national?.turnout,y=b.national?.turnout;
+  // A runoff covers the constituencies still voting at this election. Even equal
+  // constituency counts would not establish a common electorate across years.
+  const scoped = [a,b].some(e => selectedElectionRound(e)?.constituencies != null);
+  if (a.electionId !== b.electionId && scoped) return false;
   return Boolean(x&&y&&x.numerator!=="unknown"&&x.denominator!=="unknown"&&x.numerator===y.numerator&&x.denominator===y.denominator&&x.definition&&x.definition===y.definition);
 }
 export function compatibleVoteBasis(a:PoliticalElectionView,b:PoliticalElectionView):boolean {
@@ -140,9 +148,14 @@ export type ElectionAggregate = { key: "turnout" | "eligible" | "voters" | "vali
 /** Election-level differences only. Verified party-level differences live in politicalSeriesComparison. */
 export function compareElections(a: PoliticalElectionView, b: PoliticalElectionView): ElectionAggregate[] {
   const row = (key: ElectionAggregate["key"], x: number | null, y: number | null): ElectionAggregate => ({ key, a: x, b: y, difference: x === null || y === null ? null : y - x });
-  const seatLists = (election: PoliticalElectionView) => election.results.filter((result) => seatsWon(result, election) > 0).length;
+  const seatLists = (election: PoliticalElectionView) => seatMeasureScope(election) === "unavailable"
+    ? null : election.results.filter((result) => seatsWon(result, election) > 0).length;
+  const rateA = turnoutForDisplay(a), rateB = turnoutForDisplay(b);
+  const turnout = row("turnout", rateA.value, rateB.value);
+  const sameDefinition = a.national || b.national ? compatibleTurnout(a,b) : a.turnoutDefinition === b.turnoutDefinition;
+  if (!sameDefinition || rateA.computed !== rateB.computed) turnout.difference = null;
   return [
-    { ...row("turnout", a.publishedTurnout, b.publishedTurnout), difference: a.national || b.national ? compatibleTurnout(a,b) && a.publishedTurnout!==null && b.publishedTurnout!==null ? b.publishedTurnout-a.publishedTurnout : null : a.turnoutDefinition===b.turnoutDefinition ? row("turnout",a.publishedTurnout,b.publishedTurnout).difference : null }, row("eligible", a.eligibleVoters, b.eligibleVoters), row("voters", a.voters, b.voters),
+    turnout, row("eligible", a.eligibleVoters, b.eligibleVoters), row("voters", a.voters, b.voters),
     row("valid", a.validSecondVotes, b.validSecondVotes), row("seats", a.totalSeats, b.totalSeats), row("lists", a.results.length, b.results.length), row("seat_lists", seatLists(a), seatLists(b)),
   ].map(r=>a.country&&b.country&&a.country!==b.country?{...r,difference:null}:r.key==="seat_lists"&&seatMeasureScope(a)!==seatMeasureScope(b)?{...r,difference:null}:(["voters","eligible"].includes(r.key)&&(a.national||b.national)&&!compatibleTurnout(a,b))||(["valid","lists","seat_lists"].includes(r.key)&&(a.national||b.national)&&!compatibleVoteBasis(a,b))?{...r,difference:null}:r);
 }

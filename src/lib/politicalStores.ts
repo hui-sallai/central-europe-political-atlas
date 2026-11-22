@@ -83,7 +83,10 @@ export function electionViewsFromStores(stores: PoliticalStores, country: Politi
       const runoff = !first && round === 2 && counts.round_2?.date === date ? counts.round_2 : undefined;
       const record = first ? counts : runoff;
       const provenance = counts.provenance?.filter(p => p.fields_covered?.includes(first ? "published_turnout" : "round_2")) ?? [];
-      return {round,date,constituencies:runoff?.constituencies??null,eligible:record?.eligible_voters??null,voters:record?.voters??null,
+      // The heading is transcribed in the admitted OGY evidence, act_xxxiv_1989.2006.
+      const sourceHeading = provenance[0]?.source_url === "https://static.valasztas.hu/parval2006/outroot/vdin2/hu/l100.htm"
+        ? "Tájékoztató adatok a forduló összesített adatairól" : undefined;
+      return {round,date,sourceHeading,constituencies:runoff?.constituencies??null,eligible:record?.eligible_voters??null,voters:record?.voters??null,
         turnout:record?.published_turnout??null,sourceIds:[...new Set(provenance.map(p=>p.source_id))],sourceUrl:provenance[0]?.source_url,
         definition:first ? counts.turnout_definition??null : runoff ? `Voters who took part / voters on the rolls of the ${runoff.constituencies} constituencies holding a second round.` : null};
     });

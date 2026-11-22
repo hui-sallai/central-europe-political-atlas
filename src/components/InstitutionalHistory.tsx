@@ -6,7 +6,7 @@ import {RegistryDate} from "./ElectionDirectoryDetails";
 import {czechAllocationLabel} from "@/lib/czechElectionRules";
 import {NotebookCollect} from "./NotebookCollect";
 import {PLATFORM_BASE_URL} from "@/lib/releaseMetadata";
-import {changeDate, countryElectionLinks, countrySources, electionInstitutionalContext, institutionalCountry, hungarianElectionTransition, institutionalPeriods, institutionalTimeline, text, type InstitutionalChange, type ElectionInstitutionalLink} from "@/lib/institutionalRegistry";
+import {changeDate, countryElectionLinks, countrySources, electionInstitutionalContext, institutionalCountry, hungarianElectionTransition, institutionalPeriods, institutionalTimeline, text, type InstitutionalAmendment, type InstitutionalChange, type ElectionInstitutionalLink} from "@/lib/institutionalRegistry";
 
 function changeHref(slug:string,id:string,en:boolean) {
   return (en?"/en":"")+"/countries/"+slug+"/#"+encodeURIComponent(id);
@@ -15,7 +15,7 @@ function electionHref(row:ElectionInstitutionalLink,en:boolean) {
   return (en?"/en":"")+"/politics/"+row.country+"/?election="+encodeURIComponent(row.election_id);
 }
 
-function LegalDates({change,en}:{change:InstitutionalChange;en:boolean}) {
+function LegalDates({change,en}:{change:Pick<InstitutionalChange,"adopted"|"promulgated"|"effective"|"repealed_effective">;en:boolean}) {
   const rows = [
     [en?"Adoption":"通过",change.adopted],
     [en?"Promulgation":"公布",change.promulgated],
@@ -41,6 +41,23 @@ function CzechPollingRules({election,entry,en}:{election:ElectionInstitutionalLi
   </details>;
 }
 
+function amendmentName(amendment: InstitutionalAmendment, en: boolean) {
+  return en ? amendment.act : amendment.act.replace(/^Act ([IVXLCDM]+) of (\d{4})$/, "$2 年第 $1 号法");
+}
+
+function AmendmentRecord({amendment, slug, en}: {amendment:InstitutionalAmendment; slug:string; en:boolean}) {
+  return <details id={amendment.amendment_id} className="my-2 border-l-2 border-[var(--line)] pl-3">
+    <summary>{amendmentName(amendment,en)} · {en?"effective":"生效于"} <time dateTime={amendment.effective}>{amendment.effective}</time></summary>
+    <p className="mt-2">{!en && amendment.amendment_id==="hu-1997-electoral-act-amendment"
+      ? amendment.summary.zh.replace("须获得全国地区名单票的 5% 以上","的全国地区名单得票率须超过 5%").replace("两党以上联合名单","三个或更多政党的联合名单")
+      : text(amendment.summary,en)}</p>
+    <LegalDates change={amendment} en={en}/>
+    <p className="mt-1">{en?"Amended provisions":"修正条款"} · {amendment.provisions}</p>
+    <p>{amendment.effective_basis}</p>
+    {countrySources(slug,amendment.source_ids).map(source=><a key={source.source_id} className="block break-words underline" href={source.url}>{source.title}</a>)}
+  </details>;
+}
+
 function ChangeRecord({change,slug,en,elections,history}:{change:InstitutionalChange;slug:string;en:boolean;elections:ElectionInstitutionalLink[];history?:DirectoryDate[]}) {
   const l=(english:string,chinese:string)=>en?english:chinese;
   const sources=countrySources(slug,change.source_ids);
@@ -56,6 +73,10 @@ function ChangeRecord({change,slug,en,elections,history}:{change:InstitutionalCh
     {change.note && <p>{text(change.note,en)}</p>}
     <p>{change.legal_basis}</p>
     {sources.map(source=><a key={source.source_id} className="block break-words underline" href={source.url}>{source.title}</a>)}
+    {change.amendments?.length ? <section className="my-3 text-sm" data-act-amendments>
+      <h4 className="font-semibold">{l("Amendments to this act","本法的修正记录")}</h4>
+      {change.amendments.map(amendment=><AmendmentRecord key={amendment.amendment_id} amendment={amendment} slug={slug} en={en}/>)}
+    </section> : null}
     {linked.length>0 && <div className="my-2 text-sm" data-period-elections>
       <p>{l("Elections in the institutional period opened by this change","此项变更开启的制度时期内已收录的选举")}</p>
       <ul className="ml-4 list-disc">{linked.map(e=><li key={e.election_id}><Link className="underline" href={electionHref(e,en)}>{history?.find(h=>h.id===e.election_id)?.chamber??e.chamber_official_name} · {e.date}</Link></li>)}</ul>
@@ -100,7 +121,11 @@ function HungarianSystemTransition({en,history}: {en:boolean; history?:Directory
         {countrySources("hungary",formerAct.source_ids).map(source=><a className="block break-words underline" key={source.source_id} href={source.url}>{source.title}</a>)}
       </div>}
       {constitution&&<p>{text(constitution.title,en)} · {l("Adoption","通过")} {constitution.adopted??"—"} · {l("Effective","生效")} {constitution.effective??"—"} · <Link className="underline" href={changeHref("hungary",constitution.change_id,en)}>{l("Constitutional record","宪法记录")}</Link></p>}
-      <p>{l("The archive covers the seat structure, thresholds and repeal of the 1989 electoral act. Verification of intervening amendments from 1990 to 2010 remains open.","档案已核实 1989 年选举法的席位结构、门槛和废止日期。1990 至 2010 年间的历次修正仍待核实。")}</p>
+      {formerAct?.amendments?.length ? <div className="my-2" data-transition-amendments>
+        <p>{l("Documented amendments in force at the earlier election","前一届选举时已生效的修正法")}</p>
+        {formerAct.amendments.filter(a=>before.amendments_in_force?.includes(a.amendment_id)).map(a=><Link key={a.amendment_id} className="block underline" href={changeHref("hungary",a.amendment_id,en)}>{amendmentName(a,en)} · {a.effective}</Link>)}
+        <p>{l("The earlier wording of some calculation annexes still requires verification.","部分计算附件的早期文本仍待核实。")}</p>
+      </div> : null}
       {ruleRecords.map(record=><div className="mt-2" key={record.election_id}><strong>{record.date.slice(0,4)}</strong>
         {history?.find(e=>e.id===record.election_id)?.ruleSources?.map(src=><a key={src.id} className="block break-words underline" data-transition-source={src.id} href={src.url}>{src.title}</a>)}
       </div>)}
@@ -113,7 +138,7 @@ export function InstitutionalHistory({slug,en,history}:{slug:string;en:boolean;h
   useEffect(()=>{
     function reveal() {
       const id=location.hash.slice(1);
-      if (id!=="history-"+slug && !(slug==="hungary" && id==="hungary-electoral-system-transition") && !country?.changes.some(c=>id===c.change_id) && !(slug==="czechia" && countryElectionLinks(slug).some(e=>id===e.electoral_system_id))) return;
+      if (id!=="history-"+slug && !(slug==="hungary" && id==="hungary-electoral-system-transition") && !country?.changes.some(c=>id===c.change_id || c.amendments?.some(a=>id===a.amendment_id)) && !(slug==="czechia" && countryElectionLinks(slug).some(e=>id===e.electoral_system_id))) return;
       const panel=document.getElementById(id);
       if (!(panel instanceof HTMLDetailsElement)) return;
       panel.open=true;
@@ -155,6 +180,8 @@ export function ElectionInstitutionalPeriod({id,en}:{id:string;en:boolean}) {
   if (!election) return <p>{en?"Historical institutional linkage unavailable.":"尚未核实当届制度关联。"}</p>;
   const period=institutionalPeriods(election.country).find(p=>p.period_id===election.institutional_period_id);
   const changes=institutionalTimeline(election.country);
+  const amendments=changes.flatMap(change=>(change.amendments??[]).filter(a=>election.amendments_in_force?.includes(a.amendment_id)));
+  const formerConstitution=institutionalCountry(election.country)?.previous_constitutions?.find(c=>c.id===election.constitution_id);
   const groups = [
     {heading:en?"Changes recorded by election day":"截至选举日已记录的变更",ids:election.changes_in_force},
     {heading:en?"Repealed before this election":"当届选举前已废止",ids:election.repealed_before??[],showRepeal:true},
@@ -171,6 +198,11 @@ export function ElectionInstitutionalPeriod({id,en}:{id:string;en:boolean}) {
       const items=changes.filter(c=>ids.includes(c.change_id));
       return items.length>0 && <div className="mt-2" key={heading}><strong>{heading}</strong>{items.map(c=><Link key={c.change_id} className="block underline" href={changeHref(election.country,c.change_id,en)}>{text(c.title,en)}{showRepeal && c.repealed_effective && <> · <time dateTime={c.repealed_effective}>{c.repealed_effective}</time></>}</Link>)}</div>;
     })}
+    {amendments.length>0 && <div className="my-2" data-election-amendments>
+      {formerConstitution && <p>{text(formerConstitution.name,en)}</p>}
+      <strong>{en?"Amendments in force on polling day":"投票日已生效的修正法"}</strong>
+      <ul>{amendments.map(a=><li key={a.amendment_id}><Link className="underline" href={changeHref(election.country,a.amendment_id,en)}>{amendmentName(a,en)} · <time dateTime={a.effective}>{a.effective}</time></Link></li>)}</ul>
+    </div>}
     {election.country==="hungary" && <Link className="mt-2 mr-4 inline-block underline" href={changeHref("hungary","hungary-electoral-system-transition",en)}>{en?"Explore the 2010–2014 electoral reform":"查看 2010 至 2014 年的选制变迁"}</Link>}
     <Link className="mt-2 inline-block underline" href={changeHref(election.country,"history-"+election.country,en)}>{en?"Explore the institutional timeline":"查看制度沿革"}</Link>
   </details>;

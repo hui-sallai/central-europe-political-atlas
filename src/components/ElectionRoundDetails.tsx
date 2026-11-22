@@ -1,6 +1,30 @@
 import { localeNumber, type Locale } from "@/i18n/config";
 import type { PoliticalElectionView } from "@/lib/politicalExplorer";
 
+import { outsideListKindLabel } from "@/lib/politicalNational";
+
+export function HistoricalChamberReconciliation({election, locale}: {election:PoliticalElectionView; locale:Locale}) {
+  const national = election.national;
+  const allocation = national?.historicalAllocation;
+  if (!allocation || !national?.seatTiers || national.chamberAttribution !== "complete" || election.totalSeats === null) return null;
+  const en = locale === "en";
+  const outside = national.seatTiers.outsideListConstituency ?? [];
+  const linked = national.ballots.flatMap(ballot => ballot.results)
+    .flatMap(row => row.chamberSeats == null ? [] : [row.chamberSeats]).reduce((sum, seats) => sum + seats, 0);
+  // Complete attribution is validated by the store adapter before this view is available.
+  return <div className="mt-2 space-y-1 text-sm" data-chamber-reconciliation={election.electionId}>
+    <p>{en ? "Whole chamber" : "全议院"} · {election.totalSeats} {en ? "seats" : "席"} · {en ? "Attributable to territorial-list organisations" : "可归属地区名单组织"} {linked}</p>
+    <ul>{outside.map(holder => <li key={holder.label} data-outside-list-kind={holder.kind}>
+      <span lang="hu">{holder.label}</span> · {outsideListKindLabel(holder.kind, locale)} · {holder.seats} {en ? (holder.seats === 1 ? "seat" : "seats") : "席"}
+    </li>)}</ul>
+    {allocation.unmatchedLists.map(row => <p key={row.label} data-unmatched-compensation>
+      <span lang="hu">{row.label}</span> · {en ? "Unmatched compensation list" : "未匹配到地区名单的补偿名单"} · {row.compensation_votes} {en ? "fragment votes" : "张余票"} · {row.seats} {en ? "seats" : "席"}
+    </p>)}
+    {allocation.compositionUrl && <a className="mr-2 underline" href={allocation.compositionUrl}>{en ? "Official chamber composition" : "官方全院席位构成"}</a>}
+    {allocation.compensationUrl && <a className="underline" href={allocation.compensationUrl}>{en ? "Official compensation lists" : "官方补偿名单"}</a>}
+  </div>;
+}
+
 export function ElectionRoundDetails({election,locale}:{election:PoliticalElectionView;locale:Locale}){
   const n=election.national;
   if(!n?.rounds?.length)return null;
@@ -13,6 +37,7 @@ export function ElectionRoundDetails({election,locale}:{election:PoliticalElecti
       {" · "}{r.constituencies===null?(en?"National electorate":"全国选民"):(en?`${r.constituencies} runoff constituencies`:`${r.constituencies} 个复选选区`)}
       {" · "}{localeNumber(r.turnout,locale)}{r.turnout!==null?"%":""}
       {" · "}{localeNumber(r.voters,locale)} / {localeNumber(r.eligible,locale)} {en?"registered voters":"名登记选民"}
+      {r.sourceHeading && <span className="ml-1">{en ? "The election office labels this summary informational." : "选举办公室将这份汇总标为参考数据。"} <span lang="hu">{r.sourceHeading}</span></span>}
       {r.sourceUrl&&<a className="ml-2 underline" href={r.sourceUrl}>{en?"Official turnout":"官方投票率"}</a>}
     </li>)}</ul>
     {allocation&&n.seatTiers&&<div data-historical-seat-tiers>
@@ -27,7 +52,7 @@ export function ElectionRoundDetails({election,locale}:{election:PoliticalElecti
       <p>{en?"National compensation mandates were allocated from unused constituency and territorial-list votes. Voters did not cast a separate compensation ballot.":"全国补偿席位依据选区与地区名单未用于分配席位的余票分配。选民没有单独投出补偿选票。"}
         {allocation.compensationUrl&&<a className="ml-2 underline" href={allocation.compensationUrl}>{en?"Compensation record":"补偿分配记录"}</a>}
       </p>
-      {allocation.unmatchedLists.map(row=><p key={row.label}>{row.label} · {en?"Compensation-only record":"仅有补偿层记录"} · {row.compensation_votes} {en?"fragment votes":"张余票"} · {row.seats} {en?"seats. The archive does not establish a corresponding territorial-list identity.":"席。档案未确定其对应的地区名单身份。"}</p>)}
+      <HistoricalChamberReconciliation election={election} locale={locale}/>
     </div>}
   </section>;
 }
