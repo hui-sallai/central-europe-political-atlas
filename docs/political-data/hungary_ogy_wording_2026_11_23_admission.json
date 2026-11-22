@@ -1,0 +1,35 @@
+{
+ "schema_version": "atlas-political-admission-gates-v1",
+ "admission_id": "hungary-ogy-wording-2026-11-23",
+ "country": "hungary",
+ "election_ids": [
+  "el-hu-ogy-2002-04-07",
+  "el-hu-ogy-2006-04-09",
+  "el-hu-ogy-2014-04-06",
+  "el-hu-ogy-2018-04-08",
+  "el-hu-ogy-2022-04-03",
+  "el-hu-ogy-2026-04-12"
+ ],
+ "scope": "Chinese wording only: the joint-list threshold description for a joint list of more than two parties ('joint list of more than two parties' in 2002 and 2006; 'joint party list of more than two parties' in 2014-2026) now reads '三个或更多政党的联合名单' instead of the ambiguous '两党以上联合名单'. Numeric thresholds, comparison operators, exclusion wording, English text, source qualifications, election figures, identities and dates are unchanged. The 2010 election-rule record has no third threshold entry and none is added.",
+ "owner_decisions": [
+  {
+   "date": "2026-11-23",
+   "decision": "Owner brief 'Hungary 1998 source semantics, data admission, and canonical wording', section 1: correct the Chinese 1997-amendment summary, the stale pre-2012 coverage note and the two builder threshold templates, and regenerate through the established builders."
+  }
+ ],
+ "evidence_files": [
+  "docs/political-data/raw/hungary/ogy/evidence.json"
+ ],
+ "gates": {
+  "reuse_right": { "status": "closed", "value": "unchanged", "evidence_kind": "owner_decision", "basis": "Unchanged from the admitted records; only the project's own Chinese description text changes." },
+  "normalized_republication": { "status": "closed", "value": "unchanged", "evidence_kind": "owner_decision", "basis": "Unchanged." },
+  "acquisition_route": { "status": "closed", "value": "no_new_acquisition", "evidence_kind": "owner_decision", "basis": "No source was read for this correction; the anchors are the admitted statute provisions in evidence.json (§ 8(5)(ba): 'kettőnél több párt által állított közös … lista') and the 2014-2026 rule records (§ 14(2))." },
+  "source_files_complete": { "status": "closed", "value": "unchanged", "evidence_kind": "evidence_record", "basis": "Evidence unchanged." },
+  "national_definition_complete": { "status": "closed", "value": "unchanged", "evidence_kind": "build_check", "basis": "build-ogy-national reconciliations pass unchanged; every vote, seat, turnout and identity field is byte-identical apart from the provenance parser hash." },
+  "same_election_identity_complete": { "status": "closed", "value": "unchanged", "evidence_kind": "owner_decision", "basis": "Unchanged." },
+  "electoral_system_metadata_complete": { "status": "closed", "value": "wording_corrected", "evidence_kind": "build_check", "basis": "'kettőnél több' means more than two parties, so three or more; the Chinese '两党以上' can include two. Percent values 15 and the 'reach'/'below' sense are unchanged." },
+  "vintage_decisions_complete": { "status": "closed", "value": "unchanged", "evidence_kind": "official_act", "basis": "Unchanged." }
+ },
+ "continuity": "Unchanged.",
+ "germany_change_allowed": false
+}

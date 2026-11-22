@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 Hungarian threshold wording — 2026-11-23
+
+- Chinese descriptions of the Hungarian 15% joint-list threshold (2002, 2006 and 2014–2026) now say "三个或更多政党的联合名单" (three or more parties) instead of the ambiguous "两党以上". The Chinese summary of the 1997 amendment says "超过 5%" (more than 5%). The pre-2012 coverage note names the two documented amendments and keeps the remaining gaps. Figures, thresholds and English text are unchanged.
+
 ### v2.0 Hungarian historical election comparison — 2026-11-22
 
 - Compare independently selected Hungarian ballots, recorded turnout, list seats, and whole-chamber attributions in 2002, 2006 and 2010. Election and institutional details link to the amendments in force and distinguish the minimum compensation tier from seats ultimately allocated. [Comparison and source handoff](docs/v20-hungary-2002-2010-comparison-2026-11-22.md)

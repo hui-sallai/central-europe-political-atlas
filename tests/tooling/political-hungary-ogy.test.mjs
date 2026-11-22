@@ -242,8 +242,8 @@ test('evidence: rights limits recorded, checksums only, no PDF, no CSV, no perso
 
 test('admission: exact hashes, closed gates, Germany inadmissible', () => {
   const records = read(POLITICAL_ADMISSION_FILE).admissions.filter((x) => x.country === 'hungary');
-  assert.deepEqual(records.map((x) => x.admission_id), ['hungary-ogy-2022-2026', 'hungary-ogy-2014-2018', 'hungary-ogy-2010', 'hungary-ogy-2002-2006']);
-  for (const record of ['docs/political-data/hungary_ogy_admission.json', 'docs/political-data/hungary_ogy2014_2018_admission.json', 'docs/political-data/hungary_ogy2010_admission.json', 'docs/political-data/hungary_ogy2002_2006_admission.json']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(record).gates[gate].status, 'closed', gate);
+  assert.deepEqual(records.map((x) => x.admission_id), ['hungary-ogy-2022-2026', 'hungary-ogy-2014-2018', 'hungary-ogy-2010', 'hungary-ogy-2002-2006', 'hungary-ogy-wording-2026-11-23']);
+  for (const record of ['docs/political-data/hungary_ogy_admission.json', 'docs/political-data/hungary_ogy2014_2018_admission.json', 'docs/political-data/hungary_ogy2010_admission.json', 'docs/political-data/hungary_ogy2002_2006_admission.json', 'docs/political-data/hungary_ogy_wording_2026_11_23_admission.json']) for (const gate of MANDATORY_ADMISSION_GATES) assert.equal(read(record).gates[gate].status, 'closed', gate);
   const { approved, problems } = approvedPoliticalAdmissionFiles(records, sha);
   assert.deepEqual(problems, []);
   assert.deepEqual([...approved.keys()].sort(), [...POLITICAL_ADMISSIONS['hungary-ogy-2022-2026'].paths].sort());
@@ -347,4 +347,25 @@ test('2002 and 2006 (Act XXXIV of 1989 as amended in 1994 and 1997): 386 seats e
     assert.throws(() => reconcileEarly(change((c) => { c.smc[0].round1_seats += 1; })), /round-1 seats|single-member/);
   }
   assert.doesNotMatch(JSON.stringify(evidence.act_xxxiv_1989['2002']) + JSON.stringify(evidence.act_xxxiv_1989['2006']), /jelölt neve|képviselő neve/i);
+});
+
+test('wording 2026-11-23: three-or-more-party joint lists in Chinese; numbers, operators and English unchanged; 2010 gains no entry', () => {
+  const systems = read(`${STORE}/electoral_systems.json`);
+  const larger = systems.flatMap((s) => (s.national_rules?.thresholds ?? []).filter((t) => /more than two parties/.test(t.appliesTo)).map((t) => [s.election_id.slice(10, 14), t]));
+  assert.deepEqual(larger.map(([y]) => y).sort(), ['2002', '2006', '2014', '2018', '2022', '2026']);
+  for (const [y, t] of larger) {
+    assert.equal(t.percent, 15, y);
+    assert.match(t.description['zh-CN'], /三个或更多政党的联合名单/, y);
+    assert.doesNotMatch(t.description['zh-CN'], /两党以上/, y);
+    assert.match(t.description.en, y < '2014' ? /must reach 15% of the same total/ : /below 15% of the same total wins no list seat/, y);
+  }
+  assert.equal(systems.find((s) => s.election_id === 'el-hu-ogy-2010-04-11').national_rules.thresholds.some((t) => /more than two/.test(t.appliesTo)), false);
+  const hu = read('src/lib/institutions/countries/hungary.json');
+  const a97 = hu.changes.find((c) => c.change_id === 'hu-1989-electoral-act').amendments.find((a) => a.amendment_id === 'hu-1997-electoral-act-amendment');
+  assert.match(a97.summary.zh, /须超过 5%/);
+  assert.match(a97.summary.zh, /两党联合名单至少 10%，三个或更多政党的联合名单至少 15%/);
+  assert.match(a97.summary.en, /more than 5% .* at least 10% .* more than two parties at least 15%/);
+  const pending = hu.pending.find((p) => p.field === 'changes_before_2012').reason;
+  for (const text of [pending.en, pending.zh]) for (const act of [/III/, /XCVI/]) assert.match(text, act);
+  assert.match(pending.en, /calculation annexes/); assert.match(pending.en, /not otherwise been verified/);
 });
