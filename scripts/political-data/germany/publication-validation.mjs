@@ -3,12 +3,13 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {root} from './acquire.mjs';
-import {buildApprovedProduction} from './production.mjs';
+import {buildCanonicalGermany} from './early-elections.mjs';
 import {politicalExportFiles} from './export.mjs';
 import {researchPackageFilename} from '../../release/research-package-name.mjs';
 
 export function validatePoliticalPublication(){
-  const expected=politicalExportFiles(buildApprovedProduction());
+  // Canonical Germany stores: 2002–2025 slice plus the owner-approved 1990–1998 extension (exact hashes).
+  const expected=politicalExportFiles(buildCanonicalGermany());
   assert.equal(Object.keys(expected).length,26);
   for(const [name,content] of Object.entries(expected)){
     for(const directory of ['public','out'])assert.equal(fs.readFileSync(path.join(root,directory,'research-data/political/germany',name),'utf8'),content,`${directory}: ${name}`);
