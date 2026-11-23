@@ -27,9 +27,12 @@ export function partyHistoryRows(series: Pick<OfficialSeries, "links">, election
 
 const csvCell = (value: unknown) => `"${String(value ?? "").replaceAll('"', '""')}"`;
 
-export function PoliticalPartyHistory({ elections, locale, identityLinks=[] }: { elections: PoliticalElectionView[]; locale: Locale;identityLinks?:PoliticalIdentityLink[] }) {
+export function PoliticalPartyHistory({ elections: allElections, locale, identityLinks=[] }: { elections: PoliticalElectionView[]; locale: Locale;identityLinks?:PoliticalIdentityLink[] }) {
   const en = locale === "en";
-  const country=elections[0]?.country??"germany",german=country==="germany";
+  const country=allElections[0]?.country??"germany",german=country==="germany";
+  // The authority's series record covers the elections it links (2002–2025). Elections outside it (Bundestag 1990–1998,
+  // added 2026-11-23) were never reviewed for identity, so they are not shown as "no list" rows.
+  const elections=useMemo(()=>german?allElections.filter(e=>germanOfficialSeries.some(s=>s.links.some(l=>l.electionId===e.electionId))):allElections,[german,allElections]);
   const registry=useMemo(()=>german?germanOfficialSeries:sourceVerifiedPartySeries(elections,identityLinks),[german,elections,identityLinks]);
   const firstLinkedCzechElection = country === "czechia"
     ? elections.find(election => registry.some(item => item.links.some(link => link.electionId === election.electionId)))

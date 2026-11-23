@@ -18,6 +18,7 @@ import { NotebookCollect } from "./NotebookCollect";
 import { ResearchTimeSeriesChart, monthIndex, indexToPeriod } from "./ResearchTimeSeriesChart";
 import { PoliticalElectionMacroTable } from "./PoliticalElectionMacroTable";
 import { PoliticalComparativeResearch } from "./PoliticalComparativeResearch";
+import { researchSampleElections } from "@/lib/comparativeElectionResearch";
 import type { PoliticalIdentityLink } from "@/lib/politicalIdentity";
 import { electionCountryRoute, electionSourceCitations } from "@/lib/electionMacroLinkage";
 
@@ -25,7 +26,9 @@ export type PoliticalContextInputs = { observations: Observation[]; indicators: 
 const monthlyNames: Record<string,{en:string;zh:string}> = {hicp_annual_rate:{en:"HICP inflation (monthly year-on-year rate)",zh:"HICP 通胀（月度同比率）"},unemployment_rate_monthly:{en:"Unemployment rate (monthly, seasonally adjusted)",zh:"失业率（月度，季调）"},industrial_production_index:{en:"Industrial production (2021=100, seasonal/calendar adjusted)",zh:"工业生产（2021=100，季调日历调整）"}};
 const eventTypes: Record<string,{en:string;zh:string}> = {fiscal:{en:"Fiscal policy",zh:"财政"},EU_funds:{en:"EU funds",zh:"欧盟资金"},macro:{en:"Macroeconomy",zh:"宏观经济"},energy:{en:"Energy",zh:"能源"},industrial_policy:{en:"Industrial policy",zh:"产业政策"},FDI:{en:"Direct investment",zh:"直接投资"},China:{en:"China relations",zh:"对华关系"},election:{en:"Election",zh:"选举"},regional:{en:"Regional",zh:"地区"}};
 
-export function PoliticalEconomicContext({ election, comparison, inputs, locale, allElections=[] }: {election:PoliticalElectionView;comparison:PoliticalElectionView|null;inputs:PoliticalContextInputs;locale:Locale;allElections?:PoliticalElectionView[]}) {
+export function PoliticalEconomicContext({ election, comparison, inputs, locale, allElections: admittedElections=[] }: {election:PoliticalElectionView;comparison:PoliticalElectionView|null;inputs:PoliticalContextInputs;locale:Locale;allElections?:PoliticalElectionView[]}) {
+  // Research samples (election–macro table, comparative questions) exclude elections admitted after they were published.
+  const allElections=researchSampleElections(admittedElections);
   const en=locale==="en",country=election.country??"germany";
   const [frequency,setFrequency]=useState<"annual"|"monthly">("annual");
   const [indicatorId,setIndicatorId]=useState("real_gdp_growth"),[monthlyId,setMonthlyId]=useState("hicp_annual_rate");

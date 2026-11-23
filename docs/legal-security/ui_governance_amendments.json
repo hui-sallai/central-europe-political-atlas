@@ -5246,7 +5246,7 @@
     {
       "amendment_id": "germany-1990-1998-admission-2026-11-23",
       "status": "owner_approved",
-      "approved_by": "owner brief 2026-11-23 \"Germany 1990–1998 & Slovenia 1992–1996 historical parliamentary election expansion\" with owner answers \"Additive exception\" and \"Register bundestag.de\": germany.json gains the 1990–1998 Federal Electoral Act changes (facts from the Bundestag Datenhandbuch) and the 656-seat basis; election_links.json is regenerated (Germany 1990, 1994, 1998; periods opened by the sourced changes); politicalAdmission.ts updates the Germany row text; PoliticalExplorerAlpha.tsx changes the German results-CSV link label from seven to ten elections; politicalData.ts casts the Germany stores to PoliticalStores like every other country (the 1990–1998 rules carry vote_definitions); no component structure, page or design change",
+      "approved_by": "owner brief 2026-11-23 \"Germany 1990–1998 & Slovenia 1992–1996 historical parliamentary election expansion\" with owner answers \"Additive exception\" and \"Register bundestag.de\": germany.json gains the 1990–1998 Federal Electoral Act changes (facts from the Bundestag Datenhandbuch) and the 656-seat basis; election_links.json is regenerated (Germany 1990, 1994, 1998; periods opened by the sourced changes); politicalAdmission.ts updates the Germany row text; PoliticalExplorerAlpha.tsx changes the German results-CSV link label from seven to ten elections; politicalData.ts casts the Germany stores to PoliticalStores like every other country (the 1990–1998 rules carry vote_definitions); PoliticalPartyHistory.tsx limits the German authority-series panel to the elections its record links (2002–2025), so 1990–1998 are not shown as no-list rows; comparativeElectionResearch.ts and PoliticalEconomicContext.tsx keep Germany 1990–1998 outside the election–macro table and the comparative research samples (researchSampleElections), as the owner answer requires frozen research samples to stay pinned; no component structure, page or design change",
       "baseline": "3a63ccc0d5ea451835c70354da7f77828571f83d",
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
@@ -5278,6 +5278,21 @@
         {
           "path": "src/lib/politicalData.ts",
           "sha256": "4059f652d35d837b7aa722515d54bab034b07204d33db003ba48945811bff32f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalPartyHistory.tsx",
+          "sha256": "8b064c99d4428b83a7c1482d00e8dd38f3021a6f9ec78a5cd3b3071ea79abf07",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/comparativeElectionResearch.ts",
+          "sha256": "19881657ccca1b2efe2d67b38467cf4f60a6b8271b412e108b04fe07bbe9f44e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalEconomicContext.tsx",
+          "sha256": "4f1cce280f948e38ed97941a6179f8eb0c0e9259f53c314582d4294fc103891c",
           "classification": "DATA_PRESENTATION"
         }
       ]

@@ -459,18 +459,14 @@ test('Czechia 2002, 2006, 2010 and 2013 (admitted 2026-11-21) enter every view a
   for (const t of texts) assert.doesNotMatch(t.en, /\b(caused?|causes|because|effect|impact|due to|led to|forecast|predict\w*|winner|rank\w*|best|worst|explains?)\b/i, t.en);
 });
 
-test('Germany 1990, 1994 and 1998 (admitted 2026-11-23) enter every view with explicit gaps and neighbouring pairs only', () => {
-  const withEarly = allAdmitted.filter((e) => e.country !== 'hungary' && e.country !== 'serbia' && !CZ_EARLY.includes(e.electionId));
-  assert.equal(withEarly.length, elections.length + 3);
-  const r = R.runComparativeResearch({}, withEarly, points, links);
-  const pairs = R.successiveElectionPairs(withEarly, r.selection).filter((p) => p.country === 'germany').map((p) => `${p.from.year}>${p.to.year}`);
-  assert.deepEqual(pairs.slice(0, 4), ['1990>1994', '1994>1998', '1998>2002', '2002>2005']);
-  const all = R.researchObservations(withEarly, points);
-  for (const id of DE_EARLY) {
-    const rows = all.filter((o) => o.electionId === id);
-    assert.equal(rows.length, 5 * 4, id);
-    for (const o of rows) { assert.equal(o.value === null, o.status !== 'observed', id); if (o.status !== 'observed') assert.ok(o.reason, id); }
-  }
-  const texts = Object.values(R.researchFindings(r, withEarly)).flat();
-  for (const t of texts) assert.doesNotMatch(t.en, /\b(caused?|causes|because|effect|impact|due to|led to|forecast|predict\w*|winner|rank\w*|best|worst|explains?)\b/i, t.en);
+test('Germany 1990, 1994 and 1998 (admitted 2026-11-23) stay outside the research samples; existing results are unchanged', () => {
+  assert.deepEqual([...R.ELECTIONS_OUTSIDE_RESEARCH_SAMPLES], DE_EARLY);
+  const sample = R.researchSampleElections(allAdmitted);
+  assert.equal(sample.length, allAdmitted.length - 3);
+  assert.ok(!sample.some((e) => DE_EARLY.includes(e.electionId)));
+  // The app's research sample (all admitted elections minus the three) gives the same German pairs and coefficients as before.
+  const withoutEarly = R.researchSampleElections(allAdmitted.filter((e) => e.country !== 'hungary' && e.country !== 'serbia' && !CZ_EARLY.includes(e.electionId)));
+  assert.deepEqual(withoutEarly.map((e) => e.electionId), elections.map((e) => e.electionId));
+  const panel = fs.readFileSync(path.join(root, 'src/components/PoliticalEconomicContext.tsx'), 'utf8');
+  assert.match(panel, /const allElections=researchSampleElections\(admittedElections\)/);
 });

@@ -14,7 +14,7 @@ for (const locale of ["zh-CN", "en"] as const) {
     await page.keyboard.press('Enter');
     await expect(panel.locator('[data-results-disclosure]')).toHaveAttribute('open','');
     await expect(panel.locator('select').nth(1)).toHaveValue('el-de-bt-2025-02-23');
-    await expect(panel.locator('table').first().locator('tbody tr')).toHaveCount(7);
+    await expect(panel.locator('table').first().locator('tbody tr')).toHaveCount(10); // Bundestag 1990, 1994 and 1998 added 2026-11-23
     await expect(panel.locator('[data-results-disclosure] table').locator('tbody tr')).toHaveCount(29);
     await panel.locator('select').nth(1).selectOption('el-de-bt-2021-09-26');
     await expect(panel.locator('[data-results-disclosure] table').locator('tbody tr')).toHaveCount(40);
@@ -35,7 +35,7 @@ for (const locale of ["zh-CN", "en"] as const) {
     await sourceDetails.locator('summary').click();
     await expect(sourceDetails).toContainText('SHA-256');
     const response=await page.request.get('/research-data/political/germany/election_results.json');
-    expect(response.ok()).toBe(true);expect((await response.json()).length).toBe(209);
+    expect(response.ok()).toBe(true);expect((await response.json()).length).toBe(384); // 209 rows 2002–2025 + 175 rows 1990–1998 (second- and first-vote ballots)
     await page.reload({waitUntil:'networkidle'});
     await expect(panel.locator('select').nth(1)).toHaveValue('el-de-bt-2021-09-26');
     await expect(panel.locator('select').nth(2)).toHaveValue('seats');
@@ -45,7 +45,7 @@ for (const locale of ["zh-CN", "en"] as const) {
   test(`Politics charts, research details and two-election comparison: ${locale}`, async ({page}) => {
     await page.goto(route+'?election=el-de-bt-2025-02-23',{waitUntil:'networkidle'});
     const panel=page.locator('[data-politics-explorer]');
-    await expect(panel.locator('[data-politics-chart="turnout"] [data-turnout-year]')).toHaveCount(7);
+    await expect(panel.locator('[data-politics-chart="turnout"] [data-turnout-year]')).toHaveCount(10); // 1990–2025
     await expect(panel.locator('[data-politics-chart="turnout"] [data-turnout-year="2025"]')).toContainText('82.5%');
     // Only lists that won seats or reached 1% are charted; values are the published ones.
     await expect(panel.locator('[data-politics-chart="votes-seats"] [data-chart-list]')).toHaveCount(11);

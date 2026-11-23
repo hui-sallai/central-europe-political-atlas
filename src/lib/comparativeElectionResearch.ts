@@ -18,6 +18,13 @@ export const RESEARCH_QUESTIONS = ["A", "B", "C", "D"] as const;
 export type ResearchQuestion = typeof RESEARCH_QUESTIONS[number];
 /** Fewer pairs than this show direction counts only. Coefficients on so few pairs are unstable even as description. */
 export const MIN_PAIRS_FOR_COEFFICIENT = 5;
+/**
+ * Elections admitted after the research samples were published and kept outside them (owner answer "Additive exception",
+ * 2026-11-23: frozen research samples stay pinned). They remain in every election page; they never enter the
+ * election–macro table or the comparative research questions, so existing results, pairs and coefficients are unchanged.
+ */
+export const ELECTIONS_OUTSIDE_RESEARCH_SAMPLES: readonly string[] = ["el-de-bt-1990-12-02", "el-de-bt-1994-10-16", "el-de-bt-1998-09-27"];
+export const researchSampleElections = <T extends { electionId: string }>(elections: T[]): T[] => elections.filter((e) => !ELECTIONS_OUTSIDE_RESEARCH_SAMPLES.includes(e.electionId));
 
 export type ResearchSelection = { countries: string[]; electionIds: string[]; indicators: ElectionMacroIndicator[]; view: ResearchView };
 export type ObservationStatus = "observed" | "missing" | "pending" | "no_series_at_frequency" | "not_established";

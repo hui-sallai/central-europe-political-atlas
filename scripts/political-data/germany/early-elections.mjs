@@ -103,7 +103,6 @@ export function buildEarlyGermany() {
   const overhangRef = E.overhang, hnRef = E.hare_niemeyer, wkRef = E.constituencies, bmRef = E.basic_mandate;
   check(Object.values(wkRef.by_land).reduce((a, b) => a + b, 0) === 328 && wkRef.total === 328, 'constituencies 1990–1998 ≠ 328');
   const reconciliation = {};
-  let seq = 0;
   for (const year of EARLY_YEARS) {
     const page = E.result_pages[year], date = DATES[year], electionId = EARLY_ELECTION_IDS[year], term = TERMS[year];
     const legislatureId = `lg-de-bt-${term}`, systemId = `es-de-bt-${year}`, oh = overhangRef.rows[year];
@@ -227,7 +226,7 @@ export function buildEarlyGermany() {
       provenance: [...turnoutP, zipRec(at('Gültige', 'Erststimmen'), ['valid_votes']), zipRec(at('Ungültige', 'Erststimmen'), ['invalid_votes']), { ...zipRec(at('Wähler', ''), ['derived_turnout', 'turnout_definition']), published_or_derived: 'derived', formula: '100 * voters / eligible_voters', input_fields: ['voters', 'eligible_voters'] }] });
     let n = 0;
     for (const c of contestants) {
-      n += 1; seq += 1;
+      n += 1;
       const id = `ct-de-${year}-${String(n).padStart(2, '0')}`;
       const kind = c.aggregate ? 'aggregate_voter_groups_and_individual_candidates' : c.secondCol !== null ? 'party_list' : 'party_constituency_candidates_only';
       const recCol = c.secondCol ?? c.firstCol;
