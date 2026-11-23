@@ -1,5 +1,11 @@
 # Changelog
 
+### v2.0 Bundestag elections 1990, 1994 and 1998 — 2026-11-23
+
+- Add the Bundestag elections of 2 December 1990, 16 October 1994 and 27 September 1998 (Germany now 1990–2025, ten elections). First and second votes are separate ballots, every party is included, and final seats (662, 672, 669) are split into 328 constituency seats and Land-list seats, with the 656 statutory seats and 6, 16 and 13 overhang seats. Hare/Niemeyer over 656 seats reproduces every party's seats before overhang.
+- 1990: the 5% threshold applied separately in the two electoral areas (former Federal territory with West Berlin; new Länder with East Berlin), so PDS and Bündnis 90/Grüne took seats and the western Greens did not; both areas' second votes are included. The legal basis of each election (law titles, adoption and promulgation dates, Federal Law Gazette references) comes from the Bundestag's Datenhandbuch.
+- Every 2002–2025 record is unchanged. The new elections stay outside the existing research samples and the verified 2002–2025 party series. Slovenia 1992 and 1996 wait for the official reports. See [the iteration report](docs/v20-germany-slovenia-early-2026-11-23.md).
+
 ### v2.0 Hungary 1998 ballot scopes — 2026-11-23
 
 - Inspect the 1998 territorial lists across each district’s valid round, the separate first-round national ballot and both single-member electorates. Comparisons, historical charts, downloads and Notebook evidence carry their polling periods, source documents and seat attribution. [Round-scope integration](docs/v20-hungary-1998-2026-11-23.md)
