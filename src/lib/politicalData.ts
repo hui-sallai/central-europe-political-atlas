@@ -83,7 +83,7 @@ import type { PoliticalIdentityLink } from "./politicalIdentity";
 import { continuityEntities, type ContinuityParty } from "./politicalContinuity";
 
 export function politicalElectionViews(): PoliticalElectionView[] {
-  const views = electionViewsFromStores({ elections, turnout, results, contestants, legislatures, systems, sources, members }, {
+  const views = electionViewsFromStores({ elections, turnout, results, contestants, legislatures, systems, sources, members } as PoliticalStores, {
     slug: "germany", name: { en: "Germany", "zh-CN": "德国" }, originalLanguage: "de",
     voteLabel: { en: "Second votes (party-list vote)", "zh-CN": "第二票（政党名单票）" },
   });

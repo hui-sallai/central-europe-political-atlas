@@ -5246,7 +5246,7 @@
     {
       "amendment_id": "germany-1990-1998-admission-2026-11-23",
       "status": "owner_approved",
-      "approved_by": "owner brief 2026-11-23 \"Germany 1990–1998 & Slovenia 1992–1996 historical parliamentary election expansion\" with owner answers \"Additive exception\" and \"Register bundestag.de\": germany.json gains the 1990–1998 Federal Electoral Act changes (facts from the Bundestag Datenhandbuch) and the 656-seat basis; election_links.json is regenerated (Germany 1990, 1994, 1998; periods opened by the sourced changes); politicalAdmission.ts updates the Germany row text; PoliticalExplorerAlpha.tsx changes the German results-CSV link label from seven to ten elections; no component structure, page or design change",
+      "approved_by": "owner brief 2026-11-23 \"Germany 1990–1998 & Slovenia 1992–1996 historical parliamentary election expansion\" with owner answers \"Additive exception\" and \"Register bundestag.de\": germany.json gains the 1990–1998 Federal Electoral Act changes (facts from the Bundestag Datenhandbuch) and the 656-seat basis; election_links.json is regenerated (Germany 1990, 1994, 1998; periods opened by the sourced changes); politicalAdmission.ts updates the Germany row text; PoliticalExplorerAlpha.tsx changes the German results-CSV link label from seven to ten elections; politicalData.ts casts the Germany stores to PoliticalStores like every other country (the 1990–1998 rules carry vote_definitions); no component structure, page or design change",
       "baseline": "3a63ccc0d5ea451835c70354da7f77828571f83d",
       "canonical_data_change_allowed": false,
       "public_research_data_change_allowed": false,
@@ -5273,6 +5273,11 @@
         {
           "path": "src/components/PoliticalExplorerAlpha.tsx",
           "sha256": "e0b5b9550825bbfe398c0ecefbe939610694a20485c063fd2b556f3a5d161e0c",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalData.ts",
+          "sha256": "4059f652d35d837b7aa722515d54bab034b07204d33db003ba48945811bff32f",
           "classification": "DATA_PRESENTATION"
         }
       ]
