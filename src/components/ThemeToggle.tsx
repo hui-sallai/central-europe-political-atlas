@@ -40,7 +40,7 @@ export function ThemeToggle() {
   }
 
   return (
-    <button type="button" onClick={cycle} className="theme-toggle whitespace-nowrap rounded-full border border-[var(--line)] px-3 py-1 text-xs font-semibold text-[var(--muted)] hover:text-[var(--accent)]" aria-label={locale === "en" ? `Appearance: ${displayLabels[preference]} (click to switch)` : `外观：${displayLabels[preference]}（点击切换）`} data-theme-preference={preference}>
+    <button type="button" onClick={cycle} className="theme-toggle whitespace-nowrap rounded-full border border-[var(--line)] px-2.5 py-1 text-xs font-semibold text-[var(--muted)] hover:text-[var(--accent)] sm:px-3" aria-label={locale === "en" ? `Appearance: ${displayLabels[preference]} (click to switch)` : `外观：${displayLabels[preference]}（点击切换）`} data-theme-preference={preference}>
       {locale === "en" ? "Appearance: " : "外观："}{displayLabels[preference]}
     </button>
   );
