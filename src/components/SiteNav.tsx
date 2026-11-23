@@ -32,9 +32,9 @@ export function SiteNav({ children }: { children?: ReactNode }) {
 
   return (
     <>
-      <div className="flex items-center gap-2 sm:gap-4">
+      <div className="flex flex-wrap items-center gap-1.5 sm:gap-4">
         <div className="hidden gap-x-3 py-1 text-sm font-semibold text-[var(--muted)] xl:flex">{links("whitespace-nowrap")}</div>
-        <button type="button" className="rounded-full border border-[var(--line)] px-3 py-1 text-xs font-semibold text-[var(--foreground)] xl:hidden" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen((value) => !value)}>
+        <button type="button" className="rounded-full border border-[var(--line)] px-2.5 py-1 text-xs font-semibold text-[var(--foreground)] sm:px-3 xl:hidden" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen((value) => !value)}>
           {locale === "en" ? (open ? "Close menu" : "Menu") : (open ? "关闭菜单" : "菜单")}
         </button>
         {children}

@@ -5360,6 +5360,125 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "antigravity-batch1-usability-accessibility-2026-11-24",
+      "status": "owner_approved",
+      "approved_by": "Owner Batch 1 acceptance and release preparation brief of 2026-11-24: keyboard-focusable scrollable research tables, mobile header and language-switcher corrections, country parliamentary election headers and navigation links, and homepage hero navigation alignment.",
+      "baseline": "7276b987d09c5d10bf843f1a7e434e8bf264e7d7",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-24",
+      "files": [
+        {
+          "path": "src/app/(english)/en/page.tsx",
+          "sha256": "a28fefca64310ed90d4d637d867ee306a8ca3bb17a48d6a00c3e9d1882b278c9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/czechia/page.tsx",
+          "sha256": "b302bf59f4e0678af509069d7e4ae5c578a0756b92f00980f7a620b1e8e211f7",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/germany/page.tsx",
+          "sha256": "823b459431d0e8c3581ccbb4ed869fa8c870580486bb634a5bbc20b59a2a219b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/hungary/page.tsx",
+          "sha256": "94b98b6848d2056a1aecf73a02c5417c0d4a7775be3b0e55f8699cfc83bec662",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/poland/page.tsx",
+          "sha256": "8395d5fddb4bca20f826236c67b3b8d8606fe72e9604ab35b373c3a8a200d346",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/serbia/page.tsx",
+          "sha256": "1b3ff978e7c9a11151f4b2fe0c2a47351744f5faf9d4b36e1261ec3a7d331bf9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(english)/en/politics/slovakia/page.tsx",
+          "sha256": "7ef9091b42946dee37b18228abe431966a54085f2ee7e3d477cbf51cec9ab2a7",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/page.tsx",
+          "sha256": "ff4b8442b617404bedfe4438d871c8c0ac2db8820fcdfd3639e56efe9f9b5b37",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/czechia/page.tsx",
+          "sha256": "a3d5b45e441e21d123aa946b9b454ff11c57afae836da0d070c94a858faa736b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/germany/page.tsx",
+          "sha256": "1ef9cb357f3e418ef664544ad54e2ca32c85ae9ea024bd9ffec5b2c8aeea3e9e",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/hungary/page.tsx",
+          "sha256": "f805f1fa049696654450dea1f0073b5d9b8b9d1de141656f6bcf3d649428e0ec",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/poland/page.tsx",
+          "sha256": "1868b677f4957d8a0c5b8619ec7279cb3c751b25457efd6e8696688def53fb07",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/serbia/page.tsx",
+          "sha256": "1306a839acb6a4df62b89743d9cf2790273868f1819e162e758ef9e44ccb7cb8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/app/(zh)/politics/slovakia/page.tsx",
+          "sha256": "f89b0da97c274bb0f630823fc984991fe72f0c011dc258accb0b754e158475bf",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/MonthlyComparisonWorkbench.tsx",
+          "sha256": "688da7b4b9ac8daa91f6b7b7c912d70ad8fe9dfa87f9b577b84ecfb7ddbba8d2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalContinuityPanel.tsx",
+          "sha256": "0535289c302e1941627119cf376bf34f9fc19573170425448abca4def93404f6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalCountryHeader.tsx",
+          "sha256": "4c0617718cffff44fe0decebc95a1389d445a11cc43581e1008419e8c9d2775d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ScenarioPresetWorkbench.tsx",
+          "sha256": "84c5b75e195b6a293c3dd861af40318b1006b73e1ca899328f2d7636cf8f5f49",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/SerbiaPublicFinancePanel.tsx",
+          "sha256": "e5c5db92f71ea7d9b4762640239699bb3e614c5c1d372c910826be2f3de2f566",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/SiteNav.tsx",
+          "sha256": "cd2ca37e7c3efbeacc23904cd038e8026885c64426a87a35945966b2f4028dd2",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ThemeToggle.tsx",
+          "sha256": "dfda7c5b713cfaa18c3a5b7bd04401be4c726cbf35ef7123d56f5d313501393d",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }
