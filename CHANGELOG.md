@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.0 German historical election research — 2026-11-24
+
+- Explore the two 1990 electoral areas, the 1994 basic-mandate clause, and historical Bundestag seat allocation by contestant and Land. The existing two-election comparison shows the 1998–2002 chamber reform. Earlier ballot selections can be exported with their own denominators and restored from the Notebook. [Implementation and evidence handoff](docs/v20-german-historical-research-2026-11-24.md)
+
 ### v2.0 Bundestag elections 1990, 1994 and 1998 — 2026-11-23
 
 - Add the Bundestag elections of 2 December 1990, 16 October 1994 and 27 September 1998 (Germany now 1990–2025, ten elections). First and second votes are separate ballots, every party is included, and final seats (662, 672, 669) are split into 328 constituency seats and Land-list seats, with the 656 statutory seats and 6, 16 and 13 overhang seats. Hare/Niemeyer over 656 seats reproduces every party's seats before overhang.

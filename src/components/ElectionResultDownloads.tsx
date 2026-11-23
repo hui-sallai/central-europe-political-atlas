@@ -33,6 +33,32 @@ function exportBody(election: PoliticalElectionView, rows: ResultRow[], format: 
     [ballot.definition.id + "/" + result.contestantId, { ballot, result }] as const)));
   if (!rows.length || rows.length !== expected.size || new Set(rows.map(row => row.vote_type + "/" + row.contestant_ref)).size !== expected.size)
     throw new Error("Incomplete results");
+  if (national?.germanAllocation) {
+    const selected = national.ballots.find(ballot => ballot.definition.id === election.system.voteType);
+    if (!selected) throw new Error("Unknown German ballot");
+    const selectedRows = rows.filter(row => row.vote_type === selected.definition.id);
+    const contestants = new Map(selected.results.map(result => [result.contestantId, result]));
+    if (selectedRows.length !== contestants.size) throw new Error("Incomplete selected ballot");
+    const results = selectedRows.map(row => {
+      const contestant = contestants.get(row.contestant_ref);
+      if (!contestant) throw new Error("Unknown ballot contestant");
+      return { ...row, contestant_label: contestant.nativeLabel, contestant_kind: contestant.contestantKind,
+        election_date: election.date, electoral_system_id: national.systemId,
+        vote_denominator: selected.validVotes, vote_denominator_basis: selected.definition.denominator,
+        seat_scope: selected.definition.seatScope,
+      };
+    });
+    if (format === "json") return JSON.stringify({
+      election_id: election.electionId, selected_vote_type: selected.definition.id, results,
+      electoral_system_id: national.systemId, vintage: election.resultVintage, sources: election.sources,
+      ...(selected.definition.id === "second_vote" ? { final_chamber_seats: election.totalSeats,
+        chamber_allocation: national.germanAllocation,
+        electoral_area_valid_second_votes: selected.turnoutRecord?.electoral_area_valid_second_votes } : {}),
+    }, null, 2);
+    const cells = results.map(row => Object.fromEntries(Object.entries(row).map(([key, value]) =>
+      [key, value !== null && typeof value === "object" ? JSON.stringify(value) : value])));
+    return toCsv([...new Set(cells.flatMap(row => Object.keys(row)))], cells);
+  }
   const ballots = (national?.ballots ?? []).map(ballot => {
     const definition = ballot.definition;
     return {
@@ -112,7 +138,7 @@ export function ElectionResultDownloads({ election, en }: { election: PoliticalE
       const url = URL.createObjectURL(new Blob([body], { type: format === "csv" ? "text/csv;charset=utf-8" : "application/json" }));
       const link = document.createElement("a");
       link.href = url;
-      link.download = election.electionId + "." + format;
+      link.download = [election.electionId, ...(election.national?.germanAllocation ? [election.system.voteType] : [])].join("-") + "." + format;
       link.click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch {
@@ -121,7 +147,7 @@ export function ElectionResultDownloads({ election, en }: { election: PoliticalE
   }
   const end = election.national?.dateEnd;
   return <div className="mt-3 flex flex-wrap gap-3" data-selected-election-download={election.electionId}>
-    <span>{en ? "Selected election results" : "所选选举结果"} · {election.date}{end && end !== election.date ? " – " + end : ""}</span>
+    <span>{election.national?.germanAllocation ? election.national.activeVote.label[en ? "en" : "zh-CN"] : en ? "Selected election results" : "所选选举结果"} · {election.date}{end && end !== election.date ? " – " + end : ""}</span>
     {(["csv", "json"] as const).map(format => <button type="button" className="underline" key={format} onClick={() => download(format)}>{format.toUpperCase()}</button>)}
     {failed && <span role="alert">{en ? "Could not load the complete results for this election." : "未能读取该届选举的完整结果。"}</span>}
   </div>;

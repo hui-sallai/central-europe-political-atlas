@@ -2,11 +2,12 @@ import { descriptiveShare, type PoliticalElectionView, type PoliticalResult } fr
 import { germanOfficialSeries, type OfficialSeries } from "./politicalSeries";
 
 export type VerifiedComparisonRow = { series: OfficialSeries; a: PoliticalResult | null; b: PoliticalResult | null; shareChange: number | null; votesChange: number | null; seatsChange: number | null; seatShareA: number | null; seatShareB: number | null; seatShareChange: number | null };
+const seriesElectionIds = new Set(germanOfficialSeries.flatMap(series => series.links.map(link => link.electionId)));
 const difference = (a: number | null, b: number | null) => a === null || b === null ? null : b - a;
 
 /** Registry IDs only: no name matching, aggregation, missing-to-zero conversion or inferred legal continuity. */
 export function compareVerifiedSeries(a: PoliticalElectionView, b: PoliticalElectionView): VerifiedComparisonRow[] {
-  if (a.electionId === b.electionId) return [];
+  if (a.electionId === b.electionId || !seriesElectionIds.has(a.electionId) || !seriesElectionIds.has(b.electionId)) return [];
   if((a.country&&a.country!=="germany")||(b.country&&b.country!=="germany")||a.system?.voteType!==b.system?.voteType||a.national?.activeVote.kind==="constituency"||b.national?.activeVote.kind==="constituency")return [];
   return germanOfficialSeries.flatMap(series => {
     const find = (e: PoliticalElectionView) => {

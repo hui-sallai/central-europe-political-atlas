@@ -44,6 +44,41 @@ export type BallotProvenance = {
   parser_sha256?: string;
   published_or_derived?: string;
 };
+/** These areas belong to the 1990 Bundestag second ballot. */
+export type GermanElectoralAreas<T> = { west: T; east: T };
+export type GermanAreaVotes = GermanElectoralAreas<{ votes: number | null; published_percent: number | null }>;
+
+export type GermanHistoricalAllocation = {
+  statutoryBaseSeats: number;
+  statutoryBaseSeatsBasis: string;
+  constituencyCount: number;
+  constituencyMandates: number;
+  listMandates: number;
+  overhangSeats: number;
+  overhangByLand: { land: string; party: string; seats: number }[];
+  seatReproduction: {
+    method: string;
+    seats: number;
+    qualifying_contestants: string[];
+    seats_before_overhang: Record<string, number>;
+    overhang_by_party: Record<string, number>;
+    reproduces_published_seats: boolean;
+  };
+  legalBasis: {
+    law_id: string;
+    title: string;
+    bundestag_document: string;
+    adopted_by_bundestag: string;
+    promulgated: string;
+    in_force: string | null;
+    gazette: string;
+    court_decision?: string;
+    summary: PoliticalLocalText;
+    source_id: string;
+  }[];
+  thresholdAreas?: GermanElectoralAreas<{ valid_second_votes: number; label: string }>;
+};
+
 export type BallotTurnoutRecord = ScopedTurnout & {
   election_id: string;
   vote_type?: string;
@@ -57,6 +92,7 @@ export type BallotTurnoutRecord = ScopedTurnout & {
   valid_votes?: number | null;
   invalid_votes?: number | null;
   valid_second_votes?: number | null;
+  electoral_area_valid_second_votes?: GermanElectoralAreas<number>;
   invalid_second_votes?: number | null;
   ballots_cast?: number | null;
   ballots_in_urn?: number | null;
@@ -96,7 +132,7 @@ export type HistoricalAllocation = {
   transferred: number | null; compositionUrl?:string; outsideListSourceUrl?: string; compensationUrl?: string; sourceIds: string[]; unmatchedLists: {label: string; seats: number; compensation_votes: number}[];
 };
 export type NationalBallotView = { turnoutRecord?: BallotTurnoutRecord; date?: string; dateStart?: string; dateEnd?: string; round?: number; sourceUrl?:string; definition: VoteDefinition; validVotes: number | null; invalidVotes: number | null; ballotsCast: number | null; results: PoliticalResult[] };
-export type NationalContext = { systemId?: string; legislatureId?: string; rounds?: ElectionRound[]; historicalAllocation?: HistoricalAllocation; chamber: string; dateEnd: string | null; vintage: string; turnout: TurnoutBasis; rules: NationalRules; activeVote: VoteDefinition; ballots: NationalBallotView[]; /** "complete" only when every seat of the chamber is attributed to a ballot entity in the stores. */ chamberAttribution?: "complete" | "none"; seatTiers?: { nationalList: number; constituency: number; /** Constituency seats won by independent candidates (included in constituency, attributed to no row). */ independentConstituency?: number; /** Constituency seats won outside any list row, by kind and printed label (Hungary 2010); included in constituency, attributed to no row. */ outsideListConstituency?: OutsideListHolder[] } | null };
+export type NationalContext = { systemId?: string; legislatureId?: string; rounds?: ElectionRound[]; historicalAllocation?: HistoricalAllocation; germanAllocation?: GermanHistoricalAllocation; chamber: string; dateEnd: string | null; vintage: string; turnout: TurnoutBasis; rules: NationalRules; activeVote: VoteDefinition; ballots: NationalBallotView[]; /** "complete" only when every seat of the chamber is attributed to a ballot entity in the stores. */ chamberAttribution?: "complete" | "none"; seatTiers?: { nationalList: number; constituency: number; /** Constituency seats won by independent candidates (included in constituency, attributed to no row). */ independentConstituency?: number; /** Constituency seats won outside any list row, by kind and printed label (Hungary 2010); included in constituency, attributed to no row. */ outsideListConstituency?: OutsideListHolder[] } | null };
 export {voteDenominator,compatibleTurnout,compatibleVoteBasis} from "./politicalExplorer";
 
 /** Find a ballot actually registered in the other election. A role match selects a view;

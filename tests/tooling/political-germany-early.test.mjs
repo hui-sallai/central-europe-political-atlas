@@ -112,3 +112,74 @@ test('no person data, scores or Datenhandbuch text in the extension', () => {
   assert.doesNotMatch(text, /"(?:candidate_name|first_name|surname|birth|address|score|ideology|forecast)"/i);
   assert.doesNotMatch(text, /Zugrundelegung der Anzahl der Wahlberechtigten|Ratifizierung des am 3\.8\.1990/, 'facts only, not the chapter text');
 });
+
+test('descriptive view preserves the chamber and contestant allocation, statutory basis and Land evidence', () => {
+  const { politicalElectionViews } = require('../../src/lib/politicalData.ts');
+  const { chamberSeats } = require('../../src/lib/politicalExplorer.ts');
+  const { selectNationalBallot } = require('../../src/lib/politicalNational.ts');
+  const views = politicalElectionViews();
+  for (const [index, election] of views.slice(0, 3).entries()) {
+    const chamber = early.legislatures[index], system = early.electoral_systems[index];
+    const allocation = election.national.germanAllocation;
+    assert.deepEqual([
+      allocation.statutoryBaseSeats, allocation.constituencyCount, allocation.constituencyMandates,
+      allocation.listMandates, allocation.overhangSeats, allocation.statutoryBaseSeatsBasis,
+    ], [
+      chamber.statutory_base_seats, chamber.constituency_count, chamber.constituency_mandates,
+      chamber.list_mandates, chamber.overhang_seats, chamber.statutory_base_seats_basis,
+    ]);
+    assert.equal(allocation.statutoryBaseSeats + allocation.overhangSeats, election.totalSeats);
+    assert.equal(allocation.constituencyMandates + allocation.listMandates, election.totalSeats);
+    assert.deepEqual(allocation.overhangByLand, chamber.overhang_by_land);
+    assert.deepEqual(allocation.seatReproduction, system.seat_reproduction);
+    assert.deepEqual(allocation.legalBasis, system.legal_basis);
+    assert.ok(allocation.legalBasis.every(law => election.sources.some(source => source.id === law.source_id)));
+    const registered = store('political_source_registry');
+    for (const source of election.sources) assert.equal(source.tier, registered.find(s => s.source_id === source.id).tier);
+    for (const ballot of election.national.ballots) {
+      const selected = selectNationalBallot(election, ballot.definition.id);
+      for (const result of ballot.results) {
+        const raw = early.election_results.find(r => r.election_id === election.electionId &&
+          r.contestant_ref === result.contestantId && r.vote_type === ballot.definition.id);
+        for (const [value, field] of [[result.constituencyMandates, 'constituency_mandates'], [result.listMandates, 'list_mandates'],
+          [result.overhangSeats, 'overhang_seats'], [result.seatsBeforeOverhangDerived, 'seats_before_overhang_derived']]) {
+          assert.equal(value, raw[field], result.contestantId + ' ' + field);
+        }
+        if (ballot.definition.id === 'first_vote') assert.equal(chamberSeats(result, selected), null);
+      }
+    }
+  }
+  assert.ok(views.slice(3).every(e => e.national.germanAllocation === undefined));
+});
+
+test('1990 threshold areas retain separate published shares, including unreported percentages', () => {
+  const { politicalElectionViews } = require('../../src/lib/politicalData.ts');
+  const election = politicalElectionViews()[0];
+  const allocation = election.national.germanAllocation;
+  const second = election.national.ballots.find(b => b.definition.id === 'second_vote');
+  assert.deepEqual(allocation.thresholdAreas, early.electoral_systems[0].threshold_areas);
+  assert.deepEqual(second.turnoutRecord.electoral_area_valid_second_votes, { west: 37426103, east: 9029669 });
+  for (const row of second.results) {
+    const source = early.election_results.find(r => r.contestant_ref === row.contestantId && r.vote_type === 'second_vote');
+    assert.deepEqual(row.electoralAreaSecondVotes, source.electoral_area_second_votes);
+  }
+  assert.deepEqual(second.results.find(r => r.nativeLabel === 'CSU').electoralAreaSecondVotes.east, { votes: 0, published_percent: null });
+  assert.deepEqual(allocation.seatReproduction.qualifying_contestants.filter(s => ['GRÜNE', 'PDS', 'B90/Gr.'].includes(s)), ['PDS', 'B90/Gr.']);
+  const first = election.national.ballots.find(b => b.definition.id === 'first_vote');
+  assert.equal(first.turnoutRecord.electoral_area_valid_second_votes, undefined);
+  assert.ok(first.results.every(r => r.electoralAreaSecondVotes === undefined));
+  const aggregate = first.results.find(r => r.contestantKind === 'aggregate_voter_groups_and_individual_candidates');
+  assert.ok(aggregate && !aggregate.partyId);
+  assert.ok(!second.results.some(r => r.contestantId === aggregate.contestantId));
+});
+
+test('1998 and 2002 use the same national turnout definition and the same allocation method', () => {
+  const { politicalElectionViews } = require('../../src/lib/politicalData.ts');
+  const { compareElections, compatibleTurnout } = require('../../src/lib/politicalExplorer.ts');
+  const views = politicalElectionViews();
+  const left = views.find(e => e.year === 1998), right = views.find(e => e.year === 2002);
+  assert.ok(compatibleTurnout(left, right));
+  assert.equal(Number(compareElections(left, right).find(r => r.key === 'turnout').difference.toFixed(1)), -3.1);
+  assert.equal(left.system.allocationMethod, right.system.allocationMethod);
+  assert.deepEqual([left.system.baseSeats, right.system.baseSeats, left.totalSeats, right.totalSeats], [656, 598, 669, 603]);
+});

@@ -5296,6 +5296,70 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "germany-historical-election-presentation-2026-11-24",
+      "status": "owner_approved",
+      "approved_by": "Owner development and release brief of 2026-11-24: Germany 1990–2025 historical election research integration. Presentation of admitted electoral areas, historical mandates, laws, ballot-scoped exports and institutional comparison.",
+      "baseline": "5cb9d4091b44f516eb458d5cc97efb1f9f0d4334",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-24",
+      "files": [
+        {
+          "path": "src/components/ElectionResultDownloads.tsx",
+          "sha256": "1a0f1edd98ee3fe632d5520a456f46096ad1863b17157143a6d52018b65a0f32",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/GermanElectionRuleComparison.tsx",
+          "sha256": "9f7b910aa05b48bad9aee89e32cc748d19ac9bcb66a4132e52ea703b529b9905",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/GermanHistoricalAllocation.tsx",
+          "sha256": "5c7a168546ff3ba72f980d30e5a5eb2b146dba633558ce68148e5c4a5a8d2cf8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ParliamentSeats.tsx",
+          "sha256": "930fe7cc2dad0bfc02b42973f274066df658651b2ba99d5237cebd4ad25ac9a1",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "c78e74c5b5a03c304a53d090337d7449a3554377e92ccf28429d7c085d0dbcfe",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalVerifiedComparison.tsx",
+          "sha256": "a824f6ed487199f587fc63d5b8f843239c2d887bde25f69219deaf067f7627ed",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalExplorer.ts",
+          "sha256": "56eb34f4f231400205fe8df684c93021f2ce1fefa9145da7f556f962d87a8571",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalNational.ts",
+          "sha256": "6174c7c0bbe36e06ea4f25bf77939f9f157d9d2d8a893d981ab35824e5aa3c6f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalSeriesComparison.ts",
+          "sha256": "faba6bfb76b8bad8276a4dc133cdfed4286c0382a024296bed8a22003f0a8a2d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalStores.ts",
+          "sha256": "dae97598b9b6fb941e92317d36e7e5fd5aa6b123d2f338d2f1c7fe91c91d941a",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

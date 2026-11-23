@@ -8,6 +8,11 @@ import type { EvidenceDraft } from "@/lib/researchNotebook";
 
 export function PoliticalVerifiedComparison({ a, b, locale, onHistory }: { a: PoliticalElectionView; b: PoliticalElectionView; locale: Locale; onHistory: (id: string) => void }) {
   const en = locale === "en", rows = compareVerifiedSeries(a,b);
+  if (!rows.length) {
+    return <p className="my-3 text-sm" data-verified-series-unavailable>{en
+      ? "Verified party comparison requires two second-vote ballots covered by the official identity series. Select election-specific ballot labels to inspect the recorded results."
+      : "已核实政党比较要求两届第二票均纳入官方身份序列。可选择“当届选票名称比较”查看各届收录的原始结果。"}</p>;
+  }
   const n = (v: number | null | undefined, digits = 0) => localeNumber(v ?? null,locale,{minimumFractionDigits:digits,maximumFractionDigits:digits});
   const delta = (v: number | null, digits = 0) => v === null ? "—" : `${v > 0 ? "+" : v < 0 ? "−" : ""}${n(Math.abs(v),digits)}`;
   const warning = en ? "Statistical attribution in the authority's series, not proof of legal continuity. Gaps are not zero. Seat changes reflect electoral rules as well as election results, not automatically voter support." : "这是官方序列的统计归属，不是法律主体连续性的证明。缺失不等于零。席位变化同时涉及选举规则与结果，不能直接视为选民支持变化。";

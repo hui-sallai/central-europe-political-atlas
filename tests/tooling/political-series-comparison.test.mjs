@@ -36,6 +36,7 @@ test('all 90 ordered pairs (1990–2025) reproduce unchanged canonical records a
   const before=JSON.stringify(stores),elections=electionViewsFromStores(stores,{slug:'germany',name:{en:'Germany','zh-CN':'德国'},originalLanguage:'de',voteLabel:{en:'Second votes','zh-CN':'第二票'}});
   let pairs=0;
   for(const a of elections)for(const b of elections){if(a.electionId===b.electionId)continue;pairs++;
+    if(a.year<2002||b.year<2002) assert.deepEqual(compareVerifiedSeries(a,b),[]);
     for(const row of compareVerifiedSeries(a,b)){
       for(const [e,result] of [[a,row.a],[b,row.b]])if(result){const link=row.series.links.find(l=>l.electionId===e.electionId);assert.equal(link.contestantId,result.contestantId);assert.deepEqual(e.results.find(r=>r.contestantId===link.contestantId),result);}
       assert.equal(row.votesChange,row.a?.secondVotes==null||row.b?.secondVotes==null?null:row.b.secondVotes-row.a.secondVotes);

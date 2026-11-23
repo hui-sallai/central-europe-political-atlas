@@ -1,14 +1,20 @@
 /** Descriptive election views only. Identity continuity is not inferred here. */
 import type { ScopedResult } from "./politicalRoundScope";
-import type { BallotProvenance, NationalContext } from "./politicalNational";
+import type { BallotProvenance, GermanAreaVotes, NationalContext } from "./politicalNational";
 export type PoliticalMeasure = "votes" | "vote_share" | "seats" | "seat_share";
-export type PoliticalSource = { id: string; title: string; url: string; sha256?: string; retrievedAt?: string; licenceUrl?: string; institution?: string };
+export type PoliticalSource = { id: string; title: string; url: string; sha256?: string; retrievedAt?: string; licenceUrl?: string; tier?: string; institution?: string };
 export type PoliticalResult = ScopedResult & {
   provenance?: BallotProvenance[];
   contestantId: string;
   nativeLabel: string;
   secondVotes: number | null;
   publishedVoteShare: number | null;
+  /** Published constituency mandates can also accompany first votes; they never stand for whole-chamber seats. */
+  constituencyMandates?: number | null;
+  listMandates?: number | null;
+  overhangSeats?: number | null;
+  seatsBeforeOverhangDerived?: number | null;
+  electoralAreaSecondVotes?: GermanAreaVotes;
   /** Seats of this row's own tier: whole-chamber seats where the ballot's seat scope is the whole chamber, otherwise the tier's seats (Hungary: national list seats). */
   seats: number | null;
   /** Single-member constituency seats, only where every seat of the chamber is attributed. */
