@@ -103,9 +103,41 @@
    {
     "period_id": "germany-period-1949-05-23",
     "from": "1949-05-23",
-    "to_exclusive": "2023-06-14",
+    "to_exclusive": "1990-08-29",
     "opened_by": [
      "de-1949-basic-law"
+    ]
+   },
+   {
+    "period_id": "germany-period-1990-08-29",
+    "from": "1990-08-29",
+    "to_exclusive": "1993-07-27",
+    "opened_by": [
+     "de-1990-election-treaty-act"
+    ]
+   },
+   {
+    "period_id": "germany-period-1993-07-27",
+    "from": "1993-07-27",
+    "to_exclusive": "1996-11-18",
+    "opened_by": [
+     "de-1993-bwg-eleventh-amendment"
+    ]
+   },
+   {
+    "period_id": "germany-period-1996-11-18",
+    "from": "1996-11-18",
+    "to_exclusive": "1998-04-23",
+    "opened_by": [
+     "de-1996-bwg-thirteenth-amendment"
+    ]
+   },
+   {
+    "period_id": "germany-period-1998-04-23",
+    "from": "1998-04-23",
+    "to_exclusive": "2023-06-14",
+    "opened_by": [
+     "de-1998-bwg-fourteenth-amendment"
     ]
    },
    {
@@ -1296,6 +1328,156 @@
    "undated_changes": []
   },
   {
+   "election_id": "el-de-bt-1990-12-02",
+   "country": "germany",
+   "date": "1990-12-02",
+   "chamber_id": "de-bundestag",
+   "chamber_official_name": "Deutscher Bundestag",
+   "seats": 662,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-de-bt-1990",
+   "system_family": "personalised proportional representation",
+   "allocation_method": "Hare/Niemeyer",
+   "base_seats": 656,
+   "thresholds": [
+    {
+     "applies_to": "second votes in the electoral area of the former Federal territory and West Berlin",
+     "percent": 5,
+     "description": {
+      "en": "5% of the valid second votes in this electoral area (applied separately; a party reaching it in either area took part in the allocation).",
+      "zh": "本选举区域有效第二票的5%（分区域适用；在任一区域达到即参与分配）。"
+     }
+    },
+    {
+     "applies_to": "second votes in the electoral area of the new Länder and East Berlin",
+     "percent": 5,
+     "description": {
+      "en": "5% of the valid second votes in this electoral area (applied separately).",
+      "zh": "本选举区域有效第二票的5%（分区域适用）。"
+     }
+    },
+    {
+     "applies_to": "constituency seats",
+     "percent": null,
+     "description": {
+      "en": "Basic-mandate clause: three constituency seats (official glossary, in force until 2021; not applied in 1990).",
+      "zh": "基本议席条款：三个选区席位（官方术语表，适用至2021年；1990年未适用）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation, not legal enactment dates",
+   "constitution_id": "de-basic-law-1949",
+   "institutional_period_id": "germany-period-1990-08-29",
+   "changes_in_force": [
+    "de-1949-basic-law",
+    "de-1990-election-treaty-act",
+    "de-1990-bwg-tenth-amendment"
+   ],
+   "repealed_before": [],
+   "later_changes": [
+    "de-1993-bwg-eleventh-amendment",
+    "de-1996-bwg-thirteenth-amendment",
+    "de-1998-bwg-fourteenth-amendment",
+    "de-2023-electoral-reform",
+    "de-2024-bverfg-threshold"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-de-bt-1994-10-16",
+   "country": "germany",
+   "date": "1994-10-16",
+   "chamber_id": "de-bundestag",
+   "chamber_official_name": "Deutscher Bundestag",
+   "seats": 672,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-de-bt-1994",
+   "system_family": "personalised proportional representation",
+   "allocation_method": "Hare/Niemeyer",
+   "base_seats": 656,
+   "thresholds": [
+    {
+     "applies_to": "national second votes",
+     "percent": 5,
+     "description": {
+      "en": "5% of the valid second votes in the electoral area (federal territory).",
+      "zh": "全国（选举区域）有效第二票的5%。"
+     }
+    },
+    {
+     "applies_to": "constituency seats",
+     "percent": null,
+     "description": {
+      "en": "Basic-mandate clause: a party with at least three constituency seats took part even below 5%. Applied in 1994 (PDS).",
+      "zh": "基本议席条款：赢得至少三个选区席位的政党即使未达5%也参与分配。1994年适用（民社党）。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation, not legal enactment dates",
+   "constitution_id": "de-basic-law-1949",
+   "institutional_period_id": "germany-period-1993-07-27",
+   "changes_in_force": [
+    "de-1949-basic-law",
+    "de-1990-election-treaty-act",
+    "de-1993-bwg-eleventh-amendment"
+   ],
+   "repealed_before": [],
+   "later_changes": [
+    "de-1996-bwg-thirteenth-amendment",
+    "de-1998-bwg-fourteenth-amendment",
+    "de-2023-electoral-reform",
+    "de-2024-bverfg-threshold"
+   ],
+   "undated_changes": []
+  },
+  {
+   "election_id": "el-de-bt-1998-09-27",
+   "country": "germany",
+   "date": "1998-09-27",
+   "chamber_id": "de-bundestag",
+   "chamber_official_name": "Deutscher Bundestag",
+   "seats": 669,
+   "seat_count_basis": "election_result_vintage_not_current_composition",
+   "electoral_system_id": "es-de-bt-1998",
+   "system_family": "personalised proportional representation",
+   "allocation_method": "Hare/Niemeyer",
+   "base_seats": 656,
+   "thresholds": [
+    {
+     "applies_to": "national second votes",
+     "percent": 5,
+     "description": {
+      "en": "5% of the valid second votes in the electoral area (federal territory).",
+      "zh": "全国（选举区域）有效第二票的5%。"
+     }
+    },
+    {
+     "applies_to": "constituency seats",
+     "percent": null,
+     "description": {
+      "en": "Basic-mandate clause: a party with at least three constituency seats took part even below 5%.",
+      "zh": "基本议席条款：赢得至少三个选区席位的政党即使未达5%也参与分配。"
+     }
+    }
+   ],
+   "rule_basis": "election-specific rule observation, not legal enactment dates",
+   "constitution_id": "de-basic-law-1949",
+   "institutional_period_id": "germany-period-1998-04-23",
+   "changes_in_force": [
+    "de-1949-basic-law",
+    "de-1990-election-treaty-act",
+    "de-1993-bwg-eleventh-amendment",
+    "de-1996-bwg-thirteenth-amendment",
+    "de-1998-bwg-fourteenth-amendment"
+   ],
+   "repealed_before": [],
+   "later_changes": [
+    "de-2023-electoral-reform",
+    "de-2024-bverfg-threshold"
+   ],
+   "undated_changes": []
+  },
+  {
    "election_id": "el-de-bt-2002-09-22",
    "country": "germany",
    "date": "2002-09-22",
@@ -1310,9 +1492,13 @@
    "thresholds": [],
    "rule_basis": "election-specific rule observation, not legal enactment dates",
    "constitution_id": "de-basic-law-1949",
-   "institutional_period_id": "germany-period-1949-05-23",
+   "institutional_period_id": "germany-period-1998-04-23",
    "changes_in_force": [
-    "de-1949-basic-law"
+    "de-1949-basic-law",
+    "de-1990-election-treaty-act",
+    "de-1993-bwg-eleventh-amendment",
+    "de-1996-bwg-thirteenth-amendment",
+    "de-1998-bwg-fourteenth-amendment"
    ],
    "repealed_before": [],
    "later_changes": [
@@ -1336,9 +1522,13 @@
    "thresholds": [],
    "rule_basis": "election-specific rule observation, not legal enactment dates",
    "constitution_id": "de-basic-law-1949",
-   "institutional_period_id": "germany-period-1949-05-23",
+   "institutional_period_id": "germany-period-1998-04-23",
    "changes_in_force": [
-    "de-1949-basic-law"
+    "de-1949-basic-law",
+    "de-1990-election-treaty-act",
+    "de-1993-bwg-eleventh-amendment",
+    "de-1996-bwg-thirteenth-amendment",
+    "de-1998-bwg-fourteenth-amendment"
    ],
    "repealed_before": [],
    "later_changes": [
@@ -1362,9 +1552,13 @@
    "thresholds": [],
    "rule_basis": "election-specific rule observation, not legal enactment dates",
    "constitution_id": "de-basic-law-1949",
-   "institutional_period_id": "germany-period-1949-05-23",
+   "institutional_period_id": "germany-period-1998-04-23",
    "changes_in_force": [
-    "de-1949-basic-law"
+    "de-1949-basic-law",
+    "de-1990-election-treaty-act",
+    "de-1993-bwg-eleventh-amendment",
+    "de-1996-bwg-thirteenth-amendment",
+    "de-1998-bwg-fourteenth-amendment"
    ],
    "repealed_before": [],
    "later_changes": [
@@ -1388,9 +1582,13 @@
    "thresholds": [],
    "rule_basis": "election-specific rule observation, not legal enactment dates",
    "constitution_id": "de-basic-law-1949",
-   "institutional_period_id": "germany-period-1949-05-23",
+   "institutional_period_id": "germany-period-1998-04-23",
    "changes_in_force": [
-    "de-1949-basic-law"
+    "de-1949-basic-law",
+    "de-1990-election-treaty-act",
+    "de-1993-bwg-eleventh-amendment",
+    "de-1996-bwg-thirteenth-amendment",
+    "de-1998-bwg-fourteenth-amendment"
    ],
    "repealed_before": [],
    "later_changes": [
@@ -1414,9 +1612,13 @@
    "thresholds": [],
    "rule_basis": "election-specific rule observation, not legal enactment dates",
    "constitution_id": "de-basic-law-1949",
-   "institutional_period_id": "germany-period-1949-05-23",
+   "institutional_period_id": "germany-period-1998-04-23",
    "changes_in_force": [
-    "de-1949-basic-law"
+    "de-1949-basic-law",
+    "de-1990-election-treaty-act",
+    "de-1993-bwg-eleventh-amendment",
+    "de-1996-bwg-thirteenth-amendment",
+    "de-1998-bwg-fourteenth-amendment"
    ],
    "repealed_before": [],
    "later_changes": [
@@ -1440,9 +1642,13 @@
    "thresholds": [],
    "rule_basis": "election-specific rule observation, not legal enactment dates",
    "constitution_id": "de-basic-law-1949",
-   "institutional_period_id": "germany-period-1949-05-23",
+   "institutional_period_id": "germany-period-1998-04-23",
    "changes_in_force": [
-    "de-1949-basic-law"
+    "de-1949-basic-law",
+    "de-1990-election-treaty-act",
+    "de-1993-bwg-eleventh-amendment",
+    "de-1996-bwg-thirteenth-amendment",
+    "de-1998-bwg-fourteenth-amendment"
    ],
    "repealed_before": [],
    "later_changes": [
@@ -1469,6 +1675,10 @@
    "institutional_period_id": "germany-period-2024-07-30",
    "changes_in_force": [
     "de-1949-basic-law",
+    "de-1990-election-treaty-act",
+    "de-1993-bwg-eleventh-amendment",
+    "de-1996-bwg-thirteenth-amendment",
+    "de-1998-bwg-fourteenth-amendment",
     "de-2023-electoral-reform",
     "de-2024-bverfg-threshold"
    ],

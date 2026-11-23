@@ -1,0 +1,28 @@
+{
+  "schema_version": "germany-extension-gate-v1",
+  "extension_id": "germany-bt-1990-1998",
+  "country": "germany",
+  "elections": ["el-de-bt-1990-12-02", "el-de-bt-1994-10-16", "el-de-bt-1998-09-27"],
+  "decided_on": "2026-11-23",
+  "owner_brief": "Central Europe Political Atlas v2.0 — Germany 1990–1998 & Slovenia 1992–1996 historical parliamentary election expansion (2026-11-23)",
+  "owner_answers": [
+    "\"Additive exception\": the Germany stores may gain 1990–1998 rows at exact hashes while every 2002–2025 row stays byte-identical; frozen research samples stay pinned.",
+    "\"Register bundestag.de\": manual reading of www.bundestag.de for the 1990–1998 legal basis (visible links only)."
+  ],
+  "gates": {
+    "reuse_right": "closed: Die Bundeswahlleiterin historical CSV under dl-de/by-2-0 (licence embedded in the file); final-results ZIP under the publisher's attribution terms already reviewed for 2002–2025; result and glossary pages recorded as factual metadata only; bundestag.de terms (private use) respected by storing facts only.",
+    "normalized_republication": "closed: only normalized national figures, labels as printed and provenance are published; no HTML, PDF or Datenhandbuch text is redistributed.",
+    "acquisition_route": "closed: bundeswahlleiterin.de is registered for automated reading (pages fetched once each); bundestag.de registered for manual reading by owner answer; ZIP and CSV were already archived on 2026-10-01.",
+    "source_files_complete": "closed: national rows of btw1990/1994/1998_kerg.csv, the historical CSV rows for each year, the three national result pages, the overhang, constituency, basic-mandate and Hare/Niemeyer glossary pages, and Datenhandbuch chapter 1.1.",
+    "national_definition_complete": "closed: eligible voters, voters, valid and invalid first and second votes; first-vote and second-vote ballots kept separate; publisher subtotal 'Sonstige' not stored; the first-vote aggregate of voter groups and individual candidates kept as one aggregate row.",
+    "same_election_identity_complete": "closed: every contestant is election-specific (party_relation_status requires_manual_review); no party, alliance or continuity link; CDU and CSU separate; 1990 GRÜNE and B90/Gr. separate.",
+    "electoral_system_metadata_complete": "closed: 656 statutory seats, 328 constituencies, overhang 6/16/13, Hare/Niemeyer reproduction of all seats, thresholds (1990 by electoral area; 1994/1998 national with the basic-mandate clause), legal basis with adoption and promulgation dates and gazette references; entry-into-force dates not asserted.",
+    "vintage_decisions_complete": "closed: final official results (Bundeswahlleiter final results by constituency, 2016 file edition); no later correction is recorded by the publisher."
+  },
+  "reconciliation": {
+    "votes": "ZIP party columns add up to valid first and valid second votes exactly; page, ZIP and CSV agree on every count; valid + invalid = voters on each ballot",
+    "seats": "constituency + Land-list seats = final seats (662/672/669); final − overhang = 656; Hare/Niemeyer over 656 among the qualifying parties reproduces every party's seats before overhang",
+    "academic": "ParlGov 2024 seat totals match (662/672/669), used for reconciliation only"
+  },
+  "frozen_research": "D3, D4 (17 elections) and the election–macro linkage are not re-sampled; the extension adds no election to any frozen research sample."
+}

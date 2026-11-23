@@ -125,6 +125,9 @@ export function validate({ meta, countries }, { storeSystems, storeChambers, kno
       if (!known.length && !ch.effective_note) problems.push(at(`change ${ch.change_id}: no date and no date note`));
       if (ch.repealed_effective !== undefined && (!DATE.test(ch.repealed_effective ?? "") || (changeDate(ch) && ch.repealed_effective <= changeDate(ch)))) problems.push(at(`change ${ch.change_id}.repealed_effective must be a date after it took effect`));
       if (!["verified", "partially_verified"].includes(ch.status)) problems.push(at(`change ${ch.change_id} status`));
+      // A transitional rule enacted for named elections only (Germany's 1990 threshold by electoral area): it needs a date and
+      // cited election IDs, and it neither opens an institutional period nor counts as in force at any other election.
+      if (ch.applies_only_to !== undefined && (!Array.isArray(ch.applies_only_to) || !ch.applies_only_to.length || ch.applies_only_to.some((id) => !/^el-[a-z]{2}-/.test(id)) || !changeDate(ch))) problems.push(at(`change ${ch.change_id}.applies_only_to must list election IDs of a dated change`));
       // Dated amendments of the change's own text (for example an electoral act amended before an election). Each must take effect
       // after the change itself and before any recorded repeal, and cite a source; an election lists those in force on polling day.
       for (const a of ch.amendments ?? []) {
@@ -157,7 +160,8 @@ export const changeDate = (ch) => ch.effective ?? ch.promulgated ?? ch.adopted ?
 export function buildLinks({ countries }) {
   const out = { schema_version: "institutional-election-links-v1", generated_from: "src/lib/institutions/countries/*.json and src/data/political/<country>/{elections,legislatures,electoral_systems}.json", rule: "Each election is linked to its own stored election-specific rule record; current statutory text is never applied retroactively. Institutional changes are listed as in force on polling day only when their documented date precedes it and no recorded repeal took effect by then (repealed ones are listed under repealed_before); dated amendments of a change in force are listed under amendments_in_force when they took effect by polling day; undated changes are listed separately.", periods: {}, elections: [] };
   for (const [slug, c] of Object.entries(countries)) {
-    const dated = c.changes.filter((ch) => changeDate(ch)).sort((a, b) => changeDate(a).localeCompare(changeDate(b)) || a.change_id.localeCompare(b.change_id));
+    const datedAll = c.changes.filter((ch) => changeDate(ch)).sort((a, b) => changeDate(a).localeCompare(changeDate(b)) || a.change_id.localeCompare(b.change_id));
+    const dated = datedAll.filter((ch) => !ch.applies_only_to), transitional = datedAll.filter((ch) => ch.applies_only_to);
     const starts = [...new Set(dated.map(changeDate))];
     out.periods[slug] = starts.map((from, i) => ({ period_id: `${slug}-period-${from}`, from, to_exclusive: starts[i + 1] ?? null, opened_by: dated.filter((ch) => changeDate(ch) === from).map((ch) => ch.change_id) }));
     if (!ADMITTED.includes(slug)) continue;
@@ -175,7 +179,7 @@ export function buildLinks({ countries }) {
         thresholds: (sys?.national_rules?.thresholds ?? []).map((t) => ({ applies_to: t.appliesTo, percent: t.percent, description: t.description ? { en: t.description.en, zh: t.description["zh-CN"] } : null })),
         rule_basis: sys?.interval_basis ?? null,
         constitution_id: constitutionOn(c, e.date), institutional_period_id: period?.period_id ?? null,
-        changes_in_force: dated.filter((ch) => changeDate(ch) <= e.date && !(ch.repealed_effective && ch.repealed_effective <= e.date)).map((ch) => ch.change_id),
+        changes_in_force: [...dated.filter((ch) => changeDate(ch) <= e.date && !(ch.repealed_effective && ch.repealed_effective <= e.date)), ...transitional.filter((ch) => ch.applies_only_to.includes(e.election_id) && changeDate(ch) <= e.date)].map((ch) => ch.change_id),
         repealed_before: dated.filter((ch) => ch.repealed_effective && ch.repealed_effective <= e.date).map((ch) => ch.change_id),
         ...(() => { const inForce = dated.filter((ch) => changeDate(ch) <= e.date && !(ch.repealed_effective && ch.repealed_effective <= e.date)).flatMap((ch) => (ch.amendments ?? []).filter((a) => a.effective <= e.date).map((a) => a.amendment_id)); return inForce.length ? { amendments_in_force: inForce } : {}; })(),
         later_changes: dated.filter((ch) => changeDate(ch) > e.date).map((ch) => ch.change_id),

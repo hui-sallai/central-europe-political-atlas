@@ -1,0 +1,105 @@
+{
+  "schema_version": "germany-early-legal-evidence-v1",
+  "source_id": "src-de-bundestag-dhb-1-1",
+  "source_url": "https://www.bundestag.de/resource/blob/196084/Kapitel_01_01_Wahlgesetze_und_Wahlrechtsregelungen.pdf",
+  "publisher_file_sha256": "bb9184ee68556fcb9b39a47ea112e732d166f5568c31cad6b98b98554e8f662e",
+  "document": "Deutscher Bundestag, Datenhandbuch zur Geschichte des Deutschen Bundestages, Kapitel 1.1 Wahlgesetze und Wahlrechtsregelungen (Stand 31.3.2022)",
+  "rule": "Facts only: official law titles, the dates the Bundestag adopted (verabschiedet) and promulgated (verkündet) each law, the Federal Law Gazette reference, and a summary of the changes in the Atlas's own words. The chapter's text is not reproduced (bundestag.de terms: private use). The chapter prints no entry-into-force dates; none are asserted.",
+  "date_fields": {
+    "adopted_by_bundestag": "column a) verabschiedet im BT",
+    "promulgated": "column b) verkündet",
+    "in_force": "not printed in the source; not asserted"
+  },
+  "laws": [
+    {
+      "law_id": "de-bwg-amend-09-1990",
+      "title": "Neuntes Gesetz zur Änderung des Bundeswahlgesetzes",
+      "bundestag_document": "BT-Drs. 11/7072",
+      "adopted_by_bundestag": "1990-05-23",
+      "promulgated": "1990-06-20",
+      "gazette": "BGBl. I S. 1015",
+      "applies_to": [1990],
+      "summary_en": "Berlin's members to be elected directly for the 12th Bundestag (ending their election by the Berlin House of Representatives); eight Berlin constituencies added; transitional provisions; amends § 53.",
+      "summary_zh": "第12届联邦议院起柏林议员改为直选（不再由柏林众议院选出）；增设8个柏林选区；过渡性规定；修订第53条。"
+    },
+    {
+      "law_id": "de-wahlvertrag-1990",
+      "title": "Gesetz zu dem Vertrag vom 3. August 1990 zur Vorbereitung und Durchführung der ersten gesamtdeutschen Wahl des Deutschen Bundestages zwischen der Bundesrepublik Deutschland und der Deutschen Demokratischen Republik",
+      "bundestag_document": "BT-Drs. 11/7624",
+      "adopted_by_bundestag": "1990-08-23",
+      "promulgated": "1990-08-29",
+      "gazette": "BGBl. II S. 831",
+      "applies_to": [1990],
+      "summary_en": "Ratifies the election treaty signed on 3 August 1990: federal electoral law extended to the GDR Länder; Bundestag members raised from 518 to 656; constituencies 257–328 added for Mecklenburg-Vorpommern, Brandenburg, Sachsen-Anhalt, Sachsen, Thüringen and East Berlin; list associations of different parties admitted for the first all-German election; Berlin treated as one Land; shortened deadlines.",
+      "summary_zh": "批准1990年8月3日签署的选举条约：联邦选举法扩展适用于民主德国各州；联邦议院议员由518名增至656名；为梅克伦堡-前波莫瑞、勃兰登堡、萨克森-安哈尔特、萨克森、图林根及东柏林增设第257–328号选区；首次全德选举允许不同政党的名单联合；柏林作为一个州对待；缩短期限。"
+    },
+    {
+      "law_id": "de-bwg-amend-10-1990",
+      "title": "Zehntes Gesetz zur Änderung des Bundeswahlgesetzes sowie zur Änderung des Parteiengesetzes",
+      "bundestag_document": "BT-Drs. 11/8023",
+      "adopted_by_bundestag": "1990-10-05",
+      "promulgated": "1990-10-10",
+      "gazette": "BGBl. I S. 2141",
+      "court_decision": "Bundesverfassungsgericht judgment of 1990-09-29",
+      "applies_to": [1990],
+      "summary_en": "Adapts the electoral law for the 12th Bundestag to the Federal Constitutional Court's judgment of 29 September 1990: the threshold is applied to two separate electoral areas (the territories of the two German states before 3 October 1990); list associations admitted for parties and other political associations seated in the former GDR; amends § 53 of the Federal Electoral Act.",
+      "summary_zh": "依联邦宪法法院1990年9月29日判决调整第12届联邦议院选举法：门槛分别适用于两个选举区域（1990年10月3日前两个德国国家的领土）；允许总部位于前民主德国的政党及其他政治团体组成名单联合；修订《联邦选举法》第53条。"
+    },
+    {
+      "law_id": "de-bwg-amend-11-1993",
+      "title": "Elftes Gesetz zur Änderung des Bundeswahlgesetzes",
+      "bundestag_document": "BT-Drs. 12/4616",
+      "adopted_by_bundestag": "1993-04-29",
+      "promulgated": "1993-07-27",
+      "gazette": "BGBl. I S. 1594",
+      "applies_to": [1994, 1998],
+      "summary_en": "New division and description of the constituencies; constituency boundaries to change only by federal law even when Land borders change; public deliberation of the Federal Electoral Committee on party recognition.",
+      "summary_zh": "重新划分并描述选区；即使州界变动，选区边界也只能由联邦法律变更；联邦选举委员会公开审议政党资格认定。"
+    },
+    {
+      "law_id": "de-bwg-amend-12-1994",
+      "title": "Zwölftes Gesetz zur Änderung des Bundeswahlgesetzes",
+      "bundestag_document": "BT-Drs. 12/6586",
+      "adopted_by_bundestag": "1994-03-10",
+      "promulgated": "1994-05-19",
+      "gazette": "BGBl. I S. 993",
+      "applies_to": [1994, 1998],
+      "summary_en": "Moves one residential area from constituency 282 (Brandenburg) to constituency 288 (Sachsen-Anhalt) after a Land border change.",
+      "summary_zh": "因州界变动，将一处居民区由第282选区（勃兰登堡）划入第288选区（萨克森-安哈尔特）。"
+    },
+    {
+      "law_id": "de-bwg-amend-13-1996",
+      "title": "Dreizehntes Gesetz zur Änderung des Bundeswahlgesetzes",
+      "bundestag_document": "BT-Drs. 13/5583",
+      "adopted_by_bundestag": "1996-10-11",
+      "promulgated": "1996-11-18",
+      "gazette": "BGBl. I S. 1712",
+      "applies_to": [1998],
+      "summary_en": "Reduces the Bundestag to 598 members from the 15th electoral term (so not for the 1998 election); changes to constituency boundaries for the 14th Bundestag.",
+      "summary_zh": "自第15届起将联邦议院减至598名议员（不适用于1998年选举）；调整第14届联邦议院的选区划分。"
+    },
+    {
+      "law_id": "de-bwg-amend-14-1998",
+      "title": "Vierzehntes Gesetz zur Änderung des Bundeswahlgesetzes",
+      "bundestag_document": "BT-Drs. 13/7854",
+      "adopted_by_bundestag": "1998-03-05",
+      "promulgated": "1998-04-23",
+      "gazette": "BGBl. I S. 706",
+      "applies_to": [1998],
+      "summary_en": "Voting rights for Germans abroad: a three-month uninterrupted stay in the federal territory at any time suffices.",
+      "summary_zh": "海外德国人投票权：曾在联邦境内连续居住三个月即可。"
+    }
+  ],
+  "rejected_proposals": [
+    {
+      "bundestag_document": "BT-Drs. 12/5130",
+      "summary_en": "Proposal to regionalise the 5% clause again (as in 1990) and lower it to 3% for the 13th Bundestag; rejected in second reading on 1994-01-20. The 1994 election therefore used one national threshold.",
+      "summary_zh": "关于第13届联邦议院再次按区域适用5%条款（如1990年）并降至3%的提案，于1994年1月20日二读时被否决。因此1994年选举适用全国统一门槛。"
+    },
+    {
+      "bundestag_document": "BT-Drs. 13/5575",
+      "summary_en": "Proposal to offset overhang seats within the same party's other Land lists for the 14th Bundestag; rejected in second reading on 1996-10-11. Overhang seats in 1998 were not compensated.",
+      "summary_zh": "关于第14届联邦议院在同一政党其他州名单中抵消超额席位的提案，于1996年10月11日二读时被否决。1998年超额席位未获补偿。"
+    }
+  ]
+}

@@ -153,7 +153,7 @@ test('comparison: three-way availability; Germany and Czechia views unchanged in
   assert.deepEqual(data.politicalComparisonCountries().map((c) => c.slug), ['czechia', 'poland', 'slovakia', 'hungary', 'serbia']);
   assert.deepEqual(data.politicalCzechComparisonCountries().map((c) => c.slug), ['germany', 'poland', 'slovakia', 'hungary', 'serbia']);
   assert.deepEqual(data.politicalPolishComparisonCountries().map((c) => c.slug), ['germany', 'czechia', 'slovakia', 'hungary', 'serbia']);
-  assert.equal(data.politicalElectionViews().length, 7);
+  assert.equal(data.politicalElectionViews().length, 10); // Germany 1990, 1994 and 1998 admitted 2026-11-23 (owner-approved extension); 2002–2025 views unchanged
   assert.equal(data.politicalCzechElectionViews().length, 7); // 2002–2013 admitted 2026-11-21
   const { compatibleTurnout } = require('../../src/lib/politicalNational.ts');
   const pl = data.politicalPolishElectionViews().at(-1);

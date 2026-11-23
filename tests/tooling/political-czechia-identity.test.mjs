@@ -143,7 +143,7 @@ test('election-to-election comparison lists verified units only, in date order',
 
 test('Germany is untouched: same views, no Czech links reach the German series', () => {
   const de = data.politicalElectionViews();
-  assert.equal(de.length, 7);
+  assert.equal(de.length, 10); // Germany 1990, 1994 and 1998 admitted 2026-11-23 (owner-approved extension); 2002–2025 views unchanged
   assert.ok(de.every((v) => v.country === 'germany'));
   assert.ok(links.every((l) => l.country === 'czechia'));
   assert.ok(members.every((m) => m.country === 'czechia'));

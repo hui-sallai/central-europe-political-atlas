@@ -31,7 +31,7 @@ test('export records evidence, published precision, direction and blank missing 
   const csv=verifiedComparisonCsv(a,b,'https://example.org/identity','a'.repeat(64));
   assert.match(csv,/share_change_pp_b_minus_a/);assert.match(csv,/"4.0","8.7","4.7"/);assert.match(csv,/verified_official_longitudinal_series/);assert.match(csv,/https:\/\/example.org\/results/);
 });
-test('all 42 ordered pairs reproduce unchanged canonical records and registered IDs',()=>{
+test('all 90 ordered pairs (1990–2025) reproduce unchanged canonical records and registered IDs',()=>{
   const stores=Object.fromEntries(Object.entries({elections:'elections',turnout:'election_turnout',results:'election_results',contestants:'electoral_contestants',legislatures:'legislatures',systems:'electoral_systems',sources:'political_source_registry'}).map(([key,name])=>[key,JSON.parse(fs.readFileSync(new URL(`../../src/data/political/germany/${name}.json`,import.meta.url)))]));
   const before=JSON.stringify(stores),elections=electionViewsFromStores(stores,{slug:'germany',name:{en:'Germany','zh-CN':'德国'},originalLanguage:'de',voteLabel:{en:'Second votes','zh-CN':'第二票'}});
   let pairs=0;
@@ -42,5 +42,6 @@ test('all 42 ordered pairs reproduce unchanged canonical records and registered 
       assert.equal(row.seatsChange,row.a?.seats==null||row.b?.seats==null?null:row.b.seats-row.a.seats);
     }
   }
-  assert.equal(pairs,42);assert.equal(JSON.stringify(stores),before);
+  // Bundestag 1990, 1994 and 1998 (owner-approved extension, 2026-11-23) join the 2002–2025 elections; they belong to no verified series.
+  assert.equal(elections.length,10);assert.equal(pairs,90);assert.equal(JSON.stringify(stores),before);
 });

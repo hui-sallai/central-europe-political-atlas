@@ -153,6 +153,30 @@ export function approvedPoliticalAdmissionFiles(records, hashOf = () => null) {
   return { approved, problems };
 }
 
+// The only Germany exception (owner answer "Additive exception", 2026-11-23): earlier Bundestag elections added to the existing
+// twelve Germany stores and their exports, each file at its exact sha256, while the owner's gate record is present at its
+// recorded sha256. Existing rows staying byte-identical is proven by the Germany build (validateCanonicalGermany).
+export const GERMANY_EXTENSION_FILE = 'docs/legal-security/germany_extension_records.json';
+export const GERMANY_EXTENSIONS = {
+  'germany-bt-1990-1998': { approved_on: '2026-11-23', owner_answer: 'Additive exception', gate_record: 'docs/political-data/germany_bt1990_1998_admission.json' },
+};
+const GERMANY_STORES = ['political_source_registry', 'political_parties', 'party_names', 'electoral_contestants', 'contestant_members', 'party_identity_crosswalk', 'electoral_systems', 'elections', 'election_turnout', 'election_results', 'legislatures', 'reconciliation_log'];
+export const GERMANY_EXTENSION_PATHS = [...GERMANY_STORES.map((s) => `src/data/political/germany/${s}.json`), ...GERMANY_STORES.flatMap((s) => [`public/research-data/political/germany/${s}.json`, `public/research-data/political/germany/${s}.csv`]), 'public/research-data/political/germany/README.md', 'public/research-data/political/germany/manifest.json'];
+export function approvedGermanyExtensionFiles(records, hashOf = () => null) {
+  const approved = new Map(), problems = [];
+  for (const r of records ?? []) {
+    if (r.status !== 'owner_approved') continue;
+    const ext = GERMANY_EXTENSIONS[r.extension_id];
+    if (!ext || r.approved_on !== ext.approved_on || r.owner_answer !== ext.owner_answer) { problems.push(`Unexpected Germany extension: ${r.extension_id}`); continue; }
+    for (const flag of ['existing_rows_change_allowed', 'frozen_research_sample_change_allowed', 'model_change_allowed', 'release_version_change_allowed']) if (r[flag] !== false) problems.push(`${r.extension_id}: ${flag} must be false`);
+    if (r.gate_record !== ext.gate_record || !/^[0-9a-f]{64}$/.test(r.gate_record_sha256 ?? '') || hashOf(r.gate_record) !== r.gate_record_sha256) problems.push(`${r.extension_id}: gate record missing or changed`);
+    const paths = (r.files ?? []).map((f) => f.path);
+    if (JSON.stringify([...paths].sort()) !== JSON.stringify([...GERMANY_EXTENSION_PATHS].sort())) problems.push(`${r.extension_id}: file set must be exactly the Germany stores and exports`);
+    for (const f of r.files ?? []) { if (!/^[0-9a-f]{64}$/.test(f.sha256 ?? '')) problems.push(`Missing Germany extension hash: ${f.path}`); approved.set(f.path, f.sha256); }
+  }
+  return { approved, problems };
+}
+
 /** Research package rule: a non-German country's political member must be an admitted file at its exact admitted hash. */
 export function politicalPackageMemberProblem(name, sha256, approved) {
   const match = name.match(/(^|\/)political\/([a-z]+)\/(.+)$/i);

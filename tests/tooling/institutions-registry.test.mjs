@@ -110,7 +110,14 @@ test("election links: reproducible, complete, and tied to each election's own ru
       for (const id of link.later_changes) assert.ok(changeDate(countries[slug].changes.find((c) => c.change_id === id)) > e.date);
     }
   }
-  assert.equal(links.elections.length, 65); // Hungary 2002 and 2006 admitted 2026-11-22; 1998 admitted 2026-11-23
+  assert.equal(links.elections.length, 68); // Hungary 2002 and 2006 admitted 2026-11-22; 1998 admitted 2026-11-23; Germany 1990, 1994 and 1998 admitted 2026-11-23
+  // Germany 1990–1998: 656 statutory seats under the 1990 treaty act; the Tenth Act's threshold by electoral area is a transitional
+  // rule listed for 1990 only and opening no period; 1994 and 1998 have one national threshold and their own periods.
+  const de = (y) => links.elections.find((l) => l.election_id === { 1990: "el-de-bt-1990-12-02", 1994: "el-de-bt-1994-10-16", 1998: "el-de-bt-1998-09-27" }[y]);
+  assert.deepEqual([1990, 1994, 1998].map((y) => [de(y).base_seats, de(y).seats, de(y).institutional_period_id, de(y).thresholds.map((t) => t.percent)]), [[656, 662, "germany-period-1990-08-29", [5, 5, null]], [656, 672, "germany-period-1993-07-27", [5, null]], [656, 669, "germany-period-1998-04-23", [5, null]]]);
+  assert.ok(de(1990).changes_in_force.includes("de-1990-bwg-tenth-amendment") && !links.elections.some((l) => l.election_id !== de(1990).election_id && [...l.changes_in_force, ...l.later_changes].includes("de-1990-bwg-tenth-amendment")));
+  assert.ok(!links.periods.germany.some((p) => p.opened_by.includes("de-1990-bwg-tenth-amendment")));
+  assert.ok(de(1998).changes_in_force.includes("de-1996-bwg-thirteenth-amendment") && de(1994).later_changes.includes("de-1996-bwg-thirteenth-amendment"));
   // Hungary 2010 (Act XXXIV of 1989): 386 seats from its own rule record, under the 1949 Constitution as amended in 1989 and the
   // period opened by the 1989 electoral act (in force on promulgation, 1989-10-30, § 56(1)); both 1989 acts were repealed from 2012-01-01.
   const hu2010 = links.elections.find((l) => l.election_id === "el-hu-ogy-2010-04-11");
@@ -168,6 +175,8 @@ test("preservation: election stores and economic data are unchanged by this iter
   // of its admission record; every other data file stays unchanged.
   const admitted = new Map(read("docs/legal-security/political_admission_records.json").admissions.filter((a) => a.status === "owner_approved" && ["croatia", "slovenia", "romania", "austria", "hungary", "czechia"].includes(a.country)).flatMap((a) => a.files.map((f) => [f.path, f.sha256])));
   const sha = (f) => crypto.createHash("sha256").update(fs.readFileSync(path.join(root, f))).digest("hex");
-  const unexplained = changed.filter((f) => !(/^(src\/data|public\/research-data)\/political\/(croatia|slovenia|romania|austria|hungary|czechia)\//.test(f) && admitted.get(f) === sha(f)));
+  // Germany 1990–1998 (owner answer "Additive exception", 2026-11-23): the Germany stores and exports at the exact hashes of the extension record.
+  for (const r of read("docs/legal-security/germany_extension_records.json").records.filter((r) => r.status === "owner_approved")) for (const f of r.files) admitted.set(f.path, f.sha256);
+  const unexplained = changed.filter((f) => !(/^(src\/data|public\/research-data)\/political\/(croatia|slovenia|romania|austria|hungary|czechia|germany)\//.test(f) && admitted.get(f) === sha(f)));
   assert.deepEqual(unexplained, [], `data files changed since ${BASE}`);
 });

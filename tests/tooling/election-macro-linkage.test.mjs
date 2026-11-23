@@ -20,13 +20,15 @@ const inputs = context.politicalContextData('germany');
 const points = contextAnnualPoints(inputs.observations, annual, inputs.indicators);
 const allAdmitted = [...data.politicalElectionViews(), ...data.politicalComparisonCountries().flatMap((c) => c.elections)];
 // The original four countries keep their exact results; Hungary is checked separately.
-const elections = allAdmitted.filter((e) => e.country !== 'hungary' && e.country !== 'serbia'); // Serbia (2026-11-15) is checked separately: no macro context is held for it.
+// Germany 1990, 1994 and 1998 (admitted 2026-11-23) are checked separately below; the reference set keeps its exact results.
+const DE_EARLY = ['el-de-bt-1990-12-02', 'el-de-bt-1994-10-16', 'el-de-bt-1998-09-27'];
+const elections = allAdmitted.filter((e) => e.country !== 'hungary' && e.country !== 'serbia' && !DE_EARLY.includes(e.electionId)); // Serbia (2026-11-15) is checked separately: no macro context is held for it.
 const rows = electionMacroRows(elections, points);
 const row = (electionId, indicator) => rows.find((r) => r.electionId === electionId && r.indicator === indicator);
 
 test('every admitted election is matched to every indicator, with missing values kept explicit', () => {
   assert.equal(elections.length, 19); // Czechia 2002, 2006, 2010 and 2013 admitted 2026-11-21
-  assert.equal(allAdmitted.length, 31); // Serbia 2020, 2022, 2023, 2026; Hungary 2010, 2014 and 2018 (2026-11-20); Czechia 2002–2013 (2026-11-21); Hungary 2002 and 2006 (2026-11-22); Hungary 1998 (2026-11-23)
+  assert.equal(allAdmitted.length, 34); // Germany 1990, 1994 and 1998 (2026-11-23); Serbia 2020, 2022, 2023, 2026; Hungary 2010, 2014 and 2018 (2026-11-20); Czechia 2002–2013 (2026-11-21); Hungary 2002 and 2006 (2026-11-22); Hungary 1998 (2026-11-23)
   assert.equal(rows.length, 19 * ELECTION_MACRO_INDICATORS.length);
   assert.deepEqual([...new Set(rows.map((r) => r.country))].sort(), ['czechia', 'germany', 'poland', 'slovakia']);
   assert.deepEqual(Object.fromEntries(electionMacroCoverage(rows).map((c) => [c.indicator, [c.lastCompleteYear, c.retrospective, c.elections]])), { hicp_inflation: [19, 19, 19], real_gdp_growth: [13, 14, 19], unemployment_rate: [4, 6, 19], fiscal_balance_gdp: [19, 19, 19], government_debt_gdp: [19, 19, 19] });
@@ -128,4 +130,10 @@ test('Serbia in the comparison sets (2026-11-15): every row is an explicit gap, 
   const rs = electionMacroRows(serbia, points);
   assert.equal(rs.length, 4 * ELECTION_MACRO_INDICATORS.length);
   for (const r of rs) for (const view of [r.lastCompleteYear, r.retrospective]) { assert.equal(view.value, null, r.electionId); assert.notEqual(view.status, 'published', r.electionId); }
+});
+
+test('Germany 1990, 1994 and 1998 (admitted 2026-11-23) get one row per indicator, gaps explicit, never zero', () => {
+  const early = electionMacroRows(allAdmitted.filter((e) => DE_EARLY.includes(e.electionId)), points);
+  assert.equal(early.length, 3 * ELECTION_MACRO_INDICATORS.length);
+  for (const r of early) for (const c of [r.lastCompleteYear, r.retrospective]) { assert.equal(c.value === null, c.status !== 'published'); if (c.value === null) assert.notEqual(c.status, 'published'); }
 });

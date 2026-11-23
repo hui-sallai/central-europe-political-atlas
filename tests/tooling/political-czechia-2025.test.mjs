@@ -103,7 +103,7 @@ test('adapter: Czechia view, Germany unchanged, comparable list votes and docume
   const { compatibleTurnout, compatibleVoteBasis } = require('../../src/lib/politicalNational.ts');
   assert.equal(compatibleTurnout(de, e), false, 'different turnout numerators are not treated as one comparable change');
   assert.equal(typeof compatibleVoteBasis(de, e), 'boolean');
-  assert.equal(data.politicalElectionViews().length, 7);
+  assert.equal(data.politicalElectionViews().length, 10); // Germany 1990, 1994 and 1998 admitted 2026-11-23 (owner-approved extension); 2002–2025 views unchanged
 });
 
 test('election-to-election: rule changes are recorded, Czech turnout and vote basis are comparable', () => {

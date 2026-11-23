@@ -1,5 +1,455 @@
 [
   {
+    "legislature_id": "lg-de-bt-12",
+    "country": "germany",
+    "chamber": "Bundestag",
+    "official_term": 12,
+    "election_id": "el-de-bt-1990-12-02",
+    "total_seats": 662,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "statutory_base_seats": 656,
+    "statutory_base_seats_basis": "derived: final seats minus overhang seats, both published (overhang table); equals twice the 328 constituencies",
+    "overhang_seats": 6,
+    "constituency_count": 328,
+    "constituency_mandates": 328,
+    "list_mandates": 334,
+    "overhang_by_land": [
+      {
+        "land": "Mecklenburg-Vorpommern",
+        "seats": 2,
+        "party": "CDU"
+      },
+      {
+        "land": "Sachsen-Anhalt",
+        "seats": 3,
+        "party": "CDU"
+      },
+      {
+        "land": "Thüringen",
+        "seats": 1,
+        "party": "CDU"
+      }
+    ],
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-1990",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1990.html",
+        "source_record_id": "Bundesergebnis: row \"heading\"",
+        "retrieved_at": "2026-11-23T03:28:34.106Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "official_term",
+          "chamber"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d025af526cd6430ae97d47fb9a7660286ff45c638692eb2a0be3f70603170bd5"
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-83",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "total_seats",
+          "constituency_mandates",
+          "list_mandates"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          79,
+          81,
+          83
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "Bei Bundestagswahlen entstandene Überhangmandate 1949 - 2009 (Stand bei der Wahl): row 1990",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "total_seats",
+          "overhang_seats",
+          "overhang_by_land",
+          "constituency_count"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c",
+        "printed_row": "1990 328 662 6 Mecklenburg-Vorpommern 2 CDU Sachsen-Anhalt 3 CDU Thüringen 1 CDU"
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "Bei Bundestagswahlen entstandene Überhangmandate 1949 - 2009 (Stand bei der Wahl): row 1990",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "statutory_base_seats"
+        ],
+        "published_or_derived": "derived",
+        "publisher_file_sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c",
+        "printed_row": "1990 328 662 6 Mecklenburg-Vorpommern 2 CDU Sachsen-Anhalt 3 CDU Thüringen 1 CDU",
+        "formula": "total_seats - overhang_seats",
+        "input_fields": [
+          "total_seats",
+          "overhang_seats"
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-constituencies",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlkreise.html",
+        "source_record_id": "table column 1990 - 1998",
+        "retrieved_at": "2026-11-23T03:31:46.331Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "constituency_count"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "78c9a06897c0240834febf65cca1cc7ac3c5af02665a99c9138d8dfa583043e3"
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-de-bt-13",
+    "country": "germany",
+    "chamber": "Bundestag",
+    "official_term": 13,
+    "election_id": "el-de-bt-1994-10-16",
+    "total_seats": 672,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "statutory_base_seats": 656,
+    "statutory_base_seats_basis": "derived: final seats minus overhang seats, both published (overhang table); equals twice the 328 constituencies",
+    "overhang_seats": 16,
+    "constituency_count": 328,
+    "constituency_mandates": 328,
+    "list_mandates": 344,
+    "overhang_by_land": [
+      {
+        "land": "Baden-Württemberg",
+        "seats": 2,
+        "party": "CDU"
+      },
+      {
+        "land": "Mecklenburg-Vorpommern",
+        "seats": 2,
+        "party": "CDU"
+      },
+      {
+        "land": "Sachsen-Anhalt",
+        "seats": 2,
+        "party": "CDU"
+      },
+      {
+        "land": "Thüringen",
+        "seats": 3,
+        "party": "CDU"
+      },
+      {
+        "land": "Sachsen",
+        "seats": 3,
+        "party": "CDU"
+      },
+      {
+        "land": "Bremen",
+        "seats": 1,
+        "party": "SPD"
+      },
+      {
+        "land": "Brandenburg",
+        "seats": 3,
+        "party": "SPD"
+      }
+    ],
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-1994",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1994.html",
+        "source_record_id": "Bundesergebnis: row \"heading\"",
+        "retrieved_at": "2026-11-23T03:28:39.451Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "official_term",
+          "chamber"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "b9a86eb3173a1772da59126e62e8a9430259a73e1e5df92e5050e96a6b35f5f4"
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-84",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "total_seats",
+          "constituency_mandates",
+          "list_mandates"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          79,
+          81,
+          83
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "Bei Bundestagswahlen entstandene Überhangmandate 1949 - 2009 (Stand bei der Wahl): row 1994",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "total_seats",
+          "overhang_seats",
+          "overhang_by_land",
+          "constituency_count"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c",
+        "printed_row": "1994 328 672 16 Baden-Württemberg 2 CDU Mecklenburg-Vorpommern 2 CDU Sachsen-Anhalt 2 CDU Thüringen 3 CDU Sachsen 3 CDU Bremen 1 SPD Brandenburg 3 SPD"
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "Bei Bundestagswahlen entstandene Überhangmandate 1949 - 2009 (Stand bei der Wahl): row 1994",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "statutory_base_seats"
+        ],
+        "published_or_derived": "derived",
+        "publisher_file_sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c",
+        "printed_row": "1994 328 672 16 Baden-Württemberg 2 CDU Mecklenburg-Vorpommern 2 CDU Sachsen-Anhalt 2 CDU Thüringen 3 CDU Sachsen 3 CDU Bremen 1 SPD Brandenburg 3 SPD",
+        "formula": "total_seats - overhang_seats",
+        "input_fields": [
+          "total_seats",
+          "overhang_seats"
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-constituencies",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlkreise.html",
+        "source_record_id": "table column 1990 - 1998",
+        "retrieved_at": "2026-11-23T03:31:46.331Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "constituency_count"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "78c9a06897c0240834febf65cca1cc7ac3c5af02665a99c9138d8dfa583043e3"
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-de-bt-14",
+    "country": "germany",
+    "chamber": "Bundestag",
+    "official_term": 14,
+    "election_id": "el-de-bt-1998-09-27",
+    "total_seats": 669,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "statutory_base_seats": 656,
+    "statutory_base_seats_basis": "derived: final seats minus overhang seats, both published (overhang table); equals twice the 328 constituencies",
+    "overhang_seats": 13,
+    "constituency_count": 328,
+    "constituency_mandates": 328,
+    "list_mandates": 341,
+    "overhang_by_land": [
+      {
+        "land": "Hamburg",
+        "seats": 1,
+        "party": "SPD"
+      },
+      {
+        "land": "Mecklenburg-Vorpommern",
+        "seats": 2,
+        "party": "SPD"
+      },
+      {
+        "land": "Brandenburg",
+        "seats": 3,
+        "party": "SPD"
+      },
+      {
+        "land": "Sachsen-Anhalt",
+        "seats": 4,
+        "party": "SPD"
+      },
+      {
+        "land": "Thüringen",
+        "seats": 3,
+        "party": "SPD"
+      }
+    ],
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-1998",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1998.html",
+        "source_record_id": "Bundesergebnis: row \"heading\"",
+        "retrieved_at": "2026-11-23T03:28:48.203Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "official_term",
+          "chamber"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0e16acfd4998d91bbda1515cea1e3c3e9edce01dadcf82cc7fdafa8676de7edd"
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-85",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "total_seats",
+          "constituency_mandates",
+          "list_mandates"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          79,
+          81,
+          83
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "Bei Bundestagswahlen entstandene Überhangmandate 1949 - 2009 (Stand bei der Wahl): row 1998",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "total_seats",
+          "overhang_seats",
+          "overhang_by_land",
+          "constituency_count"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c",
+        "printed_row": "1998 328 669 13 Hamburg 1 SPD Mecklenburg-Vorpommern 2 SPD Brandenburg 3 SPD Sachsen-Anhalt 4 SPD Thüringen 3 SPD"
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "Bei Bundestagswahlen entstandene Überhangmandate 1949 - 2009 (Stand bei der Wahl): row 1998",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "statutory_base_seats"
+        ],
+        "published_or_derived": "derived",
+        "publisher_file_sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c",
+        "printed_row": "1998 328 669 13 Hamburg 1 SPD Mecklenburg-Vorpommern 2 SPD Brandenburg 3 SPD Sachsen-Anhalt 4 SPD Thüringen 3 SPD",
+        "formula": "total_seats - overhang_seats",
+        "input_fields": [
+          "total_seats",
+          "overhang_seats"
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-constituencies",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlkreise.html",
+        "source_record_id": "table column 1990 - 1998",
+        "retrieved_at": "2026-11-23T03:31:46.331Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "constituency_count"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "78c9a06897c0240834febf65cca1cc7ac3c5af02665a99c9138d8dfa583043e3"
+      }
+    ]
+  },
+  {
     "legislature_id": "lg-de-bt-15",
     "country": "germany",
     "chamber": "Bundestag",

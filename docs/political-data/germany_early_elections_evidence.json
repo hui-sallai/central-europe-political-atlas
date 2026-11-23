@@ -1,0 +1,1114 @@
+{
+  "schema_version": "germany-early-elections-evidence-v1",
+  "brief": "owner brief 2026-11-24 (Germany 1990–1998 and Slovenia 1992–1996); owner answer \"Additive exception\"",
+  "transcription_rule": "Re-parsed from the archived official pages by scripts/political-data/germany/early-evidence.mjs; never edited by hand. Archived HTML is not redistributed.",
+  "result_pages": {
+    "1990": {
+      "source_id": "src-de-bwl-election-1990",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1990.html",
+      "retrieved_at": "2026-11-23T03:28:34.106Z",
+      "raw_sha256": "d025af526cd6430ae97d47fb9a7660286ff45c638692eb2a0be3f70603170bd5",
+      "raw_path": "docs/political-data/raw/germany/production_election-1990/source.html",
+      "heading": "Wahl zum 12. Deutschen Bundestag am 2. Dezember 1990",
+      "caption": "Bundesergebnis",
+      "rows": [
+        {
+          "label": "Wahlberechtigte",
+          "first_votes": 60436560,
+          "first_percent": "X",
+          "second_votes": 60436560,
+          "second_percent": "X",
+          "seats": null
+        },
+        {
+          "label": "Wähler, Wahlbeteiligung",
+          "first_votes": 46995915,
+          "first_percent": "77,8",
+          "second_votes": 46995915,
+          "second_percent": "77,8",
+          "seats": null
+        },
+        {
+          "label": "Ungültig",
+          "first_votes": 720990,
+          "first_percent": "1,5",
+          "second_votes": 540143,
+          "second_percent": "1,1",
+          "seats": null
+        },
+        {
+          "label": "Gültig",
+          "first_votes": 46274925,
+          "first_percent": "98,5",
+          "second_votes": 46455772,
+          "second_percent": "98,9",
+          "seats": null
+        },
+        {
+          "label": "CDU",
+          "first_votes": 17707574,
+          "first_percent": "38,3",
+          "second_votes": 17055116,
+          "second_percent": "36,7",
+          "seats": 268
+        },
+        {
+          "label": "SPD",
+          "first_votes": 16279980,
+          "first_percent": "35,2",
+          "second_votes": 15545366,
+          "second_percent": "33,5",
+          "seats": 239
+        },
+        {
+          "label": "F.D.P.",
+          "first_votes": 3595135,
+          "first_percent": "7,8",
+          "second_votes": 5123233,
+          "second_percent": "11,0",
+          "seats": 79
+        },
+        {
+          "label": "CSU",
+          "first_votes": 3423904,
+          "first_percent": "7,4",
+          "second_votes": 3302980,
+          "second_percent": "7,1",
+          "seats": 51
+        },
+        {
+          "label": "GRÜNE",
+          "first_votes": 2037885,
+          "first_percent": "4,4",
+          "second_votes": 1788200,
+          "second_percent": "3,8",
+          "seats": null
+        },
+        {
+          "label": "PDS",
+          "first_votes": 1049245,
+          "first_percent": "2,3",
+          "second_votes": 1129578,
+          "second_percent": "2,4",
+          "seats": 17
+        },
+        {
+          "label": "B90/Gr.",
+          "first_votes": 552027,
+          "first_percent": "1,2",
+          "second_votes": 559207,
+          "second_percent": "1,2",
+          "seats": 8
+        },
+        {
+          "label": "Sonstige",
+          "first_votes": 1629175,
+          "first_percent": "3,5",
+          "second_votes": 1952092,
+          "second_percent": "4,2",
+          "seats": null
+        },
+        {
+          "label": "DSU",
+          "first_votes": 131747,
+          "first_percent": "0,3",
+          "second_votes": 89008,
+          "second_percent": "0,2",
+          "seats": null
+        },
+        {
+          "label": "BP",
+          "first_votes": 10836,
+          "first_percent": "0,0",
+          "second_votes": 31315,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "DDD",
+          "first_votes": 474,
+          "first_percent": "0,0",
+          "second_votes": 1009,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "BSA",
+          "first_votes": 214,
+          "first_percent": "0,0",
+          "second_votes": 826,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "LIGA",
+          "first_votes": 8667,
+          "first_percent": "0,0",
+          "second_votes": 39640,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "CM",
+          "first_votes": 9824,
+          "first_percent": "0,0",
+          "second_votes": 36446,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "ÖKO-UNION",
+          "first_votes": 1106,
+          "first_percent": "0,0",
+          "second_votes": 4661,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "GRAUE",
+          "first_votes": 218412,
+          "first_percent": "0,5",
+          "second_votes": 385910,
+          "second_percent": "0,8",
+          "seats": null
+        },
+        {
+          "label": "Mündige Bürger",
+          "first_votes": 72,
+          "first_percent": "0,0",
+          "second_votes": 492,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "REP",
+          "first_votes": 767652,
+          "first_percent": "1,7",
+          "second_votes": 987269,
+          "second_percent": "2,1",
+          "seats": null
+        },
+        {
+          "label": "FRAUEN",
+          "first_votes": 1433,
+          "first_percent": "0,0",
+          "second_votes": 12077,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "KPD (Ost)",
+          "first_votes": null,
+          "first_percent": "–",
+          "second_votes": 1630,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "NPD",
+          "first_votes": 190105,
+          "first_percent": "0,4",
+          "second_votes": 145776,
+          "second_percent": "0,3",
+          "seats": null
+        },
+        {
+          "label": "ÖDP",
+          "first_votes": 243469,
+          "first_percent": "0,5",
+          "second_votes": 205206,
+          "second_percent": "0,4",
+          "seats": null
+        },
+        {
+          "label": "Patrioten",
+          "first_votes": 746,
+          "first_percent": "0,0",
+          "second_votes": 4687,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "SpAD",
+          "first_votes": 124,
+          "first_percent": "0,0",
+          "second_votes": 1610,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "VAA",
+          "first_votes": 704,
+          "first_percent": "0,0",
+          "second_votes": 4530,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "EFP",
+          "first_votes": 266,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "Wählergruppen/Einzelbewerber",
+          "first_votes": 43324,
+          "first_percent": "0,1",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        }
+      ]
+    },
+    "1994": {
+      "source_id": "src-de-bwl-election-1994",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1994.html",
+      "retrieved_at": "2026-11-23T03:28:39.451Z",
+      "raw_sha256": "b9a86eb3173a1772da59126e62e8a9430259a73e1e5df92e5050e96a6b35f5f4",
+      "raw_path": "docs/political-data/raw/germany/production_election-1994/source.html",
+      "heading": "Wahl zum 13. Deutschen Bundestag am 16. Oktober 1994",
+      "caption": "Bundesergebnis",
+      "rows": [
+        {
+          "label": "Wahlberechtigte",
+          "first_votes": 60452009,
+          "first_percent": "X",
+          "second_votes": 60452009,
+          "second_percent": "X",
+          "seats": null
+        },
+        {
+          "label": "Wähler, Wahlbeteiligung",
+          "first_votes": 47737999,
+          "first_percent": "79,0",
+          "second_votes": 47737999,
+          "second_percent": "79,0",
+          "seats": null
+        },
+        {
+          "label": "Ungültig",
+          "first_votes": 788643,
+          "first_percent": "1,7",
+          "second_votes": 632825,
+          "second_percent": "1,3",
+          "seats": null
+        },
+        {
+          "label": "Gültig",
+          "first_votes": 46949356,
+          "first_percent": "98,3",
+          "second_votes": 47105174,
+          "second_percent": "98,7",
+          "seats": null
+        },
+        {
+          "label": "CDU",
+          "first_votes": 17473325,
+          "first_percent": "37,2",
+          "second_votes": 16089960,
+          "second_percent": "34,2",
+          "seats": 244
+        },
+        {
+          "label": "SPD",
+          "first_votes": 17966813,
+          "first_percent": "38,3",
+          "second_votes": 17140354,
+          "second_percent": "36,4",
+          "seats": 252
+        },
+        {
+          "label": "F.D.P.",
+          "first_votes": 1558185,
+          "first_percent": "3,3",
+          "second_votes": 3258407,
+          "second_percent": "6,9",
+          "seats": 47
+        },
+        {
+          "label": "CSU",
+          "first_votes": 3657627,
+          "first_percent": "7,8",
+          "second_votes": 3427196,
+          "second_percent": "7,3",
+          "seats": 50
+        },
+        {
+          "label": "GRÜNE",
+          "first_votes": 3037902,
+          "first_percent": "6,5",
+          "second_votes": 3424315,
+          "second_percent": "7,3",
+          "seats": 49
+        },
+        {
+          "label": "PDS",
+          "first_votes": 1920420,
+          "first_percent": "4,1",
+          "second_votes": 2066176,
+          "second_percent": "4,4",
+          "seats": 30
+        },
+        {
+          "label": "Sonstige",
+          "first_votes": 1335084,
+          "first_percent": "2,8",
+          "second_votes": 1698766,
+          "second_percent": "3,6",
+          "seats": null
+        },
+        {
+          "label": "REP",
+          "first_votes": 787757,
+          "first_percent": "1,7",
+          "second_votes": 875239,
+          "second_percent": "1,9",
+          "seats": null
+        },
+        {
+          "label": "APD",
+          "first_votes": 1654,
+          "first_percent": "0,0",
+          "second_votes": 21533,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "BP",
+          "first_votes": 3324,
+          "first_percent": "0,0",
+          "second_votes": 42491,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "BüSo",
+          "first_votes": 8032,
+          "first_percent": "0,0",
+          "second_votes": 8103,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "BSA",
+          "first_votes": null,
+          "first_percent": "–",
+          "second_votes": 1285,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "LIGA",
+          "first_votes": 3788,
+          "first_percent": "0,0",
+          "second_votes": 5195,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "CM",
+          "first_votes": 3559,
+          "first_percent": "0,0",
+          "second_votes": 19887,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "ZENTRUM",
+          "first_votes": 1489,
+          "first_percent": "0,0",
+          "second_votes": 3757,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "GRAUE",
+          "first_votes": 178450,
+          "first_percent": "0,4",
+          "second_votes": 238642,
+          "second_percent": "0,5",
+          "seats": null
+        },
+        {
+          "label": "NATURGESETZ",
+          "first_votes": 59087,
+          "first_percent": "0,1",
+          "second_votes": 73193,
+          "second_percent": "0,2",
+          "seats": null
+        },
+        {
+          "label": "MLPD",
+          "first_votes": 4932,
+          "first_percent": "0,0",
+          "second_votes": 10038,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "Die Tierschutzpartei",
+          "first_votes": null,
+          "first_percent": "–",
+          "second_votes": 71643,
+          "second_percent": "0,2",
+          "seats": null
+        },
+        {
+          "label": "ÖDP",
+          "first_votes": 200138,
+          "first_percent": "0,4",
+          "second_votes": 183715,
+          "second_percent": "0,4",
+          "seats": null
+        },
+        {
+          "label": "PBC",
+          "first_votes": 26864,
+          "first_percent": "0,1",
+          "second_votes": 65651,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "PASS",
+          "first_votes": 489,
+          "first_percent": "0,0",
+          "second_votes": 15040,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "STATT Partei",
+          "first_votes": 7927,
+          "first_percent": "0,0",
+          "second_votes": 63354,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "BGD",
+          "first_votes": 107,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "DKP",
+          "first_votes": 693,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "DSU",
+          "first_votes": 2395,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "DVP",
+          "first_votes": 606,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "DEMOKRATEN",
+          "first_votes": 104,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "FBU",
+          "first_votes": 8193,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "FSU",
+          "first_votes": 467,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "KPD",
+          "first_votes": 426,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "LD",
+          "first_votes": 221,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "UAP",
+          "first_votes": 302,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "Wählergruppen/Einzelbewerber",
+          "first_votes": 34080,
+          "first_percent": "0,1",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        }
+      ]
+    },
+    "1998": {
+      "source_id": "src-de-bwl-election-1998",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1998.html",
+      "retrieved_at": "2026-11-23T03:28:48.203Z",
+      "raw_sha256": "0e16acfd4998d91bbda1515cea1e3c3e9edce01dadcf82cc7fdafa8676de7edd",
+      "raw_path": "docs/political-data/raw/germany/production_election-1998/source.html",
+      "heading": "Wahl zum 14. Deutschen Bundestag am 27. September 1998",
+      "caption": "Bundesergebnis",
+      "rows": [
+        {
+          "label": "Wahlberechtigte",
+          "first_votes": 60762751,
+          "first_percent": "X",
+          "second_votes": 60762751,
+          "second_percent": "X",
+          "seats": null
+        },
+        {
+          "label": "Wähler, Wahlbeteiligung",
+          "first_votes": 49947087,
+          "first_percent": "82,2",
+          "second_votes": 49947087,
+          "second_percent": "82,2",
+          "seats": null
+        },
+        {
+          "label": "Ungültig",
+          "first_votes": 780507,
+          "first_percent": "1,6",
+          "second_votes": 638575,
+          "second_percent": "1,3",
+          "seats": null
+        },
+        {
+          "label": "Gültig",
+          "first_votes": 49166580,
+          "first_percent": "98,4",
+          "second_votes": 49308512,
+          "second_percent": "98,7",
+          "seats": null
+        },
+        {
+          "label": "SPD",
+          "first_votes": 21535893,
+          "first_percent": "43,8",
+          "second_votes": 20181269,
+          "second_percent": "40,9",
+          "seats": 298
+        },
+        {
+          "label": "CDU",
+          "first_votes": 15854215,
+          "first_percent": "32,2",
+          "second_votes": 14004908,
+          "second_percent": "28,4",
+          "seats": 198
+        },
+        {
+          "label": "CSU",
+          "first_votes": 3602472,
+          "first_percent": "7,3",
+          "second_votes": 3324480,
+          "second_percent": "6,7",
+          "seats": 47
+        },
+        {
+          "label": "GRÜNE",
+          "first_votes": 2448162,
+          "first_percent": "5,0",
+          "second_votes": 3301624,
+          "second_percent": "6,7",
+          "seats": 47
+        },
+        {
+          "label": "F.D.P.",
+          "first_votes": 1486433,
+          "first_percent": "3,0",
+          "second_votes": 3080955,
+          "second_percent": "6,2",
+          "seats": 43
+        },
+        {
+          "label": "PDS",
+          "first_votes": 2416781,
+          "first_percent": "4,9",
+          "second_votes": 2515454,
+          "second_percent": "5,1",
+          "seats": 36
+        },
+        {
+          "label": "Sonstige",
+          "first_votes": 1822624,
+          "first_percent": "3,7",
+          "second_votes": 2899822,
+          "second_percent": "5,9",
+          "seats": null
+        },
+        {
+          "label": "Deutschland",
+          "first_votes": 1946,
+          "first_percent": "0,0",
+          "second_votes": 6196,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "APPD",
+          "first_votes": 1676,
+          "first_percent": "0,0",
+          "second_votes": 35242,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "APD",
+          "first_votes": 1458,
+          "first_percent": "0,0",
+          "second_votes": 6759,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "BP",
+          "first_votes": 1772,
+          "first_percent": "0,0",
+          "second_votes": 28107,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "BüSo",
+          "first_votes": 10260,
+          "first_percent": "0,0",
+          "second_votes": 9662,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "BFB-Die Offensive",
+          "first_votes": 134795,
+          "first_percent": "0,3",
+          "second_votes": 121196,
+          "second_percent": "0,2",
+          "seats": null
+        },
+        {
+          "label": "CHANCE 2000",
+          "first_votes": 3206,
+          "first_percent": "0,0",
+          "second_votes": 28566,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "CM",
+          "first_votes": 9023,
+          "first_percent": "0,0",
+          "second_votes": 23619,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "DPD",
+          "first_votes": 1172,
+          "first_percent": "0,0",
+          "second_votes": 2432,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "DVU",
+          "first_votes": null,
+          "first_percent": "–",
+          "second_votes": 601192,
+          "second_percent": "1,2",
+          "seats": null
+        },
+        {
+          "label": "GRAUE",
+          "first_votes": 141763,
+          "first_percent": "0,3",
+          "second_votes": 152557,
+          "second_percent": "0,3",
+          "seats": null
+        },
+        {
+          "label": "REP",
+          "first_votes": 1115664,
+          "first_percent": "2,3",
+          "second_votes": 906383,
+          "second_percent": "1,8",
+          "seats": null
+        },
+        {
+          "label": "FAMILIE",
+          "first_votes": 8134,
+          "first_percent": "0,0",
+          "second_votes": 24825,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "DIE FRAUEN",
+          "first_votes": 3966,
+          "first_percent": "0,0",
+          "second_votes": 30094,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "HP",
+          "first_votes": 532,
+          "first_percent": "0,0",
+          "second_votes": 435,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "Pro DM",
+          "first_votes": null,
+          "first_percent": "–",
+          "second_votes": 430099,
+          "second_percent": "0,9",
+          "seats": null
+        },
+        {
+          "label": "MLPD",
+          "first_votes": 7208,
+          "first_percent": "0,0",
+          "second_votes": 4731,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "Die Tierschutzpartei",
+          "first_votes": 1734,
+          "first_percent": "0,0",
+          "second_votes": 133832,
+          "second_percent": "0,3",
+          "seats": null
+        },
+        {
+          "label": "NPD",
+          "first_votes": 45043,
+          "first_percent": "0,1",
+          "second_votes": 126571,
+          "second_percent": "0,3",
+          "seats": null
+        },
+        {
+          "label": "NATURGESETZ",
+          "first_votes": 35132,
+          "first_percent": "0,1",
+          "second_votes": 30619,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "FORUM",
+          "first_votes": 6296,
+          "first_percent": "0,0",
+          "second_votes": 4543,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "ödp",
+          "first_votes": 145308,
+          "first_percent": "0,3",
+          "second_votes": 98257,
+          "second_percent": "0,2",
+          "seats": null
+        },
+        {
+          "label": "PBC",
+          "first_votes": 46379,
+          "first_percent": "0,1",
+          "second_votes": 71941,
+          "second_percent": "0,1",
+          "seats": null
+        },
+        {
+          "label": "AB 2000",
+          "first_votes": 4097,
+          "first_percent": "0,0",
+          "second_votes": 3355,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "Nichtwähler",
+          "first_votes": null,
+          "first_percent": "–",
+          "second_votes": 6827,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "PASS",
+          "first_votes": 10449,
+          "first_percent": "0,0",
+          "second_votes": 5556,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "PSG",
+          "first_votes": null,
+          "first_percent": "–",
+          "second_votes": 6226,
+          "second_percent": "0,0",
+          "seats": null
+        },
+        {
+          "label": "DKP",
+          "first_votes": 2105,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "DSU",
+          "first_votes": 8180,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "ZENTRUM",
+          "first_votes": 2076,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "DMP",
+          "first_votes": 1924,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "FP Deutschlands",
+          "first_votes": 131,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "FSU",
+          "first_votes": 763,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "STATT Partei",
+          "first_votes": 4406,
+          "first_percent": "0,0",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        },
+        {
+          "label": "Wählergruppen/Einzelbewerber",
+          "first_votes": 66026,
+          "first_percent": "0,1",
+          "second_votes": null,
+          "second_percent": "–",
+          "seats": null
+        }
+      ]
+    }
+  },
+  "overhang": {
+    "source_id": "src-de-bwl-overhang",
+    "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+    "retrieved_at": "2026-10-02T10:26:23.125Z",
+    "raw_sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c",
+    "raw_path": "docs/political-data/raw/germany/production_overhang/source.html",
+    "table_heading": "Bei Bundestagswahlen entstandene Überhangmandate 1949 - 2009 (Stand bei der Wahl)",
+    "rows": {
+      "1990": {
+        "constituencies": 328,
+        "total_seats": 662,
+        "overhang_seats": 6,
+        "by_land": [
+          {
+            "land": "Mecklenburg-Vorpommern",
+            "seats": 2,
+            "party": "CDU"
+          },
+          {
+            "land": "Sachsen-Anhalt",
+            "seats": 3,
+            "party": "CDU"
+          },
+          {
+            "land": "Thüringen",
+            "seats": 1,
+            "party": "CDU"
+          }
+        ],
+        "printed": "1990 328 662 6 Mecklenburg-Vorpommern 2 CDU Sachsen-Anhalt 3 CDU Thüringen 1 CDU"
+      },
+      "1994": {
+        "constituencies": 328,
+        "total_seats": 672,
+        "overhang_seats": 16,
+        "by_land": [
+          {
+            "land": "Baden-Württemberg",
+            "seats": 2,
+            "party": "CDU"
+          },
+          {
+            "land": "Mecklenburg-Vorpommern",
+            "seats": 2,
+            "party": "CDU"
+          },
+          {
+            "land": "Sachsen-Anhalt",
+            "seats": 2,
+            "party": "CDU"
+          },
+          {
+            "land": "Thüringen",
+            "seats": 3,
+            "party": "CDU"
+          },
+          {
+            "land": "Sachsen",
+            "seats": 3,
+            "party": "CDU"
+          },
+          {
+            "land": "Bremen",
+            "seats": 1,
+            "party": "SPD"
+          },
+          {
+            "land": "Brandenburg",
+            "seats": 3,
+            "party": "SPD"
+          }
+        ],
+        "printed": "1994 328 672 16 Baden-Württemberg 2 CDU Mecklenburg-Vorpommern 2 CDU Sachsen-Anhalt 2 CDU Thüringen 3 CDU Sachsen 3 CDU Bremen 1 SPD Brandenburg 3 SPD"
+      },
+      "1998": {
+        "constituencies": 328,
+        "total_seats": 669,
+        "overhang_seats": 13,
+        "by_land": [
+          {
+            "land": "Hamburg",
+            "seats": 1,
+            "party": "SPD"
+          },
+          {
+            "land": "Mecklenburg-Vorpommern",
+            "seats": 2,
+            "party": "SPD"
+          },
+          {
+            "land": "Brandenburg",
+            "seats": 3,
+            "party": "SPD"
+          },
+          {
+            "land": "Sachsen-Anhalt",
+            "seats": 4,
+            "party": "SPD"
+          },
+          {
+            "land": "Thüringen",
+            "seats": 3,
+            "party": "SPD"
+          }
+        ],
+        "printed": "1998 328 669 13 Hamburg 1 SPD Mecklenburg-Vorpommern 2 SPD Brandenburg 3 SPD Sachsen-Anhalt 4 SPD Thüringen 3 SPD"
+      }
+    }
+  },
+  "constituencies": {
+    "source_id": "src-de-bwl-constituencies",
+    "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlkreise.html",
+    "retrieved_at": "2026-11-23T03:31:46.331Z",
+    "raw_sha256": "78c9a06897c0240834febf65cca1cc7ac3c5af02665a99c9138d8dfa583043e3",
+    "raw_path": "docs/political-data/raw/germany/production_constituencies/source.html",
+    "column": "1990 - 1998",
+    "footnote": "Ab 1990 nach dem Gebietsstand seit dem 3. Oktober 1990.",
+    "by_land": {
+      "Baden-Württemberg": 37,
+      "Bayern": 45,
+      "Berlin": 13,
+      "Brandenburg": 12,
+      "Bremen": 3,
+      "Hamburg": 7,
+      "Hessen": 22,
+      "Mecklenburg-Vorpommern": 9,
+      "Niedersachsen": 31,
+      "Nordrhein-Westfalen": 71,
+      "Rheinland-Pfalz": 16,
+      "Saarland": 5,
+      "Sachsen": 21,
+      "Sachsen-Anhalt": 13,
+      "Schleswig-Holstein": 11,
+      "Thüringen": 12
+    },
+    "total": 328
+  },
+  "basic_mandate": {
+    "source_id": "src-de-bwl-basic-mandate",
+    "source_url": "https://www.bundeswahlleiterin.de/service/glossar/g/grundmandatsklausel.html",
+    "retrieved_at": "2026-11-23T03:31:42.245Z",
+    "raw_sha256": "ab4822bfeffff6740f777bccc800b92b604e041950071d361f06efd0c20a22c3",
+    "raw_path": "docs/political-data/raw/germany/production_basic-mandate/source.html",
+    "rule": "Bei der Verteilung der Sitze auf die Landeslisten der Parteien wurden bis zur Bundestagswahl 2021 auch Parteien berücksichtigt, die nicht die 5-%-Hürde (Sperrklausel) überwunden hatten, aber in mindestens drei Wahlkreisen (bei der Bundestagswahl 1953 genügte noch ein Wahlkreis) einen Sitz errungen hatten.",
+    "application_1994": "Bundestagswahl 1994: Die PDS gewann 4 Direktmandate und 4,4 % der gültigen Zweitstimmen. Ihr wurden 26 Landeslistensitze zugeteilt."
+  },
+  "hare_niemeyer": {
+    "source_id": "src-de-bwl-hare-niemeyer",
+    "source_url": "https://www.bundeswahlleiterin.de/service/glossar/h/hare-niemeyer.html",
+    "retrieved_at": "2026-10-02T10:25:58.176Z",
+    "raw_sha256": "31a164d79e4f6ba9229bc3f51f0bff0fcf80bc49b360c63bdfb462df0c430158",
+    "raw_path": "docs/political-data/raw/germany/production_hare-niemeyer/source.html",
+    "period": "Bei den Wahlen vom 11. bis zum 16. Deutschen Bundestag von 1987 bis 2005 wurde die Sitzzuteilung nach dem Hare/Niemeyer-Verfahren vorgenommen"
+  }
+}

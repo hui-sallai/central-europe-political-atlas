@@ -1,5 +1,176 @@
 [
   {
+    "election_id": "el-de-bt-1990-12-02",
+    "country": "germany",
+    "election_type": "national_parliament",
+    "chamber": "Bundestag",
+    "date": "1990-12-02",
+    "year": 1990,
+    "legislature_id": "lg-de-bt-12",
+    "electoral_system_id": "es-de-bt-1990",
+    "result_status": "final",
+    "result_vintage": "final",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-1990",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1990.html",
+        "source_record_id": "Bundesergebnis: row \"heading\"",
+        "retrieved_at": "2026-11-23T03:28:34.106Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "date",
+          "year",
+          "chamber",
+          "legislature_id"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d025af526cd6430ae97d47fb9a7660286ff45c638692eb2a0be3f70603170bd5"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:1-4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "result_status",
+          "result_vintage"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 3,
+        "printed_heading": "Wahl zum 12. Deutschen Bundestag; Endgültige Ergebnisse der Erst- und Zweitstimmen nach Wahlkreisen"
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-1994-10-16",
+    "country": "germany",
+    "election_type": "national_parliament",
+    "chamber": "Bundestag",
+    "date": "1994-10-16",
+    "year": 1994,
+    "legislature_id": "lg-de-bt-13",
+    "electoral_system_id": "es-de-bt-1994",
+    "result_status": "final",
+    "result_vintage": "final",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-1994",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1994.html",
+        "source_record_id": "Bundesergebnis: row \"heading\"",
+        "retrieved_at": "2026-11-23T03:28:39.451Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "date",
+          "year",
+          "chamber",
+          "legislature_id"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "b9a86eb3173a1772da59126e62e8a9430259a73e1e5df92e5050e96a6b35f5f4"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:1-4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "result_status",
+          "result_vintage"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 3,
+        "printed_heading": "Wahl zum 13. Deutschen Bundestag; Endgültige Ergebnisse der Erst- und Zweitstimmen nach Wahlkreisen"
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-1998-09-27",
+    "country": "germany",
+    "election_type": "national_parliament",
+    "chamber": "Bundestag",
+    "date": "1998-09-27",
+    "year": 1998,
+    "legislature_id": "lg-de-bt-14",
+    "electoral_system_id": "es-de-bt-1998",
+    "result_status": "final",
+    "result_vintage": "final",
+    "later_poll_date": null,
+    "repeat_poll_date": null,
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-1998",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1998.html",
+        "source_record_id": "Bundesergebnis: row \"heading\"",
+        "retrieved_at": "2026-11-23T03:28:48.203Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "date",
+          "year",
+          "chamber",
+          "legislature_id"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0e16acfd4998d91bbda1515cea1e3c3e9edce01dadcf82cc7fdafa8676de7edd"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:1-4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "result_status",
+          "result_vintage"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 3,
+        "printed_heading": "Wahl zum 14. Deutschen Bundestag; Endgültige Ergebnisse der Erst- und Zweitstimmen nach Wahlkreisen"
+      }
+    ]
+  },
+  {
     "election_id": "el-de-bt-2002-09-22",
     "country": "germany",
     "election_type": "national_parliament",

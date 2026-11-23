@@ -513,6 +513,18 @@
       "status": "allowed_review_due"
     },
     {
+      "host": "www.bundestag.de",
+      "purpose": "German Bundestag — Datenhandbuch zur Geschichte des Deutschen Bundestages (Parlamentsarchiv), chapter 1.1 on electoral laws, read for the legal basis of the 1990, 1994 and 1998 Bundestag elections; manual reading only",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-11-23",
+      "robots_note": "User-agent * disallows /includes/, /WEB-INF/, /blueprint/WEB-INF, /xml/, /apps/, /static/wfa_20wp and /resource/blob/834414/; /resource/blob/196084/ (chapter 1.1) is allowed; no AI-agent rule",
+      "rate_policy": "pages reached by visible links only, one request each, no crawling",
+      "terms_note": "Impressum (Nutzungsbedingungen, read 2026-11-23): contents are copyright-protected and may be downloaded or printed for private use only; the Atlas stores facts only (law titles, dates, gazette references) in its own words and does not redistribute the PDF or its text",
+      "approved_by": "owner (AskUserQuestion answer \"Register bundestag.de\", Germany 1990–1998 brief, 2026-11-23)",
+      "status": "allowed"
+    },
+    {
       "host": "www.ris.bka.gv.at",
       "purpose": "Federal Chancellery legal information system (RIS): single-article documents of the B-VG and the National Council Electoral Act 1992; Bundesgesetzblatt notice BGBl. II 197/2023 (/Dokumente/BgblAuth/)",
       "automation_allowed": false,

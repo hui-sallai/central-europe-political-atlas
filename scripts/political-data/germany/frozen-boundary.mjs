@@ -4,8 +4,9 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {execFileSync} from 'node:child_process';
 import {root} from './acquire.mjs';
-import {stores,buildApprovedProduction} from './production.mjs';
-import {validatePolitical} from './validate.mjs';
+import {stores} from './production.mjs';
+import {validateCanonicalGermany} from './validate.mjs';
+import {buildCanonicalGermany,germanyExtension} from './early-elections.mjs';
 import {politicalExportFiles} from './export.mjs';
 import {approvedMirrorFiles,mirrorSyncPath,MIRROR_SYNC_FILE} from '../../../docs/political-data/source-closure/ui-amendments.mjs';
 import {approvedNewsFiles,NEWS_REFRESH_FILE} from '../../../docs/political-data/source-closure/news-refresh-amendments.mjs';
@@ -126,7 +127,9 @@ export function unapprovedFrozenChanges(changed,baseline){
   const admissionPath=path.join(root,POLITICAL_ADMISSION_FILE);
   const fileHash=rel=>fs.existsSync(path.join(root,rel))?sha256(fs.readFileSync(path.join(root,rel))):null;
   const admissions=approvedPoliticalAdmissionFiles(fs.existsSync(admissionPath)?JSON.parse(fs.readFileSync(admissionPath,'utf8')).admissions:[],fileHash);
-  const data=buildApprovedProduction();validatePolitical(data,data);
+  // Germany: the approved 2002–2025 slice, plus 1990–1998 rows only under the owner-approved extension (exact hashes).
+  const data=buildCanonicalGermany();validateCanonicalGermany(data,data);
+  const extension=germanyExtension().record,extensionHash=new Map((extension?.files??[]).map(f=>[f.path,f.sha256]));
   const files=new Map(stores.map(store=>[`src/data/political/germany/${store}.json`,JSON.stringify(data[store],null,2)+'\n']));
   for(const [name,content] of Object.entries(politicalExportFiles(data)))files.set(`public/research-data/political/germany/${name}`,content);
   const unexpected=[];
@@ -148,6 +151,7 @@ export function unapprovedFrozenChanges(changed,baseline){
     const prior=execFileSync('git',['ls-tree','--name-only',baseline,'--',file],{cwd:root,encoding:'utf8'});
     assert.equal(prior.trim(),'','Political exception must be additive');
     assert.equal(fs.readFileSync(path.join(root,file),'utf8'),files.get(file),`Approved political content: ${file}`);
+    if(extension)assert.equal(fileHash(file),extensionHash.get(file),`Germany extension hash: ${file}`);
   }
   return unexpected;
 }

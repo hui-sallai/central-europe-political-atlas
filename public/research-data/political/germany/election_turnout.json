@@ -1,5 +1,851 @@
 [
   {
+    "election_id": "el-de-bt-1990-12-02",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "second_vote",
+    "result_vintage": "final",
+    "eligible_voters": 60436560,
+    "voters": 46995915,
+    "valid_second_votes": 46455772,
+    "invalid_second_votes": 540143,
+    "published_turnout": 77.8,
+    "derived_turnout": 77.76073787124879,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately",
+    "electoral_area_valid_second_votes": {
+      "west": 37426103,
+      "east": 9029669
+    },
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:369:3",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 3
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:369:4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "voters"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 4
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-41",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          5,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:369:8",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 8
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:369:6",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "invalid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 6
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-83",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "electoral_area_valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          72,
+          76
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:369:4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 4,
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-1990-12-02",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "first_vote",
+    "result_vintage": "final",
+    "eligible_voters": 60436560,
+    "voters": 46995915,
+    "valid_votes": 46274925,
+    "invalid_votes": 720990,
+    "published_turnout": 77.8,
+    "derived_turnout": 77.76073787124879,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately (one turnout for both ballots)",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:369:3",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 3
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:369:4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "voters"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 4
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-41",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          5,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:369:7",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "valid_votes"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 7
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:369:5",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 5
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:369:4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 4,
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-1994-10-16",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "second_vote",
+    "result_vintage": "final",
+    "eligible_voters": 60452009,
+    "voters": 47737999,
+    "valid_second_votes": 47105174,
+    "invalid_second_votes": 632825,
+    "published_turnout": 79,
+    "derived_turnout": 78.96842435790678,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:368:3",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 3
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:368:4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "voters"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 4
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-42",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          5,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:368:8",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 8
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:368:6",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "invalid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 6
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:368:4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 4,
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-1994-10-16",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "first_vote",
+    "result_vintage": "final",
+    "eligible_voters": 60452009,
+    "voters": 47737999,
+    "valid_votes": 46949356,
+    "invalid_votes": 788643,
+    "published_turnout": 79,
+    "derived_turnout": 78.96842435790678,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately (one turnout for both ballots)",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:368:3",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 3
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:368:4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "voters"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 4
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-42",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          5,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:368:7",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "valid_votes"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 7
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:368:5",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 5
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:368:4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 4,
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-1998-09-27",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "second_vote",
+    "result_vintage": "final",
+    "eligible_voters": 60762751,
+    "voters": 49947087,
+    "valid_second_votes": 49308512,
+    "invalid_second_votes": 638575,
+    "published_turnout": 82.2,
+    "derived_turnout": 82.20017391905117,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:369:3",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 3
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:369:4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "voters"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 4
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-43",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          5,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:369:8",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 8
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:369:6",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "invalid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 6
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:369:4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 4,
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-1998-09-27",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "first_vote",
+    "result_vintage": "final",
+    "eligible_voters": 60762751,
+    "voters": 49947087,
+    "valid_votes": 49166580,
+    "invalid_votes": 780507,
+    "published_turnout": 82.2,
+    "derived_turnout": 82.20017391905117,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately (one turnout for both ballots)",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:369:3",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 3
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:369:4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "voters"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 4
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-43",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          5,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:369:7",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "valid_votes"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 7
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:369:5",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "invalid_votes"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 5
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:369:4",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 4,
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  },
+  {
     "election_id": "el-de-bt-2002-09-22",
     "country": "germany",
     "geography": "national",

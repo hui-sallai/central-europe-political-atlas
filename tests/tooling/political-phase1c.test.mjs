@@ -69,7 +69,7 @@ test('the store adapter reads a second country in the same schema; missing total
 
 test('Germany views are unchanged by the adapter refactor', () => {
   const views = germanViews();
-  assert.equal(views.length, 7);
+  assert.equal(views.length, 10); // Germany 1990, 1994 and 1998 admitted 2026-11-23 (owner-approved extension); 2002–2025 views unchanged
   const v2021 = views.find((item) => item.year === 2021);
   assert.equal(v2021.totalSeats, 735);
   assert.equal(v2021.results.length, 40);

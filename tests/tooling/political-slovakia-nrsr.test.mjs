@@ -104,7 +104,7 @@ test('admission: exact hashes, closed gates, Germany inadmissible; other electio
 
 test('comparison: four countries available from every view; Germany, Czechia and Poland keep their elections', () => {
   assert.deepEqual(data.politicalSlovakComparisonCountries().map((c) => c.slug), ['germany', 'czechia', 'poland', 'hungary', 'serbia']);
-  assert.equal(data.politicalElectionViews().length, 7);
+  assert.equal(data.politicalElectionViews().length, 10); // Germany 1990, 1994 and 1998 admitted 2026-11-23 (owner-approved extension); 2002–2025 views unchanged
   assert.equal(data.politicalCzechElectionViews().length, 7); // 2002–2013 admitted 2026-11-21
   assert.equal(data.politicalPolishElectionViews().length, 4);
   assert.equal(read('public/research-data/political/poland/manifest.json').continuous_party_series, 5);

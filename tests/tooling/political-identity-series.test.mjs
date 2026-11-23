@@ -41,7 +41,11 @@ test('committed identity record: every link reproduces the canonical count, evid
   const raw = fs.readFileSync(record.source.raw_path);
   assert.equal(crypto.createHash('sha256').update(raw).digest('hex'), record.source.sha256);
   assert.equal(record.canonical_stores_changed, false);
-  const results = store('election_results'), contestants = store('electoral_contestants');
+  // The identity record covers the 2002–2025 slice; 1990–1998 contestants (owner-approved extension, 2026-11-23) belong to no series.
+  const early = (id) => /^ct-de-(1990|1994|1998)-/.test(id);
+  const results = store('election_results'), allContestants = store('electoral_contestants'), contestants = allContestants.filter((c) => !early(c.contestant_id));
+  assert.equal(allContestants.length - contestants.length, 100);
+  assert.ok(!record.series.some((s) => s.links.some((l) => early(l.contestant_id))) && !record.unresolved.some((u) => early(u.contestant_id ?? u)));
   let links = 0;
   for (const series of record.series) {
     assert.equal(series.series_id, seriesId(series.authority_series_label));

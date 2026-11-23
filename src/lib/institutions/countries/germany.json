@@ -27,7 +27,7 @@
       "name": { "en": "Bundestag", "zh": "联邦议院（Bundestag）" },
       "role": "lower",
       "store_chamber": "Bundestag",
-      "members": { "value": 630, "basis": { "en": "fixed by the Federal Electoral Act since the 2023 reform (first applied 2025); 2002–2021 elections had 598 base seats, with overhang seats and, from 2013, compensatory seats (election rule records)", "zh": "自 2023 年改革起由《联邦选举法》固定（2025 年首次适用）；2002–2021 年选举基础席位为 598 席，另有超额席位，2013 年起另有平衡席位（见选举规则记录）" }, "articles": "BWahlG § 1(1)", "source_ids": ["de-bwahlg"] },
+      "members": { "value": 630, "basis": { "en": "fixed by the Federal Electoral Act since the 2023 reform (first applied 2025); 1990–1998 elections had 656 statutory seats with overhang seats; 2002–2021 elections had 598 base seats, with overhang seats and, from 2013, compensatory seats (election rule records)", "zh": "自 2023 年改革起由《联邦选举法》固定（2025 年首次适用）；1990–1998 年选举法定席位为 656 席，另有超额席位；2002–2021 年选举基础席位为 598 席，另有超额席位，2013 年起另有平衡席位（见选举规则记录）" }, "articles": "BWahlG § 1(1)", "source_ids": ["de-bwahlg"] },
       "term_years": 4,
       "selection": { "code": "direct_personalised_pr", "label": { "en": "General, direct, free, equal and secret elections; proportional representation with constituency candidates", "zh": "普遍、直接、自由、平等、秘密选举；结合选区候选人的比例代表制" }, "articles": "GG Arts. 38–39; BWahlG §§ 1, 4–6" },
       "powers": { "en": "Passes federal laws (Art. 77(1)), elects the Federal Chancellor (Art. 63) and half of the judges of each senate of the Federal Constitutional Court, the other half being elected by the Bundesrat (Art. 93(2)).", "zh": "通过联邦法律（第 77 条第 1 款），选举联邦总理（第 63 条），并选举联邦宪法法院各审判庭半数法官，另一半由联邦参议院选举（第 93 条第 2 款）。" },
@@ -119,6 +119,79 @@
       "status": "verified"
     },
     {
+      "change_id": "de-1990-election-treaty-act",
+      "dimension": "electoral_system",
+      "title": {"en": "Act on the treaty of 3 August 1990 preparing the first all-German Bundestag election", "zh": "关于1990年8月3日筹备首次全德联邦议院选举条约的法律"},
+      "adopted": "1990-08-23",
+      "promulgated": "1990-08-29",
+      "effective": null,
+      "effective_note": {"en": "The Bundestag Datenhandbuch prints the dates the Bundestag adopted and the act was promulgated; it prints no entry-into-force date, so none is asserted.", "zh": "联邦议院《数据手册》列出联邦议院通过日期和公布日期，未列生效日期，故不作认定。"},
+      "previous": {"en": "518 members (Federal Republic before 3 October 1990).", "zh": "518名议员（1990年10月3日前的联邦德国）。"},
+      "new": {"en": "Federal electoral law extended to the Länder of the GDR; 656 members; constituencies 257–328 added for the new Länder and East Berlin (328 in all); list associations of different parties admitted for the first all-German election; Berlin treated as one Land.", "zh": "联邦选举法扩展适用于民主德国各州；议员656名；为新联邦州及东柏林增设第257–328号选区（共328个）；首次全德选举允许不同政党名单联合；柏林作为一个州对待。"},
+      "note": {"en": "Its seat count (656) applied at the 1990, 1994 and 1998 elections; the 1996 amendment replaced it with 598 from 2002 and the 2023 reform with 630. The registry records no repeal of the act itself, so later elections still list it.", "zh": "其656席规定适用于1990、1994、1998年选举；1996年修正自2002年起改为598席，2023年改革改为630席。登记表未记录该法本身被废止，因此其后选举仍列出该法。"},
+      "legal_basis": "Gesetz zu dem Vertrag vom 3. August 1990 zur Vorbereitung und Durchführung der ersten gesamtdeutschen Wahl des Deutschen Bundestages (BT-Drs. 11/7624), BGBl. II S. 831",
+      "source_ids": ["de-bundestag-dhb-1-1"],
+      "status": "partially_verified"
+    },
+    {
+      "change_id": "de-1990-bwg-tenth-amendment",
+      "dimension": "electoral_system",
+      "title": {"en": "Tenth Act amending the Federal Electoral Act: threshold by electoral area for the 1990 election", "zh": "《联邦选举法》第十修正法：1990年选举按选举区域适用门槛"},
+      "adopted": "1990-10-05",
+      "promulgated": "1990-10-10",
+      "effective": null,
+      "effective_note": {"en": "The Bundestag Datenhandbuch prints the dates the Bundestag adopted and the act was promulgated; it prints no entry-into-force date, so none is asserted.", "zh": "联邦议院《数据手册》列出联邦议院通过日期和公布日期，未列生效日期，故不作认定。"},
+      "applies_only_to": ["el-de-bt-1990-12-02"],
+      "previous": {"en": "One 5% threshold for the whole electoral area; list associations of different parties (treaty act).", "zh": "整个选举区域统一5%门槛；不同政党名单联合（条约法）。"},
+      "new": {"en": "For the 12th Bundestag only, following the Federal Constitutional Court's judgment of 29 September 1990: the threshold applied separately to the two electoral areas (the territories of the two German states before 3 October 1990); list associations limited to parties and political associations seated in the former GDR; amends § 53.", "zh": "仅适用于第12届联邦议院，依联邦宪法法院1990年9月29日判决：门槛在两个选举区域（1990年10月3日前两个德国国家的领土）分别适用；名单联合限于总部位于前民主德国的政党及政治团体；修订第53条。"},
+      "legal_basis": "Zehntes Gesetz zur Änderung des Bundeswahlgesetzes sowie zur Änderung des Parteiengesetzes (BT-Drs. 11/8023), BGBl. I S. 2141",
+      "source_ids": ["de-bundestag-dhb-1-1"],
+      "status": "partially_verified",
+      "note": {"en": "A transitional rule for one election: listed as in force only for the 1990 election and opening no institutional period. The 1994 and 1998 rule records show one national threshold; a proposal to regionalise it again for 1994 was rejected on 20 January 1994.", "zh": "仅适用于一次选举的过渡性规则：只在1990年选举中列为有效，不开启新的制度时期。1994年和1998年规则记录显示适用全国统一门槛；1994年再次按区域适用的提案于1994年1月20日被否决。"}
+    },
+    {
+      "change_id": "de-1993-bwg-eleventh-amendment",
+      "dimension": "electoral_system",
+      "title": {"en": "Eleventh Act amending the Federal Electoral Act: new constituency division", "zh": "《联邦选举法》第十一修正法：重新划分选区"},
+      "adopted": "1993-04-29",
+      "promulgated": "1993-07-27",
+      "effective": null,
+      "effective_note": {"en": "The Bundestag Datenhandbuch prints the dates the Bundestag adopted and the act was promulgated; it prints no entry-into-force date, so none is asserted.", "zh": "联邦议院《数据手册》列出联邦议院通过日期和公布日期，未列生效日期，故不作认定。"},
+      "previous": null,
+      "new": {"en": "New division and description of the constituencies (still 328); constituency boundaries change only by federal law even when Land borders change.", "zh": "重新划分并描述选区（仍为328个）；即使州界变动，选区边界也只能由联邦法律变更。"},
+      "legal_basis": "Elftes Gesetz zur Änderung des Bundeswahlgesetzes (BT-Drs. 12/4616), BGBl. I S. 1594",
+      "source_ids": ["de-bundestag-dhb-1-1"],
+      "status": "partially_verified"
+    },
+    {
+      "change_id": "de-1996-bwg-thirteenth-amendment",
+      "dimension": "electoral_system",
+      "title": {"en": "Thirteenth Act amending the Federal Electoral Act: 598 members from the 15th term", "zh": "《联邦选举法》第十三修正法：自第15届起598名议员"},
+      "adopted": "1996-10-11",
+      "promulgated": "1996-11-18",
+      "effective": null,
+      "effective_note": {"en": "The Bundestag Datenhandbuch prints the dates the Bundestag adopted and the act was promulgated; it prints no entry-into-force date, so none is asserted.", "zh": "联邦议院《数据手册》列出联邦议院通过日期和公布日期，未列生效日期，故不作认定。"},
+      "previous": {"en": "656 members and 328 constituencies (1990, 1994 and 1998 rule records).", "zh": "656名议员、328个选区（1990、1994、1998年规则记录）。"},
+      "new": {"en": "Bundestag reduced to 598 members from the 15th electoral term (first applied in 2002, with 299 constituencies); constituency boundaries adjusted for the 14th Bundestag (1998), which kept 656 seats.", "zh": "自第15届起联邦议院减至598名议员（2002年首次适用，299个选区）；调整第14届联邦议院（1998年）选区边界，该届仍为656席。"},
+      "legal_basis": "Dreizehntes Gesetz zur Änderung des Bundeswahlgesetzes (BT-Drs. 13/5583), BGBl. I S. 1712",
+      "source_ids": ["de-bundestag-dhb-1-1"],
+      "status": "partially_verified"
+    },
+    {
+      "change_id": "de-1998-bwg-fourteenth-amendment",
+      "dimension": "electoral_system",
+      "title": {"en": "Fourteenth Act amending the Federal Electoral Act: voting rights of Germans abroad", "zh": "《联邦选举法》第十四修正法：海外德国人投票权"},
+      "adopted": "1998-03-05",
+      "promulgated": "1998-04-23",
+      "effective": null,
+      "effective_note": {"en": "The Bundestag Datenhandbuch prints the dates the Bundestag adopted and the act was promulgated; it prints no entry-into-force date, so none is asserted.", "zh": "联邦议院《数据手册》列出联邦议院通过日期和公布日期，未列生效日期，故不作认定。"},
+      "previous": null,
+      "new": {"en": "Germans abroad may vote if they have lived in the federal territory for at least three months without interruption.", "zh": "海外德国人只要曾在联邦境内连续居住至少三个月即可投票。"},
+      "legal_basis": "Vierzehntes Gesetz zur Änderung des Bundeswahlgesetzes (BT-Drs. 13/7854), BGBl. I S. 706",
+      "source_ids": ["de-bundestag-dhb-1-1"],
+      "status": "partially_verified"
+    },
+    {
       "change_id": "de-2023-electoral-reform",
       "dimension": "electoral_system",
       "title": { "en": "Federal Electoral Act reform: 630 seats and second-vote coverage", "zh": "《联邦选举法》改革：630 席与第二票覆盖规则" },
@@ -152,7 +225,7 @@
     { "id": "accountability", "title": { "en": "Parliamentary accountability", "zh": "议会问责" }, "text": { "en": "The Bundestag can express no confidence only by electing a successor with a majority of its members, with 48 hours between motion and vote (Art. 67). A Chancellor who loses a confidence vote under Article 68 may propose dissolution, which the President may grant within 21 days unless the Bundestag elects another Chancellor first.", "zh": "联邦议院只能通过以议员过半数选出继任者来表达不信任，动议与表决间隔 48 小时（第 67 条）。总理依第 68 条信任投票失败后可提议解散，总统可在 21 日内批准，除非联邦议院先选出另一位总理。" }, "source_ids": ["de-basic-law"] },
     { "id": "electoral", "title": { "en": "Election-system mechanics", "zh": "选举制度运作" }, "text": { "en": "Voters cast a first vote in one of 299 constituencies and a second vote for a Land list. Since the 2023 reform the 630 seats follow the second votes: a constituency winner is seated only if the party's second votes in that Land cover the seat (§ 6(1)). Lists below 5% are excluded unless they won three constituencies (interim rule after the 2024 ruling) or represent a national minority (§ 4(2)).", "zh": "选民在 299 个选区之一投第一票，并为州名单投第二票。2023 年改革后 630 个议席按第二票分配：选区胜出者只有在其政党在该州的第二票覆盖该席时才能入席（第 6 条第 1 款）。低于 5% 的名单被排除，除非赢得三个选区（2024 年裁决后的过渡规则）或代表少数民族（第 4 条第 2 款）。" }, "source_ids": ["de-bwahlg"] },
     { "id": "limits", "title": { "en": "Principal constitutional limitations", "zh": "主要宪法限制" }, "text": { "en": "The Bundestag has no power of self-dissolution, and the Federal President may dissolve it only in the two cases of Articles 63(4) and 68. For laws requiring Bundesrat consent, a Bundestag majority alone is never sufficient; a mediation committee of both bodies can be convened (Art. 77(2)).", "zh": "联邦议院无权自行解散，联邦总统只能在第 63 条第 4 款和第 68 条两种情形下解散。对需联邦参议院同意的法律，仅凭联邦议院多数永远不够；可召集两院组成的调解委员会（第 77 条第 2 款）。" }, "source_ids": ["de-basic-law"] },
-    { "id": "changes", "title": { "en": "Historically significant changes", "zh": "重要历史变化" }, "text": { "en": "The election rule records show the seat-allocation method changing from Hare/Niemeyer (2002, 2005) to Sainte-Laguë/Schepers (2009 onwards) with 598 base seats, and the 2023 reform fixing the Bundestag at 630 seats from the 2025 election. The 30 July 2024 ruling kept second-vote coverage but restored a three-constituency exception to the threshold until Parliament legislates.", "zh": "选举规则记录显示，席位分配方法由 Hare/Niemeyer（2002、2005 年）改为 Sainte-Laguë/Schepers（2009 年起），基础席位 598 席；2023 年改革将联邦议院自 2025 年选举起固定为 630 席。2024 年 7 月 30 日裁决维持第二票覆盖规则，但在议会立法前恢复了门槛的三选区例外。" }, "source_ids": ["de-bwahlg"] },
+    { "id": "changes", "title": { "en": "Historically significant changes", "zh": "重要历史变化" }, "text": { "en": "The election rule records show 656 statutory seats in 328 constituencies from reunification (1990, 1994, 1998; in 1990 the threshold applied separately in the former western and eastern electoral areas), 598 base seats from 2002, and the seat-allocation method changing from Hare/Niemeyer (1990–2005) to Sainte-Laguë/Schepers (2009 onwards), and the 2023 reform fixing the Bundestag at 630 seats from the 2025 election. The 30 July 2024 ruling kept second-vote coverage but restored a three-constituency exception to the threshold until Parliament legislates.", "zh": "选举规则记录显示，两德统一后法定席位为 656 席、328 个选区（1990、1994、1998 年；1990 年门槛在原西部和东部两个选举区域分别适用），2002 年起基础席位为 598 席，席位分配方法由 Hare/Niemeyer（1990–2005 年）改为 Sainte-Laguë/Schepers（2009 年起）；2023 年改革将联邦议院自 2025 年选举起固定为 630 席。2024 年 7 月 30 日裁决维持第二票覆盖规则，但在议会立法前恢复了门槛的三选区例外。" }, "source_ids": ["de-bwahlg", "de-bundestag-dhb-1-1"] },
     { "id": "rules_vs_practice", "title": { "en": "Constitutional rules and election-specific practice", "zh": "宪法规则与具体选举实践" }, "text": { "en": "The Basic Law requires general, direct, free, equal and secret elections but leaves the system to federal statute (Art. 38(3)). Seat counts and allocation methods therefore differ by election and are taken from each election's rule record; the 2025 election is the only admitted election under the 2023 reform and the 2024 interim threshold rule.", "zh": "《基本法》要求普遍、直接、自由、平等和秘密选举，但将选举制度交由联邦法律规定（第 38 条第 3 款）。因此席位数和分配方法因届而异，取自各届选举规则记录；2025 年选举是唯一适用 2023 年改革和 2024 年过渡门槛规则的已收录选举。" }, "source_ids": ["de-basic-law", "de-bwahlg"] }
   ],
   "pending": [],
@@ -160,6 +233,7 @@
     { "source_id": "de-basic-law", "publisher": "Bundesministerium der Justiz (gesetze-im-internet.de)", "title": "Grundgesetz für die Bundesrepublik Deutschland", "url": "https://www.gesetze-im-internet.de/gg/BJNR000010949.html", "kind": "constitution", "language": "de", "version": "last amended by Art. 1 G v. 22.3.2025 I Nr. 94", "retrieved_on": "2026-11-16", "retrieval_sha256": "8df99989fc820e2d3f6c11be5a208fc84dc8edb79b60fd53826ab83fac8a7eca", "access": "manual_download" },
     { "source_id": "de-basic-law-en", "publisher": "Bundesministerium der Justiz (gesetze-im-internet.de)", "title": "Basic Law for the Federal Republic of Germany — English translation", "url": "https://www.gesetze-im-internet.de/englisch_gg/englisch_gg.html", "kind": "translation", "language": "en", "version": "translation used for English designations only", "retrieved_on": "2026-11-16", "retrieval_sha256": "3cbafb0d16ab8a97c0958f6b51d855af5254db41b6bea02ae8f321ebc20ce0e8", "access": "manual_download" },
     { "source_id": "de-bwahlg", "publisher": "Bundesministerium der Justiz (gesetze-im-internet.de)", "title": "Bundeswahlgesetz (BWahlG)", "url": "https://www.gesetze-im-internet.de/bwahlg/BJNR003830956.html", "kind": "statute", "language": "de", "version": "last amended by Art. 8 G v. 3.7.2026 I Nr. 199", "retrieved_on": "2026-11-16", "retrieval_sha256": "f6f5fe2560725006139316828dead60a3e34bfccf48ba6c7c5486455d5d001af", "access": "manual_download" },
-    { "source_id": "de-bundesrat-stimmenverteilung", "publisher": "Bundesrat", "title": "Stimmenverteilung (Zusammensetzung des Bundesrates, Stand 16.11.2026)", "url": "https://www.bundesrat.de/DE/bundesrat/verteilung/verteilung-node.html", "kind": "parliament_page", "language": "de", "version": "page and graphic as of 16 November 2026 (graphic sha256 2d9c3efe1ab36bcf1b19e1c6fb2cb785ffb4054ab7f60fa9eb52631aaab076b2)", "retrieved_on": "2026-11-17", "retrieval_sha256": "68eb9772a7b90d73475bf508d995da88d705dc826fa625d90461caf6d7801ce0", "access": "manual_download" }
+    { "source_id": "de-bundesrat-stimmenverteilung", "publisher": "Bundesrat", "title": "Stimmenverteilung (Zusammensetzung des Bundesrates, Stand 16.11.2026)", "url": "https://www.bundesrat.de/DE/bundesrat/verteilung/verteilung-node.html", "kind": "parliament_page", "language": "de", "version": "page and graphic as of 16 November 2026 (graphic sha256 2d9c3efe1ab36bcf1b19e1c6fb2cb785ffb4054ab7f60fa9eb52631aaab076b2)", "retrieved_on": "2026-11-17", "retrieval_sha256": "68eb9772a7b90d73475bf508d995da88d705dc826fa625d90461caf6d7801ce0", "access": "manual_download" },
+    { "source_id": "de-bundestag-dhb-1-1", "publisher": "Deutscher Bundestag, Parlamentsarchiv", "title": "Datenhandbuch zur Geschichte des Deutschen Bundestages, Kapitel 1.1 Wahlgesetze und Wahlrechtsregelungen (Stand 31.3.2022)", "url": "https://www.bundestag.de/resource/blob/196084/Kapitel_01_01_Wahlgesetze_und_Wahlrechtsregelungen.pdf", "kind": "official_compilation", "language": "de", "version": "page header dated 12.05.2022", "retrieved_on": "2026-11-23", "retrieval_sha256": "bb9184ee68556fcb9b39a47ea112e732d166f5568c31cad6b98b98554e8f662e", "access": "browser_reading" }
   ]
 }

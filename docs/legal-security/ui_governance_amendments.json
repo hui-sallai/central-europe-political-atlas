@@ -5242,6 +5242,40 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "germany-1990-1998-admission-2026-11-23",
+      "status": "owner_approved",
+      "approved_by": "owner brief 2026-11-23 \"Germany 1990–1998 & Slovenia 1992–1996 historical parliamentary election expansion\" with owner answers \"Additive exception\" and \"Register bundestag.de\": germany.json gains the 1990–1998 Federal Electoral Act changes (facts from the Bundestag Datenhandbuch) and the 656-seat basis; election_links.json is regenerated (Germany 1990, 1994, 1998; periods opened by the sourced changes); politicalAdmission.ts updates the Germany row text; PoliticalExplorerAlpha.tsx changes the German results-CSV link label from seven to ten elections; no component structure, page or design change",
+      "baseline": "3a63ccc0d5ea451835c70354da7f77828571f83d",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-23",
+      "files": [
+        {
+          "path": "src/lib/institutions/countries/germany.json",
+          "sha256": "681f2909b8ab7afc196e6751650e67db4676a3b6b632517848690cfce601b816",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/institutions/election_links.json",
+          "sha256": "d7ca97ac3cd42e9f1f371b6453a234f2481f1d9e4185477a7829488dcdd819bf",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/politicalAdmission.ts",
+          "sha256": "2bfcb088bd44efd9e21af7fe7b20209bdf9f26d81650c6b023bec87b56896e6b",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/PoliticalExplorerAlpha.tsx",
+          "sha256": "e0b5b9550825bbfe398c0ecefbe939610694a20485c063fd2b556f3a5d161e0c",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

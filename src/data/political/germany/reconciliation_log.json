@@ -1,5 +1,3305 @@
 [
   {
+    "reconciliation_id": "rc-ct-de-1990-01",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-01",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:10",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 10
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-02",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-02",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:12",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 12
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-03",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-03",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:14",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 14
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-04",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-04",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:16",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 16
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-05",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-05",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:18",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 18
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-06",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-06",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:20",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 20
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-07",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-07",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:22",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 22
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-08",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-08",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:24",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 24
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-09",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-09",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:26",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 26
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-10",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-10",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:28",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 28
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-11",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-11",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:30",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 30
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-12",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-12",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:32",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 32
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-13",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-13",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:34",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 34
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-14",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-14",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:36",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 36
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-15",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-15",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:38",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 38
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-16",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-16",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:40",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 40
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-17",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-17",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:42",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 42
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-18",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-18",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:44",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 44
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-19",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-19",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:46",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 46
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-20",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-20",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:48",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 48
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-21",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-21",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:50",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 50
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-22",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-22",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:52",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 52
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-23",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-23",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:54",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 54
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-24",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-24",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:56",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 56
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-25",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-25",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:57",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 57
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1990-26",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "contestant_id": "ct-de-1990-26",
+    "category": "aggregate_not_contestant",
+    "status": "documented",
+    "note": "Publisher aggregate of voter-group and individual constituency nominations; kept as one aggregate row, never split or added to parties.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c:btw1990_kerg.csv:6:58",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1990_kerg.csv",
+        "source_member_sha256": "f12e7318c7ce0737994568327c72a13ef55f63eba0680a637bcf67a57ec38b9c",
+        "source_column": 58
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-de-bt-1990-seats",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "category": "match",
+    "status": "documented",
+    "compared_field": "seats",
+    "official_value": 662,
+    "note": "Hare/Niemeyer over 656 seats among CDU, CSU, SPD, F.D.P., PDS, B90/Gr. reproduces every party's seats before overhang; adding the published overhang seats (CDU 6) gives the published final seats (662). A single national 5% threshold would have admitted only CDU, CSU, SPD, F.D.P..",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-83",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "total_seats",
+          "constituency_mandates",
+          "list_mandates"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          79,
+          81,
+          83
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "Bei Bundestagswahlen entstandene Überhangmandate 1949 - 2009 (Stand bei der Wahl): row 1990",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "overhang_seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c",
+        "printed_row": "1990 328 662 6 Mecklenburg-Vorpommern 2 CDU Sachsen-Anhalt 3 CDU Thüringen 1 CDU"
+      },
+      {
+        "source_id": "src-de-bwl-hare-niemeyer",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/h/hare-niemeyer.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.176Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "allocation_method"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "31a164d79e4f6ba9229bc3f51f0bff0fcf80bc49b360c63bdfb462df0c430158"
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-01",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-01",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:10",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 10
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-02",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-02",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:12",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 12
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-03",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-03",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:14",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 14
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-04",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-04",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:16",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 16
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-05",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-05",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:18",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 18
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-06",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-06",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:20",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 20
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-07",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-07",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:22",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 22
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-08",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-08",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:24",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 24
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-09",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-09",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:26",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 26
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-10",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-10",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:28",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 28
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-11",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-11",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:30",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 30
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-12",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-12",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:32",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 32
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-13",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-13",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:34",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 34
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-14",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-14",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:36",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 36
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-15",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-15",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:38",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 38
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-16",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-16",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:40",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 40
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-17",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-17",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:42",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 42
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-18",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-18",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:44",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 44
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-19",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-19",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:46",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 46
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-20",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-20",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:48",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 48
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-21",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-21",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:50",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 50
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-22",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-22",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:52",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 52
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-23",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-23",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:53",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 53
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-24",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-24",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:54",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 54
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-25",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-25",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:55",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 55
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-26",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-26",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:56",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 56
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-27",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-27",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:57",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 57
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-28",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-28",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:58",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 58
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-29",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-29",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:59",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 59
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-30",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-30",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:60",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 60
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-31",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-31",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:61",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 61
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-32",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-32",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:62",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 62
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1994-33",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "contestant_id": "ct-de-1994-33",
+    "category": "aggregate_not_contestant",
+    "status": "documented",
+    "note": "Publisher aggregate of voter-group and individual constituency nominations; kept as one aggregate row, never split or added to parties.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e:btw1994_kerg.csv:6:63",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1994_kerg.csv",
+        "source_member_sha256": "1620e074193571225859192cf05425263c9fbf641ef798c796c37f439bc0b76e",
+        "source_column": 63
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-de-bt-1994-seats",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "category": "match",
+    "status": "documented",
+    "compared_field": "seats",
+    "official_value": 672,
+    "note": "Hare/Niemeyer over 656 seats among CDU, SPD, F.D.P., CSU, GRÜNE, PDS reproduces every party's seats before overhang; adding the published overhang seats (CDU 12, SPD 4) gives the published final seats (672).",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-84",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "total_seats",
+          "constituency_mandates",
+          "list_mandates"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          79,
+          81,
+          83
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "Bei Bundestagswahlen entstandene Überhangmandate 1949 - 2009 (Stand bei der Wahl): row 1994",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "overhang_seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c",
+        "printed_row": "1994 328 672 16 Baden-Württemberg 2 CDU Mecklenburg-Vorpommern 2 CDU Sachsen-Anhalt 2 CDU Thüringen 3 CDU Sachsen 3 CDU Bremen 1 SPD Brandenburg 3 SPD"
+      },
+      {
+        "source_id": "src-de-bwl-hare-niemeyer",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/h/hare-niemeyer.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.176Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "allocation_method"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "31a164d79e4f6ba9229bc3f51f0bff0fcf80bc49b360c63bdfb462df0c430158"
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-01",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-01",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:10",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 10
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-02",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-02",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:12",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 12
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-03",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-03",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:14",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 14
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-04",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-04",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:16",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 16
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-05",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-05",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:18",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 18
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-06",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-06",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:20",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 20
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-07",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-07",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:22",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 22
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-08",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-08",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:24",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 24
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-09",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-09",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:26",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 26
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-10",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-10",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:28",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 28
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-11",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-11",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:30",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 30
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-12",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-12",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:32",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 32
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-13",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-13",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:34",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 34
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-14",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-14",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:36",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 36
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-15",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-15",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:38",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 38
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-16",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-16",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:39",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 39
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-17",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-17",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:41",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 41
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-18",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-18",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:43",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 43
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-19",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-19",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:45",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 45
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-20",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-20",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:47",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 47
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-21",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-21",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:49",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 49
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-22",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-22",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:50",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 50
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-23",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-23",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:52",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 52
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-24",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-24",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:54",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 54
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-25",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-25",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:56",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 56
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-26",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-26",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:58",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 58
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-27",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-27",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:60",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 60
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-28",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-28",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:62",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 62
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-29",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-29",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:64",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 64
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-30",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-30",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:66",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 66
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-31",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-31",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:67",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 67
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-32",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-32",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:69",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 69
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-33",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-33",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:70",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 70
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-34",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-34",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:71",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 71
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-35",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-35",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:72",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 72
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-36",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-36",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:73",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 73
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-37",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-37",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:74",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 74
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-38",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-38",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:75",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 75
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-39",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-39",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:76",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 76
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-40",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-40",
+    "category": "party_identity_difference",
+    "status": "requires_manual_review",
+    "note": "Election-specific result is sourced. Canonical party relation unresolved; excluded from continuous party series.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:77",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 77
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-ct-de-1998-41",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "contestant_id": "ct-de-1998-41",
+    "category": "aggregate_not_contestant",
+    "status": "documented",
+    "note": "Publisher aggregate of voter-group and individual constituency nominations; kept as one aggregate row, never split or added to parties.",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3:btw1998_kerg.csv:6:78",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "registered_label_native"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw1998_kerg.csv",
+        "source_member_sha256": "57db681fc93766c4ef748ad536ad582518a422a1f649e4f3dc9bdc4839130bd3",
+        "source_column": 78
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-de-bt-1998-seats",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "category": "match",
+    "status": "documented",
+    "compared_field": "seats",
+    "official_value": 669,
+    "note": "Hare/Niemeyer over 656 seats among SPD, CDU, CSU, GRÜNE, F.D.P., PDS reproduces every party's seats before overhang; adding the published overhang seats (SPD 13) gives the published final seats (669).",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-85",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "total_seats",
+          "constituency_mandates",
+          "list_mandates"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          79,
+          81,
+          83
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "Bei Bundestagswahlen entstandene Überhangmandate 1949 - 2009 (Stand bei der Wahl): row 1998",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "overhang_seats"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c",
+        "printed_row": "1998 328 669 13 Hamburg 1 SPD Mecklenburg-Vorpommern 2 SPD Brandenburg 3 SPD Sachsen-Anhalt 4 SPD Thüringen 3 SPD"
+      },
+      {
+        "source_id": "src-de-bwl-hare-niemeyer",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/h/hare-niemeyer.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.176Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "allocation_method"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "31a164d79e4f6ba9229bc3f51f0bff0fcf80bc49b360c63bdfb462df0c430158"
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-parlgov-1990",
+    "country": "germany",
+    "election_id": "el-de-bt-1990-12-02",
+    "category": "match",
+    "status": "documented",
+    "compared_field": "seats_total",
+    "official_value": 662,
+    "harmonized_value": 662,
+    "note": "National seat total comparison only; party names and academic party IDs are not promoted to official identities.",
+    "provenance": [
+      {
+        "source_id": "src-parlgov-2024-election",
+        "source_url": "https://dataverse.harvard.edu/api/access/datafile/10437092?format=original",
+        "source_record_id": "csv-record-2159 | csv-record-2160 | csv-record-2161 | csv-record-2162 | csv-record-2163 | csv-record-2164 | csv-record-2165 | csv-record-2166",
+        "retrieved_at": "2026-10-02T10:35:51.501Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/parlgov-2024/view_election.tab",
+          "sha256": "a421fb7060f57f8203af6ccd0dce8d79dfee953db8702837f4c5390ef6b23fb6"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "harmonized_value",
+          "category"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-parlgov-1994",
+    "country": "germany",
+    "election_id": "el-de-bt-1994-10-16",
+    "category": "match",
+    "status": "documented",
+    "compared_field": "seats_total",
+    "official_value": 672,
+    "harmonized_value": 672,
+    "note": "National seat total comparison only; party names and academic party IDs are not promoted to official identities.",
+    "provenance": [
+      {
+        "source_id": "src-parlgov-2024-election",
+        "source_url": "https://dataverse.harvard.edu/api/access/datafile/10437092?format=original",
+        "source_record_id": "csv-record-2175 | csv-record-2176 | csv-record-2177 | csv-record-2178 | csv-record-2179 | csv-record-2180 | csv-record-2181",
+        "retrieved_at": "2026-10-02T10:35:51.501Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/parlgov-2024/view_election.tab",
+          "sha256": "a421fb7060f57f8203af6ccd0dce8d79dfee953db8702837f4c5390ef6b23fb6"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "harmonized_value",
+          "category"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "reconciliation_id": "rc-parlgov-1998",
+    "country": "germany",
+    "election_id": "el-de-bt-1998-09-27",
+    "category": "match",
+    "status": "documented",
+    "compared_field": "seats_total",
+    "official_value": 669,
+    "harmonized_value": 669,
+    "note": "National seat total comparison only; party names and academic party IDs are not promoted to official identities.",
+    "provenance": [
+      {
+        "source_id": "src-parlgov-2024-election",
+        "source_url": "https://dataverse.harvard.edu/api/access/datafile/10437092?format=original",
+        "source_record_id": "csv-record-2182 | csv-record-2183 | csv-record-2184 | csv-record-2185 | csv-record-2186 | csv-record-2187 | csv-record-2188 | csv-record-2189",
+        "retrieved_at": "2026-10-02T10:35:51.501Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/parlgov-2024/view_election.tab",
+          "sha256": "a421fb7060f57f8203af6ccd0dce8d79dfee953db8702837f4c5390ef6b23fb6"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "harmonized_value",
+          "category"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
     "reconciliation_id": "rc-ct-de-0001",
     "country": "germany",
     "election_id": "el-de-bt-2002-09-22",

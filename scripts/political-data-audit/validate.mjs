@@ -6,8 +6,8 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { stores, buildApprovedProduction } from '../political-data/germany/production.mjs';
-import { validatePolitical } from '../political-data/germany/validate.mjs';
+import { stores } from '../political-data/germany/production.mjs';
+import { validateCanonicalGermany } from '../political-data/germany/validate.mjs';
 import { POLITICAL_ADMISSIONS, POLITICAL_ADMISSION_FILE } from '../../docs/political-data/source-closure/political-admission-amendments.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -87,7 +87,7 @@ check(/similarity/.test(identity.crosswalk_match_basis.forbidden), "name similar
 const approved=fs.existsSync(path.join(dir,'germany_production_acceptance.json'));
 if(approved){
   const data=Object.fromEntries(stores.map(s=>[s,JSON.parse(fs.readFileSync(path.join(root,'src/data/political/germany',`${s}.json`)))]));
-  validatePolitical(data,buildApprovedProduction());
+  validateCanonicalGermany(data);
 }
 const offenders = [];
 for (const base of ["src/data", "public/research-data"]) {

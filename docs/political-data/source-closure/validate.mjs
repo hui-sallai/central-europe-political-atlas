@@ -9,7 +9,7 @@ import {matchDependencyException,DEPENDENCY_EXCEPTIONS_FILE} from '../../../scri
 import {checkFrozenFiles,checkPrivateEvidence,UI_AMENDMENTS_FILE,MIRROR_SYNC_FILE} from './ui-amendments.mjs';
 import { NEWS_REFRESH_FILE } from './news-refresh-amendments.mjs';
 import { DATA_REFRESH_FILE } from './data-refresh-amendments.mjs';
-import { POLITICAL_ADMISSION_FILE } from './political-admission-amendments.mjs';
+import { POLITICAL_ADMISSION_FILE, GERMANY_EXTENSION_FILE } from './political-admission-amendments.mjs';
 
 const dir=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(dir,'../../..');
@@ -33,7 +33,7 @@ const lockfileUnderException=()=>matchDependencyException({
 }).ok;
 const uiAmendments=fs.existsSync(path.join(root,UI_AMENDMENTS_FILE))?JSON.parse(fs.readFileSync(path.join(root,UI_AMENDMENTS_FILE),'utf8')).amendments:[];
 const newsRefreshes=fs.existsSync(path.join(root,NEWS_REFRESH_FILE))?JSON.parse(fs.readFileSync(path.join(root,NEWS_REFRESH_FILE),'utf8')).amendments:[];
-const frozenCheck=checkFrozenFiles({baselineFiles:baseline.files,currentFiles:currentFiles.sort(),hashOf:name=>sha(fs.readFileSync(path.join(root,name))),amendments:uiAmendments,newsRefreshes,dataRefreshes:fs.existsSync(path.join(root,DATA_REFRESH_FILE))?JSON.parse(fs.readFileSync(path.join(root,DATA_REFRESH_FILE),'utf8')).refreshes:[],mirrorSyncs:fs.existsSync(path.join(root,MIRROR_SYNC_FILE))?JSON.parse(fs.readFileSync(path.join(root,MIRROR_SYNC_FILE),'utf8')).syncs:[],lockfileApproved:lockfileUnderException,isUntrackedIgnored:p=>spawnSync('git',['ls-files','--error-unmatch','--',p],{cwd:root}).status!==0&&spawnSync('git',['check-ignore','-q','--no-index','--',p],{cwd:root}).status===0,politicalAdmissions:fs.existsSync(path.join(root,POLITICAL_ADMISSION_FILE))?JSON.parse(fs.readFileSync(path.join(root,POLITICAL_ADMISSION_FILE),'utf8')).admissions:[]});
+const frozenCheck=checkFrozenFiles({baselineFiles:baseline.files,currentFiles:currentFiles.sort(),hashOf:name=>sha(fs.readFileSync(path.join(root,name))),amendments:uiAmendments,newsRefreshes,dataRefreshes:fs.existsSync(path.join(root,DATA_REFRESH_FILE))?JSON.parse(fs.readFileSync(path.join(root,DATA_REFRESH_FILE),'utf8')).refreshes:[],mirrorSyncs:fs.existsSync(path.join(root,MIRROR_SYNC_FILE))?JSON.parse(fs.readFileSync(path.join(root,MIRROR_SYNC_FILE),'utf8')).syncs:[],lockfileApproved:lockfileUnderException,isUntrackedIgnored:p=>spawnSync('git',['ls-files','--error-unmatch','--',p],{cwd:root}).status!==0&&spawnSync('git',['check-ignore','-q','--no-index','--',p],{cwd:root}).status===0,politicalAdmissions:fs.existsSync(path.join(root,POLITICAL_ADMISSION_FILE))?JSON.parse(fs.readFileSync(path.join(root,POLITICAL_ADMISSION_FILE),'utf8')).admissions:[],germanyExtensions:fs.existsSync(path.join(root,GERMANY_EXTENSION_FILE))?JSON.parse(fs.readFileSync(path.join(root,GERMANY_EXTENSION_FILE),'utf8')).records:[]});
 assert.deepEqual(frozenCheck.failures,[],'No new production, public, UI, model or economic files permitted');
 if(frozenCheck.amended.length)process.stderr.write(`Approved UI governance amendment applied to ${frozenCheck.amended.length} exact-hash file(s): ${frozenCheck.amended.join(', ')}\n`);
 const evidenceStatus={verified:0,absent_private_evidence:0};
@@ -79,7 +79,7 @@ const politicalDirs=fs.readdirSync(path.join(root,'src/data/political')).filter(
 assert.ok(politicalDirs.includes('germany')&&politicalDirs.every(d=>d==='germany'||admittedPolitical.has(d)),`political stores beyond Germany need an owner-approved admission record (found ${politicalDirs.join(', ')})`);
 for(const name of ['candidate_production_files.json','identity_feasibility_matrix.json'])assert.ok(!/"(?:atlas_.*score|polling|prediction|ideology|left_right|win_probability)"\s*:/.test(JSON.stringify(read(name))));
 const existingPolitical=Object.keys(baseline.files).filter(f=>f.startsWith('src/data/political/germany/')||f.startsWith('public/research-data/political/germany/'));
-assert.equal(existingPolitical.length,38,'12 German stores plus 26 public exports must remain unchanged');
+assert.equal(existingPolitical.length,38,'12 German stores plus 26 public exports; they change only at the exact hashes of the owner-approved Germany extension (1990–1998)');
 assert.equal(summary.audit_complete,unresolved.length===0);
 
 // ---- Refined gate model (Production 1B publisher clarification) ----

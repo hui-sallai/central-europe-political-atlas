@@ -1,5 +1,227 @@
 [
   {
+    "source_id": "src-de-bwl-election-1990",
+    "country": "germany",
+    "institution": "Die Bundeswahlleiterin, Wiesbaden",
+    "dataset": "Bundestag election 1990: national result page",
+    "tier": "tier1_official",
+    "url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1990.html",
+    "licence_status": "factual_metadata_only_source_link",
+    "raw_redistribution": "not_reviewed_local_archive_only",
+    "licence_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+    "attribution": "Die Bundeswahlleiterin, Wiesbaden",
+    "retrieved_at": "2026-11-23T03:28:34.106Z",
+    "raw_sha256": "d025af526cd6430ae97d47fb9a7660286ff45c638692eb2a0be3f70603170bd5",
+    "raw_path": "docs/political-data/raw/germany/production_election-1990/source.html",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-1990",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1990.html",
+        "source_record_id": "metadata",
+        "retrieved_at": "2026-11-23T03:28:34.106Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "dataset",
+          "url",
+          "raw_sha256",
+          "licence_status"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "d025af526cd6430ae97d47fb9a7660286ff45c638692eb2a0be3f70603170bd5"
+      }
+    ]
+  },
+  {
+    "source_id": "src-de-bwl-election-1994",
+    "country": "germany",
+    "institution": "Die Bundeswahlleiterin, Wiesbaden",
+    "dataset": "Bundestag election 1994: national result page",
+    "tier": "tier1_official",
+    "url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1994.html",
+    "licence_status": "factual_metadata_only_source_link",
+    "raw_redistribution": "not_reviewed_local_archive_only",
+    "licence_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+    "attribution": "Die Bundeswahlleiterin, Wiesbaden",
+    "retrieved_at": "2026-11-23T03:28:39.451Z",
+    "raw_sha256": "b9a86eb3173a1772da59126e62e8a9430259a73e1e5df92e5050e96a6b35f5f4",
+    "raw_path": "docs/political-data/raw/germany/production_election-1994/source.html",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-1994",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1994.html",
+        "source_record_id": "metadata",
+        "retrieved_at": "2026-11-23T03:28:39.451Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "dataset",
+          "url",
+          "raw_sha256",
+          "licence_status"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "b9a86eb3173a1772da59126e62e8a9430259a73e1e5df92e5050e96a6b35f5f4"
+      }
+    ]
+  },
+  {
+    "source_id": "src-de-bwl-election-1998",
+    "country": "germany",
+    "institution": "Die Bundeswahlleiterin, Wiesbaden",
+    "dataset": "Bundestag election 1998: national result page",
+    "tier": "tier1_official",
+    "url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1998.html",
+    "licence_status": "factual_metadata_only_source_link",
+    "raw_redistribution": "not_reviewed_local_archive_only",
+    "licence_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+    "attribution": "Die Bundeswahlleiterin, Wiesbaden",
+    "retrieved_at": "2026-11-23T03:28:48.203Z",
+    "raw_sha256": "0e16acfd4998d91bbda1515cea1e3c3e9edce01dadcf82cc7fdafa8676de7edd",
+    "raw_path": "docs/political-data/raw/germany/production_election-1998/source.html",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-1998",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/1998.html",
+        "source_record_id": "metadata",
+        "retrieved_at": "2026-11-23T03:28:48.203Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "dataset",
+          "url",
+          "raw_sha256",
+          "licence_status"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "0e16acfd4998d91bbda1515cea1e3c3e9edce01dadcf82cc7fdafa8676de7edd"
+      }
+    ]
+  },
+  {
+    "source_id": "src-de-bundestag-dhb-1-1",
+    "country": "germany",
+    "institution": "Deutscher Bundestag, Parlamentsarchiv",
+    "dataset": "Datenhandbuch zur Geschichte des Deutschen Bundestages, Kapitel 1.1 Wahlgesetze und Wahlrechtsregelungen",
+    "tier": "tier1_official",
+    "url": "https://www.bundestag.de/resource/blob/196084/Kapitel_01_01_Wahlgesetze_und_Wahlrechtsregelungen.pdf",
+    "licence_status": "factual_metadata_only_source_link",
+    "raw_redistribution": "not_redistributed_private_use_terms",
+    "licence_url": "https://www.bundestag.de/services/impressum",
+    "attribution": "Deutscher Bundestag, Datenhandbuch",
+    "retrieved_at": "2026-11-23T11:05:00.000Z",
+    "raw_sha256": "bb9184ee68556fcb9b39a47ea112e732d166f5568c31cad6b98b98554e8f662e",
+    "raw_path": "docs/political-data/raw/germany/production_bundestag-dhb-1-1/source.pdf",
+    "provenance": [
+      {
+        "source_id": "src-de-bundestag-dhb-1-1",
+        "source_url": "https://www.bundestag.de/resource/blob/196084/Kapitel_01_01_Wahlgesetze_und_Wahlrechtsregelungen.pdf",
+        "source_record_id": "metadata",
+        "retrieved_at": "2026-11-23T11:05:00.000Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_legal_evidence.json",
+          "sha256": "dcf627ca1318f074270d075d2d69cdd9e16421baec41f492d72855af1ddf9b03"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "dataset",
+          "url",
+          "raw_sha256",
+          "licence_status"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "bb9184ee68556fcb9b39a47ea112e732d166f5568c31cad6b98b98554e8f662e"
+      }
+    ]
+  },
+  {
+    "source_id": "src-de-bwl-basic-mandate",
+    "country": "germany",
+    "institution": "Die Bundeswahlleiterin, Wiesbaden",
+    "dataset": "Glossary: basic-mandate clause (Grundmandatsklausel)",
+    "tier": "tier1_official",
+    "url": "https://www.bundeswahlleiterin.de/service/glossar/g/grundmandatsklausel.html",
+    "licence_status": "factual_metadata_only_source_link",
+    "raw_redistribution": "not_reviewed_local_archive_only",
+    "licence_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+    "attribution": "Die Bundeswahlleiterin, Wiesbaden",
+    "retrieved_at": "2026-11-23T03:31:42.245Z",
+    "raw_sha256": "ab4822bfeffff6740f777bccc800b92b604e041950071d361f06efd0c20a22c3",
+    "raw_path": "docs/political-data/raw/germany/production_basic-mandate/source.html",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-basic-mandate",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/g/grundmandatsklausel.html",
+        "source_record_id": "metadata",
+        "retrieved_at": "2026-11-23T03:31:42.245Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "dataset",
+          "url",
+          "raw_sha256",
+          "licence_status"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "ab4822bfeffff6740f777bccc800b92b604e041950071d361f06efd0c20a22c3"
+      }
+    ]
+  },
+  {
+    "source_id": "src-de-bwl-constituencies",
+    "country": "germany",
+    "institution": "Die Bundeswahlleiterin, Wiesbaden",
+    "dataset": "Glossary: constituencies by Land since 1949 (Wahlkreise)",
+    "tier": "tier1_official",
+    "url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlkreise.html",
+    "licence_status": "factual_metadata_only_source_link",
+    "raw_redistribution": "not_reviewed_local_archive_only",
+    "licence_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+    "attribution": "Die Bundeswahlleiterin, Wiesbaden",
+    "retrieved_at": "2026-11-23T03:31:46.331Z",
+    "raw_sha256": "78c9a06897c0240834febf65cca1cc7ac3c5af02665a99c9138d8dfa583043e3",
+    "raw_path": "docs/political-data/raw/germany/production_constituencies/source.html",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-constituencies",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlkreise.html",
+        "source_record_id": "metadata",
+        "retrieved_at": "2026-11-23T03:31:46.331Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/germany_early_elections_evidence.json",
+          "sha256": "0653c10d7be520df55aa2323528adce960d3d136e95ba66edc2e99fb2b7d8200"
+        },
+        "parser_version": "germany-early-elections-v1",
+        "parser_sha256": "d4c6e9900f89f23900405c0aab57ae6bc45c2b81b877884d9757a84980d01c15",
+        "fields_covered": [
+          "dataset",
+          "url",
+          "raw_sha256",
+          "licence_status"
+        ],
+        "published_or_derived": "published",
+        "publisher_file_sha256": "78c9a06897c0240834febf65cca1cc7ac3c5af02665a99c9138d8dfa583043e3"
+      }
+    ]
+  },
+  {
     "source_id": "src-de-bwl-final-archive",
     "country": "germany",
     "institution": "Die Bundeswahlleiterin, Wiesbaden",

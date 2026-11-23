@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import { root, sha256 } from './acquire.mjs';
 import { buildProductionCandidate, buildApprovedProduction, stores } from './production.mjs';
+import { buildCanonicalGermany, splitCanonicalGermany, validateEarlyGermany, EARLY_ELECTION_IDS } from './early-elections.mjs';
 
 export function validatePolitical(data, expected=buildProductionCandidate()) {
   const evidenceIndex=JSON.parse(fs.readFileSync(path.join(root,'docs/political-data/germany_public_evidence_index.json')));
@@ -58,8 +59,20 @@ export function validatePolitical(data, expected=buildProductionCandidate()) {
   assert.deepEqual(data,expected,'Canonical values must reproduce from archived sources and explicit reviewed decisions');
   return {status:'pass',elections:7,contestants:209,continuous_party_series:0};
 }
+/**
+ * Canonical Germany stores: the approved 2002–2025 slice must reproduce exactly (validatePolitical against production.mjs)
+ * and, under the owner-approved extension, the 1990–1998 rows precede it and validate on their own rules.
+ */
+export function validateCanonicalGermany(data, expected=buildCanonicalGermany()){
+  const {early,base}=splitCanonicalGermany(data);
+  const result=validatePolitical(base,buildApprovedProduction());
+  const hasEarly=early.elections.length>0;
+  if(hasEarly)validateEarlyGermany(early);else for(const s of stores)assert.equal(early[s].length,0,`${s}: early rows without early elections`);
+  assert.deepEqual(data,expected,'Canonical Germany stores must reproduce from archived sources, reviewed decisions and the owner-approved extension');
+  return {...result,elections:result.elections+early.elections.length,early_elections:hasEarly?Object.values(EARLY_ELECTION_IDS):[]};
+}
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
   const dir=process.argv.includes('--candidate')?'docs/political-data/production-candidate':'src/data/political/germany';
   const data=Object.fromEntries(stores.map(s=>[s,JSON.parse(fs.readFileSync(path.join(root,dir,`${s}.json`),'utf8'))]));
-  console.log(JSON.stringify(validatePolitical(data,process.argv.includes('--candidate')?buildProductionCandidate():buildApprovedProduction())));
+  console.log(JSON.stringify(process.argv.includes('--candidate')?validatePolitical(data,buildProductionCandidate()):validateCanonicalGermany(data)));
 }
