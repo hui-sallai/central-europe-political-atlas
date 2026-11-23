@@ -223,8 +223,15 @@ Branch `data/de-si-early-2026-11-23` (local, not pushed): `6e83299` (Germany 199
 
 ## Q. GitHub Actions and deployment
 
-Not pushed and not deployed: pushing needs the owner's 推送上线. No production URLs yet; after deployment the
-elections would appear at `/politics/germany/?election=el-de-bt-1990-12-02` (and `/en/…`), likewise for 1994 and 1998.
+- Push 1 (owner 推送上线): `7bc1c8f` → deploy run 45180210575 failed at Release QA: `publication-validation.mjs` built
+  the expected Germany exports from the 2002–2025 slice only. Fixed in `7d33fcf` (canonical 1990–2025 build).
+- Push 2 (owner 推送上线): `7d33fcf` → deploy run 45189280356 failed at the research-data guard test: a module imported
+  by `release:validate` contained the store writer. CodeQL also opened #21–#23 on the archived-page parser.
+  Fixed in `85cc8b8` (writer moved to `write-early-candidate.mjs`; single-pass entity decoding, stable tag stripping).
+- Production stayed on `3a63ccc` throughout. `85cc8b8` passes the deploy workflow's steps locally (export, research
+  package, lint, typecheck, tooling 568/0, build, legal-security, Release QA, static secret scan, UI tests) and waits
+  for the owner's next 推送上线. After deployment the elections appear at `/politics/germany/?election=el-de-bt-1990-12-02`
+  (and `/en/…`), likewise for 1994 and 1998.
 
 ## R. Codex handoff — GERMANY AND SLOVENIA EARLY PARLIAMENTARY ELECTION FRONTEND INTEGRATION
 
