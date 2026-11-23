@@ -16,7 +16,10 @@ export const EARLY_EVIDENCE = 'docs/political-data/germany_early_elections_evide
 export const EARLY_YEARS = [1990, 1994, 1998];
 const raw = (id) => `docs/political-data/raw/germany/production_${id}`;
 const meta = (id) => JSON.parse(fs.readFileSync(path.join(root, raw(id), 'metadata.json'), 'utf8'));
-const decode = (s) => s.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&shy;/g, '').replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n))).replace(/\s+/g, ' ').trim();
+// Repeat until stable so that no tag fragment survives a single pass; entities are decoded in one pass (no double decoding).
+const strip = (s, re) => { let prev; do { prev = s; s = s.replace(re, ' '); } while (s !== prev); return s; };
+const ENTITY = { nbsp: ' ', amp: '&', shy: '' };
+const decode = (s) => strip(s, /<[^<>]*>/g).replace(/[<>]/g, ' ').replace(/&(nbsp|amp|shy|#\d+);/g, (_, e) => (e.startsWith('#') ? String.fromCharCode(Number(e.slice(1))) : ENTITY[e])).replace(/\s+/g, ' ').trim();
 const num = (s) => (/^[–—-]$/.test(s) || s === 'X' ? null : Number(s.replaceAll('.', '').replace(',', '.')));
 
 function source(id) {
@@ -25,7 +28,7 @@ function source(id) {
   const bytes = fs.readFileSync(file);
   assert.equal(sha256(bytes), m.sha256, `${id}: archived page changed`);
   const html = bytes.toString('utf8'), main = html.match(/<main[\s\S]*?<\/main>/)?.[0] ?? html;
-  return { m, html: main, text: decode(main.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '')) };
+  return { m, html: main, text: decode(strip(main, /<(script|style)\b[^>]*>[\s\S]*?<\/\1\b[^>]*>/gi)) };
 }
 const srcRef = (m) => ({ source_id: m.source_id, source_url: m.source_url, retrieved_at: m.retrieved_at, raw_sha256: m.sha256, raw_path: m.raw_path });
 

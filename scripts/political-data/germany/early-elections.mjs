@@ -324,13 +324,7 @@ export function validateEarlyGermany(early) {
   return { status: 'pass', elections: early.elections.length, contestants: contestants.size, sources: sources.size };
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url) && process.argv.includes('--write-candidate')) {
-  const { politicalExportFiles } = await import('./export.mjs');
-  const data = buildCanonicalGermany({ candidate: true });
-  for (const s of stores) fs.writeFileSync(path.join(root, 'src/data/political/germany', `${s}.json`), JSON.stringify(data[s], null, 2) + '\n');
-  for (const [name, content] of Object.entries(politicalExportFiles(data))) fs.writeFileSync(path.join(root, 'public/research-data/political/germany', name), content);
-  console.log(JSON.stringify({ status: 'written', elections: data.elections.length, files: germanyFiles().map((f) => [f, sha256(fs.readFileSync(path.join(root, f)))]) }));
-} else if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const { data, reconciliation } = buildEarlyGermany();
   console.log(JSON.stringify({ ...validateEarlyGermany(data), counts: Object.fromEntries(stores.map((s) => [s, data[s].length])), reconciliation }, null, 1));
 }

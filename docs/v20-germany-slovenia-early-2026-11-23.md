@@ -182,7 +182,7 @@ repeal of the act itself. Election links: 65 → 68.
 ## M. Scripts and exports
 
 - `node scripts/political-data/germany/early-evidence.mjs [--write]` — re-parse the archived pages (local) into the evidence.
-- `node scripts/political-data/germany/early-elections.mjs` — build and validate the 1990–1998 rows; `--write-candidate`
+- `node scripts/political-data/germany/early-elections.mjs` — build and validate the 1990–1998 rows; `node scripts/political-data/germany/write-early-candidate.mjs`
   writes the canonical stores and exports (2002–2025 from production.mjs + 1990–1998).
 - `node scripts/political-data/germany/validate.mjs` / `export-cli.mjs --check` (`pnpm political-data:validate`) — the
   base slice must equal production.mjs exactly; the early rows validate on their own rules; the whole equals the build.
