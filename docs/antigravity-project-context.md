@@ -77,10 +77,11 @@
   - `pnpm political-source-closure:validate --checkpoint` (passes once owner approves exact-hash UI amendment)
 - **Release rule:** Never push or deploy without explicit owner approval. Never describe unmerged work as deployed.
 
-## 6. Onboarding Baseline Snapshot (2026-11-24)
+## 6. Released Antigravity Batches & Baseline Notes (Updated 2026-11-25)
 
-- **Verified starting `main` SHA:** `7276b987d09c5d10bf843f1a7e434e8bf264e7d7` (GitHub Pages run `45234730448`).
-- **Recently accepted features at onboarding:** Ten-country parliamentary election frontend (68 chamber-election records across all 10 countries), Czechia 2002–2025 historical elections, Hungary 1998–2026 round-scope & composite ballot semantics, Germany 1990–2025 historical electoral areas & seat allocation, thematic research workspaces, and Research Notebook.
-- **Known pending items at onboarding:**
-  - Claude Code: Slovenia 1992/1996 owner-staged gazettes; Slovakia 2010–2020 participation summaries; Austria 2002–2008 institutional periods; Romania 2012 law & 2016 turnout definitions.
-  - Antigravity next batches: Global navigation link to `/workspaces/`, deduplicating `/workspaces/` heading hierarchy (requires coordinated Linux screenshot baseline refresh), and Research Notebook UX polish (pluralization, action button affordances, quick jump to evidence).
+- **Latest verified `main` SHA before Batch 4:** `8e51bb5e66d62003208bc4f91280d9b4af5ff9ea` (GitHub Pages run `45478043566`).
+- **Completed & deployed Antigravity batches:**
+  - **Batch 1 (PR #2, `92627fb`, run `45287771947`):** Keyboard-focusable scrollable research tables, mobile header & language-switcher fixes, country parliamentary election headers/navigation links.
+  - **Batch 2 (PR #3, `0d7e774`, run `45417122174`):** Global Workspaces navigation, Workspaces index heading/intro deduplication, Research Notebook evidence-count grammar, Rename/Delete project controls, and Evidence/Sources/Export quick-jump anchors.
+  - **Batch 3 (PR #4, `8e51bb5`, run `45478043566`):** Economic Data Explorer localized frequency labels, search clarity & empty-search recovery, active research configuration summary (requested/available/common/reference periods), unconditional period-filter recovery, reusable `ScrollableTableRegion` horizontal-scroll affordance, and dark-mode contrast fixes.
+- **Active Antigravity batch:** Batch 4 (`ux/antigravity-batch4-country-research-hubs`) — shared Country Research Hub architecture, section navigation & anchor positioning, indicator-preserving economic handoffs, and clearer module separation across all 10 countries.
