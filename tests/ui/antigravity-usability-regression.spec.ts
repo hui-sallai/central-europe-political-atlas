@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { activeNotebookRaw } from "./notebook-storage";
 
 const ALPHA_COUNTRIES = ["germany", "hungary", "czechia", "poland", "serbia", "slovakia"] as const;
 
@@ -82,6 +83,7 @@ test.describe("Antigravity usability, responsive and accessibility regressions",
   test("notebook provides jump nav, styled project controls, and singular/plural evidence wording", async ({ page }) => {
     await page.goto("/en/politics/germany/?election=el-de-bt-1990-12-02", { waitUntil: "networkidle" });
     await page.getByRole("button", { name: "Add to notebook" }).first().click();
+    await expect.poll(async () => JSON.parse((await activeNotebookRaw(page)) ?? "{}").items?.length ?? 0).toBe(1);
     await page.goto("/en/notebook/", { waitUntil: "networkidle" });
     const jump = page.locator("[data-notebook-jump-nav]");
     await expect(jump).toBeVisible();

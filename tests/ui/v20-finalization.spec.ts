@@ -154,7 +154,7 @@ test("v2.0 bilingual homepage language switch, workspaces and essential navigati
     const en = !!prefix;
     for (const workspace of researchWorkspaces) {
       await page.goto(`${prefix}/`, { waitUntil: "networkidle" });
-      await page.locator(`a[href="${prefix}/workspaces/"]`).first().click();
+      await page.locator(`main a[href="${prefix}/workspaces/"]`).first().click();
       await page.locator(`a[href="${prefix}/workspaces/${workspace.id}/"]`).click();
       await expect(page.locator("main h1")).toHaveText(workspace.title[en ? "en" : "zh-CN"]);
     }
