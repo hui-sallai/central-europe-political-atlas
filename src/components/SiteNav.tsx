@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { primaryNavItems } from "@/lib/siteStructure";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { localizedRoute, unlocalizedPath } from "@/i18n/config";
-const englishLabels: Record<string, string> = { "/": "Home", "/countries": "Countries", "/data": "Data", "/politics": "Politics", "/models": "Models", "/scenarios": "Scenarios", "/news": "Events", "/map": "Map", "/methodology": "Methodology" };
+const englishLabels: Record<string, string> = { "/": "Home", "/countries": "Countries", "/data": "Data", "/politics": "Politics", "/workspaces": "Workspaces", "/models": "Models", "/scenarios": "Scenarios", "/news": "Events", "/map": "Map", "/methodology": "Methodology" };
 
 // Primary navigation: inline links from `sm` up; below that a "菜单" button that expands a vertical list.
 // The list closes on navigation and on Escape. Links are rendered in both states, so crawlers see them.
@@ -32,8 +32,8 @@ export function SiteNav({ children }: { children?: ReactNode }) {
 
   return (
     <>
-      <div className="flex flex-wrap items-center gap-1.5 sm:gap-4">
-        <div className="hidden gap-x-3 py-1 text-sm font-semibold text-[var(--muted)] xl:flex">{links("whitespace-nowrap")}</div>
+      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+        <div className="hidden gap-x-2 py-1 text-[13px] font-semibold text-[var(--muted)] xl:flex">{links("whitespace-nowrap")}</div>
         <button type="button" className="rounded-full border border-[var(--line)] px-2.5 py-1 text-xs font-semibold text-[var(--foreground)] sm:px-3 xl:hidden" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen((value) => !value)}>
           {locale === "en" ? (open ? "Close menu" : "Menu") : (open ? "关闭菜单" : "菜单")}
         </button>
