@@ -55,11 +55,11 @@ export function CountryResearchProfile({country,electionHistory,electionDates,th
     {comparisonSlugs.length>1 ? <Link className="cta-dark rounded px-3 py-2" href={dataHref}>{t('比较所选指标','Compare selected indicator')}</Link> : <Link className="research-tab" data-economy-selected-handoff href={dataHref}>{t('在数据浏览器打开当前指标','Open selected indicator in Data Explorer')}</Link>}
    </div>
 </section>
-  <div className="mt-7 grid gap-5 lg:grid-cols-2">
+  <div className="mt-7 grid items-start gap-5 lg:grid-cols-2">
    <section id="institutions" className="editorial-panel p-5 scroll-mt-28"><h2 className="text-xl font-semibold">{t('政治制度','Political institutions')}</h2><InstitutionalProfile country={country} history={electionDates}/><Link className="mt-3 inline-block underline" href={prefix+'/politics/?'+new URLSearchParams({institution_countries:comparisonSlugs.join(',')})+'#institutions'}>{t('比较各国政治制度','Compare political institutions')}</Link></section>
    <section id="elections" className="editorial-panel p-5 scroll-mt-28"><h2 className="text-xl font-semibold">{t('议会选举与历史','Parliamentary election history')}</h2><div className="mt-3">{electionHistory}</div></section>
   </div>
-  <div className="mt-7 grid gap-5 lg:grid-cols-2">
+  <div className="mt-7 grid items-start gap-5 lg:grid-cols-2">
    <section id="regions" className="editorial-panel p-5 scroll-mt-28"><h2 className="text-xl font-semibold">{t('区域地理','Regional geography')}</h2><p className="mt-3 text-sm">{regionalMapAvailable?t('区域事实地图可用；数据层级与年份须分别核查。','Regional facts map available; check each level and period.'):t('区域边界地图未连接；不能据此判断统计观测不存在。','Regional boundaries are not connected; this is not evidence that statistical observations are absent.')}</p><Link className="mt-3 inline-block underline" href={`${prefix}/map/?country=${country.slug}`}>{t('区域数据与可用性','Regional data and availability')}</Link></section>
    <section id="research" className="editorial-panel p-5 scroll-mt-28"><h2 className="text-xl font-semibold">{t('研究工作区与模型','Research workspaces and models')}</h2>
     <h3 className="mt-3 text-sm font-semibold text-[var(--muted)]">{t('问题导向研究工作区','Question-first research workspaces')}</h3>
