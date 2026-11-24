@@ -22,20 +22,57 @@ export function ScrollableTableRegion({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    let rafId = 0;
+    let observedChild: Element | null = null;
+
     const update = () => {
       const overflow = el.scrollWidth > el.clientWidth + 4;
       setCanScroll(overflow);
       setAtEnd(overflow && el.scrollLeft + el.clientWidth >= el.scrollWidth - 4);
     };
+
+    const scheduleUpdate = () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        rafId = 0;
+        update();
+      });
+    };
+
+    const resizeObserver = typeof ResizeObserver !== "undefined" ? new ResizeObserver(scheduleUpdate) : null;
+    const syncChildObservation = () => {
+      const nextChild = el.firstElementChild;
+      if (nextChild === observedChild) return;
+      if (observedChild) resizeObserver?.unobserve(observedChild);
+      observedChild = nextChild;
+      if (observedChild) resizeObserver?.observe(observedChild);
+    };
+
     update();
+    resizeObserver?.observe(el);
+    syncChildObservation();
+
+    const mutationObserver =
+      typeof MutationObserver !== "undefined"
+        ? new MutationObserver(() => {
+            syncChildObservation();
+            scheduleUpdate();
+          })
+        : null;
+    mutationObserver?.observe(el, { childList: true, subtree: true });
+
+    const parentDetails = el.closest("details");
+    parentDetails?.addEventListener("toggle", scheduleUpdate);
     el.addEventListener("scroll", update, { passive: true });
-    const observer = typeof ResizeObserver !== "undefined" ? new ResizeObserver(update) : null;
-    observer?.observe(el);
-    window.addEventListener("resize", update);
+    window.addEventListener("resize", scheduleUpdate);
+
     return () => {
+      if (rafId) cancelAnimationFrame(rafId);
       el.removeEventListener("scroll", update);
-      observer?.disconnect();
-      window.removeEventListener("resize", update);
+      window.removeEventListener("resize", scheduleUpdate);
+      parentDetails?.removeEventListener("toggle", scheduleUpdate);
+      mutationObserver?.disconnect();
+      resizeObserver?.disconnect();
     };
   }, []);
 

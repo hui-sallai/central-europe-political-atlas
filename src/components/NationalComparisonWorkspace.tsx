@@ -84,7 +84,9 @@ export function NationalComparisonWorkspace({countries,indicators,observations,p
  const frequencyLabel=(f:Frequency|string)=>t(({annual:'年度',monthly:'月度',quarterly:'季度'} as Record<string,string>)[f]??f,({annual:'Annual',monthly:'Monthly',quarterly:'Quarterly'} as Record<string,string>)[f]??f);
  const periodPlaceholder=frequency==='monthly'?'YYYY-MM':frequency==='quarterly'?'YYYY-Q1':'YYYY';
  const hasFilter=search.trim().length>0||topic!=='all';
- const hasPeriodFilter=Boolean(from.trim()||to.trim()||period.trim());
+ const hasPeriodFilter=Boolean(from.trim()||to.trim()||period.trim()||yearTransfer);
+ const clearPeriodFilters=()=>{setFrom('');setTo('');setPeriod('');setPage(0);setYearTransfer(false);};
+ const referenceInScope=Boolean(period&&(comparisonMode==='harmonized'?common:periods).includes(period));
  return <section className="editorial-panel mt-6 min-w-0 p-4 sm:p-6" data-national-comparison aria-label={t('国家经济数据与比较','National economic data and comparison')}>
   <h2 className="text-2xl font-semibold">{discovery?t('按研究问题查找数据','Explore data by research topic'):t('自选国家比较','Choose countries to compare')}</h2>
   {originElection && <ElectionDataOrigin key={originElection} id={originElection} locale={en ? "en" : "zh-CN"}/>}
@@ -96,11 +98,13 @@ export function NationalComparisonWorkspace({countries,indicators,observations,p
    {hasFilter ? <button type="button" data-reset-indicator-filter className="underline text-[var(--ink)]" onClick={()=>{setSearch('');setTopic('all');}}>{t('重置搜索与主题','Reset search & topic')}</button> : null}
   </div>
   {options.length===0 ? <p className="mt-2 rounded border border-[var(--border)] bg-[var(--surface-muted)] px-3 py-2 text-xs text-[var(--ink)]" role="status" data-empty-indicator-search>{t('当前关键词或主题下没有匹配指标（非国家数据缺失）。可点击“重置搜索与主题”恢复全部指标列表。','No indicators match this search or topic filter (this is a filter result, not missing national observations). Use “Reset search & topic” to restore all indicators.')}</p> : null}
-  <dl className="mt-3 grid gap-2 rounded border border-[var(--border)] bg-[var(--surface-muted)] p-3 text-xs sm:grid-cols-2 lg:grid-cols-4" data-active-research-summary aria-label={t('当前研究配置摘要','Active research configuration')}>
-   <div><dt className="text-[var(--muted)]">{t('当前指标','Active indicator')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{title}{metric?.id ? <span className="ml-1 font-mono text-[11px] text-[var(--muted)]">({metric.id})</span> : null}</dd></div>
-   <div><dt className="text-[var(--muted)]">{t('频率与口径','Frequency & frame')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{frequencyLabel(frequency)} · {comparisonMode==='harmonized'?t('同口径共同实际时期','Harmonized common periods'):t('描述性并列','Descriptive side-by-side')}</dd></div>
+  <dl className="mt-3 grid gap-2 rounded border border-[var(--border)] bg-[var(--surface-muted)] p-3 text-xs sm:grid-cols-2 lg:grid-cols-3" data-active-research-summary aria-label={t('当前研究配置摘要','Active research configuration')}>
+   <div><dt className="text-[var(--muted)]">{t('当前指标','Active indicator')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{title}{metric?.id ? <span className="ml-1 font-mono text-[11px] text-[var(--muted)]">({metric.id})</span> : null}{!definitionValid ? <span className="ml-1 text-[var(--accent)]">· {t('未登记或频率不匹配','Unsupported')}</span> : null}</dd></div>
+   <div><dt className="text-[var(--muted)]">{t('频率与有效口径','Frequency & effective frame')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{frequencyLabel(frequency)} · {comparisonMode==='harmonized'?t('同口径共同实际时期','Harmonized common periods'):selected.length<2?t('描述性视图（未满两国）','Descriptive (<2 countries)'):t('描述性并列（不推定可比）','Descriptive side-by-side')}</dd></div>
    <div><dt className="text-[var(--muted)]">{t('已选国家','Selected countries')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{selected.length ? selected.map(name).join(en?', ':'、') : t('未选择国家','None selected')}</dd></div>
-   <div><dt className="text-[var(--muted)]">{t('时期范围','Period span')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{from||to ? `${from||availablePeriods[0]||'…'} – ${to||availablePeriods.at(-1)||'…'}` : availablePeriods.length ? `${availablePeriods[0]} – ${availablePeriods.at(-1)}` : '—'}</dd></div>
+   <div data-summary-requested-range><dt className="text-[var(--muted)]">{t('请求时期范围','Requested date range')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{from||to ? `${from||'…'} – ${to||'…'}${!rangeValid ? ` · ${t('时期无效','Invalid range')}` : ''}` : t('未限定（自动全部可用）','Unrestricted (all available)')}</dd></div>
+   <div data-summary-available-span><dt className="text-[var(--muted)]">{t('可用观测跨度（并集）','Available span (union)')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{availablePeriods.length ? `${availablePeriods[0]} – ${availablePeriods.at(-1)}` : t('无已加载观测','No loaded observations')}{selected.length>=2&&comparisonMode==='harmonized' ? ` · ${common.length ? `${t('共同合格','Common eligible')}: ${common.length}` : t('无共同合格时期','No common eligible')}` : ''}</dd></div>
+   <div data-summary-reference-period><dt className="text-[var(--muted)]">{t('实际参照时期','Reference period')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{period ? `${period} · ${referenceInScope ? t('指定','Explicit') : t('无合格观测','Unavailable')}` : reference ? `${reference} · ${t('自动最新合格','Auto latest')}` : `— · ${t('无可用时期','None available')}`}</dd></div>
   </dl>
   <fieldset className="my-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5"><legend className="mb-2 font-semibold">{t('选择国家（比较需 2–10 国）','Choose countries (2–10 for comparison)')} · {selected.length}/10</legend>{countries.map(c=><label key={c.slug} className="text-sm"><input type="checkbox" disabled={!ready} checked={selected.includes(c.slug)} onChange={()=>{setSelected(ids=>ids.includes(c.slug)?ids.filter(id=>id!==c.slug):[...ids,c.slug]);setInvalid(false);setPeriod('');setPage(0);}}/> {name(c.slug)}</label>)}</fieldset>
   <div className="mb-4 flex flex-wrap gap-3 text-sm">
@@ -110,11 +114,13 @@ export function NationalComparisonWorkspace({countries,indicators,observations,p
   {!selected.length?<p role="status">{t('请选择国家。不会自动添加其他国家或指定基准国。','Select countries. No additional country or reference country is selected automatically.')}</p>:null}
   {invalid?<p role="alert">{t('链接含重复或不支持的国家，请核对选择。','The link contains duplicate or unsupported countries; review the selection.')}</p>:null}
   <div className="grid gap-3 sm:grid-cols-3"><label>{t('起始时期','From period')}<input disabled={!ready} className="field-control mt-2" placeholder={periodPlaceholder} aria-label={t('起始时期','From period')} value={from} onChange={e=>setFrom(e.target.value)}/></label><label>{t('结束时期','To period')}<input disabled={!ready} className="field-control mt-2" placeholder={periodPlaceholder} aria-label={t('结束时期','To period')} value={to} onChange={e=>setTo(e.target.value)}/></label><label>{t('比较口径','Comparison frame')}<select disabled={!ready} aria-label={t('比较口径','Comparison frame')} className="field-control mt-2" value={mode} onChange={e=>{setMode(e.target.value);setPeriod('');}}><option value="harmonized">{t('同口径、共同实际时期','Harmonized, actual common periods')}</option><option value="side_by_side">{t('描述性并列（不推定可比）','Descriptive side-by-side (no comparability assumed)')}</option></select></label></div>
-  {availablePeriods.length>0 && <div className="my-3 flex flex-wrap items-center gap-3 text-sm" role="group" aria-label={t('历史时期快捷选择','Historical period shortcuts')}>
-   <span>{availablePeriods[0]} – {availablePeriods.at(-1)}</span>
-   <button type="button" className="research-tab" onClick={()=>applyWindow()}>{t('全部可用时期','All available periods')}</button>
-   {[5,10,20].filter(n=>Number(availablePeriods.at(-1)!.slice(0,4))-Number(availablePeriods[0].slice(0,4))+1>n).map(n=><button key={n} type="button" className="research-tab" onClick={()=>applyWindow(n)}>{t('最近 '+n+' 个日历年','Last '+n+' calendar years')}</button>)}
-   {hasPeriodFilter ? <button type="button" data-clear-period-filter className="underline text-xs" onClick={()=>{setFrom('');setTo('');setPeriod('');setPage(0);}}>{t('清除时期筛选','Clear period')}</button> : null}
+  {(availablePeriods.length>0 || hasPeriodFilter) && <div className="my-3 flex flex-wrap items-center gap-3 text-sm" role="group" aria-label={t('历史时期快捷选择','Historical period shortcuts')}>
+   {availablePeriods.length>0 ? <>
+    <span>{availablePeriods[0]} – {availablePeriods.at(-1)}</span>
+    <button type="button" className="research-tab" onClick={()=>applyWindow()}>{t('全部可用时期','All available periods')}</button>
+    {[5,10,20].filter(n=>Number(availablePeriods.at(-1)!.slice(0,4))-Number(availablePeriods[0].slice(0,4))+1>n).map(n=><button key={n} type="button" className="research-tab" onClick={()=>applyWindow(n)}>{t('最近 '+n+' 个日历年','Last '+n+' calendar years')}</button>)}
+   </> : null}
+   {hasPeriodFilter ? <button type="button" data-clear-period-filter className="underline text-xs" onClick={clearPeriodFilters}>{t('清除时期筛选','Clear period')}</button> : null}
   </div>}
   {yearTransfer?<p className="mt-2 text-xs">{t('旧年度筛选已明确转换为该年的首月／末月边界（季度则为第一／第四季）；仅显示实际已发布观测。','Legacy year filters are converted to first/last calendar-month boundaries (first/fourth quarter for quarterly data); only actual published observations are shown.')}</p>:null}
   {!definitionValid?<p role="alert">{t('指标或频率不受支持，请明确选择已登记指标。','Unsupported indicator or frequency; explicitly select a registered metric.')}</p>:null}
