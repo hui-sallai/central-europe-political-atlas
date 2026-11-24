@@ -5479,6 +5479,50 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "antigravity-batch2-navigation-notebook-2026-11-24",
+      "status": "owner_approved",
+      "approved_by": "Owner Batch 2 acceptance and release preparation brief of 2026-11-24: global Workspaces navigation, Workspaces index heading/intro deduplication, Research Notebook evidence-count singular/plural grammar, styled Rename/Delete project controls, and quick-jump navigation to evidence, sources and export sections.",
+      "baseline": "92627fbaee2be8433e0cb369055b2d79390cb44f",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-24",
+      "files": [
+        {
+          "path": "src/components/NotebookProjectManager.tsx",
+          "sha256": "05dbe171e323e8babd0938d6012a235f38f63fa1e9a7dc60edd77a999b9b843a",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ResearchNotebookPage.tsx",
+          "sha256": "4bdc2883d3392e6e25190b2ce4926ea290d5a2d125f6b7079823a4dfa8f266f7",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/SiteNav.tsx",
+          "sha256": "ee63c84b955174f6a84b249ff69abb1f2452906132c1c71994af7ea46acf5fb4",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/WorkspaceIndex.tsx",
+          "sha256": "18b9dc76d0e2a02b220b30838cd3dd57932ea3bbd149fa5a56e720cc99c93122",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/notebookProjectMessages.ts",
+          "sha256": "2ef57f0d63eb5e7a99a356fa2f2f6012ed68ea6617a19f2f539994f08870f2e6",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/siteStructure.ts",
+          "sha256": "69f80f44df8f04a434a3edcd95ee73b70063371916710a57e7cabb010011194e",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }
