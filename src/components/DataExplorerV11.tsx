@@ -406,7 +406,7 @@ function LegacyDataExplorer({ countries, indicators, observations,refreshManifes
             window.history.pushState(null, "", url);
             setDataset(id);
           }}
-            className={dataset === id ? "rounded-full bg-[var(--cta-bg)] px-4 py-2 text-sm font-semibold text-[var(--cta-fg)]" : "rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold"}>
+            className={dataset === id ? "rounded-full bg-[var(--cta-bg)] px-4 py-2 text-sm font-semibold text-[var(--cta-fg)]" : "rounded-full border border-[var(--line)] bg-[var(--surface)] px-4 py-2 text-sm font-semibold"}>
             {label}
           </button>
         ))}
@@ -494,7 +494,7 @@ function LegacyDataExplorer({ countries, indicators, observations,refreshManifes
               source: { institution: sourceInstitution(item.source_name, item.source_url), dataset: item.source_name, source_url: item.source_url, source_code: item.layer === "sors" ? sors.series?.find((series) => series.key === item.source_code)?.original_code ?? item.source_code : item.source_code, updated_at: item.updated_at, unit: item.unit, original_unit: item.original_unit ?? undefined, reliability: item.reliability, status: item.status, source_layer: item.layer } })),
           })} />
           <button type="button" onClick={downloadCurrentView} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">下载当前筛选结果（CSV）</button>
-          <a href={`${basePath}/research-data/observations.csv`} className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold">下载全部观测数据（CSV）</a>
+          <a href={`${basePath}/research-data/observations.csv`} className="rounded-full border border-[var(--line)] bg-[var(--surface)] px-4 py-2 text-sm font-semibold">下载全部观测数据（CSV）</a>
           <a href={`${basePath}/research-data/${getResearchPackageFilename()}`} className="rounded-full cta-dark px-4 py-2 text-sm font-semibold">下载完整研究数据包（ZIP）</a>
         </div>
       </div>
