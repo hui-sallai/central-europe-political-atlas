@@ -77,7 +77,7 @@ export function ModelsPageContent() {
         <p className="mt-5 text-base leading-8 text-[var(--muted)]">选择研究方法，查看其问题、已准入输入、结果与限制。也可直接比较国家经济观测。正式 VAR 动态响应与 IRF 仍禁止发布；受限方法不会因页面改版而开放。</p>
         <div className="mt-5 flex flex-wrap gap-3"><Link href="/scenarios" className="rounded-lg cta-dark px-4 py-2 text-sm font-semibold">运行情景分析</Link><Link href="/methodology#models" className="rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-semibold">查看方法说明</Link></div>
       </header>
-      <Suspense fallback={<p className="mt-8 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载分析工作台…</p>}>
+      <Suspense fallback={<p className="mt-8 min-h-[75vh] border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载分析工作台…</p>}>
         <ModelsPageTabs
           runAnalysis={<AnalysisWorkbench countries={researchCountries} cards={modelCards} outputs={modelOutputs} events={researchEvents} mechanisms={eventMechanismRecords()} />}
           compareCountries={

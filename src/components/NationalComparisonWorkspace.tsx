@@ -1,5 +1,5 @@
 "use client";
-import {useCallback,useEffect,useMemo,useState} from 'react';
+import {useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {useLocale} from '@/i18n/LocaleProvider';
 import {englishText} from '@/i18n/reviewedText';
 import {AnnualReferenceDetails} from './AnnualReferenceDetails';
@@ -23,14 +23,45 @@ export function NationalComparisonWorkspace({countries,indicators,observations,p
  const en=useLocale()==='en',t=(zh:string,enText:string)=>en?enText:zh;
  const {inventory,error:coverageError}=useHistoricalCoverage();
  const [loaded,setLoaded]=useState<Pick<NationalData,'annual'|'macro'|'macroDefinitions'|'sors'|'history'>>({annual:null,macro:[],macroDefinitions:[],sors:[],history:null});
- const [loadFailures,setLoadFailures]=useState<string[]>([]),[loadedReady,setLoadedReady]=useState(false),[ready,setReady]=useState(false);
+ const [loadFailures,setLoadFailures]=useState<string[]>([]),[loadedReady,setLoadedReady]=useState(false),[macroStatus,setMacroStatus]=useState<'idle'|'loading'|'loaded'|'partial'|'failed'>('idle'),[macroRetry,setMacroRetry]=useState(0),[ready,setReady]=useState(false);
+ const macroLoadedRef=useRef({macro:false,history:false});
  const [selected,setSelected]=useState<string[]>([]),[frequency,setFrequency]=useState<Frequency>('annual'),[metricKey,setMetricKey]=useState('annual:real_gdp_growth');
  const [originElection,setOriginElection]=useState('');
  const [topic,setTopic]=useState('all'),[search,setSearch]=useState(''),[from,setFrom]=useState(''),[to,setTo]=useState(''),[period,setPeriod]=useState('');
  const [mode,setMode]=useState('harmonized'),[view,setView]=useState('line'),[recordSearch,setRecordSearch]=useState(''),[page,setPage]=useState(0),[invalid,setInvalid]=useState(false),[message,setMessage]=useState(''),[yearTransfer,setYearTransfer]=useState(false);
- useEffect(()=>{const controller=new AbortController();const base=process.env.NEXT_PUBLIC_BASE_PATH??'';const files=['annual_history_runtime.json','macro_driver_runtime.json','macro_driver_dictionary.json','serbia_sors_runtime.json','monthly_history_runtime.json'];
-  Promise.all(files.map(async file=>{try{const response=await fetch(`${base}/research-data/${file}`,{signal:controller.signal});if(!response.ok)throw Error(file);return await response.json();}catch{ return null;}})).then(([annual,macro,definitions,sors,history])=>{if(controller.signal.aborted)return;setLoaded({annual,macro:macro?.records??[],macroDefinitions:definitions?.records??[],sors:sors?.series??[],history});setLoadFailures(files.filter((_,i)=>![annual,macro,definitions,sors,history][i]));setLoadedReady(true);});return()=>controller.abort();
+ useEffect(()=>{const controller=new AbortController();const base=process.env.NEXT_PUBLIC_BASE_PATH??'';const files=['annual_history_runtime.json','macro_driver_dictionary.json','serbia_sors_runtime.json'];
+  Promise.all(files.map(async file=>{try{const response=await fetch(`${base}/research-data/${file}`,{signal:controller.signal});if(!response.ok)throw Error(file);return await response.json();}catch{ return null;}})).then(([annual,definitions,sors])=>{if(controller.signal.aborted)return;setLoaded(prev=>({...prev,annual,macroDefinitions:definitions?.records??[],sors:sors?.series??[]}));setLoadFailures(files.filter((_,i)=>![annual,definitions,sors][i]));setLoadedReady(true);});return()=>controller.abort();
  },[]);
+ const needsMacro=metricKey.startsWith('macro:');
+ useEffect(()=>{
+  if(!needsMacro)return;
+  const loadedState=macroLoadedRef.current;
+  if(loadedState.macro&&loadedState.history){setMacroStatus('loaded');return;}
+  const controller=new AbortController();const base=process.env.NEXT_PUBLIC_BASE_PATH??'';
+  const needMacro=!loadedState.macro,needHistory=!loadedState.history;
+  setMacroStatus('loading');
+  const fetchJson=async(file:string,needed:boolean)=>{if(!needed)return undefined;try{const response=await fetch(`${base}/research-data/${file}`,{signal:controller.signal});if(!response.ok)throw Error(file);return await response.json();}catch{return null;}};
+  Promise.all([fetchJson('macro_driver_runtime.json',needMacro),fetchJson('monthly_history_runtime.json',needHistory)]).then(([macro,history])=>{
+   if(controller.signal.aborted)return;
+   if(macro!==undefined&&macro!==null)loadedState.macro=true;
+   if(history!==undefined&&history!==null)loadedState.history=true;
+   setLoaded(prev=>({...prev,...(macro?{macro:macro.records??[]}:{}),...(history?{history}:{})}));
+   setLoadFailures(prev=>{
+    const next=new Set(prev);
+    if(loadedState.macro)next.delete('macro_driver_runtime.json');else if(needMacro)next.add('macro_driver_runtime.json');
+    if(loadedState.history)next.delete('monthly_history_runtime.json');else if(needHistory)next.add('monthly_history_runtime.json');
+    return [...next];
+   });
+   const mOk=loadedState.macro,hOk=loadedState.history;
+   setMacroStatus(mOk&&hOk?'loaded':mOk||hOk?'partial':'failed');
+  });
+  return()=>{
+   controller.abort();
+   if(!(loadedState.macro&&loadedState.history)){
+    setMacroStatus(loadedState.macro||loadedState.history?'partial':'idle');
+   }
+  };
+ },[needsMacro,macroRetry]);
  useEffect(()=>{if(!loadedReady)return;const restore=()=>{const p=new URLSearchParams(location.search),selection=selectedNationalCountries(p,countries.map(c=>c.slug));setSelected(selection.countries);setInvalid(selection.invalid);setOriginElection(p.get('context_election')??'');
   const sourceSeries=loaded.sors.find(s=>s.key===p.get('sors_series'));
   const f=p.get('compare_frequency')??(sourceSeries?(sourceSeries.store==='annual'?'annual':sourceSeries.points.some(point=>/^\d{4}-Q[1-4]$/.test(point[0]))?'quarterly':'monthly'):p.get('tab')==='high_frequency'||p.get('tab')==='macro_drivers'?'monthly':'annual');setFrequency(['annual','monthly','quarterly'].includes(f)?f as Frequency:'annual');
@@ -40,7 +71,8 @@ export function NationalComparisonWorkspace({countries,indicators,observations,p
   setPeriod(p.get('comparison_period')??p.get('macro_year')?.replace('auto','')??p.get('monthly_month')??p.get('year')??'');setView(p.get('comparison_view')??'line');setMode((p.get('comparison_mode')==='side_by_side'||p.get('macro_mode')==='latest_available'||p.get('monthly_mode')==='partial')?'side_by_side':'harmonized');setReady(true);};restore();window.addEventListener('popstate',restore);return()=>window.removeEventListener('popstate',restore);
  },[countries,loadedReady,loaded.sors]);
  const data=useMemo(()=>({observations,monthly:payload,inventory,...loaded}),[observations,payload,inventory,loaded]);
- const exportReady=loadedReady&&(!!inventory||coverageError);
+ const macroPending=needsMacro&&(macroStatus==='idle'||macroStatus==='loading');
+ const exportReady=loadedReady&&!macroPending&&(!!inventory||coverageError);
  const metrics=useMemo(()=>nationalMetrics(indicators,data),[indicators,data]);
  const resolvedMetricKey=resolveNationalMetricKey(metricKey,metrics);
  const metric=metrics.find(m=>m.key===resolvedMetricKey);
@@ -87,7 +119,7 @@ export function NationalComparisonWorkspace({countries,indicators,observations,p
  const hasPeriodFilter=Boolean(from.trim()||to.trim()||period.trim()||yearTransfer);
  const clearPeriodFilters=()=>{setFrom('');setTo('');setPeriod('');setPage(0);setYearTransfer(false);};
  const referenceInScope=Boolean(period&&(comparisonMode==='harmonized'?common:periods).includes(period));
- return <section className="editorial-panel mt-6 min-w-0 p-4 sm:p-6" data-national-comparison aria-label={t('国家经济数据与比较','National economic data and comparison')}>
+ return <section className="editorial-panel mt-6 min-w-0 p-4 sm:p-6" data-national-comparison data-macro-load-status={macroStatus} aria-label={t('国家经济数据与比较','National economic data and comparison')}>
   <h2 className="text-2xl font-semibold">{discovery?t('按研究问题查找数据','Explore data by research topic'):t('自选国家比较','Choose countries to compare')}</h2>
   {originElection && <ElectionDataOrigin key={originElection} id={originElection} locale={en ? "en" : "zh-CN"}/>}
   <div className="mt-4 grid gap-3 sm:grid-cols-2"><label>{t('搜索所有指标和频率','Search all indicators and frequencies')}<input className="field-control mt-2" type="search" placeholder={t('按指标名称、主题、代码或来源搜索（如 GDP、CPI、SORS）','Search by indicator, topic, code or source (e.g. GDP, CPI, SORS)')} value={search} onChange={e=>setSearch(e.target.value)}/></label><label>{t('观测频率','Frequency')}<select disabled={!ready} aria-label={t('观测频率','Frequency')} className="field-control mt-2" value={frequency} onChange={e=>{const f=e.target.value as Frequency;setFrequency(f);setFrom('');setTo('');setPeriod('');setMetricKey('');setSearch('');setTopic('all');}}>{['annual','monthly','quarterly'].map(f=><option key={f} value={f}>{frequencyLabel(f)}</option>)}</select></label></div>
@@ -103,7 +135,7 @@ export function NationalComparisonWorkspace({countries,indicators,observations,p
    <div><dt className="text-[var(--muted)]">{t('频率与有效口径','Frequency & effective frame')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{frequencyLabel(frequency)} · {comparisonMode==='harmonized'?t('同口径共同实际时期','Harmonized common periods'):selected.length<2?t('描述性视图（未满两国）','Descriptive (<2 countries)'):t('描述性并列（不推定可比）','Descriptive side-by-side')}</dd></div>
    <div><dt className="text-[var(--muted)]">{t('已选国家','Selected countries')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{selected.length ? selected.map(name).join(en?', ':'、') : t('未选择国家','None selected')}</dd></div>
    <div data-summary-requested-range><dt className="text-[var(--muted)]">{t('请求时期范围','Requested date range')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{from||to ? `${from||'…'} – ${to||'…'}${!rangeValid ? ` · ${t('时期无效','Invalid range')}` : ''}` : t('未限定（自动全部可用）','Unrestricted (all available)')}</dd></div>
-   <div data-summary-available-span><dt className="text-[var(--muted)]">{t('可用观测跨度（并集）','Available span (union)')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{availablePeriods.length ? `${availablePeriods[0]} – ${availablePeriods.at(-1)}` : t('无已加载观测','No loaded observations')}{selected.length>=2&&comparisonMode==='harmonized' ? ` · ${common.length ? `${t('共同合格','Common eligible')}: ${common.length}` : t('无共同合格时期','No common eligible')}` : ''}</dd></div>
+   <div data-summary-available-span><dt className="text-[var(--muted)]">{t('可用观测跨度（并集）','Available span (union)')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{!loadedReady||macroPending ? t('正在读取观测…','Loading observations…') : availablePeriods.length ? `${availablePeriods[0]} – ${availablePeriods.at(-1)}${needsMacro&&macroStatus==='partial' ? ` · ${t('部分来源读取失败','Partial source load failure')}` : ''}` : needsMacro&&(macroStatus==='failed'||macroStatus==='partial') ? t('来源读取失败（非官方无数据）','Source load failed (not official absence)') : t('无已加载观测','No loaded observations')}{loadedReady&&!macroPending&&selected.length>=2&&comparisonMode==='harmonized' ? ` · ${common.length ? `${t('共同合格','Common eligible')}: ${common.length}` : t('无共同合格时期','No common eligible')}` : ''}</dd></div>
    <div data-summary-reference-period><dt className="text-[var(--muted)]">{t('实际参照时期','Reference period')}</dt><dd className="mt-0.5 font-medium text-[var(--ink)]">{period ? `${period} · ${referenceInScope ? t('指定','Explicit') : t('无合格观测','Unavailable')}` : reference ? `${reference} · ${t('自动最新合格','Auto latest')}` : `— · ${t('无可用时期','None available')}`}</dd></div>
   </dl>
   <fieldset className="my-4 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5"><legend className="mb-2 font-semibold">{t('选择国家（比较需 2–10 国）','Choose countries (2–10 for comparison)')} · {selected.length}/10</legend>{countries.map(c=><label key={c.slug} className="text-sm"><input type="checkbox" disabled={!ready} checked={selected.includes(c.slug)} onChange={()=>{setSelected(ids=>ids.includes(c.slug)?ids.filter(id=>id!==c.slug):[...ids,c.slug]);setInvalid(false);setPeriod('');setPage(0);}}/> {name(c.slug)}</label>)}</fieldset>
@@ -126,7 +158,7 @@ export function NationalComparisonWorkspace({countries,indicators,observations,p
   {!definitionValid?<p role="alert">{t('指标或频率不受支持，请明确选择已登记指标。','Unsupported indicator or frequency; explicitly select a registered metric.')}</p>:null}
   {!rangeValid?<p role="alert">{t('请输入与所选频率一致且顺序有效的时期。','Enter valid ordered periods matching the selected frequency.')}</p>:null}
   {!exportReady?<p className="mt-2 text-sm" role="status" data-comparison-loading>{t('正在读取历史和来源；读取完成前暂不导出或收藏，以免只保存临时部分记录。','Loading history and sources. Exports and collection wait for loading to finish to avoid saving a temporary partial view.')}</p>:null}
-  {loadFailures.length?<p className="mt-2 text-sm" role="status">{t('部分来源读取失败，已加载观测仍可查看；不据此判断官方无数据。','Some sources could not be loaded; loaded observations remain viewable. This is not evidence of official absence.')}</p>:null}
+  {loadFailures.length?<p className="mt-2 text-sm" role="status" data-load-failures={loadFailures.join(',')}>{t('部分来源读取失败，已加载观测仍可查看；不据此判断官方无数据。','Some sources could not be loaded; loaded observations remain viewable. This is not evidence of official absence.')}{needsMacro&&(macroStatus==='failed'||macroStatus==='partial') ? <> <button type="button" data-retry-macro-load className="underline text-[var(--ink)]" onClick={()=>setMacroRetry(n=>n+1)}>{t('重试读取','Retry loading')}</button></> : null}</p>:null}
   {!inventory?<p className="mt-2 text-sm">{t('覆盖证据未就绪；不放开历史比较资格。','Coverage evidence is not ready; historical eligibility is not inferred.')}</p>:null}
   <div className="mt-4 grid gap-3 sm:grid-cols-2"><label>{t('比较展示','Visualization')}<select disabled={!ready} aria-label={t('比较展示','Visualization')} className="field-control mt-2" value={view} onChange={e=>setView(e.target.value)}><option value="line">{t('历史折线','Historical lines')}</option><option value="bar">{t('单期条形','Single-period bars')}</option><option value="table">{t('精确数值表','Exact-value table')}</option></select></label><label>{t('参照时期','Reference period')}<select disabled={!ready} aria-label={t('参照时期','Reference period')} className="field-control mt-2" value={period} onChange={e=>setPeriod(e.target.value)}><option value="">{t('最新合格时期','Latest eligible period')} · {reference||'—'}</option>{period&&!(comparisonMode==='harmonized'?common:periods).includes(period)?<option value={period}>{period} · {t('无合格观测','No eligible observation')}</option>:null}{[...(comparisonMode==='harmonized'?common:periods)].reverse().map(p=><option key={p} value={p}>{p}</option>)}</select></label></div>
   <p className="mt-3 text-sm" data-common-periods>{t('实际共同合格时期','Actual common eligible periods')}: {common.length?`${common.length} · ${common[0]} → ${common.at(-1)}`:'—'}. {t('时期选项逐个核验实际观测，范围内空缺不补值。','Every period option is checked against actual observations; gaps are not filled.')}</p>
