@@ -5595,6 +5595,30 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "antigravity-batch6-platform-maturity-2026-11-26",
+      "status": "owner_approved",
+      "approved_by": "Owner Batch 6 final technical acceptance brief of 2026-11-26: hardened on-demand deferred loading state machine for macro driver runtime files in NationalComparisonWorkspace (idle/loading/loaded/partial/failed, abort-safe rapid switching, explicit partial/failed load qualification and retry recovery, verified research-output equivalence across all 10 modes) and zero-CLS Suspense fallback reservation in ModelsPageContent.",
+      "baseline": "8c67964e48d59c20e6c1430b9f9d9e0abb3df855",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-26",
+      "files": [
+        {
+          "path": "src/components/NationalComparisonWorkspace.tsx",
+          "sha256": "004c30434029669a8f8f98b56754e1fb0e90bc6c0c26e561ced9da6460dd377d",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ModelsPageContent.tsx",
+          "sha256": "61cf2de63bbcb903e82630341f20e4052f62cf583d32ae683386a625e175ff23",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }
