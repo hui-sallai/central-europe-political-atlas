@@ -224,9 +224,11 @@ function MapPane({
   onRegionClick: (regionId: string) => void;
   onProjectClick: (project: Project) => void;
 }) {
+  const locale = useLocale();
   const [features, setFeatures] = useState<Feature[]>([]);
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
   const [hovered, setHovered] = useState<{ regionId: string; name: string; code: string; value: number | null } | null>(null);
+  const [focused, setFocused] = useState<{ regionId: string; name: string; code: string; value: number | null } | null>(null);
 
   useEffect(() => {
     if (!country.geometry_url || !country.approved_layers.includes("regional_boundary")) {
@@ -271,16 +273,24 @@ function MapPane({
       {loadState === "error" ? <div className="grid h-[340px] place-items-center bg-amber-50 p-6 text-center text-sm text-amber-950">空间比较待接入：{country.blocker}</div> : null}
       {loadState === "ready" && project ? (
         <>
-          <svg viewBox={`0 0 ${width} ${height}`} className="h-auto w-full" role="group" aria-label={`${country.country_name_zh}${year ? ` ${year}` : ""} 区域事实地图`} data-map-export={country.country_id}>
+          <svg viewBox={`0 0 ${width} ${height}`} className="h-auto w-full" role="group" aria-label={locale === "en" ? `${country.country_name_en}${year ? ` ${year}` : ""} regional facts map` : `${country.country_name_zh}${year ? ` ${year}` : ""} 区域事实地图`} data-map-export={country.country_id}>
             <defs><pattern id={noDataPatternId} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill={noDataColor} /><line x1="0" y1="0" x2="0" y2="6" stroke="var(--map-hatch)" strokeWidth="2" /></pattern></defs>
             {[...paths].sort((a, b) => Number(selectedRegionIds.includes(a.feature.properties.region_id ?? "")) - Number(selectedRegionIds.includes(b.feature.properties.region_id ?? ""))).map(({ feature, d }) => {
               const regionId = feature.properties.region_id ?? "";
               const value = valueByRegion.get(regionId) ?? null;
               const selected = selectedRegionIds.includes(regionId);
               const isHovered = hovered?.regionId === regionId;
+              const isFocused = focused?.regionId === regionId;
               const choropleth = !(layer === "regional_boundary" || layer === "china_project_locations");
-              const regionLabel = `${feature.properties.region_name ?? regionId} (${feature.properties.region_code ?? "—"})${choropleth ? ` · ${value === null ? "—" : formatNumber(value)}` : ""}`;
-              return <path key={regionId} d={d} tabIndex={0} role="button" aria-pressed={selected} aria-label={regionLabel} fill={!choropleth ? "var(--map-neutral)" : value === null ? `url(#${noDataPatternId})` : colorFor(value, thresholds)} stroke={selected ? "var(--foreground)" : isHovered ? "var(--muted)" : "var(--map-border)"} strokeWidth={selected ? 2.4 : isHovered ? 1.6 : 0.75} className="cursor-pointer focus:outline-none" onMouseEnter={() => setHovered({ regionId, name: feature.properties.region_name ?? regionId, code: feature.properties.region_code ?? "—", value })} onMouseLeave={() => setHovered(null)} onFocus={() => setHovered({ regionId, name: feature.properties.region_name ?? regionId, code: feature.properties.region_code ?? "—", value })} onBlur={() => setHovered(null)} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onRegionClick(regionId); } }} onClick={() => onRegionClick(regionId)} />;
+              const unitText = currentObservations[0]?.unit ? ` ${locale === "en" ? englishText(currentObservations[0].unit) : currentObservations[0].unit}` : "";
+              const valueDesc = !choropleth
+                ? (locale === "en" ? "boundary only" : "仅边界")
+                : value === null
+                  ? (locale === "en" ? "no data for this year" : "该年份无数据")
+                  : `${formatNumber(value)}${unitText}`;
+              const regionLabel = `${feature.properties.region_name ?? regionId} (${feature.properties.region_code ?? "—"}) · ${valueDesc}${year && choropleth ? ` · ${year}` : ""}`;
+              const info = { regionId, name: feature.properties.region_name ?? regionId, code: feature.properties.region_code ?? "—", value };
+              return <path key={regionId} data-region-id={regionId} d={d} tabIndex={0} role="button" aria-pressed={selected} aria-label={regionLabel} fill={!choropleth ? "var(--map-neutral)" : value === null ? `url(#${noDataPatternId})` : colorFor(value, thresholds)} stroke={isFocused ? "var(--accent)" : selected ? "var(--foreground)" : isHovered ? "var(--muted)" : "var(--map-border)"} strokeWidth={isFocused ? 2.8 : selected ? 2.4 : isHovered ? 1.6 : 0.75} strokeDasharray={isFocused && !selected ? "4 2" : undefined} className="cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)]" onMouseEnter={() => setHovered(info)} onMouseLeave={() => setHovered(null)} onFocus={() => setFocused(info)} onBlur={() => setFocused((cur) => (cur?.regionId === regionId ? null : cur))} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onRegionClick(regionId); } }} onClick={() => onRegionClick(regionId)} />;
             })}
             {layer === "china_project_locations" ? countryProjects.map((item, index) => {
               const feature = features.find((candidate) => candidate.properties.region_id === item.region_id);
@@ -294,7 +304,7 @@ function MapPane({
             }) : null}
           </svg>
           <div className="min-h-12 border-t border-[var(--line)] bg-[var(--surface-muted)] px-3 py-2 text-xs leading-5 text-[var(--muted)]" aria-live="polite">
-            {hovered ? <><strong className="text-[var(--foreground)]">{hovered.name}</strong> · {hovered.code} · {layer === "regional_boundary" ? "边界" : hovered.value === null ? "该年份无数据" : `${formatNumber(hovered.value)}${currentObservations[0]?.unit ? ` ${currentObservations[0].unit}` : ""}`} · {year || "不适用"}</> : selectedHere ? <>已选：<strong className="text-[var(--foreground)]">{selectedHere.name}</strong> · {layer === "regional_boundary" ? "边界" : selectedHere.value === null ? "该年份无数据" : `${formatNumber(selectedHere.value)}${currentObservations[0]?.unit ? ` ${currentObservations[0].unit}` : ""}`} · {year || "不适用"}（悬停其他区域可比较）</> : "悬停查看区域、代码、指标值与年份；点击加入区域比较。"}
+            {(hovered ?? focused) ? <><strong className="text-[var(--foreground)]">{(hovered ?? focused)!.name}</strong> · {(hovered ?? focused)!.code} · {layer === "regional_boundary" ? "边界" : (hovered ?? focused)!.value === null ? "该年份无数据" : `${formatNumber((hovered ?? focused)!.value)}${currentObservations[0]?.unit ? ` ${currentObservations[0].unit}` : ""}`} · {year || "不适用"}</> : selectedHere ? <>已选：<strong className="text-[var(--foreground)]">{selectedHere.name}</strong> · {layer === "regional_boundary" ? "边界" : selectedHere.value === null ? "该年份无数据" : `${formatNumber(selectedHere.value)}${currentObservations[0]?.unit ? ` ${currentObservations[0].unit}` : ""}`} · {year || "不适用"}（悬停其他区域可比较）</> : "悬停查看区域、代码、指标值与年份；点击加入区域比较。"}
           </div>
         </>
       ) : null}
