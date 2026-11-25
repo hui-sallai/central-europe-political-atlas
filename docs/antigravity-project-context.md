@@ -79,12 +79,13 @@
 
 ## 6. Released Antigravity Batches & Baseline Notes (Updated 2026-11-25)
 
-- **Latest verified `main` SHA before Batch 4:** `8e51bb5e66d62003208bc4f91280d9b4af5ff9ea` (GitHub Pages run `45478043566`).
+- **Latest verified `main` SHA before Batch 5:** `80ffd2c6b122f645f5d98c8487f1d39ee01740c1` (GitHub Pages run `45518437957`).
 - **Completed & deployed Antigravity batches:**
   - **Batch 1 (PR #2, `92627fb`, run `45287771947`):** Keyboard-focusable scrollable research tables, mobile header & language-switcher fixes, country parliamentary election headers/navigation links.
   - **Batch 2 (PR #3, `0d7e774`, run `45417122174`):** Global Workspaces navigation, Workspaces index heading/intro deduplication, Research Notebook evidence-count grammar, Rename/Delete project controls, and Evidence/Sources/Export quick-jump anchors.
   - **Batch 3 (PR #4, `8e51bb5`, run `45478043566`):** Economic Data Explorer localized frequency labels, search clarity & empty-search recovery, active research configuration summary (requested/available/common/reference periods), unconditional period-filter recovery, reusable `ScrollableTableRegion` horizontal-scroll affordance, and dark-mode contrast fixes.
-- **Active Antigravity batch:** Batch 4 (`ux/antigravity-batch4-country-research-hubs`) — shared Country Research Hub architecture, section navigation & anchor positioning, indicator-preserving economic handoffs, and clearer module separation across all 10 countries.
+  - **Batch 4 (PR #5, `80ffd2c`, run `45518437957`):** Shared Country Research Hub module separation (`items-start` natural panel heights), 8-section navigation with `#events` and `scroll-mt-28` sticky-header offsets, indicator-preserving economic handoffs, and clearer Research Notebook wording.
+- **Active Antigravity batch:** Batch 5 (`ux/antigravity-batch5-spatial-thematic-research`) — Regional Facts Map (`ComparativeSpatialWorkbench`) dark-mode surface fixes, keyboard-accessible SVG region selection, active spatial configuration summary, reusable `ScrollableTableRegion` for wide regional comparison tables, and `ThematicWorkspace` filter-reset & scope clarity.
 - **Historical cross-agent backlog (dated onboarding snapshot, 2026-11-24 — check authoritative repository records before assuming current status):**
   - Claude Code (independently maintained evidence & admission backlog at onboarding): Slovenia 1992/1996 owner-staged gazettes; Slovakia 2010–2020 participation summaries; Austria 2002–2008 institutional periods; Romania 2012 law & 2016 turnout definitions.
   - Note: UI improvements by Antigravity do not mark another agent's evidence or analytical backlog complete; consult `docs/political-data/` and `CHANGELOG.md` for current admission status.
