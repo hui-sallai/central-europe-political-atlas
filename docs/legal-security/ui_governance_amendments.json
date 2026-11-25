@@ -5571,6 +5571,30 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "antigravity-batch5-spatial-thematic-research-2026-11-25",
+      "status": "owner_approved",
+      "approved_by": "Owner Batch 5 final acceptance and release preparation brief of 2026-11-25: dark-mode spatial surface contrast fixes, keyboard-accessible SVG region buttons with distinct focus/hover/selected states and bilingual accessible labels, active spatial configuration summary and clear-regions control, reusable ScrollableTableRegion for wide regional comparison table, thematic country-filter and unavailable-case recovery controls, and accurate singular/plural thematic record-count summaries.",
+      "baseline": "80ffd2c6b122f645f5d98c8487f1d39ee01740c1",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-25",
+      "files": [
+        {
+          "path": "src/components/ComparativeSpatialWorkbench.tsx",
+          "sha256": "ba5fe9a98305a59c2089a7210d6935f5d8a11e2f26f4c78e911d6e4c2c730e74",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ThematicWorkspace.tsx",
+          "sha256": "9b77e9bc4ce93b7036becff30de66537a258e54e2360cc9befefab8e111d6579",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }
