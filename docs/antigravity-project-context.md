@@ -79,13 +79,24 @@
 
 ## 6. Released Antigravity Batches & Baseline Notes (Updated 2026-11-25)
 
-- **Latest verified `main` SHA before Batch 5:** `80ffd2c6b122f645f5d98c8487f1d39ee01740c1` (GitHub Pages run `45518437957`).
+- **Latest verified `main` SHA before Batch 6:** `8c67964e48d59c20e6c1430b9f9d9e0abb3df855` (GitHub Pages run `45657936175`).
 - **Completed & deployed Antigravity batches:**
   - **Batch 1 (PR #2, `92627fb`, run `45287771947`):** Keyboard-focusable scrollable research tables, mobile header & language-switcher fixes, country parliamentary election headers/navigation links.
   - **Batch 2 (PR #3, `0d7e774`, run `45417122174`):** Global Workspaces navigation, Workspaces index heading/intro deduplication, Research Notebook evidence-count grammar, Rename/Delete project controls, and Evidence/Sources/Export quick-jump anchors.
   - **Batch 3 (PR #4, `8e51bb5`, run `45478043566`):** Economic Data Explorer localized frequency labels, search clarity & empty-search recovery, active research configuration summary (requested/available/common/reference periods), unconditional period-filter recovery, reusable `ScrollableTableRegion` horizontal-scroll affordance, and dark-mode contrast fixes.
   - **Batch 4 (PR #5, `80ffd2c`, run `45518437957`):** Shared Country Research Hub module separation (`items-start` natural panel heights), 8-section navigation with `#events` and `scroll-mt-28` sticky-header offsets, indicator-preserving economic handoffs, and clearer Research Notebook wording.
-- **Active Antigravity batch:** Batch 5 (`ux/antigravity-batch5-spatial-thematic-research`) — Regional Facts Map (`ComparativeSpatialWorkbench`) dark-mode surface fixes, keyboard-accessible SVG region selection, active spatial configuration summary, reusable `ScrollableTableRegion` for wide regional comparison tables, and `ThematicWorkspace` filter-reset & scope clarity.
+  - **Batch 5 (PR #6, `8c67964`, run `45657936175`):** Regional Facts Map dark-mode surface fixes, keyboard-accessible SVG region selection with distinct focus/hover/selected styling and bilingual accessible labels, active spatial configuration summary & clear-regions control, reusable `ScrollableTableRegion` for regional comparison table, and `ThematicWorkspace` filter/unavailable-case recovery & singular/plural record counts.
+- **Active Antigravity batch:** Batch 6 (`ux/antigravity-batch6-platform-maturity`) — reproducible performance baseline & optimizations (on-demand macro runtime loading in `NationalComparisonWorkspace.tsx`, zero-CLS `<Suspense>` fallback in `ModelsPageContent.tsx`), 6-journey end-to-end research workflow integration tests, and cross-agent technical debt register.
 - **Historical cross-agent backlog (dated onboarding snapshot, 2026-11-24 — check authoritative repository records before assuming current status):**
   - Claude Code (independently maintained evidence & admission backlog at onboarding): Slovenia 1992/1996 owner-staged gazettes; Slovakia 2010–2020 participation summaries; Austria 2002–2008 institutional periods; Romania 2012 law & 2016 turnout definitions.
   - Note: UI improvements by Antigravity do not mark another agent's evidence or analytical backlog complete; consult `docs/political-data/` and `CHANGELOG.md` for current admission status.
+
+## 7. Cross-Agent Technical Debt & Research-Workflow Register (2026-11-25)
+
+| Priority | Area / Route | Finding & Impact | Relevant Files | Owner |
+| --- | --- | --- | --- | --- |
+| P1 | `/map/` (5-region selection policy) | SVG `onRegionClick` replaces earliest selected region (FIFO) on 6th click, whereas the checkbox list disables unselected items at 5/5. Unifying selection semantics requires analytical contract alignment. | `src/components/ComparativeSpatialWorkbench.tsx` | Codex |
+| P1 | `/data/`, `/map/` (`historical_recovery_inventory.json`, 3.0 MB) | Monolithic 3 MB coverage inventory is fetched eagerly on `/data/` and `/map/`; splitting or indexing by domain/frequency requires canonical export schema review. | `scripts/data-coverage/`, `src/components/HistoricalCoverage.tsx` | Claude Code / Codex |
+| P2 | `/map/` (project-location markers) | SVG `<circle>`/`<rect>` project markers support pointer click + `<title>` but not keyboard focus/activation; add accessible keyboard list or focusable markers after coordinating marker contract. | `src/components/ComparativeSpatialWorkbench.tsx` | Antigravity / Codex |
+| P2 | `scripts/political-data/` (ESLint warnings) | Three pre-existing unused-variable lint warnings in `hungary/build-ogy-national.mjs` and `slovakia/build-nrsr-national.mjs`. | `scripts/political-data/hungary/build-ogy-national.mjs`, `slovakia/build-nrsr-national.mjs` | Claude Code |
+| P2 | Linux visual CI (`workspace-zh-CN-regional-development-light.png`) | Occasional 0.42% identical-dimension (`1440×5682`) sub-pixel CJK font rasterization diff in `record` mode; normal `verify` passes cleanly. Monitor without weakening thresholds. | `tests/ui/workspaces-visual.spec.ts` | Antigravity |
