@@ -47,6 +47,8 @@ const en = {
   copied: "Markdown copied to clipboard.",
   copyError: "Clipboard permission unavailable; use Export Evidence Brief (Markdown) instead.",
   exportHtml: "Download print-ready HTML",
+  exportCitations: "Download citations and manifest (ZIP)",
+  citationDisclosure: "This ZIP is created on your device. It includes selected evidence and recorded sources, your research question, project notes and notes on selected items. Review private research material before sharing.",
   printReport: "Print report only",
   printHint: "Prints only the isolated selected report (never excluded Notebook items). You can also download the standalone HTML file and save as PDF in your browser.",
   printError: "Isolated report print could not start; download the print-ready HTML file and print it from your browser.",
@@ -108,6 +110,8 @@ const zh: Record<keyof typeof en, string> = {
   copied: "Markdown 已复制到剪贴板。",
   copyError: "剪贴板权限不可用；请改用“导出研究证据简报（Markdown）”。",
   exportHtml: "下载可打印 HTML",
+  exportCitations: "下载引用和报告清单（ZIP）",
+  citationDisclosure: "此 ZIP 在你的设备上生成，包含已选证据及其记录的来源、研究问题、项目笔记和已选条目的笔记。分享前请检查其中的私人研究内容。",
   printReport: "仅打印当前报告",
   printHint: "仅打印隔离的已选报告内容（不包含未选笔记条目）；也可下载独立 HTML 文件在浏览器中另存为 PDF。",
   printError: "隔离打印未能启动；请下载可打印 HTML 文件后在浏览器中打印或另存为 PDF。",
@@ -146,9 +150,9 @@ export type ReportStudioSummary = {
   blockedOrInactiveMethodCount: number;
 };
 
-const CONFIGURATION_TYPES = new Set(["series_view", "country_comparison", "regional_view", "map_view", "workspace"]);
+export const CONFIGURATION_TYPES: ReadonlySet<string> = new Set(["series_view", "country_comparison", "regional_view", "map_view", "workspace"]);
 
-function validateSelection(notebook: ResearchNotebook, ids: string[]) {
+export function validateSelection(notebook: ResearchNotebook, ids: string[]) {
   serializeNotebook(notebook);
   if (new Set(ids).size !== ids.length || ids.some(id => !notebook.items.some(item => item.id === id))) {
     throw Error("Invalid brief selection");

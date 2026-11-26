@@ -11,9 +11,11 @@ import {
   serializeEvidenceBrief,
   type BriefTemplate,
 } from "@/lib/notebookBrief";
+import { buildReportCitationBundle } from "@/lib/notebookCitations";
+import { buildZip } from "@/lib/clientZip";
 import { EXTERNAL_SOURCE_REL } from "@/lib/safeNavigation";
 
-function triggerDownload(content: string, mime: string, filename: string) {
+function triggerDownload(content: BlobPart, mime: string, filename: string) {
   const url = URL.createObjectURL(new Blob([content], { type: mime }));
   const anchor = document.createElement("a");
   anchor.href = url;
@@ -22,7 +24,7 @@ function triggerDownload(content: string, mime: string, filename: string) {
   window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-export function NotebookEvidenceBrief({ notebook, locale, disabled }: { notebook: ResearchNotebook; locale: Locale; disabled: boolean }) {
+export function NotebookEvidenceBrief({ projectId, notebook, locale, disabled }: { projectId: string; notebook: ResearchNotebook; locale: Locale; disabled: boolean }) {
   const m = notebookBriefMessages[locale], labels = notebookMessages[locale];
   const [excluded, setExcluded] = useState<string[]>([]), [order, setOrder] = useState<string[]>([]);
   const [template, setTemplate] = useState<BriefTemplate>("standard");
@@ -140,6 +142,20 @@ export function NotebookEvidenceBrief({ notebook, locale, disabled }: { notebook
     } catch { setStatus("error"); }
   };
 
+  const downloadCitations = () => {
+    try {
+      const time = ensureTimestamp();
+      const bundle = buildReportCitationBundle(notebook, selected, locale, time, template, projectId);
+      const archive = buildZip([
+        { name: "citations.bib", content: bundle.bibtex },
+        { name: "citations.csl.json", content: bundle.cslJson },
+        { name: "report_manifest.json", content: bundle.manifestJson },
+      ], time);
+      triggerDownload(archive, "application/zip", `atlas-report-citations-${locale}-${time.slice(0, 10)}.zip`);
+      setStatus("done");
+    } catch { setStatus("error"); }
+  };
+
   const printIsolatedReport = () => {
     try {
       const time = ensureTimestamp();
@@ -246,8 +262,10 @@ export function NotebookEvidenceBrief({ notebook, locale, disabled }: { notebook
       <button type="button" className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm text-[var(--accent)]" disabled={disabled || !selected.length} onClick={downloadMarkdown}>{m.export}</button>
       <button type="button" data-copy-brief-md className="rounded-full border border-[var(--line)] px-4 py-2 text-sm" disabled={disabled || !selected.length} onClick={() => void copyMarkdown()}>{m.copyMarkdown}</button>
       <button type="button" data-export-brief-html className="rounded-full border border-[var(--line)] px-4 py-2 text-sm" disabled={disabled || !selected.length} onClick={downloadHtml}>{m.exportHtml}</button>
+      <button type="button" data-export-citation-bundle aria-describedby="citation-export-disclosure" className="rounded-full border border-[var(--line)] px-4 py-2 text-sm" disabled={disabled || !selected.length} onClick={downloadCitations}>{m.exportCitations}</button>
       <button type="button" data-print-brief className="rounded-full border border-[var(--line)] px-4 py-2 text-sm" disabled={disabled || !selected.length} onClick={printIsolatedReport}>{m.printReport}</button>
     </div>
+    <p id="citation-export-disclosure" data-citation-disclosure className="mt-2 max-w-prose text-sm text-[var(--muted)]">{m.citationDisclosure}</p>
     <p className="mt-2 text-xs text-[var(--muted)]">{m.printHint}</p>
     <p className="mt-3 text-sm" role="status" data-report-status>{status === "done" ? labels.done : status === "copied" ? m.copied : status === "copy_error" ? m.copyError : status === "print_error" ? m.printError : status === "error" ? labels.error : !selected.length ? m.empty : ""}</p>
     {brief ? <section className="mt-6 min-w-0 border-t border-[var(--line)] pt-5" aria-label={m.preview} data-brief-preview>
