@@ -14,6 +14,7 @@ require.extensions['.ts'] = (m, f) => m._compile(ts.transpileModule(fs.readFileS
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
 }).outputText, f);
 const n = require('../../src/lib/researchNotebook.ts');
+const { buildEvidenceBrief, notebookBriefMessages, serializeEvidenceBrief, serializeBriefHtml } = require('../../src/lib/notebookBrief.ts');
 const { buildReportCitationBundle } = require('../../src/lib/notebookCitations.ts');
 const collected = '2026-11-25T11:14:33Z';
 const generated = '2026-11-26T09:07:00+08:00';
@@ -151,8 +152,8 @@ test('mixed report keeps selected order, notes, layer/revision-specific source e
   assert.equal(m.evidence[2].note, doc.items[3].note);
   assert.deepEqual(m.evidence[2].warning_labels, doc.items[3].warning_labels);
   assert.deepEqual(m.report.countries, [...new Set(m.evidence.flatMap(e => e.countries))]);
-  assert.deepEqual(m.limitations.project_warnings, ['Fixture project-wide warning']);
-  assert.ok(!JSON.stringify(out).includes(excludedOnly));
+  assert.deepEqual(m.limitations.notebook_warning_aggregate.warnings, doc.methodology_warnings);
+  assert.ok(!m.evidence.some(item => item.warnings.includes(excludedOnly)));
   assert.ok(!JSON.stringify(out).includes('Fixture omitted source'));
   assert.ok(m.limitations.evidence[0].codes.includes('registry_only_method'));
   assert.ok(m.limitations.evidence[1].codes.includes('blocked_method'));
@@ -164,6 +165,64 @@ test('mixed report keeps selected order, notes, layer/revision-specific source e
   assert.equal(sameUrl.find(s => s.updated_at === source.updated_at && s.layer === source.layer).evidence_ids.length, 2);
   assert.ok(!Object.hasOwn(m, 'deployment_commit'));
 });
+
+test('Markdown, HTML and manifest retain the Notebook aggregate and the separately recorded selected warnings', () => {
+  const projectOnly = 'Fixture project warning';
+  const shared = 'Fixture common wording';
+  const excludedWarning = 'Fixture excluded warning';
+  const selectedOnly = 'Fixture item warning absent from project list';
+  const doc = notebook([
+    draft('method', 'fixture-restricted', {warnings: [shared, selectedOnly], metadata: {state: 'blocked'},
+      warning_labels: {'zh-CN': ['示例共用说明', '示例条目说明']}}),
+    draft('method', 'fixture-listed', {warnings: [shared], metadata: {state: 'registry_only'}}),
+    draft('source', 'fixture-excluded-record', {warnings: [shared, excludedWarning],
+      sources: [{institution: 'Fixture', dataset: 'Fixture excluded dataset', layer: 'fixture', url: 'https://example.org/omitted'}]}),
+  ]);
+  // v1 imports can retain a warning more than once and can lack an aggregate entry for an item warning.
+  doc.methodology_warnings = [excludedWarning, shared, projectOnly, shared];
+  const [blocked, listed, excluded] = doc.items;
+  const ids = [listed.id, blocked.id];
+
+  for (const locale of ['en', 'zh-CN']) {
+    const labels = notebookBriefMessages[locale];
+    for (const template of ['standard', 'comparative_note', 'methodological_audit']) {
+      const m = buildReportCitationBundle(doc, ids, locale, generated, template).manifest;
+      const aggregate = m.limitations.notebook_warning_aggregate;
+      assert.deepEqual(aggregate, {source_field: 'methodology_warnings', attribution: 'scope_uncertain',
+        warnings: doc.methodology_warnings});
+      assert.deepEqual(m.evidence.map(item => [item.id, item.warnings, item.warning_labels]),
+        [listed, blocked].map(item => [item.id, item.warnings, item.warning_labels]));
+      assert.deepEqual(m.limitations.evidence.map(item => item.evidence_id), ids);
+      assert.ok(m.limitations.evidence[0].codes.includes('registry_only_method'));
+      assert.ok(m.limitations.evidence[1].codes.includes('blocked_method'));
+      assert.deepEqual(m.sources, []);
+
+      const brief = buildEvidenceBrief(doc, ids, locale, generated, template);
+      const section = brief.sections.find(section => section.title === labels.notebookWarnings);
+      assert.deepEqual(section.paragraphs, aggregate.warnings);
+      const md = serializeEvidenceBrief(brief);
+      const html = serializeBriefHtml(brief, locale);
+      for (const text of [md, html]) {
+        for (const warning of [projectOnly, excludedWarning]) assert.equal(text.split(warning).length - 1, 1);
+        assert.ok(!text.includes(excluded.title));
+        assert.ok(!text.includes('Fixture excluded dataset'));
+      }
+      for (const item of m.evidence) {
+        const record = brief.sections.find(s => s.fields.some(f => f.label === labels.identity && f.value === item.id));
+        const display = item.warning_labels?.[locale] ?? item.warnings;
+        assert.equal(record.fields.find(f => f.label === labels.warnings).value, display.join('\n'));
+        if (item.warning_labels?.[locale]) {
+          assert.equal(record.fields.find(f => f.label === labels.originalWarnings).value, item.warnings.join('\n'));
+        }
+        for (const warning of [...item.warnings, ...display]) {
+          assert.ok(md.includes(warning));
+          assert.ok(html.includes(warning));
+        }
+      }
+    }
+  }
+});
+
 test('reject malformed or oversized inputs, dangling references, duplicate selection and ambiguous export time', () => {
   const doc = notebook([draft('source', 'fixture-one')]), id = doc.items[0].id;
   assert.throws(() => bundle(doc, ['not-present']));

@@ -262,9 +262,10 @@ export function NotebookEvidenceBrief({ projectId, notebook, locale, disabled }:
       <button type="button" className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm text-[var(--accent)]" disabled={disabled || !selected.length} onClick={downloadMarkdown}>{m.export}</button>
       <button type="button" data-copy-brief-md className="rounded-full border border-[var(--line)] px-4 py-2 text-sm" disabled={disabled || !selected.length} onClick={() => void copyMarkdown()}>{m.copyMarkdown}</button>
       <button type="button" data-export-brief-html className="rounded-full border border-[var(--line)] px-4 py-2 text-sm" disabled={disabled || !selected.length} onClick={downloadHtml}>{m.exportHtml}</button>
-      <button type="button" data-export-citation-bundle className="rounded-full border border-[var(--line)] px-4 py-2 text-sm" disabled={disabled || !selected.length} onClick={downloadCitations}>{m.exportCitations}</button>
+      <button type="button" data-export-citation-bundle aria-describedby="citation-export-disclosure" className="rounded-full border border-[var(--line)] px-4 py-2 text-sm" disabled={disabled || !selected.length} onClick={downloadCitations}>{m.exportCitations}</button>
       <button type="button" data-print-brief className="rounded-full border border-[var(--line)] px-4 py-2 text-sm" disabled={disabled || !selected.length} onClick={printIsolatedReport}>{m.printReport}</button>
     </div>
+    <p id="citation-export-disclosure" data-citation-disclosure className="mt-2 max-w-prose text-sm text-[var(--muted)]">{m.citationDisclosure}</p>
     <p className="mt-2 text-xs text-[var(--muted)]">{m.printHint}</p>
     <p className="mt-3 text-sm" role="status" data-report-status>{status === "done" ? labels.done : status === "copied" ? m.copied : status === "copy_error" ? m.copyError : status === "print_error" ? m.printError : status === "error" ? labels.error : !selected.length ? m.empty : ""}</p>
     {brief ? <section className="mt-6 min-w-0 border-t border-[var(--line)] pt-5" aria-label={m.preview} data-brief-preview>

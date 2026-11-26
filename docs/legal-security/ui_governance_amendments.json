@@ -5643,6 +5643,46 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "codex-r1b-report-citation-provenance-2026-11-26",
+      "status": "owner_approved",
+      "created_at": "2026-11-26",
+      "baseline": "65526f19c35bb792d70b7613916f754fa4a5d5c9",
+      "scope": "One local Report Studio citation download with a bilingual content disclosure, deterministic bibliography serialization and selected-evidence provenance, including the original Notebook warning aggregate with uncertain attribution.",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "files": [
+        {
+          "path": "src/components/NotebookEvidenceBrief.tsx",
+          "sha256": "6780292763be52e77b08f1e4dc174df8d3829ac6d66476d0be658264efa7403f",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/ResearchNotebookPage.tsx",
+          "sha256": "83bfd28c33a41db0f05394ab1bd712cd63fe3dc0b8650dca981a200eb8db4446",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/notebookBrief.ts",
+          "sha256": "6147a60e684729b7eeb633586cc66870c5ec41335f9e76c8c65011f919778c35",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/notebookCitationFormats.ts",
+          "sha256": "0ccfc1843cc4df1ec37b7ad4a3b746512bede94cc6377ac4be90e4935957cac8",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/notebookCitations.ts",
+          "sha256": "c73c53f48affce11b5667acf88c671cedc3922c40b7df800f3ac98a35d28321e",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "approved_by": "Owner R1-B final acceptance and release preparation instruction, 2026-11-26, covering the reviewed candidate and bounded warning and disclosure refinements."
     }
   ]
 }

@@ -63,9 +63,6 @@ export function buildReportCitationBundle(
     };
   });
 
-  // v1 aggregates item warnings in the project list without recording a separate scope.
-  // Keep matched text at item scope, so an unrelated or excluded warning cannot apply to the report.
-  const itemWarnings = new Set(notebook.items.flatMap(item => item.warnings));
   const manifest = {
     schema,
     report: { title: notebook.title || notebookBriefMessages[locale].title, research_question: notebook.research_question,
@@ -78,7 +75,12 @@ export function buildReportCitationBundle(
     selected_evidence_ids: [...selectedIds],
     evidence, sources,
     limitations: {
-      project_warnings: notebook.methodology_warnings.filter(w => !itemWarnings.has(w)),
+      // v1 records this aggregate without evidence IDs. Repeated text cannot determine its scope.
+      notebook_warning_aggregate: {
+        source_field: "methodology_warnings",
+        attribution: "scope_uncertain",
+        warnings: [...notebook.methodology_warnings],
+      },
       evidence: evidence.map(item => ({
         evidence_id: item.id, codes: [
           ...(item.reproducibility === "live_research_configuration" ? ["live_configuration"] : []),

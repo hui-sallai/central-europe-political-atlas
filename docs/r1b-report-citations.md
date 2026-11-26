@@ -6,7 +6,7 @@ Report Studio exports three UTF-8 files in one ZIP. The selection, evidence orde
 |---|---|
 | `citations.bib` | Import the bibliography into a BibTeX-aware tool. |
 | `citations.csl.json` | Import structured citation items into a CSL-aware tool. |
-| `report_manifest.json` | Trace each citation to selected evidence, inspect recorded values and filters, and recover the scope of methodological warnings. |
+| `report_manifest.json` | Trace each citation to selected evidence, inspect recorded values and filters, and read the recorded warnings and their attribution limits. |
 
 The ZIP is built in the browser. It includes the selected material and user-authored text described by the manifest. The existing Notebook JSON and ZIP actions serve the separate purpose of project backup.
 
@@ -33,6 +33,10 @@ The native CSL file passes the official CSL 1.0.2 input schema, pinned in the te
 ## Reading the manifest
 
 The `atlas-research-report-manifest-v1` manifest records the project and Notebook identities, the report template and timestamp, ordered evidence IDs, source-to-evidence relationships, bibliographic gaps, and limitations. Evidence retains its original canonical identifiers, periods, layers, user notes, warnings, and available filters. An explicit null value survives as JSON null. A missing value field remains absent. Distinct citations for the Atlas view and the original source allow a researcher to follow either path.
+
+The Markdown and HTML reports include a Notebook-wide warnings section. The corresponding manifest field, `limitations.notebook_warning_aggregate.warnings`, copies the entire recorded `methodology_warnings` list in order, including duplicates. Its `attribution` is `scope_uncertain` because Notebook v1 records no evidence IDs for these entries. A Notebook-wide warning can concern excluded evidence or repeat a selected item's wording.
+
+For a limitation attached to a selected item, follow `limitations.evidence[].evidence_id` to that item's `warnings` and any localized `warning_labels`. The reports use the available label for the chosen language and include the original wording when it differs. Excluded evidence records and sources used only by them stay outside the bundle.
 
 A saved observation reports what that Notebook item recorded. A live configuration records how to reopen a research view. A method reference carries its saved registry or blocked status. These classifications do not certify a complete dataset, the inputs to a model or a historical website deployment. For example, the German 1990 ballot carries its own valid-vote denominator, and the Hungarian 1998 territorial-list composite carries both polling dates. Report export cannot add single-round turnout to that composite or release a blocked VAR/IRF result.
 
