@@ -28,6 +28,29 @@ const en = {
   code: "Source code", retrieved: "Source retrieval date", sourceUpdated: "Source update date",
   originalUnit: "Original source unit", normalizedUnit: "Recorded normalized unit", sourceUrl: "Original source link",
   noConclusion: "No conclusions or interpretations have been generated.",
+  templateLabel: "Report structure",
+  templateStandard: "Standard evidence brief",
+  templateComparative: "Comparative evidence note",
+  templateAudit: "Methodological & provenance audit",
+  filterType: "Filter by evidence type",
+  filterAll: "All types",
+  copyMarkdown: "Copy Markdown",
+  copied: "Markdown copied to clipboard.",
+  exportHtml: "Export Print-Ready HTML",
+  exportBibtex: "Export BibTeX (.bib)",
+  exportCsl: "Export CSL-JSON (.csl.json)",
+  printReport: "Print / Save PDF",
+  readinessLabel: "Report provenance summary",
+  readinessLayers: "Distinct layers (kept separate)",
+  readinessSources: "Recorded sources (selected)",
+  readinessWarnings: "Items with warnings",
+  readinessMissing: "Missing / null observations",
+  readinessConfigs: "Live configurations",
+  readinessBlocked: "Blocked / inactive methods",
+  readinessUnsourced: "Items without recorded source",
+  comparativeSection: "Coverage and comparability summary",
+  auditSection: "Methodological and provenance audit",
+  auditNote: "All research layers remain separate; counts below audit recorded metadata completeness without re-estimating or combining observations.",
 };
 const zh: Record<keyof typeof en, string> = {
   title: "来源关联研究证据简报", open: "预览并导出研究证据简报",
@@ -53,19 +76,76 @@ const zh: Record<keyof typeof en, string> = {
   publisher: "原始发布机构", dataset: "原始数据集／标题", code: "来源代码", retrieved: "来源检索日期",
   sourceUpdated: "来源更新日期", originalUnit: "来源原始单位", normalizedUnit: "记录的标准化单位",
   sourceUrl: "原始来源链接", noConclusion: "未生成任何结论或解释。",
+  templateLabel: "报告结构模板",
+  templateStandard: "标准证据简报",
+  templateComparative: "比较研究证据备忘",
+  templateAudit: "方法限制与来源完整性审计",
+  filterType: "按证据类型筛选",
+  filterAll: "全部类型",
+  copyMarkdown: "复制 Markdown",
+  copied: "Markdown 已复制到剪贴板。",
+  exportHtml: "导出可打印 HTML",
+  exportBibtex: "导出 BibTeX（.bib）",
+  exportCsl: "导出 CSL-JSON（.csl.json）",
+  printReport: "打印／保存 PDF",
+  readinessLabel: "报告来源完整性摘要",
+  readinessLayers: "独立研究层数（不合并）",
+  readinessSources: "已选条目关联来源数",
+  readinessWarnings: "含方法警告条目",
+  readinessMissing: "缺失／空值观测",
+  readinessConfigs: "实时研究配置",
+  readinessBlocked: "受限／未启用方法",
+  readinessUnsourced: "未记录来源条目",
+  comparativeSection: "覆盖范围与可比性摘要",
+  auditSection: "方法限制与来源完整性审计",
+  auditNote: "各研究数据层保持独立；以下统计仅核查已记录元数据完整性，不重新估计或合并观测值。",
 };
 export const notebookBriefMessages = { en, "zh-CN": zh };
+export type BriefTemplate = "standard" | "comparative_note" | "methodological_audit";
 export type BriefField = { label: string; value: string; href?: string };
 export type BriefSection = { title: string; level: 2 | 3; paragraphs: string[]; fields: BriefField[] };
 export type EvidenceBrief = { title: string; introduction: string[]; sections: BriefSection[] };
+export type ReportStudioSummary = {
+  selectedCount: number;
+  totalCount: number;
+  countries: string[];
+  layers: string[];
+  sourceCount: number;
+  warningItemCount: number;
+  missingValueCount: number;
+  configurationCount: number;
+  blockedOrInactiveCount: number;
+  unsourcedCount: number;
+};
+
+const CONFIGURATION_TYPES = new Set(["series_view", "country_comparison", "regional_view", "map_view", "workspace"]);
+
+export function buildReportStudioSummary(notebook: ResearchNotebook, ids: string[]): ReportStudioSummary {
+  const items = ids.map(id => notebook.items.find(item => item.id === id)).filter((item): item is ResearchNotebook["items"][number] => Boolean(item));
+  const sourceIds = new Set(items.flatMap(item => item.source_ids));
+  const sources = notebook.sources.filter(source => sourceIds.has(source.id));
+  return {
+    selectedCount: items.length,
+    totalCount: notebook.items.length,
+    countries: [...new Set(items.flatMap(item => item.countries))],
+    layers: [...new Set(items.map(item => item.layer).filter(Boolean))],
+    sourceCount: sources.length,
+    warningItemCount: items.filter(item => item.warnings.length > 0).length,
+    missingValueCount: items.filter(item => item.value === null).length,
+    configurationCount: items.filter(item => CONFIGURATION_TYPES.has(item.type)).length,
+    blockedOrInactiveCount: items.filter(item => typeof item.metadata.state === "string" && item.metadata.state !== "active").length,
+    unsourcedCount: items.filter(item => item.source_ids.length === 0).length,
+  };
+}
 
 // Projection only: validate the existing schema and never mutate or enrich stored evidence.
-export function buildEvidenceBrief(notebook: ResearchNotebook, ids: string[], locale: Locale, exportedAt: string): EvidenceBrief {
+export function buildEvidenceBrief(notebook: ResearchNotebook, ids: string[], locale: Locale, exportedAt: string, template: BriefTemplate = "standard"): EvidenceBrief {
   serializeNotebook(notebook);
   if (!Number.isFinite(Date.parse(exportedAt))) throw Error("Invalid brief export date");
   if (new Set(ids).size !== ids.length || ids.some(id => !notebook.items.some(item => item.id === id))) throw Error("Invalid brief selection");
   const m = notebookBriefMessages[locale], labels = notebookMessages[locale];
   const items = ids.map(id => notebook.items.find(item => item.id === id)!);
+  const summary = buildReportStudioSummary(notebook, ids);
   const joined = (values: string[]) => values.length ? values.join(" · ") : m.unknown;
   const field = (label: string, value?: string): BriefField => ({ label, value: value || m.unknown });
   const link = (label: string, value: string, url: string, atlas = false): BriefField => ({ label, value, ...(atlas ? atlasItemTarget(url) ? { href: url } : {} : externalSourceLink(url) ? { href: url } : {}) });
@@ -73,10 +153,42 @@ export function buildEvidenceBrief(notebook: ResearchNotebook, ids: string[], lo
   const sections: BriefSection[] = [
     { title: m.question, level: 2, paragraphs: [notebook.research_question || m.unknown], fields: [] },
     { title: m.scope, level: 2, paragraphs: [], fields: [field(m.notebookCountries, joined(notebook.selected_countries)), field(m.includedCountries, joined([...new Set(items.flatMap(item => item.countries))])), field(m.periods, joined([...new Set(items.flatMap(item => item.periods))])), field(m.created, notebook.created_at), field(m.updated, notebook.updated_at), field(m.exported, exportedAt), field(m.version, notebook.platform_version)] },
-    { title: m.evidence, level: 2, paragraphs: items.length ? [] : [m.empty], fields: [] },
   ];
+  if (template === "comparative_note") {
+    const comparabilities = [...new Set(items.map(item => item.comparability).filter((c): c is string => Boolean(c)))];
+    sections.push({
+      title: m.comparativeSection,
+      level: 2,
+      paragraphs: [m.auditNote],
+      fields: [
+        field(m.selected, `${summary.selectedCount} / ${summary.totalCount}`),
+        field(m.includedCountries, joined(summary.countries)),
+        field(m.readinessLayers, joined(summary.layers)),
+        field(m.readinessConfigs, String(summary.configurationCount)),
+        field(m.comparability, joined(comparabilities)),
+        field(m.readinessSources, String(summary.sourceCount)),
+      ],
+    });
+  } else if (template === "methodological_audit") {
+    sections.push({
+      title: m.auditSection,
+      level: 2,
+      paragraphs: [m.auditNote],
+      fields: [
+        field(m.readinessLayers, `${summary.layers.length} (${joined(summary.layers)})`),
+        field(m.readinessWarnings, String(summary.warningItemCount)),
+        field(m.readinessMissing, String(summary.missingValueCount)),
+        field(m.readinessConfigs, String(summary.configurationCount)),
+        field(m.readinessBlocked, String(summary.blockedOrInactiveCount)),
+        field(m.readinessUnsourced, String(summary.unsourcedCount)),
+        field(m.readinessSources, String(summary.sourceCount)),
+      ],
+    });
+    sections.push({ title: m.notebookWarnings, level: 2, paragraphs: notebook.methodology_warnings.length ? notebook.methodology_warnings : [m.unknown], fields: [] });
+  }
+  sections.push({ title: m.evidence, level: 2, paragraphs: items.length ? [] : [m.empty], fields: [] });
   items.forEach((item, index) => {
-    const configuration = ["series_view", "country_comparison", "regional_view", "map_view", "workspace"].includes(item.type);
+    const configuration = CONFIGURATION_TYPES.has(item.type);
     const title = item.labels?.[locale] || item.title;
     const fields: BriefField[] = [field(m.identity, item.id), field(m.ids, joined(item.canonical_ids)), field(m.type, labels[item.type]), field(m.layer, item.layer), field(m.includedCountries, joined(item.countries)), field(m.periods, joined(item.periods)), field(m.collected, item.collected_at), field(m.itemVersion, item.platform_version), link(m.atlas, item.url, item.url, true), field(m.sourceIds, joined(item.source_ids)), field(m.comparability, item.comparability)];
     if (title !== item.title) fields.unshift(field(m.original, item.title));
@@ -94,7 +206,9 @@ export function buildEvidenceBrief(notebook: ResearchNotebook, ids: string[], lo
     }
     sections.push({ title: `${index + 1}. ${title}`, level: 3, paragraphs: [...(configuration ? [m.configuration] : item.type !== "observation" ? [m.reference] : []), ...(!item.source_ids.length ? [m.noSources] : [])], fields });
   });
-  sections.push({ title: m.notebookWarnings, level: 2, paragraphs: notebook.methodology_warnings.length ? notebook.methodology_warnings : [m.unknown], fields: [] });
+  if (template !== "methodological_audit") {
+    sections.push({ title: m.notebookWarnings, level: 2, paragraphs: notebook.methodology_warnings.length ? notebook.methodology_warnings : [m.unknown], fields: [] });
+  }
   sections.push({ title: m.notes, level: 2, paragraphs: [notebook.user_notes || m.unknown], fields: [] });
   sections.push({ title: m.sourceList, level: 2, paragraphs: sources.length ? [] : [m.unknown], fields: [] });
   for (const source of sources) sections.push({ title: source.id, level: 3, paragraphs: [], fields: [field(m.publisher, source.institution), field(m.dataset, source.dataset), field(m.code, source.code), link(m.sourceUrl, source.url, source.url), field(m.layer, source.layer), field(m.originalUnit, source.original_unit), field(m.normalizedUnit, source.normalized_unit), field(m.retrieved, source.retrieved_at), field(m.sourceUpdated, source.updated_at)] });
@@ -116,4 +230,173 @@ function markdownField(field: BriefField): string {
 }
 export function serializeEvidenceBrief(brief: EvidenceBrief): string {
   return [`# ${briefMarkdownText(brief.title).replace(/\r?\n/g, " ")}`, ...brief.introduction.map(briefMarkdownText), ...brief.sections.flatMap(section => [`${"#".repeat(section.level)} ${briefMarkdownText(section.title).replace(/\r?\n/g, " ")}`, ...section.paragraphs.map(briefMarkdownText), ...(section.fields.length ? [section.fields.map(markdownField).join("\n")] : [])])].join("\n\n") + "\n";
+}
+
+function escapeBibtexValue(value: string): string {
+  return value.replace(/\r?\n/g, " ").replace(/([\\{}%#&_~^])/g, "\\$1");
+}
+function bibtexKey(prefix: string, raw: string, index: number): string {
+  const clean = raw.replace(/[^a-zA-Z0-9_-]/g, "_").replace(/^_+/, "").slice(0, 48);
+  return `${prefix}_${clean || index + 1}`;
+}
+
+export function serializeBriefBibTeX(notebook: ResearchNotebook, ids: string[], locale: Locale, exportedAt: string): string {
+  serializeNotebook(notebook);
+  if (!Number.isFinite(Date.parse(exportedAt))) throw Error("Invalid brief export date");
+  if (new Set(ids).size !== ids.length || ids.some(id => !notebook.items.some(item => item.id === id))) throw Error("Invalid brief selection");
+  const items = ids.map(id => notebook.items.find(item => item.id === id)!);
+  const sources = notebook.sources.filter(source => items.some(item => item.source_ids.includes(source.id)));
+  const entries: string[] = [
+    `% Central Europe Political Atlas — Selected Evidence Citations (${locale})`,
+    `% Exported: ${exportedAt} | Platform: ${notebook.platform_version}`,
+    `% Projection of stored notebook metadata; Atlas links are live configurations, not frozen datasets.`,
+  ];
+  sources.forEach((source, index) => {
+    const safeUrl = externalSourceLink(source.url)?.href;
+    const year = (source.updated_at || source.retrieved_at || exportedAt).slice(0, 4);
+    const noteParts = [
+      `Layer: ${source.layer}`,
+      source.code ? `Code: ${source.code}` : "",
+      source.original_unit ? `Original unit: ${source.original_unit}` : "",
+      source.retrieved_at ? `Retrieved: ${source.retrieved_at}` : "",
+      source.updated_at ? `Source updated: ${source.updated_at}` : "",
+    ].filter(Boolean);
+    const lines = [
+      `@misc{${bibtexKey("source", source.id, index)},`,
+      `  author = {{${escapeBibtexValue(source.institution)}}},`,
+      `  title = {{${escapeBibtexValue(source.dataset)}}},`,
+      /^\d{4}$/.test(year) ? `  year = {${year}},` : "",
+      safeUrl ? `  howpublished = {\\url{${safeUrl}}},` : "",
+      `  note = {${escapeBibtexValue(noteParts.join("; "))}}`,
+      `}`,
+    ].filter(Boolean);
+    entries.push(lines.join("\n"));
+  });
+  items.forEach((item, index) => {
+    const safeAtlas = atlasItemTarget(item.url) ? item.url : undefined;
+    const title = item.labels?.[locale] || item.title;
+    const year = item.collected_at.slice(0, 4);
+    const noteParts = [
+      `Evidence ID: ${item.id}`,
+      `Layer: ${item.layer}`,
+      item.countries.length ? `Countries: ${item.countries.join(", ")}` : "",
+      item.periods.length ? `Periods: ${item.periods.join(", ")}` : "",
+      `Collected: ${item.collected_at}`,
+      `Platform: ${item.platform_version}`,
+      "Live Atlas configuration; not a frozen dataset",
+    ].filter(Boolean);
+    const lines = [
+      `@misc{${bibtexKey("atlas", item.id, index)},`,
+      `  author = {{Central Europe Political Atlas}},`,
+      `  title = {{${escapeBibtexValue(title)}}},`,
+      /^\d{4}$/.test(year) ? `  year = {${year}},` : "",
+      safeAtlas ? `  howpublished = {\\url{${safeAtlas}}},` : "",
+      `  note = {${escapeBibtexValue(noteParts.join("; "))}}`,
+      `}`,
+    ].filter(Boolean);
+    entries.push(lines.join("\n"));
+  });
+  return entries.join("\n\n") + "\n";
+}
+
+function isoDateParts(iso?: string): { "date-parts": number[][] } | undefined {
+  if (!iso) return undefined;
+  const match = iso.match(/^(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?/);
+  if (!match) return undefined;
+  return { "date-parts": [[Number(match[1]), ...(match[2] ? [Number(match[2])] : []), ...(match[3] ? [Number(match[3])] : [])]] };
+}
+
+export function serializeBriefCslJson(notebook: ResearchNotebook, ids: string[], locale: Locale, exportedAt: string): string {
+  serializeNotebook(notebook);
+  if (!Number.isFinite(Date.parse(exportedAt))) throw Error("Invalid brief export date");
+  if (new Set(ids).size !== ids.length || ids.some(id => !notebook.items.some(item => item.id === id))) throw Error("Invalid brief selection");
+  const items = ids.map(id => notebook.items.find(item => item.id === id)!);
+  const sources = notebook.sources.filter(source => items.some(item => item.source_ids.includes(source.id)));
+  const cslItems: Record<string, unknown>[] = [];
+  for (const source of sources) {
+    const safeUrl = externalSourceLink(source.url)?.href;
+    cslItems.push({
+      id: source.id,
+      type: "dataset",
+      title: source.dataset,
+      author: [{ literal: source.institution }],
+      ...(safeUrl ? { URL: safeUrl } : {}),
+      ...(isoDateParts(source.updated_at) ? { issued: isoDateParts(source.updated_at) } : {}),
+      ...(isoDateParts(source.retrieved_at) ? { accessed: isoDateParts(source.retrieved_at) } : {}),
+      note: [
+        `Layer: ${source.layer}`,
+        source.code ? `Code: ${source.code}` : "",
+        source.original_unit ? `Original unit: ${source.original_unit}` : "",
+      ].filter(Boolean).join("; "),
+    });
+  }
+  for (const item of items) {
+    const safeAtlas = atlasItemTarget(item.url) ? item.url : undefined;
+    cslItems.push({
+      id: item.id,
+      type: "webpage",
+      title: item.labels?.[locale] || item.title,
+      author: [{ literal: "Central Europe Political Atlas" }],
+      ...(safeAtlas ? { URL: safeAtlas } : {}),
+      ...(isoDateParts(item.collected_at) ? { accessed: isoDateParts(item.collected_at) } : {}),
+      version: item.platform_version,
+      note: [
+        `Layer: ${item.layer}`,
+        item.countries.length ? `Countries: ${item.countries.join(", ")}` : "",
+        item.periods.length ? `Periods: ${item.periods.join(", ")}` : "",
+        "Live Atlas configuration; not a frozen dataset",
+      ].filter(Boolean).join("; "),
+    });
+  }
+  return JSON.stringify(cslItems, null, 2) + "\n";
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+export function serializeBriefHtml(brief: EvidenceBrief, locale: Locale): string {
+  const lang = locale === "en" ? "en" : "zh-CN";
+  const introHtml = brief.introduction.map(p => `<p class="notice">${escapeHtml(p)}</p>`).join("\n");
+  const sectionsHtml = brief.sections.map(section => {
+    const tag = section.level === 2 ? "h2" : "h3";
+    const paras = section.paragraphs.map(p => `<p>${escapeHtml(p)}</p>`).join("\n");
+    const fields = section.fields.length
+      ? `<dl>${section.fields.map(f => `<div><dt>${escapeHtml(f.label)}</dt><dd>${f.href ? `<a href="${escapeHtml(f.href)}" rel="noopener noreferrer">${escapeHtml(f.value)}</a>` : escapeHtml(f.value)}</dd></div>`).join("")}</dl>`
+      : "";
+    return `<section><${tag}>${escapeHtml(section.title)}</${tag}>${paras}${fields}</section>`;
+  }).join("\n");
+  return `<!doctype html>
+<html lang="${lang}">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>${escapeHtml(brief.title)}</title>
+<style>
+  body { font-family: Georgia, "Times New Roman", "Noto Serif SC", serif; color: #1a1a1a; background: #fff; max-width: 820px; margin: 2rem auto; padding: 0 1.25rem; line-height: 1.65; }
+  h1 { font-size: 1.8rem; border-bottom: 2px solid #1a1a1a; padding-bottom: 0.5rem; }
+  h2 { font-size: 1.25rem; margin-top: 2rem; border-bottom: 1px solid #d4d4d4; padding-bottom: 0.25rem; }
+  h3 { font-size: 1.05rem; margin-top: 1.4rem; }
+  .notice { font-size: 0.9rem; background: #f5f5f4; border-left: 3px solid #525252; padding: 0.65rem 0.9rem; margin: 0.75rem 0; }
+  dl { display: grid; gap: 0.45rem; margin: 0.75rem 0 1.25rem; font-size: 0.92rem; }
+  dt { font-weight: 700; color: #262626; }
+  dd { margin: 0.1rem 0 0.4rem 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+  a { color: #1d4ed8; }
+  @media print { body { margin: 0; max-width: none; } section { break-inside: avoid; } a { color: #1a1a1a; text-decoration: underline; } }
+</style>
+</head>
+<body>
+<main>
+<h1>${escapeHtml(brief.title)}</h1>
+${introHtml}
+${sectionsHtml}
+</main>
+</body>
+</html>
+`;
 }
