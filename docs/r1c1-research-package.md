@@ -31,7 +31,7 @@ The inspector validates CSV syntax and column widths, row/source IDs, source edg
 
 Intentional limits include 16 MiB per snapshot ZIP, 8 MiB per input member, 7 entries, 20,000 observations, 4,000 source records and 400,000 data CSV cells. The package accepts at most 16 bindings and 32 MiB of combined inputs. The assembled archive limit is 48 MiB, including a conservative header allowance. The core never inflates a member. Files outside the producer profile can be valid ZIPs and still be unsupported.
 
-A permitted static SVG is inspected and hashed in quarantine. Its name, size, digest and recorded rendering configuration are available in the manifest. The SVG bytes are excluded. The figure-to-observations relationship remains unverified. Original boundary and map terms still apply. A valid SVG outside the supported subset can fail inspection.
+A permitted static SVG is inspected and hashed in quarantine. Its inline style accepts only unitless stroke widths and numeric dash lists, with at most 1,024 UTF-16 code units and 16 declarations per style attribute. Its name, size, digest and recorded rendering configuration are available in the manifest. The SVG bytes are excluded. The figure-to-observations relationship remains unverified. Original boundary and map terms still apply. A valid SVG outside the supported subset can fail inspection.
 
 ## Assembly and independent verification
 
@@ -49,15 +49,43 @@ The command prints the complete member inventory and package digest. It assemble
 
 ## Antigravity handoff for R1-C2
 
-Import the public functions and types from `src/lib/researchPackage.ts`. Keep the current Notebook project and Report Studio selection as the authority. A composer can implement the following sequence:
+The composer takes the current project and ordered selection from Report Studio. The following four decisions have different evidence and should have separate labels.
 
-1. Check the user's chosen File size before reading it. Call `prepareSnapshotAttachment(project, evidenceId, new Uint8Array(await file.arrayBuffer()), optionalExpectedSha256)`. The returned `SnapshotAttachment` exposes evidence ID, digest, length, correspondence, source relationships, historical provenance, rights and figure quarantine status. The handle is transient. Keep the actual returned object in component state.
-2. Show status, match reasons, differences and both recorded dates. Distinguish a live-configuration match, an individual observation match and actual permission to redistribute bytes. Display country/period/definition conflicts and missing metadata as recorded. Render text as text. No UI toggle can override a failed validation, incompatible source, pending licence or blocked model.
-3. Remove an attachment by dropping the handle. Clear handles on project changes. When selected evidence or its source metadata changes, prepare it again. A detached copy or a handle from another project is rejected. Never store snapshot bytes or handles in the Notebook or browser persistence.
-4. Call `buildResearchPackage({project, selectedIds, locale, template, reportTime, attachments})` using the active report timestamp. Preview `manifest.evidence`, `artifacts`, `bindings` and `byte_coverage` from the returned package. For each artifact show its scope, included member paths, rights basis, attribution and limitations. A report can have reference-only or unbound evidence. Disclose exported project notes and the existing scope-uncertain Notebook warning aggregate.
-5. Download the returned `bytes` and display `sha256`. For a retained package, `verifyResearchPackageIntegrity(bytes, optionalExpectedSha256)` checks the ZIP and the inventory and returns the digest, byte length, verified-member count and expected-digest status. This verifier does not accept a package as a new source or certify imported HTML. Do not auto-open its contents.
+| Stage | What the UI may show | Source of the decision |
+| --- | --- | --- |
+| A. File inspected | The supplied snapshot passed structural checks. Show its byte length, SHA-256 and figure quarantine status. | A fulfilled `prepareSnapshotAttachment` call. A failed call yields no handle. |
+| B. Evidence matched | Show the exact correspondence status, recorded source relationships, reasons, differences and historical provenance. | `handle.correspondence`. Only `exact_recorded_observation` and `compatible_live_configuration` qualify for consideration. |
+| C. Bytes permitted | Show the permitted scope, licence reference, required attribution and any modification notice. | The core's rights decision. `verified_permitted_use` permits only its recorded scope. Assembly also requires a nonempty artifact covered by a matching live configuration or by the combined exact matches for all its rows. |
+| D. Bytes included | Show which evidence has data, the paths actually included, and the files with their byte counts and hashes. | A fulfilled `buildResearchPackage` call for the current selection. Read `manifest.evidence[].disposition`, `artifacts[].members` and `manifest.files`. A successful build can contain seven report files and zero data attachments. |
 
-The typed `ArchiveValidationError` reports archive limits/layout, unsupported format, path/member restrictions, UTF-8, integrity or unavailable crypto. `SnapshotValidationError` distinguishes schema/manifest/inventory, CSV/observation, source/scope, unsafe content, unsupported figure and size errors. `ResearchPackageError` distinguishes project, selection changes, attachment handles, digest mismatch, output limits and invalid package inventory. Existing report/Notebook validators can also reject invalid selection, locale, template, timestamp or Notebook structure. A structurally accepted file can still produce a limited binding or reference-only rights outcome. Handle those as review results.
+Use the completed manifest for inclusion claims. A reference-only artifact can still have a digest, recorded source rows and an eligible research configuration. The existence of a reviewed file handle or a completed report alone does not establish data inclusion.
+
+**Public API.** Import the three functions, `SnapshotAttachment`, `ResearchPackageRequest` and `ResearchPackageError` from `src/lib/researchPackage.ts`. TypeScript can derive the complete result types as `Awaited<ReturnType<typeof buildResearchPackage>>` and `Awaited<ReturnType<typeof verifyResearchPackageIntegrity>>`.
+
+- `prepareSnapshotAttachment(project: NotebookProject, evidenceId: string, bytes: Uint8Array, expectedSha256?: string): Promise<SnapshotAttachment>` inspects one file for one item. Check the file's 16 MiB limit before calling `arrayBuffer()`. The handle exposes `evidence_id`, `sha256`, `byte_length`, `correspondence`, `rights` and `figure`. The core owns the inspected byte copy and keys its internal review to the returned object's identity. Treat its public fields as read-only. Keep the original handle in transient component state.
+- `buildResearchPackage(request: ResearchPackageRequest)` takes `project`, ordered `selectedIds`, `locale`, `template`, the active `reportTime` and optional `attachments`. It resolves to `{manifest, bytes, sha256}`. Read coverage, attribution and capture limitations from the returned package manifest. The referenced R1-B report_manifest.json carries project notes, selected-item warnings and the scope-uncertain Notebook warning aggregate. Offer the returned bytes for download after that preview.
+- `verifyResearchPackageIntegrity(bytes: Uint8Array, expectedSha256?: string)` resolves to `{sha256, byte_length, verified_members, expected_digest}`. The last field is `matched` or `not_supplied`. The member count excludes the package manifest. Comparison with a separately retained digest can detect replacement. This function checks byte integrity only. Render imported metadata as text and keep imported markup inert.
+
+**Selection and lifetime.** The core reads the inputs passed to each call. The composer owns the visible selection and decides whether an asynchronous result is still current.
+
+| Change | Required composer behavior |
+| --- | --- |
+| Active project or Notebook changes | Clear prepared handles, pending previews and download URLs. Read the new active project's selection. |
+| An item is deselected, added or reordered | Drop handles for deselected items. Keep handles only for still-selected, unchanged evidence in the same project. Rebuild in the new selection order. Reselecting an item whose handle was dropped requires preparing its file again. |
+| An evidence record changes | Discard its handle, invalidate the package preview and prepare the file against the revised record. This applies to notes as well as research fields. |
+| A source record changes | Invalidate handles for every selected item referencing that source. Prepare them again against the current source metadata. |
+| A prepared attachment is removed | Drop that handle, clear the built package and revoke any associated download URL. Rebuild from the remaining handles. Removing the last handle leaves the evidence in the report as unbound. |
+| A read, preparation or build is still running | Capture a local selection/review revision when starting it. On any relevant change, invalidate the revision. Only publish the handle, preview or download when the revision still matches on completion. Apply the same rule to late errors. |
+
+A change to the report locale, template, date or other exported Notebook content also invalidates a built preview. Preparation handles need reinspection only when their project or bound evidence/source state changes, or after removal. The core has no cancellation, revocation or persistent-handle API. Store handles and bytes only for the active session, outside the Notebook schema. Assembly rejects a handle for a different project, a deselected item, or a changed bound record. Dropping a handle takes effect when the composer omits it from the next build.
+
+**Error handling.** Classify exceptions by their exported class and `code`. Existing report/Notebook input validation can also throw an ordinary `Error` for an invalid document, selection, locale, template, timestamp or size. Keep these errors distinct from a successful inspection with limited correspondence or reuse rights.
+
+| Class and module | Stable codes |
+| --- | --- |
+| `ArchiveValidationError` in `researchPackageArchive` | `archive_limit`, `invalid_archive`, `unsupported_zip`, `invalid_member`, `unexpected_member`, `invalid_utf8`, `integrity_mismatch`, `crypto_unavailable` |
+| `SnapshotValidationError` in `researchPackageSnapshot` | `unsupported_schema`, `invalid_manifest`, `invalid_inventory`, `invalid_csv`, `invalid_observation`, `source_mismatch`, `inconsistent_scope`, `unsafe_content`, `unsupported_figure`, `size_limit` |
+| `ResearchPackageError` in `researchPackage` | `invalid_project`, `selection_changed`, `invalid_attachment`, `digest_mismatch`, `package_limit`, `invalid_package` |
 
 ## Claude Code handoff for R1-C3
 
@@ -68,7 +96,7 @@ The typed `ArchiveValidationError` reports archive limits/layout, unsupported fo
 | Licence and permitted scope | Current src-sors terms record attribution and disclosure of modifications. Two exact data/source CSV pairs are admitted, with terms, required attribution, selection counts and a modification notice. Two exact figure-free original archives are also pinned. Restricted registry sources are labeled separately; unmatched rights remain pending. | Review other extracts, revisions, third-party exceptions, use context and raw/normalized scope against authoritative terms. Keep a rights review date and durable evidence for each expansion. |
 | Figure, boundary and third-party rights | SVG digest and available render settings are recorded. No imported graphic or publisher source document is redistributed by this core. | Permission for the precise geometry or figure revision, required credits, vintage, transformation and evidence linking rendered outputs to their inputs. |
 
-The implementation reads the existing rights and attribution registers. This branch introduces no new authoritative rights ruling. Its exact-hash source-closure proposal awaits owner review. Production remains on the accepted predecessor.
+The implementation reads the existing rights and attribution registers. This branch introduces no new authoritative rights ruling. The five-file exact-hash amendment for this acceptance is `codex-r1c1-snapshot-binding-2026-11-26`. It authorizes the reviewed core paths. Additional data-rights admissions require separate evidence and review.
 
 ## Acceptance evidence
 

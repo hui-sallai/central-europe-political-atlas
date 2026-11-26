@@ -8,8 +8,9 @@ import { SORS_FIXTURE_TIME as time } from "../fixtures/research-package-sors.mjs
 const require = createRequire(import.meta.url);
 const {buildResearchPackage, prepareSnapshotAttachment, verifyResearchPackageIntegrity} = require("../../src/lib/researchPackage.ts");
 const {addNotebookEvidence} = require("../../src/lib/researchNotebook.ts");
-const {notebookObservation} = require("../../src/components/notebookEvidence.ts");
+const {notebookObservation, notebookSnapshotView} = require("../../src/components/notebookEvidence.ts");
 const {buildReportCitationBundle} = require("../../src/lib/notebookCitations.ts");
+const {buildSnapshot} = require("../../src/lib/researchSnapshot.ts");
 const {buildZip} = require("../../src/lib/clientZip.ts");
 const {readStoredArchive} = require("../../src/lib/researchPackageArchive.ts");
 const hash = bytes => createHash("sha256").update(bytes).digest("hex");
@@ -60,7 +61,10 @@ test("Binding rejects foreign projects, changed evidence, fabricated and duplica
   await assert.rejects(prepareSnapshotAttachment(project,selectedIds[0],cpi.bytes,"0".repeat(64)),{code:"digest_mismatch"});
   const changed = structuredClone(project);
   changed.notebook.items[0].note="A new note";
-  for (const other of [changed,{...project,id:"different"}, {...project,notebook:{...project.notebook,notebook_id:"other"}}]) {
+  const changedSource = structuredClone(project);
+  const linkedSourceId = changedSource.notebook.items[0].source_ids[0];
+  changedSource.notebook.sources.find(source => source.id === linkedSourceId).updated_at = "2026-11-27";
+  for (const other of [changed,changedSource,{...project,id:"different"}, {...project,notebook:{...project.notebook,notebook_id:"other"}}]) {
     await assert.rejects(buildResearchPackage({...opts,project:other,attachments:[handle]}),{code:"selection_changed"});
   }
   await assert.rejects(buildResearchPackage({...opts,selectedIds:selectedIds.slice(1),attachments:[handle]}),{code:"selection_changed"});
@@ -94,4 +98,69 @@ test("Independent expected ZIP digest, reconstructed ZIP with stale member diges
   manifest.files[1]=manifest.files[0];
   members.set("package_manifest.json",new TextEncoder().encode(JSON.stringify(manifest)));
   await assert.rejects(verifyResearchPackageIntegrity(repack()),{code:"invalid_package"});
+});
+
+test("A reviewed SORS archive stays reference-only for partial and conflicting evidence, including after display edits", async () => {
+  const opts = example();
+  const id = opts.selectedIds[0];
+  const partial = structuredClone(opts.project);
+  partial.notebook.items[0].metadata.row_count -= 1;
+  for (const [project, evidenceId, status] of [
+    [partial, id, "partial_correspondence"],
+    [opts.project, opts.selectedIds[1], "conflicting_correspondence"],
+  ]) {
+    const handle = await prepareSnapshotAttachment(project, evidenceId, opts.cpi.bytes);
+    assert.equal(handle.correspondence.status, status);
+    assert.equal(handle.rights.scope, "original_archive");
+    handle.correspondence.status = "compatible_live_configuration";
+    const output = await buildResearchPackage({...opts, project, selectedIds:[evidenceId], attachments:[handle]});
+    assert.equal(output.manifest.bindings[0].correspondence.status, status);
+    assert.equal(output.manifest.evidence[0].disposition, "reference_only");
+    assert.deepEqual(output.manifest.artifacts[0].members, []);
+    assert.equal(readStoredArchive(output.bytes).size, 7);
+  }
+});
+
+test("A matching view with pending or restricted rights contributes only a reference to the completed package", async () => {
+  const opts = example();
+  const nativeInput = opts.cpi.input;
+  const restricted = require("../../docs/legal-security/source_rights_registry.json").sources.find(s => s.source_id === "src-gisco");
+  // Local fixture source locators exercise the two policy outcomes without attributing a real series to either source.
+  for (const [url, status] of [
+    ["https://example.org/fixture/", "unknown_pending_verification"],
+    [restricted.exact_source_url, "restricted_redistribution"],
+  ]) {
+    const input = {...nativeInput, title:"Rights test fixture", rows:nativeInput.rows.slice(0, 1).map(row => ({
+      ...row, source:{...row.source, institution:"Test publisher", dataset:"Test fixture", source_url:url},
+    }))};
+    const snapshot = buildSnapshot(input, time);
+    const original = buildZip(snapshot.files, time);
+    const notebook = addNotebookEvidence(opts.project.notebook, notebookSnapshotView(input), "v2.0", time);
+    const project = {...opts.project, notebook};
+    const id = notebook.items.at(-1).id;
+    const handle = await prepareSnapshotAttachment(project, id, original);
+    assert.equal(handle.correspondence.status, "compatible_live_configuration");
+    assert.equal(handle.rights.status, status);
+    handle.rights.status = "verified_permitted_use";
+    handle.rights.scope = "original_archive";
+    const pack = await buildResearchPackage({...opts, project, selectedIds:[id], attachments:[handle]});
+    assert.equal(pack.manifest.artifacts[0].rights.status, status);
+    assert.deepEqual(pack.manifest.artifacts[0].members, []);
+    assert.equal(pack.manifest.evidence[0].disposition, "reference_only");
+    assert.equal(readStoredArchive(pack.bytes).size, 7);
+  }
+});
+
+test("Removing a prepared handle omits its artifact from newly assembled packages while preserving the selected evidence", async () => {
+  const opts = example();
+  const id = opts.selectedIds[0];
+  const handle = await prepareSnapshotAttachment(opts.project, id, opts.cpi.bytes);
+  const pendingBuild = buildResearchPackage({...opts, selectedIds:[id], attachments:[handle]});
+  const updated = await buildResearchPackage({...opts, selectedIds:[id], attachments:[]});
+  const earlier = await pendingBuild;
+  assert.equal(earlier.manifest.evidence[0].disposition, "bytes_included");
+  assert.equal(updated.manifest.evidence[0].disposition, "unbound");
+  assert.deepEqual(updated.manifest.artifacts, []);
+  assert.deepEqual(updated.manifest.bindings, []);
+  assert.equal(readStoredArchive(updated.bytes).size, 7);
 });

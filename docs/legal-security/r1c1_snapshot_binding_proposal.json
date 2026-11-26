@@ -1,6 +1,6 @@
 {
   "amendment_id": "codex-r1c1-snapshot-binding-2026-11-26",
-  "status": "proposed_pending_owner_review",
+  "status": "owner_approved",
   "created_at": "2026-11-26",
   "baseline": "22d933caae90fb5105066360ac52dd6daf4a2d8f",
   "scope": "Local descriptive snapshot inspection, selected Notebook correspondence, rights-limited payload assembly and exact byte integrity verification.",
@@ -32,8 +32,9 @@
     },
     {
       "path": "src/lib/researchPackageSnapshot.ts",
-      "sha256": "da3aca32355723417739555c41aa35187727aa9edff87eab0a5377f6211176c4",
+      "sha256": "b21edf3f01e302a45b61bb54bce5d50a06c367086d5aeaa6c15b83a4256f41ca",
       "classification": "DATA_PRESENTATION"
     }
-  ]
+  ],
+  "approved_by": "Owner R1-C1 security correction and final acceptance instruction, 2026-11-27, covering the reviewed five paths and bounded import-parser corrections."
 }

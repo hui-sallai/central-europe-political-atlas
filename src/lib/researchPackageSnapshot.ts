@@ -281,6 +281,59 @@ function checkCommonPeriods(manifest: SnapshotManifest, rows: InspectedSnapshotR
 const tags = new Set(["svg","defs","pattern","path","rect","line","circle","g","text","title","desc","polyline","polygon"]);
 const attributes = new Set(("xmlns width height viewBox x y x1 y1 x2 y2 cx cy r rx ry d points fill stroke stroke-width stroke-linejoin " +
   "stroke-linecap stroke-dasharray opacity font-family font-size font-weight text-anchor paint-order id role lang style patternUnits patternTransform").split(" "));
+const maxStrokeStyleLength = 1024;
+const maxStrokeDeclarations = 16;
+
+function checkStrokeStyle(style: string) {
+  check(style.length <= maxStrokeStyleLength, "size_limit");
+  let cursor = 0;
+  function skipWhitespace() {
+    const start = cursor;
+    while (cursor < style.length && /[ \t\r\n]/.test(style[cursor])) cursor++;
+    return cursor > start;
+  }
+  function readDigits() {
+    const start = cursor;
+    while (cursor < style.length && style[cursor] >= "0" && style[cursor] <= "9") cursor++;
+    return cursor > start;
+  }
+  function readNumber() {
+    const integer = readDigits();
+    if (style[cursor] !== ".") return integer;
+    cursor++;
+    return readDigits();
+  }
+
+  // The cursor only advances. Chart legends use unitless widths and comma/space-separated dash lengths.
+  skipWhitespace();
+  check(cursor < style.length, "unsupported_figure");
+  let declarations = 0;
+  while (cursor < style.length) {
+    check(++declarations <= maxStrokeDeclarations, "size_limit");
+    const dashList = style.startsWith("stroke-dasharray:", cursor);
+    const property = dashList ? "stroke-dasharray:" : "stroke-width:";
+    check(dashList || style.startsWith(property, cursor), "unsupported_figure");
+    cursor += property.length;
+    skipWhitespace();
+    check(readNumber(), "unsupported_figure");
+    for (;;) {
+      const hasSpace = skipWhitespace();
+      if (cursor === style.length || style[cursor] === ";") break;
+      check(dashList, "unsupported_figure");
+      if (style[cursor] === ",") {
+        cursor++;
+        skipWhitespace();
+      } else {
+        check(hasSpace, "unsupported_figure");
+      }
+      check(readNumber(), "unsupported_figure");
+    }
+    if (cursor === style.length) break;
+    cursor++; // declaration separator, with an optional trailing semicolon
+    skipWhitespace();
+  }
+}
+
 function inspectSvg(text: string) {
   const xml = '<?xml version="1.0" encoding="UTF-8"?>';
   let pos = text.startsWith(xml) ? xml.length : 0, count = 0, root = false;
@@ -308,9 +361,9 @@ function inspectSvg(text: string) {
         check(!keys.has(k) && (attributes.has(k) || /^(?:aria|data)-[a-z0-9-]+$/.test(k)), "unsupported_figure");
         keys.add(k);
         if (k === "xmlns") check(v === "http://www.w3.org/2000/svg", "unsupported_figure");
-        else if (k === "style") check(/^(?:\s*stroke-(?:width|dasharray):\s*[.\d ,]+;?\s*)+$/.test(v), "unsupported_figure");
+        else if (k === "style") checkStrokeStyle(v);
         else if (k === "stroke" || k === "fill") check(/^(?:#[\da-fA-F]{3,8}|[a-zA-Z]+|url\(#[\w.:-]+\))$/.test(v), "unsupported_figure");
-        else if (!/^(?:aria|data)-/.test(k)) check(!/[\\&]/.test(v) && !/(?:url\s*\(|\w+:\/\/|javascript:|data:)/i.test(v), "unsupported_figure");
+        else if (!/^(?:aria|data)-/.test(k)) check(!/[\\&]/.test(v) && !/(?:url\s*\(|\w:\/\/|javascript:|data:)/i.test(v), "unsupported_figure");
       }
       if (!stack.length) check(keys.has("xmlns"), "unsupported_figure");
       if (!selfClosing) stack.push(tag);

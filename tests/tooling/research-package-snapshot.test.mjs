@@ -133,3 +133,56 @@ test('untrusted static figure metadata and figure digest are separate from data 
     await rejected(bytes(sample,{'figure.svg':()=>bad}),'unsupported_figure');
   }
 });
+
+function styledChart(style) {
+  const svg = '<svg xmlns="http://www.w3.org/2000/svg"><line style="' + style + '"/></svg>';
+  return bytes(input([observed], {figure:{name:'figure.svg', svg, metadata:{
+    selection:'current_filtered_rows', palette:'neutral_print', title:'Data Explorer',
+  }}}));
+}
+
+test('native chart stroke widths and dash lists remain inspectable and quarantined', async () => {
+  for (const style of [
+    'stroke-width:0', 'stroke-width:2.2;', 'stroke-width:.75',
+    'stroke-dasharray:4 2', 'stroke-dasharray:1, 2.5, .5',
+    '  stroke-width: 1.2;\tstroke-dasharray: 4 , 2;\r\n',
+  ]) {
+    const result = await inspectSnapshot(styledChart(style));
+    assert.equal(result.figure.attachment, 'quarantined');
+    assert.equal(result.figure.input_relationship, 'unverified');
+  }
+});
+
+test('stroke style grammar rejects malformed declarations, other properties, resource references and invalid decimals', async () => {
+  for (const style of [
+    '', ' ', 'stroke-width', 'stroke-width:;', ';stroke-width:1', 'stroke-width:1;;',
+    'stroke-width:1 stroke-dasharray:4 2', 'opacity:1', 'stroke-width:1;fill:red',
+    'stroke-width:url(https://example.invalid/style)', 'stroke-width:2px',
+    'stroke-width:1.', 'stroke-width:.', 'stroke-width:1.2.3', 'stroke-width:-1', 'stroke-width:1e2',
+    'stroke-width:1 2', 'stroke-dasharray:1,,2', 'stroke-dasharray:,2', 'stroke-dasharray:2,',
+  ]) await rejected(styledChart(style), 'unsupported_figure');
+});
+
+test('style length and declaration budgets enforce exact boundaries independently of elapsed time', async () => {
+  const valid = 'stroke-width:1';
+  const atLength = valid.padEnd(1024, ' ');
+  const atCount = Array(16).fill(valid).join(';');
+  for (const style of [atLength, atCount]) {
+    assert.equal((await inspectSnapshot(styledChart(style))).figure.attachment, 'quarantined');
+  }
+  for (const style of [atLength + ' ', atCount + ';' + valid, valid.padEnd(8192, '0')]) {
+    await rejected(styledChart(style), 'size_limit');
+  }
+  await rejected(styledChart('stroke-width:bad;'.repeat(16)), 'unsupported_figure');
+});
+
+test('ordinary SVG attribute checks retain the URI restriction on non-style attributes', async () => {
+  const figure = {
+    name:'figure.svg',
+    svg:'<svg xmlns="http://www.w3.org/2000/svg"><path id="series-code-2026"/></svg>',
+    metadata:{selection:'current_filtered_rows', palette:'neutral_print', title:'Data Explorer'},
+  };
+  const sample = input([observed], {figure});
+  assert.equal((await inspectSnapshot(bytes(sample))).figure.attachment, 'quarantined');
+  await rejected(bytes(sample, {'figure.svg': svg => svg.replace('series-code-2026', 'https://example.invalid/document')}), 'unsupported_figure');
+});
