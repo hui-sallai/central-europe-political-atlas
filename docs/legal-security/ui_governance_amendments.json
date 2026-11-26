@@ -5619,6 +5619,30 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "antigravity-r1a-report-studio-2026-11-26",
+      "status": "owner_approved",
+      "approved_by": "Owner Phase II R1-A final acceptance brief of 2026-11-26: Reproducible Research Report Studio built on NotebookEvidenceBrief and notebookBrief.ts (bilingual templates, search/country/type evidence discovery with hidden-selection indicator and visible-neighbor ordering, 9-category metadata provenance summary, coherent timestamp & clipboard copy, isolated report-only printing, A4 print-ready standalone HTML export; BibTeX/CSL-JSON deferred to Codex R1-B).",
+      "baseline": "845d5db29caee55f22eda4376db7cce0f803f13f",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-26",
+      "files": [
+        {
+          "path": "src/components/NotebookEvidenceBrief.tsx",
+          "sha256": "4bd1919be32901bf830a0467d1a505a84aaf460fda18a3e2e5e86bfe10fedd07",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/notebookBrief.ts",
+          "sha256": "3c650f1ca841eda74cbf5fa9cb48d543d986ced83f7fdb50d696ec165361b388",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }
