@@ -28,6 +28,42 @@ const en = {
   code: "Source code", retrieved: "Source retrieval date", sourceUpdated: "Source update date",
   originalUnit: "Original source unit", normalizedUnit: "Recorded normalized unit", sourceUrl: "Original source link",
   noConclusion: "No conclusions or interpretations have been generated.",
+  templateLabel: "Report structure",
+  templateStandard: "Standard evidence brief",
+  templateComparative: "Comparative evidence note",
+  templateAudit: "Methodological & provenance audit",
+  filterType: "Filter by evidence type",
+  filterCountry: "Filter by recorded country",
+  filterAll: "All",
+  searchLabel: "Search recorded evidence",
+  searchPlaceholder: "Search title, canonical ID, country, period or source",
+  clearFilters: "Clear filters",
+  selectAllVisible: "Select all visible",
+  visibleCount: "Visible",
+  totalCount: "Project total",
+  hiddenSelectedNote: "selected item(s) hidden by current filters (still included in report)",
+  emptyFilterNotice: "No evidence items match the current filters (your existing selection is preserved).",
+  copyMarkdown: "Copy Markdown",
+  copied: "Markdown copied to clipboard.",
+  copyError: "Clipboard permission unavailable; use Export Evidence Brief (Markdown) instead.",
+  exportHtml: "Download print-ready HTML",
+  printReport: "Print report only",
+  printHint: "Prints only the isolated selected report (never excluded Notebook items). You can also download the standalone HTML file and save as PDF in your browser.",
+  printError: "Isolated report print could not start; download the print-ready HTML file and print it from your browser.",
+  readinessLabel: "Recorded provenance summary",
+  readinessNumerical: "Recorded numerical observations",
+  readinessExplicitNull: "Explicit null observations",
+  readinessUnrecordedObs: "Observations without recorded value",
+  readinessConfigs: "Live research configurations",
+  readinessLayers: "Distinct layers (kept separate)",
+  readinessSources: "Referenced sources (selected)",
+  readinessUnsourced: "Items without recorded source",
+  readinessWarnings: "Items with methodological warnings",
+  readinessBlockedMethods: "Blocked / registry-only methods",
+  readinessMetadataNote: "Factual counts of stored Notebook metadata only; not a quality score and not independent source verification.",
+  comparativeSection: "Coverage and comparability summary",
+  auditSection: "Methodological and provenance audit",
+  auditNote: "All research layers remain separate; counts below describe recorded metadata completeness without re-estimating or combining observations. Project-level notebook warnings and user notes are intentionally included and distinguished from item-level records.",
 };
 const zh: Record<keyof typeof en, string> = {
   title: "来源关联研究证据简报", open: "预览并导出研究证据简报",
@@ -53,19 +89,100 @@ const zh: Record<keyof typeof en, string> = {
   publisher: "原始发布机构", dataset: "原始数据集／标题", code: "来源代码", retrieved: "来源检索日期",
   sourceUpdated: "来源更新日期", originalUnit: "来源原始单位", normalizedUnit: "记录的标准化单位",
   sourceUrl: "原始来源链接", noConclusion: "未生成任何结论或解释。",
+  templateLabel: "报告结构模板",
+  templateStandard: "标准证据简报",
+  templateComparative: "比较研究证据备忘",
+  templateAudit: "方法限制与来源完整性审计",
+  filterType: "按证据类型筛选",
+  filterCountry: "按记录国家筛选",
+  filterAll: "全部",
+  searchLabel: "检索已记录证据",
+  searchPlaceholder: "按标题、规范 ID、国家、时期或来源检索",
+  clearFilters: "清除筛选",
+  selectAllVisible: "全选当前可见条目",
+  visibleCount: "当前可见",
+  totalCount: "项目总计",
+  hiddenSelectedNote: "条已选证据被当前筛选隐藏（仍保留在报告中）",
+  emptyFilterNotice: "当前筛选条件下无匹配条目（您已选择的报告证据保持不变）。",
+  copyMarkdown: "复制 Markdown",
+  copied: "Markdown 已复制到剪贴板。",
+  copyError: "剪贴板权限不可用；请改用“导出研究证据简报（Markdown）”。",
+  exportHtml: "下载可打印 HTML",
+  printReport: "仅打印当前报告",
+  printHint: "仅打印隔离的已选报告内容（不包含未选笔记条目）；也可下载独立 HTML 文件在浏览器中另存为 PDF。",
+  printError: "隔离打印未能启动；请下载可打印 HTML 文件后在浏览器中打印或另存为 PDF。",
+  readinessLabel: "已记录来源与元数据摘要",
+  readinessNumerical: "已记录数值观测",
+  readinessExplicitNull: "明确空值（null）观测",
+  readinessUnrecordedObs: "未记录数值的观测条目",
+  readinessConfigs: "实时研究配置",
+  readinessLayers: "独立研究层（不合并）",
+  readinessSources: "已选条目引用来源数",
+  readinessUnsourced: "未记录来源条目",
+  readinessWarnings: "含方法警告条目",
+  readinessBlockedMethods: "受限／仅登记方法",
+  readinessMetadataNote: "仅统计本地笔记已记录元数据，不构成质量评分，也不代表已独立复核外部来源。",
+  comparativeSection: "覆盖范围与可比性摘要",
+  auditSection: "方法限制与来源完整性审计",
+  auditNote: "各研究数据层保持独立；以下统计仅描述已记录元数据完整性，不重新估计或合并观测值。项目级整体警告与用户备注作为项目背景有意保留，并与单条证据记录区分。",
 };
 export const notebookBriefMessages = { en, "zh-CN": zh };
+export type BriefTemplate = "standard" | "comparative_note" | "methodological_audit";
 export type BriefField = { label: string; value: string; href?: string };
 export type BriefSection = { title: string; level: 2 | 3; paragraphs: string[]; fields: BriefField[] };
 export type EvidenceBrief = { title: string; introduction: string[]; sections: BriefSection[] };
+export type ReportStudioSummary = {
+  selectedCount: number;
+  totalCount: number;
+  countries: string[];
+  layers: string[];
+  recordedNumericalCount: number;
+  explicitNullCount: number;
+  unrecordedObservationCount: number;
+  configurationCount: number;
+  sourceCount: number;
+  unsourcedCount: number;
+  warningItemCount: number;
+  blockedOrInactiveMethodCount: number;
+};
+
+const CONFIGURATION_TYPES = new Set(["series_view", "country_comparison", "regional_view", "map_view", "workspace"]);
+
+function validateSelection(notebook: ResearchNotebook, ids: string[]) {
+  serializeNotebook(notebook);
+  if (new Set(ids).size !== ids.length || ids.some(id => !notebook.items.some(item => item.id === id))) {
+    throw Error("Invalid brief selection");
+  }
+  return ids.map(id => notebook.items.find(item => item.id === id)!);
+}
+
+// Pure metadata summary: validates existing schema & selection IDs; never mutates notebook or invents scores.
+export function buildReportStudioSummary(notebook: ResearchNotebook, ids: string[]): ReportStudioSummary {
+  const items = validateSelection(notebook, ids);
+  const sourceIds = new Set(items.flatMap(item => item.source_ids));
+  const sources = notebook.sources.filter(source => sourceIds.has(source.id));
+  return {
+    selectedCount: items.length,
+    totalCount: notebook.items.length,
+    countries: [...new Set(items.flatMap(item => item.countries))],
+    layers: [...new Set(items.map(item => item.layer).filter(Boolean))],
+    recordedNumericalCount: items.filter(item => item.type === "observation" && typeof item.value === "number" && Number.isFinite(item.value)).length,
+    explicitNullCount: items.filter(item => item.type === "observation" && item.value === null).length,
+    unrecordedObservationCount: items.filter(item => item.type === "observation" && item.value === undefined).length,
+    configurationCount: items.filter(item => CONFIGURATION_TYPES.has(item.type)).length,
+    sourceCount: sources.length,
+    unsourcedCount: items.filter(item => item.source_ids.length === 0).length,
+    warningItemCount: items.filter(item => item.warnings.length > 0).length,
+    blockedOrInactiveMethodCount: items.filter(item => item.type === "method" && typeof item.metadata.state === "string" && item.metadata.state !== "active").length,
+  };
+}
 
 // Projection only: validate the existing schema and never mutate or enrich stored evidence.
-export function buildEvidenceBrief(notebook: ResearchNotebook, ids: string[], locale: Locale, exportedAt: string): EvidenceBrief {
-  serializeNotebook(notebook);
+export function buildEvidenceBrief(notebook: ResearchNotebook, ids: string[], locale: Locale, exportedAt: string, template: BriefTemplate = "standard"): EvidenceBrief {
+  const items = validateSelection(notebook, ids);
   if (!Number.isFinite(Date.parse(exportedAt))) throw Error("Invalid brief export date");
-  if (new Set(ids).size !== ids.length || ids.some(id => !notebook.items.some(item => item.id === id))) throw Error("Invalid brief selection");
   const m = notebookBriefMessages[locale], labels = notebookMessages[locale];
-  const items = ids.map(id => notebook.items.find(item => item.id === id)!);
+  const summary = buildReportStudioSummary(notebook, ids);
   const joined = (values: string[]) => values.length ? values.join(" · ") : m.unknown;
   const field = (label: string, value?: string): BriefField => ({ label, value: value || m.unknown });
   const link = (label: string, value: string, url: string, atlas = false): BriefField => ({ label, value, ...(atlas ? atlasItemTarget(url) ? { href: url } : {} : externalSourceLink(url) ? { href: url } : {}) });
@@ -73,10 +190,46 @@ export function buildEvidenceBrief(notebook: ResearchNotebook, ids: string[], lo
   const sections: BriefSection[] = [
     { title: m.question, level: 2, paragraphs: [notebook.research_question || m.unknown], fields: [] },
     { title: m.scope, level: 2, paragraphs: [], fields: [field(m.notebookCountries, joined(notebook.selected_countries)), field(m.includedCountries, joined([...new Set(items.flatMap(item => item.countries))])), field(m.periods, joined([...new Set(items.flatMap(item => item.periods))])), field(m.created, notebook.created_at), field(m.updated, notebook.updated_at), field(m.exported, exportedAt), field(m.version, notebook.platform_version)] },
-    { title: m.evidence, level: 2, paragraphs: items.length ? [] : [m.empty], fields: [] },
   ];
+  if (template === "comparative_note") {
+    const comparabilities = [...new Set(items.map(item => item.comparability).filter((c): c is string => Boolean(c)))];
+    sections.push({
+      title: m.comparativeSection,
+      level: 2,
+      paragraphs: [m.auditNote],
+      fields: [
+        field(m.selected, `${summary.selectedCount} / ${summary.totalCount}`),
+        field(m.includedCountries, joined(summary.countries)),
+        field(m.readinessLayers, joined(summary.layers)),
+        field(m.readinessNumerical, String(summary.recordedNumericalCount)),
+        field(m.readinessExplicitNull, String(summary.explicitNullCount)),
+        field(m.readinessConfigs, String(summary.configurationCount)),
+        field(m.comparability, joined(comparabilities)),
+        field(m.readinessSources, String(summary.sourceCount)),
+      ],
+    });
+  } else if (template === "methodological_audit") {
+    sections.push({
+      title: m.auditSection,
+      level: 2,
+      paragraphs: [m.auditNote],
+      fields: [
+        field(m.readinessLayers, `${summary.layers.length} (${joined(summary.layers)})`),
+        field(m.readinessNumerical, String(summary.recordedNumericalCount)),
+        field(m.readinessExplicitNull, String(summary.explicitNullCount)),
+        field(m.readinessUnrecordedObs, String(summary.unrecordedObservationCount)),
+        field(m.readinessConfigs, String(summary.configurationCount)),
+        field(m.readinessWarnings, String(summary.warningItemCount)),
+        field(m.readinessBlockedMethods, String(summary.blockedOrInactiveMethodCount)),
+        field(m.readinessUnsourced, String(summary.unsourcedCount)),
+        field(m.readinessSources, String(summary.sourceCount)),
+      ],
+    });
+    sections.push({ title: m.notebookWarnings, level: 2, paragraphs: notebook.methodology_warnings.length ? notebook.methodology_warnings : [m.unknown], fields: [] });
+  }
+  sections.push({ title: m.evidence, level: 2, paragraphs: items.length ? [] : [m.empty], fields: [] });
   items.forEach((item, index) => {
-    const configuration = ["series_view", "country_comparison", "regional_view", "map_view", "workspace"].includes(item.type);
+    const configuration = CONFIGURATION_TYPES.has(item.type);
     const title = item.labels?.[locale] || item.title;
     const fields: BriefField[] = [field(m.identity, item.id), field(m.ids, joined(item.canonical_ids)), field(m.type, labels[item.type]), field(m.layer, item.layer), field(m.includedCountries, joined(item.countries)), field(m.periods, joined(item.periods)), field(m.collected, item.collected_at), field(m.itemVersion, item.platform_version), link(m.atlas, item.url, item.url, true), field(m.sourceIds, joined(item.source_ids)), field(m.comparability, item.comparability)];
     if (title !== item.title) fields.unshift(field(m.original, item.title));
@@ -94,7 +247,9 @@ export function buildEvidenceBrief(notebook: ResearchNotebook, ids: string[], lo
     }
     sections.push({ title: `${index + 1}. ${title}`, level: 3, paragraphs: [...(configuration ? [m.configuration] : item.type !== "observation" ? [m.reference] : []), ...(!item.source_ids.length ? [m.noSources] : [])], fields });
   });
-  sections.push({ title: m.notebookWarnings, level: 2, paragraphs: notebook.methodology_warnings.length ? notebook.methodology_warnings : [m.unknown], fields: [] });
+  if (template !== "methodological_audit") {
+    sections.push({ title: m.notebookWarnings, level: 2, paragraphs: notebook.methodology_warnings.length ? notebook.methodology_warnings : [m.unknown], fields: [] });
+  }
   sections.push({ title: m.notes, level: 2, paragraphs: [notebook.user_notes || m.unknown], fields: [] });
   sections.push({ title: m.sourceList, level: 2, paragraphs: sources.length ? [] : [m.unknown], fields: [] });
   for (const source of sources) sections.push({ title: source.id, level: 3, paragraphs: [], fields: [field(m.publisher, source.institution), field(m.dataset, source.dataset), field(m.code, source.code), link(m.sourceUrl, source.url, source.url), field(m.layer, source.layer), field(m.originalUnit, source.original_unit), field(m.normalizedUnit, source.normalized_unit), field(m.retrieved, source.retrieved_at), field(m.sourceUpdated, source.updated_at)] });
@@ -116,4 +271,58 @@ function markdownField(field: BriefField): string {
 }
 export function serializeEvidenceBrief(brief: EvidenceBrief): string {
   return [`# ${briefMarkdownText(brief.title).replace(/\r?\n/g, " ")}`, ...brief.introduction.map(briefMarkdownText), ...brief.sections.flatMap(section => [`${"#".repeat(section.level)} ${briefMarkdownText(section.title).replace(/\r?\n/g, " ")}`, ...section.paragraphs.map(briefMarkdownText), ...(section.fields.length ? [section.fields.map(markdownField).join("\n")] : [])])].join("\n\n") + "\n";
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+// Standalone presentation serializer derived strictly from EvidenceBrief; zero remote resources or executable HTML.
+export function serializeBriefHtml(brief: EvidenceBrief, locale: Locale): string {
+  const lang = locale === "en" ? "en" : "zh-CN";
+  const introHtml = brief.introduction.map(p => `<p class="notice">${escapeHtml(p)}</p>`).join("\n");
+  const sectionsHtml = brief.sections.map(section => {
+    const tag = section.level === 2 ? "h2" : "h3";
+    const paras = section.paragraphs.map(p => `<p class="prose">${escapeHtml(p)}</p>`).join("\n");
+    const fields = section.fields.length
+      ? `<dl>${section.fields.map(f => `<div class="field"><dt>${escapeHtml(f.label)}</dt><dd>${f.href ? `<a href="${escapeHtml(f.href)}" rel="noopener noreferrer">${escapeHtml(f.value)}</a>` : escapeHtml(f.value)}</dd></div>`).join("")}</dl>`
+      : "";
+    return `<section><${tag}>${escapeHtml(section.title)}</${tag}>${paras}${fields}</section>`;
+  }).join("\n");
+  return `<!doctype html>
+<html lang="${lang}">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>${escapeHtml(brief.title)}</title>
+<style>
+  @page { size: A4; margin: 18mm; }
+  body { font-family: Georgia, "Times New Roman", "Songti SC", "Noto Serif CJK SC", "PingFang SC", serif; color: #1a1a1a; background: #fff; max-width: 780px; margin: 2rem auto; padding: 0 1.25rem; line-height: 1.65; font-size: 10.5pt; }
+  h1 { font-size: 1.75rem; border-bottom: 2px solid #1a1a1a; padding-bottom: 0.45rem; overflow-wrap: anywhere; }
+  h2 { font-size: 1.2rem; margin-top: 1.8rem; border-bottom: 1px solid #d4d4d4; padding-bottom: 0.25rem; break-after: avoid; page-break-after: avoid; }
+  h3 { font-size: 1.02rem; margin-top: 1.35rem; break-after: avoid; page-break-after: avoid; overflow-wrap: anywhere; }
+  .notice { font-size: 0.9rem; background: #f5f5f4; border-left: 3px solid #525252; padding: 0.6rem 0.85rem; margin: 0.7rem 0; }
+  .prose { white-space: pre-wrap; overflow-wrap: anywhere; margin: 0.65rem 0; }
+  dl { display: grid; gap: 0.4rem; margin: 0.7rem 0 1.15rem; font-size: 0.92rem; }
+  .field { break-inside: avoid; page-break-inside: avoid; }
+  dt { font-weight: 700; color: #262626; }
+  dd { margin: 0.1rem 0 0.35rem 0; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }
+  a { color: #1d4ed8; overflow-wrap: anywhere; }
+  @media print { body { margin: 0; padding: 0; max-width: none; } a { color: #1a1a1a; text-decoration: underline; } }
+</style>
+</head>
+<body>
+<main>
+<h1>${escapeHtml(brief.title)}</h1>
+${introHtml}
+${sectionsHtml}
+</main>
+</body>
+</html>
+`;
 }
