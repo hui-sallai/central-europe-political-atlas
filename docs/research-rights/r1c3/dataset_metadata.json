@@ -1,0 +1,90 @@
+{
+ "schema_version": "r1c3-dataset-metadata-v1",
+ "source": "Eurostat SDMX 2.1 dataflow structures (official_evidence r1c3-df_*), parsed annotations; reviewed 2026-11-27 UTC",
+ "datasets": {
+  "prc_hicp_aind": {
+   "verified_facts": {
+    "official_title_en": "HICP - annual data (average index and rate of change) (1996-2025)",
+    "responsible_institution": "Eurostat (SDMX agency ESTAT); SOURCE_INSTITUTIONS annotation: Eurostat",
+    "dataset_identifier": "PRC_HICP_AIND",
+    "publication_type": "dataset (DISSEMINATION_OBJECT_TYPE = DATASET)",
+    "doi": "10.2908/PRC_HICP_AIND",
+    "doi_url": "https://doi.org/10.2908/PRC_HICP_AIND",
+    "doi_issued": "2023-01-23",
+    "doi_creator": "publications.europa.eu corporate body ESTAT",
+    "created": "2015-11-16T10:20:47+0100",
+    "last_data_update": "2026-02-06T23:00:00+0100",
+    "last_structure_update": "2026-01-19T11:00:00+0100",
+    "observation_count_overall": 602162,
+    "period_overall": [
+     "1996",
+     "2025"
+    ],
+    "reference_metadata": "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+    "language": "en (titles also published in de, fr)",
+    "structure_message_prepared": "2026-05-21T03:22:02.903+02:00"
+   },
+   "not_available": {
+    "edition_or_release_identifier": "Eurostat publishes no edition number; the DOI identifies the dataset, not a data release. A release is identifiable only by its UPDATE_DATA timestamp.",
+    "publication_date_of_a_given_value": "not published per value"
+   },
+   "caution": "doi_issued is the date the DOI was issued, not the dataset's first publication (created) and not a data-release date."
+  },
+  "prc_hicp_minr": {
+   "verified_facts": {
+    "official_title_en": "Harmonised index of consumer prices (HICP) - ECOICOP ver.2 - indices and rates of change, monthly data",
+    "responsible_institution": "Eurostat (SDMX agency ESTAT); SOURCE_INSTITUTIONS annotation: Eurostat",
+    "dataset_identifier": "PRC_HICP_MINR",
+    "publication_type": "dataset (DISSEMINATION_OBJECT_TYPE = DATASET)",
+    "doi": "10.2908/PRC_HICP_MINR",
+    "doi_url": "https://doi.org/10.2908/PRC_HICP_MINR",
+    "doi_issued": "2026-01-27",
+    "doi_creator": "publications.europa.eu corporate body ESTAT",
+    "created": "2026-01-27T09:31:20+0100",
+    "last_data_update": "2026-11-18T11:00:00+0100",
+    "last_structure_update": "2026-11-04T11:00:00+0100",
+    "observation_count_overall": 22577512,
+    "period_overall": [
+     "1996-01",
+     "2026-10"
+    ],
+    "reference_metadata": "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+    "language": "en (titles also published in de, fr)",
+    "structure_message_prepared": "2026-11-18T11:00:05.898+01:00"
+   },
+   "not_available": {
+    "edition_or_release_identifier": "Eurostat publishes no edition number; the DOI identifies the dataset, not a data release. A release is identifiable only by its UPDATE_DATA timestamp.",
+    "publication_date_of_a_given_value": "not published per value"
+   },
+   "caution": "doi_issued is the date the DOI was issued, not the dataset's first publication (created) and not a data-release date."
+  },
+  "nama_10_gdp": {
+   "verified_facts": {
+    "official_title_en": "Gross domestic product (GDP) and main components (output, expenditure and income) - annual data",
+    "responsible_institution": "Eurostat (SDMX agency ESTAT); SOURCE_INSTITUTIONS annotation: Eurostat",
+    "dataset_identifier": "NAMA_10_GDP",
+    "publication_type": "dataset (DISSEMINATION_OBJECT_TYPE = DATASET)",
+    "doi": "10.2908/NAMA_10_GDP",
+    "doi_url": "https://doi.org/10.2908/NAMA_10_GDP",
+    "doi_issued": "2023-01-19",
+    "doi_creator": "publications.europa.eu corporate body ESTAT",
+    "created": "2014-09-04T14:58:03+0200",
+    "last_data_update": "2026-11-24T23:00:00+0100",
+    "last_structure_update": "2026-10-20T23:00:00+0200",
+    "observation_count_overall": 1088100,
+    "period_overall": [
+     "1975",
+     "2025"
+    ],
+    "reference_metadata": "https://ec.europa.eu/eurostat/cache/metadata/en/nama_10_gdp_esms.htm",
+    "language": "en (titles also published in de, fr)",
+    "structure_message_prepared": "2026-11-24T23:00:06.95+01:00"
+   },
+   "not_available": {
+    "edition_or_release_identifier": "Eurostat publishes no edition number; the DOI identifies the dataset, not a data release. A release is identifiable only by its UPDATE_DATA timestamp.",
+    "publication_date_of_a_given_value": "not published per value"
+   },
+   "caution": "doi_issued is the date the DOI was issued, not the dataset's first publication (created) and not a data-release date."
+  }
+ }
+}

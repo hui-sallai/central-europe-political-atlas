@@ -1,0 +1,228 @@
+{
+ "schema_version": "r1c3-artifact-inventory-v1",
+ "baseline_commit": "9cb65307a9789744580e687052504fd4d8d02d35",
+ "rule": "A supported snapshot producer is not an admitted attachment. Only the two pinned SORS pairs in src/lib/researchPackageRights.ts are admitted today; every other class below is reference-only in a research package.",
+ "classes": [
+  {
+   "class": "Annual macroeconomic Data Explorer",
+   "producer": "src/components/DataExplorerV11.tsx (annual tab) → ResearchSnapshotExport, view_type annual",
+   "data_sources": "src/data/observations/observations.json (current 2021–2025 'formal' layer) and the annual descriptive history (src/data/historical/annual_descriptive_history.json, raw extracts under src/data/historical/raw/annual/)",
+   "example": "Polish HICP (prc_hicp_aind, CP00, RCH_A_AVG)",
+   "dataset_ids": [
+    "prc_hicp_aind",
+    "nama_10_gdp",
+    "nama_10_pc",
+    "gov_10dd_edpt1",
+    "une_rt_a",
+    "…"
+   ],
+   "observation_scope": "one row per country-indicator-year; per-year source URL",
+   "source_metadata_in_export": "institution 'Eurostat'; dataset string combining Eurostat and a national portal (e.g. 'Eurostat prc_hicp_aind / Statistics Poland Data Portal'); per-year API URL; updated_at 2026-07-17; retrieved_at blank",
+   "existing_provenance": "canonical record updated_at only; the history layer's retained raw extracts carry query URL, retrieval time, HTTP status, dataset update time and SHA-256 (annual_history_manifest.json)",
+   "version_information": "Eurostat UPDATE_DATA per dataset (no edition numbers)",
+   "rights_registry": "src-eurostat (review_status documented; evidence_sha256 null)",
+   "correspondence_eligibility": "exact_recorded_observation / compatible_live_configuration possible",
+   "redistribution_eligibility": "none admitted (rights engine pins SORS only)",
+   "missing_evidence": [
+    "registry row still 'documented' (now readable: see rights_assessments)",
+    "national co-source wording in the canonical label is unexplained",
+    "canonical retrieval for the 2021–2025 layer not retained"
+   ]
+  },
+  {
+   "class": "Monthly and quarterly economic data",
+   "producer": "DataExplorerV11 high-frequency tab, view_type high_frequency",
+   "data_sources": "src/data/high-frequency/high_frequency_observations.json (live; refreshed by data-refresh runs); raw extracts for the monthly history under src/data/historical/raw/monthly/",
+   "example": "Hungarian HICP annual rate (prc_hicp_minr, coicop18 TOTAL, RCH_A)",
+   "dataset_ids": [
+    "prc_hicp_minr",
+    "une_rt_m",
+    "sts_inpr_m",
+    "…"
+   ],
+   "observation_scope": "monthly rows",
+   "source_metadata_in_export": "institution Eurostat; dataset 'prc_hicp_minr'; source_url is a Data Browser view, not the API query; source_code holds the definition; retrieved_at and updated_at blank",
+   "existing_provenance": "record updated_at 2026-10-19 (refresh monthly-eurostat-20261019 recorded no retrievals); monthly_history_manifest retains eurostat_prc_hicp_minr_RCH_A_TOTAL.json (sha256 4a2dbd26…, retrieved 2026-09-30T08:10:48Z, data updated 2026-09-17)",
+   "version_information": "UPDATE_DATA 2026-11-18 (current)",
+   "rights_registry": "src-eurostat",
+   "correspondence_eligibility": "yes",
+   "redistribution_eligibility": "none admitted",
+   "missing_evidence": [
+    "the export's source row has no version or retrieval date",
+    "the 2026-10-19 refresh retained no response digest"
+   ]
+  },
+  {
+   "class": "Macro Driver Workbench",
+   "producer": "src/components/MacroDriverWorkbench.tsx, view_type macro_drivers",
+   "data_sources": "src/data/macro-drivers/macro_driver_observations.json; policy_rate_acquisition_manifest.json and exchange_rate_acquisition_manifest.json",
+   "example": "Hungarian policy rate level (BIS WS_CBPOL M:HU)",
+   "dataset_ids": [
+    "BIS WS_CBPOL",
+    "BIS WS_XRU",
+    "BIS WS_EER",
+    "prc_hicp_minr (energy)",
+    "irt_lt_mcby_m"
+   ],
+   "observation_scope": "monthly series per driver and area; bilateral FX for non-euro countries is a computed cross rate",
+   "source_metadata_in_export": "institution 'BIS / contributing central bank'; bulk-file URL (overwritten upstream); instrument-specific source codes",
+   "existing_provenance": "manifest records bulk-file SHA-256 (WS_CBPOL c06ed898…, 2026-08-30) but the file is not retained; only euro-area CBPOL and EER/XRU per-country CSVs are retained under src/data/historical/raw/monthly/",
+   "version_information": "'current BIS bulk file at retrieval' — no release identifier",
+   "rights_registry": "src-bis (documented; terms page not readable in this review)",
+   "correspondence_eligibility": "yes for configuration",
+   "redistribution_eligibility": "none admitted",
+   "missing_evidence": [
+    "BIS terms (403)",
+    "retained HU CBPOL response",
+    "third-party status of central-bank-contributed series",
+    "cross-rate is a derived value"
+   ]
+  },
+  {
+   "class": "Harmonized national comparison",
+   "producer": "src/components/NationalComparisonWorkspace.tsx, view_type country_comparison",
+   "data_sources": "annual observations; harmonized common eligible observations",
+   "example": "Poland–Hungary real GDP growth, bar, harmonized",
+   "dataset_ids": [
+    "nama_10_gdp"
+   ],
+   "observation_scope": "common eligible observations only (2 rows in the sample)",
+   "source_metadata_in_export": "two Eurostat rows with national co-source wording (Statistics Poland, HCSO STADAT)",
+   "existing_provenance": "history raw nama_10_gdp.json (f805e0a3…, 2026-09-29) but nama_10_gdp UPDATE_DATA is now 2026-11-24",
+   "version_information": "revised after the retained extract",
+   "rights_registry": "src-eurostat",
+   "correspondence_eligibility": "partial_correspondence in R1-C1 acceptance (row set differs)",
+   "redistribution_eligibility": "reference only",
+   "missing_evidence": [
+    "partial correspondence by design",
+    "co-source wording",
+    "revision after retained response"
+   ]
+  },
+  {
+   "class": "Descriptive side-by-side comparison",
+   "producer": "NationalComparisonWorkspace side_by_side mode (exports view_type annual)",
+   "data_sources": "as above",
+   "example": "same pair, side_by_side",
+   "dataset_ids": [
+    "nama_10_gdp"
+   ],
+   "observation_scope": "each country's own definition",
+   "source_metadata_in_export": "identical CSV pair to the harmonized sample (same digests)",
+   "existing_provenance": "as above",
+   "version_information": "as above",
+   "rights_registry": "src-eurostat",
+   "correspondence_eligibility": "partial_correspondence",
+   "redistribution_eligibility": "reference only",
+   "missing_evidence": [
+    "as above"
+   ]
+  },
+  {
+   "class": "Serbia SORS high-frequency data",
+   "producer": "src/components/SerbiaSorsMonthlyPanel.tsx, view_type serbia_sors",
+   "data_sources": "public/research-data/serbia_sors_runtime.json; src/data/serbia/raw/*.extract.json (response SHA-256, bytes, response and extract record counts, retrieval time)",
+   "example": "CPI 2006=100 (admitted), LFS 15–74 (admitted), CPI m/m-12 index, retail trade SA, IPI, PPI, trade, earnings",
+   "dataset_ids": [
+    "03010601IND01",
+    "240003010102IND03",
+    "03010601IND03",
+    "210105IND02",
+    "060001IND02",
+    "030201010101IND01",
+    "1702IND01",
+    "1702IND02",
+    "2403040101IND01",
+    "2403040101IND02"
+   ],
+   "observation_scope": "source-native monthly or quarterly rows; Serbia-only, not cross-country comparable",
+   "source_metadata_in_export": "SORS institution, dataset code, OData endpoint, original query dimensions, units; retrieved_at blank",
+   "existing_provenance": "retained extract per dataset with response digest and counts (retrieved 2026-11-13)",
+   "version_information": "no SORS release identifier; dataset_updated_at null",
+   "rights_registry": "src-sors (verified 2026-11-11; terms re-read 2026-11-27)",
+   "correspondence_eligibility": "compatible_live_configuration",
+   "redistribution_eligibility": "two pinned pairs + two pinned figure-free archives",
+   "missing_evidence": [
+    "for non-admitted series: an exact pin and reviewed modification notice"
+   ]
+  },
+  {
+   "class": "Serbia SORS annual data",
+   "producer": "annual SORS entries in the Data Explorer (serbia_descriptive_history annual store)",
+   "data_sources": "annual runtime series; no original query dimensions or retrieval time in the runtime record",
+   "example": "real GDP growth 09020104IND01",
+   "dataset_ids": [
+    "09020104IND01",
+    "0902010301IND01",
+    "240003020102IND03",
+    "…"
+   ],
+   "observation_scope": "annual",
+   "source_metadata_in_export": "dataset code and endpoint",
+   "existing_provenance": "refresh ledger serbia-20261020 records retrievals with checksums for annual datasets",
+   "version_information": "none",
+   "rights_registry": "src-sors",
+   "correspondence_eligibility": "checked separately in R1-C1 binding tests",
+   "redistribution_eligibility": "none admitted",
+   "missing_evidence": [
+    "original query dimensions in the export",
+    "derived series (trade_balance_rsd) needs a derived-value notice"
+   ]
+  },
+  {
+   "class": "Regional and spatial research",
+   "producer": "src/components/ComparativeSpatialWorkbench.tsx, view_type regional_map with map.svg",
+   "data_sources": "regional observations (demo_r_pjanaggr3 etc.; regional_history_manifest.json) and GISCO NUTS 2024 boundaries",
+   "example": "Hungary NUTS3 population 2024, equal-interval map",
+   "dataset_ids": [
+    "demo_r_pjanaggr3",
+    "GISCO NUTS_RG_01M_2024 LEVL_3"
+   ],
+   "observation_scope": "20 NUTS3 rows + map.svg",
+   "source_metadata_in_export": "generic dataset string 'Eurostat regional statistics'; Chinese storage note in definition; no retrieval time",
+   "existing_provenance": "regional history raw extracts listed in regional_history_manifest.json",
+   "version_information": "NUTS 2024 vintage recorded",
+   "rights_registry": "src-eurostat (statistics) and src-gisco (boundaries: cleared_noncommercial, raw not_cleared)",
+   "correspondence_eligibility": "configuration",
+   "redistribution_eligibility": "reference only; map.svg always quarantined",
+   "missing_evidence": [
+    "boundary/figure rights at the cited NUTS URL",
+    "precise regional extract pin"
+   ]
+  },
+  {
+   "class": "Political and election evidence",
+   "producer": "Notebook items from politics pages (German 1990, Hungarian 1998, …); no snapshot format for ballots",
+   "data_sources": "src/data/political/<country>/",
+   "example": "German 1990 second-vote ballot",
+   "dataset_ids": [
+    "per admission record"
+   ],
+   "observation_scope": "ballot-specific",
+   "source_metadata_in_export": "recorded in the Notebook only",
+   "existing_provenance": "political admission and Germany extension records",
+   "version_information": "result vintages per election",
+   "rights_registry": "src-de-bundeswahlleiterin and country-specific rows; CZ/SK/PL/AT closure restrictions",
+   "correspondence_eligibility": "unsupported_artifact_type",
+   "redistribution_eligibility": "blocked for research-package attachment",
+   "missing_evidence": [
+    "no immutable political attachment format (out of scope)"
+   ]
+  },
+  {
+   "class": "Model and methodological references",
+   "producer": "Notebook method items (VAR, LP, panel LP, model framework)",
+   "data_sources": "frozen research outputs and registries",
+   "example": "VAR publication boundary (blocked)",
+   "dataset_ids": [],
+   "observation_scope": "none",
+   "source_metadata_in_export": "registry or blocked status",
+   "existing_provenance": "hash-frozen outputs",
+   "version_information": "release version",
+   "rights_registry": "n/a",
+   "correspondence_eligibility": "method reference",
+   "redistribution_eligibility": "reference only",
+   "missing_evidence": []
+  }
+ ]
+}
