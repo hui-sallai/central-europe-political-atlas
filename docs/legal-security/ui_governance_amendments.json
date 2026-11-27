@@ -5683,6 +5683,46 @@
         }
       ],
       "approved_by": "Owner R1-B final acceptance and release preparation instruction, 2026-11-26, covering the reviewed candidate and bounded warning and disclosure refinements."
+    },
+    {
+      "amendment_id": "codex-r1c1-snapshot-binding-2026-11-26",
+      "status": "owner_approved",
+      "created_at": "2026-11-26",
+      "baseline": "22d933caae90fb5105066360ac52dd6daf4a2d8f",
+      "scope": "Local descriptive snapshot inspection, selected Notebook correspondence, rights-limited payload assembly and exact byte integrity verification.",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "files": [
+        {
+          "path": "src/lib/researchPackage.ts",
+          "sha256": "9ef744d572f3bc2bfae2bf039c3811fc5ea2765477004fe47d2233d0049ea6ed",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/researchPackageArchive.ts",
+          "sha256": "5d7eadbc331e015b8764bfbe01fd87660888f53f1d48232683bc319e812158d9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/researchPackageBinding.ts",
+          "sha256": "31c97a56c93880636e3187290ff28ce580fd76a7371624282d6154561cb718e9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/researchPackageRights.ts",
+          "sha256": "dbbf55eb2cca4869536fccb9e3c6d923e75d548e99c20a0f2f13a78f03fdcfb9",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/researchPackageSnapshot.ts",
+          "sha256": "b21edf3f01e302a45b61bb54bce5d50a06c367086d5aeaa6c15b83a4256f41ca",
+          "classification": "DATA_PRESENTATION"
+        }
+      ],
+      "approved_by": "Owner R1-C1 security correction and final acceptance instruction, 2026-11-27, covering the reviewed five paths and bounded import-parser corrections."
     }
   ]
 }
