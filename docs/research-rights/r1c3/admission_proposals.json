@@ -1,0 +1,292 @@
+{
+ "schema_version": "r1c3-admission-proposals-v1",
+ "baseline_commit": "9cb65307a9789744580e687052504fd4d8d02d35",
+ "status": "PROPOSALS FOR INDEPENDENT REVIEW — nothing here changes runtime behaviour",
+ "sections": {
+  "verified_facts": "measured or read in this review",
+  "recorded_declarations": "strings the Atlas exports declare (source rows, labels)",
+  "unresolved": "see blocking_question / reasons / limitations",
+  "proposed_implementation_changes": "see codex_handoff.md"
+ },
+ "proposals": [
+  {
+   "candidate_id": "sors-cpi-annual-index-2007-2025",
+   "source_id": "src-sors",
+   "dataset": "03010601IND03",
+   "subset": "Serbian national CPI, total, same month of previous year = 100, 2007-01 to 2025-12",
+   "view": "/data/?tab=high_frequency&country=serbia&sors_series=cpi_annual_index",
+   "classification": "eligible_for_original_archive_admission",
+   "recommendation": "READY FOR INDEPENDENT ADMISSION REVIEW",
+   "verified_facts": {
+    "selected_observations": 228,
+    "period": [
+     "2007-01",
+     "2025-12"
+    ],
+    "upstream_response_records": 29978,
+    "upstream_response_sha256": "a0fb04c3037df9f4fdcda34836db48bee22c69e3eb78c4db0e32f767887c5f93",
+    "upstream_retrieved_at": "2026-11-13T19:31:01.945Z",
+    "values_equal_retained_extract": true,
+    "production_export_equals_fixture": true,
+    "statuses": [
+     "Normal value"
+    ],
+    "unit": "index, same month previous year = 100",
+    "original_unit": "index, same month previous year = 100",
+    "query_dimensions": "{\"IDCOICOP\":\"0000\"}"
+   },
+   "exact_bytes": {
+    "data.csv_sha256": "760bed4e9e0b894627ea0997792b3296864af8895d105a2795887e218db873d1",
+    "sources.csv_sha256": "ce4cb36c5597a1ae84f0c2fa6be42c02057347e1e372e72888aaa205151d91b0",
+    "figure_free_archive_sha256": "b2acc019dd340413c90af17b905256cc4ae4f7c2606e883a8d886449bc4ea302",
+    "archive_build": "tests/fixtures/research-package-sors.mjs buildSorsSnapshotExample('cpi_annual_index') at 2026-11-26T12:00:00.000Z"
+   },
+   "required_attribution": "Source: Statistical Office of the Republic of Serbia",
+   "proposed_modification_notice": "Atlas selected 228 records for Serbian national CPI, total, same month of previous year = 100, 2007-01 to 2025-12 from 29978 SORS response records. Atlas arranged them in reverse period order and added identifiers, English column names, units and comparability fields. The recorded values are unchanged. Source: https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND03/3/json. Recorded upstream response SHA-256: a0fb04c3037df9f4fdcda34836db48bee22c69e3eb78c4db0e32f767887c5f93.",
+   "proposed_pin_entry": {
+    "data": "760bed4e9e0b894627ea0997792b3296864af8895d105a2795887e218db873d1",
+    "sources": "ce4cb36c5597a1ae84f0c2fa6be42c02057347e1e372e72888aaa205151d91b0",
+    "archive": "b2acc019dd340413c90af17b905256cc4ae4f7c2606e883a8d886449bc4ea302",
+    "dataset": "03010601IND03",
+    "subset": "Serbian national CPI, total, same month of previous year = 100, 2007-01 to 2025-12",
+    "count": 228,
+    "upstreamCount": 29978,
+    "upstreamDigest": "a0fb04c3037df9f4fdcda34836db48bee22c69e3eb78c4db0e32f767887c5f93"
+   },
+   "limitations": [
+    "National CPI annual index (m/m-12); it must not be labelled HICP or converted to a percentage rate in the attached bytes."
+   ],
+   "comparability": "serbia_only_not_cross_country_comparable; national CPI is not HICP"
+  },
+  {
+   "candidate_id": "sors-retail-trade-volume-sa-2000-2026",
+   "source_id": "src-sors",
+   "dataset": "210105IND02",
+   "subset": "Serbian retail trade turnover volume index, constant prices, seasonally adjusted (2021=100), 2000-01 to 2026-09",
+   "view": "/data/?tab=high_frequency&country=serbia&sors_series=retail_trade_volume_sa",
+   "classification": "eligible_for_original_archive_admission",
+   "recommendation": "READY FOR INDEPENDENT ADMISSION REVIEW",
+   "verified_facts": {
+    "selected_observations": 321,
+    "period": [
+     "2000-01",
+     "2026-09"
+    ],
+    "upstream_response_records": 4815,
+    "upstream_response_sha256": "5495f234b4850f640f09c4719076a89af7b4118ae66d62f6735f3b4cd4b0ba1d",
+    "upstream_retrieved_at": "2026-11-13T19:31:21.167Z",
+    "values_equal_retained_extract": true,
+    "production_export_equals_fixture": true,
+    "statuses": [
+     "Provisional value",
+     "Normal value"
+    ],
+    "unit": "index 2021=100 (constant prices, SA)",
+    "original_unit": "index 2021=100 (constant prices, SA)",
+    "query_dimensions": "{\"IDKD08STS\":\"47\",\"IDDesezoniranjeVS\":\"Y\"}"
+   },
+   "exact_bytes": {
+    "data.csv_sha256": "812bc785be91e07cb20f18d308e11dcbded3d0261586bffab975c850eaf72fe3",
+    "sources.csv_sha256": "ab130e992879869a0ad9b27262e668d19e8a554bae9d740452e61be186f89dba",
+    "figure_free_archive_sha256": "b25b710f03e53b907b7098560183a99f2fe3deadf3245f26ee7f9749e6d5bae6",
+    "archive_build": "tests/fixtures/research-package-sors.mjs buildSorsSnapshotExample('retail_trade_volume_sa') at 2026-11-26T12:00:00.000Z"
+   },
+   "required_attribution": "Source: Statistical Office of the Republic of Serbia",
+   "proposed_modification_notice": "Atlas selected 321 records for Serbian retail trade turnover volume index, constant prices, seasonally adjusted (2021=100), 2000-01 to 2026-09 from 4815 SORS response records. Atlas arranged them in reverse period order and added identifiers, English column names, units and comparability fields. The recorded values are unchanged. Source: https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/210105IND02/3/json. Recorded upstream response SHA-256: 5495f234b4850f640f09c4719076a89af7b4118ae66d62f6735f3b4cd4b0ba1d.",
+   "proposed_pin_entry": {
+    "data": "812bc785be91e07cb20f18d308e11dcbded3d0261586bffab975c850eaf72fe3",
+    "sources": "ab130e992879869a0ad9b27262e668d19e8a554bae9d740452e61be186f89dba",
+    "archive": "b25b710f03e53b907b7098560183a99f2fe3deadf3245f26ee7f9749e6d5bae6",
+    "dataset": "210105IND02",
+    "subset": "Serbian retail trade turnover volume index, constant prices, seasonally adjusted (2021=100), 2000-01 to 2026-09",
+    "count": 321,
+    "upstreamCount": 4815,
+    "upstreamDigest": "5495f234b4850f640f09c4719076a89af7b4118ae66d62f6735f3b4cd4b0ba1d"
+   },
+   "limitations": [
+    "Contains SORS 'Provisional value' records; statuses are retained per row. Seasonal adjustment is SORS's; later SORS releases may revise the whole series."
+   ],
+   "comparability": "serbia_only_not_cross_country_comparable; national CPI is not HICP"
+  },
+  {
+   "candidate_id": "eurostat-hu-hicp-annual-rate-2020",
+   "source_id": "src-eurostat",
+   "dataset": "prc_hicp_minr (DOI 10.2908/PRC_HICP_MINR)",
+   "subset": "HICP annual rate of change (RCH_A), ECOICOP ver.2 all-items (coicop18 TOTAL), Hungary, 2020-01 to 2020-12",
+   "view": "/data/?tab=high_frequency&country=hungary&indicator=hicp_annual_rate&from=2020&to=2020&history=0",
+   "classification": "eligible_for_normalized_member_admission_only",
+   "recommendation": "READY FOR INDEPENDENT ADMISSION REVIEW",
+   "verified_facts": {
+    "selected_observations": 12,
+    "values_equal_retained_response": true,
+    "values_equal_present_day_response": true,
+    "retained_response_sha256": "4a2dbd260ac3b96351c153e8b2f6f340ab00ed4712c3ee6141a03ed8fc49ccfb",
+    "present_day_response_sha256": "e71e0484db2366badd39f3e9daf6e10ed1bebfc7277076b50ed0cf1afae2f1df",
+    "source_institution_annotation": "Eurostat",
+    "country_exception": "none (EU member state)"
+   },
+   "exact_bytes": {
+    "data.csv_sha256": "633544d1d1d3d772667d5ff695b4c80c251b1c49783cfa43e853f3cda3b9a463",
+    "sources.csv_sha256": "1bd9903472df2dd79f8e3dfa3a1a5cd4a08f445c13184dc0957f663c1f892285",
+    "data.csv_bytes": 2004,
+    "sources.csv_bytes": 405,
+    "original_archive": "not proposed: the export always contains an Atlas-rendered figure.svg (quarantined), and the ZIP digest varies with the export time"
+   },
+   "required_attribution": "Source: Eurostat, Harmonised index of consumer prices (HICP) – ECOICOP ver.2 – indices and rates of change, monthly data, doi:10.2908/PRC_HICP_MINR",
+   "proposed_modification_notice": "Atlas selected 12 monthly observations of the HICP annual rate of change (coicop18 TOTAL, RCH_A) for Hungary, 2020-01 to 2020-12, from Eurostat dataset PRC_HICP_MINR (doi:10.2908/PRC_HICP_MINR). Atlas added identifiers, column names, units and comparability fields; the values are unchanged. The values equal the Eurostat response retained on 2026-09-30 (SHA-256 4a2dbd260ac3b96351c153e8b2f6f340ab00ed4712c3ee6141a03ed8fc49ccfb). Eurostat bears no responsibility for this selection or for any translation.",
+   "prerequisites": [
+    "src-eurostat review_status documented → verified with evidence sha256 d2d5a046… (separately authorised)",
+    "Rights engine pin keyed by the exact CSV digests and dataset 'prc_hicp_minr', because sources.csv cites the Data Browser URL, which does not match the registry API endpoint prefix",
+    "Eurostat non-responsibility disclaimer in the modification notice"
+   ],
+   "limitations": [
+    "sources.csv carries no retrieval or version date; the version evidence lives in this dossier, not in the bytes",
+    "The canonical update of 2026-10-19 retained no response digest; correspondence rests on the retained 2026-09-30 response and the present-day response, not on a capture receipt",
+    "prc_hicp_minr was revised on 2026-11-18; these 12 values were unchanged by that release"
+   ]
+  },
+  {
+   "candidate_id": "eurostat-pl-hicp-annual-2021-2025",
+   "source_id": "src-eurostat",
+   "dataset": "prc_hicp_aind",
+   "classification": "pending_additional_verification",
+   "recommendation": "MORE EVIDENCE REQUIRED",
+   "exact_bytes": {
+    "data.csv_sha256": "e6d2a1c72ebe352757cb9e34869fe58d5f64a77bd6827e8a8d837c1a6e453c49",
+    "sources.csv_sha256": "b9d64f45a514e512435cd394b78de0f4c512696cdd32daf9168266441b2396c0",
+    "also_captured_2021_2022_subset": {
+     "data.csv_sha256": "0ea20ba40bb78ffcfdca3d6c656ed5d585775c700fb0e621cc5a83bbc1fb83b9",
+     "sources.csv_sha256": "ffad2dce5365c94c08ca6c7257d504ed6f45517b75dea75991a5810212707d6a"
+    }
+   },
+   "verified_facts": {
+    "values_equal_retained_response": "5/5",
+    "retained_response_release_is_current": true
+   },
+   "blocking_question": "Each source row names 'Statistics Poland Data Portal' as a co-source, and the canonical notes say 'Eurostat / Statistics Poland'. The Eurostat dataflow lists only Eurostat as source institution, and no Statistics Poland terms are registered. Either the co-source wording is explained and GUS terms are reviewed, or the label is corrected through an owner-approved canonical data change (outside this phase)."
+  },
+  {
+   "candidate_id": "eurostat-comparisons-pl-hu-real-gdp-2025",
+   "source_id": "src-eurostat",
+   "dataset": "nama_10_gdp",
+   "classification": "reference_only",
+   "recommendation": "REFERENCE ONLY",
+   "exact_bytes": {
+    "data.csv_sha256": "3225ccb349ccab49c42de2d3250ed5a85505e858fa01ec3f4a8362102e70b181",
+    "sources.csv_sha256": "5f6a7321774e353e44157966e4ee33482b454e56e90cd38c5a96fb6220e819e3"
+   },
+   "reasons": [
+    "R1-C1 acceptance records partial_correspondence for both bar modes (row set differs)",
+    "national co-source wording (Statistics Poland; HCSO STADAT)",
+    "nama_10_gdp revised 2026-11-24 after the retained 2026-09-29 response"
+   ]
+  },
+  {
+   "candidate_id": "bis-hu-policy-rate-2015-2026",
+   "source_id": "src-bis",
+   "classification": "pending_additional_verification",
+   "recommendation": "MORE EVIDENCE REQUIRED",
+   "exact_bytes": {
+    "data.csv_sha256": "5a6c8301e7e14ce9d53af6cc92a8d78cf1f37d7c081ac98c1e545d40eeed3aae",
+    "sources.csv_sha256": "9c660bdcfa988b88167502e6623e10a40b8c05b1309afa1da3c335809e0a5150"
+   },
+   "reasons": [
+    "BIS terms page returned 403; operative terms not read",
+    "the WS_CBPOL bulk file is not retained (digest c06ed898… only)",
+    "contributing central bank (Hungarian National Bank) recorded as source reference: contributor terms not reviewed"
+   ]
+  },
+  {
+   "candidate_id": "bis-bilateral-fx-cross-rates",
+   "source_id": "src-bis",
+   "classification": "pending_additional_verification",
+   "recommendation": "MORE EVIDENCE REQUIRED",
+   "reasons": [
+    "computed cross rates (local currency per EUR from WS_XRU USD rates) are derived values",
+    "BIS terms unread",
+    "WS_XRU per-country files retained only for some series"
+   ]
+  },
+  {
+   "candidate_id": "eurostat-regional-population-hu-nuts3-2024",
+   "source_id": "src-eurostat",
+   "classification": "pending_additional_verification",
+   "recommendation": "MORE EVIDENCE REQUIRED",
+   "exact_bytes": {
+    "data.csv_sha256": "563245a4982940f1156c3144956c56df3c9951aae1424bf77b002892dc38f5ca",
+    "sources.csv_sha256": "6259b0e965056ace86d93a5d0781d264eccffa03129eecdc41d6d1cb97f34ec4"
+   },
+   "reasons": [
+    "generic dataset string and a Chinese storage note in the definition field",
+    "regional raw extract not yet matched value by value",
+    "the view always carries map.svg"
+   ]
+  },
+  {
+   "candidate_id": "gisco-boundaries-and-map-svg",
+   "source_id": "src-gisco",
+   "classification": "restricted_or_blocked",
+   "recommendation": "BLOCKED",
+   "reasons": [
+    "non-commercial licence; raw redistribution not cleared",
+    "the NUTS page cited as license_url shows no clauses on 2026-11-27",
+    "rendered geometry relationship to inputs unverified; R1-C1 keeps map.svg quarantined"
+   ]
+  },
+  {
+   "candidate_id": "sors-other-monthly-series",
+   "source_id": "src-sors",
+   "datasets": [
+    "060001IND02",
+    "030201010101IND01",
+    "1702IND01",
+    "1702IND02",
+    "2403040101IND01",
+    "2403040101IND02"
+   ],
+   "classification": "pending_additional_verification",
+   "recommendation": "MORE EVIDENCE REQUIRED",
+   "reasons": [
+    "published point counts differ from extract record counts (IPI 321 vs 347; PPI 190 vs 225; exports/imports 273 vs 295; earnings 332 vs 596), so the published series is not a plain selection of the retained extract and its transformation must be documented before a notice can be written"
+   ]
+  },
+  {
+   "candidate_id": "sors-annual-series",
+   "source_id": "src-sors",
+   "classification": "pending_additional_verification",
+   "recommendation": "MORE EVIDENCE REQUIRED",
+   "reasons": [
+    "annual runtime records carry no original query dimensions",
+    "trade_balance_rsd is derived"
+   ]
+  },
+  {
+   "candidate_id": "political-election-evidence",
+   "classification": "restricted_or_blocked",
+   "recommendation": "BLOCKED",
+   "reasons": [
+    "no immutable political attachment format; CZ/SK/PL/AT closures and the Germany baseline remain frozen"
+   ]
+  },
+  {
+   "candidate_id": "model-and-method-references",
+   "classification": "reference_only",
+   "recommendation": "REFERENCE ONLY",
+   "reasons": [
+    "no data bytes; VAR/IRF results remain blocked"
+   ]
+  },
+  {
+   "candidate_id": "sors-admitted-cpi-and-lfs",
+   "classification": "already_admitted",
+   "recommendation": "unchanged",
+   "verified_facts": {
+    "production_data_csv_equals_pin": [
+     true,
+     true
+    ],
+    "terms_reread": "2026-11-27 (d5e3dbbe…); admitted notices meet the modification requirements"
+   }
+  }
+ ]
+}

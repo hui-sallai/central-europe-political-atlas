@@ -1,0 +1,457 @@
+{
+ "schema_version": "r1c3-captured-snapshots-v1",
+ "baseline_commit": "9cb65307a9789744580e687052504fd4d8d02d35",
+ "method": "Production static build of the baseline (pnpm build:site) served by the existing Playwright configuration (desktop-1440). Each view's real ResearchSnapshotExport button was clicked and the downloaded ZIP read with src/lib/researchPackageArchive.readStoredArchive. data.csv and sources.csv carry no export time, so their digests are reproducible; the whole-ZIP digest includes the export timestamp and is not reproducible.",
+ "captured_on_utc": "2026-11-27",
+ "views": {
+  "cmp-harmonized": {
+   "view_url": "/data/?tab=compare&compare_countries=poland,hungary&comparison_indicator=annual:real_gdp_growth&comparison_view=bar&comparison_mode=harmonized",
+   "view_type": "country_comparison",
+   "observation_count": 2,
+   "period": {
+    "from": "2025",
+    "to": "2025"
+   },
+   "units": [
+    "%"
+   ],
+   "data_layers": [
+    "published snapshot"
+   ],
+   "comparability_status": "actual_common_eligible_observations",
+   "figure_member": false,
+   "zip_sha256": "16a79f6b38178b65c645d2f9416e018155508e52a6beb550698123de0e228bef",
+   "zip_bytes": 8669,
+   "data_csv_sha256": "3225ccb349ccab49c42de2d3250ed5a85505e858fa01ec3f4a8362102e70b181",
+   "data_csv_bytes": 766,
+   "sources_csv_sha256": "5f6a7321774e353e44157966e4ee33482b454e56e90cd38c5a96fb6220e819e3",
+   "sources_csv_bytes": 812,
+   "source_rows": [
+    "\"source-1\",\"Eurostat\",\"Eurostat nama_10_gdp / Statistics Poland Data Portal\",\"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?time=2025&geo=PL&unit=CLV_PCH_PRE&na_item=B1GQ\",\"\",\"\",\"2026-07-17\",\"%\",\"%\",\"Real GDP, chain-linked volumes, % change on previous year (ESA 2010)\",\"\",\"\",\"published snapshot\"",
+    "\"source-2\",\"Eurostat\",\"Eurostat nama_10_gdp / HCSO STADAT\",\"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?time=2025&geo=HU&unit=CLV_PCH_PRE&na_item=B1GQ\",\"\",\"\",\"2026-07-17\",\"%\",\"%\",\"Real GDP, chain-linked volumes, % change on previous year (ESA 2010)\",\"\",\"\",\"published snapshot\""
+   ]
+  },
+  "cmp-side-by-side": {
+   "view_url": "/data/?tab=compare&compare_countries=poland,hungary&comparison_indicator=annual:real_gdp_growth&comparison_view=bar&comparison_mode=side_by_side",
+   "view_type": "annual",
+   "observation_count": 2,
+   "period": {
+    "from": "2025",
+    "to": "2025"
+   },
+   "units": [
+    "%"
+   ],
+   "data_layers": [
+    "published snapshot"
+   ],
+   "comparability_status": "side_by_side_no_harmonization",
+   "figure_member": false,
+   "zip_sha256": "c4e10343461853f11844a3a6408664e3cd136de0a121e91c5e921fc684ccb3d3",
+   "zip_bytes": 8659,
+   "data_csv_sha256": "3225ccb349ccab49c42de2d3250ed5a85505e858fa01ec3f4a8362102e70b181",
+   "data_csv_bytes": 766,
+   "sources_csv_sha256": "5f6a7321774e353e44157966e4ee33482b454e56e90cd38c5a96fb6220e819e3",
+   "sources_csv_bytes": 812,
+   "source_rows": [
+    "\"source-1\",\"Eurostat\",\"Eurostat nama_10_gdp / Statistics Poland Data Portal\",\"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?time=2025&geo=PL&unit=CLV_PCH_PRE&na_item=B1GQ\",\"\",\"\",\"2026-07-17\",\"%\",\"%\",\"Real GDP, chain-linked volumes, % change on previous year (ESA 2010)\",\"\",\"\",\"published snapshot\"",
+    "\"source-2\",\"Eurostat\",\"Eurostat nama_10_gdp / HCSO STADAT\",\"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?time=2025&geo=HU&unit=CLV_PCH_PRE&na_item=B1GQ\",\"\",\"\",\"2026-07-17\",\"%\",\"%\",\"Real GDP, chain-linked volumes, % change on previous year (ESA 2010)\",\"\",\"\",\"published snapshot\""
+   ]
+  },
+  "hu-map": {
+   "view_url": "/map/?country=hungary&layer=regional_population&year=2024&classification=equal_interval",
+   "view_type": "regional_map",
+   "observation_count": 20,
+   "period": {
+    "from": "2024",
+    "to": "2024"
+   },
+   "units": [
+    "人"
+   ],
+   "data_layers": [
+    "regional_descriptive"
+   ],
+   "comparability_status": "within_country_geography_only",
+   "figure_member": true,
+   "zip_sha256": "3a6b90cd83cf241f9adeeac848c0b9e076e3132cd7030c51926fc7afa71bbd21",
+   "zip_bytes": 154162,
+   "data_csv_sha256": "563245a4982940f1156c3144956c56df3c9951aae1424bf77b002892dc38f5ca",
+   "data_csv_bytes": 7278,
+   "sources_csv_sha256": "6259b0e965056ace86d93a5d0781d264eccffa03129eecdc41d6d1cb97f34ec4",
+   "sources_csv_bytes": 507,
+   "source_rows": [
+    "\"source-1\",\"Eurostat\",\"Eurostat regional statistics\",\"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_r_pjanaggr3?sex=T&age=TOTAL&unit=NR\",\"\",\"\",\"2026-08-14\",\"人\",\"\",\"第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。\",\"A\",\"\",\"regional_descriptive\""
+   ]
+  },
+  "hu-monthly-hicp": {
+   "view_url": "/data/?tab=high_frequency&country=hungary&indicator=hicp_annual_rate&from=2020&to=2020&history=0",
+   "view_type": "high_frequency",
+   "observation_count": 12,
+   "period": {
+    "from": "2020-01",
+    "to": "2020-12"
+   },
+   "units": [
+    "RCH_A"
+   ],
+   "data_layers": [
+    "formal_observation"
+   ],
+   "comparability_status": "within_selected_series_only",
+   "figure_member": true,
+   "zip_sha256": "d1ac906ee775e40cbe5175e000f045ac831f5ca49fa8f715272e493f91e37985",
+   "zip_bytes": 15413,
+   "data_csv_sha256": "633544d1d1d3d772667d5ff695b4c80c251b1c49783cfa43e853f3cda3b9a463",
+   "data_csv_bytes": 2004,
+   "sources_csv_sha256": "1bd9903472df2dd79f8e3dfa3a1a5cd4a08f445c13184dc0957f663c1f892285",
+   "sources_csv_bytes": 405,
+   "source_rows": [
+    "\"source-1\",\"Eurostat\",\"prc_hicp_minr\",\"https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table\",\"prc_hicp_minr:{\"\"coicop18\"\":\"\"TOTAL\"\",\"\"unit\"\":\"\"RCH_A\"\"}\",\"\",\"\",\"RCH_A\",\"\",\"yoy_rate\",\"\",\"official\",\"formal_observation\""
+   ]
+  },
+  "hu-policy-rate": {
+   "view_url": "/data/?tab=macro_drivers&driver=policy_rate&area=hungary&transformation=level&history=0",
+   "view_type": "macro_drivers",
+   "observation_count": 139,
+   "period": {
+    "from": "2015-01",
+    "to": "2026-07"
+   },
+   "units": [
+    "% p.a."
+   ],
+   "data_layers": [
+    "formal_observation"
+   ],
+   "comparability_status": "within_selected_series_only",
+   "figure_member": true,
+   "zip_sha256": "0f2ce3bd1390347c369e5669a7df5c26bf9d7790bd450b98bf06f1120356b9dd",
+   "zip_bytes": 93445,
+   "data_csv_sha256": "5a6c8301e7e14ce9d53af6cc92a8d78cf1f37d7c081ac98c1e545d40eeed3aae",
+   "data_csv_bytes": 29134,
+   "sources_csv_sha256": "9c660bdcfa988b88167502e6623e10a40b8c05b1309afa1da3c335809e0a5150",
+   "sources_csv_bytes": 679,
+   "source_rows": [
+    "\"source-1\",\"BIS / contributing central bank\",\"BIS / contributing central bank\",\"https://data.bis.org/static/bulk/WS_CBPOL_csv_col.zip\",\"bis_cbpol_hungary_three_month_deposit\",\"\",\"\",\"% p.a.\",\"\",\"BIS WS_CBPOL monthly end-of-period\",\"\",\"\",\"formal_observation\"",
+    "\"source-2\",\"BIS / contributing central bank\",\"BIS / contributing central bank\",\"https://data.bis.org/static/bulk/WS_CBPOL_csv_col.zip\",\"bis_cbpol_hungary_two_week_deposit\",\"\",\"\",\"% p.a.\",\"\",\"BIS WS_CBPOL monthly end-of-period\",\"\",\"\",\"formal_observation\""
+   ]
+  },
+  "pl-annual-hicp": {
+   "view_url": "/data/?country=poland&indicator=hicp_inflation&from=2020&to=2022&history=0",
+   "view_type": "annual",
+   "observation_count": 2,
+   "period": {
+    "from": "2021",
+    "to": "2022"
+   },
+   "units": [
+    "%"
+   ],
+   "data_layers": [
+    "formal_observation"
+   ],
+   "comparability_status": "within_selected_series_only",
+   "figure_member": true,
+   "zip_sha256": "4cacdfcd63a784304f45c314f5e89995308669eb79fd68ddbe76e41f78cb4682",
+   "zip_bytes": 12351,
+   "data_csv_sha256": "0ea20ba40bb78ffcfdca3d6c656ed5d585775c700fb0e621cc5a83bbc1fb83b9",
+   "data_csv_bytes": 438,
+   "sources_csv_sha256": "ffad2dce5365c94c08ca6c7257d504ed6f45517b75dea75991a5810212707d6a",
+   "sources_csv_bytes": 688,
+   "source_rows": [
+    "\"source-1\",\"Eurostat\",\"Eurostat prc_hicp_aind / Statistics Poland Data Portal\",\"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?time=2022&geo=PL&coicop=CP00&unit=RCH_A_AVG\",\"\",\"\",\"2026-07-17\",\"%\",\"\",\"\",\"A\",\"official\",\"formal\"",
+    "\"source-2\",\"Eurostat\",\"Eurostat prc_hicp_aind / Statistics Poland Data Portal\",\"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?time=2021&geo=PL&coicop=CP00&unit=RCH_A_AVG\",\"\",\"\",\"2026-07-17\",\"%\",\"\",\"\",\"A\",\"official\",\"formal\""
+   ]
+  },
+  "pl-annual-hicp-full": {
+   "view_url": "/data/?country=poland&indicator=hicp_inflation&history=0",
+   "view_type": "annual",
+   "observation_count": 5,
+   "period": {
+    "from": "2021",
+    "to": "2025"
+   },
+   "units": [
+    "%"
+   ],
+   "data_layers": [
+    "formal_observation"
+   ],
+   "comparability_status": "within_selected_series_only",
+   "figure_member": true,
+   "zip_sha256": "6b3e2f939d35a5ed637748330ce510e8f3b0fffbc53d9fd662db1a37f9957ac7",
+   "zip_bytes": 15624,
+   "data_csv_sha256": "e6d2a1c72ebe352757cb9e34869fe58d5f64a77bd6827e8a8d837c1a6e453c49",
+   "data_csv_bytes": 841,
+   "sources_csv_sha256": "b9d64f45a514e512435cd394b78de0f4c512696cdd32daf9168266441b2396c0",
+   "sources_csv_bytes": 1471,
+   "source_rows": [
+    "\"source-1\",\"Eurostat\",\"Eurostat prc_hicp_aind / Statistics Poland Data Portal\",\"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?time=2025&geo=PL&coicop=CP00&unit=RCH_A_AVG\",\"\",\"\",\"2026-07-17\",\"%\",\"\",\"\",\"A\",\"official\",\"formal\"",
+    "\"source-2\",\"Eurostat\",\"Eurostat prc_hicp_aind / Statistics Poland Data Portal\",\"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?time=2024&geo=PL&coicop=CP00&unit=RCH_A_AVG\",\"\",\"\",\"2026-07-17\",\"%\",\"\",\"\",\"A\",\"official\",\"formal\"",
+    "\"source-3\",\"Eurostat\",\"Eurostat prc_hicp_aind / Statistics Poland Data Portal\",\"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?time=2023&geo=PL&coicop=CP00&unit=RCH_A_AVG\",\"\",\"\",\"2026-07-17\",\"%\",\"\",\"\",\"A\",\"official\",\"formal\"",
+    "\"source-4\",\"Eurostat\",\"Eurostat prc_hicp_aind / Statistics Poland Data Portal\",\"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?time=2022&geo=PL&coicop=CP00&unit=RCH_A_AVG\",\"\",\"\",\"2026-07-17\",\"%\",\"\",\"\",\"A\",\"official\",\"formal\"",
+    "\"source-5\",\"Eurostat\",\"Eurostat prc_hicp_aind / Statistics Poland Data Portal\",\"https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?time=2021&geo=PL&coicop=CP00&unit=RCH_A_AVG\",\"\",\"\",\"2026-07-17\",\"%\",\"\",\"\",\"A\",\"official\",\"formal\""
+   ]
+  },
+  "rs-cpi": {
+   "view_url": "/data/?tab=high_frequency&country=serbia&sors_series=cpi_index_2006",
+   "view_type": "serbia_sors",
+   "observation_count": 228,
+   "period": {
+    "from": "2007-01",
+    "to": "2025-12"
+   },
+   "units": [
+    "index 2006=100"
+   ],
+   "data_layers": [
+    "serbia_sors_descriptive"
+   ],
+   "comparability_status": "serbia_only_not_cross_country_comparable",
+   "figure_member": true,
+   "zip_sha256": "e2c1ec06e1b839dbad8d718895e07466aeda0b12229c732857c9d7e63714a546",
+   "zip_bytes": 59389,
+   "data_csv_sha256": "32dc6d5c95e16c585c7567bb6a9b220f899b3cb82cd196091fe4b8a5e62e1454",
+   "data_csv_bytes": 42049,
+   "sources_csv_sha256": "0fea6dc6b324e6ba35bec790b0aeab70323c15e0e00105c8c7ca5e05a0661761",
+   "sources_csv_bytes": 466,
+   "source_rows": [
+    "\"source-1\",\"Statistical Office of the Republic of Serbia (SORS/RZS)\",\"03010601IND01\",\"https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND01/3/json\",\"{\"\"IDCOICOP\"\":\"\"0000\"\"}\",\"\",\"\",\"index 2006=100\",\"index 2006=100\",\"\",\"\",\"descriptive_only\",\"serbia_sors_descriptive\""
+   ]
+  },
+  "rs-lfs": {
+   "view_url": "/data/?tab=high_frequency&country=serbia&sors_series=lfs_unemployment_quarterly",
+   "view_type": "serbia_sors",
+   "observation_count": 62,
+   "period": {
+    "from": "2011-Q1",
+    "to": "2026-Q2"
+   },
+   "units": [
+    "%"
+   ],
+   "data_layers": [
+    "serbia_sors_descriptive"
+   ],
+   "comparability_status": "serbia_only_not_cross_country_comparable",
+   "figure_member": true,
+   "zip_sha256": "35bfaa39fa8e4660e4f568dec6a4ad334adc67b4756186deb4b26eb36d6517ff",
+   "zip_bytes": 24527,
+   "data_csv_sha256": "970a79c0a6f7693561dd05f8cba9c3a4a14eaca551983355b4f9dab8dd5bc204",
+   "data_csv_bytes": 11305,
+   "sources_csv_sha256": "df7b9c82eefb75487a90e23b5d32fe6beff570f3eba43e9d80444c490d7267c9",
+   "sources_csv_bytes": 468,
+   "source_rows": [
+    "\"source-1\",\"Statistical Office of the Republic of Serbia (SORS/RZS)\",\"240003010102IND03\",\"https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003010102IND03/3/json\",\"{\"\"IDPol\"\":\"\"0\"\",\"\"IDStarGrupa\"\":\"\"15-74\"\"}\",\"\",\"\",\"%\",\"%\",\"\",\"\",\"descriptive_only\",\"serbia_sors_descriptive\""
+   ]
+  }
+ },
+ "sors_fixture_rebuilds": {
+  "method": "tests/fixtures/research-package-sors.mjs buildSorsSnapshotExample(key) at SORS_FIXTURE_TIME 2026-11-26T12:00:00.000Z (the method that reproduces the two admitted pins). archive_sha256 is the figure-free fixture ZIP.",
+  "series": {
+   "cpi_index_2006": {
+    "data": "32dc6d5c95e16c585c7567bb6a9b220f899b3cb82cd196091fe4b8a5e62e1454",
+    "sources": "0fea6dc6b324e6ba35bec790b0aeab70323c15e0e00105c8c7ca5e05a0661761",
+    "archive": "a54adf0dc4af00c342104a863fd46e42577c6a55da3abdb7fb66c917cc15d12b",
+    "rows": 228,
+    "from": "2007-01",
+    "to": "2025-12",
+    "dataset": "03010601IND01",
+    "code": "{\"IDCOICOP\":\"0000\"}",
+    "unit": "index 2006=100",
+    "original_unit": "index 2006=100",
+    "figure": false,
+    "statuses": [
+     "Normal value"
+    ]
+   },
+   "lfs_unemployment_quarterly": {
+    "data": "970a79c0a6f7693561dd05f8cba9c3a4a14eaca551983355b4f9dab8dd5bc204",
+    "sources": "df7b9c82eefb75487a90e23b5d32fe6beff570f3eba43e9d80444c490d7267c9",
+    "archive": "172532245edb5b508bdde930695c50461642b82b00542839ec6edb64351ba0cd",
+    "rows": 62,
+    "from": "2011-Q1",
+    "to": "2026-Q2",
+    "dataset": "240003010102IND03",
+    "code": "{\"IDPol\":\"0\",\"IDStarGrupa\":\"15-74\"}",
+    "unit": "%",
+    "original_unit": "%",
+    "figure": false,
+    "statuses": [
+     "Normal value",
+     "Revised value"
+    ]
+   },
+   "cpi_annual_index": {
+    "data": "760bed4e9e0b894627ea0997792b3296864af8895d105a2795887e218db873d1",
+    "sources": "ce4cb36c5597a1ae84f0c2fa6be42c02057347e1e372e72888aaa205151d91b0",
+    "archive": "b2acc019dd340413c90af17b905256cc4ae4f7c2606e883a8d886449bc4ea302",
+    "rows": 228,
+    "from": "2007-01",
+    "to": "2025-12",
+    "dataset": "03010601IND03",
+    "code": "{\"IDCOICOP\":\"0000\"}",
+    "unit": "index, same month previous year = 100",
+    "original_unit": "index, same month previous year = 100",
+    "figure": false,
+    "statuses": [
+     "Normal value"
+    ]
+   },
+   "retail_trade_volume_sa": {
+    "data": "812bc785be91e07cb20f18d308e11dcbded3d0261586bffab975c850eaf72fe3",
+    "sources": "ab130e992879869a0ad9b27262e668d19e8a554bae9d740452e61be186f89dba",
+    "archive": "b25b710f03e53b907b7098560183a99f2fe3deadf3245f26ee7f9749e6d5bae6",
+    "rows": 321,
+    "from": "2000-01",
+    "to": "2026-09",
+    "dataset": "210105IND02",
+    "code": "{\"IDKD08STS\":\"47\",\"IDDesezoniranjeVS\":\"Y\"}",
+    "unit": "index 2021=100 (constant prices, SA)",
+    "original_unit": "index 2021=100 (constant prices, SA)",
+    "figure": false,
+    "statuses": [
+     "Provisional value",
+     "Normal value"
+    ]
+   },
+   "industrial_production_index": {
+    "data": "833171a432d63d2ae7247ea1f51a8f3749507be6d956c8732da3ef41ac181aee",
+    "sources": "d6d901c98b5ba6e22a2d70831c274c67f0be7669759078d84b18d721c81c9c4a",
+    "archive": "b25329f43014c81c5a6b2413faef7aee423b176b412d0ca8cc97583cea0a36cd",
+    "rows": 321,
+    "from": "2000-01",
+    "to": "2026-09",
+    "dataset": "060001IND02",
+    "code": "{\"IDKD08\":\"0\"}",
+    "unit": "index 2021=100 (NSA)",
+    "original_unit": "index 2021=100 (NSA)",
+    "figure": false,
+    "statuses": [
+     "Normal value",
+     "Provisional value"
+    ]
+   },
+   "industrial_producer_prices_yoy": {
+    "data": "72cf2ac5227357a84bdd78a7493b9939751d7d2beaecbb15897a9ede086a00cc",
+    "sources": "e8b7962b73fc6188277d76c662aadcee9c45480d33bcb5afbb681754e4de5c9d",
+    "archive": "a78bb246e729b3c4513a06c24042bb7ce75f733a09558ddc9dacd96906885dff",
+    "rows": 190,
+    "from": "2011-01",
+    "to": "2026-10",
+    "dataset": "030201010101IND01",
+    "code": "{\"IDKD08\":\"0\",\"IDIndeksVrsta\":\"3\"}",
+    "unit": "index, same month previous year = 100",
+    "original_unit": "index, same month previous year = 100",
+    "figure": false,
+    "statuses": [
+     "Normal value"
+    ]
+   },
+   "goods_exports_eur_monthly": {
+    "data": "3a34ead9f0d072475ecd0972e16b1a16f10864b3a3865deee1101a6f04e0c295",
+    "sources": "f0cddc16976589518de2435daf04e8c9de0f68545bb98153e2bdcd99761f2e46",
+    "archive": "d7bf8879d9ece7ff9714396641d7a2b91a355ed458579f187abc9166a63059d5",
+    "rows": 273,
+    "from": "2004-01",
+    "to": "2026-09",
+    "dataset": "1702IND01",
+    "code": "{\"IDVrPod\":\"2\"}",
+    "unit": "EUR million",
+    "original_unit": "EUR million",
+    "figure": false,
+    "statuses": [
+     "Provisional value",
+     "Normal value",
+     "Revised value"
+    ]
+   },
+   "goods_imports_eur_monthly": {
+    "data": "6f0af2585f10fee1ca87523a9fd28b08b815d739128fd8e8ed98fb6c6dad4b2a",
+    "sources": "fd550940828da264cb82a977464159e9e3740758526f73ce478027a578ad6d6f",
+    "archive": "477fc28f9f8414433397a199dcad32b6e5ceb1dbdf435948332a164ccabd36b5",
+    "rows": 273,
+    "from": "2004-01",
+    "to": "2026-09",
+    "dataset": "1702IND02",
+    "code": "{\"IDVrPod\":\"2\"}",
+    "unit": "EUR million",
+    "original_unit": "EUR million",
+    "figure": false,
+    "statuses": [
+     "Provisional value",
+     "Normal value",
+     "Revised value"
+    ]
+   },
+   "average_net_earnings_monthly": {
+    "data": "fa443d81e8bea8b4947ad7933e27f07581e1ac2b503aaab1dd684138c0d760d4",
+    "sources": "15d6321eb90d8ed311854b37b0241def8b192b7ea662a56808a0d2ac79dabab2",
+    "archive": "7ff276d90caa8fa02902b0a4ea9e040e516a22d5aa9bd7f8286549bb2cbe2eab",
+    "rows": 332,
+    "from": "1999-01",
+    "to": "2026-08",
+    "dataset": "2403040101IND01",
+    "code": "{}",
+    "unit": "RSD",
+    "original_unit": "RSD",
+    "figure": false,
+    "statuses": [
+     "Normal value",
+     "Time series break",
+     "Definition differs"
+    ]
+   },
+   "average_gross_earnings_monthly": {
+    "data": "d447d7bae973cbbd194543024bee356c847aafb832b4c2c4c5b8d6c992708735",
+    "sources": "049fe8efbf456d6533de377e04f688e7f991b5c5ee0672af78fff2a0fecd0738",
+    "archive": "7a063d6e9b6c75ad8e00e22109e28b82a1c22d583944333fbdc6ec4a690afac7",
+    "rows": 332,
+    "from": "1999-01",
+    "to": "2026-08",
+    "dataset": "2403040101IND02",
+    "code": "{}",
+    "unit": "RSD",
+    "original_unit": "RSD",
+    "figure": false,
+    "statuses": [
+     "Normal value",
+     "Time series break",
+     "Definition differs"
+    ]
+   }
+  },
+  "production_export_check": {
+   "cpi_annual_index": {
+    "data_csv_sha256": "760bed4e9e0b894627ea0997792b3296864af8895d105a2795887e218db873d1",
+    "sources_csv_sha256": "ce4cb36c5597a1ae84f0c2fa6be42c02057347e1e372e72888aaa205151d91b0",
+    "members": [
+     "README.md",
+     "manifest.json",
+     "data.csv",
+     "sources.csv",
+     "citation.txt",
+     "view-url.txt",
+     "figure.svg"
+    ],
+    "equals_fixture": true
+   },
+   "retail_trade_volume_sa": {
+    "data_csv_sha256": "812bc785be91e07cb20f18d308e11dcbded3d0261586bffab975c850eaf72fe3",
+    "sources_csv_sha256": "ab130e992879869a0ad9b27262e668d19e8a554bae9d740452e61be186f89dba",
+    "members": [
+     "README.md",
+     "manifest.json",
+     "data.csv",
+     "sources.csv",
+     "citation.txt",
+     "view-url.txt",
+     "figure.svg"
+    ],
+    "equals_fixture": true
+   }
+  }
+ },
+ "note_excluded": "A capture with driver=exchange_rate was discarded: that is not a macro-driver ID (valid IDs: bilateral_fx_local_per_eur, nominal_effective_exchange_rate, real_effective_exchange_rate), so it produced an empty view. It is not a product defect."
+}

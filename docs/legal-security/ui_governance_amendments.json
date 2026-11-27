@@ -5752,6 +5752,28 @@
           "classification": "DATA_PRESENTATION"
         }
       ]
+    },
+    {
+      "amendment_id": "r1c3-exact-sors-artifact-admission",
+      "status": "owner_approved",
+      "created_at": "2026-11-28",
+      "baseline": "9cb65307a9789744580e687052504fd4d8d02d35",
+      "reviewed_candidate": "9916b027f82bd9f7f2877e9fb4f108333407faa7",
+      "scope": "Replace the existing approved display-helper hash only for two exact CSV pairs and their two fixed, figure-free ZIPs; preserve the original two admissions and unchanged Stage B/D.",
+      "approved_by": "Owner's explicit R1-C3 approval of both exact file hashes on 2026-11-28 (Asia/Shanghai). Scope covers the candidate branch and draft PR.",
+      "approval_record": "docs/research-rights/r1c3/independent/governance-proposal.json",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "files": [
+        {
+          "path": "src/lib/researchPackageRights.ts",
+          "sha256": "49d79eada2e1e720bd43625fe334503ebf1bdd32c83f89af4a51f40a60772a88",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }

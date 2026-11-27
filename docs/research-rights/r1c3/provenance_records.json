@@ -1,0 +1,171 @@
+{
+ "schema_version": "r1c3-provenance-records-v1",
+ "repository_commit": "9cb65307a9789744580e687052504fd4d8d02d35",
+ "rule": "Each chain runs official endpoint → retained response (digest) → canonical/runtime values → exact CSV members. A digest of a response retrieved later does not prove what an earlier release contained; present-day checks are labelled as such.",
+ "records": [
+  {
+   "candidate": "sors-cpi-annual-index-2007-2025",
+   "official_endpoint": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND03/3/json",
+   "query": "full dataset JSON (OData service), then selection IDCOICOP=0000 (Total), Republic of Serbia",
+   "dataset_identifier": "03010601IND03",
+   "retained_response": {
+    "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND03/3/json",
+    "retrieved_at": "2026-11-13T19:31:01.945Z",
+    "http_status": 200,
+    "response_container": "json",
+    "response_bytes": 12381968,
+    "response_sha256": "a0fb04c3037df9f4fdcda34836db48bee22c69e3eb78c4db0e32f767887c5f93",
+    "response_record_count": 29978,
+    "extract_record_count": 228,
+    "retained_extract_file": "src/data/serbia/raw/03010601IND03.extract.json",
+    "retained_extract_sha256": "783cf924cca1d4e2373d636f583a4b9c03e22bf99b2fb6021fd37f1124e7c936"
+   },
+   "official_release_identifier": "none published (dataset_updated_at null)",
+   "observations": {
+    "upstream_response_records": 29978,
+    "selected": 228,
+    "period": "2007-01..2025-12"
+   },
+   "value_check": "228/228 runtime values equal the retained extract's vrednost (original and normalized identical)",
+   "transformation": "selection of 228 records; reverse period order; Atlas identifiers, English column names, unit labels, status labels and comparability fields added; values unchanged",
+   "units": {
+    "original": "index, same month of previous year = 100 (I_MTHPPYR)",
+    "normalized": "index, same month previous year = 100"
+   },
+   "missing_values": "none in the selection",
+   "output_members": {
+    "data.csv": "760bed4e9e0b894627ea0997792b3296864af8895d105a2795887e218db873d1",
+    "sources.csv": "ce4cb36c5597a1ae84f0c2fa6be42c02057347e1e372e72888aaa205151d91b0",
+    "figure_free_fixture_archive": "b2acc019dd340413c90af17b905256cc4ae4f7c2606e883a8d886449bc4ea302"
+   },
+   "production_export_equal": true
+  },
+  {
+   "candidate": "sors-retail-trade-volume-sa-2000-2026",
+   "official_endpoint": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/210105IND02/3/json",
+   "query": "full dataset JSON, selection IDKD08STS=47 (retail trade), IDDesezoniranjeVS=Y (seasonally adjusted)",
+   "dataset_identifier": "210105IND02",
+   "retained_response": {
+    "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/210105IND02/3/json",
+    "retrieved_at": "2026-11-13T19:31:21.167Z",
+    "http_status": 200,
+    "response_container": "json",
+    "response_bytes": 2544641,
+    "response_sha256": "5495f234b4850f640f09c4719076a89af7b4118ae66d62f6735f3b4cd4b0ba1d",
+    "response_record_count": 4815,
+    "extract_record_count": 321,
+    "retained_extract_file": "src/data/serbia/raw/210105IND02.extract.json",
+    "retained_extract_sha256": "a06d94b55ab90fcc86d688c3aeedde02cb2b1c9c4cc5a387388430475edbab6d"
+   },
+   "official_release_identifier": "none published",
+   "observations": {
+    "upstream_response_records": 4815,
+    "selected": 321,
+    "period": "2000-01..2026-09"
+   },
+   "value_check": "321/321 values equal the retained extract; statuses include 'Provisional value'",
+   "transformation": "as above",
+   "units": {
+    "original": "index 2021=100, constant prices, seasonally adjusted (SORS)",
+    "normalized": "index 2021=100 (constant prices, SA)"
+   },
+   "missing_values": "none",
+   "output_members": {
+    "data.csv": "812bc785be91e07cb20f18d308e11dcbded3d0261586bffab975c850eaf72fe3",
+    "sources.csv": "ab130e992879869a0ad9b27262e668d19e8a554bae9d740452e61be186f89dba",
+    "figure_free_fixture_archive": "b25b710f03e53b907b7098560183a99f2fe3deadf3245f26ee7f9749e6d5bae6"
+   },
+   "production_export_equal": true
+  },
+  {
+   "candidate": "eurostat-hu-hicp-annual-rate-2020",
+   "official_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr",
+   "query": "format=JSON&lang=en&sinceTimePeriod=1999-01&unit=RCH_A&coicop18=TOTAL&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR (retained); present-day check: unit=RCH_A&coicop18=TOTAL&geo=HU&sinceTimePeriod=2020-01&untilTimePeriod=2020-12",
+   "dataset_identifier": "PRC_HICP_MINR (DOI 10.2908/PRC_HICP_MINR)",
+   "retained_response": {
+    "file": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+    "sha256": "4a2dbd260ac3b96351c153e8b2f6f340ab00ed4712c3ee6141a03ed8fc49ccfb",
+    "retrieved_at": "2026-09-30T08:10:48.003Z",
+    "http_status": 200,
+    "dataset_updated_at": "2026-09-17T11:00:00+0200",
+    "source": "monthly_history_manifest.json"
+   },
+   "present_day_check": {
+    "retrieved_at_utc": "2026-11-27T16:24Z",
+    "sha256": "e71e0484db2366badd39f3e9daf6e10ed1bebfc7277076b50ed0cf1afae2f1df",
+    "dataset_updated": "2026-11-18T11:00:00+0100",
+    "result": "the same 12 values"
+   },
+   "canonical_record": "src/data/high-frequency/high_frequency_observations.json updated_at 2026-10-19 by run monthly-eurostat-20261019, which recorded no retrievals (no response digest for that update)",
+   "observations": {
+    "selected": 12,
+    "period": "2020-01..2020-12"
+   },
+   "value_check": "12/12 equal the retained response and the present-day response",
+   "transformation": "selection of one series and year; Atlas identifiers and fields added; values unchanged",
+   "units": {
+    "original": "RCH_A (annual rate of change, %)",
+    "normalized": "RCH_A"
+   },
+   "output_members": {
+    "data.csv": "633544d1d1d3d772667d5ff695b4c80c251b1c49783cfa43e853f3cda3b9a463",
+    "sources.csv": "1bd9903472df2dd79f8e3dfa3a1a5cd4a08f445c13184dc0957f663c1f892285"
+   },
+   "declaration_gaps": [
+    "sources.csv source_url is a Data Browser view, not the API query",
+    "retrieved_at and updated_at are blank in sources.csv"
+   ]
+  },
+  {
+   "candidate": "eurostat-pl-hicp-annual-2021-2025",
+   "official_endpoint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind",
+   "query": "retained: format=JSON&lang=en&sinceTimePeriod=1999&unit=RCH_A_AVG&coicop=CP00&geo=…PL…; export rows cite per-year queries time=YYYY&geo=PL&coicop=CP00&unit=RCH_A_AVG",
+   "dataset_identifier": "PRC_HICP_AIND (DOI 10.2908/PRC_HICP_AIND)",
+   "retained_response": {
+    "file": "src/data/historical/raw/annual/prc_hicp_aind.json",
+    "sha256": "e840c1ab362f569a7e413f648da69343182d0d2786fbd75e31fb68763a6e024a",
+    "retrieved_at": "2026-09-29T10:08:38.115Z",
+    "http_status": 200,
+    "dataset_updated_at": "2026-02-06T23:00:00+0100"
+   },
+   "release_continuity": "dataflow UPDATE_DATA is still 2026-02-06T23:00:00+0100 on 2026-11-27, so the retained response is of the current data release",
+   "observations": {
+    "selected": 5,
+    "period": "2021..2025"
+   },
+   "value_check": "5/5 equal (5.2, 13.2, 10.9, 3.7, 3.3)",
+   "output_members": {
+    "data.csv": "e6d2a1c72ebe352757cb9e34869fe58d5f64a77bd6827e8a8d837c1a6e453c49",
+    "sources.csv": "b9d64f45a514e512435cd394b78de0f4c512696cdd32daf9168266441b2396c0"
+   },
+   "declaration_gaps": [
+    "dataset string 'Eurostat prc_hicp_aind / Statistics Poland Data Portal' and notes 'Eurostat / Statistics Poland' name a national co-source the Eurostat metadata does not list",
+    "updated_at 2026-07-17 is the canonical record's date, not a Eurostat release date; the 2026-07-17 retrieval is not retained"
+   ]
+  },
+  {
+   "candidate": "bis-hu-policy-rate-2015-2026",
+   "official_endpoint": "https://data.bis.org/static/bulk/WS_CBPOL_csv_col.zip",
+   "dataset_identifier": "BIS WS_CBPOL, series M:HU (source reference Hungarian National Bank)",
+   "retained_response": {
+    "file": null,
+    "recorded_sha256": "c06ed8983d12c3b54044ec1708eca356d8751a03d104c04ae11165b2b3afc1ab",
+    "retrieved_on": "2026-08-30",
+    "source": "policy_rate_acquisition_manifest.json",
+    "note": "only the digest is recorded; the bulk file is overwritten upstream"
+   },
+   "observations": {
+    "selected": 139,
+    "period": "2015-01..2026-07"
+   },
+   "output_members": {
+    "data.csv": "5a6c8301e7e14ce9d53af6cc92a8d78cf1f37d7c081ac98c1e545d40eeed3aae",
+    "sources.csv": "9c660bdcfa988b88167502e6623e10a40b8c05b1309afa1da3c335809e0a5150"
+   },
+   "declaration_gaps": [
+    "two instrument-specific source rows (3-month deposit; 2-week deposit) inside one export",
+    "institution 'BIS / contributing central bank'"
+   ]
+  }
+ ]
+}

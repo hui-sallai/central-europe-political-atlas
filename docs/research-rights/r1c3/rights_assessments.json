@@ -1,0 +1,123 @@
+{
+ "schema_version": "r1c3-rights-assessments-v1",
+ "review_date_utc": "2026-11-27",
+ "vocabulary": "existing source_rights_registry.json vocabulary only (rights_values, review_status); no new status",
+ "sources": [
+  {
+   "source_id": "src-eurostat",
+   "terms_url": "https://ec.europa.eu/eurostat/help/copyright-notice",
+   "terms_version": "no version or effective date printed; page bytes sha256 d2d5a046ca07f042895fda7c7bb42b548ce63b2221d8aaaff00ae2c61bbcc4ec (evidence r1c3-copyright-notice)",
+   "legal_basis": "Commission Decision 2011/833/EU (evidence r1c3-eurlex-2011-833); amendments not verified",
+   "verified_facts": {
+    "public_accessibility": "public",
+    "automated_acquisition": "registered host ec.europa.eu, automation_allowed; robots checked 2026-10-03",
+    "statistical_data_reuse": "Reuse of statistical data, metadata, publications and other dissemination tools for commercial or non-commercial purposes is authorised provided the source is acknowledged.",
+    "modifications": "Translations or modifications to data or text must be stated clearly to the end user, with a disclaimer of Eurostat's non-responsibility.",
+    "third_party_exceptions": [
+     "data identified as belonging to sources other than Eurostat (no commercial reuse)",
+     "co-publications",
+     "data for countries outside the EU, EFTA and official acceding/candidate countries (commercial reuse only after removal)",
+     "specified Swiss/Liechtenstein and Austrian trade data",
+     "third-party photos/illustrations; logos and trademarks"
+    ],
+    "commercial_use": "allowed except the listed exceptions (the Atlas is non-commercial)",
+    "citation_rule": "Datasets: 'Source: [DOI of the dataset], [access date]'; customised versions: 'Source: [Eurostat dataset datacode link], [access date]'",
+    "editorial_content": "CC BY 4.0"
+   },
+   "dataset_specific": {
+    "prc_hicp_aind": "SOURCE_INSTITUTIONS Eurostat; PL is an EU member state → no listed exception",
+    "prc_hicp_minr": "SOURCE_INSTITUTIONS Eurostat; HU an EU member state → no listed exception",
+    "nama_10_gdp": "SOURCE_INSTITUTIONS Eurostat",
+    "demo_r_pjanaggr3": "not reviewed at dataflow level in this phase"
+   },
+   "assessment": {
+    "normalized_redistribution": "cleared_with_conditions (source acknowledgement; modification notice; non-responsibility disclaimer)",
+    "derived_values": "cleared_with_conditions (state the derivation)",
+    "original_archive_redistribution": "cleared_with_conditions for the Atlas snapshot bytes themselves, but the snapshot's figure.svg is Atlas-rendered and stays quarantined under the R1-C1 core; no Eurostat file bytes are redistributed",
+    "attribution_required": "Source: Eurostat, with the dataset DOI and access date where the citation allows",
+    "translation_disclaimer": "required for translated text (the Chinese UI and Chinese snapshot titles): state the translation and Eurostat's non-responsibility",
+    "publisher_clarification_required": false
+   },
+   "proposed_registry_change": {
+    "review_status": "documented → verified",
+    "evidence_reference": "https://ec.europa.eu/eurostat/help/copyright-notice read 2026-11-27 (automated, one request); Decision 2011/833/EU read on EUR-Lex 2026-11-27",
+    "evidence_sha256": "d2d5a046ca07f042895fda7c7bb42b548ce63b2221d8aaaff00ae2c61bbcc4ec",
+    "reviewed_at": "2026-11-27",
+    "add_field_terms_notes": "exceptions as listed; non-responsibility disclaimer with modifications",
+    "status": "PROPOSAL ONLY — requires separate exact-hash authorization; not applied"
+   },
+   "unresolved": [
+    "Amendments to Decision 2011/833/EU not verified",
+    "The digest is of a dynamic page; Eurostat publishes no terms version"
+   ]
+  },
+  {
+   "source_id": "src-bis",
+   "terms_url": "https://www.bis.org/terms_statistics.htm (now redirects to https://www.bis.org/about/legal/permitted-use-statistics)",
+   "verified_facts": {
+    "terms_read": false,
+    "result": "HTTP 403 Access denied in the manual browser reading (evidence r1c3-bis-terms). Not retried or circumvented."
+   },
+   "assessment": {
+    "status": "unchanged: registry row remains review_status documented; no BIS extract can be proposed for admission",
+    "attribution_and_translation": "existing registry text (Source: BIS; translation not an official BIS translation) is unchanged and its operative wording remains unverified"
+   },
+   "unresolved": [
+    "Operative terms text, version and any dataset-specific exceptions",
+    "Whether central-bank-contributed series (WS_CBPOL source references such as Hungarian National Bank) carry contributor terms",
+    "Derived cross rates (bilateral FX computed from WS_XRU) as derived values"
+   ],
+   "owner_action": "The owner may open the terms page in an ordinary browser and save it to local-evidence/ (not committed); the assistant can then read it and record its digest."
+  },
+  {
+   "source_id": "src-sors",
+   "terms_url": "https://www.stat.gov.rs/en-us/copyright/",
+   "terms_version": "no version printed; page bytes sha256 d5e3dbbe97990f950e0d0c17cc42766dfc3780ed73de11bf0253d0f2d742c89d (evidence r1c3-sors-terms)",
+   "verified_facts": {
+    "redistribution": "download, reproduce, distribute, share and use, commercial and non-commercial, unless otherwise specified, with SORS acknowledged as source",
+    "modifications": "mark modified data, identify original source, the person or organisation that made the changes, and describe the changes",
+    "exceptions": "photos from Shutterstock.com and Pixabay.com"
+   },
+   "assessment": {
+    "normalized_redistribution": "cleared_with_conditions (unchanged)",
+    "original_archive_redistribution": "cleared_with_conditions (unchanged)",
+    "consistency_with_admitted_notice": "The admitted modification notice names the Atlas as the party that selected and arranged the records and describes the changes; it satisfies the three elements the page lists."
+   },
+   "proposed_registry_change": {
+    "evidence_sha256": "null → d5e3dbbe97990f950e0d0c17cc42766dfc3780ed73de11bf0253d0f2d742c89d",
+    "reviewed_at": "2026-11-11 → 2026-11-27",
+    "evidence_reference": "add: re-read in the browser pane 2026-11-27 by owner-approved manual reading",
+    "status": "PROPOSAL ONLY"
+   },
+   "unresolved": [
+    "'unless otherwise specified': no dataset-specific restriction was found on the OData responses, but dataset pages were not reviewed"
+   ]
+  },
+  {
+   "source_id": "src-gisco",
+   "terms_url": "https://ec.europa.eu/eurostat/web/gisco/geodata/administrative-units (clauses present) and …/statistical-units/territorial-units-statistics (cited by giscoLicenseVerification.ts; no clauses in the page body on 2026-11-27)",
+   "verified_facts": {
+    "clauses_on_administrative_units_page": [
+     "non-exclusive, non-transferable right to use and process the downloaded geographical data",
+     "no commercial use",
+     "source acknowledgement",
+     "copyright notice '© EuroGeographics for the administrative boundaries' visible in the map legend and the publication's introductory page; translated in other languages",
+     "commercial use: contact EuroGeographics"
+    ],
+    "scope_of_those_clauses": "the page lists communes, countries and postal codes",
+    "nuts_page": "no copyright clauses in the main body (sha256 b837ad3d8d04…); the existing verification record cites it as license_url"
+   },
+   "assessment": {
+    "statistical_data_vs_geometry": "kept separate: Eurostat statistical values follow src-eurostat; boundary geometry and anything rendered from it follow GISCO/EuroGeographics",
+    "normalized_redistribution_of_geometry": "cleared_noncommercial (unchanged; not cleared for raw or commercial)",
+    "map_svg_and_boundary_bytes": "not admissible for redistribution in a research package under current evidence; keep quarantined",
+    "attribution": "existing text unchanged; the Chinese UI needs the translated notice required by the page (the existing zh attribution should be compared against this requirement)"
+   },
+   "unresolved": [
+    "Which page carries the operative NUTS 2024 clauses today",
+    "Whether the same clauses apply to NUTS geometries as to communes/countries/postal codes",
+    "Topology validation and derived-geometry status (simplified SVG paths)"
+   ]
+  }
+ ]
+}

@@ -12,7 +12,7 @@ export type SnapshotRights = {
   basis: string;
 };
 
-// Pins for two finite, reviewed Atlas extracts. The tests reconstruct these bytes with buildSnapshot
+// Pins for finite, reviewed Atlas extracts. The tests reconstruct these bytes with buildSnapshot
 // from admitted rows, including the same archived query dimension codes used by useSerbiaSors.
 // Export time is excluded from the two CSVs. Each whole-archive pin is a figure-free build at the
 // documented fixture time; it permits those exact ancillary bytes only. None is a capture receipt.
@@ -29,6 +29,21 @@ const sorsExtracts = [
     archive: "172532245edb5b508bdde930695c50461642b82b00542839ec6edb64351ba0cd",
     dataset: "240003010102IND03", subset: "Serbian national unemployment rate, ages 15–74, 2011-Q1 to 2026-Q2",
     count: 62, upstreamCount: 1302, upstreamDigest: "65ec122c69fd125ee930fa3a3a5bdd8d2d7fce353e0e886cbec6289c0f5c8a25",
+  }, {
+    data: "760bed4e9e0b894627ea0997792b3296864af8895d105a2795887e218db873d1",
+    sources: "ce4cb36c5597a1ae84f0c2fa6be42c02057347e1e372e72888aaa205151d91b0",
+    archive: "b2acc019dd340413c90af17b905256cc4ae4f7c2606e883a8d886449bc4ea302",
+    dataset: "03010601IND03", subset: "Serbian national CPI, total (same month of the previous year = 100), 2007-01 to 2025-12",
+    count: 228, upstreamCount: 29978, upstreamDigest: "a0fb04c3037df9f4fdcda34836db48bee22c69e3eb78c4db0e32f767887c5f93",
+    retrievedAt: "2026-11-13T19:31:01.945Z",
+  }, {
+    data: "812bc785be91e07cb20f18d308e11dcbded3d0261586bffab975c850eaf72fe3",
+    sources: "ab130e992879869a0ad9b27262e668d19e8a554bae9d740452e61be186f89dba",
+    archive: "b25b710f03e53b907b7098560183a99f2fe3deadf3245f26ee7f9749e6d5bae6",
+    dataset: "210105IND02", subset: "Serbian retail trade turnover volume, constant prices, seasonally adjusted (2021=100), 2000-01 to 2026-09",
+    count: 321, upstreamCount: 4815, upstreamDigest: "5495f234b4850f640f09c4719076a89af7b4118ae66d62f6735f3b4cd4b0ba1d",
+    retrievedAt: "2026-11-13T19:31:21.167Z",
+    statusNotice: " Three observations are provisional and may be revised by SORS.",
   },
 ] as const;
 
@@ -88,12 +103,16 @@ export async function assessSnapshotRights(
     }
   }
 
+  const acquisitionNotice = "retrievedAt" in entry
+    ? ` Modified by Central Europe Political Atlas. SORS response retrieved at ${entry.retrievedAt}.`
+    : "";
   return {status: "verified_permitted_use", scope,
     attribution: [...new Set([sourceRule.required_attribution_text, ...recorded])],
     terms_url: sourceRule.terms_url, registry_sources: registryReferences([sourceRule]),
     modification_notice: `Atlas selected ${entry.count} records for ${entry.subset} from ${entry.upstreamCount} SORS response records. ` +
       `Atlas arranged them in reverse period order and added identifiers, English column names, units and comparability fields. ` +
-      `The recorded values are unchanged. Source: ${snapshot.sources[0].source_url}. Recorded upstream response SHA-256: ${entry.upstreamDigest}.`,
+      `The recorded values are unchanged. Source: ${snapshot.sources[0].source_url}. Recorded upstream response SHA-256: ${entry.upstreamDigest}.` +
+      acquisitionNotice + ("statusNotice" in entry ? entry.statusNotice : ""),
     basis: scope === "original_archive" ? "pinned_figure_free_archive_and_sors_terms" : "pinned_csv_pair_and_sors_terms",
   };
 }

@@ -1,0 +1,24 @@
+{
+  "amendment_id": "r1c3-exact-sors-artifact-admission",
+  "status": "owner_approved",
+  "baseline": "9cb65307a9789744580e687052504fd4d8d02d35",
+  "dossier": "f46e03500987aff2a073027f6624c0f6599e71b5",
+  "applied": true,
+  "files": [
+    {
+      "path": "src/lib/researchPackageRights.ts",
+      "baseline_sha256": "dbbf55eb2cca4869536fccb9e3c6d923e75d548e99c20a0f2f13a78f03fdcfb9",
+      "candidate_sha256": "49d79eada2e1e720bd43625fe334503ebf1bdd32c83f89af4a51f40a60772a88",
+      "scope": "Replace the existing approved display-helper hash only for two exact CSV pairs and their two fixed, figure-free ZIPs; preserve the original two admissions and unchanged Stage B/D."
+    },
+    {
+      "path": "docs/legal-security/source_rights_registry.json",
+      "baseline_sha256": "f0561fc4e2d6fc1ca7dd672a77bb5cb32da7a97d653e455353a2c339677b0e61",
+      "candidate_sha256": "4a864e24271306b8500a4797e87431ca8b005a6741fb3ed13781b669a3fe5de1",
+      "scope": "SORS review evidence only. All permission, restriction, source URL, attribution and enforcement fields stay as recorded; all other registry entries are byte-identical."
+    }
+  ],
+  "approval_process": "Both exact candidate hashes approved. The UI amendment registers the existing presentation helper. The source-rights register hash is approved in this record, outside the UI exception list. Hungary HICP remains reference-only.",
+  "reviewed_candidate": "9916b027f82bd9f7f2877e9fb4f108333407faa7",
+  "approved_by": "Owner's explicit R1-C3 approval of both exact file hashes on 2026-11-28 (Asia/Shanghai). Scope covers the candidate branch and draft PR."
+}

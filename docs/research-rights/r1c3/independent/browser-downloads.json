@@ -1,0 +1,761 @@
+{
+  "schema": "r1c3-independent-browser-verification-v1",
+  "production_baseline": "9cb65307a9789744580e687052504fd4d8d02d35",
+  "counts": {
+    "cases": 20,
+    "normalized_members": 16,
+    "reference_only": 4
+  },
+  "method": "Newly exported production-build snapshots in both locales and viewports. Desktop attached unmodified pre-candidate production exports; mobile attached its fresh local candidate download. Independent Python ZIP CRC and SHA-256 checks and the existing browser verifier both passed. ZIP digests identify these specific downloads, which contain generated timestamps.",
+  "downloads": [
+    {
+      "viewport": "desktop-1440",
+      "locale": "en",
+      "series": "cpi_annual_index",
+      "rows": 228,
+      "route": "https://hy-central-europe-analysis.org/en/data/?tab=high_frequency&country=serbia&sors_series=cpi_annual_index",
+      "candidate_snapshot_sha256": "b59b6dfc1970324546196acbbbe3ada39c2210a502675b88fe0aaa99b3ac32a5",
+      "attached_snapshot_sha256": "ae45d3ee2579ad125976c8627c2811f494676b56981c557251af1496566c4ff4",
+      "attachment_origin": "production_baseline",
+      "package_sha256": "36575c0f175f86cfc9c9df778d2c905bfeb1cf6910920b3190b36e591cb226b8",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-484a37e8-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [728, "fe6f4c64ed7f76c55eb1505022b4259a11d5c56bae71bf49a04a7034cf0f5ce7"],
+        "report.md": [4432, "8bdf9e912dc65550ccacfc8a27867bf48493014f5444cd56ae063dffe6a9bab2"],
+        "report.html": [7724, "035e370dc382694a2e58de681ad98cd8047da497cf22b609c078425306ea556c"],
+        "report_manifest.json": [5934, "0162aefa49333bf27003fd07519fe74a36ffae61e8b6a07c7b40f199c6058b2b"],
+        "citations.bib": [589, "e5946bc94a28bd20669842cc6451ebf88756891ceda45b12391a210a9ce1daeb"],
+        "citations.csl.json": [678, "db5e2771e2d0cca8219b481fe171b1850b2fb9020fcecf78f04622f60829d967"],
+        "snapshots/ae45d3ee2579ad125976c8627c2811f494676b56981c557251af1496566c4ff4/data.csv": [53445, "760bed4e9e0b894627ea0997792b3296864af8895d105a2795887e218db873d1"],
+        "snapshots/ae45d3ee2579ad125976c8627c2811f494676b56981c557251af1496566c4ff4/sources.csv": [512, "ce4cb36c5597a1ae84f0c2fa6be42c02057347e1e372e72888aaa205151d91b0"],
+        "package_manifest.json": [34479, "8a9593d16c0b8c1e6033f06713de3da683770672e30e88f29e9565d65014b7c2"]
+      }
+    },
+    {
+      "viewport": "mobile-390",
+      "locale": "en",
+      "series": "cpi_annual_index",
+      "rows": 228,
+      "route": "https://hy-central-europe-analysis.org/en/data/?tab=high_frequency&country=serbia&sors_series=cpi_annual_index",
+      "candidate_snapshot_sha256": "b1ecb2a6be8c88c3b455aa93f97b30c02e823a37e16e3908f93a7bbbe277f2f4",
+      "attached_snapshot_sha256": "b1ecb2a6be8c88c3b455aa93f97b30c02e823a37e16e3908f93a7bbbe277f2f4",
+      "attachment_origin": "candidate_browser",
+      "package_sha256": "babb2e935e04862bf73ce8e7a7d880ca1c484447ef05b942b90ad5fac94a2185",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-484a37e8-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [728, "fe6f4c64ed7f76c55eb1505022b4259a11d5c56bae71bf49a04a7034cf0f5ce7"],
+        "report.md": [4432, "78012f802828b2b865b1ce51f28876485f3ab9bb814626a186695b4710e9e3a3"],
+        "report.html": [7724, "5331c0f64cd4468edd2ed7de9c91ce9ff6d6b0ee5bd27f8bd1ae8206be6dd768"],
+        "report_manifest.json": [5934, "52b23854b47317be0aecfeb5ba11f2ec8fba9add03c781eec8235f88cbada907"],
+        "citations.bib": [589, "83cedd9b4fba07e6a5daa06044071dee062f5222c65b96a7fdd62e1c86f564f2"],
+        "citations.csl.json": [678, "9395aed67d02c786a39d9f3c25bcbb73bcd9d546ab2cb7df23ead950a3dc8194"],
+        "snapshots/b1ecb2a6be8c88c3b455aa93f97b30c02e823a37e16e3908f93a7bbbe277f2f4/data.csv": [53445, "760bed4e9e0b894627ea0997792b3296864af8895d105a2795887e218db873d1"],
+        "snapshots/b1ecb2a6be8c88c3b455aa93f97b30c02e823a37e16e3908f93a7bbbe277f2f4/sources.csv": [512, "ce4cb36c5597a1ae84f0c2fa6be42c02057347e1e372e72888aaa205151d91b0"],
+        "package_manifest.json": [34478, "5f2a5c567b84b6fb16704c8b15a31adb81da29ebe6b83e917e44e9df4411db51"]
+      }
+    },
+    {
+      "viewport": "desktop-1440",
+      "locale": "zh",
+      "series": "cpi_annual_index",
+      "rows": 228,
+      "route": "https://hy-central-europe-analysis.org/data/?tab=high_frequency&country=serbia&sors_series=cpi_annual_index",
+      "candidate_snapshot_sha256": "6ad43418faea90cb2a053131c541bf14aa5d15977e6a6695e29cb573a22bad66",
+      "attached_snapshot_sha256": "ec3352588262f7f7d26e6747818454b31a034b2394acb1ce2986b56bd7badd47",
+      "attachment_origin": "production_baseline",
+      "package_sha256": "27bd53dcf0d478decfa200dad4e4bba083c628402fccac081400dfdc334bb2a7",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-484a37e8-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [613, "dc8da851e6a97b7647ec465a266300a95e4ae25a23c943a77e00b9581659b0a6"],
+        "report.md": [3912, "dd2a51a1499dc54ecca5673550a2f744f6baa54beb6eead45e774ddba538b167"],
+        "report.html": [7177, "fe598cb978e103251507d49000a97afe736ac4ebe6e53122c725496d79e1b7da"],
+        "report_manifest.json": [5936, "dd4b20a09b1c105becc11c1a0cedf1511bcddf3f799f4296a3bcbb228a24d8c1"],
+        "citations.bib": [587, "0f14a48879ccec3fb299d0a77e7aa13dc5da02207e9219a998a12ed7bd31501e"],
+        "citations.csl.json": [676, "0df701d5bb591f38c43e86bfbab7381319e9bf4f819974caf0e1eac2af66d6e4"],
+        "snapshots/ec3352588262f7f7d26e6747818454b31a034b2394acb1ce2986b56bd7badd47/data.csv": [53445, "760bed4e9e0b894627ea0997792b3296864af8895d105a2795887e218db873d1"],
+        "snapshots/ec3352588262f7f7d26e6747818454b31a034b2394acb1ce2986b56bd7badd47/sources.csv": [512, "ce4cb36c5597a1ae84f0c2fa6be42c02057347e1e372e72888aaa205151d91b0"],
+        "package_manifest.json": [34352, "c0ea335b625858282477c063ed50c47991b3805cc3a8cff10bfb231057dff968"]
+      }
+    },
+    {
+      "viewport": "mobile-390",
+      "locale": "zh",
+      "series": "cpi_annual_index",
+      "rows": 228,
+      "route": "https://hy-central-europe-analysis.org/data/?tab=high_frequency&country=serbia&sors_series=cpi_annual_index",
+      "candidate_snapshot_sha256": "932bc1f23381277d0f6a3fcca1fc80efaceb5cc8e4ee0deda164ad4778b42b1a",
+      "attached_snapshot_sha256": "932bc1f23381277d0f6a3fcca1fc80efaceb5cc8e4ee0deda164ad4778b42b1a",
+      "attachment_origin": "candidate_browser",
+      "package_sha256": "a65ca2c1a082a611a156085c972f686b582bd1c8cdfb892fe8c7c6d738921ee6",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-484a37e8-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [613, "dc8da851e6a97b7647ec465a266300a95e4ae25a23c943a77e00b9581659b0a6"],
+        "report.md": [3912, "f6d7516612f969d73731eecf3848856f199903d74110ed22e8901cb0ca6061de"],
+        "report.html": [7177, "4fa5e4c9d960c3988834aeb23aa3c9d0c7924ed1ecba26ac13d4c76a7b9d7443"],
+        "report_manifest.json": [5936, "033c43e34f5d5c568495100427451ee66f69a30f923b29f879f9dbb58ec78d8b"],
+        "citations.bib": [587, "c5fb3e9bf52f75f70c33ad24eccaf9f382a903adddbb4d691cea87a9c16560e5"],
+        "citations.csl.json": [676, "e7aa56900be0756408c2fafd2337d24fd149ea664318da47defc7183dba89729"],
+        "snapshots/932bc1f23381277d0f6a3fcca1fc80efaceb5cc8e4ee0deda164ad4778b42b1a/data.csv": [53445, "760bed4e9e0b894627ea0997792b3296864af8895d105a2795887e218db873d1"],
+        "snapshots/932bc1f23381277d0f6a3fcca1fc80efaceb5cc8e4ee0deda164ad4778b42b1a/sources.csv": [512, "ce4cb36c5597a1ae84f0c2fa6be42c02057347e1e372e72888aaa205151d91b0"],
+        "package_manifest.json": [34351, "d7cc865e9c5ee4844552c69e0978c93de56c7c80adba79442a214767014c25b0"]
+      }
+    },
+    {
+      "viewport": "desktop-1440",
+      "locale": "en",
+      "series": "cpi_index_2006",
+      "rows": 228,
+      "route": "https://hy-central-europe-analysis.org/en/data/?tab=high_frequency&country=serbia&sors_series=cpi_index_2006",
+      "candidate_snapshot_sha256": "6d8f48adab0b7bff55d2b4375c63824e2055cc902b7e8108194815b3f52dc4db",
+      "attached_snapshot_sha256": "a20361e7a81df42563eabf9149caeb9ceca0100014e890829af5b827f918c9b9",
+      "attachment_origin": "production_baseline",
+      "package_sha256": "3c46403cbc38ddcc597dcde8005df577bd2549f54e0ef86e0527103c7315d47f",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-5ea62464-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [728, "fe6f4c64ed7f76c55eb1505022b4259a11d5c56bae71bf49a04a7034cf0f5ce7"],
+        "report.md": [4358, "ef4ec2c7d656730bd41ef3e1d8541b2f0bf7a66fe67fed9dbbf4a6bcd5ab3652"],
+        "report.html": [7650, "2601a4a273db8e8e31de3ba320403e29bd75facb49132fa25be4d71902742a7d"],
+        "report_manifest.json": [5854, "47f1cb16aa9c86cb039522a3db21e2a1d6fe7d4e84f657ea855d97c83c526ead"],
+        "citations.bib": [587, "8403d59fae25ad3d91bef69b251d240fb689229030f9fe0bc878cefc4d600a2a"],
+        "citations.csl.json": [676, "56a1cdb17ebdf6b77aa3c58bcc2e2cdaf24aea21cd006cb5c71ff17f7d431867"],
+        "snapshots/a20361e7a81df42563eabf9149caeb9ceca0100014e890829af5b827f918c9b9/data.csv": [42049, "32dc6d5c95e16c585c7567bb6a9b220f899b3cb82cd196091fe4b8a5e62e1454"],
+        "snapshots/a20361e7a81df42563eabf9149caeb9ceca0100014e890829af5b827f918c9b9/sources.csv": [466, "0fea6dc6b324e6ba35bec790b0aeab70323c15e0e00105c8c7ca5e05a0661761"],
+        "package_manifest.json": [33346, "71d91b5c129c3ced2e61b2fed32490ef30710d913b493652f305b1a12f85859b"]
+      }
+    },
+    {
+      "viewport": "mobile-390",
+      "locale": "en",
+      "series": "cpi_index_2006",
+      "rows": 228,
+      "route": "https://hy-central-europe-analysis.org/en/data/?tab=high_frequency&country=serbia&sors_series=cpi_index_2006",
+      "candidate_snapshot_sha256": "0974c1430cd1e343813eff7af0fa4f25c7bf9cf2635d7eb1b5bc593a10ef89a6",
+      "attached_snapshot_sha256": "0974c1430cd1e343813eff7af0fa4f25c7bf9cf2635d7eb1b5bc593a10ef89a6",
+      "attachment_origin": "candidate_browser",
+      "package_sha256": "bc4560d4c825e0b172cc31d2c4d1b9855a957911c2ca1cb598c775a9b8089efc",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-5ea62464-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [728, "fe6f4c64ed7f76c55eb1505022b4259a11d5c56bae71bf49a04a7034cf0f5ce7"],
+        "report.md": [4358, "5700cf43271bd469d04eb0487c862d00d6e500ee2ae53636bc9dc03b2aaaadad"],
+        "report.html": [7650, "0cdfbc4054c0cab0cfade37c39ed2066fd57b7baaeb93e317dcd4f8e4726419c"],
+        "report_manifest.json": [5854, "0aab5681c20668df648959b1db84d30c2aa0259f2308bd09ba532ed301c9ce5c"],
+        "citations.bib": [587, "8404bcc060b6ee4b8c788ff6a9c5c5bcf39c7df2b65c00518035379dab57cd5e"],
+        "citations.csl.json": [676, "6c37721ba11d2b8bfb4c9b378b5c9860379bf603b41968a918994a774520d616"],
+        "snapshots/0974c1430cd1e343813eff7af0fa4f25c7bf9cf2635d7eb1b5bc593a10ef89a6/data.csv": [42049, "32dc6d5c95e16c585c7567bb6a9b220f899b3cb82cd196091fe4b8a5e62e1454"],
+        "snapshots/0974c1430cd1e343813eff7af0fa4f25c7bf9cf2635d7eb1b5bc593a10ef89a6/sources.csv": [466, "0fea6dc6b324e6ba35bec790b0aeab70323c15e0e00105c8c7ca5e05a0661761"],
+        "package_manifest.json": [33345, "51bfc4e747e54ca77c9eddf52602ca6dddcb2d9182d06e188b1f5ab2196b991a"]
+      }
+    },
+    {
+      "viewport": "desktop-1440",
+      "locale": "zh",
+      "series": "cpi_index_2006",
+      "rows": 228,
+      "route": "https://hy-central-europe-analysis.org/data/?tab=high_frequency&country=serbia&sors_series=cpi_index_2006",
+      "candidate_snapshot_sha256": "b67f3ae845968650343684ab750451ebb2d83ee0eb8cf9a3ae8343f23f1f489a",
+      "attached_snapshot_sha256": "99b2186a2aa082296a84d4208da56469a07ed0fe793a4c6f03af559dcfceecea",
+      "attachment_origin": "production_baseline",
+      "package_sha256": "6ae274c30e36f7b03f8024c4ffe0d653cfe4e37574b352dd01cb4284a6af84f7",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-5ea62464-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [613, "dc8da851e6a97b7647ec465a266300a95e4ae25a23c943a77e00b9581659b0a6"],
+        "report.md": [3838, "ca3ba462b58f5bbc7d75db0ff2224e62a91e9463d17a355084b5902a3a383217"],
+        "report.html": [7103, "e2c0157add6edf897254031d77bb29fcd3cf7df82eebfee647bd54e0ff810a96"],
+        "report_manifest.json": [5856, "7981e72b35f5c673bbcc47ed61c5f173a233059110bb0445aaac1d9d7ee30102"],
+        "citations.bib": [585, "c16288f5d9e827350845a829999fcc6ec8a24515b4e9747f05358153209daaeb"],
+        "citations.csl.json": [674, "8ca553f4852b9c3d8a79933355e63a52513895aa68047e2e161b7517ebdd195f"],
+        "snapshots/99b2186a2aa082296a84d4208da56469a07ed0fe793a4c6f03af559dcfceecea/data.csv": [42049, "32dc6d5c95e16c585c7567bb6a9b220f899b3cb82cd196091fe4b8a5e62e1454"],
+        "snapshots/99b2186a2aa082296a84d4208da56469a07ed0fe793a4c6f03af559dcfceecea/sources.csv": [466, "0fea6dc6b324e6ba35bec790b0aeab70323c15e0e00105c8c7ca5e05a0661761"],
+        "package_manifest.json": [33219, "60f5e7bd65c6f4cbd57aade550acf44993c917053bc220999fee9669af3fa5b4"]
+      }
+    },
+    {
+      "viewport": "mobile-390",
+      "locale": "zh",
+      "series": "cpi_index_2006",
+      "rows": 228,
+      "route": "https://hy-central-europe-analysis.org/data/?tab=high_frequency&country=serbia&sors_series=cpi_index_2006",
+      "candidate_snapshot_sha256": "a47b51b9eee206e8f9272a0016032a23c4c676e36d23b4f6a00336bcfc1a6519",
+      "attached_snapshot_sha256": "a47b51b9eee206e8f9272a0016032a23c4c676e36d23b4f6a00336bcfc1a6519",
+      "attachment_origin": "candidate_browser",
+      "package_sha256": "b7730806ab14cf665eb646deb6a64bdd0220aecd8d894705db982c08fee9eb29",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-5ea62464-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [613, "dc8da851e6a97b7647ec465a266300a95e4ae25a23c943a77e00b9581659b0a6"],
+        "report.md": [3838, "6208075361cf123d5280bfa422a13c80b0efc546447971f242fbb5f8ed023f3c"],
+        "report.html": [7103, "3616a5a24a1b0365ead90b927256bfd01c89493e4edbe3f3a285b5e6614f8f9c"],
+        "report_manifest.json": [5856, "a5f04c59a2f73c729be807007cb27d5bcde492b9d53f012ee6a9b050ed5afeeb"],
+        "citations.bib": [585, "b4a3b103e4e20e4c6f46d645c7e06645559ca7866260ed27b903810dbe8d561a"],
+        "citations.csl.json": [674, "e57c3586943078ceb4471010b8a1eba795d7ff0f271ce46d0cd7bc6e69d0ebe6"],
+        "snapshots/a47b51b9eee206e8f9272a0016032a23c4c676e36d23b4f6a00336bcfc1a6519/data.csv": [42049, "32dc6d5c95e16c585c7567bb6a9b220f899b3cb82cd196091fe4b8a5e62e1454"],
+        "snapshots/a47b51b9eee206e8f9272a0016032a23c4c676e36d23b4f6a00336bcfc1a6519/sources.csv": [466, "0fea6dc6b324e6ba35bec790b0aeab70323c15e0e00105c8c7ca5e05a0661761"],
+        "package_manifest.json": [33218, "f1cfc164e47f7cb6b779b915a68535d26c776659733aa570e9b1414de0d23a7b"]
+      }
+    },
+    {
+      "viewport": "desktop-1440",
+      "locale": "en",
+      "series": "hicp_annual_rate",
+      "rows": 12,
+      "route": "https://hy-central-europe-analysis.org/en/data/?tab=high_frequency&country=hungary&indicator=hicp_annual_rate&from=2020&to=2020&history=0&sort=desc",
+      "candidate_snapshot_sha256": "0bf803f3b25d7f8355ee4e7801491e12f2bed8ac52e3434a61e7c442a89ac5ff",
+      "attached_snapshot_sha256": "af06a52c21c9d33fa3aae89ab71c7a37063985eaebe91dd609be613bdc1e6229",
+      "attachment_origin": "production_baseline",
+      "package_sha256": "b89f444b203922d534dbe00808ac9b723440de6a835bc7300df8ffbee055aae7",
+      "stage_b": "partial_correspondence",
+      "stage_c": "unknown_pending_verification",
+      "stage_d": "reference_only",
+      "history": "unverified",
+      "differences": [
+        "source_identity_or_revision_differs_or_incomplete"
+      ],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-556c72b2-0"
+          ],
+          "status": "incomplete",
+          "differences": [
+            "statistical_definition_unrecorded"
+          ]
+        }
+      ],
+      "package_files": {
+        "README.md": [728, "fe6f4c64ed7f76c55eb1505022b4259a11d5c56bae71bf49a04a7034cf0f5ce7"],
+        "report.md": [3806, "48eb2e3c16e67afc8b94ca0ede1db16a6bfaf447b0683e824911e5f160315a93"],
+        "report.html": [7132, "6ba743df2cb303a8722f24c81dea321496d3d25d955b273be55a74f05a086311"],
+        "report_manifest.json": [5483, "0b4fb25614674ecf29fef8db4830a94dd22240101fc66b6e2c60fc7af564283b"],
+        "citations.bib": [562, "4fabf6f60951a1f7378a75b5894a3ca07f87e31a05648075829af812aba514e1"],
+        "citations.csl.json": [649, "4b1613c3fd4e20316ff3a1c7b558a6dbcc2f3b46634a80db5382ca8d4bde3ceb"],
+        "package_manifest.json": [8692, "b58f0c02593c7f2dc11f0e080d3371e35d962cedb773ee84528ff94aec46b5b1"]
+      }
+    },
+    {
+      "viewport": "mobile-390",
+      "locale": "en",
+      "series": "hicp_annual_rate",
+      "rows": 12,
+      "route": "https://hy-central-europe-analysis.org/en/data/?tab=high_frequency&country=hungary&indicator=hicp_annual_rate&from=2020&to=2020&history=0&sort=desc",
+      "candidate_snapshot_sha256": "7840fc819b799eec7c5d75d3125776ea13ca505646af90d93f0dc37c581c9f6d",
+      "attached_snapshot_sha256": "7840fc819b799eec7c5d75d3125776ea13ca505646af90d93f0dc37c581c9f6d",
+      "attachment_origin": "candidate_browser",
+      "package_sha256": "75372668c76a387297be81ca97397ae743e35c7484bd65d8b087093d3a93661c",
+      "stage_b": "partial_correspondence",
+      "stage_c": "unknown_pending_verification",
+      "stage_d": "reference_only",
+      "history": "unverified",
+      "differences": [
+        "source_identity_or_revision_differs_or_incomplete"
+      ],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-556c72b2-0"
+          ],
+          "status": "incomplete",
+          "differences": [
+            "statistical_definition_unrecorded"
+          ]
+        }
+      ],
+      "package_files": {
+        "README.md": [728, "fe6f4c64ed7f76c55eb1505022b4259a11d5c56bae71bf49a04a7034cf0f5ce7"],
+        "report.md": [3806, "924aa6840afdd9c90723fce9af398ad51ea9d0032b8ed3935565881e0185c6ae"],
+        "report.html": [7132, "e66c3b8655df5d38cd51ffd7528daa3c2a89a3db0b43ec8f6a5f263fde1f5b19"],
+        "report_manifest.json": [5483, "a11a4bfb55c5cc1af59a9d06497e8c35755d255e60f13383d0f4e9d6fe06b106"],
+        "citations.bib": [562, "d6deb9c4bd93e7fdfac7b70ee7550d7ac04155cae9829e726d98a23668d1658b"],
+        "citations.csl.json": [649, "1c0af42d54f1465d8dcd36cac6ada5333cde2e956519762cddaef0792a8774f7"],
+        "package_manifest.json": [8691, "e30f75ae501fcf634fbafa09d444af20bc73a7a0fb1fbb357547d0c0ffba4250"]
+      }
+    },
+    {
+      "viewport": "desktop-1440",
+      "locale": "zh",
+      "series": "hicp_annual_rate",
+      "rows": 12,
+      "route": "https://hy-central-europe-analysis.org/data/?tab=high_frequency&country=hungary&indicator=hicp_annual_rate&from=2020&to=2020&history=0&sort=desc",
+      "candidate_snapshot_sha256": "412aa71a8b1a7da4d3b396f80aa3e5ede85ff3a6d1ad8df3663cf83a2bb32958",
+      "attached_snapshot_sha256": "a04bab3e4150e32bb2554f0262d36fb7c146fa6ab62f45ca95a3b7270d1d162d",
+      "attachment_origin": "production_baseline",
+      "package_sha256": "ca66059ea37fbb40235a6eff4a20bae94670133c442c857a81e0dec1cd8099af",
+      "stage_b": "partial_correspondence",
+      "stage_c": "unknown_pending_verification",
+      "stage_d": "reference_only",
+      "history": "unverified",
+      "differences": [
+        "source_identity_or_revision_differs_or_incomplete"
+      ],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-556c72b2-0"
+          ],
+          "status": "incomplete",
+          "differences": [
+            "statistical_definition_unrecorded"
+          ]
+        }
+      ],
+      "package_files": {
+        "README.md": [613, "dc8da851e6a97b7647ec465a266300a95e4ae25a23c943a77e00b9581659b0a6"],
+        "report.md": [3612, "ed5eea36597bea942e58132b3ef7d18cd46742f14fe68bf7a5b92ce1e18b1ed6"],
+        "report.html": [6943, "0ab4cb2171de7d68a5c33899181ce7e4eb1763f3a5646a2564f34f6c0aaea7e5"],
+        "report_manifest.json": [5485, "c1f2ea1e6ec73a782d57b65f56d1af583ea20966c0e58b3a5b51be480edbdcdc"],
+        "citations.bib": [560, "3dcc8883935b53207087317af06d997785e3e6d6c7e9c7a737c282104a4cc3e9"],
+        "citations.csl.json": [647, "e48e3525c3f5cecbc639dfba26f221c98130de7869a046d1a8b32b545951c82a"],
+        "package_manifest.json": [8623, "f56adcf99750fe734745ed85b5c396e0e9385a221c1e570826d31674a620c058"]
+      }
+    },
+    {
+      "viewport": "mobile-390",
+      "locale": "zh",
+      "series": "hicp_annual_rate",
+      "rows": 12,
+      "route": "https://hy-central-europe-analysis.org/data/?tab=high_frequency&country=hungary&indicator=hicp_annual_rate&from=2020&to=2020&history=0&sort=desc",
+      "candidate_snapshot_sha256": "42b63a0b0bddaaa9eda0dc49490e999136dc6ec75b5a02a6a41fa231c388853c",
+      "attached_snapshot_sha256": "42b63a0b0bddaaa9eda0dc49490e999136dc6ec75b5a02a6a41fa231c388853c",
+      "attachment_origin": "candidate_browser",
+      "package_sha256": "ceb5286477d6e68254404b0ea495aa8ef030b23fa6bcb76056f655ec194835ea",
+      "stage_b": "partial_correspondence",
+      "stage_c": "unknown_pending_verification",
+      "stage_d": "reference_only",
+      "history": "unverified",
+      "differences": [
+        "source_identity_or_revision_differs_or_incomplete"
+      ],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-556c72b2-0"
+          ],
+          "status": "incomplete",
+          "differences": [
+            "statistical_definition_unrecorded"
+          ]
+        }
+      ],
+      "package_files": {
+        "README.md": [613, "dc8da851e6a97b7647ec465a266300a95e4ae25a23c943a77e00b9581659b0a6"],
+        "report.md": [3612, "24baa9198e5e2f0d5b91f531f685893c9c58ea1a1295b8d74e3d4078256fa3ab"],
+        "report.html": [6943, "ecb54cc669958e972aaeefd98487e54ee151462b39008dbb36c52e80f0267f16"],
+        "report_manifest.json": [5485, "109ec7623bb40fc2d57d31c1793ca6c685259259aaf7d16189e02ee967f27ba6"],
+        "citations.bib": [560, "ccede15c8ba5fe52b6d009c2c67ea4cd28a4d5fa61b5c5a1e63727eb950ad19b"],
+        "citations.csl.json": [647, "99205e54a233fc7a506231719834bf4c3ac440ca2a35097b81bf0c7f6d5fc070"],
+        "package_manifest.json": [8622, "12bb71ecd8e7e5b0ee10dca3d9d551bc045bd791d33cf57cfcb3ebcd91734133"]
+      }
+    },
+    {
+      "viewport": "desktop-1440",
+      "locale": "en",
+      "series": "lfs_unemployment_quarterly",
+      "rows": 62,
+      "route": "https://hy-central-europe-analysis.org/en/data/?tab=high_frequency&country=serbia&sors_series=lfs_unemployment_quarterly",
+      "candidate_snapshot_sha256": "4721ac1a00974851d4203b0ef71e95a428b6cd3ad97a6092dc6970db82a36758",
+      "attached_snapshot_sha256": "70d7d83e585b6a3d6c7c402680fe12d43867f8ae895ef3c86d4eaaab9d631613",
+      "attachment_origin": "production_baseline",
+      "package_sha256": "fda9962cdcabe4bde5529d15946ee259ba13a8e2fb5801a930114ba90fcac0c3",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-c636edc4-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [728, "fe6f4c64ed7f76c55eb1505022b4259a11d5c56bae71bf49a04a7034cf0f5ce7"],
+        "report.md": [4735, "84ef1f9d9d36791e5a07d794cb7665fd98e87e7208d223efba1484b426980deb"],
+        "report.html": [8063, "57eac27040c8be249090cf14c0ff3349fc8173880e5992a48f273231595dfedc"],
+        "report_manifest.json": [6406, "613f439e74a7553ca057d32577b7bb6dca128f4a628fbab38748c623767e6209"],
+        "citations.bib": [607, "3da22bb29f92d05d5933e87f44ed98b9acbef92dc86fd37ad2894ca163dad119"],
+        "citations.csl.json": [696, "ddad7add5cd8cf99d0ab37c3db00d345607072c89123d6ca922b1201b46b32e5"],
+        "snapshots/70d7d83e585b6a3d6c7c402680fe12d43867f8ae895ef3c86d4eaaab9d631613/data.csv": [11305, "970a79c0a6f7693561dd05f8cba9c3a4a14eaca551983355b4f9dab8dd5bc204"],
+        "snapshots/70d7d83e585b6a3d6c7c402680fe12d43867f8ae895ef3c86d4eaaab9d631613/sources.csv": [468, "df7b9c82eefb75487a90e23b5d32fe6beff570f3eba43e9d80444c490d7267c9"],
+        "package_manifest.json": [17240, "c33aa71e5f8549e8a2383d2c33e08163c915bbce4dd057789b7d769dcf80ba56"]
+      }
+    },
+    {
+      "viewport": "mobile-390",
+      "locale": "en",
+      "series": "lfs_unemployment_quarterly",
+      "rows": 62,
+      "route": "https://hy-central-europe-analysis.org/en/data/?tab=high_frequency&country=serbia&sors_series=lfs_unemployment_quarterly",
+      "candidate_snapshot_sha256": "e111bba4f597aa9344472ae1882fe41ae0540677f7977732813636e5f73fec92",
+      "attached_snapshot_sha256": "e111bba4f597aa9344472ae1882fe41ae0540677f7977732813636e5f73fec92",
+      "attachment_origin": "candidate_browser",
+      "package_sha256": "cf59e4033860c4edb53350f6480fb2db18fcf7be331b29cf28fe688cf62d3eb9",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-c636edc4-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [728, "fe6f4c64ed7f76c55eb1505022b4259a11d5c56bae71bf49a04a7034cf0f5ce7"],
+        "report.md": [4735, "80b8f299cab1218db53b5c4962de91a70a92274febad61d8090614a1f9720ead"],
+        "report.html": [8063, "43ee1bc9c1c1b6fb4f91ebab32cbe21467ccb6a6c1d15f3b998f5549690b0b7f"],
+        "report_manifest.json": [6406, "e147fb504f3ff9cc4997fb19a7a3e812857f03daee14842c23c34d0daae1f779"],
+        "citations.bib": [607, "3c5404e75559f20ef70c74b26c120642fc6a71466b6a65bf9bedb1bb600de881"],
+        "citations.csl.json": [696, "804000f5640364cc0164f9f41662018e913b2bf71ae4e00db18e50a60f6cad9d"],
+        "snapshots/e111bba4f597aa9344472ae1882fe41ae0540677f7977732813636e5f73fec92/data.csv": [11305, "970a79c0a6f7693561dd05f8cba9c3a4a14eaca551983355b4f9dab8dd5bc204"],
+        "snapshots/e111bba4f597aa9344472ae1882fe41ae0540677f7977732813636e5f73fec92/sources.csv": [468, "df7b9c82eefb75487a90e23b5d32fe6beff570f3eba43e9d80444c490d7267c9"],
+        "package_manifest.json": [17239, "34ef18c929e1a73378f11cf1cad82442f2a21239b82b2744915a9295a9b6700e"]
+      }
+    },
+    {
+      "viewport": "desktop-1440",
+      "locale": "zh",
+      "series": "lfs_unemployment_quarterly",
+      "rows": 62,
+      "route": "https://hy-central-europe-analysis.org/data/?tab=high_frequency&country=serbia&sors_series=lfs_unemployment_quarterly",
+      "candidate_snapshot_sha256": "33bf767711c9b0fab6acdb84863b387ecdabaca28637c3879c27714aa1307117",
+      "attached_snapshot_sha256": "c885a83d606ca2d8c63cf9ec40b61d0eb60c2effe66a5941f4f143e8c51f789e",
+      "attachment_origin": "production_baseline",
+      "package_sha256": "3a30aeac32f1248988e94817349d04ed9e5643c8ded4653fdf8fb9a606cbecfa",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-c636edc4-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [613, "dc8da851e6a97b7647ec465a266300a95e4ae25a23c943a77e00b9581659b0a6"],
+        "report.md": [4090, "556b25ebc48a56e61f5fed742d4a2e78c718fa8624b14858c424c904b148702f"],
+        "report.html": [7393, "366e5f44c1a6d6c3f1b9bc2d72498e7a97843f2dca59ae3532afc236826653c3"],
+        "report_manifest.json": [6408, "c468fb27384a3956fbdfc43763dc60986d46614483bc698e3031dcdaf20d3744"],
+        "citations.bib": [605, "f2c628fff553afc2772e3bd57d4763e8284140c5f92f117e917eba62987aeb1b"],
+        "citations.csl.json": [694, "4e292e6f1535ac594fda18f8f192975891a28759142047dd0e4f0421046d70f5"],
+        "snapshots/c885a83d606ca2d8c63cf9ec40b61d0eb60c2effe66a5941f4f143e8c51f789e/data.csv": [11305, "970a79c0a6f7693561dd05f8cba9c3a4a14eaca551983355b4f9dab8dd5bc204"],
+        "snapshots/c885a83d606ca2d8c63cf9ec40b61d0eb60c2effe66a5941f4f143e8c51f789e/sources.csv": [468, "df7b9c82eefb75487a90e23b5d32fe6beff570f3eba43e9d80444c490d7267c9"],
+        "package_manifest.json": [17088, "c7349af66ea36cefda8c7392411a4a8b81ccc6d5c15d1ad1bc813a8d1ba79d14"]
+      }
+    },
+    {
+      "viewport": "mobile-390",
+      "locale": "zh",
+      "series": "lfs_unemployment_quarterly",
+      "rows": 62,
+      "route": "https://hy-central-europe-analysis.org/data/?tab=high_frequency&country=serbia&sors_series=lfs_unemployment_quarterly",
+      "candidate_snapshot_sha256": "128a75b7d464b967285f89e353f825d649388560e8d7ccaab6705be82f5c6c27",
+      "attached_snapshot_sha256": "128a75b7d464b967285f89e353f825d649388560e8d7ccaab6705be82f5c6c27",
+      "attachment_origin": "candidate_browser",
+      "package_sha256": "20b4036bb5db3d778cfc4d39bf02f44b67e5c851c14ce2d0eb2c54a6dcfc3c6b",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-c636edc4-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [613, "dc8da851e6a97b7647ec465a266300a95e4ae25a23c943a77e00b9581659b0a6"],
+        "report.md": [4090, "af545d03cdd0a861f00ec6e8f0cd83e78e9e34ed7071049b5df04fd7ff2975c4"],
+        "report.html": [7393, "a49a73a26caa6ede8ae341e1df25c71360248f15287bcec5dfa92849394f3de3"],
+        "report_manifest.json": [6408, "6f43f4b000b5bedc329fcaadd44c0a5cc96eae1399a2d0070dc873fa718c15af"],
+        "citations.bib": [605, "73cd8e7e6eafd9dc3dea7da0daea1fdcb412ad75f42164da896118d2a871c160"],
+        "citations.csl.json": [694, "f069a1c56e222734e6016ab85052ff527f26590c6d37294d9ba68059ab7dab1f"],
+        "snapshots/128a75b7d464b967285f89e353f825d649388560e8d7ccaab6705be82f5c6c27/data.csv": [11305, "970a79c0a6f7693561dd05f8cba9c3a4a14eaca551983355b4f9dab8dd5bc204"],
+        "snapshots/128a75b7d464b967285f89e353f825d649388560e8d7ccaab6705be82f5c6c27/sources.csv": [468, "df7b9c82eefb75487a90e23b5d32fe6beff570f3eba43e9d80444c490d7267c9"],
+        "package_manifest.json": [17087, "8a66cac6e3cbc0dfb15bce18a20c39292a24ff5289b313a1476c1fdfecdfc33b"]
+      }
+    },
+    {
+      "viewport": "desktop-1440",
+      "locale": "en",
+      "series": "retail_trade_volume_sa",
+      "rows": 321,
+      "route": "https://hy-central-europe-analysis.org/en/data/?tab=high_frequency&country=serbia&sors_series=retail_trade_volume_sa",
+      "candidate_snapshot_sha256": "07b795a53c0b2b156c8ff8b7071a21408bf1b6cd25c1f321b27aad3016c48208",
+      "attached_snapshot_sha256": "ab6cf528a0ddadfe445259b56af00e0ac7b23e7e26ad3cadfce04e0d96d76dd0",
+      "attachment_origin": "production_baseline",
+      "package_sha256": "4403ca0751e38f8a88af81e2bf518bba473715a6e36e509281220f339421798d",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-ff360149-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [728, "fe6f4c64ed7f76c55eb1505022b4259a11d5c56bae71bf49a04a7034cf0f5ce7"],
+        "report.md": [4447, "1e0adf3571ab5a18d2a5d89c7f2a1037b56087e56b46dbbc69711f8f5a46a793"],
+        "report.html": [7756, "463631e042e87e9af108a3af2f01566b98c8aae53abf2cca03d365db63495f4d"],
+        "report_manifest.json": [5972, "6a3853209cae171162b455596ae0808e40bd63f1f2223dc4155aee8daf024ce2"],
+        "citations.bib": [591, "c48342d8ece9dc115623f6d87599ac35be28462e1100ce6eb843f83072229027"],
+        "citations.csl.json": [680, "961347159eddb7faad6dd19949b3486d78527c770438e9b43d5124d4ba64609c"],
+        "snapshots/ab6cf528a0ddadfe445259b56af00e0ac7b23e7e26ad3cadfce04e0d96d76dd0/data.csv": [77886, "812bc785be91e07cb20f18d308e11dcbded3d0261586bffab975c850eaf72fe3"],
+        "snapshots/ab6cf528a0ddadfe445259b56af00e0ac7b23e7e26ad3cadfce04e0d96d76dd0/sources.csv": [533, "ab130e992879869a0ad9b27262e668d19e8a554bae9d740452e61be186f89dba"],
+        "package_manifest.json": [48747, "34b017397ec62d7aab8961e6b3966d3d242331108831b90f602dc44e1b8ffbc7"]
+      }
+    },
+    {
+      "viewport": "mobile-390",
+      "locale": "en",
+      "series": "retail_trade_volume_sa",
+      "rows": 321,
+      "route": "https://hy-central-europe-analysis.org/en/data/?tab=high_frequency&country=serbia&sors_series=retail_trade_volume_sa",
+      "candidate_snapshot_sha256": "7795b48cb39077c597b3d8024ed7c1177b1f3286a13a7aa310a2958edb96a45a",
+      "attached_snapshot_sha256": "7795b48cb39077c597b3d8024ed7c1177b1f3286a13a7aa310a2958edb96a45a",
+      "attachment_origin": "candidate_browser",
+      "package_sha256": "43739772a125a78dc27a01810e79b8804843a3445af7f97e3397b511527776e5",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-ff360149-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [728, "fe6f4c64ed7f76c55eb1505022b4259a11d5c56bae71bf49a04a7034cf0f5ce7"],
+        "report.md": [4447, "05f323e19599a5040f3dc624f78cc7af55ded11ed23621b6e87d0338e2363088"],
+        "report.html": [7756, "8d8da5b0b65d711619db9cfb264db8239cb81c017661a20e508e987ff5f19c19"],
+        "report_manifest.json": [5972, "0e92579c0f3d81452689841b2c2dd0ce1de5e2372fd9c81632fb45bfc3f066b1"],
+        "citations.bib": [591, "2753a7760c0cb0c0fe4cfd92f70ddd35eb7bac2bd7e57115f7b3788c51dad62f"],
+        "citations.csl.json": [680, "26c9d3536aee2db1ec0abf509ce8e82510cfe364ea23cd39a43298b4d324c4c1"],
+        "snapshots/7795b48cb39077c597b3d8024ed7c1177b1f3286a13a7aa310a2958edb96a45a/data.csv": [77886, "812bc785be91e07cb20f18d308e11dcbded3d0261586bffab975c850eaf72fe3"],
+        "snapshots/7795b48cb39077c597b3d8024ed7c1177b1f3286a13a7aa310a2958edb96a45a/sources.csv": [533, "ab130e992879869a0ad9b27262e668d19e8a554bae9d740452e61be186f89dba"],
+        "package_manifest.json": [48746, "f8cb1b215d0fd97688551c50cb998886ad05cd446698e16e59e05181733b8f50"]
+      }
+    },
+    {
+      "viewport": "desktop-1440",
+      "locale": "zh",
+      "series": "retail_trade_volume_sa",
+      "rows": 321,
+      "route": "https://hy-central-europe-analysis.org/data/?tab=high_frequency&country=serbia&sors_series=retail_trade_volume_sa",
+      "candidate_snapshot_sha256": "1b1aeb9a6c643066eac9c1532adedfd81bc285d58e3b1f80aa593276e2b3e679",
+      "attached_snapshot_sha256": "8688175b6237d0eff79a4c770c00825f9c3464ba3280fc0ba3f3d0f84fb6689e",
+      "attachment_origin": "production_baseline",
+      "package_sha256": "4e02fabd8b66b6630f282f8b07f1ae9f4bd07c140dbe18c4adebb9c858c0fcac",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-ff360149-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [613, "dc8da851e6a97b7647ec465a266300a95e4ae25a23c943a77e00b9581659b0a6"],
+        "report.md": [3927, "93ff80710d7006c15554f88c5b9b5fb8acc4a7afa348c48219fea9342ee687d5"],
+        "report.html": [7209, "32f2921bdcd314d352ae71f8f42b511cd83acf35a2323527e06e3954d821315e"],
+        "report_manifest.json": [5974, "a7954cda2472513e7119237b949c6e774a5550a829933128fea01ee5b53d2501"],
+        "citations.bib": [589, "466ff8b3d3b120d414c459bf07e5c4d0f6cc4de926ba5649cb2b25b499a8cedd"],
+        "citations.csl.json": [678, "27a9a408d208f14e90d9ca721b99233abed561068553759ba553b04cc68e812b"],
+        "snapshots/8688175b6237d0eff79a4c770c00825f9c3464ba3280fc0ba3f3d0f84fb6689e/data.csv": [77886, "812bc785be91e07cb20f18d308e11dcbded3d0261586bffab975c850eaf72fe3"],
+        "snapshots/8688175b6237d0eff79a4c770c00825f9c3464ba3280fc0ba3f3d0f84fb6689e/sources.csv": [533, "ab130e992879869a0ad9b27262e668d19e8a554bae9d740452e61be186f89dba"],
+        "package_manifest.json": [48620, "1577ac7893ea3a0e6d9dfba119b9b60af2f7f8d475a9e61685d073910d003d9b"]
+      }
+    },
+    {
+      "viewport": "mobile-390",
+      "locale": "zh",
+      "series": "retail_trade_volume_sa",
+      "rows": 321,
+      "route": "https://hy-central-europe-analysis.org/data/?tab=high_frequency&country=serbia&sors_series=retail_trade_volume_sa",
+      "candidate_snapshot_sha256": "e9eed9c2708148ea0d9d3621610196277d8a0b3f85319a68bacc09ad5877f7f4",
+      "attached_snapshot_sha256": "e9eed9c2708148ea0d9d3621610196277d8a0b3f85319a68bacc09ad5877f7f4",
+      "attachment_origin": "candidate_browser",
+      "package_sha256": "874cee11daea590ff02f899bfba32e1de89553b72fa556ed0813ff10b1f1083f",
+      "stage_b": "compatible_live_configuration",
+      "stage_c": "verified_permitted_use",
+      "stage_d": "normalized_members",
+      "history": "unverified",
+      "differences": [],
+      "source_relationships": [
+        {
+          "snapshot_source_id": "source-1",
+          "notebook_source_ids": [
+            "source-ff360149-0"
+          ],
+          "status": "matched_recorded_fields",
+          "differences": []
+        }
+      ],
+      "package_files": {
+        "README.md": [613, "dc8da851e6a97b7647ec465a266300a95e4ae25a23c943a77e00b9581659b0a6"],
+        "report.md": [3927, "a4f3f87b4650fc166c8fd77fca5df8300eef3f62137004f468cd117f222f5601"],
+        "report.html": [7209, "ba2a9748766a02c57c2b391ff0b011296a15cb93c24d84bfbf9c4303b86c4b94"],
+        "report_manifest.json": [5974, "4643b09bcb3c53120c16233f1bb0005c0fee440335b6d1fbea3873c2d7b44fb3"],
+        "citations.bib": [589, "2a9fa1948978ce5abb820ea9fa7abda9cdc477bb8d84305707fea71be105fed1"],
+        "citations.csl.json": [678, "85563fd0695652b84193e4133a34624fb53924261d7a6910eb9303c24339d561"],
+        "snapshots/e9eed9c2708148ea0d9d3621610196277d8a0b3f85319a68bacc09ad5877f7f4/data.csv": [77886, "812bc785be91e07cb20f18d308e11dcbded3d0261586bffab975c850eaf72fe3"],
+        "snapshots/e9eed9c2708148ea0d9d3621610196277d8a0b3f85319a68bacc09ad5877f7f4/sources.csv": [533, "ab130e992879869a0ad9b27262e668d19e8a554bae9d740452e61be186f89dba"],
+        "package_manifest.json": [48619, "3fd2b0d30d3ea2fd3c3d1bb12589fc340a48fbf240dbb363947940e0855e6f4b"]
+      }
+    }
+  ],
+  "member_inventory_format": "Each package_files object maps the exact ZIP path to [byte length, SHA-256]. The package manifest is inspected independently and included in this external inventory."
+}
