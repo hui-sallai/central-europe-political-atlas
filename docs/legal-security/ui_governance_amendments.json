@@ -5723,6 +5723,35 @@
         }
       ],
       "approved_by": "Owner R1-C1 security correction and final acceptance instruction, 2026-11-27, covering the reviewed five paths and bounded import-parser corrections."
+    },
+    {
+      "amendment_id": "antigravity-r1c2-package-composer-2026-11-27",
+      "status": "owner_approved",
+      "approved_by": "Owner R1-C2 final acceptance corrections brief of 2026-11-27: Research Package Composer integrated with Report Studio (4-stage review with per-evidence Stage D accuracy, async build recovery & direct first-build timestamp, permanent handle & preview invalidation with memory release, complete shared report-state key, independent local verification clearing on digest edit, and A-M async race coverage).",
+      "baseline": "892ef47e78a7c7ee68f2fe0e71384722f19e9ee2",
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-11-27",
+      "files": [
+        {
+          "path": "src/components/ResearchPackageComposer.tsx",
+          "sha256": "d017117ecbb32e716fe7a212bd408e1545ae2b441196d269a3b332adeff0fe54",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/lib/researchPackageComposerMessages.ts",
+          "sha256": "554ed170703229e61855e5c9ff33d8275d4458c2fd9f81f0c805f192dc989eed",
+          "classification": "DATA_PRESENTATION"
+        },
+        {
+          "path": "src/components/NotebookEvidenceBrief.tsx",
+          "sha256": "84ec5e3f72f617272ff2f46c364ffddd1437019f7367710ac3e45a48019c0bbe",
+          "classification": "DATA_PRESENTATION"
+        }
+      ]
     }
   ]
 }
