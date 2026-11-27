@@ -3,7 +3,7 @@
 Research dossier for independent review. It proposes; it changes no runtime code, rights engine, registry, export,
 Notebook schema, Composer UI or screenshot baseline. Baseline: `9cb65307a9789744580e687052504fd4d8d02d35` (production
 provenance re-read with a fresh request on 2026-11-27: same commit, run 46027169165, package
-`38f7da85…`). Branch: `research/claude-r1c3-source-rights-verification`.
+`38f7da8513d3dcee205f382ddf28c86180c9681ba4eb6b8ff98082a7e6dd5a70`). Branch: `research/claude-r1c3-source-rights-verification`.
 
 ## Result in one table
 
