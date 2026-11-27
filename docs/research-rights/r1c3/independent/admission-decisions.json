@@ -1,0 +1,81 @@
+{
+  "baseline": "9cb65307a9789744580e687052504fd4d8d02d35",
+  "dossier": "f46e03500987aff2a073027f6624c0f6599e71b5",
+  "decision_time_utc": "2026-11-27T19:00:47Z",
+  "scope": "Gate 7 decisions recorded before rights-engine edits; proposed local changes require owner review.",
+  "matrix": [
+    {
+      "series": "cpi_annual_index",
+      "dataset": "03010601IND03",
+      "decision": "READY FOR BOUNDED IMPLEMENTATION",
+      "period": [
+        "2007-01",
+        "2025-12"
+      ],
+      "rows": 228,
+      "from_response_records": 29978,
+      "unit": "index, same month previous year = 100",
+      "source": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND03/3/json",
+      "retrieved_at": "2026-11-13T19:31:01.945Z",
+      "retained_extract_sha256": "783cf924cca1d4e2373d636f583a4b9c03e22bf99b2fb6021fd37f1124e7c936",
+      "upstream_sha256_recorded_only": "a0fb04c3037df9f4fdcda34836db48bee22c69e3eb78c4db0e32f767887c5f93",
+      "member_and_fixed_archive_sha256": {
+        "data": "760bed4e9e0b894627ea0997792b3296864af8895d105a2795887e218db873d1",
+        "sources": "ce4cb36c5597a1ae84f0c2fa6be42c02057347e1e372e72888aaa205151d91b0",
+        "archive": "b2acc019dd340413c90af17b905256cc4ae4f7c2606e883a8d886449bc4ea302"
+      },
+      "correspondence": "compatible_live_configuration; confirmed through the native browser control",
+      "rights": "SORS copyright/terms and English catalogue allow attributed commercial and noncommercial reuse, including adaptations. The catalogue names SORS for this specific series. No separate restriction was identified in the inspected entry.",
+      "attribution_and_changes": "Source: Statistical Office of the Republic of Serbia (SORS). The Central Europe Political Atlas selected the specified records from the recorded response, sorted them in reverse period order and supplied Atlas identifiers, English column headings, unit and comparability fields. The published statistical values are unchanged. National CPI is an index with the same month of the previous year equal to 100.",
+      "boundary": "Exact fixed figure-free archive, or both pinned CSV members after structural inspection and eligible evidence correspondence. No capture receipt. Complete original upstream response not retained."
+    },
+    {
+      "series": "retail_trade_volume_sa",
+      "dataset": "210105IND02",
+      "decision": "READY FOR BOUNDED IMPLEMENTATION",
+      "period": [
+        "2000-01",
+        "2026-09"
+      ],
+      "rows": 321,
+      "from_response_records": 4815,
+      "unit": "index 2021=100 (constant prices, SA)",
+      "source": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/210105IND02/3/json",
+      "retrieved_at": "2026-11-13T19:31:21.167Z",
+      "retained_extract_sha256": "a06d94b55ab90fcc86d688c3aeedde02cb2b1c9c4cc5a387388430475edbab6d",
+      "upstream_sha256_recorded_only": "5495f234b4850f640f09c4719076a89af7b4118ae66d62f6735f3b4cd4b0ba1d",
+      "member_and_fixed_archive_sha256": {
+        "data": "812bc785be91e07cb20f18d308e11dcbded3d0261586bffab975c850eaf72fe3",
+        "sources": "ab130e992879869a0ad9b27262e668d19e8a554bae9d740452e61be186f89dba",
+        "archive": "b25b710f03e53b907b7098560183a99f2fe3deadf3245f26ee7f9749e6d5bae6"
+      },
+      "correspondence": "compatible_live_configuration; confirmed through the native browser control",
+      "rights": "SORS copyright/terms and English catalogue allow attributed commercial and noncommercial reuse, including adaptations. The catalogue names SORS for this specific series. No separate restriction was identified in the inspected entry.",
+      "attribution_and_changes": "Source: Statistical Office of the Republic of Serbia (SORS). The Central Europe Political Atlas selected the specified records from the recorded response, sorted them in reverse period order and supplied Atlas identifiers, English column headings, unit and comparability fields. The published statistical values are unchanged. Three retail observations are provisional and may be revised.",
+      "boundary": "Exact fixed figure-free archive, or both pinned CSV members after structural inspection and eligible evidence correspondence. No capture receipt. Complete original upstream response not retained."
+    },
+    {
+      "series": "hicp_annual_rate",
+      "dataset": "prc_hicp_minr",
+      "decision": "REFERENCE ONLY",
+      "country": "HU",
+      "period": [
+        "2020-01",
+        "2020-12"
+      ],
+      "rows": 12,
+      "unit": "RCH_A",
+      "scope": "M / TOTAL under coicop18 / HU; annual percentage change of the monthly HICP",
+      "retained_response_sha256": "4a2dbd260ac3b96351c153e8b2f6f340ab00ed4712c3ee6141a03ed8fc49ccfb",
+      "data_sha256": "633544d1d1d3d772667d5ff695b4c80c251b1c49783cfa43e853f3cda3b9a463",
+      "source_sha256": "1bd9903472df2dd79f8e3dfa3a1a5cd4a08f445c13184dc0957f663c1f892285",
+      "archive_admission": null,
+      "source": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table",
+      "retained_response_access": "2026-09-30T08:10:48.003Z",
+      "correspondence": "Both native EN/ZH collected configurations omit definition=yoy_rate; accepted Stage B returns partial_correspondence and Stage D writes no payload.",
+      "rights": "Eurostat published terms permit attributed custom statistical extracts subject to individual notices and exceptions. This HU aggregate dataflow identifies Eurostat. No Stage C pin or registry promotion.",
+      "attribution_if_future": "Source: Eurostat, PRC_HICP_MINR, DOI 10.2908/PRC_HICP_MINR; use the exact Data Browser datacode link. Retained-response access: 2026-09-30. Atlas selected the Hungarian 2020 series, added labels and translated presentation text. Verified statistical values are unchanged. Eurostat accepts no responsibility for Atlas modifications or translations.",
+      "boundary": "No historical capture date for the supplied snapshot. Source row has no retrieval/update date. October refresh is not a receipt. A later owner-reviewed proposal would need a faithful native producer and corresponding binding contract."
+    }
+  ]
+}

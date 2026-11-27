@@ -153,11 +153,11 @@
       "modification_disclosure_required": true,
       "database_right_status": "national terms",
       "publisher_confirmation_required": false,
-      "evidence_reference": "https://www.stat.gov.rs/en-us/copyright/ (SORS Terms of Use, read by hand 2026-11-11; no automated collection, no publisher contact); src/data/serbia/serbia_official_data_source_audit.json terms_of_use_summary",
-      "evidence_sha256": null,
-      "reviewed_at": "2026-11-11",
+      "evidence_reference": "SORS terms of use, https://www.stat.gov.rs/en-us/copyright/ (manual page-source receipt, 2026-11-27 UTC). English open-data catalogue terms and entries 03010601IND03 and 210105IND02: https://opendata.stat.gov.rs/odata/?id=en-us. See docs/research-rights/r1c3/independent/ for the exact extracts and limitations.",
+      "evidence_sha256": "d5e3dbbe97990f950e0d0c17cc42766dfc3780ed73de11bf0253d0f2d742c89d",
+      "reviewed_at": "2026-11-27",
       "review_status": "verified",
-      "terms_notes": "The Terms of Use permit distributing and sharing SORS files and data for commercial and non-commercial purposes provided changes are clearly indicated and SORS is cited as the source. The published SORS extracts are record subsets of official responses: values are unchanged, the selection is disclosed (source URL, response hash, response and extract record counts) and SORS is cited. No archived copy of the terms page is stored (evidence_sha256 null)."
+      "terms_notes": "SORS permits commercial and non-commercial sharing of its statistical data unless otherwise specified. Credit SORS, give the retrieval date and source address, identify the modifier and describe adaptations. The evidence digest identifies the terms page reviewed on the recorded date. Research-package admission is separately limited to reviewed exact bytes."
     },
     {
       "source_id": "src-de-bundeswahlleiterin",

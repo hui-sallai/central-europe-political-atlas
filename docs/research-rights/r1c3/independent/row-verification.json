@@ -1,0 +1,281 @@
+{
+  "fixture_clock": "2026-11-26T12:00:00.000Z",
+  "sors": {
+    "cpi_index_2006": {
+      "dataset": "03010601IND01",
+      "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND01/3/json",
+      "dimensions": {
+        "IDCOICOP": "0000"
+      },
+      "original_unit_code": "I06",
+      "source_unit_labels": [
+        "index, 2006=100"
+      ],
+      "unit": "index 2006=100",
+      "native_indicator": [
+        "Base indices, (2006 = 100)"
+      ],
+      "selected_rows": 228,
+      "first": "2007-01",
+      "last": "2025-12",
+      "missing_values": 0,
+      "mismatched_rows": 0,
+      "statuses": {
+        "Normal value": 228
+      },
+      "sha256": {
+        "data": "32dc6d5c95e16c585c7567bb6a9b220f899b3cb82cd196091fe4b8a5e62e1454",
+        "sources": "0fea6dc6b324e6ba35bec790b0aeab70323c15e0e00105c8c7ca5e05a0661761",
+        "archive": "a54adf0dc4af00c342104a863fd46e42577c6a55da3abdb7fb66c917cc15d12b"
+      },
+      "retained_extract_sha256": "09419414424b176d898bde8eac9564d1079f9b3d5d528e0a103f617df19569d4",
+      "recorded_upstream_sha256": "b428aa42ff64e1338f503a54406f4bf2f2a4d4e0712a567fbced301a7d7f1c60",
+      "recorded_upstream_bytes": 10314843,
+      "recorded_upstream_records": 29880,
+      "retained_extract_file": "src/data/serbia/raw/03010601IND01.extract.json",
+      "recorded_upstream_retrieval": "2026-11-13T19:30:36.358Z",
+      "source_row_retrieval": null,
+      "upstream_response_digest_independently_recomputed": false
+    },
+    "lfs_unemployment_quarterly": {
+      "dataset": "240003010102IND03",
+      "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003010102IND03/3/json",
+      "dimensions": {
+        "IDPol": "0",
+        "IDStarGrupa": "15-74"
+      },
+      "original_unit_code": "PC",
+      "source_unit_labels": [
+        "%"
+      ],
+      "unit": "%",
+      "native_indicator": [
+        "Unemployment rates"
+      ],
+      "selected_rows": 62,
+      "first": "2011-Q1",
+      "last": "2026-Q2",
+      "missing_values": 0,
+      "mismatched_rows": 0,
+      "statuses": {
+        "Normal value": 10,
+        "Revised value": 52
+      },
+      "sha256": {
+        "data": "970a79c0a6f7693561dd05f8cba9c3a4a14eaca551983355b4f9dab8dd5bc204",
+        "sources": "df7b9c82eefb75487a90e23b5d32fe6beff570f3eba43e9d80444c490d7267c9",
+        "archive": "172532245edb5b508bdde930695c50461642b82b00542839ec6edb64351ba0cd"
+      },
+      "retained_extract_sha256": "10fc4b8effe19ad3837024adb71ff0875f12ee01648731e6051e6e9bb19b673c",
+      "recorded_upstream_sha256": "65ec122c69fd125ee930fa3a3a5bdd8d2d7fce353e0e886cbec6289c0f5c8a25",
+      "recorded_upstream_bytes": 435615,
+      "recorded_upstream_records": 1302,
+      "retained_extract_file": "src/data/serbia/raw/240003010102IND03.extract.json",
+      "recorded_upstream_retrieval": "2026-11-13T19:31:09.000Z",
+      "source_row_retrieval": null,
+      "upstream_response_digest_independently_recomputed": false
+    },
+    "cpi_annual_index": {
+      "dataset": "03010601IND03",
+      "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND03/3/json",
+      "dimensions": {
+        "IDCOICOP": "0000"
+      },
+      "original_unit_code": "I_MTHPPYR",
+      "source_unit_labels": [
+        "index, same month of previous year = 100"
+      ],
+      "unit": "index, same month previous year = 100",
+      "native_indicator": [
+        "Annual indices, same month of the previous year = 100 (m/m-12)."
+      ],
+      "selected_rows": 228,
+      "first": "2007-01",
+      "last": "2025-12",
+      "missing_values": 0,
+      "mismatched_rows": 0,
+      "statuses": {
+        "Normal value": 228
+      },
+      "sha256": {
+        "data": "760bed4e9e0b894627ea0997792b3296864af8895d105a2795887e218db873d1",
+        "sources": "ce4cb36c5597a1ae84f0c2fa6be42c02057347e1e372e72888aaa205151d91b0",
+        "archive": "b2acc019dd340413c90af17b905256cc4ae4f7c2606e883a8d886449bc4ea302"
+      },
+      "retained_extract_sha256": "783cf924cca1d4e2373d636f583a4b9c03e22bf99b2fb6021fd37f1124e7c936",
+      "recorded_upstream_sha256": "a0fb04c3037df9f4fdcda34836db48bee22c69e3eb78c4db0e32f767887c5f93",
+      "recorded_upstream_bytes": 12381968,
+      "recorded_upstream_records": 29978,
+      "retained_extract_file": "src/data/serbia/raw/03010601IND03.extract.json",
+      "recorded_upstream_retrieval": "2026-11-13T19:31:01.945Z",
+      "source_row_retrieval": null,
+      "upstream_response_digest_independently_recomputed": false
+    },
+    "retail_trade_volume_sa": {
+      "dataset": "210105IND02",
+      "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/210105IND02/3/json",
+      "dimensions": {
+        "IDKD08STS": "47",
+        "IDDesezoniranjeVS": "Y"
+      },
+      "original_unit_code": "INX",
+      "source_unit_labels": [
+        "index"
+      ],
+      "unit": "index 2021=100 (constant prices, SA)",
+      "native_indicator": [
+        "Monthly indices of retail trade turnover (excluding VAT) at constant prices, by activities (Ø 2021 = 100)"
+      ],
+      "selected_rows": 321,
+      "first": "2000-01",
+      "last": "2026-09",
+      "missing_values": 0,
+      "mismatched_rows": 0,
+      "statuses": {
+        "Normal value": 318,
+        "Provisional value": 3
+      },
+      "sha256": {
+        "data": "812bc785be91e07cb20f18d308e11dcbded3d0261586bffab975c850eaf72fe3",
+        "sources": "ab130e992879869a0ad9b27262e668d19e8a554bae9d740452e61be186f89dba",
+        "archive": "b25b710f03e53b907b7098560183a99f2fe3deadf3245f26ee7f9749e6d5bae6"
+      },
+      "retained_extract_sha256": "a06d94b55ab90fcc86d688c3aeedde02cb2b1c9c4cc5a387388430475edbab6d",
+      "recorded_upstream_sha256": "5495f234b4850f640f09c4719076a89af7b4118ae66d62f6735f3b4cd4b0ba1d",
+      "recorded_upstream_bytes": 2544641,
+      "recorded_upstream_records": 4815,
+      "retained_extract_file": "src/data/serbia/raw/210105IND02.extract.json",
+      "recorded_upstream_retrieval": "2026-11-13T19:31:21.167Z",
+      "source_row_retrieval": null,
+      "upstream_response_digest_independently_recomputed": false
+    }
+  },
+  "eurostat": {
+    "retained_response_sha256": "4a2dbd260ac3b96351c153e8b2f6f340ab00ed4712c3ee6141a03ed8fc49ccfb",
+    "retained_file": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+    "source": "ESTAT",
+    "dataset": "PRC_HICP_MINR",
+    "acquisition_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&lang=en&sinceTimePeriod=1999-01&unit=RCH_A&coicop18=TOTAL&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR",
+    "dimensions": {
+      "geo": "HU",
+      "freq": "M",
+      "unit": "RCH_A",
+      "coicop18": "TOTAL"
+    },
+    "jsonstat_order": [
+      "freq",
+      "unit",
+      "coicop18",
+      "geo",
+      "time"
+    ],
+    "jsonstat_sizes": [
+      1,
+      1,
+      1,
+      9,
+      332
+    ],
+    "recorded_retrieval": "2026-09-30T08:10:48.003Z",
+    "raw_dataset_updated_at": "2026-09-17T11:00:00+0200",
+    "canonical_update_dates": [
+      "2026-10-19"
+    ],
+    "source_row": {
+      "source_id": "source-1",
+      "institution": "Eurostat",
+      "dataset": "prc_hicp_minr",
+      "source_url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table",
+      "source_code": "prc_hicp_minr:{\"coicop18\":\"TOTAL\",\"unit\":\"RCH_A\"}",
+      "unit": "RCH_A",
+      "definition": "yoy_rate",
+      "status": "official",
+      "source_layer": "formal_observation",
+      "retrieved_at": null,
+      "updated_at": null
+    },
+    "normalized_unit": "RCH_A",
+    "source_unit": "Annual rate of change",
+    "selected_values": [
+      {
+        "period": "2020-01",
+        "flat_index": 1248,
+        "value": 4.7,
+        "upstream_status": null
+      },
+      {
+        "period": "2020-02",
+        "flat_index": 1249,
+        "value": 4.4,
+        "upstream_status": null
+      },
+      {
+        "period": "2020-03",
+        "flat_index": 1250,
+        "value": 3.9,
+        "upstream_status": null
+      },
+      {
+        "period": "2020-04",
+        "flat_index": 1251,
+        "value": 2.5,
+        "upstream_status": null
+      },
+      {
+        "period": "2020-05",
+        "flat_index": 1252,
+        "value": 2.2,
+        "upstream_status": null
+      },
+      {
+        "period": "2020-06",
+        "flat_index": 1253,
+        "value": 2.9,
+        "upstream_status": null
+      },
+      {
+        "period": "2020-07",
+        "flat_index": 1254,
+        "value": 3.9,
+        "upstream_status": null
+      },
+      {
+        "period": "2020-08",
+        "flat_index": 1255,
+        "value": 4.0,
+        "upstream_status": null
+      },
+      {
+        "period": "2020-09",
+        "flat_index": 1256,
+        "value": 3.5,
+        "upstream_status": null
+      },
+      {
+        "period": "2020-10",
+        "flat_index": 1257,
+        "value": 3.0,
+        "upstream_status": null
+      },
+      {
+        "period": "2020-11",
+        "flat_index": 1258,
+        "value": 2.8,
+        "upstream_status": null
+      },
+      {
+        "period": "2020-12",
+        "flat_index": 1259,
+        "value": 2.8,
+        "upstream_status": null
+      }
+    ],
+    "raw_status_member_present": false,
+    "upstream_flagged_rows": 0,
+    "missing_values": 0,
+    "mismatched_rows": 0,
+    "data_csv_sha256": "633544d1d1d3d772667d5ff695b4c80c251b1c49783cfa43e853f3cda3b9a463",
+    "sources_csv_sha256": "1bd9903472df2dd79f8e3dfa3a1a5cd4a08f445c13184dc0957f663c1f892285",
+    "historical_capture_proven": false
+  }
+}
