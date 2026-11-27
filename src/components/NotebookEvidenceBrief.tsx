@@ -14,6 +14,7 @@ import {
 import { buildReportCitationBundle } from "@/lib/notebookCitations";
 import { buildZip } from "@/lib/clientZip";
 import { EXTERNAL_SOURCE_REL } from "@/lib/safeNavigation";
+import { ResearchPackageComposer } from "./ResearchPackageComposer";
 
 function triggerDownload(content: BlobPart, mime: string, filename: string) {
   const url = URL.createObjectURL(new Blob([content], { type: mime }));
@@ -27,6 +28,7 @@ function triggerDownload(content: BlobPart, mime: string, filename: string) {
 export function NotebookEvidenceBrief({ projectId, notebook, locale, disabled }: { projectId: string; notebook: ResearchNotebook; locale: Locale; disabled: boolean }) {
   const m = notebookBriefMessages[locale], labels = notebookMessages[locale];
   const [excluded, setExcluded] = useState<string[]>([]), [order, setOrder] = useState<string[]>([]);
+  const [deselectGen, setDeselectGen] = useState<Record<string, number>>({});
   const [template, setTemplate] = useState<BriefTemplate>("standard");
   const [typeFilter, setTypeFilter] = useState<"all" | EvidenceType>("all");
   const [countryFilter, setCountryFilter] = useState<string>("all");
@@ -195,7 +197,7 @@ export function NotebookEvidenceBrief({ projectId, notebook, locale, disabled }:
     }
   };
 
-  return <details className="mt-6 rounded-xl border border-[var(--line)] p-4" data-notebook-brief onToggle={event => { if (event.currentTarget.open) setReportTime(new Date().toISOString()); }}>
+  return <><details className="mt-6 rounded-xl border border-[var(--line)] p-4" data-notebook-brief onToggle={event => { if (event.currentTarget.open) setReportTime(new Date().toISOString()); }}>
     <summary className="cursor-pointer text-sm font-semibold">{m.open}</summary>
     <p className="mt-4 text-sm leading-7">{m.selectionNote}</p>
     <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" data-report-studio-controls>
@@ -245,7 +247,7 @@ export function NotebookEvidenceBrief({ projectId, notebook, locale, disabled }:
       <legend className="font-semibold">{m.select}</legend>
       <div className="mt-3 flex flex-wrap items-center gap-4 text-sm" data-report-selection-counts>
         <button type="button" onClick={() => { setExcluded([]); setStatus("idle"); }}>{m.all}</button>
-        <button type="button" onClick={() => { setExcluded(ids); setStatus("idle"); }}>{m.none}</button>
+        <button type="button" onClick={() => { setExcluded(ids); setDeselectGen(prev => { const next = { ...prev }; for (const id of ids) next[id] = (next[id] ?? 0) + 1; return next; }); setStatus("idle"); }}>{m.none}</button>
         <span aria-live="polite">{m.selected}: {selected.length} / {ids.length} · {m.visibleCount}: {visibleIds.length} / {ids.length}</span>
       </div>
       {hiddenSelectedCount > 0 ? <p className="mt-2 text-xs text-[var(--muted)]" role="status" data-hidden-selected-count>{hiddenSelectedCount} {m.hiddenSelectedNote}</p> : null}
@@ -253,7 +255,7 @@ export function NotebookEvidenceBrief({ projectId, notebook, locale, disabled }:
       <ol className="mt-4 space-y-3">{visibleIds.map((id, visibleIndex) => {
         const item = notebook.items.find(entry => entry.id === id)!, title = item.labels?.[locale] || item.title;
         return <li key={id} className="flex min-w-0 flex-wrap items-start gap-3 rounded-lg border border-[var(--line)] p-3" data-brief-choice={id}>
-          <label className="flex min-w-0 flex-1 items-start gap-2 break-words text-sm"><input type="checkbox" className="mt-1 shrink-0" checked={!excluded.includes(id)} onChange={e => { setExcluded(current => e.target.checked ? current.filter(value => value !== id) : [...current, id]); setStatus("idle"); }} /><span className="min-w-0 break-words">{title}</span></label>
+          <label className="flex min-w-0 flex-1 items-start gap-2 break-words text-sm"><input type="checkbox" className="mt-1 shrink-0" checked={!excluded.includes(id)} onChange={e => { setExcluded(current => e.target.checked ? current.filter(value => value !== id) : [...current, id]); if (!e.target.checked) setDeselectGen(prev => ({ ...prev, [id]: (prev[id] ?? 0) + 1 })); setStatus("idle"); }} /><span className="min-w-0 break-words">{title}</span></label>
           <div className="flex gap-3 text-xs"><button type="button" aria-label={`${labels.up}: ${title}`} disabled={visibleIndex === 0} onClick={() => move(id, -1)}>{labels.up}</button><button type="button" aria-label={`${labels.down}: ${title}`} disabled={visibleIndex === visibleIds.length - 1} onClick={() => move(id, 1)}>{labels.down}</button></div>
         </li>;
       })}</ol>
@@ -277,5 +279,16 @@ export function NotebookEvidenceBrief({ projectId, notebook, locale, disabled }:
         {section.fields.length ? <dl className="mt-3 grid min-w-0 gap-3 text-sm">{section.fields.map((field, i) => <div key={i} className="min-w-0"><dt className="font-semibold">{field.label}</dt><dd className="mt-1 whitespace-pre-wrap break-words [overflow-wrap:anywhere]">{field.href ? <a href={field.href} rel={EXTERNAL_SOURCE_REL} className="text-[var(--accent)] underline">{field.value}</a> : field.value}</dd></div>)}</dl> : null}
       </section>)}
     </section> : null}
-  </details>;
+  </details>
+  <ResearchPackageComposer
+    projectId={projectId}
+    notebook={notebook}
+    selectedIds={selected}
+    deselectGen={deselectGen}
+    locale={locale}
+    template={template}
+    reportTime={reportTime}
+    ensureTimestamp={ensureTimestamp}
+    disabled={disabled}
+  /></>;
 }
