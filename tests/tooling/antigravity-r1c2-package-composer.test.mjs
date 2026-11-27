@@ -136,3 +136,29 @@ test('R1-C2 computeReportStateKey invalidates on every exported Notebook, select
   assert.notEqual(msg.computeReportStateKey({ ...baseParams, notebook: { ...book, platform_version: 'v2.1' } }), baseKey);
   assert.notEqual(msg.computeReportStateKey({ ...baseParams, attachments: [{ evidenceId: id, sha256: 'a'.repeat(64), expectedSha256: 'a'.repeat(64) }] }), baseKey);
 });
+
+test('R1-C2 computeReportStateKey independently invalidates when notebook.workspace_context changes', () => {
+  const collected = '2026-11-26T12:00:00.000Z';
+  const book = n.emptyNotebook('en', 'v2.0', collected);
+  const baseParams = {
+    projectId: 'proj-1',
+    notebook: book,
+    selectedIds: [],
+    attachments: [],
+    locale: 'en',
+    template: 'standard',
+    reportTime: '2026-11-27T10:00:00.000Z',
+  };
+  const keyUndefined = msg.computeReportStateKey(baseParams);
+  const keyMacro = msg.computeReportStateKey({
+    ...baseParams,
+    notebook: { ...book, workspace_context: 'macro-drivers' },
+  });
+  const keySpatial = msg.computeReportStateKey({
+    ...baseParams,
+    notebook: { ...book, workspace_context: 'regional-facts' },
+  });
+  assert.notEqual(keyMacro, keyUndefined);
+  assert.notEqual(keySpatial, keyMacro);
+  assert.notEqual(keySpatial, keyUndefined);
+});

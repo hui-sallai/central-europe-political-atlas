@@ -493,17 +493,54 @@ test.describe("Phase II R1-C2 — Research Package Composer", () => {
 
   test("Pending-operation race conditions & permanent invalidation (Scenarios A–M)", async ({ page }, info) => {
     test.skip(info.project.name !== "desktop-1440", "Async race harness runs under desktop-1440");
-    const { notebook, sorsBytes } = sorsCpiNotebookFixture();
+    const { notebook: baseNotebook, sorsBytes } = sorsCpiNotebookFixture();
+    // Add a second evidence item so Scenario B can toggle selected evidence while keeping a non-empty selection
+    const notebook = addNotebookEvidence(
+      baseNotebook,
+      {
+        type: "method",
+        title: "Blocked VAR dynamic response",
+        url: "https://hy-central-europe-analysis.org/models/",
+        canonical_ids: ["var"],
+        countries: [],
+        periods: [],
+        sources: [],
+        layer: "method",
+        warnings: ["Formal VAR dynamic responses remain blocked."],
+        metadata: { state: "blocked" },
+      },
+      "v2.0",
+      SORS_FIXTURE_TIME,
+    );
     const raw = serializeNotebook(notebook);
 
-    // Deterministic test-only Web Crypto digest gate (zero production hooks)
+    // Deterministic test-only Web Crypto digest gate supporting per-operation batch stashing (zero production hooks)
     await page.addInitScript(({ key, raw }) => {
       localStorage.setItem(key, raw);
       const origDigest = crypto.subtle.digest.bind(crypto.subtle);
-      const queue: Array<{ resolve: () => void; reject: (err: Error) => void }> = [];
+      type Entry = { resolve: () => void; reject: (err: Error) => void };
+      const queue: Entry[] = [];
+      const batches = new Map<number, Entry[]>();
+      let nextBatchId = 1;
       let paused = false;
       (window as unknown as Record<string, unknown>).__digestGate = {
         pause: () => { paused = true; },
+        stashAndUnpause: () => {
+          const id = nextBatchId++;
+          batches.set(id, queue.splice(0, queue.length));
+          paused = false;
+          return id;
+        },
+        resolveBatch: (id: number) => {
+          const entries = batches.get(id) ?? [];
+          batches.delete(id);
+          while (entries.length) entries.shift()!.resolve();
+        },
+        rejectBatch: (id: number) => {
+          const entries = batches.get(id) ?? [];
+          batches.delete(id);
+          while (entries.length) entries.shift()!.reject(new Error("Simulated late digest failure"));
+        },
         resumeAll: () => { paused = false; while (queue.length) queue.shift()!.resolve(); },
         rejectAll: () => { paused = false; while (queue.length) queue.shift()!.reject(new Error("Simulated late digest failure")); },
         pendingCount: () => queue.length,
@@ -515,6 +552,25 @@ test.describe("Phase II R1-C2 — Research Package Composer", () => {
         return origDigest(alg, data);
       }) as typeof crypto.subtle.digest;
     }, { key: NOTEBOOK_STORAGE_KEY, raw });
+
+    type DigestGateApi = {
+      pause: () => void;
+      stashAndUnpause: () => number;
+      resolveBatch: (id: number) => void;
+      rejectBatch: (id: number) => void;
+      resumeAll: () => void;
+      rejectAll: () => void;
+      pendingCount: () => number;
+    };
+    const gate = () => page.evaluate(() => {
+      const g = (window as unknown as { __digestGate: DigestGateApi }).__digestGate;
+      return g.pendingCount();
+    });
+    const pauseGate = () => page.evaluate(() => (window as unknown as { __digestGate: DigestGateApi }).__digestGate.pause());
+    const stashAndUnpause = () => page.evaluate(() => (window as unknown as { __digestGate: DigestGateApi }).__digestGate.stashAndUnpause());
+    const resolveBatch = (id: number) => page.evaluate(batchId => (window as unknown as { __digestGate: DigestGateApi }).__digestGate.resolveBatch(batchId), id);
+    const rejectBatch = (id: number) => page.evaluate(batchId => (window as unknown as { __digestGate: DigestGateApi }).__digestGate.rejectBatch(batchId), id);
+    const resumeAll = () => page.evaluate(() => (window as unknown as { __digestGate: DigestGateApi }).__digestGate.resumeAll());
 
     await page.goto("/en/notebook/", { waitUntil: "networkidle" });
     const brief = page.locator("[data-notebook-brief]");
@@ -554,44 +610,118 @@ test.describe("Phase II R1-C2 — Research Package Composer", () => {
     await noteBox.fill("");
     await expect(composer.locator("[data-prepared-attachment]")).toHaveCount(0);
 
-    // Scenarios A, B, C, H, I: Pending build invalidated by template change -> busy recovers -> new build succeeds -> old build completing/rejecting late never overwrites!
-    await page.evaluate(() => (window as unknown as { __digestGate: { pause: () => void } }).__digestGate.pause());
+    // Scenario A + H: Change template during pending build #1, let newer build #2 COMPLETE first, then resolve older build #1 late -> newer preview & download MUST survive intact!
+    await pauseGate();
     await composer.locator("[data-build-package]").click();
     await expect(composer.locator("[data-build-package]")).toBeDisabled();
-    await expect.poll(() => page.evaluate(() => (window as unknown as { __digestGate: { pendingCount: () => number } }).__digestGate.pendingCount())).toBeGreaterThan(0);
+    await expect.poll(gate).toBeGreaterThan(0);
+    const staleBuildBatchH = await stashAndUnpause();
 
-    // Change template while build #1 is pending -> build button MUST recover immediately!
-    await brief.locator("[data-report-template]").selectOption("methodological_audit");
+    await brief.locator("[data-report-template]").selectOption("comparative_note");
     await expect(composer.locator("[data-build-package]")).toBeEnabled();
-
-    // Release old build #1 with rejection (Scenario I) -> must NOT show build error!
-    await page.evaluate(() => (window as unknown as { __digestGate: { rejectAll: () => void } }).__digestGate.rejectAll());
-    await expect(composer.locator("[data-package-build-error]")).toHaveCount(0);
-
-    // Now build #2 succeeds cleanly on the new template!
     await composer.locator("[data-build-package]").click();
     await expect(composer.locator("[data-package-preview]")).toBeVisible();
+    const newerShaH = (await composer.locator("[data-package-sha256]").innerText()).trim();
+    expect(newerShaH).toMatch(/^[0-9a-f]{64}$/);
 
-    // Scenario D & E: Pending inspection while evidence is deselected & reselected (or note edited & restored) -> late completion discarded!
-    await page.evaluate(() => (window as unknown as { __digestGate: { pause: () => void } }).__digestGate.pause());
-    await composer.locator("[data-attachment-file-input]").setInputFiles({ name: "sors-race.zip", mimeType: "application/zip", buffer: Buffer.from(sorsBytes) });
-    await expect.poll(() => page.evaluate(() => (window as unknown as { __digestGate: { pendingCount: () => number } }).__digestGate.pendingCount())).toBeGreaterThan(0);
-    const checkbox = brief.locator("[data-brief-choice] input[type='checkbox']").first();
-    await checkbox.uncheck();
-    await checkbox.check();
-    await page.evaluate(() => (window as unknown as { __digestGate: { resumeAll: () => void } }).__digestGate.resumeAll());
+    // Release older build #1 to resolve AFTER newer build #2 already completed
+    await resolveBatch(staleBuildBatchH);
+    await page.waitForTimeout(100);
+    await expect(composer.locator("[data-package-preview]")).toBeVisible();
+    await expect(composer.locator("[data-package-sha256]")).toHaveText(newerShaH);
+    await expect(composer.locator("[data-package-build-error]")).toHaveCount(0);
+    await expect(composer.locator("[data-build-package]")).toBeEnabled();
+    const [dlH] = await Promise.all([page.waitForEvent("download"), composer.locator("[data-download-package]").click()]);
+    expect(sha256(new Uint8Array(fs.readFileSync((await dlH.path())!)))).toBe(newerShaH);
+
+    // Scenario I: Change template during pending build #1, let newer build #2 COMPLETE first, then REJECT older build #1 late -> newer preview & download MUST survive with zero build error!
+    await pauseGate();
+    await composer.locator("[data-build-package]").click();
+    await expect(composer.locator("[data-build-package]")).toBeDisabled();
+    await expect.poll(gate).toBeGreaterThan(0);
+    const staleBuildBatchI = await stashAndUnpause();
+
+    await brief.locator("[data-report-template]").selectOption("methodological_audit");
+    await expect(composer.locator("[data-build-package]")).toBeEnabled();
+    await composer.locator("[data-build-package]").click();
+    await expect(composer.locator("[data-package-preview]")).toBeVisible();
+    const newerShaI = (await composer.locator("[data-package-sha256]").innerText()).trim();
+    expect(newerShaI).not.toBe(newerShaH);
+
+    // Release older build #1 with rejection AFTER newer build #2 already completed
+    await rejectBatch(staleBuildBatchI);
+    await page.waitForTimeout(100);
+    await expect(composer.locator("[data-package-build-error]")).toHaveCount(0);
+    await expect(composer.locator("[data-package-preview]")).toBeVisible();
+    await expect(composer.locator("[data-package-sha256]")).toHaveText(newerShaI);
+    await expect(composer.locator("[data-build-package]")).toBeEnabled();
+    const [dlI] = await Promise.all([page.waitForEvent("download"), composer.locator("[data-download-package]").click()]);
+    expect(sha256(new Uint8Array(fs.readFileSync((await dlI.path())!)))).toBe(newerShaI);
+
+    // Scenario B: Change selected evidence during a pending build -> busy recovers, stale build discarded, fresh build reflects new selection
+    await pauseGate();
+    await composer.locator("[data-build-package]").click();
+    await expect(composer.locator("[data-build-package]")).toBeDisabled();
+    await expect.poll(gate).toBeGreaterThan(0);
+    const staleBuildBatchB = await stashAndUnpause();
+
+    const secondCheckbox = brief.locator("[data-brief-choice] input[type='checkbox']").nth(1);
+    await secondCheckbox.uncheck();
+    await expect(composer.locator("[data-build-package]")).toBeEnabled();
+    await resolveBatch(staleBuildBatchB);
+    await page.waitForTimeout(100);
+    await expect(composer.locator("[data-package-preview]")).toHaveCount(0);
+
+    // Fresh build with 1 selected item succeeds
+    await composer.locator("[data-build-package]").click();
+    await expect(composer.locator("[data-package-preview]")).toBeVisible();
+    await expect(composer.locator("[data-count-unbound]")).toHaveText("1");
+    await secondCheckbox.check();
+
+    // Scenario C: Edit an exported project field (Research question) during a pending build -> busy recovers, stale build discarded
+    await pauseGate();
+    await composer.locator("[data-build-package]").click();
+    await expect(composer.locator("[data-build-package]")).toBeDisabled();
+    await expect.poll(gate).toBeGreaterThan(0);
+    const staleBuildBatchC = await stashAndUnpause();
+
+    const questionBox = page.locator('section[aria-labelledby="notebook-question"] textarea');
+    await questionBox.fill("Updated research question mid-build");
+    await expect(composer.locator("[data-build-package]")).toBeEnabled();
+    await resolveBatch(staleBuildBatchC);
+    await page.waitForTimeout(100);
+    await expect(composer.locator("[data-package-preview]")).toHaveCount(0);
+
+    // Scenario D: Pending inspection while evidence is deselected & reselected -> late completion permanently discarded
+    await pauseGate();
+    await composer.locator("[data-attachment-file-input]").setInputFiles({ name: "sors-race-d.zip", mimeType: "application/zip", buffer: Buffer.from(sorsBytes) });
+    await expect.poll(gate).toBeGreaterThan(0);
+    const firstCheckbox = brief.locator("[data-brief-choice] input[type='checkbox']").first();
+    await firstCheckbox.uncheck();
+    await firstCheckbox.check();
+    await resumeAll();
+    await expect(composer.locator("[data-attachment-file-input]")).toBeEnabled();
+    await expect(composer.locator("[data-prepared-attachment]")).toHaveCount(0);
+
+    // Scenario E: Edit and restore bound evidence metadata (user note) during pending inspection -> late completion permanently discarded
+    await pauseGate();
+    await composer.locator("[data-attachment-file-input]").setInputFiles({ name: "sors-race-e.zip", mimeType: "application/zip", buffer: Buffer.from(sorsBytes) });
+    await expect.poll(gate).toBeGreaterThan(0);
+    await noteBox.fill("Edited mid-inspection");
+    await noteBox.fill("");
+    await resumeAll();
     await expect(composer.locator("[data-attachment-file-input]")).toBeEnabled();
     await expect(composer.locator("[data-prepared-attachment]")).toHaveCount(0);
 
     // Scenario G: Pending build while attachment removed -> old build discarded, busy recovers
     await composer.locator("[data-attachment-file-input]").setInputFiles({ name: "sors-g.zip", mimeType: "application/zip", buffer: Buffer.from(sorsBytes) });
     await expect(composer.locator("[data-prepared-attachment]")).toHaveCount(1);
-    await page.evaluate(() => (window as unknown as { __digestGate: { pause: () => void } }).__digestGate.pause());
+    await pauseGate();
     await composer.locator("[data-build-package]").click();
-    await expect.poll(() => page.evaluate(() => (window as unknown as { __digestGate: { pendingCount: () => number } }).__digestGate.pendingCount())).toBeGreaterThan(0);
+    await expect.poll(gate).toBeGreaterThan(0);
     await composer.locator("[data-remove-attachment]").first().click();
     await expect(composer.locator("[data-build-package]")).toBeEnabled();
-    await page.evaluate(() => (window as unknown as { __digestGate: { resumeAll: () => void } }).__digestGate.resumeAll());
+    await resumeAll();
     await expect(composer.locator("[data-package-preview]")).toHaveCount(0);
 
     // Scenario F: Pending build while switching projects -> zero cross-project leak
@@ -601,11 +731,11 @@ test.describe("Phase II R1-C2 — Research Package Composer", () => {
     const targetProjId = await page.getByLabel("Choose research project", { exact: true }).inputValue();
     await page.getByLabel("Choose research project", { exact: true }).selectOption("legacy");
     await composer.locator("> summary").click();
-    await page.evaluate(() => (window as unknown as { __digestGate: { pause: () => void } }).__digestGate.pause());
+    await pauseGate();
     await composer.locator("[data-build-package]").click();
-    await expect.poll(() => page.evaluate(() => (window as unknown as { __digestGate: { pendingCount: () => number } }).__digestGate.pendingCount())).toBeGreaterThan(0);
+    await expect.poll(gate).toBeGreaterThan(0);
     await page.getByLabel("Choose research project", { exact: true }).selectOption(targetProjId);
-    await page.evaluate(() => (window as unknown as { __digestGate: { resumeAll: () => void } }).__digestGate.resumeAll());
+    await resumeAll();
     await expect(page.locator("[data-package-preview]")).toHaveCount(0);
   });
 });

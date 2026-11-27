@@ -53,6 +53,7 @@ export function computeReportStateKey(params: {
     notebook_id: notebook.notebook_id,
     schema: notebook.schema,
     notebook_locale: notebook.locale,
+    workspace_context: notebook.workspace_context ?? null,
     created_at: notebook.created_at,
     updated_at: notebook.updated_at,
     platform_version: notebook.platform_version,
