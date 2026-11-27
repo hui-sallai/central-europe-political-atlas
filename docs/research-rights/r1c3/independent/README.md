@@ -1,6 +1,6 @@
 # R1-C3 independent acceptance
 
-Candidate branch `research/codex-r1c3-exact-artifact-admission` descends from the two original research commits ending at `f46e03500987aff2a073027f6624c0f6599e71b5`. Their complete diff against `9cb65307a9789744580e687052504fd4d8d02d35` adds twelve documents. That baseline contains the accepted C2 commit `6fda69a2411314d37637b0a770a1558ee9bc1240`. A fresh production manifest and remote Git references both identified the baseline, Pages run 46027169165 and public research ZIP SHA-256 `38f7da8513d3dcee205f382ddf28c86180c9681ba4eb6b8ff98082a7e6dd5a70`. The candidate is local and awaits governance review.
+Candidate branch `research/codex-r1c3-exact-artifact-admission` descends from the two original research commits ending at `f46e03500987aff2a073027f6624c0f6599e71b5`. Their complete diff against `9cb65307a9789744580e687052504fd4d8d02d35` adds twelve documents. That baseline contains the accepted C2 commit `6fda69a2411314d37637b0a770a1558ee9bc1240`. A fresh production manifest and remote Git references both identified the baseline, Pages run 46027169165 and public research ZIP SHA-256 `38f7da8513d3dcee205f382ddf28c86180c9681ba4eb6b8ff98082a7e6dd5a70`. On 2026-11-28 the owner approved the two exact candidate hashes for draft PR review.
 
 | Producer and decision | Exact observation scope | Package disposition with a native Notebook selection |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ A wider change to global attribution requires a separately reviewed versioned sn
 
 Polish annual HICP still has unresolved co-source wording. BIS policy rates and derived FX, other SORS extracts and regional population lack sufficient source-specific evidence. GDP comparisons and model references remain references. GISCO boundaries, figures and political attachments remain outside admission. Details and evidence needed are in the [original unresolved register](../blocked_and_unresolved.md).
 
-The [exact-hash amendment proposal](governance-proposal.json) awaits owner review. The active approval register is untouched. Frozen research exports, source data, the Composer, Notebook schemas and screenshots have no candidate diff.
+The [owner approval record](governance-proposal.json) lists both approved hashes. The UI governance register pins the presentation helper; the source-rights registry retains its separate approval. Frozen research exports, source data, the Composer, Notebook schemas and screenshots have no candidate diff.
 
 ## Validation for owner review
 
@@ -46,15 +46,16 @@ The [exact-hash amendment proposal](governance-proposal.json) awaits owner revie
 | i18n / SEO / UI regression | 2,898, 547 and 289 checks respectively. |
 | Legal/security / political-person safety | Full legal/security validation and political-person safety passed. |
 | Release QA | 88 routes, 174 exports, 5,102 internal links, 6 stable research URLs and 145 validation tests; zero golden or blocking failures. |
-| Source-closure checkpoint | Accepted input passed with 715 approved exact paths and 848 frozen files checked. Candidate is **blocked pending owner approval** of the changed `src/lib/researchPackageRights.ts` hash. The existing approval register remains active. |
+| Source-closure checkpoint | Accepted input passed with 715 approved exact paths and 848 frozen files checked. The owner-approved candidate passed the same checkpoint with 715 approved paths, 848 frozen files and 48 gate checks. The checkpoint reported 10 absent private evidence files. |
 | Old snapshot and source compatibility | All ten original dossier exports were structurally accepted. The earlier fixed SORS package digest remains `e60ea7d4532b911164c0c6e4674a4778b8b608605954ccfced233a51a06a9463`. |
 
 The repository secret scanner passed on all 2,405 tracked and publish-candidate files with this change staged. The candidate branch preserves the dossier commits and the two reviewed source changes; no raw publisher page, snapshot archive, unapproved payload or private notes belong in Git.
 
 ### File scope relative to the dossier
 
+- Governance registration: `docs/legal-security/ui_governance_amendments.json`.
 - Runtime and registry: `src/lib/researchPackageRights.ts`; `docs/legal-security/source_rights_registry.json`.
 - Automated regressions: `tests/tooling/r1c3-exact-artifacts.test.mjs`; `tests/ui/r1c3-exact-artifact-admission.spec.ts`.
 - Independent evidence under this directory: `README.md`, `admission-decisions.json`, `source-review.md`, `row-verification.json`, `verify_artifact_rows.py`, `prior-snapshots.json`, `verify_prior_exports.mjs`, `production-snapshots.json`, `browser-downloads.json`, `governance-proposal.json`.
 
-**Recommendation — READY FOR OWNER GOVERNANCE REVIEW** for the two SORS admissions. The Hungarian example demonstrates the current reference-only outcome. A release requires separate owner authorization and a successful source-closure checkpoint.
+**Owner decision (2026-11-28)**. The two SORS admissions are approved at the recorded hashes for draft PR review. The Hungarian HICP example remains reference-only. Merge and deployment require separate authorization.

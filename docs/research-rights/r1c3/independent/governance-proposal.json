@@ -1,9 +1,9 @@
 {
   "amendment_id": "r1c3-exact-sors-artifact-admission",
-  "status": "proposed_pending_owner_review",
+  "status": "owner_approved",
   "baseline": "9cb65307a9789744580e687052504fd4d8d02d35",
   "dossier": "f46e03500987aff2a073027f6624c0f6599e71b5",
-  "applied": false,
+  "applied": true,
   "files": [
     {
       "path": "src/lib/researchPackageRights.ts",
@@ -18,5 +18,7 @@
       "scope": "SORS review evidence only. All permission, restriction, source URL, attribution and enforcement fields stay as recorded; all other registry entries are byte-identical."
     }
   ],
-  "approval_process": "Owner review of the exact paths and candidate bytes. The active amendment register has not been edited. Only the helper already belongs to the 715 unique UI exception paths; this proposal does not add a UI exception for the legal register."
+  "approval_process": "Both exact candidate hashes approved. The UI amendment registers the existing presentation helper. The source-rights register hash is approved in this record, outside the UI exception list. Hungary HICP remains reference-only.",
+  "reviewed_candidate": "9916b027f82bd9f7f2877e9fb4f108333407faa7",
+  "approved_by": "Owner's explicit R1-C3 approval of both exact file hashes on 2026-11-28 (Asia/Shanghai). Scope covers the candidate branch and draft PR."
 }
