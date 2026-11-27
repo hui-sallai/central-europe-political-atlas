@@ -11,6 +11,7 @@ import type {
 import {
   PACKAGE_LIMITS,
   classifyComposerError,
+  computeReportStateKey,
   evidenceFingerprint,
   formatByteLength,
   normalizeExpectedDigest,
@@ -30,6 +31,13 @@ type PreparedAttachment = {
   deselectGen: number;
   expectedSha256?: string;
 };
+
+type BuildPhase =
+  | { status: "idle" }
+  | { status: "building"; opId: number; stateKey: string }
+  | { status: "built"; stateKey: string; result: BuiltPackage }
+  | { status: "error"; stateKey: string; message: string }
+  | { status: "stale" };
 
 type Props = {
   projectId: string;
@@ -64,26 +72,28 @@ function ResearchPackageComposerInner({
   const [attachments, setAttachments] = useState<PreparedAttachment[]>([]);
   const [targetEvidenceId, setTargetEvidenceId] = useState<string>(selectedIds[0] ?? "");
   const [expectedAttachSha, setExpectedAttachSha] = useState("");
-  const [inspecting, setInspecting] = useState(false);
+  const [activeInspectOpId, setActiveInspectOpId] = useState<number | null>(null);
   const [inspectError, setInspectError] = useState<string | null>(null);
 
-  const [building, setBuilding] = useState(false);
-  const [buildError, setBuildError] = useState<string | null>(null);
-  const [builtState, setBuiltState] = useState<{ result: BuiltPackage; stateKey: string } | null>(null);
+  const [buildPhase, setBuildPhase] = useState<BuildPhase>({ status: "idle" });
   const [downloadStatus, setDownloadStatus] = useState<string>("");
   const [copyShaStatus, setCopyShaStatus] = useState<string>("");
 
   const [verifyExpectedSha, setVerifyExpectedSha] = useState("");
-  const [verifying, setVerifying] = useState(false);
+  const [activeVerifyOpId, setActiveVerifyOpId] = useState<number | null>(null);
   const [verifyError, setVerifyError] = useState<string | null>(null);
-  const [verifyResult, setVerifyResult] = useState<VerifiedPackage | null>(null);
-  const [verifyFilename, setVerifyFilename] = useState<string>("");
+  const [verifyResult, setVerifyResult] = useState<{
+    outcome: VerifiedPackage;
+    filename: string;
+    checkedExpectedSha: string | undefined;
+  } | null>(null);
 
   const inspectRevRef = useRef(0);
   const buildRevRef = useRef(0);
   const verifyRevRef = useRef(0);
   const downloadUrlRef = useRef<string | null>(null);
-  const latestStateRef = useRef({ projectId, notebook, selectedIds, deselectGen });
+  const prevFpMapRef = useRef<Map<string, string | null>>(new Map());
+  const evidenceEpochRef = useRef<Map<string, number>>(new Map());
 
   const revokeDownloadUrl = () => {
     if (downloadUrlRef.current) {
@@ -91,10 +101,6 @@ function ResearchPackageComposerInner({
       downloadUrlRef.current = null;
     }
   };
-
-  useEffect(() => {
-    latestStateRef.current = { projectId, notebook, selectedIds, deselectGen };
-  }, [projectId, notebook, selectedIds, deselectGen]);
 
   useEffect(() => () => {
     inspectRevRef.current += 1;
@@ -105,7 +111,15 @@ function ResearchPackageComposerInner({
 
   const effectiveTargetId = selectedIds.includes(targetEvidenceId) ? targetEvidenceId : (selectedIds[0] ?? "");
 
-  // Purely derive currently valid handles: deselected, reselected-after-drop, or modified evidence/sources drop immediately.
+  // Current fingerprints for all selected evidence items
+  const currentFpEntries = useMemo(
+    () =>
+      selectedIds.map(id => [id, evidenceFingerprint(projectId, notebook, id), deselectGen[id] ?? 0] as const),
+    [projectId, notebook, selectedIds, deselectGen],
+  );
+  const evidenceFpKey = useMemo(() => JSON.stringify(currentFpEntries), [currentFpEntries]);
+
+  // Purely derive currently valid handles on render (zero stale frame)
   const activeAttachments = useMemo(
     () =>
       attachments.filter(
@@ -117,41 +131,99 @@ function ResearchPackageComposerInner({
     [attachments, selectedIds, deselectGen, projectId, notebook],
   );
 
+  // Single authoritative report-state key covering all exported fields
   const reportStateKey = useMemo(
     () =>
-      JSON.stringify([
+      computeReportStateKey({
         projectId,
-        notebook.notebook_id,
-        selectedIds.map(id => [id, deselectGen[id] ?? 0, evidenceFingerprint(projectId, notebook, id)]),
-        activeAttachments.map(a => `${a.evidenceId}:${a.handle.sha256}`),
+        notebook,
+        selectedIds,
+        attachments: activeAttachments.map(a => ({
+          evidenceId: a.evidenceId,
+          sha256: a.handle.sha256,
+          expectedSha256: a.expectedSha256,
+        })),
         locale,
         template,
         reportTime,
-        notebook.title,
-        notebook.research_question,
-        notebook.user_notes,
-        notebook.methodology_warnings,
-      ]),
-    [
-      projectId,
-      notebook,
-      selectedIds,
-      deselectGen,
-      activeAttachments,
-      locale,
-      template,
-      reportTime,
-    ],
+      }),
+    [projectId, notebook, selectedIds, activeAttachments, locale, template, reportTime],
   );
 
-  // Side-effect-only invalidation of in-flight builds and old blob URLs whenever reportStateKey changes.
+  const latestStateRef = useRef({ projectId, notebook, selectedIds, deselectGen, reportStateKey });
   useEffect(() => {
-    buildRevRef.current += 1;
+    latestStateRef.current = { projectId, notebook, selectedIds, deselectGen, reportStateKey };
+  }, [projectId, notebook, selectedIds, deselectGen, reportStateKey]);
+
+  // Permanently prune invalid handles & advance per-evidence epochs (prevents A -> B -> A resurrection)
+  useEffect(() => {
+    const prevMap = prevFpMapRef.current;
+    const epochMap = evidenceEpochRef.current;
+    const nextMap = new Map<string, string | null>();
+    for (const [id, fp, dGen] of currentFpEntries) {
+      const composite = fp === null ? null : `${dGen}:${fp}`;
+      nextMap.set(id, composite);
+      if (prevMap.has(id) && prevMap.get(id) !== composite) {
+        epochMap.set(id, (epochMap.get(id) ?? 0) + 1);
+      }
+    }
+    for (const oldId of prevMap.keys()) {
+      if (!nextMap.has(oldId)) {
+        epochMap.set(oldId, (epochMap.get(oldId) ?? 0) + 1);
+      }
+    }
+    prevFpMapRef.current = nextMap;
+
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      setAttachments(prev => {
+        const pruned = prev.filter(
+          entry =>
+            selectedIds.includes(entry.evidenceId) &&
+            (deselectGen[entry.evidenceId] ?? 0) === entry.deselectGen &&
+            evidenceFingerprint(projectId, notebook, entry.evidenceId) === entry.evidenceSig,
+        );
+        return pruned.length === prev.length ? prev : pruned;
+      });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [evidenceFpKey, currentFpEntries, projectId, notebook, selectedIds, deselectGen]);
+
+  // Permanently discard outdated built packages & release bytes/blob URLs on any report-state change
+  useEffect(() => {
     revokeDownloadUrl();
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      setDownloadStatus("");
+      setCopyShaStatus("");
+      setBuildPhase(prev => {
+        if (prev.status === "built" && prev.stateKey !== reportStateKey) {
+          return { status: "stale" };
+        }
+        if (prev.status === "building" && prev.stateKey !== reportStateKey) {
+          return { status: "idle" };
+        }
+        if (prev.status === "error" && prev.stateKey !== reportStateKey) {
+          return { status: "idle" };
+        }
+        return prev;
+      });
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [reportStateKey]);
 
-  const builtPackage = builtState && builtState.stateKey === reportStateKey ? builtState.result : null;
-  const staleNotice = builtState !== null && builtState.stateKey !== reportStateKey;
+  const inspecting = activeInspectOpId !== null;
+  const building = buildPhase.status === "building" && buildPhase.stateKey === reportStateKey;
+  const builtPackage = buildPhase.status === "built" && buildPhase.stateKey === reportStateKey ? buildPhase.result : null;
+  const buildError = buildPhase.status === "error" && buildPhase.stateKey === reportStateKey ? buildPhase.message : null;
+  const staleNotice = buildPhase.status === "stale" || (buildPhase.status === "built" && buildPhase.stateKey !== reportStateKey);
+  const verifying = activeVerifyOpId !== null;
 
   const humanizeError = (err: unknown, prefix: string): string => {
     const { code, detail } = classifyComposerError(err);
@@ -181,24 +253,26 @@ function ResearchPackageComposerInner({
       return;
     }
 
-    const opRev = ++inspectRevRef.current;
+    const opId = ++inspectRevRef.current;
     const boundEvidenceId = effectiveTargetId;
     const boundSig = evidenceFingerprint(projectId, notebook, boundEvidenceId);
     const boundDeselectGen = deselectGen[boundEvidenceId] ?? 0;
+    const boundEpoch = evidenceEpochRef.current.get(boundEvidenceId) ?? 0;
     if (!boundSig) return;
     const projectSnapshot = { id: projectId, notebook };
 
     const isStillCurrent = () => {
       const latest = latestStateRef.current;
       return (
-        inspectRevRef.current === opRev &&
+        inspectRevRef.current === opId &&
+        (evidenceEpochRef.current.get(boundEvidenceId) ?? 0) === boundEpoch &&
         latest.selectedIds.includes(boundEvidenceId) &&
         (latest.deselectGen[boundEvidenceId] ?? 0) === boundDeselectGen &&
         evidenceFingerprint(latest.projectId, latest.notebook, boundEvidenceId) === boundSig
       );
     };
 
-    setInspecting(true);
+    setActiveInspectOpId(opId);
     try {
       const [buffer, core] = await Promise.all([
         file.arrayBuffer(),
@@ -227,7 +301,7 @@ function ResearchPackageComposerInner({
         return [
           ...pruned,
           {
-            id: `${boundEvidenceId}:${handle.sha256}:${boundDeselectGen}`,
+            id: `${boundEvidenceId}:${handle.sha256}:${boundDeselectGen}:${boundEpoch}`,
             evidenceId: boundEvidenceId,
             filename: file.name,
             handle,
@@ -242,7 +316,7 @@ function ResearchPackageComposerInner({
       if (!isStillCurrent()) return;
       setInspectError(humanizeError(err, m.inspectErrorPrefix));
     } finally {
-      if (inspectRevRef.current === opRev) setInspecting(false);
+      setActiveInspectOpId(current => (current === opId ? null : current));
     }
   };
 
@@ -254,25 +328,24 @@ function ResearchPackageComposerInner({
   const handleBuildPackage = async () => {
     if (disabled || !selectedIds.length) return;
     const activeTime = ensureTimestamp();
-    const buildStateKey = JSON.stringify([
+    const targetStateKey = computeReportStateKey({
       projectId,
-      notebook.notebook_id,
-      selectedIds.map(id => [id, deselectGen[id] ?? 0, evidenceFingerprint(projectId, notebook, id)]),
-      activeAttachments.map(a => `${a.evidenceId}:${a.handle.sha256}`),
+      notebook,
+      selectedIds,
+      attachments: activeAttachments.map(a => ({
+        evidenceId: a.evidenceId,
+        sha256: a.handle.sha256,
+        expectedSha256: a.expectedSha256,
+      })),
       locale,
       template,
-      activeTime,
-      notebook.title,
-      notebook.research_question,
-      notebook.user_notes,
-      notebook.methodology_warnings,
-    ]);
-    const opRev = ++buildRevRef.current;
-    setBuilding(true);
-    setBuildError(null);
+      reportTime: activeTime,
+    });
+    const opId = ++buildRevRef.current;
+    revokeDownloadUrl();
     setDownloadStatus("");
     setCopyShaStatus("");
-    revokeDownloadUrl();
+    setBuildPhase({ status: "building", opId, stateKey: targetStateKey });
 
     const activeHandles = activeAttachments.map(a => a.handle);
     try {
@@ -285,19 +358,23 @@ function ResearchPackageComposerInner({
         reportTime: activeTime,
         attachments: activeHandles,
       });
-      if (buildRevRef.current !== opRev) return;
-      setBuiltState({ result, stateKey: buildStateKey });
+      setBuildPhase(prev => {
+        if (prev.status !== "building" || prev.opId !== opId) return prev;
+        if (buildRevRef.current !== opId || latestStateRef.current.reportStateKey !== targetStateKey) return prev;
+        return { status: "built", stateKey: targetStateKey, result };
+      });
     } catch (err) {
-      if (buildRevRef.current !== opRev) return;
-      setBuiltState(null);
-      setBuildError(humanizeError(err, m.buildErrorPrefix));
-    } finally {
-      if (buildRevRef.current === opRev) setBuilding(false);
+      const msg = humanizeError(err, m.buildErrorPrefix);
+      setBuildPhase(prev => {
+        if (prev.status !== "building" || prev.opId !== opId) return prev;
+        if (buildRevRef.current !== opId || latestStateRef.current.reportStateKey !== targetStateKey) return prev;
+        return { status: "error", stateKey: targetStateKey, message: msg };
+      });
     }
   };
 
   const handleDownloadPackage = () => {
-    if (!builtPackage) return;
+    if (!builtPackage || disabled) return;
     revokeDownloadUrl();
     const url = URL.createObjectURL(
       new Blob([builtPackage.bytes as unknown as BlobPart], { type: "application/zip" }),
@@ -321,11 +398,18 @@ function ResearchPackageComposerInner({
     }
   };
 
+  const handleVerifyExpectedChange = (nextVal: string) => {
+    verifyRevRef.current += 1;
+    setActiveVerifyOpId(null);
+    setVerifyExpectedSha(nextVal);
+    setVerifyResult(null);
+    setVerifyError(null);
+  };
+
   const handleVerifyPackage = async (file?: File) => {
     if (!file) return;
     setVerifyError(null);
     setVerifyResult(null);
-    setVerifyFilename(file.name);
     const digestCheck = normalizeExpectedDigest(verifyExpectedSha);
     if (!digestCheck.ok) {
       setVerifyError(m.invalidDigestFormat);
@@ -335,22 +419,22 @@ function ResearchPackageComposerInner({
       setVerifyError(m.verifyTooLarge);
       return;
     }
-    const opRev = ++verifyRevRef.current;
-    setVerifying(true);
+    const opId = ++verifyRevRef.current;
+    setActiveVerifyOpId(opId);
     try {
       const [buffer, core] = await Promise.all([
         file.arrayBuffer(),
         import("@/lib/researchPackage"),
       ]);
-      if (verifyRevRef.current !== opRev) return;
-      const result = await core.verifyResearchPackageIntegrity(new Uint8Array(buffer), digestCheck.value);
-      if (verifyRevRef.current !== opRev) return;
-      setVerifyResult(result);
+      if (verifyRevRef.current !== opId) return;
+      const outcome = await core.verifyResearchPackageIntegrity(new Uint8Array(buffer), digestCheck.value);
+      if (verifyRevRef.current !== opId) return;
+      setVerifyResult({ outcome, filename: file.name, checkedExpectedSha: digestCheck.value });
     } catch (err) {
-      if (verifyRevRef.current !== opRev) return;
+      if (verifyRevRef.current !== opId) return;
       setVerifyError(humanizeError(err, m.verifyFailed));
     } finally {
-      if (verifyRevRef.current === opRev) setVerifying(false);
+      setActiveVerifyOpId(current => (current === opId ? null : current));
     }
   };
 
@@ -443,7 +527,20 @@ function ResearchPackageComposerInner({
                 const corr = handle.correspondence;
                 const rights = handle.rights;
                 const hist = corr.historical_provenance;
-                const builtArtifact = manifest?.artifacts.find(a => a.sha256 === handle.sha256);
+                const artifactId = `sha256:${handle.sha256}`;
+                const builtEvidence = manifest?.evidence.find(e => e.evidence_id === entry.evidenceId);
+                const builtBinding = manifest?.bindings.find(b => b.evidence_id === entry.evidenceId && b.artifact_id === artifactId);
+                const builtArtifact = manifest?.artifacts.find(a => a.artifact_id === artifactId);
+                const evidenceBytesIncluded = Boolean(
+                  builtEvidence?.attached_artifacts.includes(artifactId) &&
+                  builtArtifact &&
+                  builtArtifact.members.length > 0,
+                );
+                const stageDAttr = !manifest || !builtBinding
+                  ? "pending"
+                  : evidenceBytesIncluded && builtArtifact
+                    ? builtArtifact.disposition
+                    : "reference_only";
                 const termsLink = rights.terms_url ? externalSourceLink(rights.terms_url) : null;
                 return (
                   <li key={entry.id} className="rounded-lg border border-[var(--line)] p-3 text-xs" data-prepared-attachment={entry.evidenceId}>
@@ -513,18 +610,22 @@ function ResearchPackageComposerInner({
                       <p className="mt-1 text-[var(--muted)]">{m.rightsPolicyNote}</p>
                     </div>
 
-                    {/* Stage D: Actual byte inclusion (only confirmed from built manifest) */}
-                    <div className="mt-2 rounded border border-[var(--line)] bg-[var(--surface-muted)] p-2.5" data-stage-d={builtArtifact ? builtArtifact.disposition : "pending"}>
+                    {/* Stage D: Per-evidence actual byte inclusion from completed manifest.evidence & manifest.bindings */}
+                    <div className="mt-2 rounded border border-[var(--line)] bg-[var(--surface-muted)] p-2.5" data-stage-d={stageDAttr}>
                       <p className="font-semibold">{m.stageD}</p>
-                      {builtArtifact ? (
+                      {!manifest || !builtBinding ? (
+                        <p className="mt-1 text-[var(--muted)]">{m.stageDPending}</p>
+                      ) : evidenceBytesIncluded && builtArtifact ? (
                         <>
                           <p className="mt-1">{m.scopeLabels[builtArtifact.disposition as keyof typeof m.scopeLabels] ?? builtArtifact.disposition} <span className="font-mono text-[11px] text-[var(--muted)]">({builtArtifact.disposition} · {builtArtifact.inclusion_reason})</span></p>
                           <p className="mt-1 font-mono text-[11px] break-all">
-                            {builtArtifact.members.length ? builtArtifact.members.join(", ") : m.noneRecorded}
+                            {builtArtifact.members.join(", ")}
                           </p>
                         </>
+                      ) : builtArtifact && builtArtifact.members.length > 0 ? (
+                        <p className="mt-1 text-[var(--muted)]">{m.stageDReferenceOnlyArtifactPresent}</p>
                       ) : (
-                        <p className="mt-1 text-[var(--muted)]">{m.stageDPending}</p>
+                        <p className="mt-1 text-[var(--muted)]">{m.stageDReferenceOnlyNone}</p>
                       )}
                     </div>
                   </li>
@@ -627,6 +728,7 @@ function ResearchPackageComposerInner({
               <button
                 type="button"
                 data-download-package
+                disabled={disabled}
                 className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)]"
                 onClick={handleDownloadPackage}
               >
@@ -653,7 +755,7 @@ function ResearchPackageComposerInner({
               disabled={verifying}
               placeholder={m.expectedDigestPlaceholder}
               value={verifyExpectedSha}
-              onChange={e => setVerifyExpectedSha(e.target.value)}
+              onChange={e => handleVerifyExpectedChange(e.target.value)}
             />
           </label>
           <label className="text-sm">
@@ -676,14 +778,17 @@ function ResearchPackageComposerInner({
         {verifying ? <p className="mt-2 text-xs text-[var(--muted)]" role="status">{m.verifying}</p> : null}
         {verifyError ? <p className="mt-2 rounded border border-[var(--accent)] p-2 text-xs text-[var(--accent)]" role="alert" data-verify-error>{verifyError}</p> : null}
         {verifyResult ? (
-          <div className="mt-3 rounded-lg border border-[var(--line)] bg-[var(--surface-muted)] p-3 text-xs" role="status" data-verify-result={verifyResult.expected_digest}>
+          <div className="mt-3 rounded-lg border border-[var(--line)] bg-[var(--surface-muted)] p-3 text-xs" role="status" data-verify-result={verifyResult.outcome.expected_digest}>
             <p className="font-semibold">{m.verifyInternalOk}</p>
             <p className="mt-1">
-              {verifyResult.expected_digest === "matched" ? m.verifyDigestMatched : m.verifyDigestNotSupplied}
+              {verifyResult.outcome.expected_digest === "matched" ? m.verifyDigestMatched : m.verifyDigestNotSupplied}
             </p>
-            <p className="mt-1 break-all">{m.fileLabel}: {verifyFilename} · {m.sizeLabel}: {formatByteLength(verifyResult.byte_length)} ({verifyResult.byte_length} B)</p>
-            <p className="mt-1">{m.verifiedMembersLabel}: {verifyResult.verified_members}</p>
-            <p className="mt-1 font-mono text-[11px] break-all">{m.verifiedShaLabel}: {verifyResult.sha256}</p>
+            <p className="mt-1 break-all">{m.fileLabel}: {verifyResult.filename} · {m.sizeLabel}: {formatByteLength(verifyResult.outcome.byte_length)} ({verifyResult.outcome.byte_length} B)</p>
+            <p className="mt-1">{m.verifiedMembersLabel}: {verifyResult.outcome.verified_members}</p>
+            <p className="mt-1 font-mono text-[11px] break-all">{m.verifiedShaLabel}: {verifyResult.outcome.sha256}</p>
+            {verifyResult.checkedExpectedSha ? (
+              <p className="mt-1 font-mono text-[11px] break-all">{m.verifiedExpectedCheckedLabel}: {verifyResult.checkedExpectedSha}</p>
+            ) : null}
           </div>
         ) : null}
       </section>

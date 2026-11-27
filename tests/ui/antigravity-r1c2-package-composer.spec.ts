@@ -421,4 +421,191 @@ test.describe("Phase II R1-C2 — Research Package Composer", () => {
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 2)).toBe(true);
     }
   });
+
+  test("Mixed-binding Stage D accuracy: same admitted SORS ZIP bound to compatible item AND unsupported item", async ({ page }, info) => {
+    test.skip(info.project.name !== "desktop-1440", "Mixed-binding Stage D check runs under desktop-1440");
+    const sors = buildSorsCpiFixture();
+    const sorsSha = sha256(sors.bytes);
+    let state = emptyNotebook("en", "v2.0", SORS_FIXTURE_TIME);
+    state = addNotebookEvidence(state, notebookSnapshotView(sors.input), "v2.0", SORS_FIXTURE_TIME);
+    state = addNotebookEvidence(
+      state,
+      {
+        type: "method",
+        title: "Blocked VAR dynamic response",
+        url: "https://hy-central-europe-analysis.org/models/",
+        canonical_ids: ["var"],
+        countries: [],
+        periods: [],
+        sources: [],
+        layer: "method",
+        warnings: ["Formal VAR dynamic responses remain blocked."],
+        metadata: { state: "blocked" },
+      },
+      "v2.0",
+      SORS_FIXTURE_TIME,
+    );
+    const compatibleId = state.items[0].id;
+    const unsupportedId = state.items[1].id;
+    const raw = serializeNotebook({ ...state, title: "Mixed Binding Stage D Project" });
+    await page.addInitScript(({ key, raw }) => localStorage.setItem(key, raw), { key: NOTEBOOK_STORAGE_KEY, raw });
+    await page.goto("/en/notebook/", { waitUntil: "networkidle" });
+
+    // Open Composer directly (also exercises direct build without opening Report Studio!)
+    const composer = page.locator("[data-research-package-composer]");
+    await composer.locator("> summary").click();
+
+    // 1. Bind admitted SORS CPI snapshot to compatible item
+    await composer.locator("[data-attachment-evidence-select]").selectOption(compatibleId);
+    await composer.locator("[data-attachment-file-input]").setInputFiles({
+      name: "sors-cpi-1.zip",
+      mimeType: "application/zip",
+      buffer: Buffer.from(sors.bytes),
+    });
+    // 2. Bind exact same snapshot bytes to unsupported method item
+    await composer.locator("[data-attachment-evidence-select]").selectOption(unsupportedId);
+    await composer.locator("[data-attachment-file-input]").setInputFiles({
+      name: "sors-cpi-2.zip",
+      mimeType: "application/zip",
+      buffer: Buffer.from(sors.bytes),
+    });
+
+    await expect(composer.locator("[data-prepared-attachment]")).toHaveCount(2);
+    await composer.locator("[data-build-package]").click();
+    const preview = composer.locator("[data-package-preview]");
+    await expect(preview).toBeVisible();
+
+    // Confirm Stage D distinguishes per-evidence inclusion vs reference-only!
+    const compatCard = composer.locator(`[data-prepared-attachment="${compatibleId}"]`);
+    const unsupCard = composer.locator(`[data-prepared-attachment="${unsupportedId}"]`);
+    await expect(compatCard.locator("[data-stage-d]")).toHaveAttribute("data-stage-d", "original_archive");
+    await expect(unsupCard.locator("[data-stage-d]")).toHaveAttribute("data-stage-d", "reference_only");
+    await expect(unsupCard.locator("[data-stage-d]")).toContainText("another compatible binding");
+
+    // Confirm manifest counts & single deduplicated artifact in downloaded ZIP
+    await expect(preview.locator("[data-count-included]")).toHaveText("1");
+    await expect(preview.locator("[data-count-reference-only]")).toHaveText("1");
+    const [dl] = await Promise.all([page.waitForEvent("download"), preview.locator("[data-download-package]").click()]);
+    const members = readStoredArchive(new Uint8Array(fs.readFileSync((await dl.path())!)));
+    const snapPaths = [...members.keys()].filter(k => k.startsWith("snapshots/"));
+    expect(snapPaths).toEqual([`snapshots/${sorsSha}/snapshot.zip`]);
+  });
+
+  test("Pending-operation race conditions & permanent invalidation (Scenarios A–M)", async ({ page }, info) => {
+    test.skip(info.project.name !== "desktop-1440", "Async race harness runs under desktop-1440");
+    const { notebook, sorsBytes } = sorsCpiNotebookFixture();
+    const raw = serializeNotebook(notebook);
+
+    // Deterministic test-only Web Crypto digest gate (zero production hooks)
+    await page.addInitScript(({ key, raw }) => {
+      localStorage.setItem(key, raw);
+      const origDigest = crypto.subtle.digest.bind(crypto.subtle);
+      const queue: Array<{ resolve: () => void; reject: (err: Error) => void }> = [];
+      let paused = false;
+      (window as unknown as Record<string, unknown>).__digestGate = {
+        pause: () => { paused = true; },
+        resumeAll: () => { paused = false; while (queue.length) queue.shift()!.resolve(); },
+        rejectAll: () => { paused = false; while (queue.length) queue.shift()!.reject(new Error("Simulated late digest failure")); },
+        pendingCount: () => queue.length,
+      };
+      crypto.subtle.digest = (async (alg: AlgorithmIdentifier, data: BufferSource) => {
+        if (paused) {
+          await new Promise<void>((resolve, reject) => queue.push({ resolve, reject }));
+        }
+        return origDigest(alg, data);
+      }) as typeof crypto.subtle.digest;
+    }, { key: NOTEBOOK_STORAGE_KEY, raw });
+
+    await page.goto("/en/notebook/", { waitUntil: "networkidle" });
+    const brief = page.locator("[data-notebook-brief]");
+    const composer = page.locator("[data-research-package-composer]");
+
+    // Scenario J: Direct first build WITHOUT opening Report Studio (ensureTimestamp must not self-invalidate)
+    await composer.locator("> summary").click();
+    await composer.locator("[data-build-package]").click();
+    await expect(composer.locator("[data-package-preview]")).toBeVisible();
+    await expect(composer.locator("[data-download-package]")).toBeVisible();
+
+    // Scenario M: Verification result clears immediately when expected digest input is edited
+    const [dl] = await Promise.all([page.waitForEvent("download"), composer.locator("[data-download-package]").click()]);
+    const pkgBytes = new Uint8Array(fs.readFileSync((await dl.path())!));
+    const pkgSha = (await composer.locator("[data-package-sha256]").innerText()).trim();
+    await composer.locator("[data-verify-expected-sha]").fill(pkgSha);
+    await composer.locator("[data-verify-package-input]").setInputFiles({ name: "pkg.zip", mimeType: "application/zip", buffer: Buffer.from(pkgBytes) });
+    await expect(composer.locator("[data-verify-result]")).toHaveAttribute("data-verify-result", "matched");
+    await composer.locator("[data-verify-expected-sha]").fill("0".repeat(64));
+    await expect(composer.locator("[data-verify-result]")).toHaveCount(0);
+
+    // Scenario K: Template A -> B -> A permanently invalidates old package (never resurrects!)
+    await brief.locator("> summary").click();
+    await brief.locator("[data-report-template]").selectOption("comparative_note");
+    await expect(composer.locator("[data-package-preview]")).toHaveCount(0);
+    await expect(composer.locator("[data-package-stale-notice]")).toBeVisible();
+    await brief.locator("[data-report-template]").selectOption("standard");
+    await expect(composer.locator("[data-package-preview]")).toHaveCount(0);
+    await expect(composer.locator("[data-download-package]")).toHaveCount(0);
+
+    // Scenario L: Evidence note A -> B -> A permanently drops handle (never resurrects!)
+    await composer.locator("[data-attachment-file-input]").setInputFiles({ name: "sors.zip", mimeType: "application/zip", buffer: Buffer.from(sorsBytes) });
+    await expect(composer.locator("[data-prepared-attachment]")).toHaveCount(1);
+    const noteBox = page.locator("[data-user-note]").first();
+    await noteBox.fill("Temporary edit B");
+    await expect(composer.locator("[data-prepared-attachment]")).toHaveCount(0);
+    await noteBox.fill("");
+    await expect(composer.locator("[data-prepared-attachment]")).toHaveCount(0);
+
+    // Scenarios A, B, C, H, I: Pending build invalidated by template change -> busy recovers -> new build succeeds -> old build completing/rejecting late never overwrites!
+    await page.evaluate(() => (window as unknown as { __digestGate: { pause: () => void } }).__digestGate.pause());
+    await composer.locator("[data-build-package]").click();
+    await expect(composer.locator("[data-build-package]")).toBeDisabled();
+    await expect.poll(() => page.evaluate(() => (window as unknown as { __digestGate: { pendingCount: () => number } }).__digestGate.pendingCount())).toBeGreaterThan(0);
+
+    // Change template while build #1 is pending -> build button MUST recover immediately!
+    await brief.locator("[data-report-template]").selectOption("methodological_audit");
+    await expect(composer.locator("[data-build-package]")).toBeEnabled();
+
+    // Release old build #1 with rejection (Scenario I) -> must NOT show build error!
+    await page.evaluate(() => (window as unknown as { __digestGate: { rejectAll: () => void } }).__digestGate.rejectAll());
+    await expect(composer.locator("[data-package-build-error]")).toHaveCount(0);
+
+    // Now build #2 succeeds cleanly on the new template!
+    await composer.locator("[data-build-package]").click();
+    await expect(composer.locator("[data-package-preview]")).toBeVisible();
+
+    // Scenario D & E: Pending inspection while evidence is deselected & reselected (or note edited & restored) -> late completion discarded!
+    await page.evaluate(() => (window as unknown as { __digestGate: { pause: () => void } }).__digestGate.pause());
+    await composer.locator("[data-attachment-file-input]").setInputFiles({ name: "sors-race.zip", mimeType: "application/zip", buffer: Buffer.from(sorsBytes) });
+    await expect.poll(() => page.evaluate(() => (window as unknown as { __digestGate: { pendingCount: () => number } }).__digestGate.pendingCount())).toBeGreaterThan(0);
+    const checkbox = brief.locator("[data-brief-choice] input[type='checkbox']").first();
+    await checkbox.uncheck();
+    await checkbox.check();
+    await page.evaluate(() => (window as unknown as { __digestGate: { resumeAll: () => void } }).__digestGate.resumeAll());
+    await expect(composer.locator("[data-attachment-file-input]")).toBeEnabled();
+    await expect(composer.locator("[data-prepared-attachment]")).toHaveCount(0);
+
+    // Scenario G: Pending build while attachment removed -> old build discarded, busy recovers
+    await composer.locator("[data-attachment-file-input]").setInputFiles({ name: "sors-g.zip", mimeType: "application/zip", buffer: Buffer.from(sorsBytes) });
+    await expect(composer.locator("[data-prepared-attachment]")).toHaveCount(1);
+    await page.evaluate(() => (window as unknown as { __digestGate: { pause: () => void } }).__digestGate.pause());
+    await composer.locator("[data-build-package]").click();
+    await expect.poll(() => page.evaluate(() => (window as unknown as { __digestGate: { pendingCount: () => number } }).__digestGate.pendingCount())).toBeGreaterThan(0);
+    await composer.locator("[data-remove-attachment]").first().click();
+    await expect(composer.locator("[data-build-package]")).toBeEnabled();
+    await page.evaluate(() => (window as unknown as { __digestGate: { resumeAll: () => void } }).__digestGate.resumeAll());
+    await expect(composer.locator("[data-package-preview]")).toHaveCount(0);
+
+    // Scenario F: Pending build while switching projects -> zero cross-project leak
+    await page.getByLabel("New project title", { exact: true }).fill("Race Target Project");
+    await page.getByRole("button", { name: "Create project", exact: true }).click();
+    await expect(page.locator("[data-active-project]")).toContainText("Race Target Project");
+    const targetProjId = await page.getByLabel("Choose research project", { exact: true }).inputValue();
+    await page.getByLabel("Choose research project", { exact: true }).selectOption("legacy");
+    await composer.locator("> summary").click();
+    await page.evaluate(() => (window as unknown as { __digestGate: { pause: () => void } }).__digestGate.pause());
+    await composer.locator("[data-build-package]").click();
+    await expect.poll(() => page.evaluate(() => (window as unknown as { __digestGate: { pendingCount: () => number } }).__digestGate.pendingCount())).toBeGreaterThan(0);
+    await page.getByLabel("Choose research project", { exact: true }).selectOption(targetProjId);
+    await page.evaluate(() => (window as unknown as { __digestGate: { resumeAll: () => void } }).__digestGate.resumeAll());
+    await expect(page.locator("[data-package-preview]")).toHaveCount(0);
+  });
 });

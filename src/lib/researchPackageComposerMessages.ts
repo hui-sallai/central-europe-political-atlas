@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/config";
+import type { BriefTemplate } from "./notebookBrief";
 import type { ResearchNotebook } from "./researchNotebook";
 
 export const PACKAGE_LIMITS = {
@@ -26,6 +27,46 @@ export function evidenceFingerprint(projectId: string, notebook: ResearchNoteboo
   if (!item) return null;
   const sources = notebook.sources.filter(source => item.source_ids.includes(source.id));
   return JSON.stringify([projectId, notebook.notebook_id, item, sources]);
+}
+
+/**
+ * Single authoritative derivation of all exported report & package inputs
+ * (matching buildEvidenceBrief, buildReportCitationBundle, and buildResearchPackage).
+ */
+export function computeReportStateKey(params: {
+  projectId: string;
+  notebook: ResearchNotebook;
+  selectedIds: readonly string[];
+  attachments: readonly { evidenceId: string; sha256: string; expectedSha256?: string }[];
+  locale: Locale;
+  template: BriefTemplate;
+  reportTime: string;
+}): string {
+  const { projectId, notebook, selectedIds, attachments, locale, template, reportTime } = params;
+  const selectedItems = selectedIds.map(id => {
+    const item = notebook.items.find(entry => entry.id === id) ?? null;
+    const sources = item ? notebook.sources.filter(s => item.source_ids.includes(s.id)) : [];
+    return [id, item, sources];
+  });
+  return JSON.stringify({
+    projectId,
+    notebook_id: notebook.notebook_id,
+    schema: notebook.schema,
+    notebook_locale: notebook.locale,
+    created_at: notebook.created_at,
+    updated_at: notebook.updated_at,
+    platform_version: notebook.platform_version,
+    title: notebook.title,
+    research_question: notebook.research_question,
+    user_notes: notebook.user_notes,
+    selected_countries: notebook.selected_countries,
+    methodology_warnings: notebook.methodology_warnings,
+    selectedItems,
+    attachments: attachments.map(a => [a.evidenceId, a.sha256, a.expectedSha256 ?? null]),
+    locale,
+    template,
+    reportTime,
+  });
 }
 
 export function normalizeExpectedDigest(raw: string): { ok: true; value: string | undefined } | { ok: false } {
@@ -73,6 +114,8 @@ const en = {
   stageC: "Stage C · Redistribution permission",
   stageD: "Stage D · Actual byte inclusion (from completed package manifest)",
   stageDPending: "Not yet built — build package preview below to confirm actual byte inclusion.",
+  stageDReferenceOnlyArtifactPresent: "This evidence binding remains reference-only (no data bytes attached for this evidence item). The artifact bytes appear in the package only through another compatible binding.",
+  stageDReferenceOnlyNone: "Reference-only for this evidence binding (no artifact bytes included in package).",
   fileLabel: "File",
   sizeLabel: "Size",
   sha256Label: "Artifact SHA-256",
@@ -171,6 +214,7 @@ const en = {
   verifyFailed: "Package integrity verification failed",
   verifiedMembersLabel: "Verified inventoried members (excluding package_manifest.json)",
   verifiedShaLabel: "Verified whole-package SHA-256",
+  verifiedExpectedCheckedLabel: "Expected SHA-256 checked",
   errorCodes: {
     archive_limit: "Archive exceeds allowed byte or entry limits.",
     invalid_archive: "File is not a valid ZIP archive.",
@@ -228,6 +272,8 @@ const zh: typeof en = {
   stageC: "阶段 C · 再分发权利核定",
   stageD: "阶段 D · 实际字节收录（以最终包清单为准）",
   stageDPending: "尚未生成——请先在下方构建研究包预览，以确认实际收录文件。",
+  stageDReferenceOnlyArtifactPresent: "当前证据绑定仍为仅引用（未为本条证据附入数据字节）。该快照字节仅通过另一条兼容证据绑定收录于研究包中。",
+  stageDReferenceOnlyNone: "当前证据绑定为仅引用（研究包中未收录该快照的数据字节）。",
   fileLabel: "文件名",
   sizeLabel: "文件大小",
   sha256Label: "文件 SHA-256",
@@ -326,6 +372,7 @@ const zh: typeof en = {
   verifyFailed: "研究包完整性校验失败",
   verifiedMembersLabel: "已校验清单成员数（不含 package_manifest.json）",
   verifiedShaLabel: "校验所得整包 SHA-256",
+  verifiedExpectedCheckedLabel: "本次核对的预期 SHA-256",
   errorCodes: {
     archive_limit: "归档超出允许的字节数或文件数上限。",
     invalid_archive: "文件不是有效的 ZIP 归档。",

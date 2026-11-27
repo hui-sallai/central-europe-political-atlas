@@ -91,3 +91,48 @@ test('R1-C2 normalizeExpectedDigest and classifyComposerError enforce strict val
   assert.equal(msg.classifyComposerError(new ResearchPackageError('digest_mismatch', 'mismatch')).code, 'digest_mismatch');
   assert.equal(msg.classifyComposerError(new Error('plain')).code, 'unknown_error');
 });
+
+test('R1-C2 computeReportStateKey invalidates on every exported Notebook, selection, attachment, and report field', () => {
+  const collected = '2026-11-26T12:00:00.000Z';
+  let book = n.emptyNotebook('en', 'v2.0', collected);
+  book = n.addNotebookEvidence(
+    book,
+    {
+      type: 'observation',
+      title: 'Poland GDP',
+      url: 'https://hy-central-europe-analysis.org/data/?country=poland',
+      canonical_ids: ['poland:gdp:2025'],
+      countries: ['poland'],
+      periods: ['2025'],
+      value: 3.1,
+      unit: '%',
+      sources: [{ institution: 'Eurostat', dataset: 'GDP', url: 'https://ec.europa.eu/eurostat', layer: 'official_annual' }],
+      layer: 'official_annual',
+      warnings: [],
+      metadata: {},
+    },
+    'v2.0',
+    collected,
+  );
+  const id = book.items[0].id;
+  const baseParams = {
+    projectId: 'proj-1',
+    notebook: book,
+    selectedIds: [id],
+    attachments: [{ evidenceId: id, sha256: 'a'.repeat(64), expectedSha256: undefined }],
+    locale: 'en',
+    template: 'standard',
+    reportTime: '2026-11-27T10:00:00.000Z',
+  };
+  const baseKey = msg.computeReportStateKey(baseParams);
+  assert.notEqual(msg.computeReportStateKey({ ...baseParams, projectId: 'proj-2' }), baseKey);
+  assert.notEqual(msg.computeReportStateKey({ ...baseParams, locale: 'zh-CN' }), baseKey);
+  assert.notEqual(msg.computeReportStateKey({ ...baseParams, template: 'comparative_note' }), baseKey);
+  assert.notEqual(msg.computeReportStateKey({ ...baseParams, reportTime: '2026-11-27T11:00:00.000Z' }), baseKey);
+  assert.notEqual(msg.computeReportStateKey({ ...baseParams, notebook: { ...book, title: 'New Title' } }), baseKey);
+  assert.notEqual(msg.computeReportStateKey({ ...baseParams, notebook: { ...book, research_question: 'New Q' } }), baseKey);
+  assert.notEqual(msg.computeReportStateKey({ ...baseParams, notebook: { ...book, user_notes: 'New note' } }), baseKey);
+  assert.notEqual(msg.computeReportStateKey({ ...baseParams, notebook: { ...book, updated_at: '2026-11-27T09:00:00.000Z' } }), baseKey);
+  assert.notEqual(msg.computeReportStateKey({ ...baseParams, notebook: { ...book, platform_version: 'v2.1' } }), baseKey);
+  assert.notEqual(msg.computeReportStateKey({ ...baseParams, attachments: [{ evidenceId: id, sha256: 'a'.repeat(64), expectedSha256: 'a'.repeat(64) }] }), baseKey);
+});
