@@ -4,8 +4,33 @@ import fs from 'node:fs/promises';
 test('multi-country annual history uses explicit countries and indicator',async({page})=>{
  await page.goto('/en/models/?tab=compare&compare_countries=austria,croatia,germany,poland');const panel=page.locator('[data-national-comparison]');await expect(panel.locator('fieldset input:checked')).toHaveCount(4);await panel.getByLabel('Comparison frame',{exact:true}).selectOption('side_by_side');await panel.getByLabel('Reference period',{exact:true}).selectOption('2025');await panel.getByLabel('Indicator',{exact:true}).selectOption('annual:hicp_inflation');await expect(panel.locator('[data-interactive-series]').first()).toBeVisible();
 });
-test('2–10-country selection, actual historical range and complete CSV remain source-linked',async({page})=>{
- await page.goto('/en/models/?tab=compare');const panel=page.locator('[data-national-comparison]');await expect(panel.locator('fieldset input:checked')).toHaveCount(0);for(const box of await panel.locator('fieldset input').all())await box.check();await expect(panel.locator('fieldset input:checked')).toHaveCount(10);for(const box of await panel.locator('fieldset input').all())await box.uncheck();for(const name of ['Austria','Croatia'])await panel.getByRole('checkbox',{name,exact:true}).check();await panel.getByLabel('From period',{exact:true}).fill('2000');await panel.getByLabel('To period',{exact:true}).fill('2002');const waiting=page.waitForEvent('download');await panel.getByRole('button',{name:'Export actual observations (CSV)',exact:true}).click();const csv=await fs.readFile((await(await waiting).path())!,'utf8');expect(csv).toContain('source_url');expect(csv).toContain('descriptive annual history');for(const row of csv.trim().split('\r\n').slice(1))expect(Number(row.split(',')[1].replaceAll('"',''))).toBeGreaterThanOrEqual(2000);
+test('2–10-country selection, actual historical range and complete CSV remain source-linked', async ({ page }) => {
+  await page.goto('/en/models/?tab=compare');
+  const panel = page.locator('[data-national-comparison]');
+  const countries = panel.locator('fieldset input[type="checkbox"]');
+  const checkedCountries = panel.locator('fieldset input:checked');
+
+  await expect(panel).toBeVisible();
+  await expect(countries).toHaveCount(10);
+  await expect(panel.locator('fieldset input[type="checkbox"]:enabled')).toHaveCount(10);
+  await expect(checkedCountries).toHaveCount(0);
+  for (const box of await countries.all()) await box.check();
+  await expect(checkedCountries).toHaveCount(10);
+
+  for (const box of await countries.all()) await box.uncheck();
+  for (const name of ['Austria', 'Croatia']) {
+    await panel.getByRole('checkbox', { name, exact: true }).check();
+  }
+  await panel.getByLabel('From period', { exact: true }).fill('2000');
+  await panel.getByLabel('To period', { exact: true }).fill('2002');
+  const waiting = page.waitForEvent('download');
+  await panel.getByRole('button', { name: 'Export actual observations (CSV)', exact: true }).click();
+  const csv = await fs.readFile((await (await waiting).path())!, 'utf8');
+  expect(csv).toContain('source_url');
+  expect(csv).toContain('descriptive annual history');
+  for (const row of csv.trim().split('\r\n').slice(1)) {
+    expect(Number(row.split(',')[1].replaceAll('"', ''))).toBeGreaterThanOrEqual(2000);
+  }
 });
 test('failed history request preserves published snapshot observations without claiming official absence',async({page})=>{
  await page.route('**/research-data/annual_history_runtime.json',route=>route.fulfill({status:503,body:'Unavailable'}));await page.goto('/en/models/?tab=compare&compare_countries=austria,croatia');const panel=page.locator('[data-national-comparison]');await expect(panel).toContainText('Some sources could not be loaded');await expect(panel.locator('[data-interactive-series]').first()).toBeVisible();await expect(panel.locator('table').first()).toContainText('2025');
